@@ -1,0 +1,24 @@
+{
+    "num_anomalous_images": 173,
+    "mean_pixel_auroc": 0.9042215286168565,
+    "median_pixel_auroc": 0.9659887536045323,
+    "region_overlap": {
+        "overlap_0.25": {
+            "mean": 0.23268156119407754,
+            "median": 0.19096236275623343
+        },
+        "overlap_0.50": {
+            "mean": 0.3378566178422858,
+            "median": 0.3001441921252692
+        },
+        "overlap_0.75": {
+            "mean": 0.1882873752823472,
+            "median": 0.1319136667699263
+        }
+    },
+    "breakfast_box": {
+        "num_images": 173,
+        "mean_pixel_auroc": 0.9042215286168565,
+        "median_pixel_auroc": 0.9659887536045323
+    }
+}

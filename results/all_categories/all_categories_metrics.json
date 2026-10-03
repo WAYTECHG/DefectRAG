@@ -1,0 +1,55 @@
+{
+    "overall": {
+        "num_images": 1568,
+        "num_normal": 575,
+        "num_anomalous": 993,
+        "auroc": 0.6907789307763037,
+        "average_precision": 0.7976375114457539
+    },
+    "breakfast_box": {
+        "num_images": 275,
+        "overall_auroc": 0.7863538478975406,
+        "overall_average_precision": 0.8822750907729338,
+        "logical_auroc": 0.789983463264824,
+        "structural_auroc": 0.7830065359477124,
+        "mean_inference_seconds": 0.14729728254547808
+    },
+    "juice_bottle": {
+        "num_images": 330,
+        "overall_auroc": 0.9597006851785069,
+        "overall_average_precision": 0.9837021894392324,
+        "logical_auroc": 0.9635151333533114,
+        "structural_auroc": 0.9539384336803984,
+        "mean_inference_seconds": 0.07571735999994086
+    },
+    "pushpins": {
+        "num_images": 310,
+        "overall_auroc": 0.6591885743174923,
+        "overall_average_precision": 0.7357642495565047,
+        "logical_auroc": 0.6185698359611402,
+        "structural_auroc": 0.7048219717301842,
+        "mean_inference_seconds": 0.09279449354841246
+    },
+    "screw_bag": {
+        "num_images": 341,
+        "overall_auroc": 0.6128452728497642,
+        "overall_average_precision": 0.7124396176666443,
+        "logical_auroc": 0.5266243867416537,
+        "structural_auroc": 0.7568972411035586,
+        "mean_inference_seconds": 0.09413184897354163
+    },
+    "splicing_connectors": {
+        "num_images": 312,
+        "overall_auroc": 0.7937475508338051,
+        "overall_average_precision": 0.8805408543696434,
+        "logical_auroc": 0.8157485216308745,
+        "structural_auroc": 0.765793376173999,
+        "mean_inference_seconds": 0.08723388653831932
+    },
+    "mean_across_categories": {
+        "mean_overall_auroc": 0.7623671862154218,
+        "mean_overall_average_precision": 0.8389444003609917,
+        "mean_logical_auroc": 0.7428882681903608,
+        "mean_structural_auroc": 0.7928915117271705
+    }
+}

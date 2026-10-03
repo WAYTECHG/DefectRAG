@@ -1,0 +1,64 @@
+{
+    "dataset": "C:\\Users\\User\\Desktop\\DefectRAG\\data\\mvtec_loco_ad\\breakfast_box",
+    "num_images": 275,
+    "fusion_alpha": 0.7,
+    "methods": [
+        {
+            "method": "max_patch",
+            "overall_auroc": 0.7863538478975406,
+            "overall_ap": 0.8822750907729338,
+            "logical_auroc": 0.789983463264824,
+            "logical_ap": 0.7990966989868862,
+            "structural_auroc": 0.7830065359477124,
+            "structural_ap": 0.8190805032035595
+        },
+        {
+            "method": "top5_mean",
+            "overall_auroc": 0.7800634704748951,
+            "overall_ap": 0.8776227194672201,
+            "logical_auroc": 0.7991967871485943,
+            "logical_ap": 0.8094378583176153,
+            "structural_auroc": 0.762418300653595,
+            "structural_ap": 0.7969807283585741
+        },
+        {
+            "method": "top10_percent_mean",
+            "overall_auroc": 0.7490082738297631,
+            "overall_ap": 0.8589933344604408,
+            "logical_auroc": 0.7877391920623671,
+            "logical_ap": 0.8042627548169952,
+            "structural_auroc": 0.7132897603485839,
+            "structural_ap": 0.7479538214411456
+        },
+        {
+            "method": "top20_percent_mean",
+            "overall_auroc": 0.7669726850277684,
+            "overall_ap": 0.8747470675998317,
+            "logical_auroc": 0.8229388140798488,
+            "logical_ap": 0.8403312819484692,
+            "structural_auroc": 0.715359477124183,
+            "structural_ap": 0.7624342964779234
+        },
+        {
+            "method": "global_only",
+            "overall_auroc": 0.7330839850391023,
+            "overall_ap": 0.8492483374214391,
+            "logical_auroc": 0.8502244271202456,
+            "logical_ap": 0.8573418750892234,
+            "structural_auroc": 0.6250544662309369,
+            "structural_ap": 0.6579598845158044
+        },
+        {
+            "method": "global_local_fusion",
+            "overall_auroc": 0.768446106766406,
+            "overall_ap": 0.8693437829067597,
+            "logical_auroc": 0.8264824001889912,
+            "logical_ap": 0.8296033655115879,
+            "structural_auroc": 0.7149237472766885,
+            "structural_ap": 0.7513027376398652
+        }
+    ],
+    "notes": [
+        "global_local_fusion uses evaluation-set percentile normalization and is therefore exploratory, not a final calibrated research metric."
+    ]
+}

@@ -1,0 +1,10 @@
+fastapi>=0.115,<1
+uvicorn[standard]>=0.34,<1
+python-multipart>=0.0.20,<1
+pydantic>=2.10,<3
+Pillow>=10,<13
+numpy>=1.26,<2.2
+python-dotenv>=1.0,<2
+gradio-client>=1.10,<3
+neo4j>=5.28,<7
+cloudinary>=1.44,<2

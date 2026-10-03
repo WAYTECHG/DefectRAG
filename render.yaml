@@ -1,0 +1,28 @@
+services:
+  - type: web
+    name: defectrag
+    runtime: docker
+    plan: free
+    region: singapore
+    dockerfilePath: ./Dockerfile.render
+    healthCheckPath: /api/health
+    autoDeployTrigger: commit
+    envVars:
+      - key: HF_SPACE_ID
+        sync: false
+      - key: HF_TOKEN
+        sync: false
+      - key: NEO4J_URI
+        sync: false
+      - key: NEO4J_USERNAME
+        value: neo4j
+      - key: NEO4J_PASSWORD
+        sync: false
+      - key: NEO4J_DATABASE
+        value: neo4j
+      - key: CLOUDINARY_URL
+        sync: false
+      - key: STORE_ORIGINAL_UPLOADS
+        value: "false"
+      - key: MAX_UPLOAD_MB
+        value: "20"

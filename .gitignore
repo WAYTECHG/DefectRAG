@@ -1,0 +1,75 @@
+# Credentials and local environment files
+.env
+.env.*
+!.env.example
+
+# Python environments
+.venv/
+venv/
+env/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Local caches
+.cache/
+.huggingface/
+.hf/
+.torch/
+
+# Datasets and extracted features
+mvtec_loco_ad/
+features/
+models/
+
+# Uploaded images and generated inspection artifacts
+data/uploads/
+results/runtime/
+results/inspections/
+results/references/
+
+# Model weights and checkpoints
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+*.onnx
+*.bin
+
+# Generated retrieval index
+retrieval/index/
+
+# Logs and temporary files
+*.log
+*.tmp
+*.temp
+*.bak
+*.swp
+*.swo
+
+# Test coverage
+.coverage
+.coverage.*
+htmlcov/
+coverage.xml
+
+# Editor settings
+.vscode/
+.idea/
+
+# Operating system files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Local project archives
+*.zip
+*.tar
+*.tar.gz
+*.7z
+results/visual_rag/

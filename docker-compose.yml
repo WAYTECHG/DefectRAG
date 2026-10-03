@@ -1,0 +1,47 @@
+services:
+  api:
+    build: .
+    image: defectrag:latest
+    restart: unless-stopped
+    environment:
+      EMBEDDING_MODEL: ${EMBEDDING_MODEL:-Qwen/Qwen3-Embedding-0.6B}
+      OLLAMA_BASE_URL: http://ollama:11434
+      OLLAMA_MODEL: ${OLLAMA_MODEL:-qwen2.5:3b}
+      OLLAMA_VISION_MODEL: ${OLLAMA_VISION_MODEL:-qwen2.5vl:3b}
+      DATA_DIR: /app/data
+      KNOWLEDGE_PATH: /app/data/knowledge/knowledge_base.jsonl
+      INDEX_DIR: /app/retrieval/index
+      UPLOAD_DIR: /app/data/uploads
+      FEATURES_DIR: /app/features
+      RESULTS_DIR: /app/results/runtime
+      HF_HOME: /models/huggingface
+      NEO4J_URI: ${NEO4J_URI:-}
+      NEO4J_USERNAME: ${NEO4J_USERNAME:-neo4j}
+      NEO4J_PASSWORD: ${NEO4J_PASSWORD:-}
+      NEO4J_DATABASE: ${NEO4J_DATABASE:-neo4j}
+      CLOUDINARY_URL: ${CLOUDINARY_URL:-}
+      STORE_ORIGINAL_UPLOADS: ${STORE_ORIGINAL_UPLOADS:-false}
+    ports:
+      - "127.0.0.1:8000:8000"
+    volumes:
+      - ./data:/app/data
+      - ./retrieval/index:/app/retrieval/index
+      - ./features:/app/features
+      - ./mvtec_loco_ad:/app/mvtec_loco_ad:ro
+      - ./results/runtime:/app/results/runtime
+      - ./cloud/space/assets:/app/cloud/space/assets
+      - ./cloud/references:/app/cloud/references
+      - hf-cache:/models/huggingface
+    depends_on:
+      ollama:
+        condition: service_started
+
+  ollama:
+    image: ollama/ollama:latest
+    restart: unless-stopped
+    volumes:
+      - ollama-models:/root/.ollama
+
+volumes:
+  hf-cache:
+  ollama-models:

@@ -1,0 +1,20 @@
+.report p {
+  margin: 0 0 10px;
+}
+
+.knowledge-response {
+  white-space: pre-wrap;
+}
+
+.primary-button .spinner,
+.secondary-button .spinner {
+  width: 16px;
+  height: 16px;
+  border-color: rgba(255, 255, 255, .35);
+  border-top-color: #fff;
+}
+
+.source-list > .inline-alert {
+  grid-column: 1 / -1;
+  margin-top: 0;
+}

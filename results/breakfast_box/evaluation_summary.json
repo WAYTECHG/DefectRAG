@@ -1,0 +1,45 @@
+{
+    "overall": {
+        "num_images": 275,
+        "num_normal": 102,
+        "num_anomalous": 173,
+        "auroc": 0.7490082738297631,
+        "average_precision": 0.8589933344604408
+    },
+    "logical_anomalies": {
+        "num_anomaly_images": 83,
+        "auroc_vs_good": 0.7877391920623671,
+        "average_precision_vs_good": 0.8042627548169952
+    },
+    "structural_anomalies": {
+        "num_anomaly_images": 90,
+        "auroc_vs_good": 0.7132897603485839,
+        "average_precision_vs_good": 0.7479538214411456
+    },
+    "score_statistics": {
+        "good": {
+            "count": 102,
+            "mean": 0.06536937486745563,
+            "std": 0.006673792810582404,
+            "min": 0.053911685943603516,
+            "max": 0.08956512063741684,
+            "median": 0.06462651118636131
+        },
+        "logical_anomalies": {
+            "count": 83,
+            "mean": 0.09184260585580964,
+            "std": 0.037914821835447976,
+            "min": 0.0543421134352684,
+            "max": 0.2219916582107544,
+            "median": 0.07594378292560577
+        },
+        "structural_anomalies": {
+            "count": 90,
+            "mean": 0.07740962596403228,
+            "std": 0.018790275535800312,
+            "min": 0.055096738040447235,
+            "max": 0.16321617364883423,
+            "median": 0.07112423703074455
+        }
+    }
+}

@@ -1,0 +1,12 @@
+**/__pycache__
+**/*.py[cod]
+.git
+.venv
+venv
+.env
+features
+mvtec_loco_ad
+data/uploads
+results
+*.pt
+*.pth

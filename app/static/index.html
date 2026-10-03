@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#f6f4ef">
+  <meta name="description" content="DefectRAG visual anomaly inspection and evidence-grounded reasoning.">
+  <title>DefectRAG — Visual Anomaly Intelligence</title>
+  <link rel="stylesheet" href="/static/styles.css">
+  <link rel="stylesheet" href="/static/polish.css">
+  <link rel="stylesheet" href="/static/cloud-enhancements.css">
+  <link rel="stylesheet" href="/static/studio.css">
+  <link rel="stylesheet" href="/static/aurora.css">
+  <link rel="stylesheet" href="/static/workplace.css">
+</head>
+<body>
+  <div class="ambient ambient-one" aria-hidden="true"></div>
+  <div class="ambient ambient-two" aria-hidden="true"></div>
+  <div id="sidebar-backdrop" class="sidebar-backdrop" aria-hidden="true"></div>
+  <aside id="app-sidebar" class="app-sidebar" aria-label="DefectRAG navigation">
+    <div class="sidebar-head">
+      <a class="sidebar-brand" href="#top"><span class="sidebar-logo" aria-hidden="true"><svg class="defect-logo" viewBox="0 0 40 40"><path class="logo-frame" d="M5 14V8a3 3 0 0 1 3-3h6M26 5h6a3 3 0 0 1 3 3v6M35 26v6a3 3 0 0 1-3 3h-6M14 35H8a3 3 0 0 1-3-3v-6"/><path class="logo-trace" d="M11 25h6l4-10 3 7h5"/><circle class="logo-defect" cx="21" cy="15" r="3"/><path class="logo-scan" d="M8 8h24"/></svg></span><b>DefectRAG</b></a>
+      <button id="sidebar-close" type="button" aria-label="Close navigation">×</button>
+    </div>
+    <nav>
+      <p>WORKSPACE</p>
+      <a class="active" href="#inspector"><span>⌁</span> Visual inspector</a>
+      <a href="#benchmark"><span>▥</span> Performance evidence</a>
+      <a href="#knowledge"><span>◇</span> Knowledge base</a>
+      <p>INFORMATION</p>
+      <a href="#about"><span>i</span> About</a>
+      <a href="#faq"><span>?</span> FAQ</a>
+      <a href="#support"><span>↗</span> Support</a>
+      <a href="#contact"><span>✉</span> Contact</a>
+    </nav>
+    <div class="sidebar-foot"><i></i><div><b>Research system</b><small>Decision support, not a certified quality-control instrument.</small></div></div>
+  </aside>
+
+  <header class="topbar">
+    <div class="nav-wrap">
+      <button id="sidebar-toggle" class="sidebar-toggle" type="button" aria-label="Open navigation" aria-controls="app-sidebar" aria-expanded="false"><span></span><span></span><span></span></button>
+      <a class="brand" href="#top" aria-label="DefectRAG home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg class="defect-logo" viewBox="0 0 40 40"><path class="logo-frame" d="M5 14V8a3 3 0 0 1 3-3h6M26 5h6a3 3 0 0 1 3 3v6M35 26v6a3 3 0 0 1-3 3h-6M14 35H8a3 3 0 0 1-3-3v-6"/><path class="logo-trace" d="M11 25h6l4-10 3 7h5"/><circle class="logo-defect" cx="21" cy="15" r="3"/><path class="logo-scan" d="M8 8h24"/></svg>
+        </span>
+        <span class="brand-copy"><b>Defect<span>RAG</span></b><small>VISUAL ANOMALY INTELLIGENCE</small></span>
+      </a>
+      <nav aria-label="Primary navigation">
+        <a href="#inspector">Inspector</a>
+        <a href="#benchmark">Evidence</a>
+        <a href="#knowledge">Knowledge</a>
+        <a href="#about">About</a>
+      </nav>
+      <div id="status" class="status-chip checking" aria-live="polite"><span class="status-dot"></span><span>Connecting</span></div>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero reveal">
+      <div class="hero-copy">
+        <div class="overline"><span></span> QUALITY REVIEW WORKSPACE</div>
+        <h1>Review with clarity.<br><em>Trace the evidence.</em></h1>
+        <p>Review a product image, compare three anomaly methods, and follow each claim back to reviewed knowledge. An estimate stays an estimate.</p>
+        <div class="hero-badges" aria-label="System capabilities">
+          <span><i></i> Unsupervised detection</span>
+          <span><i></i> Patch localization</span>
+          <span><i></i> Cited reasoning</span>
+        </div>
+        <a class="hero-link" href="#inspector">Begin inspection <span>↗</span></a>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <div class="scan-card">
+          <div class="scan-head"><span>SCORING PREVIEW</span><span class="live-dot"></span></div>
+          <div class="scan-stage">
+            <div class="scan-halo"></div>
+            <div class="product-shape"><span></span><span></span><span></span><span></span></div>
+            <div class="focus-box"><b>ANOMALY</b></div>
+            <div class="scan-line"></div>
+          </div>
+          <div class="scan-foot"><span>PATCH GRID · 14 × 14</span><strong>R07 · C11</strong></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="inspector" class="inspector-shell reveal">
+      <div class="section-heading">
+        <div><span class="section-index">01</span><div><p class="kicker">VISUAL INSPECTOR</p><h2>Run a product inspection</h2></div></div>
+        <p>Choose the matching product category and upload one image.</p>
+      </div>
+
+      <div class="inspector-grid">
+        <form id="inspect-form" class="input-column" novalidate>
+          <div class="field-group">
+            <label for="category">Product category</label>
+            <div class="select-wrap">
+              <select id="category" required aria-describedby="category-help"><option value="">Loading available categories…</option></select>
+              <svg viewBox="0 0 20 20" aria-hidden="true"><path d="m6 8 4 4 4-4"/></svg>
+            </div>
+            <span id="category-help" class="field-help">Categories need a compact normal bank or normal reference features. Trained modes also need a matching head.</span>
+          </div>
+
+          <div class="field-group">
+            <label for="method">Scoring method</label>
+            <div class="select-wrap">
+              <select id="method" aria-describedby="method-help">
+                <option value="baseline">Baseline (demo verdict)</option>
+                <option value="trained">Trained head (research score)</option>
+                <option value="fusion">Fusion (research score)</option>
+              </select>
+              <svg viewBox="0 0 20 20" aria-hidden="true"><path d="m6 8 4 4 4-4"/></svg>
+            </div>
+            <span id="method-help" class="field-help">Research scores show a response map without a calibrated anomaly verdict. They require trained checkpoints.</span>
+          </div>
+
+          <div class="field-group">
+            <label>Product image</label>
+            <label id="dropzone" class="dropzone" for="inspection-file" tabindex="0">
+              <input id="inspection-file" type="file" accept="image/jpeg,image/png,image/webp,image/bmp" required>
+              <div id="empty-upload" class="empty-upload">
+                <span class="upload-icon">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 16V4m0 0L7.5 8.5M12 4l4.5 4.5M5 14v4a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-4"/></svg>
+                </span>
+                <b>Drop an image here</b>
+                <span>or <u>browse your device</u></span>
+                <small>PNG, JPG, WebP or BMP · up to 20 MB</small>
+              </div>
+              <div id="preview-wrap" class="preview-wrap hidden">
+                <img id="preview" alt="Selected product image preview">
+                <span class="replace-image">Choose another image</span>
+              </div>
+            </label>
+            <div id="file-meta" class="file-meta hidden"><span class="file-check">✓</span><div><b id="file-name"></b><small id="file-size"></small></div><button id="remove-file" type="button" aria-label="Remove selected image">×</button></div>
+            <label id="storage-consent-row" class="storage-consent hidden"><input id="storage-consent" type="checkbox"><span>I understand that cloud deployment retains the generated overlay and heatmap, which still contain the uploaded product image.</span></label>
+          </div>
+
+          <div id="readiness" class="inline-alert hidden" role="alert"></div>
+          <button id="inspect-button" class="primary-button" type="submit">
+            <span class="button-label"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6"/><path d="m16 16 4 4M11 8v6M8 11h6"/></svg>Run anomaly inspection</span>
+            <span class="button-arrow">→</span>
+          </button>
+        </form>
+
+        <aside class="process-column" aria-label="Analysis workflow">
+          <div class="process-intro"><span class="process-icon"><svg viewBox="0 0 24 24"><path d="M4 17V7l8-4 8 4v10l-8 4zM4 7l8 4 8-4M12 11v10"/></svg></span><div><p class="kicker">ANALYSIS PIPELINE</p><h3>Four steps, one traceable report</h3></div></div>
+          <ol id="pipeline" class="pipeline">
+            <li data-stage="0"><span class="stage-number">01</span><div><b>DINOv3 comparison</b><small>Compare image patches against normal reference features.</small></div><i></i></li>
+            <li data-stage="1"><span class="stage-number">02</span><div><b>Spatial localization</b><small>Find and visualize the strongest patch deviation.</small></div><i></i></li>
+            <li data-stage="2"><span class="stage-number">03</span><div><b>Visual reasoning</b><small>Examine a resized full image and one focused crop.</small></div><i></i></li>
+            <li data-stage="3"><span class="stage-number">04</span><div><b>Evidence grounding</b><small>Retrieve inspection knowledge and explain the result.</small></div><i></i></li>
+          </ol>
+          <div class="process-note"><svg viewBox="0 0 24 24"><path d="M12 8v4l2.5 2.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg><span>Shared GPU queues and first-load setup can affect response time.</span></div>
+        </aside>
+      </div>
+
+      <div id="analysis-progress" class="analysis-progress hidden" aria-live="polite">
+        <div class="progress-top"><div><span class="spinner"></span><div><b id="progress-title">Inspection running</b><small id="progress-detail">The server is processing your image. The timer shows actual elapsed time; the pipeline stages are illustrative.</small></div></div><span id="elapsed">00:00</span></div>
+        <div class="progress-track"><span id="progress-bar"></span></div>
+      </div>
+    </section>
+
+    <section id="result" class="results hidden" aria-live="polite">
+      <div id="result-summary" class="result-summary">
+        <div class="verdict-group">
+          <span id="verdict-icon" class="verdict-icon"></span>
+          <div><p class="kicker">INSPECTION COMPLETE</p><h2 id="verdict">—</h2><p id="verdict-subtitle">Result compared with the category operating threshold.</p></div>
+        </div>
+        <div class="metrics">
+          <div><small>ANOMALY SCORE</small><b id="score">—</b></div>
+          <div><small>THRESHOLD</small><b id="threshold">—</b></div>
+          <div><small>STRONGEST PATCH</small><b id="patch">—</b></div>
+        </div>
+      </div>
+
+      <div class="score-card">
+        <div id="score-track-wrap">
+          <div class="score-labels"><span>Normal similarity</span><span>Operating threshold</span><span>Higher deviation</span></div>
+          <div class="score-track"><span id="score-fill"></span><i id="threshold-marker"></i><b id="score-marker"></b></div>
+        </div>
+        <p id="score-note">The score measures feature distance from normal reference images. It is not a probability.</p>
+        <div id="method-comparison" class="method-comparison"></div>
+        <div class="result-provenance"><span id="evidence-status">Checking source coverage…</span><span id="inspection-timing"></span></div>
+      </div>
+
+      <div id="visual-grid" class="visual-grid">
+        <figure class="visual-card"><div class="visual-card-head"><div><span class="visual-dot coral"></span><b>Highest-response region</b></div><span id="bbox-label">Bounding box</span></div><div class="image-stage"><img id="location-image" alt="Product image with a box around the highest-response region"></div><figcaption>The box encloses connected high-response patches around the strongest deviation; it is not verified ground truth.</figcaption></figure>
+        <figure class="visual-card"><div class="visual-card-head"><div><span class="visual-dot amber"></span><b>Patch distance heatmap</b></div><span>DINOv3 response</span></div><div class="image-stage"><img id="heatmap-image" alt="DINOv3 anomaly heatmap"></div><figcaption>Warmer areas differ more from the normal feature memory.</figcaption></figure>
+        <figure id="reference-card" class="visual-card hidden"><div class="visual-card-head"><div><span class="visual-dot mint"></span><b>Known-normal reference</b></div><span>Dataset reference</span></div><div class="image-stage reference-stage"><img id="reference-image" alt="Dataset-verified normal product reference"></div><figcaption id="reference-caption">A known-normal comparison—not ground truth for the uploaded image.</figcaption></figure>
+      </div>
+
+      <div class="reasoning-grid">
+        <article class="content-card report-card">
+          <div class="card-heading"><span class="card-icon"><svg viewBox="0 0 24 24"><path d="M5 4h14v16H5zM8 8h8M8 12h8M8 16h5"/></svg></span><div><p class="kicker">GROUNDED REPORT</p><h3>Inspection reasoning</h3></div></div>
+          <div id="explanation" class="report"></div>
+        </article>
+        <article class="content-card observation-card">
+          <div class="card-heading"><span class="card-icon"><svg viewBox="0 0 24 24"><path d="M2.5 12s3.5-6 9.5-6 9.5 6 9.5 6-3.5 6-9.5 6-9.5-6-9.5-6Z"/><circle cx="12" cy="12" r="2.5"/></svg></span><div><p class="kicker">VISUAL REASONING</p><h3>Observed evidence</h3></div></div>
+          <dl id="visual-observation"></dl>
+        </article>
+      </div>
+
+      <div class="assurance-strip" aria-label="Reasoning assurance">
+        <div><span>01</span><p><b>Detector evidence</b><small id="assurance-detector">The box marks the strongest feature deviation.</small></p></div>
+        <div><span>02</span><p><b>Visual observation</b><small id="assurance-visual">Visible details are separated from interpretation.</small></p></div>
+        <div><span>03</span><p><b>Grounded claims</b><small id="assurance-evidence">Product rules require a numbered source.</small></p></div>
+      </div>
+
+      <section class="evidence-section">
+        <div class="section-heading compact"><div><span class="section-index">02</span><div><p class="kicker">RETRIEVED KNOWLEDGE</p><h2>Evidence behind the explanation</h2></div></div><span id="source-count" class="count-badge"></span></div>
+        <div id="source-list" class="source-list"></div>
+      </section>
+    </section>
+
+    <section id="benchmark" class="benchmark-section reveal">
+      <div class="section-heading"><div><span class="section-index">03</span><div><p class="kicker">MEASURED PERFORMANCE</p><h2>What the benchmark actually says</h2></div></div><p>Image-level AUROC on five LOCO AD categories. Frozen DINOv3; three head-training seeds.</p></div>
+      <div class="benchmark-grid" role="list" aria-label="Mean category image-level AUROC">
+        <article role="listitem"><span>01 / COMPACT MEMORY</span><h3>Baseline</h3><div class="benchmark-value">74.00<small>%</small></div><div class="benchmark-track"><i style="--fill:74%"></i></div><p>Fixed compact normal-feature bank.</p></article>
+        <article role="listitem"><span>02 / LEARNED RECONSTRUCTION</span><h3>Trained head</h3><div class="benchmark-value">74.09<small> ± 0.36%</small></div><div class="benchmark-track"><i style="--fill:74.09%"></i></div><p>Small head trained on normal image patches.</p></article>
+        <article role="listitem" class="benchmark-lead"><span>03 / FIXED 50:50 COMBINATION</span><h3>Fusion</h3><div class="benchmark-value">74.49<small> ± 0.18%</small></div><div class="benchmark-track"><i style="--fill:74.49%"></i></div><p>Highest average here; gains vary across products.</p></article>
+      </div>
+      <p class="benchmark-note">Mean ± sample SD across seeds 42–44. The baseline is unchanged across seeds. These are image ranking metrics, not box mAP, RAG correctness, calibrated pass/fail accuracy, or independent production validation. The trained and fusion choices show research scores without a binary verdict.</p>
+    </section>
+
+    <section id="knowledge" class="knowledge-section reveal">
+      <details class="knowledge-disclosure">
+        <summary><div><span class="section-index">04</span><div><p class="kicker">CURATED KNOWLEDGE</p><h2>Ask what the sources can support</h2></div></div><span class="summary-action">Open workspace <i>+</i></span></summary>
+        <div class="knowledge-grid curated-grid">
+          <form id="ask-form" class="knowledge-card">
+            <span class="knowledge-icon"><svg viewBox="0 0 24 24"><path d="M4 5h16v12H8l-4 3zM8 9h8M8 13h5"/></svg></span>
+            <h3>Ask the knowledge base</h3><p>Answers use developer-reviewed source material. A missing product rule is reported as missing.</p>
+            <label for="ask-category">Knowledge category</label>
+            <select id="ask-category"><option value="general">General anomaly concepts</option><option value="breakfast_box">Breakfast box</option><option value="juice_bottle">Juice bottle</option><option value="pushpins">Pushpins</option><option value="screw_bag">Screw bag</option><option value="splicing_connectors">Splicing connectors</option></select>
+            <label for="question">Question</label><textarea id="question" placeholder="What distinguishes a logical anomaly from a structural defect?" required></textarea>
+            <button id="ask-button" class="secondary-button" type="submit">Ask DefectRAG <span>→</span></button>
+            <div id="answer" class="knowledge-response hidden" aria-live="polite"></div>
+          </form>
+          <aside class="knowledge-policy"><span class="policy-icon">✓</span><p class="kicker">SOURCE POLICY</p><h3>Reviewed by a person. Added by the developer.</h3><p>Visitors can inspect results and ask questions. They cannot upload documents or change the index. Product-specific rules require a recorded source, an exact supporting excerpt, and human approval before deployment.</p><ul><li>Category-specific retrieval</li><li>Traceable citations</li><li>Clear abstention when rules are missing</li></ul></aside>
+        </div>
+      </details>
+    </section>
+
+    <section id="about" class="info-section reveal">
+      <div class="info-heading"><p class="kicker">ABOUT DEFECTRAG</p><h2>Transparent anomaly intelligence</h2><p>DefectRAG combines feature-distance anomaly detection, spatial localization, visual observation, and retrieved inspection knowledge. It is designed for research, demonstrations, and human-in-the-loop review.</p></div>
+      <div class="principle-grid">
+        <article><span>01</span><h3>Detect</h3><p>Compare DINOv3 image patches with verified normal reference features.</p></article>
+        <article><span>02</span><h3>Locate</h3><p>Convert connected high-response patches into a visible bounding box and heatmap.</p></article>
+        <article><span>03</span><h3>Explain</h3><p>Separate observable evidence, model hypotheses, and document-supported claims.</p></article>
+      </div>
+    </section>
+
+    <section id="faq" class="info-section reveal">
+      <div class="info-heading"><p class="kicker">FREQUENTLY ASKED QUESTIONS</p><h2>What the result means</h2></div>
+      <div class="faq-list">
+        <details><summary>Is the anomaly score a probability?<i>+</i></summary><p>No. It is a feature-distance score measured against normal reference images. The displayed threshold is a benchmark-derived operating point.</p></details>
+        <details><summary>Is the normal reference the ground truth for my upload?<i>+</i></summary><p>No. A public upload has no verified ground-truth label. The reference is a dataset-verified normal example that helps you compare expected appearance.</p></details>
+        <details><summary>Does the bounding box prove the defect location?<i>+</i></summary><p>It marks the connected region around the strongest DINOv3 deviation. A reviewer should confirm whether the highlighted difference is operationally relevant.</p></details>
+        <details><summary>Where do the product rules come from?<i>+</i></summary><p>The dataset supplies images and ground-truth masks, not a complete product manual. Developer-reviewed rules need their own traceable sources. When none are available, the report states the limit.</p></details>
+        <details><summary>Why might the first inspection take longer?<i>+</i></summary><p>Free cloud services can sleep while idle, and shared GPU inference may queue or need to load models before processing. The timer shows actual elapsed time, while the workflow illustration is not a live server trace.</p></details>
+        <details><summary>Can this replace a certified inspection process?<i>+</i></summary><p>No. It is decision-support software. Production acceptance requires validated thresholds, approved procedures, representative data, and qualified human oversight.</p></details>
+      </div>
+    </section>
+
+    <section id="support" class="info-section support-section reveal">
+      <div class="info-heading"><p class="kicker">SUPPORT</p><h2>Get the right help quickly</h2></div>
+      <div class="support-grid">
+        <a href="#faq"><span>?</span><div><b>Result questions</b><small>Understand scores, boxes, references, and limitations.</small></div><i>→</i></a>
+        <a href="#benchmark"><span>▥</span><div><b>Performance evidence</b><small>Review the benchmark and scoring limitations.</small></div><i>→</i></a>
+        <a href="#contact"><span>✉</span><div><b>Technical support</b><small>Report a problem with enough detail to reproduce it.</small></div><i>→</i></a>
+      </div>
+    </section>
+
+    <section id="contact" class="contact-section reveal">
+      <div class="contact-copy"><p class="kicker">CONTACT</p><h2>Tell us what happened</h2><p>Send a technical question, report an incorrect result, or suggest an improvement. Messages are stored securely in the configured cloud database.</p><div class="privacy-note"><b>Privacy note</b><span>Do not include passwords, private keys, confidential manufacturing data, or personal medical information.</span></div></div>
+      <form id="contact-form" class="contact-form" novalidate>
+        <div class="contact-row"><label>Name<input id="contact-name" type="text" maxlength="120" autocomplete="name" required></label><label>Email<input id="contact-email" type="email" maxlength="254" autocomplete="email" required></label></div>
+        <label>Topic<select id="contact-topic"><option>Technical problem</option><option>Incorrect inspection result</option><option>Feature request</option><option>General question</option></select></label>
+        <label>Message<textarea id="contact-message" minlength="10" maxlength="4000" placeholder="Describe the issue, category selected, and what you expected…" required></textarea></label>
+        <button id="contact-button" class="primary-button" type="submit"><span class="button-label">Send support message</span><span class="button-arrow">→</span></button>
+        <div id="contact-response" class="inline-alert hidden" aria-live="polite"></div>
+      </form>
+    </section>
+  </main>
+
+  <footer><div><a class="footer-brand" href="#top">DefectRAG</a><p>Explainable visual inspection for research and engineering.</p><p>Research references may use <a href="https://www.mvtec.com/research-teaching/datasets/mvtec-loco-ad" target="_blank" rel="noreferrer">MVTec LOCO AD</a> under CC BY-NC-SA 4.0.</p></div><p>Operating thresholds come from the included benchmark results. Validate production decisions against approved procedures. MVTec LOCO AD is not licensed for commercial use.</p></footer>
+  <div id="toast" class="toast" role="alert" aria-live="assertive"><span></span><button type="button" aria-label="Dismiss notification">×</button></div>
+  <script src="/static/app.js"></script>
+  <script src="/static/aurora.js" defer></script>
+</body>
+</html>

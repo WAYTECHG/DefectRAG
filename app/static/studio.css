@@ -1,0 +1,140 @@
+/* DefectRAG studio: readable glass surfaces, responsive motion and quiet depth. */
+:root {
+  --canvas: #eaf1f3;
+  --ink: #102831;
+  --muted: #5b737a;
+  --line: rgba(101, 151, 160, .22);
+  --teal: #087d77;
+  --teal-2: #12a597;
+  --shadow-soft: 0 14px 44px rgba(15, 59, 70, .075);
+  --shadow: 0 24px 70px rgba(11, 52, 65, .13);
+}
+body {
+  background: radial-gradient(circle at 82% -8%, #cef5e8 0, transparent 34%),
+              radial-gradient(circle at 9% 31%, #d9e8fb 0, transparent 29%),
+              linear-gradient(150deg, #f5f8fa, #e9f1f2 58%, #edf2f5);
+  font-size: 15px;
+}
+.topbar {
+  height: 78px;
+  background: rgba(250, 253, 254, .68);
+  border-bottom: 1px solid rgba(255, 255, 255, .8);
+  box-shadow: 0 8px 30px rgba(15, 53, 64, .045);
+  backdrop-filter: saturate(145%) blur(24px);
+  -webkit-backdrop-filter: saturate(145%) blur(24px);
+}
+.topbar nav a, .status-chip {font-size: 13px}
+.brand-copy small {font-size: 9px}
+.hero {min-height: 510px}
+.hero h1 {font-size: clamp(48px, 6vw, 80px); letter-spacing: -.065em; line-height: 1.02}
+.hero-copy > p {font-size: 17px; line-height: 1.65}
+.hero-badges span {font-size: 12px; padding: 9px 14px}
+.hero-link {
+  display: inline-flex; align-items: center; gap: 26px;
+  margin-top: 26px; padding: 12px 16px 12px 20px;
+  border-radius: 999px; text-decoration: none;
+  background: rgba(255,255,255,.58); border: 1px solid rgba(255,255,255,.92);
+  box-shadow: 0 7px 26px rgba(13,61,72,.08), inset 0 1px rgba(255,255,255,.95);
+  font-weight: 700; font-size: 13px; color: #14574f;
+  backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+  transition: transform .28s cubic-bezier(.2,.85,.25,1.3), box-shadow .28s;
+}
+.hero-link span {font-size: 18px}
+.hero-link:hover {transform: translateY(-3px); box-shadow: 0 14px 30px rgba(13,61,72,.12)}
+.hero-link:active {transform: scale(.965)}
+.inspector-shell, .visual-card, .content-card, .score-card, .knowledge-disclosure,
+.principle-grid article, .faq-list, .support-grid a {
+  border-color: rgba(255,255,255,.9);
+  box-shadow: var(--shadow-soft), inset 0 1px rgba(255,255,255,.9);
+}
+.inspector-shell {background: rgba(255,255,255,.56); backdrop-filter: blur(22px); -webkit-backdrop-filter: blur(22px)}
+.section-heading h2, .knowledge-disclosure h2 {font-size: clamp(23px, 2.8vw, 34px)}
+.section-heading > p, .field-help, .process-note, .visual-card figcaption,
+.score-card > p, .principle-grid p, .info-heading > p:last-child {font-size: 13px}
+.kicker, .overline {font-size: 11px}
+.field-group label, .knowledge-card label {font-size: 13px}
+.field-group select, .knowledge-card select, .knowledge-card textarea {font-size: 14px}
+.field-help {line-height: 1.5}
+.input-column, .process-column {min-width: 0}
+.pipeline b {font-size: 13px}
+.pipeline small {font-size: 11px; line-height: 1.5}
+.primary-button, .secondary-button, .sidebar-toggle, .sidebar-head button,
+.support-grid a, .source-card summary, .faq-list summary, .knowledge-disclosure summary {
+  transition: transform .3s cubic-bezier(.18,.83,.28,1.25), background .25s, box-shadow .25s, border-color .25s;
+}
+.primary-button, .secondary-button {font-size: 13px; min-height: 50px; border-radius: 14px}
+.primary-button:hover, .secondary-button:hover {box-shadow: 0 13px 27px rgba(6, 97, 83, .18); transform: translateY(-2px)}
+.primary-button:active, .secondary-button:active, .sidebar-toggle:active,
+.sidebar-head button:active, .support-grid a:active {transform: scale(.96)}
+.dropzone {background: rgba(247,253,253,.7); transition: transform .28s, border-color .28s, background .28s, box-shadow .28s}
+.dropzone:hover, .dropzone.dragging {transform: translateY(-2px); box-shadow: 0 12px 32px rgba(11,81,77,.09)}
+.dropzone:active {transform: scale(.985)}
+.analysis-progress {background: rgba(255,255,255,.72); border: 1px solid rgba(255,255,255,.9); backdrop-filter: blur(15px)}
+.progress-track {overflow: hidden}
+#progress-bar {width: 100%; background: linear-gradient(105deg,transparent 0%,#25bb9d 35%,#d9fff1 50%,#25bb9d 65%,transparent 100%); background-size: 220% 100%; animation: progress-shimmer 2s linear infinite}
+@keyframes progress-shimmer {to {background-position: -220% 0}}
+.progress-top small {font-size: 12px; line-height: 1.5}
+.metrics small, .visual-card-head, .score-labels, .source-meta {font-size: 11px}
+.visual-card-head b, .card-heading h3 {font-size: 16px}
+.report, #visual-observation, .source-body {font-size: 13px; line-height: 1.65}
+.method-comparison {font-size: 13px}
+.method-comparison > div span {border: 1px solid rgba(33,143,129,.09); border-radius: 10px; padding: 9px 12px}
+.result-provenance {display: flex; flex-wrap: wrap; align-items: center; gap: 9px; margin-top: 15px}
+.result-provenance span {padding: 8px 12px; border: 1px solid #bce4d7; background: #eaf8f2; border-radius: 10px; color: #24584f; font-size: 12px; line-height: 1.45}
+.result-provenance span.limited {border-color: #eadcbc; background: #fff8ea; color: #7c6030}
+.result-provenance span:empty {display: none}
+.benchmark-section {margin: 64px 0 54px; scroll-margin-top: 110px}
+.benchmark-grid {display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 15px; margin-top: 24px}
+.benchmark-grid article {
+  position: relative; overflow: hidden; padding: 27px; border-radius: 25px;
+  border: 1px solid rgba(255,255,255,.95); background: rgba(255,255,255,.66);
+  box-shadow: 0 16px 44px rgba(16,65,77,.07), inset 0 1px #fff;
+  backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+  transition: transform .3s cubic-bezier(.2,.8,.2,1.2), box-shadow .3s;
+}
+.benchmark-grid article:hover {transform: translateY(-4px); box-shadow: 0 22px 45px rgba(16,65,77,.11)}
+.benchmark-grid article > span {font: 700 10px ui-monospace,monospace; letter-spacing: .08em; color: #628088}
+.benchmark-grid h3 {margin: 22px 0 0; font-size: 17px}
+.benchmark-value {margin: 0 0 18px; font-size: clamp(34px,3vw,48px); font-weight: 750; letter-spacing: -.065em; line-height: 1.2}
+.benchmark-value small {font-size: 17px; letter-spacing: 0; color: #58747a}
+.benchmark-track {height: 8px; border-radius: 20px; background: #e6eeee; overflow: hidden}
+.benchmark-track i {display: block; width: var(--fill); height: 100%; border-radius: inherit; background: linear-gradient(90deg,#398f9a,#5acdb7)}
+.benchmark-grid article > p {font-size: 12px; margin: 16px 0 0; color: var(--muted)}
+.benchmark-grid .benchmark-lead {background: linear-gradient(145deg,rgba(222,255,244,.91),rgba(255,255,255,.82))}
+.benchmark-lead .benchmark-track i {background: linear-gradient(90deg,#087d77,#18c497)}
+.benchmark-note {max-width: 1000px; padding: 15px 18px; border-left: 3px solid #57bca6; border-radius: 0 12px 12px 0; background: rgba(255,255,255,.57); color: #536d73; font-size: 12px; line-height: 1.6}
+.curated-grid {grid-template-columns: 1fr .85fr}
+.knowledge-card h3, .knowledge-policy h3 {font-size: 20px}
+.knowledge-card p, .knowledge-policy p, .knowledge-policy li {font-size: 13px; line-height: 1.65}
+.knowledge-card select {width: 100%; height: 46px; padding: 0 13px; border: 1px solid var(--line); border-radius: 11px; background: #f9fbfb; color: var(--ink)}
+.knowledge-policy {padding: 30px; border: 1px solid rgba(147,208,198,.4); border-radius: 19px; background: linear-gradient(150deg,rgba(230,255,247,.86),rgba(250,253,255,.82)); align-self: stretch}
+.knowledge-policy .policy-icon {width: 40px; height: 40px; display: grid; place-items: center; border-radius: 14px; background: #c7f1e2; color: #087d77; font-size: 20px; margin-bottom: 21px}
+.knowledge-policy .kicker {margin: 0}
+.knowledge-policy h3 {margin: 9px 0 13px; line-height: 1.25}
+.knowledge-policy ul {padding-left: 19px; margin: 20px 0 0}
+.knowledge-policy li {margin-bottom: 8px}
+.faq-list summary {font-size: 14px}
+.faq-list details p {font-size: 13px}
+.support-grid b {font-size: 13px}
+.support-grid small, .contact-form label, .privacy-note span {font-size: 12px}
+.contact-form input, .contact-form select, .contact-form textarea {font-size: 13px}
+footer {font-size: 11px}
+@media (max-width: 980px) {.benchmark-grid {grid-template-columns: 1fr 1fr}.curated-grid {grid-template-columns: 1fr}}
+@media (max-width: 720px) {
+  .hero {padding-top: 52px; text-align: left}
+  .hero-copy {text-align: left}
+  .hero-copy > p {font-size: 15px}
+  .hero-badges, .overline {justify-content: flex-start}
+  .hero-link {margin-top: 22px}
+  .benchmark-grid {grid-template-columns: 1fr}
+  .benchmark-grid article {padding: 23px}
+  .knowledge-policy {padding: 24px}
+  .result-provenance span {width: 100%}
+  .progress-top small {font-size: 11px}
+  .app-sidebar nav a {font-size: 13px; height: 46px}
+  .sidebar-foot b {font-size: 11px}
+  .sidebar-foot small {font-size: 10px}
+  .metrics small {font-size: 9px}
+  .metrics b {font-size: 13px}
+}
+@media (prefers-reduced-motion: reduce) {#progress-bar {animation: none; background: #27aa95}}

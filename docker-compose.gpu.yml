@@ -1,0 +1,9 @@
+services:
+  api:
+    gpus: all
+    environment:
+      NVIDIA_VISIBLE_DEVICES: all
+  ollama:
+    gpus: all
+    environment:
+      NVIDIA_VISIBLE_DEVICES: all
