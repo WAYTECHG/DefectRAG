@@ -1,5 +1,16 @@
 # Local folder consolidation — 16 October 2026
 
+COMPLETED AND PAUSED near 4% usage at the user's request. Both receipt files
+confirm status=passed. All 228 experimental receipt files are hash-verified;
+both 12-category experiments, banks/results/caches, legacy projects, interpreter
+and dependencies are now inside Desktop\DefectRAG-v2. Real CUDA API inspection,
+inspection-grounded assistant, pip/uvicorn launchers and private-row preservation
+passed. Existing CUDA PyTorch 2.8.0+cu126 retained, no packages reinstalled.
+No training/benchmark or owned preview server remains. Global Ollama is unchanged.
+No more development tasks should begin until the next user instruction.
+On resume, read these receipts and Git status; use the simple command below.
+Do not repeat migration, feature extraction, fitting or successful benchmarks.
+
 User requested one Desktop application folder, without duplicating large assets.
 This section supersedes old interpreter paths below. Consolidation status is
 authoritative in development-support/consolidation-moves.json and
