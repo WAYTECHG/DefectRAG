@@ -1,0 +1,5 @@
+{
+  "buildCommand": "npm run build:showcase",
+  "outputDirectory": "dist-static",
+  "framework": "vite"
+}

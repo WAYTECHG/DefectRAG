@@ -15,7 +15,7 @@ EXCLUDED_PARTS={'node_modules','__pycache__','.pytest_cache','.git','runtime','d
 HISTORICAL={'DEVELOPMENT_PROGRESS.previous.md','PAUSE_CHECKPOINT_20261016.md','acceptance_checkpoint.json',
             'rag_diagnostic.json','scope_diagnostic.json','pause_processes.json'}
 ROOT_FILES={'README.md','LICENSE','DEVELOPMENT_PROGRESS.md','.env.example','.gitignore','.dockerignore',
-            'requirements.txt','requirements-anomalib.txt','Start-DefectRAG.ps1','Start-DefectRAG.cmd','Dockerfile','compose.yaml'}
+            'requirements.txt','requirements-anomalib.txt','Start-DefectRAG.ps1','Start-DefectRAG.cmd','Dockerfile','compose.yaml','render.yaml'}
 ROOT_DIRS={'backend','scripts','tests','knowledge','models','samples','results','docs','deployment'}
 
 def digest(path):
@@ -42,7 +42,7 @@ def main():
         if len(relative.parts)==1:
             include=p.name in ROOT_FILES
         elif relative.parts[0]=='frontend':
-            include=relative.parts[1] in {'src','dist','public','package.json','package-lock.json','index.html','vite.config.js'}
+            include=relative.parts[1] in {'src','dist','dist-static','tests','public','package.json','package-lock.json','index.html','vite.config.js','vercel.json'}
         else:include=relative.parts[0] in ROOT_DIRS
         if include:paths.append(p)
     required={'models/encoder/model.safetensors','models/embedding/model.safetensors','knowledge/index/index.npz',

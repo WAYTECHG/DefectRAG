@@ -1,0 +1,491 @@
+{
+  "schema": 1,
+  "mode": "saved_examples",
+  "records": [
+    {
+      "id": "18c7586f94de4b6d8ef773779f7cea2f",
+      "created_at": "2026-10-16T01:54:06.141819+00:00",
+      "category": "pcb1",
+      "verdict": "Good",
+      "score": 0.029462307691574097,
+      "threshold": 0.047802507877349854,
+      "uncertainty_margin": 0.0023901253938674928,
+      "inference_ms": 626.97,
+      "model_id": "dinov3-normal-bank-pcb1-v1",
+      "batch": "Verified VisA examples",
+      "filename": "VisA example",
+      "image_url": "showcase/images/18c7586f94de4b6d8ef773779f7cea2f.jpg",
+      "heatmap_url": "showcase/images/18c7586f94de4b6d8ef773779f7cea2f_heatmap.jpg"
+    },
+    {
+      "id": "52ee2c6d54934fcfaffb0f273c70dc87",
+      "created_at": "2026-10-16T01:54:06.454213+00:00",
+      "category": "pcb1",
+      "verdict": "Anomalous",
+      "score": 0.09511521458625793,
+      "threshold": 0.047802507877349854,
+      "uncertainty_margin": 0.0023901253938674928,
+      "inference_ms": 79.49,
+      "model_id": "dinov3-normal-bank-pcb1-v1",
+      "batch": "Verified VisA examples",
+      "filename": "VisA example",
+      "image_url": "showcase/images/52ee2c6d54934fcfaffb0f273c70dc87.jpg",
+      "heatmap_url": "showcase/images/52ee2c6d54934fcfaffb0f273c70dc87_heatmap.jpg"
+    },
+    {
+      "id": "e701c08ef3264b20bcb11149f734b219",
+      "created_at": "2026-10-16T01:54:06.826573+00:00",
+      "category": "capsules",
+      "verdict": "Uncertain",
+      "score": 0.04526650905609131,
+      "threshold": 0.04728597402572632,
+      "uncertainty_margin": 0.0023642987012863163,
+      "inference_ms": 47.72,
+      "model_id": "dinov3-normal-bank-capsules-v1",
+      "batch": "Verified VisA examples",
+      "filename": "VisA example",
+      "image_url": "showcase/images/e701c08ef3264b20bcb11149f734b219.jpg",
+      "heatmap_url": "showcase/images/e701c08ef3264b20bcb11149f734b219_heatmap.jpg"
+    },
+    {
+      "id": "e3964b50d4cf4860a1f7a926d1ae444a",
+      "created_at": "2026-10-16T01:54:07.099544+00:00",
+      "category": "capsules",
+      "verdict": "Anomalous",
+      "score": 0.06019875407218933,
+      "threshold": 0.04728597402572632,
+      "uncertainty_margin": 0.0023642987012863163,
+      "inference_ms": 53.84,
+      "model_id": "dinov3-normal-bank-capsules-v1",
+      "batch": "Verified VisA examples",
+      "filename": "VisA example",
+      "image_url": "showcase/images/e3964b50d4cf4860a1f7a926d1ae444a.jpg",
+      "heatmap_url": "showcase/images/e3964b50d4cf4860a1f7a926d1ae444a_heatmap.jpg"
+    },
+    {
+      "id": "b5d1bd5c7ed1493ab8f4a849eeeb7712",
+      "created_at": "2026-10-16T01:54:07.485318+00:00",
+      "category": "cashew",
+      "verdict": "Good",
+      "score": 0.030725598335266113,
+      "threshold": 0.051523059606552124,
+      "uncertainty_margin": 0.0025761529803276064,
+      "inference_ms": 53.57,
+      "model_id": "dinov3-normal-bank-cashew-v1",
+      "batch": "Verified VisA examples",
+      "filename": "VisA example",
+      "image_url": "showcase/images/b5d1bd5c7ed1493ab8f4a849eeeb7712.jpg",
+      "heatmap_url": "showcase/images/b5d1bd5c7ed1493ab8f4a849eeeb7712_heatmap.jpg"
+    },
+    {
+      "id": "3243fbe65d59477b9811da0f306535aa",
+      "created_at": "2026-10-16T01:54:07.777072+00:00",
+      "category": "cashew",
+      "verdict": "Anomalous",
+      "score": 0.07818332314491272,
+      "threshold": 0.051523059606552124,
+      "uncertainty_margin": 0.0025761529803276064,
+      "inference_ms": 51.4,
+      "model_id": "dinov3-normal-bank-cashew-v1",
+      "batch": "Verified VisA examples",
+      "filename": "VisA example",
+      "image_url": "showcase/images/3243fbe65d59477b9811da0f306535aa.jpg",
+      "heatmap_url": "showcase/images/3243fbe65d59477b9811da0f306535aa_heatmap.jpg"
+    },
+    {
+      "id": "a6226ef392eb417e8991369e890d816b",
+      "created_at": "2026-10-16T03:37:21.911121+00:00",
+      "category": "pcb1",
+      "verdict": "Anomalous",
+      "score": 0.09611436724662781,
+      "threshold": 0.047802507877349854,
+      "uncertainty_margin": 0.0023901253938674928,
+      "inference_ms": 38.44,
+      "model_id": "dinov3-normal-bank-pcb1-v1",
+      "batch": "Verified VisA examples",
+      "filename": "VisA example",
+      "image_url": "showcase/images/a6226ef392eb417e8991369e890d816b.jpg",
+      "heatmap_url": "showcase/images/a6226ef392eb417e8991369e890d816b_heatmap.jpg"
+    }
+  ],
+  "samples": [
+    {
+      "name": "pcb1_good",
+      "category": "pcb1",
+      "record_id": "18c7586f94de4b6d8ef773779f7cea2f",
+      "url": "showcase/images/18c7586f94de4b6d8ef773779f7cea2f.jpg",
+      "attribution": "VisA \u00b7 Zou et al., ECCV 2022 \u00b7 CC BY 4.0"
+    },
+    {
+      "name": "pcb1_anomalous",
+      "category": "pcb1",
+      "record_id": "52ee2c6d54934fcfaffb0f273c70dc87",
+      "url": "showcase/images/52ee2c6d54934fcfaffb0f273c70dc87.jpg",
+      "attribution": "VisA \u00b7 Zou et al., ECCV 2022 \u00b7 CC BY 4.0"
+    },
+    {
+      "name": "capsules_good",
+      "category": "capsules",
+      "record_id": "e701c08ef3264b20bcb11149f734b219",
+      "url": "showcase/images/e701c08ef3264b20bcb11149f734b219.jpg",
+      "attribution": "VisA \u00b7 Zou et al., ECCV 2022 \u00b7 CC BY 4.0"
+    },
+    {
+      "name": "capsules_anomalous",
+      "category": "capsules",
+      "record_id": "e3964b50d4cf4860a1f7a926d1ae444a",
+      "url": "showcase/images/e3964b50d4cf4860a1f7a926d1ae444a.jpg",
+      "attribution": "VisA \u00b7 Zou et al., ECCV 2022 \u00b7 CC BY 4.0"
+    },
+    {
+      "name": "cashew_good",
+      "category": "cashew",
+      "record_id": "b5d1bd5c7ed1493ab8f4a849eeeb7712",
+      "url": "showcase/images/b5d1bd5c7ed1493ab8f4a849eeeb7712.jpg",
+      "attribution": "VisA \u00b7 Zou et al., ECCV 2022 \u00b7 CC BY 4.0"
+    },
+    {
+      "name": "cashew_anomalous",
+      "category": "cashew",
+      "record_id": "3243fbe65d59477b9811da0f306535aa",
+      "url": "showcase/images/3243fbe65d59477b9811da0f306535aa.jpg",
+      "attribution": "VisA \u00b7 Zou et al., ECCV 2022 \u00b7 CC BY 4.0"
+    },
+    {
+      "name": "pcb1_anomalous_followup",
+      "category": "pcb1",
+      "record_id": "a6226ef392eb417e8991369e890d816b",
+      "url": "showcase/images/a6226ef392eb417e8991369e890d816b.jpg",
+      "attribution": "VisA \u00b7 Zou et al., ECCV 2022 \u00b7 CC BY 4.0"
+    }
+  ],
+  "messages": {
+    "18c7586f94de4b6d8ef773779f7cea2f": [
+      {
+        "role": "user",
+        "question": "What caused this defect?"
+      },
+      {
+        "role": "assistant",
+        "answer": "The available measurements and documentation do not establish that claim. Specific defect names, counts, root causes, tolerances and repair instructions require additional validated evidence.",
+        "mode": "abstained",
+        "evidence": [],
+        "trace": [
+          "route",
+          "abstain"
+        ]
+      },
+      {
+        "role": "user",
+        "question": "What caused this defect?"
+      },
+      {
+        "role": "assistant",
+        "answer": "The available measurements and documentation do not establish that claim. Specific defect names, counts, root causes, tolerances and repair instructions require additional validated evidence.",
+        "mode": "abstained",
+        "evidence": [],
+        "trace": [
+          "route",
+          "abstain"
+        ]
+      }
+    ],
+    "52ee2c6d54934fcfaffb0f273c70dc87": [],
+    "e701c08ef3264b20bcb11149f734b219": [],
+    "e3964b50d4cf4860a1f7a926d1ae444a": [],
+    "b5d1bd5c7ed1493ab8f4a849eeeb7712": [],
+    "3243fbe65d59477b9811da0f306535aa": [],
+    "a6226ef392eb417e8991369e890d816b": [
+      {
+        "role": "user",
+        "question": "What does this inspection heatmap show?"
+      },
+      {
+        "role": "assistant",
+        "answer": "The map uses a 14 by 14 patch grid for localization, not for identifying specific defects or diagnosing them. [screening-4]",
+        "mode": "llm",
+        "evidence": [
+          {
+            "text": "# Current detector heatmap\nThe current DefectRAG detector uses a frozen DINOv3 encoder and a nearest-normal memory bank. Its heatmap displays the cosine distance between each image patch feature and its closest stored normal patch feature. Larger distances mean a larger departure from the reference appearance. The map interpolates a 14 by 14 patch grid; it is coarse localization, not a verified defect segmentation or a named defect diagnosis. This detector does not reconstruct image features with a trained decoder. General Dinomaly reconstruction documentation describes a different method.",
+            "id": "screening",
+            "file": "screening.md",
+            "title": "DefectRAG v2 screening and evidence policy",
+            "url": "project://docs/inspection-policy",
+            "license": "Project-authored, MIT",
+            "scope": "application policy; not a factory SOP",
+            "start_index": 1282,
+            "chunk_id": "screening-4",
+            "similarity": 0.7689
+          },
+          {
+            "text": "# Evidence limits and response\nThe system does not predict specific defect types, component counts, root causes, process parameters, acceptance tolerances or repair instructions. Those require additional validated supervision or approved process records. Model failures create an error event, never a successful inspection. Anomaly and uncertain events create local review alerts. Review source images and heatmaps before acting. Product category is selected by the operator; arbitrary or wrong-product uploads are outside validated scope. Documentation is general context and must remain separate from image measurements.",
+            "id": "screening",
+            "file": "screening.md",
+            "title": "DefectRAG v2 screening and evidence policy",
+            "url": "project://docs/inspection-policy",
+            "license": "Project-authored, MIT",
+            "scope": "application policy; not a factory SOP",
+            "start_index": 1880,
+            "chunk_id": "screening-5",
+            "similarity": 0.7055
+          }
+        ],
+        "trace": [
+          "route",
+          "retrieve",
+          "validate_evidence",
+          "generate",
+          "validate_answer"
+        ]
+      },
+      {
+        "role": "user",
+        "question": "How does that map relate to anomaly scoring?"
+      },
+      {
+        "role": "assistant",
+        "answer": "A larger anomaly score indicates a larger feature distance; the score is not a defect probability. [screening-2]",
+        "mode": "llm",
+        "evidence": [
+          {
+            "text": "# Current detector heatmap\nThe current DefectRAG detector uses a frozen DINOv3 encoder and a nearest-normal memory bank. Its heatmap displays the cosine distance between each image patch feature and its closest stored normal patch feature. Larger distances mean a larger departure from the reference appearance. The map interpolates a 14 by 14 patch grid; it is coarse localization, not a verified defect segmentation or a named defect diagnosis. This detector does not reconstruct image features with a trained decoder. General Dinomaly reconstruction documentation describes a different method.",
+            "id": "screening",
+            "file": "screening.md",
+            "title": "DefectRAG v2 screening and evidence policy",
+            "url": "project://docs/inspection-policy",
+            "license": "Project-authored, MIT",
+            "scope": "application policy; not a factory SOP",
+            "start_index": 1282,
+            "chunk_id": "screening-4",
+            "similarity": 0.751
+          },
+          {
+            "text": "# Reading an inspection\nDefectRAG compares an uploaded image with normal VisA reference features for the selected product. A larger anomaly score indicates a larger feature distance; the score is not a defect probability. Good means the score lies below the validated decision threshold and outside the review band. Anomalous means it lies above the threshold and outside the review band. Uncertain means it lies within a fixed five-percent band around the threshold. This review band is an operational heuristic, not calibrated statistical confidence. A Good result is screening evidence, not proof that a product is safe or meets a factory specification.",
+            "id": "screening",
+            "file": "screening.md",
+            "title": "DefectRAG v2 screening and evidence policy",
+            "url": "project://docs/inspection-policy",
+            "license": "Project-authored, MIT",
+            "scope": "application policy; not a factory SOP",
+            "start_index": 0,
+            "chunk_id": "screening-2",
+            "similarity": 0.7219
+          }
+        ],
+        "trace": [
+          "route",
+          "retrieve",
+          "validate_evidence",
+          "generate",
+          "validate_answer"
+        ]
+      }
+    ]
+  },
+  "evaluation": {
+    "method": "Frozen DINOv3 ViT-S/16 + cosine nearest-normal patch bank",
+    "protocol": "64 normal fit images; 32 distinct training normals + 20 official test anomalies for calibration; remaining official test images for final evaluation. Seed 42. Not the full official VisA test protocol.",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "python": "3.12.4",
+    "torch": "2.8.0+cu126",
+    "device": "cuda",
+    "encoder_sha256": "4610ad75edef83e75afdebf162d148dc628045ea6cbb83d67d4708c709c4f91d",
+    "categories": {
+      "pcb1": {
+        "category": "pcb1",
+        "available": true,
+        "model_id": "dinov3-normal-bank-pcb1-v1",
+        "method": "Frozen DINOv3 ViT-S/16 + cosine nearest-normal patch bank",
+        "encoder_sha256": "4610ad75edef83e75afdebf162d148dc628045ea6cbb83d67d4708c709c4f91d",
+        "bank_sha256": "32786eb59ad977de43f1eac542defa92a62c856c3e6013762373c5d8428ff41f",
+        "threshold": 0.047802507877349854,
+        "uncertainty_margin": 0.0023901253938674928,
+        "uncertainty_policy": "Fixed \u00b15% of validated threshold. Operational review band, not calibrated confidence.",
+        "heatmap_scale": 0.05350043252110481,
+        "bank_size_bytes": 5826022,
+        "encoder_size_bytes": 86406384,
+        "calibration": {
+          "method": "Max F1 on separate validation identities",
+          "normal": 32,
+          "anomalous": 20,
+          "seed": 42
+        },
+        "train_normal_count": 64,
+        "metrics": {
+          "image_auroc": 0.8966250000000001,
+          "average_precision": 0.8663194463972607,
+          "precision": 0.7790697674418605,
+          "recall": 0.8375,
+          "f1": 0.8072289156626506,
+          "confusion_matrix": [
+            [
+              81,
+              19
+            ],
+            [
+              13,
+              67
+            ]
+          ],
+          "n_images": 180,
+          "pixel_auroc_64": 0.9898054522947226,
+          "pixel_average_precision_64": 0.7869819025878954,
+          "pixel_f1_64": 0.7252747252747253,
+          "pixel_threshold": 0.09545719623565674,
+          "latency_median_ms": 107.9613499896368,
+          "latency_p95_ms": 200.43043499463238,
+          "peak_gpu_mb": 75.25634765625,
+          "uncertain_fraction": 0.10555555555555556
+        },
+        "fit_and_evaluation_seconds": 46.72307930000534
+      },
+      "capsules": {
+        "category": "capsules",
+        "available": true,
+        "model_id": "dinov3-normal-bank-capsules-v1",
+        "method": "Frozen DINOv3 ViT-S/16 + cosine nearest-normal patch bank",
+        "encoder_sha256": "4610ad75edef83e75afdebf162d148dc628045ea6cbb83d67d4708c709c4f91d",
+        "bank_sha256": "04c06d14d8a95cdcc25f2db57d5156c5f3ad3ccc5997b1a94762f4e6953f3230",
+        "threshold": 0.04728597402572632,
+        "uncertainty_margin": 0.0023642987012863163,
+        "uncertainty_policy": "Fixed \u00b15% of validated threshold. Operational review band, not calibrated confidence.",
+        "heatmap_scale": 0.051162537187337875,
+        "bank_size_bytes": 5829829,
+        "encoder_size_bytes": 86406384,
+        "calibration": {
+          "method": "Max F1 on separate validation identities",
+          "normal": 32,
+          "anomalous": 20,
+          "seed": 42
+        },
+        "train_normal_count": 64,
+        "metrics": {
+          "image_auroc": 0.825,
+          "average_precision": 0.888730323581443,
+          "precision": 0.8382352941176471,
+          "recall": 0.7125,
+          "f1": 0.7702702702702703,
+          "confusion_matrix": [
+            [
+              49,
+              11
+            ],
+            [
+              23,
+              57
+            ]
+          ],
+          "n_images": 140,
+          "pixel_auroc_64": 0.9262537759349578,
+          "pixel_average_precision_64": 0.045138180218283995,
+          "pixel_f1_64": 0.11524251238110211,
+          "pixel_threshold": 0.05173458158969879,
+          "latency_median_ms": 63.487500010523945,
+          "latency_p95_ms": 154.34065499284767,
+          "peak_gpu_mb": 75.25634765625,
+          "uncertain_fraction": 0.2642857142857143
+        },
+        "fit_and_evaluation_seconds": 22.833901800011517
+      },
+      "cashew": {
+        "category": "cashew",
+        "available": true,
+        "model_id": "dinov3-normal-bank-cashew-v1",
+        "method": "Frozen DINOv3 ViT-S/16 + cosine nearest-normal patch bank",
+        "encoder_sha256": "4610ad75edef83e75afdebf162d148dc628045ea6cbb83d67d4708c709c4f91d",
+        "bank_sha256": "2da63dd9fec7bba903090659fad56c7d3dbb39cf7cc8525a68ebbb5cf13031c5",
+        "threshold": 0.051523059606552124,
+        "uncertainty_margin": 0.0025761529803276064,
+        "uncertainty_policy": "Fixed \u00b15% of validated threshold. Operational review band, not calibrated confidence.",
+        "heatmap_scale": 0.05220940336585045,
+        "bank_size_bytes": 5818641,
+        "encoder_size_bytes": 86406384,
+        "calibration": {
+          "method": "Max F1 on separate validation identities",
+          "normal": 32,
+          "anomalous": 20,
+          "seed": 42
+        },
+        "train_normal_count": 64,
+        "metrics": {
+          "image_auroc": 0.9705,
+          "average_precision": 0.9830165610895263,
+          "precision": 1.0,
+          "recall": 0.7,
+          "f1": 0.8235294117647058,
+          "confusion_matrix": [
+            [
+              50,
+              0
+            ],
+            [
+              24,
+              56
+            ]
+          ],
+          "n_images": 130,
+          "pixel_auroc_64": 0.996374825929817,
+          "pixel_average_precision_64": 0.9143062834240087,
+          "pixel_f1_64": 0.7389403146118462,
+          "pixel_threshold": 0.060025766491889954,
+          "latency_median_ms": 46.69994999130722,
+          "latency_p95_ms": 87.63518499908969,
+          "peak_gpu_mb": 75.25634765625,
+          "uncertain_fraction": 0.06153846153846154
+        },
+        "fit_and_evaluation_seconds": 15.456038499978604
+      }
+    },
+    "serving_profile": {
+      "method": "Existing calibrated models; 6 original held-out images, 5 warm repetitions each; no training",
+      "categories": {
+        "pcb1": {
+          "samples": 10,
+          "core_median_ms": 54.59,
+          "core_p95_ms": 60.916999999999994,
+          "decoded_image_to_result_median_ms": 172.78114998771343,
+          "decoded_image_to_result_p95_ms": 182.06591499620117,
+          "category_load_ms": 1318.0554999853484,
+          "peak_torch_allocated_gpu_mb": 65.61,
+          "device": "cuda"
+        },
+        "capsules": {
+          "samples": 10,
+          "core_median_ms": 53.875,
+          "core_p95_ms": 57.915,
+          "decoded_image_to_result_median_ms": 158.5184499999741,
+          "decoded_image_to_result_p95_ms": 162.40958499111002,
+          "category_load_ms": 78.86780000990257,
+          "peak_torch_allocated_gpu_mb": 77.61,
+          "device": "cuda"
+        },
+        "cashew": {
+          "samples": 10,
+          "core_median_ms": 65.61500000000001,
+          "core_p95_ms": 89.65849999999999,
+          "decoded_image_to_result_median_ms": 229.5610500004841,
+          "decoded_image_to_result_p95_ms": 258.9202900038799,
+          "category_load_ms": 77.84360001096502,
+          "peak_torch_allocated_gpu_mb": 89.61,
+          "device": "cuda"
+        }
+      },
+      "python": "3.12.4",
+      "torch": "2.8.0+cu126",
+      "gpu": {
+        "name": "NVIDIA GeForce RTX 4060 Laptop GPU",
+        "free_mb_before": 7097.0,
+        "total_mb": 8187.5
+      },
+      "cpu_smoke": {
+        "verdict": "Good",
+        "score": 0.03067457675933838,
+        "reference_cuda_score": 0.030725598335266113,
+        "absolute_difference": 5.1021575927734375e-05,
+        "total_ms": 1110.6508999946527
+      }
+    }
+  },
+  "attribution": "VisA \u00b7 Zou et al., ECCV 2022 \u00b7 CC BY 4.0 \u00b7 resized images and model overlays",
+  "source": "https://github.com/amazon-science/spot-diff"
+}

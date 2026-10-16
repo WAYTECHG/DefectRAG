@@ -68,6 +68,31 @@ completed verification records and progress documentation.
 
 ## Screenshots
 
+## Static showcase addition — 16 October 2026
+
+The free static build is verified separately from live local inference. Seven
+allowlisted, real saved VisA inspections are exported without fitting, inference
+or generation. Old-fingerprint LLM answers are excluded; the latest verified
+heatmap/scoring follow-up is preserved with exact source passages.
+
+- Both Vite production modes built successfully.
+- Three Node contract tests passed: only one static snapshot request, rejected
+  mutation routes, preserved real score/final conversation/static report URLs.
+- Snapshot hashes, scores against original receipts, report resource closure and
+  absence of private paths, secrets and model files passed.
+- Plain static-file-server browser QA passed: overview, seven saved inspections,
+  heatmap/original toggle, combined product/verdict filters (two PCB1 anomalies),
+  cited saved follow-up, reports with two loaded images/source passages, batch,
+  review alerts, performance and About. No console errors/warnings were captured.
+- Updated local build was reloaded successfully with the live upload control and
+  local backend available. No repeated model experiment was needed.
+- Public provider account deployment was not performed. Mobile viewport and
+  Docker execution remain unverified; static hosting is a saved-example showcase,
+  not browser inference. Existing 29 passing backend tests remain unchanged.
+
+Static receipt: `results/static_verification.json`.
+Static screenshot: `docs/screenshots/static-showcase.jpg`.
+
 - `docs/screenshots/overview.jpg`
 - `docs/screenshots/inspection.jpg`
 - `docs/screenshots/evidence.jpg`

@@ -24,3 +24,5 @@ __pycache__/
 *.tar
 .env.*
 !.env.example
+
+/frontend/dist-static/

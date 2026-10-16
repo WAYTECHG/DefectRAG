@@ -1,5 +1,57 @@
 # DefectRAG v2 — verified local release
 
+## Latest milestone — free static showcase (16 October 2026)
+
+User requested a free static public version while preserving the full local app.
+Implemented a separate read-only build using **seven allowlisted, real saved VisA
+inspections**: the original six acceptance images plus the latest verified RAG
+follow-up inspection. Model weights, datasets and evaluation experiments were
+not changed or repeated. Obsolete LLM conversations with an old knowledge
+fingerprint are excluded from the public snapshot. No private uploads are exported.
+
+- Local production build passed after UI integration; live functionality remains
+  in the ordinary build. Static build uses no backend or inference service.
+- Three Node tests passed: static data loading/cache, rejected upload/chat/alert
+  writes, real score/cited conversation/report URL preservation.
+- `results/static_verification.json`: all seven scores match saved receipts,
+  snapshot hashes pass, report images exist, no local paths/secrets/model files.
+- Browser QA passed: seven records, image toggle, combined PCB1+Anomalous filter
+  gives two records, final recorded Qwen explanation/follow-up, report images
+  and source text, batch/alerts/performance/About pages. No captured console errors.
+- Vercel static configuration, Render Static Site configuration and Hugging Face
+  Static Space metadata are provided. No account/public deployment was created.
+- Instructions: `deployment/RUN_AND_DEPLOY.md`. Dashboard proof:
+  `docs/screenshots/static-showcase.jpg`.
+
+New release names: **DefectRAG-v2-static.zip** (public files only) and
+**DefectRAG-v2-with-static.zip** (full local app + static build/source).
+Adjacent JSON receipts record archive size/hash and verification. Earlier
+`DefectRAG-v2.zip` and its recovery bundle stay preserved.
+The new code-only recovery bundle is
+`development-support/git/DefectRAG-v2-static-release.bundle`.
+
+Resume only if a new receipt is absent: inspect Git status; preserve newer edits;
+run `python -m scripts.package_showcase` if its archive is missing, then
+`python -m scripts.package_release --name DefectRAG-v2-with-static.zip` if missing.
+After committing code and creating the new bundle, synchronize using:
+`python -m scripts.sync_release --archive DefectRAG-v2-with-static.zip
+--bundle DefectRAG-v2-static-release.bundle --extra-archive DefectRAG-v2-static.zip`.
+Never overwrite an existing differing ZIP or restart completed model experiments.
+
+Latest remaining scope: public account deployment is user-run using the documented
+commands. The static site deliberately has no live image upload or chat. Full
+browser inference/RAG conversion remains a separate future project. Existing
+Docker/mobile/fresh-environment verification caveats below still apply.
+
+Processes: a static preview was started on localhost:8771 (plain Python file
+server; safe to stop/restart, no training state). The original local preview may
+remain on localhost:8766 and shared Ollama on localhost:11434. No training,
+benchmark or dependency-installation job was started in this milestone.
+Usage checks reported 26%, 21%, then 15% five-hour allowance remaining. If usage reaches
+3–5%, stop new work after updating this file and a recoverable Git checkpoint.
+
+---
+
 Updated **16 October 2026**, Asia/Kuala_Lumpur. User-authorized continuation completed
 the remaining implementation and local verification. No fitting, dataset download
 or expensive experiment was repeated.

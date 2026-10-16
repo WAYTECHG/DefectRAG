@@ -1,0 +1,29 @@
+{
+  "files": {
+    "data.json": "8b2d8c611a198d36cfb51d3fdcc5dff20c4b0fecefe3cca3e1f55b0767c3ffb5",
+    "images/18c7586f94de4b6d8ef773779f7cea2f.jpg": "ef3fd6e784f64b6b4e4e765abaea7e91c33baa2d78a465356fa9a2e1c95d70a9",
+    "images/18c7586f94de4b6d8ef773779f7cea2f_heatmap.jpg": "928e6a79aa8df1a8d618b7cc148f881a0a4e46b2ce3e154741a778c554a296be",
+    "images/3243fbe65d59477b9811da0f306535aa.jpg": "35dadc6849b4bfa07fca5b69869054e2e575bd7ab6bc93f52ebabea59fb0723d",
+    "images/3243fbe65d59477b9811da0f306535aa_heatmap.jpg": "7919fb4dada5aff7fb972ed12cf5bc191ab7bda32e75e30367d9dfb39d9ac671",
+    "images/52ee2c6d54934fcfaffb0f273c70dc87.jpg": "ce3db31f0208276ac70da93545542063915acdd52c5a97fa29e6926bffbebd71",
+    "images/52ee2c6d54934fcfaffb0f273c70dc87_heatmap.jpg": "4c52c902c25fe7538f1ec5a08466ad901ab66e5348814700bd9488570497c25c",
+    "images/a6226ef392eb417e8991369e890d816b.jpg": "6b795bcc788eb84d9131ddebe111a5401eba96351c12b4359ffd272dbede097c",
+    "images/a6226ef392eb417e8991369e890d816b_heatmap.jpg": "58324e3c81f8fcc45dfeca404337f112c724b751c9822b33b7a6bf1c647a0bc5",
+    "images/b5d1bd5c7ed1493ab8f4a849eeeb7712.jpg": "1ae1542b9834aaa29d652464d7763f1103e7a416bb0abefd88c29ae1c2465df4",
+    "images/b5d1bd5c7ed1493ab8f4a849eeeb7712_heatmap.jpg": "9d6e1191b4c0c877098b900f03d8c3749d6dc502cfe88d6e66898ae81236c2bc",
+    "images/e3964b50d4cf4860a1f7a926d1ae444a.jpg": "41edea93c265590c5238f2f12a56bae3c753d0b5926ab4a372bdeafa9591e2c2",
+    "images/e3964b50d4cf4860a1f7a926d1ae444a_heatmap.jpg": "7ee4640018a44b0d6c5d1d10a753ce068a9bf3379d6a696d206817f83b71ecb5",
+    "images/e701c08ef3264b20bcb11149f734b219.jpg": "79ad47c49bf364c73f23ee0df308d867c51c2aee93f255d757e07fcdcd2e88d2",
+    "images/e701c08ef3264b20bcb11149f734b219_heatmap.jpg": "5129b946ae40e204eb79eb56e45e8ab0daa9fd1851fe5c969954c43bf6c09542",
+    "inspections.csv": "f5d1856170258b50ce4c2a833fd0df5d3c2bf341d5166a76ddba8a18f239be5c",
+    "reports/18c7586f94de4b6d8ef773779f7cea2f.html": "ac8190028f8faebac4cffcab67acc9a5805d20cd1bced1b10eb62524c00403c4",
+    "reports/3243fbe65d59477b9811da0f306535aa.html": "c26c597be5fab0a86ec60d3859bbee6bfd177c4ea4f710f36e6e4d07d9e9be53",
+    "reports/52ee2c6d54934fcfaffb0f273c70dc87.html": "5cad4e5e0457e34795f409c2b8d50f45fc51b72760dc39f331fe2cc5a6b844a0",
+    "reports/a6226ef392eb417e8991369e890d816b.html": "f586dcb4a4c62c183abc5d460b5d7bf0252024379ce64a0b824365e8fc53cd4f",
+    "reports/b5d1bd5c7ed1493ab8f4a849eeeb7712.html": "07ced15bf48d5179924d7f8e3c8131e8843f1f9d104f94c24779175fdfa7c5a2",
+    "reports/e3964b50d4cf4860a1f7a926d1ae444a.html": "f5cc140de5092e96f67de041fbf640bc73925334f434218db0923d83060b8905",
+    "reports/e701c08ef3264b20bcb11149f734b219.html": "47e9eb8d9f63b65fb763c31f50bb85b59fa2bbaccfb767989d4873627b109b1a"
+  },
+  "records": 7,
+  "provenance": "results/acceptance.json + results/evidence_scope_verification.json; existing runtime artifacts; no experiments repeated"
+}

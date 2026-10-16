@@ -119,7 +119,18 @@ Do not refit merely to start the app. `scripts/train_anomalib.py` requires a sep
 environment, explicit training authorization and subsequent independent evaluation;
 its checkpoint is not integrated with the production detector.
 
-## Docker and future public frontend
+## Free static showcase and Docker
+
+The separate static showcase is now implemented and tested. It contains seven
+saved real VisA inspections, measured heatmaps, recorded cited Qwen conversations,
+history filters, reports, CSV and performance pages. It needs no backend, secrets
+or model download. New uploads and live chat remain features of the local app.
+
+Use `DefectRAG-v2-static.zip` for Hugging Face Static Spaces, or deploy the frontend
+source with the included Vercel/Render configuration. See
+[exact run/deployment commands](deployment/RUN_AND_DEPLOY.md).
+The newer full release is `DefectRAG-v2-with-static.zip`; the earlier local ZIP
+is preserved. No public deployment has been created on your account.
 
 `docker compose up --build` serves port 8765 on localhost, uses CPU wheels and
 persists runtime data in a named volume. Ollama is reached via `host.docker.internal`.
@@ -128,7 +139,7 @@ because the Docker daemon was unavailable during development.
 The in-app browser also ignored the requested mobile viewport; narrow-screen
 visual QA remains unverified despite the implemented responsive layouts.
 
-See [deployment/README.md](deployment/README.md) for a Hugging Face **Static Space**.
+See [deployment/README.md](deployment/README.md) for deployment boundaries.
 The frontend supports `VITE_API_URL` and hash routes. Public inference needs a
 separate service independent of this laptop. Supabase persistence and n8n alerts
 are future integrations, not deployed features. Browser ONNX/WebGPU inference has
