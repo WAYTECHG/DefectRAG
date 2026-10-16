@@ -1,4 +1,4 @@
-"""Export only the six allowlisted, already measured VisA acceptance examples.
+"""Export only allowlisted, already measured VisA acceptance examples.
 
 Reads SQLite in read-only mode; never performs inference or publishes arbitrary uploads.
 """
@@ -21,6 +21,9 @@ def export(output=OUTPUT):
     if len(examples) != 6 or len({e['id'] for e in examples}) != 6:
         raise ValueError('Expected six distinct verified acceptance examples')
     scope = json.loads((ROOT / 'results/evidence_scope_verification.json').read_text())
+    quality_path=ROOT/'results/assistant_quality_verification.json'
+    quality=json.loads(quality_path.read_text()) if quality_path.exists() else {}
+    if quality and quality.get('status')!='passed':raise ValueError('Finish assistant acceptance before exporting')
     final_fingerprint = scope['answers'][0]['knowledge_fingerprint']
     examples.append({**scope['answers'][0]['observation'], 'truth': 1})
     extra_path=ROOT/'results/all_categories_acceptance.json'
@@ -74,18 +77,18 @@ def export(output=OUTPUT):
                                  {'role': 'assistant', **{k: answer[k] for k in ('answer', 'mode', 'evidence', 'trace') if k in answer}}])
             if identifier == scope['inspection_id']:
                 messages = []
-                for answer in scope['answers']:
+                for answer in quality.get('answers',scope['answers']):
                     messages.extend([{'role': 'user', 'question': answer['question']},
                                      {'role': 'assistant', **{k: answer[k] for k in ('answer', 'mode', 'evidence', 'trace')}}])
             conversations[identifier] = messages
             records.append(record)
             esc = lambda value: html.escape(str(value))
             table = ''.join(f'<tr><th>{esc(k)}</th><td>{esc(record.get(k, ""))}</td></tr>' for k in fields)
-            discussion = ''.join('<p>' + esc(m.get('question', m.get('answer', ''))) + '</p>' for m in messages)
+            discussion = ''.join('<p>' + esc(m.get('question', m.get('answer', ''))) + '</p>' for m in messages) or '<p>No evidence conversation was recorded for this inspection.</p>'
             sources = {s['chunk_id']: s for m in messages for s in m.get('evidence', [])}
-            discussion += '<h2>Retrieved source passages</h2>' + ''.join(
+            discussion += '<h2>Retrieved source passages</h2>' + (''.join(
                 '<article><h3>' + esc(k) + ' · ' + esc(s['title']) + '</h3><p>' + esc(s['text']) + '</p><p>' + esc(s['url']) + '</p></article>'
-                for k, s in sources.items())
+                for k, s in sources.items()) or '<p>No documentation was retrieved for this inspection.</p>')
             (output / 'reports' / (identifier + '.html')).write_text(
                 '<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">'
                 '<title>Saved DefectRAG example</title><style>body{font:16px system-ui;max-width:900px;margin:30px auto;padding:16px}img{max-width:46%}th,td{padding:6px;text-align:left}@media print{button{display:none}}</style>'
@@ -100,6 +103,7 @@ def export(output=OUTPUT):
     # These files contain only evaluation metrics/configuration, not private runtime paths.
     data = {'schema': 1, 'mode': 'saved_examples', 'records': records, 'samples': samples,
             'messages': conversations, 'evaluation': evaluation,
+            'official_evaluation':json.loads((ROOT/'results/official_evaluation.json').read_text()),
             'attribution': 'VisA · Zou et al., ECCV 2022 · CC BY 4.0 · resized images and model overlays',
             'source': 'https://github.com/amazon-science/spot-diff'}
     text = json.dumps(data, indent=2)

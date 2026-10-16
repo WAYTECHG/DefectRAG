@@ -1,0 +1,12 @@
+{
+  "status": "passed",
+  "original_model_and_evaluation_files_unchanged": 66,
+  "reference": "DefectRAG-v2-all12-checkpoint.zip",
+  "desktop_history_backup": "development-support/saved-runtime/desktop-before-upgrade.sqlite3",
+  "backup_integrity": "ok",
+  "backup_counts": {
+    "inspections": 9,
+    "messages": 10
+  },
+  "backup_excluded_from_public_release": true
+}

@@ -1,0 +1,11 @@
+{
+  "python.defaultInterpreterPath": "C:/Users/User/Desktop/DefectRAG-Verified/.venv-defectrag/Scripts/python.exe",
+  "python.analysis.extraPaths": [
+    "${workspaceFolder}",
+    "${workspaceFolder}/../.test-deps",
+    "C:/Users/User/.codex/.chatgpt-projects/g-p-6abf9c3f00a4819198b9ff56b5456844/.test-deps"
+  ],
+  "python.analysis.typeCheckingMode": "basic",
+  "files.exclude": {"**/__pycache__": true},
+  "search.exclude": {"runtime": true, "node_modules": true, "experiments": true}
+}

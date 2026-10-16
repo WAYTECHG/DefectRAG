@@ -7,6 +7,7 @@ import json
 import os
 import re
 import threading
+import math
 import numpy as np
 import httpx
 from pydantic import BaseModel, ConfigDict, Field, ValidationError
@@ -144,6 +145,43 @@ PROMPT=ChatPromptTemplate.from_messages([
     ('human','Inspection measurements: {inspection}\nRecent conversation: {history}\nQuestion: {question}\nEvidence: {evidence}')
 ])
 
+
+def inspection_facts(question, inspection):
+    """Render trusted saved measurements; never ask an LLM to calculate a verdict.
+
+    The detector has already made the decision. This is labelled measurement
+    reporting, separate from generated, source-grounded documentation claims.
+    """
+    values=[inspection.get(k) for k in ('score','threshold','uncertainty_margin')]
+    if not all(isinstance(v,(int,float)) and math.isfinite(v) for v in values):
+        return None
+    score,threshold,margin=values
+    verdict=inspection.get('verdict')
+    if verdict not in ('Good','Anomalous','Uncertain') or margin<0:return None
+    category=inspection.get('category','selected product').replace('_',' ')
+    question=question.lower()
+    relevant=bool(re.search(r'\b(this|that|it|its|result|inspection|product|score|threshold|anomal\w*|normal|good|heatmap|map|confidence|accur\w*|probab\w*)\b',question))
+    if not relevant:return None
+    boundary=threshold+margin if verdict=='Anomalous' else threshold-margin
+    if verdict=='Uncertain':comparison=f'within the review band {threshold-margin:.5f}–{threshold+margin:.5f}'
+    elif verdict=='Anomalous':comparison=f'above the upper review boundary of {boundary:.5f}'
+    else:comparison=f'below the lower review boundary of {boundary:.5f}'
+    prefix=''
+    if re.search(r'\b(is|was|right|correct)\b',question) and not re.search(r'\b(why|how|what)\b',question):
+        requested='Anomalous' if re.search(r'anomal|defect',question) else 'Good' if re.search(r'normal|good',question) else 'Uncertain' if 'uncertain' in question else None
+        if requested and not re.search(r"\b(not|caus\w*|repair|fix|tolerance|count)\b|n't",question):prefix=('Yes—' if verdict==requested else 'No—')
+    text=f'{prefix}the model flagged this {category} image as {verdict}. Its anomaly score is {score:.5f}, {comparison}; the decision threshold is {threshold:.5f}.'
+    text=text[0].upper()+text[1:]
+    if re.search(r'accur|confidence|probab|percent|score mean',question):
+        text+=' This score measures feature difference from normal references. It is not an accuracy percentage, confidence level or defect probability.'
+    elif verdict=='Good':text+=' This is a screening result, not proof that the product is defect-free.'
+    elif verdict=='Uncertain':text+=' Review the original image and heatmap before deciding.'
+    else:text+=' This flags unusual appearance; it does not identify a specific defect or its cause.'
+    direct=bool(re.search(r'\b(is|was|right|correct)\b',question) and re.search(r'anomal|normal|good|defect|uncertain',question) and not re.search(r'\b(why|how|what)\b',question))
+    direct=direct or bool(re.search(r'accur|confidence|probab|score mean',question))
+    return {'text':text,'direct':direct,'source':'saved_inspection','inspection_id':inspection.get('id'),
+            'measurements':{k:inspection.get(k) for k in ('category','verdict','score','threshold','uncertainty_margin','model_id')}}
+
 class EvidenceWorkflow:
     def __init__(self, settings, index):
         self.settings,self.index=settings,index
@@ -236,10 +274,17 @@ class EvidenceWorkflow:
 
     def run(self,question,inspection,history=None):
         fingerprint=getattr(self.index,'fingerprint',None)
+        facts=inspection_facts(question,inspection)
+        if facts and facts['direct'] and self.route({'question':question})['mode']!='abstained':
+            return {'answer':facts['text'],'mode':'measurement_only','evidence':[],'claims':[],
+                    'trace':['read_saved_inspection','check_score_and_review_band','answer_measurement_question'],
+                    'error':None,'measurement_summary':facts,'knowledge_fingerprint':fingerprint}
         # Keep conversational references while discarding stale assistant facts
         # after a corpus/model update. Only current-index answers can be context.
         history=[m for m in (history or []) if m.get('role')=='user' or
                  (fingerprint and m.get('knowledge_fingerprint')==fingerprint)]
         result=self.graph.invoke({'question':question,'inspection':inspection,'history':history})
+        if facts:
+            result['answer']=facts['text']+'\n\n'+result.get('answer','')
         return {**{k:result.get(k) for k in ('answer','mode','evidence','claims','trace','error')},
-                'knowledge_fingerprint':fingerprint}
+                'measurement_summary':facts,'knowledge_fingerprint':fingerprint}

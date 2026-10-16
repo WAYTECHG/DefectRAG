@@ -31,7 +31,10 @@ test('preserves real measurements, final cited conversations and static report U
   assert.equal(record.score, 0.09611436724662781);
   const messages = await showcaseApi('/api/inspections/'+record.id+'/messages');
   assert.equal(messages.filter(m=>m.mode==='llm').length, 2);
-  assert.match(messages.at(-1).answer,/not a defect probability/);
+  assert.equal(messages.filter(m=>m.mode==='measurement_only').length, 2);
+  assert.match(messages.find(m=>m.mode==='measurement_only').answer,/0.09611/);
+  assert.equal(messages.at(-1).mode,'abstained');
+  assert.equal(Object.keys((await showcaseApi('/api/benchmark/official')).categories).length,12);
   assert.equal(assetUrl('/api/inspections/'+record.id+'/report'), './showcase/reports/'+record.id+'.html');
   assert.equal(assetUrl('/api/export.csv'), './showcase/inspections.csv');
 });

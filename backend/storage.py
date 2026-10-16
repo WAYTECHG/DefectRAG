@@ -25,6 +25,8 @@ class SQLiteRepository:
             CREATE TABLE IF NOT EXISTS messages(id INTEGER PRIMARY KEY,inspection_id TEXT NOT NULL,created_at TEXT NOT NULL,role TEXT NOT NULL,payload TEXT NOT NULL);
             CREATE TABLE IF NOT EXISTS alerts(id TEXT PRIMARY KEY,inspection_id TEXT NOT NULL,created_at TEXT NOT NULL,kind TEXT NOT NULL,acknowledged INTEGER NOT NULL DEFAULT 0);
             CREATE TABLE IF NOT EXISTS failures(id TEXT PRIMARY KEY,created_at TEXT NOT NULL,category TEXT,error TEXT NOT NULL);
+            CREATE TABLE IF NOT EXISTS inspection_archives(id TEXT PRIMARY KEY,archived_at TEXT NOT NULL,archive_batch TEXT NOT NULL);
+            CREATE TABLE IF NOT EXISTS audit_events(id TEXT PRIMARY KEY,created_at TEXT NOT NULL,action TEXT NOT NULL,payload TEXT NOT NULL);
             ''')
     def connect(self):
         connection=sqlite3.connect(self.path,timeout=20)
@@ -38,10 +40,10 @@ class SQLiteRepository:
         return record
     def get(self,identifier):
         with self.connect() as db:
-            row=db.execute('SELECT payload FROM inspections WHERE id=?',(identifier,)).fetchone()
+            row=db.execute('SELECT payload FROM inspections WHERE id=? AND id NOT IN (SELECT id FROM inspection_archives)',(identifier,)).fetchone()
         return json.loads(row['payload']) if row else None
-    def list(self,category='',verdict='',batch='',limit=100,offset=0):
-        clauses,params=[],[]
+    def list(self,category='',verdict='',batch='',limit=100,offset=0,archived=False):
+        clauses,params=['id '+('IN' if archived else 'NOT IN')+' (SELECT id FROM inspection_archives)'],[]
         for key,value in [('category',category),('verdict',verdict),('batch',batch)]:
             if value: clauses.append(key+'=?'); params.append(value)
         query='SELECT payload FROM inspections'+(' WHERE '+' AND '.join(clauses) if clauses else '')+' ORDER BY created_at DESC LIMIT ? OFFSET ?'
@@ -50,13 +52,31 @@ class SQLiteRepository:
         return [json.loads(r['payload']) for r in rows]
     def stats(self):
         with self.connect() as db:
-            counts={r['verdict']:r['n'] for r in db.execute('SELECT verdict,count(*) n FROM inspections GROUP BY verdict')}
-            batches=[dict(r) for r in db.execute('SELECT batch,count(*) total,sum(verdict="Anomalous") anomalous,sum(verdict="Uncertain") uncertain FROM inspections GROUP BY batch ORDER BY max(created_at) DESC')]
+            counts={r['verdict']:r['n'] for r in db.execute('SELECT verdict,count(*) n FROM inspections WHERE id NOT IN (SELECT id FROM inspection_archives) GROUP BY verdict')}
+            batches=[dict(r) for r in db.execute('SELECT batch,count(*) total,sum(verdict="Anomalous") anomalous,sum(verdict="Uncertain") uncertain FROM inspections WHERE id NOT IN (SELECT id FROM inspection_archives) GROUP BY batch ORDER BY max(created_at) DESC')]
             failures=db.execute('SELECT count(*) FROM failures').fetchone()[0]
-        return {'counts':counts,'total':sum(counts.values()),'batches':batches,'failed_requests':failures}
+            archived=db.execute('SELECT count(*) FROM inspection_archives').fetchone()[0]
+        return {'counts':counts,'total':sum(counts.values()),'batches':batches,'failed_requests':failures,'archived_total':archived}
     def alerts(self):
         with self.connect() as db:
-            return [dict(r) for r in db.execute('SELECT * FROM alerts ORDER BY created_at DESC LIMIT 200')]
+            return [dict(r) for r in db.execute('SELECT * FROM alerts WHERE inspection_id NOT IN (SELECT id FROM inspection_archives) ORDER BY created_at DESC LIMIT 200')]
+
+    def archive(self,category='',verdict='',batch=''):
+        clauses=['id NOT IN (SELECT id FROM inspection_archives)'];params=[]
+        for key,value in [('category',category),('verdict',verdict),('batch',batch)]:
+            if value:clauses.append(key+'=?');params.append(value)
+        identifier=uuid.uuid4().hex;timestamp=now()
+        with self.connect() as db:
+            changed=db.execute('INSERT INTO inspection_archives SELECT id,?,? FROM inspections WHERE '+' AND '.join(clauses),[timestamp,identifier,*params]).rowcount
+            db.execute('INSERT INTO audit_events VALUES(?,?,?,?)',(uuid.uuid4().hex,timestamp,'archive',json.dumps({'archive_batch':identifier,'count':changed,'filters':dict(category=category,verdict=verdict,batch=batch)})))
+        return {'archived':changed,'archive_batch':identifier}
+
+    def restore(self,identifiers):
+        placeholders=','.join('?' for _ in identifiers)
+        with self.connect() as db:
+            changed=db.execute('DELETE FROM inspection_archives WHERE id IN ('+placeholders+')',identifiers).rowcount
+            db.execute('INSERT INTO audit_events VALUES(?,?,?,?)',(uuid.uuid4().hex,now(),'restore',json.dumps({'ids':identifiers,'count':changed})))
+        return {'restored':changed}
     def acknowledge(self,identifier):
         with self.connect() as db:
             return db.execute('UPDATE alerts SET acknowledged=1 WHERE id=?',(identifier,)).rowcount>0

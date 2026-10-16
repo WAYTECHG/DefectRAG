@@ -15,6 +15,8 @@ export async function showcaseApi(path, options = {}) {
   }).catch(error => { snapshot = null; throw error; });
   const data = await snapshot;
   const route = path.split('?')[0];
+  if (route === '/api/benchmark/official') return data.official_evaluation || {categories:{},status:'not_run'};
+  if (route === '/api/archives') return [];
   if (route === '/api/health') return {status: 'ok', mode: 'saved_examples'};
   if (route === '/api/evaluation') return data.evaluation;
   if (route === '/api/samples') return data.samples;

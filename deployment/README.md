@@ -1,34 +1,18 @@
----
-title: DefectRAG v2
-emoji: 🔎
-colorFrom: green
-colorTo: blue
-sdk: static
-pinned: false
----
+# Deployment
 
-The free static showcase is implemented. Follow [RUN_AND_DEPLOY.md](RUN_AND_DEPLOY.md)
-for Windows, Vercel, Render and Hugging Face instructions.
-Build with `npm run build:showcase` in `frontend` and publish `frontend/dist-static`.
-This build uses seven saved real examples and recorded conversations; no API
-is needed. `DefectRAG-v2-static.zip` contains the ready-to-upload static files.
-Routes use hashes, so no server-side rewrite is required.
+The ready static ZIP is DefectRAG-static-upgrade.zip: 25 saved real examples,
+recorded evidence and both 12-category evaluation reports. It runs on Vercel,
+Render Static Site or Hugging Face Static Spaces without an AI server.
+[Exact commands](RUN_AND_DEPLOY.md).
 
-The separate ordinary frontend build (`npm run build`, output `frontend/dist`)
-uses the live backend. Set `VITE_API_URL` only when intentionally connecting that
-build to an approved HTTPS inference service. The local API is deliberately
-single-user and must not be exposed as-is.
+The Staff workspace optionally uses your own Supabase project for approved
+sign-in, shared inspection snapshots, private images, notes and developer recovery.
+No project has been created or connected. [Setup](SUPABASE_SETUP.md).
+The supplied SQL is a single-organisation design; hosted access-control tests are
+pending. Never put service-role or secret keys in frontend configuration.
 
-Future public API requirements: model assets and licensed weights, bounded inference
-workers, CPU/GPU resource benchmarking, TLS, upload and rate limits, isolated
-short-lived anonymous sessions, scoped artifact URLs and storage retention.
-Never connect a public frontend directly to local SQLite or a service-role key.
-Supabase integration belongs behind `InspectionRepository`, with tenant identity
-and row-level policies before public use. n8n may consume authenticated review
-events; it must not overwrite image measurements or invent decisions.
-
-Browser inference is not exported or claimed. DINOv3 transformer export, cosine
-bank search, ONNX operator/WebGPU compatibility, memory, asset download size and
-numerical equivalence need a separate measured conversion project. Until then,
-public inference requires a separate service that stays online independently of
-the owner's laptop. No cloud services have been provisioned.
+New image inspection and generated answers need the separate Python backend and
+local Ollama. Static hosting and Supabase do not run the GPU model. The ordinary
+frontend build uses the live localhost API; its default single-user API must not
+be exposed publicly without authentication, scoped storage, TLS and rate limits.
+Browser inference and n8n are not implemented. No public deployment was created.

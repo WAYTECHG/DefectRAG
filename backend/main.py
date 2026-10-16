@@ -30,7 +30,7 @@ def create_app(settings=None, detector=None, workflow=None):
     detector=detector or Detector(settings)
     if workflow is None:
         workflow=EvidenceWorkflow(settings,KnowledgeIndex(settings.root,settings.data/'index'))
-    app=FastAPI(title='DefectRAG v2',version='2.0.1',description='Local benchmark inspection and evidence assistant')
+    app=FastAPI(title='DefectRAG',version='2.1.0',description='Industrial inspection and evidence workspace')
     app.state.repo=repo; app.state.detector=detector; app.state.workflow=workflow
     import os
     origins=[o.strip() for o in os.getenv('DEFECTRAG_CORS','http://localhost:5173,http://127.0.0.1:5173').split(',')]
@@ -106,7 +106,7 @@ def create_app(settings=None, detector=None, workflow=None):
 
     @app.get('/api/health')
     def health():
-        return {'data':{'status':'ok','version':'2.0.1','mode':'local_single_user','models':detector.cards(),
+        return {'data':{'status':'ok','version':'2.1.0','mode':'local_single_user','models':detector.cards(),
                         'encoder_configured':Path(settings.encoder).exists(),'llm_model':settings.ollama_model}}
     @app.get('/api/models')
     def models(): return {'data':detector.cards()}
@@ -150,6 +150,29 @@ def create_app(settings=None, detector=None, workflow=None):
     @app.get('/api/inspections')
     def inspections(category:str='',verdict:str='',batch:str='',limit:int=Query(100,ge=1,le=500),offset:int=Query(0,ge=0)):
         return {'data':repo.list(category,verdict,batch,limit,offset)}
+    class ArchiveRequest(BaseModel):
+        confirmation:str=Field(pattern='^ARCHIVE$')
+        category:str=Field(default='',max_length=40)
+        verdict:str=Field(default='',max_length=20)
+        batch:str=Field(default='',max_length=80)
+    @app.post('/api/history/archive')
+    def archive_history(payload:ArchiveRequest):
+        return {'data':repo.archive(payload.category,payload.verdict,payload.batch)}
+    @app.get('/api/archives')
+    def archived_inspections():
+        return {'data':repo.list(limit=500,archived=True)}
+    class RestoreRequest(BaseModel):
+        ids:list[str]=Field(min_length=1,max_length=500)
+    @app.post('/api/history/restore')
+    def restore_history(payload:RestoreRequest):
+        if not all(re.fullmatch('[a-f0-9]{32}',i) for i in payload.ids):raise HTTPException(422,'Invalid inspection IDs')
+        return {'data':repo.restore(payload.ids)}
+    @app.get('/api/benchmark/official')
+    def official_benchmark():
+        path=settings.root/'results/official_evaluation.json'
+        progress=settings.root/'experiments/official_visa_v1/evaluation.json'
+        source=path if path.exists() else progress
+        return {'data':json.loads(source.read_text()) if source.exists() else {'categories':{},'status':'not_run'}}
     @app.get('/api/inspections/{identifier}')
     def inspection(identifier:str): return {'data':require(identifier)}
     @app.get('/api/inspections/{identifier}/image')
@@ -164,9 +187,9 @@ def create_app(settings=None, detector=None, workflow=None):
         esc=lambda v:html.escape(str(v))
         rows=''.join(f'<tr><th>{esc(k.replace("_"," "))}</th><td>{esc(v)}</td></tr>' for k,v in record.items() if not isinstance(v,(dict,list)))
         messages=repo.messages(identifier)
-        evidence=''.join(f'<p>{esc(m.get("answer",m.get("question","")))}</p>' for m in messages)
+        evidence=''.join(f'<p>{esc(m.get("answer",m.get("question","")))}</p>' for m in messages) or '<p>No saved conversation yet. Ask the Evidence Assistant a question for this inspection, then refresh this report.</p>'
         sources={s['chunk_id']:s for m in messages for s in m.get('evidence',[])}
-        source_html=''.join('<article><h3>'+esc(k)+' · '+esc(s['title'])+'</h3><p>'+esc(s['text'])+'</p><p>'+esc(s['url'])+' · '+esc(s['scope'])+'</p></article>' for k,s in sources.items())
+        source_html=''.join('<article><h3>'+esc(k)+' · '+esc(s['title'])+'</h3><p>'+esc(s['text'])+'</p><p>'+esc(s['url'])+' · '+esc(s['scope'])+'</p></article>' for k,s in sources.items()) or '<p>No document passages saved. Measurement-only answers come directly from the saved inspection and do not require a document citation.</p>'
         return HTMLResponse('<!doctype html><html lang="en"><meta charset="utf-8"><title>DefectRAG inspection report</title><style>body{font:15px system-ui;max-width:900px;margin:40px auto;color:#17292c}table{width:100%;border-collapse:collapse}th,td{text-align:left;border-bottom:1px solid #ddd;padding:8px}img{width:46%}article{border-top:1px solid #ddd}@media print{button{display:none}}</style><h1>DefectRAG inspection report</h1><p>Benchmark screening evidence · model score is not a probability</p><button onclick="window.print()">Print / save PDF</button><table>'+rows+'</table><h2>Image and localization</h2><img src="'+record['image_url']+'"><img src="'+record['heatmap_url']+'"><h2>Evidence conversation</h2>'+evidence+'<h2>Retrieved documentation</h2>'+source_html+'</html>')
     class Question(BaseModel):
         inspection_id:str=Field(min_length=32,max_length=32,pattern='^[0-9a-f]{32}$')

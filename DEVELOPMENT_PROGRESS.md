@@ -1,4 +1,90 @@
+# DefectRAG development checkpoint — upgrade, 16 October 2026
+
+This section supersedes the historical checkpoints below. Preserve original
+assets and earlier archives. Visible branding is DefectRAG; directory stays
+DefectRAG-v2 for compatibility. No Supabase project/account was provisioned.
+
+Completed in this upgrade:
+- Official VisA split experiment across all 12 categories, seeds 42/43/44,
+  all 8,659 train normals and 2,162 test images; all masks evaluation-only.
+  results/official_evaluation.json contains means/SD, per-seed and pixel metrics.
+  Retrospective test exposure is disclosed. Macro image AUROC 0.854 / AU-PR 0.865;
+  macaroni2 remains weak (~0.483). This is frozen DINOv3 patch memory, not fine-tuning.
+- Every category has a verified completion receipt, three benchmark banks and
+  a separate normal-only calibration bank in experiments/official_visa_v1.
+  Completed experiments are skipped; do not repeat them. Current app banks and
+  original evaluations are unchanged (66 files hash-checked).
+- Saved-inspection measurement answers now state verdict/score/threshold directly.
+  Five real HTTP assistant cases passed, including two real Qwen explanations
+  and one follow-up. Root causes abstain; negative questions avoid ambiguous yes.
+- New logo/favicon, larger fonts, stronger colors, transitions/reduced-motion,
+  image comparison, zoom, expanded viewer, training/benchmark pages.
+- Local Clear history archives; Recovery restores records/images/conversation.
+  Browser verified archive/restore of two isolated Pipe fryum test records.
+- Optional Supabase allowlisted staff login/sharing/notes/private images/archive/
+  developer restore prepared. No hosted sign-in, RLS or storage test is possible
+  until the user creates a Supabase project. Setup screen clearly shows this.
+- Import configuration, environment checker and editor/training/evidence/cloud
+  guides added. Current verified environment sees all eight required imports.
+- Both builds and five frontend checks passed; static snapshot has 25 measured
+  examples across 12 categories and refreshed recorded assistant answers.
+- Vite 6.4.4 installed; dependency installation audit reported zero vulnerabilities.
+
+Release artifacts (unique names; earlier ZIPs preserved):
+- DefectRAG-local-upgrade.zip: source + current application models/builds/guides.
+- DefectRAG-static-upgrade.zip: static public dashboard, no live AI.
+- DefectRAG-official-benchmark-assets.zip: all experimental banks/manifests/
+  calibration/predictions/metrics, hash/CRC verified. Extract into project root
+  only when absent; never overwrite newer experiments. No source dataset images.
+- development-support/git/DefectRAG-upgrade.bundle: code-only Git recovery.
+Packaging/sync completion is recorded in sibling *.receipt.json and
+  development-support/release_sync_receipt.json. Inspect those before repeating.
+
+Preservation:
+Original VisA dataset and DefectRAG-Verified are read-only and unchanged.
+Desktop runtime is preserved, never replaced with preview data. Private backup:
+  development-support/saved-runtime/desktop-before-upgrade.sqlite3
+(integrity OK; 9 inspections / 10 messages at backup; excluded from release).
+Preview runtime/ux-review is isolated. Models/experiments remain outside Git;
+ZIPs preserve them. Git history is fast-forwarded, never reset or rewritten.
+
+Resume/use exact next steps:
+1. Inspect Git status, this file and release receipts; preserve newer edits.
+2. Restart the user's existing server in its own terminal with Ctrl+C, then use
+   the exact README command for port 8767 and the verified interpreter/overlay.
+   No fitting, dependency installation or frontend rebuild is needed.
+3. User must create a free Supabase project in their own account. Follow
+   deployment/SUPABASE_SETUP.md and supabase.sql. Configure only public URL/key,
+   invite staff, then verify anonymous/non-staff denial, staff share/read/notes,
+   developer restore and expiring private images. Do not claim cloud connected.
+4. For public saved-example hosting follow deployment/RUN_AND_DEPLOY.md.
+   No public deployment exists; static hosting does not run Python/Ollama.
+5. Optional future experiments require a new versioned output and frozen settings;
+   do not replace production banks based on already-seen test metrics.
+
+Verification details: docs/UPGRADE_VERIFICATION.md. Docker runtime, clean venv
+installation and 390px mobile visuals remain unverified; VSCode Problems UI not
+inspected. No training job remains. The owned port 8780 preview is stopped during
+final teardown; existing user port 8767/PID10108 and shared Ollama are left alone.
+Earlier port 8766 / static 8771 previews may remain; they are not model training.
+
+All 40 Python tests passed (one third-party deprecation warning). Archive/Git/sync status is in the receipts and
+results/software-tests-upgrade.xml. Do not call setup-ready Supabase fully tested.
+
+---
+
 # DefectRAG v2 — development checkpoint
+
+## Active upgrade — official protocol, assistant quality, UI and staff sharing
+
+User authorized the official VisA-split experiment, inspection-grounded conversational answers, DefectRAG branding/logo, larger type, richer colors/interactions, recoverable history and free Supabase staff sharing. No Supabase project has been created; user confirmed they do not have a known project. Setup/schema/client are being implemented, but hosted auth/RLS/storage checks remain blocked on project creation/public config. Do not claim cloud is active.
+
+Official benchmark is isolated in experiments/official_visa_v1; exec session 27077. It uses all official training normals and all official test images, three fixed seeds, no test-based thresholds. A fourth normal-calibrated operational bank is saved separately and does not replace current app banks. Completed per-category receipts skip repeated work. Original baselines/models/history remain preserved.
+
+Assistant now directly answers saved measurement questions with an explicit measurement-only mode; Qwen remains responsible for cited document explanations. Archive/restore preserves records, images/conversations and writes audit events. New regression suite: 36 tests passed, results/software-tests-upgrade.xml. Live cloud verification pending a project. UI build passed; isolated UX preview is being started on localhost:8780 (runtime/ux-review), leaving the user's Desktop server on 8767 alone. Vite patched to 6.4.4; npm install audit reports zero known vulnerabilities.
+
+Current remaining work: finish and audit official results; finish UI/browser QA and response quality capture; inspect editor import visibility; document/install Supabase setup; refresh static snapshot and final unique release ZIPs; commit/checkpoint and synchronize Desktop without stopping the user's server. Resume this active work before the older checkpoint steps below. Save and pause if remaining usage approaches 3-5% as previously requested.
+
 
 ## Latest checkpoint: all 12 evaluated; paused near 5% usage
 

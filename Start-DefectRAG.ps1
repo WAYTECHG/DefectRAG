@@ -24,7 +24,7 @@ if ($Verify) {
   if ($LASTEXITCODE -ne 0) { throw 'Startup validation failed' }
   exit 0
 }
-Write-Host "DefectRAG v2: http://127.0.0.1:$Port"
+Write-Host "DefectRAG: http://127.0.0.1:$Port"
 Write-Host 'For generated answers, run Ollama with qwen2.5:3b. Retrieval fallback remains available.'
 if (-not $NoBrowser) { Start-Process "http://127.0.0.1:$Port" }
 & $pythonExe -m uvicorn backend.main:app --host 127.0.0.1 --port $Port

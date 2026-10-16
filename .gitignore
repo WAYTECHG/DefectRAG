@@ -26,3 +26,6 @@ __pycache__/
 !.env.example
 
 /frontend/dist-static/
+
+# Separate official benchmark banks and immutable run artifacts stay on disk.
+/experiments/

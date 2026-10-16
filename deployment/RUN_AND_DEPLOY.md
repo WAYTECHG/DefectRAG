@@ -1,7 +1,7 @@
 # Run locally or publish the free static showcase
 
 The local application provides live inspection and local RAG. The public static
-showcase provides seven saved real inspections, original/heatmap toggles,
+showcase provides 25 saved real inspections, original/heatmap toggles,
 recorded cited conversations, history filters, reports, CSV and evaluation pages.
 Static hosting does not execute Python, accept uploads or answer new questions.
 Browser model conversion and live browser RAG have not been implemented.
@@ -57,7 +57,7 @@ npx.cmd vercel --prod
 Sign in when prompted and use a personal Hobby project if eligible. The included
 `frontend/vercel.json` sets build command `npm run build:showcase` and output
 directory `dist-static`. Do not choose the ordinary `dist` build: it expects the
-local backend. No VITE_API_URL, secrets, database or model service is required.
+local backend. No VITE_API_URL or model service is required for saved examples. Optional staff sharing requires Supabase; see SUPABASE_SETUP.md.
 The command returns your public URL. Deployment has not been performed here.
 
 Official command reference: https://vercel.com/docs/cli/deploy
@@ -81,7 +81,7 @@ Official instructions: https://render.com/docs/static-sites
 ## Hugging Face — Static Space
 
 1. Create a Space and select **Static** SDK.
-2. Extract `DefectRAG-v2-static.zip`.
+2. Extract `DefectRAG-static-upgrade.zip`.
 3. Upload its contents (index.html, assets/, showcase/, README.md and notices)
    to the Space repository root. Do not upload the enclosing folder or full AI ZIP.
 4. Commit the files. The included README metadata sets `sdk: static`.

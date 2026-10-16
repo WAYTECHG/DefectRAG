@@ -16,7 +16,7 @@ HISTORICAL={'DEVELOPMENT_PROGRESS.previous.md','PAUSE_CHECKPOINT_20261016.md','a
             'rag_diagnostic.json','scope_diagnostic.json','pause_processes.json'}
 ROOT_FILES={'README.md','LICENSE','DEVELOPMENT_PROGRESS.md','.env.example','.gitignore','.dockerignore',
             'requirements.txt','requirements-anomalib.txt','Start-DefectRAG.ps1','Start-DefectRAG.cmd','Dockerfile','compose.yaml','render.yaml'}
-ROOT_DIRS={'backend','scripts','tests','knowledge','models','samples','results','docs','deployment'}
+ROOT_DIRS={'backend','scripts','tests','knowledge','models','samples','results','docs','deployment','.vscode'}
 
 def digest(path):
     h=hashlib.sha256()

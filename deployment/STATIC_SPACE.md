@@ -1,22 +1,21 @@
 ---
-title: DefectRAG v2 Showcase
+title: DefectRAG
 emoji: 🔎
-colorFrom: green
-colorTo: blue
+colorFrom: blue
+colorTo: purple
 sdk: static
 pinned: false
 ---
 
-# DefectRAG v2 — saved inspection showcase
+# DefectRAG — inspection evidence workspace
 
-This free static website displays seven real, previously measured VisA inspections,
-saved anomaly heatmaps, recorded evidence conversations, and held-out evaluation.
-It runs entirely from static files. It performs no new inference or generation.
-Uploads, live questions, writable history and alert updates require the separate
-local application. No API key, backend, Ollama server or model download is needed.
+25 real saved VisA inspections across 12 products, heatmaps, recorded conversations,
+reports and measured evaluations. No new model inference or LLM generation runs
+on static hosting. Optional Supabase configuration connects an allowlisted staff
+workspace; it requires your own project, schema and accounts. Empty configuration
+makes no Supabase requests. Live AI still requires a running backend.
 
-VisA examples: Zou et al., ECCV 2022, Amazon Science, CC BY 4.0.
-Images are resized; overlays were produced by the measured local detector.
+VisA: Zou et al., ECCV 2022, Amazon Science, CC BY 4.0. Resized image derivatives.
 Source: https://github.com/amazon-science/spot-diff
 
-Generated application code: MIT. See THIRD_PARTY_NOTICES.md for asset terms.
+Application code: MIT. See THIRD_PARTY_NOTICES.md for separate asset terms.
