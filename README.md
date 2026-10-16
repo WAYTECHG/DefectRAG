@@ -125,6 +125,8 @@ its checkpoint is not integrated with the production detector.
 persists runtime data in a named volume. Ollama is reached via `host.docker.internal`.
 The compose configuration was checked; container execution remains unverified
 because the Docker daemon was unavailable during development.
+The in-app browser also ignored the requested mobile viewport; narrow-screen
+visual QA remains unverified despite the implemented responsive layouts.
 
 See [deployment/README.md](deployment/README.md) for a Hugging Face **Static Space**.
 The frontend supports `VITE_API_URL` and hash routes. Public inference needs a

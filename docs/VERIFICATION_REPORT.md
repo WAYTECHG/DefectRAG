@@ -20,7 +20,7 @@ cited answer/report. Batch monitoring, history and alerts operate on those recor
 | Docker compose configuration | Passed | `docker compose config --quiet` |
 | Docker container execution | Unverified | Docker daemon unavailable; no container build/runtime claim |
 | Narrow-screen visual QA | Unverified | Requested 390 px; browser stayed at 1280 px even after reload/new tab. Responsive CSS is implemented; actual mobile rendering was not confirmed |
-| Extracted release | Pending packaging verification | See `results/release_extraction_verification.json` when present |
+| Extracted release | Passed | `results/release_extraction_verification.json`; Python 3.11, actual API upload/inference, bundled retrieval, genuine Qwen answer, saved history, heatmap, report and CSV |
 
 ## Corrections verified during completion
 
@@ -58,6 +58,13 @@ unverified/unexecuted. No paid or public service was created.
 Historical failed responses remain in the development database for audit. They
 are excluded from the release archive along with all runtime history/uploads.
 Citation checks provide traceability, not a mathematical proof of faithfulness.
+
+The release candidate was CRC-checked, checked for duplicate entries, verified
+against every SHA256 file entry and extracted into a new directory. Its API imports
+were asserted to come from that extraction; model/embedding paths were explicitly
+set to the extracted assets. No private runtime was present before the test.
+The final archive retains the same runtime/model/frontend files and adds the
+completed verification records and progress documentation.
 
 ## Screenshots
 

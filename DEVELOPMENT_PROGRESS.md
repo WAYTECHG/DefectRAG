@@ -1,220 +1,150 @@
-# DefectRAG v2 — PAUSED development checkpoint
+# DefectRAG v2 — verified local release
 
-**16 October 2026, Asia/Kuala_Lumpur. Paused at the user's explicit request.**
-Do not start servers, installs, tests, training or development until the user asks to resume.
+Updated **16 October 2026**, Asia/Kuala_Lumpur. User-authorized continuation completed
+the remaining implementation and local verification. No fitting, dataset download
+or expensive experiment was repeated.
 
-## Resume from these files, not from scratch
+## Deliverables and authoritative completion records
 
-Primary working source:
-`C:\Users\User\.codex\.chatgpt-projects\g-p-6abf9c3f00a4819198b9ff56b5456844\DefectRAG-v2`
+- Source and assets: `C:\Users\User\Desktop\DefectRAG-v2`.
+- Final release: `C:\Users\User\Desktop\DefectRAG-v2.zip`.
+- ZIP verification/checksum: adjacent `DefectRAG-v2.receipt.json`.
+- Desktop synchronization/recovery: `development-support/release_sync_receipt.json`.
+- Current Git commit: `git log -1`; release manifest also records the commit.
+- Primary working source remains
+  `C:\Users\User\.codex\.chatgpt-projects\g-p-6abf9c3f00a4819198b9ff56b5456844\DefectRAG-v2`.
 
-Desktop copy synchronized for this pause:
-`C:\Users\User\Desktop\DefectRAG-v2`
+The build/synchronization receipts are authoritative for final handoff. If a
+disconnect occurs during the final archive/copy step and a receipt is missing,
+resume that step below; do not repeat completed fitting or verification.
 
-The previous checkpoint ZIP remains unchanged. A new timestamped development
-checkpoint ZIP, SHA256 receipt, source manifest and code-only Git checkpoint are
-created for this pause. See `development-support/git/receipt.json` for the exact
-commit hash and code-bundle path. The pause ZIP is not the final accepted release.
-Git excludes model weights, banks, dataset, runtime history, package overlays,
-frontend build and secrets; these remain saved locally outside Git.
+## Completed
 
-Read this file first on resume. The older progress document is retained as
-`docs/DEVELOPMENT_PROGRESS.previous.md`; its unfinished RAG status is superseded.
+- Actual DINOv3 ViT-S/16 nearest-normal inference for PCB1, capsules and cashew;
+  calibrated score, Good/Anomalous/Uncertain result and coarse heatmap.
+- FastAPI, React + Vite, SQLite history, batch inspection/filtering, local review
+  alerts, printable reports and CSV export.
+- LangChain source loading, chunking, local BGE retrieval and persistent index;
+  LangGraph scope/retrieval/evidence/generation/validation/fallback workflow.
+- Genuine local Qwen explanations and follow-ups. The model selects a source
+  sentence by ID and writes its explanation; the application attaches the original
+  quote and source ID, then validates citation/number consistency. No generated
+  explanation is represented as a deterministic template.
+- Fixed wrong-method evidence: current-detector questions exclude Dinomaly
+  reconstruction passages. Follow-up retrieval uses the prior user topic, and
+  stale assistant facts are excluded after knowledge changes.
+- Completed README, architecture diagram, portfolio description, licenses/notices,
+  frontend production build, verification report and desktop screenshots.
+- ZIP packager verifies CRC, all file hashes, duplicate entries and required assets.
+  Dataset, secrets, runtime history/uploads, dependency overlays, node_modules,
+  caches and Git objects are excluded from the release.
 
-## Completed and preserved
+## Verified results
 
-- Frozen DINOv3 ViT-S/16 + fitted nearest-normal patch banks for PCB1, capsules,
-  cashew. Encoder/embedding assets, bank files, model cards, checksums and all
-  original split/prediction/evaluation JSON remain saved. **No refitting or model
-  experiments were restarted during this resume.**
-- FastAPI inspection, heatmaps, image validation, batch execution, SQLite history,
-  filtered queries, local alerts, printable reports and CSV export.
-- React + Vite dashboard and its already-built `frontend/dist`. No frontend
-  dependency installation or build was repeated during this resume.
-- LangChain loading/chunking/BGE retrieval and LangGraph evidence workflow.
-- Fixed Qwen's missing-quote failure by passing a Pydantic JSON schema to Ollama.
-  Validated source IDs and exact quote checks remain enforced. Added rejection of
-  invented numeric facts, visible fallback reasons, malformed-response handling,
-  a concise paraphrase prompt and citation-tag cleanup.
-- Knowledge index compatibility now fingerprints the embedding weights/config,
-  tokenizer and corpus. Its five-passage index was regenerated for this necessary
-  compatibility change. Missing embedding assets do not prevent dashboard startup.
-- User/assistant messages are saved in a single SQLite transaction. Inspection
-  reports now include retrieved source text, source URLs and scope.
-- Live acceptance now reuses the six existing real-image records and saves partial
-  results on failure. No duplicate six-image acceptance batch was created.
-- Saved diagnostic/check scripts and `scripts/profile_inference.py`. The profiling
-  script has **not been run**.
-- Optional Anomalib experiment has explicit layer/fusion groups. It remains
-  **unverified and unexecuted**; do not train it merely to resume.
-- Upstream BGE license downloaded to `models/BGE-LICENSE.txt`; DINOv3 license
-  remains in `models/DINOV3-LICENSE.md`. Final attribution inventory is unfinished.
+**29 software tests passed**, no failures, one upstream AnyIO deprecation warning:
+`results/software-tests.xml`.
 
-## Actual verification results
+**Extracted release candidate passed on Python 3.11.15**:
+`results/release_extraction_verification.json`. Imports were confirmed to come
+from a new extraction. It served the frontend, uploaded a real VisA image, loaded
+the bundled model, produced a real score/heatmap, saved/retrieved the record, used
+bundled knowledge/embeddings with a genuine Qwen answer, and served report/CSV.
+The final archive has the same runtime/frontend/model assets, plus final reports
+and release utilities.
 
-**23 software tests passed**, no failures, one upstream Starlette/AnyIO deprecation
-warning. Authoritative report: `results/software-tests.xml`. Synthetic fixtures
-are limited to software checks and are not model-performance evidence.
+Other authoritative results:
+- `results/acceptance.json`: six original predictions, source retrieval, genuine
+  generation, follow-up persistence, batch filtering, reports, alerts and failures.
+- `results/evidence_scope_verification.json`: real current-method explanation and
+  genuine follow-up after the final source-sentence contract.
+- `results/browser_verification.json`: two real uploaded images completed,
+  Good/Anomalous displays, combined history filters, alert acknowledgement, report
+  images and cited answer rendered; no captured browser JavaScript errors.
+- `results/startup_verification.json`: actual Windows launcher/model verification
+  on Python 3.11.15 with torch 2.5.1+cu121 and transformers 4.57.6.
+- `results/serving_profile.json`: one clean bounded GPU profile and CPU smoke.
+- `results/preservation_verification.json`: 15 frozen model/evaluation artifacts
+  match the pause-checkpoint hashes, including all weights, banks and final results.
 
-**Live HTTP acceptance passed**: `results/acceptance.json`.
+## Frozen performance and scope
 
-- Six saved original VisA predictions, two per category, were reused and checked
-  against frozen evaluation scores (absolute tolerance 1e-5).
-- Saved input/heatmap access, record retrieval, batch filtering, report serving,
-  relevant BGE retrieval, conversation persistence, alerts and invalid-upload
-  rejection passed.
-- Two actual Qwen answers passed source-ID and exact-quote validation.
-- A root-cause question correctly abstained.
-- Earlier raw missing-quote diagnostic: `results/rag_diagnostic.json`.
-- Intermediate live generation trace: `results/rag_live.json`.
-
-Real browser interaction also completed: sample selection, running an actual PCB
-prediction, measured anomaly display, heatmap/original toggles, linked assistant
-request and a visible `LOCAL LLM · CITED` answer. The resulting local inspection
-ID is `7732bca0cede4431b212a15858795cd0`; its source/heatmap/history are preserved
-in the runtime backup. Full mobile/history/alert UI QA remains unfinished.
-
-### Known correctness issue found immediately before pause
-
-For the browser question “What does the heatmap show?”, retrieval included the
-general **Dinomaly reconstruction** document and Qwen paraphrased it as feature
-reconstruction. The shipped detector actually uses **nearest-normal cosine patch
-distance**. The quote is real, but document applicability to the current detector
-needs tightening. This issue has **not been fixed yet**.
-
-Next change: in `EvidenceWorkflow.validate_evidence`, exclude Dinomaly-specific
-mechanism passages for questions about the current detector unless the user
-explicitly asks about Dinomaly/reconstruction/comparison. Retrieve/use the project
-screening policy for current heatmap explanations. Add a meaningful scope
-regression, verify a real heatmap answer, and retain separate image measurements.
-Citation validity alone does not prove semantic correctness. Do not call the
-application fully accepted until this is addressed.
-
-## Frozen measured model performance
-
-| Product | Final images | Image AUROC | AP | Precision | Recall | F1 |
+| Product | Final images | AUROC | AP | Precision | Recall | F1 |
 |---|---:|---:|---:|---:|---:|---:|
 | PCB1 | 180 | 0.896625 | 0.866319 | 0.779070 | 0.837500 | 0.807229 |
 | Capsules | 140 | 0.825000 | 0.888730 | 0.838235 | 0.712500 | 0.770270 |
 | Cashew | 130 | 0.970500 | 0.983017 | 1.000000 | 0.700000 | 0.823529 |
 
-Seed 42; 64 official training normals fit each bank, 32 different training normals
-+ 20 official test anomalies calibrate its threshold; remaining official test
-identities form the final evaluation. Content-hash separation is checked.
-This modified protocol is **not the full official VisA benchmark**.
-The ±5% review band is an operational heuristic, not calibrated confidence.
-Capsule localization is weak (pixel AP about 0.045). No named defect classifier,
-factory acceptance guarantee, root-cause diagnosis or process tolerance is supported.
+64 normal fit images/category; 32 distinct normal + 20 reassigned official test
+anomalies calibrate max-F1 thresholds; remaining official test identities are
+held out. This is a modified VisA protocol, not the full official benchmark.
+±5% review band is heuristic, not calibrated confidence. Capsule localization
+remains weak (pixel AP ~0.045). No named defects, counts, root causes, factory
+tolerances or product-safety/acceptance guarantees are inferred.
 
-Do not rerun fitting or tune against final test labels. Existing timing values
-came from overlapping earlier runs; one clean serving profile is still required.
-GPU memory reports are PyTorch allocated peak, not total device/process memory.
-No profile was started during the pause preparation.
+Clean RTX 4060 model medians: **54.59 / 53.875 / 65.615 ms**; total
+file/decode/inference/overlay medians about **173 / 159 / 230 ms**. PyTorch allocated
+GPU peaks about **66 / 78 / 90 MB**, excluding driver, other processes and LLM.
+CPU inference passed. Earlier frozen evaluation/timing records remain preserved.
+The shipped method is frozen DINOv3 patch memory, **not Dinomaly**.
 
-## Process state and hibernation
+## Explicit remaining verification limitations
 
-`results/pause_processes.json` records the actual process inventory and stop
-actions. The new app's test servers on 8765/8766 were targeted by their exact
-module/port command. No matching owned server or installer remained after pause.
-The Python 3.11 overlay installer finished successfully before the pause check.
+- Docker compose configuration passed; container execution unverified because the
+  Docker daemon was unavailable.
+- Responsive CSS is implemented, but mobile visual QA is unverified: the browser
+  ignored the requested 390 px override and stayed at 1280 px, including in a new
+  tab. The override was reset after testing.
+- Python 3.11 verification reused the existing Conda runtime plus an isolated
+  compatibility overlay. A clean dependency installation in a new venv was not run.
+- Anomalib decoder training, browser ONNX/WebGPU export, Supabase, n8n and public
+  deployment remain optional/future work; none was executed or provisioned.
+- Quote/ID validation establishes traceability, not guaranteed semantic entailment.
 
-- **No DefectRAG v2 training, fitting, evaluation, generation, installation or
-  background development job is left running after checkpoint completion.**
-- Shared Ollama is deliberately left running; no new generation is requested.
-  Original-project processes and unrelated services are left untouched.
-- No training needs in-memory continuation. Saved weights/banks and test results
-  are sufficient. After hibernation, start one v2 server when explicitly resuming;
-  do not rely on old process IDs, tool-session IDs or open browser connections.
-- SQLite is preserved with its online backup API, with saved inspection artifacts
-  under `development-support/saved-runtime/`. Do not overwrite a newer runtime
-  database with this backup.
+These limitations are documented in the README and verification report. Do not
+restart successful experiments to remove a documentation caveat.
 
-## Python environments — preserve both
+## Start / continue without rebuilding
 
-Verified development runtime is read-only:
-`C:\Users\User\Desktop\DefectRAG-Verified\.venv-defectrag\Scripts\python.exe`
-(Python 3.12.4, torch 2.8.0+cu126, transformers 4.57.6).
+For ordinary standalone use, read README and run `Start-DefectRAG.cmd -Setup`
+once in a compatible Python environment, then `Start-DefectRAG.cmd`.
+The dashboard build, weights and knowledge index are already bundled.
+Qwen is optional and separately installed through Ollama; no automatic LLM download.
 
-Its small additional LangChain overlay remains at:
-`C:\Users\User\.codex\.chatgpt-projects\g-p-6abf9c3f00a4819198b9ff56b5456844\.test-deps`
-and is copied into `development-support/langchain-overlay/` for offline recovery.
-Do not install into the original project's environment.
+Existing verified development runtime (unchanged):
+`C:\Users\User\Desktop\DefectRAG-Verified\.venv-defectrag\Scripts\python.exe`,
+with `PYTHONPATH` set to the workspace sibling `.test-deps`.
+Python 3.11 runtime:
+`C:\Users\User\anaconda3\envs\defectrag\python.exe`,
+with `PYTHONPATH` set to sibling `.test-deps311` and `USE_TF=0`.
+Do not reinstall those completed overlays or change the original environments.
 
-An existing Python 3.11.15 Conda runtime was found at:
-`C:\Users\User\anaconda3\envs\defectrag\python.exe`
-with torch 2.5.1+cu121, torchvision 0.20.1+cu121 and sentence-transformers 5.7.0.
-Its initial import failed because existing transformers 5.15.0 required
-huggingface-hub <2 while that environment had hub 2.0.0.
+A development preview may still run at `http://127.0.0.1:8766`.
+Its last startup reported PID **32284**; verify identity before stopping it.
+Shared Ollama is at localhost:11434, `qwen2.5:3b`.
+No fitting/training/benchmark jobs remain active.
 
-Compatible Transformers 4.57.6 and LangChain/LangGraph dependencies were therefore
-installed **only into this isolated folder**, leaving Conda files unchanged:
-`C:\Users\User\.codex\.chatgpt-projects\g-p-6abf9c3f00a4819198b9ff56b5456844\.test-deps311`
+If final packaging was interrupted:
+1. Inspect Git status and the existing ZIP/receipt. Preserve any newer edits.
+2. If the final ZIP does not exist, run `python -m scripts.package_release`.
+   It refuses to overwrite an existing archive.
+3. With source committed and the release bundle present, run
+   `python -m scripts.sync_release` with Desktop write permission.
+   It requires a clean Desktop tree and fast-forwards Git without rewriting history.
+4. Check the generated receipts. Do not repeat the completed model evaluation.
 
-That install completed with exit 0. Application imports/inference have **not yet
-been retried** on 3.11. Pip warned about pre-existing optional TensorFlow dependency
-conflicts, including NumPy <2 vs overlay NumPy 2.4.6. This app uses PyTorch; on resume
-consider `USE_TF=0` for the isolated check. Do not claim clean Python 3.11 acceptance.
-Do not redownload/reinstall the completed overlay unless a concrete failure requires
-it. The overlay remains saved at the above local path; it is not a release asset.
+The code-only release recovery bundle is
+`development-support/git/DefectRAG-v2-release.bundle`.
+Prior Git commits, code bundles and timestamped checkpoint ZIPs remain preserved.
+Historical progress is under `docs/PAUSE_CHECKPOINT_20261016.md` (excluded from the
+clean release archive).
 
-## Exact next steps AFTER the user asks to resume
+## Preservation
 
-1. Inspect Git status and this progress file. Reconcile any Desktop/source edits.
-2. Fix the document-applicability issue described above; do not repeat model fitting.
-3. Start one server using the verified environment, then verify the corrected
-   real heatmap answer. Reuse saved records for remaining acceptance checks.
-4. Finish browser follow-up, report, history filters, alerts, batch input and mobile
-   viewport QA. Capture final screenshots; no screenshots were saved as local
-   deliverables yet.
-5. Run the already-written bounded serving profile once. Verify launcher startup,
-   CPU inference and Python 3.11 compatibility using existing assets/overlays.
-   Docker remains configured but untested.
-6. Finish concise README, architecture diagram, portfolio description,
-   third-party notices and final test report.
-7. Create and test final `DefectRAG-v2.zip`, excluding secrets, dataset, live
-   runtime/history, package overlays, node_modules, caches and Git objects.
-   **The final release ZIP does not exist yet.**
-
-PowerShell, only AFTER explicit resume:
-
-```powershell
-Set-Location 'C:\Users\User\Desktop\DefectRAG-v2'
-$env:PYTHONPATH = Join-Path $PWD 'development-support\langchain-overlay'
-$devPython = 'C:\Users\User\Desktop\DefectRAG-Verified\.venv-defectrag\Scripts\python.exe'
-# Confirm the desired port is free; start only one instance.
-& $devPython -m uvicorn backend.main:app --host 127.0.0.1 --port 8766
-```
-
-Use the workspace primary path instead if continuing there. Runtime test history
-is still in the workspace `runtime/`. The checkpoint's independent SQLite backup
-is under `development-support/saved-runtime/`. To restore into a new runtime,
-copy that folder to `runtime/` only if no runtime database already exists.
-
-Dataset is already local:
-`C:\Users\User\Downloads\VisA_20220922`.
-No download is necessary. Qwen model: `qwen2.5:3b` on local Ollama port 11434.
-
-## Local Git recovery
-
-The new application has its own code-only Git repository; the original project's
-Git history is untouched. The pause commit is on `main`. Use `git log -1` to see
-it; the exact hash is also in `development-support/git/receipt.json`.
-The code bundle preserves the commit independently of the working directory:
-
-```powershell
-git bundle verify .\development-support\git\DefectRAG-v2-code.bundle
-# Recovery into a NEW, empty directory only:
-git clone .\development-support\git\DefectRAG-v2-code.bundle C:\path\to\new-code-recovery
-```
-
-Git restores code/configuration/results; recover weights, samples, index and
-runtime artifacts from the development checkpoint ZIP or existing asset folders.
-Never reset or overwrite a newer working directory to resume.
-
-## Preservation and authorization
-
-Original `DefectRAG-Verified`, VisA files, existing models/caches and synced
-`sources/` are preserved. No public deployment, cloud creation, paid service,
-notification or extended GPU training was started. Ask before major downloads,
-extended training, destruction, paid services or public release. Stay paused until
-the user explicitly requests continuation.
+The original `DefectRAG-Verified` source, Git history and installed dependencies
+were not changed. Existing VisA data at
+`C:\Users\User\Downloads\VisA_20220922` was read only.
+All original model banks, weights, checkpoints and evaluation records remain.
+The new app's development history stays in workspace `runtime/`; earlier safe
+SQLite backups remain under `development-support/saved-runtime/`.
+Never replace a newer database with an older backup. No public deployment,
+paid service, cloud resource or external notification was initiated.

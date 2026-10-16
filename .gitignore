@@ -13,6 +13,7 @@ __pycache__/
 /development-support/
 /frontend/dist/
 /CHECKPOINT_MANIFEST.json
+/RELEASE_MANIFEST.json
 *.bundle
 *.safetensors
 *.npz

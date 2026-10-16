@@ -1,0 +1,75 @@
+{
+  "status": "passed",
+  "python": "3.11.15",
+  "loaded_from_extraction": true,
+  "checks": {
+    "dashboard": true,
+    "genuine_inference": true,
+    "heatmap": true,
+    "saved_history": true,
+    "bundled_retrieval_and_genuine_generation": true,
+    "report": true,
+    "csv": true
+  },
+  "prediction": {
+    "category": "pcb1",
+    "verdict": "Anomalous",
+    "score": 0.09613341093063354,
+    "threshold": 0.047802507877349854,
+    "inference_ms": 563.42,
+    "model_sha256": "32786eb59ad977de43f1eac542defa92a62c856c3e6013762373c5d8428ff41f"
+  },
+  "answer": {
+    "answer": "The heatmap creates a 14 by 14 patch grid and interpolates it to provide coarse localization, not a verified defect segmentation or a named defect diagnosis. [screening-4]",
+    "mode": "llm",
+    "evidence": [
+      {
+        "text": "# Current detector heatmap\nThe current DefectRAG detector uses a frozen DINOv3 encoder and a nearest-normal memory bank. Its heatmap displays the cosine distance between each image patch feature and its closest stored normal patch feature. Larger distances mean a larger departure from the reference appearance. The map interpolates a 14 by 14 patch grid; it is coarse localization, not a verified defect segmentation or a named defect diagnosis. This detector does not reconstruct image features with a trained decoder. General Dinomaly reconstruction documentation describes a different method.",
+        "id": "screening",
+        "file": "screening.md",
+        "title": "DefectRAG v2 screening and evidence policy",
+        "url": "project://docs/inspection-policy",
+        "license": "Project-authored, MIT",
+        "scope": "application policy; not a factory SOP",
+        "start_index": 1282,
+        "chunk_id": "screening-4",
+        "similarity": 0.7857
+      },
+      {
+        "text": "# Evidence limits and response\nThe system does not predict specific defect types, component counts, root causes, process parameters, acceptance tolerances or repair instructions. Those require additional validated supervision or approved process records. Model failures create an error event, never a successful inspection. Anomaly and uncertain events create local review alerts. Review source images and heatmaps before acting. Product category is selected by the operator; arbitrary or wrong-product uploads are outside validated scope. Documentation is general context and must remain separate from image measurements.",
+        "id": "screening",
+        "file": "screening.md",
+        "title": "DefectRAG v2 screening and evidence policy",
+        "url": "project://docs/inspection-policy",
+        "license": "Project-authored, MIT",
+        "scope": "application policy; not a factory SOP",
+        "start_index": 1880,
+        "chunk_id": "screening-5",
+        "similarity": 0.6904
+      }
+    ],
+    "claims": [
+      {
+        "text": "The heatmap creates a 14 by 14 patch grid and interpolates it to provide coarse localization, not a verified defect segmentation or a named defect diagnosis.",
+        "source_id": "screening-4",
+        "quote": "The map interpolates a 14 by 14 patch grid; it is coarse localization, not a verified defect segmentation or a named defect diagnosis."
+      }
+    ],
+    "trace": [
+      "route",
+      "retrieve",
+      "validate_evidence",
+      "generate",
+      "validate_answer"
+    ],
+    "error": null,
+    "knowledge_fingerprint": "f64658b2b468d89a660134f7a70fe5df041e54ee791e98cd56d988ba24854fb4",
+    "observation": {
+      "id": "0d633a3d4d9740bd85561710af1a52fc",
+      "category": "pcb1",
+      "verdict": "Anomalous",
+      "score": 0.09613341093063354,
+      "threshold": 0.047802507877349854
+    }
+  }
+}
