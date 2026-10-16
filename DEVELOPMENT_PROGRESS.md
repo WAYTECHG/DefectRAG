@@ -1,5 +1,12 @@
 # Local folder consolidation — 16 October 2026
 
+Follow-up editor fix: backend/highres.py explicitly types the optional encoder
+and checks it before .device/.encode access, addressing possible-None diagnostics.
+Six focused detector tests passed; report development-support/device-typing-tests.xml.
+No model assets, thresholds or saved benchmark results changed. Actual VS Code
+hover diagnostics were not supplied; if an underline persists, inspect its exact
+message and confirm the local .venv interpreter. No experiment rerun is needed.
+
 COMPLETED AND PAUSED near 4% usage at the user's request. Both receipt files
 confirm status=passed. All 228 experimental receipt files are hash-verified;
 both 12-category experiments, banks/results/caches, legacy projects, interpreter

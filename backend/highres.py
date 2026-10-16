@@ -21,7 +21,7 @@ from .config import CATEGORIES
 
 class HighResolutionEncoder:
     def __init__(self,source,device='auto',resolution=448):
-        self.device=torch.device(('cuda' if torch.cuda.is_available() else 'cpu') if device=='auto' else device)
+        self.device: torch.device = torch.device(('cuda' if torch.cuda.is_available() else 'cpu') if device=='auto' else device)
         self.resolution=resolution
         torch.set_num_threads(min(4,torch.get_num_threads()))
         self.model=AutoModel.from_pretrained(str(source),local_files_only=True).eval().to(self.device)
@@ -80,7 +80,8 @@ class HighResolutionDetector:
 
     def __init__(self,settings):
         self.settings=settings;self.directory=settings.root/'models/highres'
-        self.encoder=None;self.banks={};self.lock=threading.Lock()
+        self.encoder: HighResolutionEncoder | None = None
+        self.banks={};self.lock=threading.Lock()
 
     def cards(self):
         return [json.loads((self.directory/f'{category}.json').read_text()) for category in CATEGORIES]
@@ -88,24 +89,29 @@ class HighResolutionDetector:
     def load(self,category):
         if category not in CATEGORIES:raise ValueError('Unsupported product category')
         card=json.loads((self.directory/f'{category}.json').read_text())
-        if self.encoder is None:
+        encoder = self.encoder
+        if encoder is None:
             source=self.settings.root/'models/encoder_dinov2'
             if sha256(source/'model.safetensors')!=card['encoder_sha256']:raise ModelUnavailable('DINOv2 checkpoint checksum mismatch')
-            self.encoder=HighResolutionEncoder(source,self.settings.device)
+            encoder=HighResolutionEncoder(source,self.settings.device)
+            self.encoder=encoder
         if category not in self.banks:
             path=self.directory/f'{category}.npz'
             if sha256(path)!=card['bank_sha256']:raise ModelUnavailable('High-resolution memory checksum mismatch')
             with np.load(path,allow_pickle=False) as saved:bank=saved['patches'].astype('float32')
-            self.banks[category]=F.normalize(torch.from_numpy(bank).to(self.encoder.device),dim=-1)
+            self.banks[category]=F.normalize(torch.from_numpy(bank).to(encoder.device),dim=-1)
         return card,self.banks[category]
 
     def predict(self,image,category):
         with self.lock:
             start=time.perf_counter();card,bank=self.load(category)
-            if self.encoder.device.type=='cuda':torch.cuda.reset_peak_memory_stats()
-            inference=time.perf_counter();tokens,geometry=self.encoder.encode(image)
+            encoder = self.encoder
+            if encoder is None:
+                raise ModelUnavailable('High-resolution encoder did not initialize')
+            if encoder.device.type=='cuda':torch.cuda.reset_peak_memory_stats()
+            inference=time.perf_counter();tokens,geometry=encoder.encode(image)
             mask=foreground_mask(tokens,geometry['grid']);raw,score=score_tokens(tokens,bank,mask)
-            if self.encoder.device.type=='cuda':torch.cuda.synchronize()
+            if encoder.device.type=='cuda':torch.cuda.synchronize()
             elapsed=(time.perf_counter()-inference)*1000
             threshold,margin=card['threshold'],card['uncertainty_margin']
             verdict='Uncertain' if abs(score-threshold)<=margin else 'Anomalous' if score>=threshold else 'Good'
@@ -114,8 +120,8 @@ class HighResolutionDetector:
             result={'category':category,'verdict':verdict,'score':score,'threshold':threshold,'uncertainty_margin':margin,
               'defect_category':None,'model_id':card['model_id'],'model_sha256':card['bank_sha256'],
               'inference_ms':round(elapsed,2),'total_model_ms':round((time.perf_counter()-start)*1000,2),
-              'peak_gpu_mb':round(torch.cuda.max_memory_allocated()/1024**2,2) if self.encoder.device.type=='cuda' else None,
-              'device':str(self.encoder.device),'localization':f"{geometry['grid'][0]} x {geometry['grid'][1]} DINOv2 patch distances with PCA foreground heuristic; interpolated, not supervised segmentation",
+              'peak_gpu_mb':round(torch.cuda.max_memory_allocated()/1024**2,2) if encoder.device.type=='cuda' else None,
+              'device':str(encoder.device),'localization':f"{geometry['grid'][0]} x {geometry['grid'][1]} DINOv2 patch distances with PCA foreground heuristic; interpolated, not supervised segmentation",
               'scope':'VisA appearance anomaly screening; operator-selected category is not verified; foreground heuristic can fail.',
               'calibration':card['calibration'],'foreground_fraction':float(mask.mean()),'profile':self.profile_name}
             return result,display_map(full,preview,card['heatmap_scale'])
