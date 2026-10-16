@@ -27,14 +27,21 @@ def main():
     backup=ROOT/'development-support'/'saved-runtime'/'inspection.sqlite3'
     if history.exists():
         backup.parent.mkdir(parents=True,exist_ok=True)
-        with sqlite3.connect(history) as source,sqlite3.connect(backup) as target:
+        source=sqlite3.connect(history)
+        target=sqlite3.connect(backup)
+        try:
             source.backup(target)
+            target.execute('PRAGMA wal_checkpoint(TRUNCATE)')
+        finally:
+            target.close()
+            source.close()
         artifacts=ROOT/'runtime'/'artifacts'
         if artifacts.exists():
             shutil.copytree(artifacts,backup.parent/'artifacts',dirs_exist_ok=True)
     excluded={'node_modules','runtime','__pycache__','.pytest_cache','.git','.venv','.venv-defectrag'}
     paths=[p for p in ROOT.rglob('*') if p.is_file() and not (set(p.relative_to(ROOT).parts)&excluded)
-           and p.name not in {'.env','CHECKPOINT_MANIFEST.json'} and p.suffix not in {'.pyc','.zip'}]
+           and p.name not in {'.env','CHECKPOINT_MANIFEST.json'} and p.suffix not in {'.pyc','.zip'}
+           and not p.name.endswith(('.sqlite3-wal','.sqlite3-shm'))]
     manifest={'created_utc':datetime.now(timezone.utc).isoformat(),'purpose':'Resumable development checkpoint; not final accepted release',
               'files':[{'path':p.relative_to(ROOT).as_posix(),'bytes':p.stat().st_size,'sha256':digest(p)} for p in sorted(paths)]}
     manifest_path=ROOT/'CHECKPOINT_MANIFEST.json'
