@@ -1,0 +1,1280 @@
+{
+  "validation": [
+    {
+      "image": "chewinggum/Data/Images/Normal/062.JPG",
+      "sha256": "9052b0febaee4f8bbc82231eca55f3fa7aab99cac203220a5373770e9deb0a05",
+      "label": 0,
+      "score": 0.038628846406936646,
+      "latency_ms": 45.83640000782907
+    },
+    {
+      "image": "chewinggum/Data/Images/Normal/111.JPG",
+      "sha256": "5b6241dbb42866f6989f120fd42fbb69dad6da4edab60e5329f408852819d80a",
+      "label": 0,
+      "score": 0.03198510408401489,
+      "latency_ms": 43.51279998081736
+    },
+    {
+      "image": "chewinggum/Data/Images/Normal/193.JPG",
+      "sha256": "7bee4bcec9cbfe956d437dba532fbcd1eb458efe77c1c2688acacbb70eb452d9",
+      "label": 0,
+      "score": 0.028723955154418945,
+      "latency_ms": 42.8476000088267
+    },
+    {
+      "image": "chewinggum/Data/Images/Normal/268.JPG",
+      "sha256": "57dedb3858352678c12e9465bd697e4325acd573e0965a6401d0c429f4dc5f18",
+      "label": 0,
+      "score": 0.03182384371757507,
+      "latency_ms": 42.64220001641661
+    },
+    {
+      "image": "chewinggum/Data/Images/Normal/230.JPG",
+      "sha256": "372689310087f4420c2688f99c94cb2594c06efdfd1bce017a00d194007ee541",
+      "label": 0,
+      "score": 0.03200274705886841,
+      "latency_ms": 44.36950001399964
+    },
+    {
+      "image": "chewinggum/Data/Images/Normal/263.JPG",
+      "sha256": "b340b2b40376e1736c7fa13ef74bac8c88ed4627c967b1c33cbffa772b9af6a3",
+      "label": 0,
+      "score": 0.04600951075553894,
+      "latency_ms": 42.005700001027435
+    },
+    {
+      "image": "chewinggum/Data/Images/Normal/145.JPG",
+      "sha256": "e8ab75e62e8835270519ad2be826a78060dfcd114753702d3de44516eb5c7e4f",
+      "label": 0,
+      "score": 0.0289229154586792,
+      "latency_ms": 40.97209998872131
+    },
+    {
+      "image": "chewinggum/Data/Images/Normal/358.JPG",
+      "sha256": "bfcfea4dd5fd7832743194549685dcc2aff62a2e0b05b5ab7b981e7a5f54b0a8",
+      "label": 0,
+      "score": 0.03655064105987549,
+      "latency_ms": 39.963900024304166
+    },
+    {
+      "image": "chewinggum/Data/Images/Normal/318.JPG",
+      "sha256": "26fa4446b16eed73f6ae529df3daca1a70d0fabab09d38b6ad1f09256bb86f5f",
+      "label": 0,
+      "score": 0.03395470976829529,
+      "latency_ms": 39.015799993649125
+    },
+    {
+      "image": "chewinggum/Data/Images/Normal/054.JPG",
+      "sha256": "c7b418072e0ca6f70c560780c671cdfc58d94e98d39e5a402a076983ec33b490",
+      "label": 0,
+      "score": 0.0400581955909729,
+      "latency_ms": 38.959400000749156
+    },
+    {
+      "image": "chewinggum/Data/Images/Normal/451.JPG",
+      "sha256": "c90bd6b5c0916eb7e1cc0ef11e0a19715b49652eae70ca22e592b4b80eac7687",
+      "label": 0,
+      "score": 0.028422236442565918,
+      "latency_ms": 37.310299987439066
+    },
+    {
+      "image": "chewinggum/Data/Images/Normal/125.JPG",
+      "sha256": "60ad8a4d7961f4867d29fcda9858da82e89376a8dff17b0de314d88e62f73231",
+      "label": 0,
+      "score": 0.052612513303756714,
+      "latency_ms": 38.993800000753254
+    },
+    {
+      "image": "chewinggum/Data/Images/Normal/131.JPG",
+      "sha256": "a0027349aa1afc7dd8e6b779192c80bb4eacce3e07fc8e0d7d6a367af9509d39",
+      "label": 0,
+      "score": 0.029711753129959106,
+      "latency_ms": 38.29799999948591
+    },
+    {
+      "image": "chewinggum/Data/Images/Normal/266.JPG",
+      "sha256": "41a1b43489be71388c4d2ec1aea693322c64174f14fc9fc3545588d394e7c0b6",
+      "label": 0,
+      "score": 0.04602298140525818,
+      "latency_ms": 38.99000000092201
+    },
+    {
+      "image": "chewinggum/Data/Images/Normal/349.JPG",
+      "sha256": "bd418ca6c7e1b856a5fd5dab500a3020f56f0501a734006ce02e91a41fe0b0c0",
+      "label": 0,
+      "score": 0.03494909405708313,
+      "latency_ms": 38.35610000533052
+    },
+    {
+      "image": "chewinggum/Data/Images/Normal/385.JPG",
+      "sha256": "20a31f6d7859be5ed2dec8e1c8fefa1f81928e7c15076fb13590d9d8b3c65c6c",
+      "label": 0,
+      "score": 0.03434911370277405,
+      "latency_ms": 38.21329999482259
+    },
+    {
+      "image": "chewinggum/Data/Images/Normal/311.JPG",
+      "sha256": "1ff4bb4a43afe37d2c1b2f4474c36e7be9d4ff4cb65e13d59c0c6aa9b4774fe2",
+      "label": 0,
+      "score": 0.028754323720932007,
+      "latency_ms": 38.26699999626726
+    },
+    {
+      "image": "chewinggum/Data/Images/Normal/496.JPG",
+      "sha256": "1a5cceb0c22542fb910320d4868534bff7adbbb7ee7eef30400204bb9bff9b22",
+      "label": 0,
+      "score": 0.046312183141708374,
+      "latency_ms": 37.12180000729859
+    },
+    {
+      "image": "chewinggum/Data/Images/Normal/180.JPG",
+      "sha256": "39ec46fb07be7cee1852fbbec8bd543b4c8bbb23911fefe1561617bbbfdd4bda",
+      "label": 0,
+      "score": 0.028453171253204346,
+      "latency_ms": 35.73070000857115
+    },
+    {
+      "image": "chewinggum/Data/Images/Normal/456.JPG",
+      "sha256": "bc5f05787e16bf1767f725fb21ff78481688a194810e05b242177cc25a9c3f9e",
+      "label": 0,
+      "score": 0.03061315417289734,
+      "latency_ms": 38.15390000818297
+    },
+    {
+      "image": "chewinggum/Data/Images/Normal/173.JPG",
+      "sha256": "55322e96ce4f000843b5ae1290b83a87fd0798fe5992780b565dbb50db01e861",
+      "label": 0,
+      "score": 0.03330245614051819,
+      "latency_ms": 37.65350001049228
+    },
+    {
+      "image": "chewinggum/Data/Images/Normal/249.JPG",
+      "sha256": "f88376d1913f8cef830c135767b37202f69777ac845acf3c619690e07e2e3a94",
+      "label": 0,
+      "score": 0.03134918212890625,
+      "latency_ms": 38.05519998422824
+    },
+    {
+      "image": "chewinggum/Data/Images/Normal/153.JPG",
+      "sha256": "144d6b189fabb3a8aa35a87a0fba5295efeba015830b7a0b37a9c4972430d643",
+      "label": 0,
+      "score": 0.03547874093055725,
+      "latency_ms": 34.477599983802065
+    },
+    {
+      "image": "chewinggum/Data/Images/Normal/165.JPG",
+      "sha256": "e4aae9c4a874d3e3607377d6faed961db6b65104aa925caea8ceaad731256b18",
+      "label": 0,
+      "score": 0.04091066122055054,
+      "latency_ms": 36.97770001599565
+    },
+    {
+      "image": "chewinggum/Data/Images/Normal/274.JPG",
+      "sha256": "0bb3cf7930f31372a337748cdc72dc2555998f544450cd7eed26a7772795b938",
+      "label": 0,
+      "score": 0.033601731061935425,
+      "latency_ms": 34.96779999113642
+    },
+    {
+      "image": "chewinggum/Data/Images/Normal/178.JPG",
+      "sha256": "c0f23381a438f6ae3b15c17200819b5a5514848e38605e465512677033b01165",
+      "label": 0,
+      "score": 0.03098568320274353,
+      "latency_ms": 36.765099997865036
+    },
+    {
+      "image": "chewinggum/Data/Images/Normal/211.JPG",
+      "sha256": "c996ee6d61e3a3f7d5f4f1ef48a4f0735885608f438569063e37ea69e9a18f34",
+      "label": 0,
+      "score": 0.03680488467216492,
+      "latency_ms": 34.90090000559576
+    },
+    {
+      "image": "chewinggum/Data/Images/Normal/281.JPG",
+      "sha256": "b91abc26d57d5075211bc73a13942417b2378f3a83d3aaa2d32197e925a242b3",
+      "label": 0,
+      "score": 0.03149145841598511,
+      "latency_ms": 36.076199990930036
+    },
+    {
+      "image": "chewinggum/Data/Images/Normal/396.JPG",
+      "sha256": "dc1c9b8417007948e69812cd5fa9921ebf080f40d7f790dad3ab52b1acae94ac",
+      "label": 0,
+      "score": 0.03716132044792175,
+      "latency_ms": 38.77689997898415
+    },
+    {
+      "image": "chewinggum/Data/Images/Normal/135.JPG",
+      "sha256": "d225609617ece54a0f32466f732d6bc0119e06213d8fb10403f2b9a5b0178744",
+      "label": 0,
+      "score": 0.05379331111907959,
+      "latency_ms": 34.68450001673773
+    },
+    {
+      "image": "chewinggum/Data/Images/Normal/285.JPG",
+      "sha256": "3a45552b88be0877c86b76502271cdb9322b97fef6fe46c23bfe3cf137d4e26a",
+      "label": 0,
+      "score": 0.03282764554023743,
+      "latency_ms": 36.83820000151172
+    },
+    {
+      "image": "chewinggum/Data/Images/Normal/433.JPG",
+      "sha256": "a6025411705af301d3c1ca0b74ec807139bad6c3f1db42b0f6ca726268645fdc",
+      "label": 0,
+      "score": 0.03332585096359253,
+      "latency_ms": 36.01949999574572
+    },
+    {
+      "image": "chewinggum/Data/Images/Anomaly/025.JPG",
+      "sha256": "64d56b13e3b3aaeda358c2613c74cc582f13ee1f25501d7a01b7a1f974b348dc",
+      "label": 1,
+      "score": 0.04130101203918457,
+      "latency_ms": 34.47069998946972
+    },
+    {
+      "image": "chewinggum/Data/Images/Anomaly/007.JPG",
+      "sha256": "57f4b52a9b4c21091c9721ef57a4bff32492d883301f7af62919537f50eaca8e",
+      "label": 1,
+      "score": 0.23009276390075684,
+      "latency_ms": 35.507299995515496
+    },
+    {
+      "image": "chewinggum/Data/Images/Anomaly/090.JPG",
+      "sha256": "c3a9e70314569e89ac5cb5e96e8db1396cb641f39d913238d6c427806d44c535",
+      "label": 1,
+      "score": 0.1141846776008606,
+      "latency_ms": 34.79689999949187
+    },
+    {
+      "image": "chewinggum/Data/Images/Anomaly/092.JPG",
+      "sha256": "9224d618fea6d292ca9c4f959303751304d32a63a2cd56465534a2f15452fb54",
+      "label": 1,
+      "score": 0.10736581683158875,
+      "latency_ms": 38.61460002372041
+    },
+    {
+      "image": "chewinggum/Data/Images/Anomaly/011.JPG",
+      "sha256": "eb48b31101be60e052eea1d8a0960d54858b0643baa0c8ae08b927c3c5f7b507",
+      "label": 1,
+      "score": 0.26876935362815857,
+      "latency_ms": 35.26530001545325
+    },
+    {
+      "image": "chewinggum/Data/Images/Anomaly/036.JPG",
+      "sha256": "e82da6e617eb4f5df0f9a427e5ab89d9ec262b85acde9980665d9fb36f6726a2",
+      "label": 1,
+      "score": 0.07327651977539062,
+      "latency_ms": 34.650899993721396
+    },
+    {
+      "image": "chewinggum/Data/Images/Anomaly/081.JPG",
+      "sha256": "0705521994f3d32442b63ad6be7d4bb1f8ed2c74ebf98223c7462946ecc9e33b",
+      "label": 1,
+      "score": 0.12971371412277222,
+      "latency_ms": 35.04249997786246
+    },
+    {
+      "image": "chewinggum/Data/Images/Anomaly/078.JPG",
+      "sha256": "35754241b659ceef9e3e6827099627fd829707a81433eeb930cad8869df39dda",
+      "label": 1,
+      "score": 0.10512885451316833,
+      "latency_ms": 35.81179998582229
+    },
+    {
+      "image": "chewinggum/Data/Images/Anomaly/024.JPG",
+      "sha256": "e2c005d8f51d5a3656a540acec32bfe1f91edb287356b57b6bed47c015acd05c",
+      "label": 1,
+      "score": 0.1732412576675415,
+      "latency_ms": 35.49680000287481
+    },
+    {
+      "image": "chewinggum/Data/Images/Anomaly/040.JPG",
+      "sha256": "d2f4a72a58458b620e8e53a95dfc864cf86cde86f7978eb5427a01348cc0d6b8",
+      "label": 1,
+      "score": 0.2605994939804077,
+      "latency_ms": 35.03720002481714
+    },
+    {
+      "image": "chewinggum/Data/Images/Anomaly/018.JPG",
+      "sha256": "9a62bbfa7d7804cb640157976fffc2c45fa85a83d2e249f250b6a4f786a4c53c",
+      "label": 1,
+      "score": 0.17435693740844727,
+      "latency_ms": 41.059099981794134
+    },
+    {
+      "image": "chewinggum/Data/Images/Anomaly/076.JPG",
+      "sha256": "914bce5b250e3928e16f147374f8e55629caf63082a972ce5cf773e0c0676783",
+      "label": 1,
+      "score": 0.1425531506538391,
+      "latency_ms": 35.71809999994002
+    },
+    {
+      "image": "chewinggum/Data/Images/Anomaly/061.JPG",
+      "sha256": "1a0749f79e85a552d78da9ca9d3b04bf788d5d87d483b62658841a9529ae7831",
+      "label": 1,
+      "score": 0.21178844571113586,
+      "latency_ms": 34.667400002945215
+    },
+    {
+      "image": "chewinggum/Data/Images/Anomaly/091.JPG",
+      "sha256": "e6247fcf3929002695cf0dceccc3ca050db4d2f9a3263b4d706f1c527b59033c",
+      "label": 1,
+      "score": 0.08451369404792786,
+      "latency_ms": 35.04760001669638
+    },
+    {
+      "image": "chewinggum/Data/Images/Anomaly/052.JPG",
+      "sha256": "a92b025d0e1a5a6bb6aebf951077601708fc56b97b8e4baf301a1f08c0d02d4b",
+      "label": 1,
+      "score": 0.3102118968963623,
+      "latency_ms": 34.23730001668446
+    },
+    {
+      "image": "chewinggum/Data/Images/Anomaly/071.JPG",
+      "sha256": "557259b07037152af53c8c6976950dde121bdee9f116aecefd1e7f8ff14910ec",
+      "label": 1,
+      "score": 0.06446045637130737,
+      "latency_ms": 34.23970000585541
+    },
+    {
+      "image": "chewinggum/Data/Images/Anomaly/004.JPG",
+      "sha256": "7e4273f341bf58d008036ac9f187d4835ea628560e597872f95c34b1e3bc292f",
+      "label": 1,
+      "score": 0.19949734210968018,
+      "latency_ms": 34.86620000330731
+    },
+    {
+      "image": "chewinggum/Data/Images/Anomaly/026.JPG",
+      "sha256": "cc69846dfd4e39d84dc2c4423b07917888766de76588ee8cdc9d903242091ee9",
+      "label": 1,
+      "score": 0.04014521837234497,
+      "latency_ms": 34.77769999881275
+    },
+    {
+      "image": "chewinggum/Data/Images/Anomaly/065.JPG",
+      "sha256": "2e75e13a34c8921e5f8c786d46254793747cfe662e192d7f0fea44051c19349d",
+      "label": 1,
+      "score": 0.07509824633598328,
+      "latency_ms": 36.01979999803007
+    },
+    {
+      "image": "chewinggum/Data/Images/Anomaly/014.JPG",
+      "sha256": "46261ca099c0d8a150e7a616704391462e2b3c04f084a29d80d837dc83b46e91",
+      "label": 1,
+      "score": 0.23200151324272156,
+      "latency_ms": 34.71659999922849
+    }
+  ],
+  "test": [
+    {
+      "image": "chewinggum/Data/Images/Normal/006.JPG",
+      "sha256": "0744bba52b948a7f30051e1633bb2b1e1e88e11c56c8c24acd5fac347a165172",
+      "label": 0,
+      "score": 0.03845283389091492,
+      "latency_ms": 41.19139999966137
+    },
+    {
+      "image": "chewinggum/Data/Images/Normal/012.JPG",
+      "sha256": "e4cd61bf9e689c6cc1ca6cf148a93db0afdb3db045ebe8db4a6a643cb403aaae",
+      "label": 0,
+      "score": 0.03679010272026062,
+      "latency_ms": 37.94379997998476
+    },
+    {
+      "image": "chewinggum/Data/Images/Normal/013.JPG",
+      "sha256": "5ae0cd4a9c6badd03709f2b9f567474f5069f003b9b073ed6b00c93aaf48118e",
+      "label": 0,
+      "score": 0.029313862323760986,
+      "latency_ms": 34.44600000511855
+    },
+    {
+      "image": "chewinggum/Data/Images/Normal/050.JPG",
+      "sha256": "ad96d1884c9368807caa57a36880abb7c0de37f76a54281109c881546bc80a8f",
+      "label": 0,
+      "score": 0.03750273585319519,
+      "latency_ms": 35.26179998880252
+    },
+    {
+      "image": "chewinggum/Data/Images/Normal/084.JPG",
+      "sha256": "3e75aa4a0e911a836e66d28f9a3ba2500d8f5da7d5b523f4755b30af0998198a",
+      "label": 0,
+      "score": 0.03290089964866638,
+      "latency_ms": 34.22990001854487
+    },
+    {
+      "image": "chewinggum/Data/Images/Normal/087.JPG",
+      "sha256": "0dd3b78b0bf61d37423cb5a27d87754b7c8ce3b8e4b63208a0736f86b3b57593",
+      "label": 0,
+      "score": 0.03598320484161377,
+      "latency_ms": 33.81350002018735
+    },
+    {
+      "image": "chewinggum/Data/Images/Normal/089.JPG",
+      "sha256": "1282286569ec48920d9edb7de48f956435f45b83372a2b224f154cc9eafd5b53",
+      "label": 0,
+      "score": 0.03097081184387207,
+      "latency_ms": 35.60640002251603
+    },
+    {
+      "image": "chewinggum/Data/Images/Normal/093.JPG",
+      "sha256": "b712b34d4ab2d25e9bbad1e8d4421b6f1d180380a2b4c2b797fc48264006565b",
+      "label": 0,
+      "score": 0.03710538148880005,
+      "latency_ms": 34.46670001721941
+    },
+    {
+      "image": "chewinggum/Data/Images/Normal/098.JPG",
+      "sha256": "44cf4c303f26252acff7b0b36a8fd8409bf708574dd109db6f8324afc62b4ca5",
+      "label": 0,
+      "score": 0.03236818313598633,
+      "latency_ms": 37.177099991822615
+    },
+    {
+      "image": "chewinggum/Data/Images/Normal/104.JPG",
+      "sha256": "2e89b017c354dc39555f646dbb26dad298f8e4dbd1ae14193ac11b970fd9e0ac",
+      "label": 0,
+      "score": 0.030437201261520386,
+      "latency_ms": 36.65929997805506
+    },
+    {
+      "image": "chewinggum/Data/Images/Normal/130.JPG",
+      "sha256": "08f28f520c7e2bbec8353c84a3fb569756b9c304999854ae56983fd753f595e2",
+      "label": 0,
+      "score": 0.026295512914657593,
+      "latency_ms": 34.20329999062233
+    },
+    {
+      "image": "chewinggum/Data/Images/Normal/143.JPG",
+      "sha256": "e251e8c621362e598b33a3f031ac024c8cf5bfa0b33ae17331490fe79db5a0f7",
+      "label": 0,
+      "score": 0.03171321749687195,
+      "latency_ms": 33.99080000235699
+    },
+    {
+      "image": "chewinggum/Data/Images/Normal/148.JPG",
+      "sha256": "7a640f61d9ea9ec28e6eda5f70bd4dc7a965f1cb7de24f7a894c64ebb98c5127",
+      "label": 0,
+      "score": 0.030969947576522827,
+      "latency_ms": 37.5233999802731
+    },
+    {
+      "image": "chewinggum/Data/Images/Normal/166.JPG",
+      "sha256": "21676fef1e8a79ab0f51946b099ccb96842ecf04c2019d95d4cbca0d99a5154f",
+      "label": 0,
+      "score": 0.026127129793167114,
+      "latency_ms": 38.79140000208281
+    },
+    {
+      "image": "chewinggum/Data/Images/Normal/181.JPG",
+      "sha256": "9ec1c1dbde155ac70c1fd83cc3708253daa20c4d152e38d1c4d6a95844bde006",
+      "label": 0,
+      "score": 0.05639579892158508,
+      "latency_ms": 33.544100006110966
+    },
+    {
+      "image": "chewinggum/Data/Images/Normal/213.JPG",
+      "sha256": "a13cf904a0b3f42ebb3817f4dcfe521f2de4fbfb8232c4681d946fb7337d8a19",
+      "label": 0,
+      "score": 0.036042362451553345,
+      "latency_ms": 34.38780002761632
+    },
+    {
+      "image": "chewinggum/Data/Images/Normal/228.JPG",
+      "sha256": "e6c078d64db157dc6e510b92ca9a3f8785de01944549f292aa747d1f636e1aff",
+      "label": 0,
+      "score": 0.030947893857955933,
+      "latency_ms": 36.05600001174025
+    },
+    {
+      "image": "chewinggum/Data/Images/Normal/239.JPG",
+      "sha256": "a347df192e85044046e36c6c74045565772c2b4f6b4db6027826d06681e1dce5",
+      "label": 0,
+      "score": 0.028913825750350952,
+      "latency_ms": 34.41019999445416
+    },
+    {
+      "image": "chewinggum/Data/Images/Normal/244.JPG",
+      "sha256": "ac5b7d0f06023c833e904a8a4ce645dc9cc1ff0a901eae1699ace803da9fde8b",
+      "label": 0,
+      "score": 0.043953388929367065,
+      "latency_ms": 33.97320001386106
+    },
+    {
+      "image": "chewinggum/Data/Images/Normal/245.JPG",
+      "sha256": "7a4ce420e43e6d332b7779e5164590e1c29c5dff9b93423b2dce2a6684cfb832",
+      "label": 0,
+      "score": 0.04046684503555298,
+      "latency_ms": 34.60249997442588
+    },
+    {
+      "image": "chewinggum/Data/Images/Normal/260.JPG",
+      "sha256": "25ca6b9e7dacb933246ebcb8667bdc88c9df266cb0860815bb5c5c8f50d43afe",
+      "label": 0,
+      "score": 0.03664997220039368,
+      "latency_ms": 34.59069997188635
+    },
+    {
+      "image": "chewinggum/Data/Images/Normal/272.JPG",
+      "sha256": "d89e021e1a8469aea05baecc51f98ec95b509f2a9e85bad56714d269b78a0881",
+      "label": 0,
+      "score": 0.03792446851730347,
+      "latency_ms": 34.72589998273179
+    },
+    {
+      "image": "chewinggum/Data/Images/Normal/276.JPG",
+      "sha256": "e8532143b4bce4c4aa7298fa3c664bd1c439130d6f7ee7dc359f1630a7a52251",
+      "label": 0,
+      "score": 0.030231386423110962,
+      "latency_ms": 35.464299988234416
+    },
+    {
+      "image": "chewinggum/Data/Images/Normal/284.JPG",
+      "sha256": "7db6ad0b627f0cf3bdb5c4edfe05c14903a81111ad902eb8b4c2f0f0ae5cad18",
+      "label": 0,
+      "score": 0.028838634490966797,
+      "latency_ms": 35.86229999200441
+    },
+    {
+      "image": "chewinggum/Data/Images/Normal/307.JPG",
+      "sha256": "8f57745f329ef7ba6bea29dcbcbcf18a309b4b96f7d9a448e55b42b1090ba269",
+      "label": 0,
+      "score": 0.032970130443573,
+      "latency_ms": 34.42839998751879
+    },
+    {
+      "image": "chewinggum/Data/Images/Normal/309.JPG",
+      "sha256": "d5b468b1eb93ab43c89abbfd36a6e717eb703e4db4b497f4aed35f7926fd0809",
+      "label": 0,
+      "score": 0.03471654653549194,
+      "latency_ms": 34.13489999365993
+    },
+    {
+      "image": "chewinggum/Data/Images/Normal/324.JPG",
+      "sha256": "0cf0fd704c149c068e8c029f3a6adcb0bcecb07aa5c8f4f82ad53b4d83a986d9",
+      "label": 0,
+      "score": 0.03271004557609558,
+      "latency_ms": 34.47280000546016
+    },
+    {
+      "image": "chewinggum/Data/Images/Normal/337.JPG",
+      "sha256": "86cee199031d50236be6ebb2e3a4d73d0f2a9509ac498ef41bd01566b7d8f83f",
+      "label": 0,
+      "score": 0.032726794481277466,
+      "latency_ms": 33.481100021163
+    },
+    {
+      "image": "chewinggum/Data/Images/Normal/342.JPG",
+      "sha256": "ff1818f5d5f95c4d8d36064026dcf9bf9ea6a4978a433df3ebe2f468e2723eb1",
+      "label": 0,
+      "score": 0.03883075714111328,
+      "latency_ms": 36.53080001822673
+    },
+    {
+      "image": "chewinggum/Data/Images/Normal/344.JPG",
+      "sha256": "9a4d2854c7cc57bd1698af5ad8dd73fdce70e85bc9d6cf80c93216c4dff040ed",
+      "label": 0,
+      "score": 0.038928836584091187,
+      "latency_ms": 39.77499998291023
+    },
+    {
+      "image": "chewinggum/Data/Images/Normal/352.JPG",
+      "sha256": "5938970329c93a6d493ec8169a7c2477bf4999f5681be59d214454b6e164db55",
+      "label": 0,
+      "score": 0.032420575618743896,
+      "latency_ms": 34.688199986703694
+    },
+    {
+      "image": "chewinggum/Data/Images/Normal/367.JPG",
+      "sha256": "389eb645e2357cb669aeb56401dda0707dfc2ea1053d2d31e6896bb2c71da274",
+      "label": 0,
+      "score": 0.042815595865249634,
+      "latency_ms": 37.39410001435317
+    },
+    {
+      "image": "chewinggum/Data/Images/Normal/369.JPG",
+      "sha256": "e8206305849dd893128e0e0b8517926098f41398d133776282e29d41e73d4d05",
+      "label": 0,
+      "score": 0.040086209774017334,
+      "latency_ms": 35.50040000118315
+    },
+    {
+      "image": "chewinggum/Data/Images/Normal/377.JPG",
+      "sha256": "46cbf6cdf0ddf607d53914918aeed4d6a8e3a3c44c2f30b06aa88fd477065dee",
+      "label": 0,
+      "score": 0.04096159338951111,
+      "latency_ms": 33.942999987630174
+    },
+    {
+      "image": "chewinggum/Data/Images/Normal/384.JPG",
+      "sha256": "295baff280c681719e9360bbc1dc9e0a088ff95f51299a6d42e35c833593557d",
+      "label": 0,
+      "score": 0.04459434747695923,
+      "latency_ms": 36.60310001578182
+    },
+    {
+      "image": "chewinggum/Data/Images/Normal/389.JPG",
+      "sha256": "30034185675972e867710dff5435fd5ae3786e50823f9e657f1814e138a5f5a4",
+      "label": 0,
+      "score": 0.03883740305900574,
+      "latency_ms": 35.513400012860075
+    },
+    {
+      "image": "chewinggum/Data/Images/Normal/392.JPG",
+      "sha256": "f2212df1ec02a4c8662418832cfaa713904e5150231f84d7a7f9ba7e82dfb6fa",
+      "label": 0,
+      "score": 0.03149893879890442,
+      "latency_ms": 33.369299984769896
+    },
+    {
+      "image": "chewinggum/Data/Images/Normal/398.JPG",
+      "sha256": "f5de8448fb721942d5bcb90aef60e19be4945f1c2fd986f8344c33163554baf1",
+      "label": 0,
+      "score": 0.035348594188690186,
+      "latency_ms": 30.67349997581914
+    },
+    {
+      "image": "chewinggum/Data/Images/Normal/400.JPG",
+      "sha256": "7bddf632a183542c7e39d073e946e67ddf436e2d3b8a2f198fc40d7f7388ce93",
+      "label": 0,
+      "score": 0.033342719078063965,
+      "latency_ms": 34.273299999767914
+    },
+    {
+      "image": "chewinggum/Data/Images/Normal/402.JPG",
+      "sha256": "64c6fe0b36f6e80749157b4b9fce15fa198b8e1cae7e609d84971c5745f57826",
+      "label": 0,
+      "score": 0.03293117880821228,
+      "latency_ms": 32.569300004979596
+    },
+    {
+      "image": "chewinggum/Data/Images/Normal/405.JPG",
+      "sha256": "e435eb83acd21b69044f75debfcb789d6a33a8e54106a11be8fae51dc4b3f716",
+      "label": 0,
+      "score": 0.031128495931625366,
+      "latency_ms": 31.048799981363118
+    },
+    {
+      "image": "chewinggum/Data/Images/Normal/435.JPG",
+      "sha256": "cfc212a26d172ee355322392902312fa44cd5d07b11462421ef9c04d68b7e2dd",
+      "label": 0,
+      "score": 0.03363427519798279,
+      "latency_ms": 30.859699996653944
+    },
+    {
+      "image": "chewinggum/Data/Images/Normal/446.JPG",
+      "sha256": "64931256a7a59938ba32cd826fdea9be9c7a4bef4f2569e741e7ba47e44b6c2e",
+      "label": 0,
+      "score": 0.03281494975090027,
+      "latency_ms": 33.492499991552904
+    },
+    {
+      "image": "chewinggum/Data/Images/Normal/460.JPG",
+      "sha256": "0d674d7823a28c5d158dcd5b82955a369008aebfe45e7d5252155e38443b9677",
+      "label": 0,
+      "score": 0.03160905838012695,
+      "latency_ms": 30.446100019617006
+    },
+    {
+      "image": "chewinggum/Data/Images/Normal/461.JPG",
+      "sha256": "29250e8cd7e863cf1efcc7b3347f4ec9b6ffc93a435f17a0aecadf92e1a30807",
+      "label": 0,
+      "score": 0.036146193742752075,
+      "latency_ms": 30.210400000214577
+    },
+    {
+      "image": "chewinggum/Data/Images/Normal/467.JPG",
+      "sha256": "90d914badc4d3adfde5792ad0824c1292b2a1b987199b30bfcc680add4d5c801",
+      "label": 0,
+      "score": 0.04480990767478943,
+      "latency_ms": 30.9494000102859
+    },
+    {
+      "image": "chewinggum/Data/Images/Normal/482.JPG",
+      "sha256": "f00dfe435fbb67b9fbfc8856634a05260a1114812bcea0e1cb27ab66329118ed",
+      "label": 0,
+      "score": 0.034738898277282715,
+      "latency_ms": 30.11490000062622
+    },
+    {
+      "image": "chewinggum/Data/Images/Normal/486.JPG",
+      "sha256": "3095ae3e77e23cc58a1a819d14e488748d0a0288c32d57e2675b70f6c674e70c",
+      "label": 0,
+      "score": 0.04087895154953003,
+      "latency_ms": 30.445099982898682
+    },
+    {
+      "image": "chewinggum/Data/Images/Normal/487.JPG",
+      "sha256": "04e2e3e6ee06f9a68d732a51af67127f3f37d251bb373509df594a40e2aafe72",
+      "label": 0,
+      "score": 0.05969378352165222,
+      "latency_ms": 31.206399988150224
+    },
+    {
+      "image": "chewinggum/Data/Images/Normal/497.JPG",
+      "sha256": "c96aed53c80301e222173839973b5a44f6ccd37c47ce923e42ae3a37c188a526",
+      "label": 0,
+      "score": 0.03245764970779419,
+      "latency_ms": 31.47839999292046
+    },
+    {
+      "image": "chewinggum/Data/Images/Anomaly/023.JPG",
+      "sha256": "5a52df5b316fb675c809223d8438e9b1ac836919b8e4a6bad5931bf2ef1ab56a",
+      "label": 1,
+      "score": 0.09018924832344055,
+      "latency_ms": 31.07799999997951
+    },
+    {
+      "image": "chewinggum/Data/Images/Anomaly/093.JPG",
+      "sha256": "a930873aae6d225aad123d8079b750e3669cdb3e3056c7bd3d4e3d5201fc31c2",
+      "label": 1,
+      "score": 0.12669599056243896,
+      "latency_ms": 31.648000003769994
+    },
+    {
+      "image": "chewinggum/Data/Images/Anomaly/041.JPG",
+      "sha256": "b77823a8c8ae83f3ffaa046b0b081c34addc03a930ff5bc5d78b98dad4754437",
+      "label": 1,
+      "score": 0.17395511269569397,
+      "latency_ms": 29.719999991357327
+    },
+    {
+      "image": "chewinggum/Data/Images/Anomaly/086.JPG",
+      "sha256": "1b4a1879acb4ebc6cd5fe22072cc2df6341ebc8caf1db866c3872de5782cf4fa",
+      "label": 1,
+      "score": 0.05875638127326965,
+      "latency_ms": 30.010999995283782
+    },
+    {
+      "image": "chewinggum/Data/Images/Anomaly/056.JPG",
+      "sha256": "87b3161d7f9e7d318610d841b8917ce370f2a49783594646b6396f9c83cbacfb",
+      "label": 1,
+      "score": 0.21904826164245605,
+      "latency_ms": 32.170699996640906
+    },
+    {
+      "image": "chewinggum/Data/Images/Anomaly/029.JPG",
+      "sha256": "f00d91a16624ab3b4fd485f5f91cd99213f4dbc519c3db4a9446ba43bee36e09",
+      "label": 1,
+      "score": 0.05178964138031006,
+      "latency_ms": 30.37880000192672
+    },
+    {
+      "image": "chewinggum/Data/Images/Anomaly/087.JPG",
+      "sha256": "efe20cfc65a60f70a157fc5710d42f708797163869c51de6b834c62268863526",
+      "label": 1,
+      "score": 0.07396608591079712,
+      "latency_ms": 33.96879998035729
+    },
+    {
+      "image": "chewinggum/Data/Images/Anomaly/077.JPG",
+      "sha256": "13e84be859a6e4a3e197cb0e2e355701151226259bee8b9f6dc42c3d00369493",
+      "label": 1,
+      "score": 0.12430822849273682,
+      "latency_ms": 31.91829999559559
+    },
+    {
+      "image": "chewinggum/Data/Images/Anomaly/042.JPG",
+      "sha256": "5e3fac552fb22e2f69d4afe594c02a1e9e447699ab91c54630d7326cf8787797",
+      "label": 1,
+      "score": 0.11714333295822144,
+      "latency_ms": 34.43570001400076
+    },
+    {
+      "image": "chewinggum/Data/Images/Anomaly/095.JPG",
+      "sha256": "6d49de58c1b72093cd959dcb4605bcb342ecf9781dd208ece15fd375a86fd62f",
+      "label": 1,
+      "score": 0.10659670829772949,
+      "latency_ms": 30.638900003395975
+    },
+    {
+      "image": "chewinggum/Data/Images/Anomaly/045.JPG",
+      "sha256": "bfdc5e2c0592dd805680c7955a7180538f1cdc2429e833207cffcbb89447ae27",
+      "label": 1,
+      "score": 0.264179527759552,
+      "latency_ms": 30.64969999832101
+    },
+    {
+      "image": "chewinggum/Data/Images/Anomaly/012.JPG",
+      "sha256": "9abf3e797963cd1085a50ba4d9e5df311867ecd0ad1972641550b83aba8fd7ac",
+      "label": 1,
+      "score": 0.2577618360519409,
+      "latency_ms": 32.38320001401007
+    },
+    {
+      "image": "chewinggum/Data/Images/Anomaly/075.JPG",
+      "sha256": "1d854e719dbbc7c5bba8f9b0bd93022c956fd1b4daf34ffcdc12ab3f562732fc",
+      "label": 1,
+      "score": 0.057543426752090454,
+      "latency_ms": 30.917500000214204
+    },
+    {
+      "image": "chewinggum/Data/Images/Anomaly/002.JPG",
+      "sha256": "f0d4830cb1dd27f9d77414c6fb8319eb2e67477ac19c0e6f176afc69e0b92b23",
+      "label": 1,
+      "score": 0.1505393385887146,
+      "latency_ms": 31.476300006033853
+    },
+    {
+      "image": "chewinggum/Data/Images/Anomaly/099.JPG",
+      "sha256": "2714d0b0e4eee98f8e4419c8f7f4b476469d7b207d219308cc9b6c57dcb740a6",
+      "label": 1,
+      "score": 0.11154565215110779,
+      "latency_ms": 31.209399981889874
+    },
+    {
+      "image": "chewinggum/Data/Images/Anomaly/039.JPG",
+      "sha256": "f1a314b3e79b4d67f3642e832975cfd9480324ee847176b727ccd79a6e40021f",
+      "label": 1,
+      "score": 0.066343754529953,
+      "latency_ms": 30.933600006392226
+    },
+    {
+      "image": "chewinggum/Data/Images/Anomaly/037.JPG",
+      "sha256": "fe73199d499805fe9e3a0848b6a883b7af314fb944f64b87a342b30dfac9e926",
+      "label": 1,
+      "score": 0.030572593212127686,
+      "latency_ms": 31.283499993151054
+    },
+    {
+      "image": "chewinggum/Data/Images/Anomaly/083.JPG",
+      "sha256": "ad2e4d173597fc1bc09dd4c73b99a766c1a52aa78b8ab77ca5f8f4d9958c5714",
+      "label": 1,
+      "score": 0.12191715836524963,
+      "latency_ms": 31.4428000128828
+    },
+    {
+      "image": "chewinggum/Data/Images/Anomaly/074.JPG",
+      "sha256": "8765af5e09c593b0fd56d1f5100e66d641a7e8fd294673dfa714aec58a820823",
+      "label": 1,
+      "score": 0.06632766127586365,
+      "latency_ms": 30.29870000318624
+    },
+    {
+      "image": "chewinggum/Data/Images/Anomaly/044.JPG",
+      "sha256": "6d350930cc9c57921ea06534f229b53dc9d6e760df15515fc0e6ca94e158e0a7",
+      "label": 1,
+      "score": 0.15304642915725708,
+      "latency_ms": 29.68809998128563
+    },
+    {
+      "image": "chewinggum/Data/Images/Anomaly/051.JPG",
+      "sha256": "9564167c70caabef9bf3415b153c0e885d23b1b283ec8d8885b2c368a378cbd6",
+      "label": 1,
+      "score": 0.1691611111164093,
+      "latency_ms": 32.333800016203895
+    },
+    {
+      "image": "chewinggum/Data/Images/Anomaly/067.JPG",
+      "sha256": "68818c27ae66bcd4aee993b0bb19cf12226efb77e54114ac4af69295f44df886",
+      "label": 1,
+      "score": 0.08126085996627808,
+      "latency_ms": 31.905699986964464
+    },
+    {
+      "image": "chewinggum/Data/Images/Anomaly/059.JPG",
+      "sha256": "a2fbde5fe940480bf703d59ba3ceedeb138e7e20414eab75293187e2f8f5f5f5",
+      "label": 1,
+      "score": 0.1726609170436859,
+      "latency_ms": 30.7166000129655
+    },
+    {
+      "image": "chewinggum/Data/Images/Anomaly/034.JPG",
+      "sha256": "0af3af1b6af3f46de86317a5efc27a6fc1be1a55faf05a9cb08d4cb7b287a22d",
+      "label": 1,
+      "score": 0.03374400734901428,
+      "latency_ms": 37.009899999247864
+    },
+    {
+      "image": "chewinggum/Data/Images/Anomaly/009.JPG",
+      "sha256": "b507be60980e0ea3fdd190b40ada3a34e8156014bf4009f846a85b0d4144d874",
+      "label": 1,
+      "score": 0.20775380730628967,
+      "latency_ms": 31.65739998803474
+    },
+    {
+      "image": "chewinggum/Data/Images/Anomaly/008.JPG",
+      "sha256": "fa13eeaa151cdf492ca4081e669d4e1c977b7323e8c126499893fc891cd5dc4d",
+      "label": 1,
+      "score": 0.13356786966323853,
+      "latency_ms": 31.48730000248179
+    },
+    {
+      "image": "chewinggum/Data/Images/Anomaly/055.JPG",
+      "sha256": "51c61c33f78c060c638a401560950116a50015f7aa823139f3f335af793e9b6f",
+      "label": 1,
+      "score": 0.2500580847263336,
+      "latency_ms": 31.874299980700016
+    },
+    {
+      "image": "chewinggum/Data/Images/Anomaly/096.JPG",
+      "sha256": "f6ab9b92c6df04961f07c9ca1865736360f1b435cebf1f5fabbbe109a0034439",
+      "label": 1,
+      "score": 0.0797625184059143,
+      "latency_ms": 29.745100007858127
+    },
+    {
+      "image": "chewinggum/Data/Images/Anomaly/006.JPG",
+      "sha256": "b81a85941ba79e2767f90bf712c6b6a09871dc960a78b1e7030aaae82d6c4320",
+      "label": 1,
+      "score": 0.25738829374313354,
+      "latency_ms": 32.17560000484809
+    },
+    {
+      "image": "chewinggum/Data/Images/Anomaly/015.JPG",
+      "sha256": "00831be0b21b0f48f9c09950caf0811e0fa245e229ad548fda3b8008fcfa77f8",
+      "label": 1,
+      "score": 0.2502317428588867,
+      "latency_ms": 30.36569998948835
+    },
+    {
+      "image": "chewinggum/Data/Images/Anomaly/031.JPG",
+      "sha256": "8b7ebfd7420c3946bc78ed8632e79a557177c0d55277175cb45aa24255e229ff",
+      "label": 1,
+      "score": 0.03116115927696228,
+      "latency_ms": 29.90940000745468
+    },
+    {
+      "image": "chewinggum/Data/Images/Anomaly/046.JPG",
+      "sha256": "52a6616b73d87632ade0cb57942c8b56ce30ee18e6cb8cc590a3222fb120469f",
+      "label": 1,
+      "score": 0.20704737305641174,
+      "latency_ms": 32.24699999555014
+    },
+    {
+      "image": "chewinggum/Data/Images/Anomaly/043.JPG",
+      "sha256": "85068e102eb56f46bf5e67355e8e1321f2140458764ae8facea516c0a8adc834",
+      "label": 1,
+      "score": 0.17927223443984985,
+      "latency_ms": 35.2771999896504
+    },
+    {
+      "image": "chewinggum/Data/Images/Anomaly/013.JPG",
+      "sha256": "3328d59953cbb9ed64c24ab5a1e9053613e4cb349549785196aa7546e4ce6e43",
+      "label": 1,
+      "score": 0.16122907400131226,
+      "latency_ms": 35.76580001390539
+    },
+    {
+      "image": "chewinggum/Data/Images/Anomaly/027.JPG",
+      "sha256": "97e7c5d9177751241147ebdba09ae3b4e5bc86bd3eec2ea719c79b22f99e44bf",
+      "label": 1,
+      "score": 0.1171843409538269,
+      "latency_ms": 36.61090001696721
+    },
+    {
+      "image": "chewinggum/Data/Images/Anomaly/080.JPG",
+      "sha256": "0db8450ef6a7cd4dd9a7d6755bc847a01b775a92cb59f366b1e963496c2c1670",
+      "label": 1,
+      "score": 0.11866152286529541,
+      "latency_ms": 37.660100002540275
+    },
+    {
+      "image": "chewinggum/Data/Images/Anomaly/047.JPG",
+      "sha256": "780ca71c967832799575a1365c22fe884cbd8fa2f698c1b3392e5eee08115b13",
+      "label": 1,
+      "score": 0.1958518624305725,
+      "latency_ms": 38.59720000764355
+    },
+    {
+      "image": "chewinggum/Data/Images/Anomaly/021.JPG",
+      "sha256": "9d9ef290f8a3b70806fa8cfdb443cc826a712bf814695ccd10e6235bf97442e5",
+      "label": 1,
+      "score": 0.30786508321762085,
+      "latency_ms": 36.53459998895414
+    },
+    {
+      "image": "chewinggum/Data/Images/Anomaly/016.JPG",
+      "sha256": "438435e9c59aa0c69157eaf3b529130455281675012d992b8aedbc2c31ac8ad1",
+      "label": 1,
+      "score": 0.1711825132369995,
+      "latency_ms": 40.39849998662248
+    },
+    {
+      "image": "chewinggum/Data/Images/Anomaly/033.JPG",
+      "sha256": "9c0b8e16d180e75546c9adc9615ae010850ed22e8e0af6057c85f7b653c20ea7",
+      "label": 1,
+      "score": 0.0372048020362854,
+      "latency_ms": 39.86580000491813
+    },
+    {
+      "image": "chewinggum/Data/Images/Anomaly/094.JPG",
+      "sha256": "835a3ea99474bbba90d0f07cf5cf4cbddb2906fb6d8e17e914aaadfc9b4588d1",
+      "label": 1,
+      "score": 0.06227424740791321,
+      "latency_ms": 37.55579999415204
+    },
+    {
+      "image": "chewinggum/Data/Images/Anomaly/048.JPG",
+      "sha256": "e69dfd1fd8e12537fd45955109f4309100da4a327c3c20b5bdbff2fd0ede1f78",
+      "label": 1,
+      "score": 0.252241313457489,
+      "latency_ms": 37.14090000721626
+    },
+    {
+      "image": "chewinggum/Data/Images/Anomaly/079.JPG",
+      "sha256": "8b6d6b310c17712bfb382439ca7d3ce5183d8a1cfbac3b098d338c7ef4ae5689",
+      "label": 1,
+      "score": 0.0767863392829895,
+      "latency_ms": 36.293899989686906
+    },
+    {
+      "image": "chewinggum/Data/Images/Anomaly/053.JPG",
+      "sha256": "1f490f56a701b58080fc5af12e2a7ec901e61b46ac2d98d1edccc78d50db1d2b",
+      "label": 1,
+      "score": 0.2766741216182709,
+      "latency_ms": 35.02229999867268
+    },
+    {
+      "image": "chewinggum/Data/Images/Anomaly/032.JPG",
+      "sha256": "e2d478026faeb2436c97d55adf37db0a96ddafcca630ff1af604e3557946b691",
+      "label": 1,
+      "score": 0.03705722093582153,
+      "latency_ms": 35.60410000500269
+    },
+    {
+      "image": "chewinggum/Data/Images/Anomaly/010.JPG",
+      "sha256": "a0b0c3b9b754bfd769b60e3b32eba021d4950bfd1e0ea1eb5ff9b0bcb916c4db",
+      "label": 1,
+      "score": 0.1264376938343048,
+      "latency_ms": 35.65790000720881
+    },
+    {
+      "image": "chewinggum/Data/Images/Anomaly/003.JPG",
+      "sha256": "b0cec5aacc5d50c470f62af1a463556a3eba279c4d08e39681332a75075e1029",
+      "label": 1,
+      "score": 0.14537227153778076,
+      "latency_ms": 36.95969999535009
+    },
+    {
+      "image": "chewinggum/Data/Images/Anomaly/073.JPG",
+      "sha256": "3c11d989b5c84b4606235ea80a98044c9658333b494d17b073a3c74665ac2bbd",
+      "label": 1,
+      "score": 0.0549701452255249,
+      "latency_ms": 36.46380000282079
+    },
+    {
+      "image": "chewinggum/Data/Images/Anomaly/064.JPG",
+      "sha256": "2a1350c2f8f91d44b06273df91c2839e8ab3d3c5e5a2471bc8e7fddb6948ae67",
+      "label": 1,
+      "score": 0.2556542456150055,
+      "latency_ms": 37.547499989159405
+    },
+    {
+      "image": "chewinggum/Data/Images/Anomaly/022.JPG",
+      "sha256": "ead0183f4d239e83567f8652215cdbbf822211ae43841d84f78acf63d03a8395",
+      "label": 1,
+      "score": 0.11601516604423523,
+      "latency_ms": 36.378699995111674
+    },
+    {
+      "image": "chewinggum/Data/Images/Anomaly/066.JPG",
+      "sha256": "cdef8cf2b6b64aa36e7763f019f45a9b2e085da7777f1fa5f47fec3af6fac0ca",
+      "label": 1,
+      "score": 0.06118053197860718,
+      "latency_ms": 35.71280001779087
+    },
+    {
+      "image": "chewinggum/Data/Images/Anomaly/035.JPG",
+      "sha256": "fc7654bb37811246aba72b99656b5bffb0791e490246dec337c5edce6ff02371",
+      "label": 1,
+      "score": 0.09199118614196777,
+      "latency_ms": 35.258400021120906
+    },
+    {
+      "image": "chewinggum/Data/Images/Anomaly/054.JPG",
+      "sha256": "65f4be0362b2ca3fae482efa598fd409c38fb7665f71bb0f1101a6c9a0c6acaa",
+      "label": 1,
+      "score": 0.1301184594631195,
+      "latency_ms": 40.0206999911461
+    },
+    {
+      "image": "chewinggum/Data/Images/Anomaly/038.JPG",
+      "sha256": "f0f1bd1c13831abb4a85936dd68541d72465cd9e4ee3bb7356b8c482db573ece",
+      "label": 1,
+      "score": 0.09321990609169006,
+      "latency_ms": 36.21009999187663
+    },
+    {
+      "image": "chewinggum/Data/Images/Anomaly/085.JPG",
+      "sha256": "138ce067f8b2cf9b7d06f35734d26ae165567bf99cf39795384a02d48ef1ed7a",
+      "label": 1,
+      "score": 0.09683427214622498,
+      "latency_ms": 37.29330000351183
+    },
+    {
+      "image": "chewinggum/Data/Images/Anomaly/063.JPG",
+      "sha256": "0b4104eb712b377a298b49f3d4add85167d68158fddfdcfb618ad9afbd6360d0",
+      "label": 1,
+      "score": 0.23951920866966248,
+      "latency_ms": 35.38070002105087
+    },
+    {
+      "image": "chewinggum/Data/Images/Anomaly/000.JPG",
+      "sha256": "cf54dc3b8aee8cc4c60b83553a5934d847e9f8fcf94406c359fe2fea17810dd9",
+      "label": 1,
+      "score": 0.21699148416519165,
+      "latency_ms": 36.95830001379363
+    },
+    {
+      "image": "chewinggum/Data/Images/Anomaly/030.JPG",
+      "sha256": "9d6aa064a227c44d22c90340a7b2adbad19236fffccccd9a80df0e1e158119f9",
+      "label": 1,
+      "score": 0.08583909273147583,
+      "latency_ms": 36.18230001302436
+    },
+    {
+      "image": "chewinggum/Data/Images/Anomaly/005.JPG",
+      "sha256": "0926c26d4c1fe7d469bab6377c6e10b0d4b17e453b202cf3f7247713771b98ce",
+      "label": 1,
+      "score": 0.18021172285079956,
+      "latency_ms": 35.319099988555536
+    },
+    {
+      "image": "chewinggum/Data/Images/Anomaly/019.JPG",
+      "sha256": "f68f48bc074475956b0342aefa919bce077ba1185cda8bd84abeb186991dd095",
+      "label": 1,
+      "score": 0.22187814116477966,
+      "latency_ms": 36.759299982804805
+    },
+    {
+      "image": "chewinggum/Data/Images/Anomaly/017.JPG",
+      "sha256": "7ec1939dc343044ad21dafea4f7ab051e9c13956a18038099e2b20683e645263",
+      "label": 1,
+      "score": 0.27061426639556885,
+      "latency_ms": 37.034699984360486
+    },
+    {
+      "image": "chewinggum/Data/Images/Anomaly/062.JPG",
+      "sha256": "8c5e1096fc23386468c52a2e5b8453d829dd5a3dfc9b3ec824f78f4d1dfc7064",
+      "label": 1,
+      "score": 0.20679086446762085,
+      "latency_ms": 36.199099995428696
+    },
+    {
+      "image": "chewinggum/Data/Images/Anomaly/089.JPG",
+      "sha256": "1dbd72c588de4510c6acc5ba5cf2e237c205e6022cca07bb110573c20ffad622",
+      "label": 1,
+      "score": 0.06734985113143921,
+      "latency_ms": 35.57670000009239
+    },
+    {
+      "image": "chewinggum/Data/Images/Anomaly/028.JPG",
+      "sha256": "5743dc16f7dc1f1539d4902c4c9670f2c695e4b9a407e6cdc5b014abcc619649",
+      "label": 1,
+      "score": 0.04110276699066162,
+      "latency_ms": 36.503200011793524
+    },
+    {
+      "image": "chewinggum/Data/Images/Anomaly/084.JPG",
+      "sha256": "7542b60ea6425c2ec12682ed6b6f5ee291926682cdf7152e13bef0d83159752e",
+      "label": 1,
+      "score": 0.13493725657463074,
+      "latency_ms": 38.25370001140982
+    },
+    {
+      "image": "chewinggum/Data/Images/Anomaly/057.JPG",
+      "sha256": "70cb1c721caa548b359a865b6860196ff108e691f36a8aab396c54deb0a18974",
+      "label": 1,
+      "score": 0.17373305559158325,
+      "latency_ms": 37.58390000439249
+    },
+    {
+      "image": "chewinggum/Data/Images/Anomaly/001.JPG",
+      "sha256": "e47e6d72e8f55160d0d47273ae6f7670b5b308e53c1ccf601726b4daf2d24ada",
+      "label": 1,
+      "score": 0.1204291582107544,
+      "latency_ms": 38.79699998651631
+    },
+    {
+      "image": "chewinggum/Data/Images/Anomaly/072.JPG",
+      "sha256": "c0bc30c58f0985f8e30b34ac4284deed8a85d52b45689551ec81a77a3002ec83",
+      "label": 1,
+      "score": 0.06558573246002197,
+      "latency_ms": 36.28010000102222
+    },
+    {
+      "image": "chewinggum/Data/Images/Anomaly/020.JPG",
+      "sha256": "9615ceccb567682c8b69fa87bea18b6bee42f195eb3c43bea836ace7bc47cd9a",
+      "label": 1,
+      "score": 0.15281745791435242,
+      "latency_ms": 38.2656000147108
+    },
+    {
+      "image": "chewinggum/Data/Images/Anomaly/097.JPG",
+      "sha256": "88709f2b9550041f51e9ea3b321a5aa39242306f336eee934e988c4503a28b42",
+      "label": 1,
+      "score": 0.10758700966835022,
+      "latency_ms": 35.64749998622574
+    },
+    {
+      "image": "chewinggum/Data/Images/Anomaly/082.JPG",
+      "sha256": "3ab16eea64147181e8d950da802ca0d8181838f6b08f3b77fb74dfbf9cce3a21",
+      "label": 1,
+      "score": 0.1197347342967987,
+      "latency_ms": 35.99380000378005
+    },
+    {
+      "image": "chewinggum/Data/Images/Anomaly/068.JPG",
+      "sha256": "3ce0f3e42125d6cc3a08e8c9333cd9c7d3075c504ac41cb88fa58f5bc7752a67",
+      "label": 1,
+      "score": 0.06700247526168823,
+      "latency_ms": 36.320900020655245
+    },
+    {
+      "image": "chewinggum/Data/Images/Anomaly/088.JPG",
+      "sha256": "cf3a3d78b9f97639927063ffdd832b2b9beb2e7c7dc5cb25b12ecade4ad60762",
+      "label": 1,
+      "score": 0.11016985774040222,
+      "latency_ms": 38.021699991077185
+    },
+    {
+      "image": "chewinggum/Data/Images/Anomaly/070.JPG",
+      "sha256": "085bf1931c80651ce31c066b7415e9e41bd93a153eca5c875204280d0f1ec4ee",
+      "label": 1,
+      "score": 0.049704909324645996,
+      "latency_ms": 39.088399993488565
+    },
+    {
+      "image": "chewinggum/Data/Images/Anomaly/058.JPG",
+      "sha256": "aee76fb8b46988be09be5958cba31785124377041c96e59472552f8ae88773ef",
+      "label": 1,
+      "score": 0.19306257367134094,
+      "latency_ms": 38.583299989113584
+    },
+    {
+      "image": "chewinggum/Data/Images/Anomaly/049.JPG",
+      "sha256": "ce697f14ebf94ff7ab68aafd1c0fd033893021c53504051de8595a2a952dbafa",
+      "label": 1,
+      "score": 0.22138649225234985,
+      "latency_ms": 38.673600007314235
+    },
+    {
+      "image": "chewinggum/Data/Images/Anomaly/098.JPG",
+      "sha256": "7d1f3f7d39fabb1075fcaf806eb317b01d5062038294b462a90fe7b18284d9fb",
+      "label": 1,
+      "score": 0.11084383726119995,
+      "latency_ms": 37.870500003919005
+    },
+    {
+      "image": "chewinggum/Data/Images/Anomaly/050.JPG",
+      "sha256": "42fed712555376761b8c14182c0aa99cc6a307a3d0d06864ecb34f413261d60c",
+      "label": 1,
+      "score": 0.24602064490318298,
+      "latency_ms": 38.57689999858849
+    },
+    {
+      "image": "chewinggum/Data/Images/Anomaly/069.JPG",
+      "sha256": "4e168af94bc17da900449a8658e4cfcb589b5752a6b8178f4afeeb16ebb2eaf0",
+      "label": 1,
+      "score": 0.06547752022743225,
+      "latency_ms": 39.73680001217872
+    },
+    {
+      "image": "chewinggum/Data/Images/Anomaly/060.JPG",
+      "sha256": "0e0cfa7aff1a0df18f343620224fb8e7c135d53395cccc4d7e095ee16164be09",
+      "label": 1,
+      "score": 0.1897323727607727,
+      "latency_ms": 37.84920001635328
+    }
+  ]
+}

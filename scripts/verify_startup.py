@@ -10,7 +10,7 @@ if __name__=='__main__':
         assert client.get('/api/health').status_code==200
         assert client.get('/').status_code==200
         sample=next((app.state.detector.settings.root/'samples').glob('*.jpg'))
-        result,_=app.state.detector.predict(Image.open(sample),sample.stem.split('_')[0])
+        result,_=app.state.detector.predict(Image.open(sample),sample.stem.rsplit('_',1)[0])
         assert result['score']>=0
         report={'startup':'passed','python':platform.python_version(),'torch':importlib.metadata.version('torch'),
                 'transformers':importlib.metadata.version('transformers'),'real_model_prediction':result}

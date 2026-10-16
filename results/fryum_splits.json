@@ -1,0 +1,1976 @@
+{
+  "train": [
+    {
+      "object": "fryum",
+      "split": "train",
+      "label": "normal",
+      "image": "fryum/Data/Images/Normal/371.JPG",
+      "mask": "",
+      "sha256": "d78f05cc1a3912148cf24d82bff2deb1dcc19e24a7af3d74059e51a167dc66a2"
+    },
+    {
+      "object": "fryum",
+      "split": "train",
+      "label": "normal",
+      "image": "fryum/Data/Images/Normal/199.JPG",
+      "mask": "",
+      "sha256": "5f0e03803239f3fcd8bf835c920fb58629aac9f41168ca1b2c97e61d9f46ca69"
+    },
+    {
+      "object": "fryum",
+      "split": "train",
+      "label": "normal",
+      "image": "fryum/Data/Images/Normal/190.JPG",
+      "mask": "",
+      "sha256": "3b1987f078a56025e84c11ac586eedf0c63787e15a485a5a180c44256c4de39c"
+    },
+    {
+      "object": "fryum",
+      "split": "train",
+      "label": "normal",
+      "image": "fryum/Data/Images/Normal/214.JPG",
+      "mask": "",
+      "sha256": "c16ac0be447ee5881b95e8c0f1871a2ed0b64f884da929aaf2a3dc63d2db6e58"
+    },
+    {
+      "object": "fryum",
+      "split": "train",
+      "label": "normal",
+      "image": "fryum/Data/Images/Normal/252.JPG",
+      "mask": "",
+      "sha256": "5acb325e59adbfc66dd268a974d0e64da57b48ccb689569309137fa49511757c"
+    },
+    {
+      "object": "fryum",
+      "split": "train",
+      "label": "normal",
+      "image": "fryum/Data/Images/Normal/375.JPG",
+      "mask": "",
+      "sha256": "7617392c55aaaa747dd4e1e578014f83a16ab835b95a3b0963fae2cfcdaf5b34"
+    },
+    {
+      "object": "fryum",
+      "split": "train",
+      "label": "normal",
+      "image": "fryum/Data/Images/Normal/404.JPG",
+      "mask": "",
+      "sha256": "b6512bcd638a89721663cad11be8b5d2ec26961ab8ff2d4303d8b55c22e7e291"
+    },
+    {
+      "object": "fryum",
+      "split": "train",
+      "label": "normal",
+      "image": "fryum/Data/Images/Normal/184.JPG",
+      "mask": "",
+      "sha256": "9c8c899442804665860a24ab2b02bdf7e04ce9d17276189c22fe191b8c29a88f"
+    },
+    {
+      "object": "fryum",
+      "split": "train",
+      "label": "normal",
+      "image": "fryum/Data/Images/Normal/118.JPG",
+      "mask": "",
+      "sha256": "1949fda1744dd52f926c9d8397afd609bb9066c3d086df5574d1a3542f7185fc"
+    },
+    {
+      "object": "fryum",
+      "split": "train",
+      "label": "normal",
+      "image": "fryum/Data/Images/Normal/167.JPG",
+      "mask": "",
+      "sha256": "85797d788acafedf5a61dc8bc5520207ae736589ba15f981ba7905920edb57e4"
+    },
+    {
+      "object": "fryum",
+      "split": "train",
+      "label": "normal",
+      "image": "fryum/Data/Images/Normal/201.JPG",
+      "mask": "",
+      "sha256": "4589d80902758ab787eb47ec8245b95d326b64f40384cad0e301f07852f62a31"
+    },
+    {
+      "object": "fryum",
+      "split": "train",
+      "label": "normal",
+      "image": "fryum/Data/Images/Normal/091.JPG",
+      "mask": "",
+      "sha256": "5393f858f1f3469e9c39624fbff2ddedeb2dad5650dcbe9a7fbd5a0df1a144fb"
+    },
+    {
+      "object": "fryum",
+      "split": "train",
+      "label": "normal",
+      "image": "fryum/Data/Images/Normal/049.JPG",
+      "mask": "",
+      "sha256": "549e4ac3a01e5193d8ff88a7b9346f5229bf0cce03cc811c8ba8849129520f49"
+    },
+    {
+      "object": "fryum",
+      "split": "train",
+      "label": "normal",
+      "image": "fryum/Data/Images/Normal/310.JPG",
+      "mask": "",
+      "sha256": "16636abb04468586e45be9f5898140a735d8bf48e3672860e52de03c71f056f5"
+    },
+    {
+      "object": "fryum",
+      "split": "train",
+      "label": "normal",
+      "image": "fryum/Data/Images/Normal/434.JPG",
+      "mask": "",
+      "sha256": "d8dd57f9121cae9d56c58797001d3825d3836c61afce6f3955d54b0c08933e73"
+    },
+    {
+      "object": "fryum",
+      "split": "train",
+      "label": "normal",
+      "image": "fryum/Data/Images/Normal/495.JPG",
+      "mask": "",
+      "sha256": "03f29ec53d7451ea18a5ffce3ac0bd5ead85fef8e96cdb80c7b120cc3e7ad775"
+    },
+    {
+      "object": "fryum",
+      "split": "train",
+      "label": "normal",
+      "image": "fryum/Data/Images/Normal/286.JPG",
+      "mask": "",
+      "sha256": "9698079b5c46d87ca6a053d22c15097088065a9b3e07f986f5382f43dd0ed33d"
+    },
+    {
+      "object": "fryum",
+      "split": "train",
+      "label": "normal",
+      "image": "fryum/Data/Images/Normal/158.JPG",
+      "mask": "",
+      "sha256": "1b344d943458828c8fc3a537eec679eea48150f32077606325431afcfb85ac52"
+    },
+    {
+      "object": "fryum",
+      "split": "train",
+      "label": "normal",
+      "image": "fryum/Data/Images/Normal/200.JPG",
+      "mask": "",
+      "sha256": "f12f0504d0f96b4c9a382dc61dde74d36294672460b2baa556306f0899584d41"
+    },
+    {
+      "object": "fryum",
+      "split": "train",
+      "label": "normal",
+      "image": "fryum/Data/Images/Normal/174.JPG",
+      "mask": "",
+      "sha256": "d66cbad5005c1194dcd4d323452c6dc4b2fd98c63ee0f36c482c26f0b25ce5ad"
+    },
+    {
+      "object": "fryum",
+      "split": "train",
+      "label": "normal",
+      "image": "fryum/Data/Images/Normal/308.JPG",
+      "mask": "",
+      "sha256": "13f2290f42bb79aceebb43807ab98da5b1a0f3c8e6281dfa67fddbe337826277"
+    },
+    {
+      "object": "fryum",
+      "split": "train",
+      "label": "normal",
+      "image": "fryum/Data/Images/Normal/000.JPG",
+      "mask": "",
+      "sha256": "e75b22f67206f2ec4951bc701def13e62fe58cbd768cdc6d9e335a7a7dc51c35"
+    },
+    {
+      "object": "fryum",
+      "split": "train",
+      "label": "normal",
+      "image": "fryum/Data/Images/Normal/368.JPG",
+      "mask": "",
+      "sha256": "6ca31ff45efe256bab666bc730e8b5621725b1988250f7b3a9f21ed89ed67e38"
+    },
+    {
+      "object": "fryum",
+      "split": "train",
+      "label": "normal",
+      "image": "fryum/Data/Images/Normal/136.JPG",
+      "mask": "",
+      "sha256": "ece00f484ebd9739f5ba3b100214c1882d41e33ce6b8de0bca0b6c9cc532c9ad"
+    },
+    {
+      "object": "fryum",
+      "split": "train",
+      "label": "normal",
+      "image": "fryum/Data/Images/Normal/334.JPG",
+      "mask": "",
+      "sha256": "83028994bfc956eb2d4ee22b4158a8fcc0110c2d2f786d9f71d17c8b03e00b5d"
+    },
+    {
+      "object": "fryum",
+      "split": "train",
+      "label": "normal",
+      "image": "fryum/Data/Images/Normal/283.JPG",
+      "mask": "",
+      "sha256": "b0a6fd633e274371984f2e7d66b6e65288ef2952616a735be32cab7f3d1848ad"
+    },
+    {
+      "object": "fryum",
+      "split": "train",
+      "label": "normal",
+      "image": "fryum/Data/Images/Normal/152.JPG",
+      "mask": "",
+      "sha256": "801f7da7b96068d3a2fbe11e88f03296902327b8e6d51be0c7e237a5c2deee8f"
+    },
+    {
+      "object": "fryum",
+      "split": "train",
+      "label": "normal",
+      "image": "fryum/Data/Images/Normal/058.JPG",
+      "mask": "",
+      "sha256": "b98dae90d7647da37f3aa99e0db31b9bba02b5620c6a4c86a2b59377ae7a8d26"
+    },
+    {
+      "object": "fryum",
+      "split": "train",
+      "label": "normal",
+      "image": "fryum/Data/Images/Normal/411.JPG",
+      "mask": "",
+      "sha256": "0011e312bb7ab68103b6978990daab5872e897de2eb5d23db07276738e3efdd8"
+    },
+    {
+      "object": "fryum",
+      "split": "train",
+      "label": "normal",
+      "image": "fryum/Data/Images/Normal/333.JPG",
+      "mask": "",
+      "sha256": "25c75eb04062470a96286b2c1350bd606e5c9469de5de43094ea9529380ce025"
+    },
+    {
+      "object": "fryum",
+      "split": "train",
+      "label": "normal",
+      "image": "fryum/Data/Images/Normal/359.JPG",
+      "mask": "",
+      "sha256": "bf60d6545f7b0a750bb2dac04068bd7296b91e7813189b2a2544c25ddb902cbd"
+    },
+    {
+      "object": "fryum",
+      "split": "train",
+      "label": "normal",
+      "image": "fryum/Data/Images/Normal/144.JPG",
+      "mask": "",
+      "sha256": "5fdb9795751a79ac365d666f8977bba001f155e9baa60fa26b34941e7a45bf37"
+    },
+    {
+      "object": "fryum",
+      "split": "train",
+      "label": "normal",
+      "image": "fryum/Data/Images/Normal/247.JPG",
+      "mask": "",
+      "sha256": "b2c9716a075ccce8d3f154c1640b0fb621071c310eb072f761c5dc91e1adbd58"
+    },
+    {
+      "object": "fryum",
+      "split": "train",
+      "label": "normal",
+      "image": "fryum/Data/Images/Normal/322.JPG",
+      "mask": "",
+      "sha256": "585186a6d1d7193c113b8b87d6d391286fdee808fc56dc2406a7c1c0fd2e2ee6"
+    },
+    {
+      "object": "fryum",
+      "split": "train",
+      "label": "normal",
+      "image": "fryum/Data/Images/Normal/391.JPG",
+      "mask": "",
+      "sha256": "752c5e94853404ce078c22a413d7e6e7cb1bab5dfe488a0ebf28aa71322badb1"
+    },
+    {
+      "object": "fryum",
+      "split": "train",
+      "label": "normal",
+      "image": "fryum/Data/Images/Normal/145.JPG",
+      "mask": "",
+      "sha256": "ade17ab6ecf8c9a1fb8b202398a3ca6a439e6b84356c606e3fa1e0e2ce1e8f77"
+    },
+    {
+      "object": "fryum",
+      "split": "train",
+      "label": "normal",
+      "image": "fryum/Data/Images/Normal/425.JPG",
+      "mask": "",
+      "sha256": "22d3a76ca8ef44a22ed39951073e0f4082d145a269d51b2ce92580f778ca762f"
+    },
+    {
+      "object": "fryum",
+      "split": "train",
+      "label": "normal",
+      "image": "fryum/Data/Images/Normal/056.JPG",
+      "mask": "",
+      "sha256": "36568211a2d472b3cb4b445243f4d8b237497271ff0597c47c335384ac1db0ba"
+    },
+    {
+      "object": "fryum",
+      "split": "train",
+      "label": "normal",
+      "image": "fryum/Data/Images/Normal/280.JPG",
+      "mask": "",
+      "sha256": "ac55a416fa43403bcca4a7825a9859637e30bdd60ac25ba6d773b57ef6aaa445"
+    },
+    {
+      "object": "fryum",
+      "split": "train",
+      "label": "normal",
+      "image": "fryum/Data/Images/Normal/428.JPG",
+      "mask": "",
+      "sha256": "13b50acd3dbc62234765db818971bdf9793e45fc1c051e880de8890a4a1063d5"
+    },
+    {
+      "object": "fryum",
+      "split": "train",
+      "label": "normal",
+      "image": "fryum/Data/Images/Normal/265.JPG",
+      "mask": "",
+      "sha256": "4dd758adbf8c0302adc56487ffea4998b76b60691f6de6e4d76e9ae59c2f56ef"
+    },
+    {
+      "object": "fryum",
+      "split": "train",
+      "label": "normal",
+      "image": "fryum/Data/Images/Normal/037.JPG",
+      "mask": "",
+      "sha256": "17db349e81ed8f7b501af70528ab749beb45844047399b2bbaaa8e9fad312dc9"
+    },
+    {
+      "object": "fryum",
+      "split": "train",
+      "label": "normal",
+      "image": "fryum/Data/Images/Normal/429.JPG",
+      "mask": "",
+      "sha256": "4196190662bb064126c0b1fc734bc9b6db8a58f1db4f8f37ab6c8e83a3da70b2"
+    },
+    {
+      "object": "fryum",
+      "split": "train",
+      "label": "normal",
+      "image": "fryum/Data/Images/Normal/415.JPG",
+      "mask": "",
+      "sha256": "8663b6035c86f8d73b415a8d33da61ed917f61aaf9262928e6d8a8c5c7ffc896"
+    },
+    {
+      "object": "fryum",
+      "split": "train",
+      "label": "normal",
+      "image": "fryum/Data/Images/Normal/048.JPG",
+      "mask": "",
+      "sha256": "5c21c811c0dc56d5a56bac20c997fc8ed2743466bf5d6f98bca9707631793ae3"
+    },
+    {
+      "object": "fryum",
+      "split": "train",
+      "label": "normal",
+      "image": "fryum/Data/Images/Normal/024.JPG",
+      "mask": "",
+      "sha256": "6a9cb903ba9c16d97fa70fbd5f5b01365d2ac259b30734cd8f16325cd8862568"
+    },
+    {
+      "object": "fryum",
+      "split": "train",
+      "label": "normal",
+      "image": "fryum/Data/Images/Normal/086.JPG",
+      "mask": "",
+      "sha256": "68e7e702d29682109abedcbc1257211f4a25f84416d717301c2553efc5e021ee"
+    },
+    {
+      "object": "fryum",
+      "split": "train",
+      "label": "normal",
+      "image": "fryum/Data/Images/Normal/077.JPG",
+      "mask": "",
+      "sha256": "137ccf65792861e6ed27eee50a78c3ae06b65d8ea3cfd7fa6d0752d0beeeacfb"
+    },
+    {
+      "object": "fryum",
+      "split": "train",
+      "label": "normal",
+      "image": "fryum/Data/Images/Normal/085.JPG",
+      "mask": "",
+      "sha256": "0924c8acc53ee49d471082abdd423927604fdcfe6ebae2367900302517cc7159"
+    },
+    {
+      "object": "fryum",
+      "split": "train",
+      "label": "normal",
+      "image": "fryum/Data/Images/Normal/454.JPG",
+      "mask": "",
+      "sha256": "2583e980ab5b9cb7567bd2003ed3479a71dcf5418bf8e22a4ced901d0cbb08c9"
+    },
+    {
+      "object": "fryum",
+      "split": "train",
+      "label": "normal",
+      "image": "fryum/Data/Images/Normal/254.JPG",
+      "mask": "",
+      "sha256": "ed32c0eecf128472fffc411511dc174a8cf889940885b372d78ec0a3c37feeca"
+    },
+    {
+      "object": "fryum",
+      "split": "train",
+      "label": "normal",
+      "image": "fryum/Data/Images/Normal/179.JPG",
+      "mask": "",
+      "sha256": "7541b6931ba7d4bb102ab0b8f4b4e9b465521caa32ae9b49fe18dbe7086d9f50"
+    },
+    {
+      "object": "fryum",
+      "split": "train",
+      "label": "normal",
+      "image": "fryum/Data/Images/Normal/353.JPG",
+      "mask": "",
+      "sha256": "e4b2162650b76027f3a61dce26a01237d2150285fbef4a3ae08015e4d26cc3af"
+    },
+    {
+      "object": "fryum",
+      "split": "train",
+      "label": "normal",
+      "image": "fryum/Data/Images/Normal/251.JPG",
+      "mask": "",
+      "sha256": "8315ae91e4c7aa92cdb9bb78bd5770d4808af5578645588f8a7fa97a638d44a7"
+    },
+    {
+      "object": "fryum",
+      "split": "train",
+      "label": "normal",
+      "image": "fryum/Data/Images/Normal/306.JPG",
+      "mask": "",
+      "sha256": "de8ddb9ea268e0eaed20e40b6ab8b3035617bea0175759d7bb466b0a1183b677"
+    },
+    {
+      "object": "fryum",
+      "split": "train",
+      "label": "normal",
+      "image": "fryum/Data/Images/Normal/279.JPG",
+      "mask": "",
+      "sha256": "b0b771d279e895d698bc9c2d5a6022d596978f15a8e496d5cab30312d1937280"
+    },
+    {
+      "object": "fryum",
+      "split": "train",
+      "label": "normal",
+      "image": "fryum/Data/Images/Normal/030.JPG",
+      "mask": "",
+      "sha256": "4955136c369f428df1737e536387ccf98a77f7d02c8861eadc817d9ce86745f9"
+    },
+    {
+      "object": "fryum",
+      "split": "train",
+      "label": "normal",
+      "image": "fryum/Data/Images/Normal/066.JPG",
+      "mask": "",
+      "sha256": "30734a25d310faf1cf2f4fdb17cd78a8b9ee58976f66f03c2c2a4c1c7a73b64d"
+    },
+    {
+      "object": "fryum",
+      "split": "train",
+      "label": "normal",
+      "image": "fryum/Data/Images/Normal/002.JPG",
+      "mask": "",
+      "sha256": "0ac8a8dafbd607c42130c0f2edc27d30b0bcd7e7674bb10f8003c30e52ef0eff"
+    },
+    {
+      "object": "fryum",
+      "split": "train",
+      "label": "normal",
+      "image": "fryum/Data/Images/Normal/082.JPG",
+      "mask": "",
+      "sha256": "37fda7e81e83c4086213d3ecbcbc8e133a84b5762c3c623ab11af3dd72212f65"
+    },
+    {
+      "object": "fryum",
+      "split": "train",
+      "label": "normal",
+      "image": "fryum/Data/Images/Normal/316.JPG",
+      "mask": "",
+      "sha256": "6964788f4edc2365985420a487e052ab85318016361eb190b3e72aad56384833"
+    },
+    {
+      "object": "fryum",
+      "split": "train",
+      "label": "normal",
+      "image": "fryum/Data/Images/Normal/195.JPG",
+      "mask": "",
+      "sha256": "255e5803fe8117f933ebaa945e11c522a0b1b53290b9c69152dd5a7305a766b9"
+    },
+    {
+      "object": "fryum",
+      "split": "train",
+      "label": "normal",
+      "image": "fryum/Data/Images/Normal/107.JPG",
+      "mask": "",
+      "sha256": "2cc6aab80b0b3c919f5c10fc0d5b296ff9f67e0b6cea2149c405c8a80b5a0f1c"
+    },
+    {
+      "object": "fryum",
+      "split": "train",
+      "label": "normal",
+      "image": "fryum/Data/Images/Normal/363.JPG",
+      "mask": "",
+      "sha256": "bd3ef482caecd06442a3741e0189b0cf35b4eea723471dc7836a206fad4e0f6c"
+    }
+  ],
+  "validation": [
+    {
+      "object": "fryum",
+      "split": "train",
+      "label": "normal",
+      "image": "fryum/Data/Images/Normal/063.JPG",
+      "mask": "",
+      "sha256": "d5e18cbe5e0970cd901902716f42a4b5aa52093af8f4b095898274811a54e3cb"
+    },
+    {
+      "object": "fryum",
+      "split": "train",
+      "label": "normal",
+      "image": "fryum/Data/Images/Normal/112.JPG",
+      "mask": "",
+      "sha256": "7b49d51c793c09df3386beeb21c012f7f21b0b73abdde54ed440b724bd362271"
+    },
+    {
+      "object": "fryum",
+      "split": "train",
+      "label": "normal",
+      "image": "fryum/Data/Images/Normal/249.JPG",
+      "mask": "",
+      "sha256": "a207a7871bec62c905457b417328e821735a825e4f6028b8ac8c059ec6e1d082"
+    },
+    {
+      "object": "fryum",
+      "split": "train",
+      "label": "normal",
+      "image": "fryum/Data/Images/Normal/268.JPG",
+      "mask": "",
+      "sha256": "3fb0b387d98d9027566f049dbd1d918c0ee844e9651c350807765af34e5a16ed"
+    },
+    {
+      "object": "fryum",
+      "split": "train",
+      "label": "normal",
+      "image": "fryum/Data/Images/Normal/293.JPG",
+      "mask": "",
+      "sha256": "5bde5d65e67e3b076dad196f7f0e005a37cd20998b5cb7a2b030a09e477621f9"
+    },
+    {
+      "object": "fryum",
+      "split": "train",
+      "label": "normal",
+      "image": "fryum/Data/Images/Normal/263.JPG",
+      "mask": "",
+      "sha256": "4046c9e2f94a7631dac89e4aab4b9a103c1b9b54ce9f8a9320b948f2be460dde"
+    },
+    {
+      "object": "fryum",
+      "split": "train",
+      "label": "normal",
+      "image": "fryum/Data/Images/Normal/177.JPG",
+      "mask": "",
+      "sha256": "b28dec4f74c88569f1da7ba719baac569e9cb024eb8e91aec8e5050883699fdc"
+    },
+    {
+      "object": "fryum",
+      "split": "train",
+      "label": "normal",
+      "image": "fryum/Data/Images/Normal/436.JPG",
+      "mask": "",
+      "sha256": "49e02d0b2a6604d40b9ca60c513f6873e0a24199e51662c8d256516dc52011d2"
+    },
+    {
+      "object": "fryum",
+      "split": "train",
+      "label": "normal",
+      "image": "fryum/Data/Images/Normal/318.JPG",
+      "mask": "",
+      "sha256": "fa3060326b453bafb72701ec99d2fff3ea5c9ce9c9388d633ed3d32cfbc327dc"
+    },
+    {
+      "object": "fryum",
+      "split": "train",
+      "label": "normal",
+      "image": "fryum/Data/Images/Normal/055.JPG",
+      "mask": "",
+      "sha256": "4f55af8a5a133cc9eb3c3c37ab7537928d67c52cd135e72d132a13b03fdc63dd"
+    },
+    {
+      "object": "fryum",
+      "split": "train",
+      "label": "normal",
+      "image": "fryum/Data/Images/Normal/450.JPG",
+      "mask": "",
+      "sha256": "613ad61179fffadafce8f543e8140b27429fb6daa5ccfb32f75f8746560b403c"
+    },
+    {
+      "object": "fryum",
+      "split": "train",
+      "label": "normal",
+      "image": "fryum/Data/Images/Normal/126.JPG",
+      "mask": "",
+      "sha256": "383b0332dcc281ac62ffab8c287a0ec8bf804ea3e47144163c05f68b951fd4fe"
+    },
+    {
+      "object": "fryum",
+      "split": "train",
+      "label": "normal",
+      "image": "fryum/Data/Images/Normal/132.JPG",
+      "mask": "",
+      "sha256": "5daae0270d61acda0226495798f524b1233c301d9d3e4d21a342e6aa834f1172"
+    },
+    {
+      "object": "fryum",
+      "split": "train",
+      "label": "normal",
+      "image": "fryum/Data/Images/Normal/266.JPG",
+      "mask": "",
+      "sha256": "0d9b139b4747786e25aad39ab4a866da395e9a40e63b925b3254c00b89b37258"
+    },
+    {
+      "object": "fryum",
+      "split": "train",
+      "label": "normal",
+      "image": "fryum/Data/Images/Normal/449.JPG",
+      "mask": "",
+      "sha256": "02a93dcc8fb2d9b7a591d65593dbb9eecd7248c0d5ca8fd7ec9655c5bc233e6b"
+    },
+    {
+      "object": "fryum",
+      "split": "train",
+      "label": "normal",
+      "image": "fryum/Data/Images/Normal/215.JPG",
+      "mask": "",
+      "sha256": "b0f5413d61af406860ebdcd6edbae54f13627ed0bd805313a6b29b5e9eb7aff0"
+    },
+    {
+      "object": "fryum",
+      "split": "train",
+      "label": "normal",
+      "image": "fryum/Data/Images/Normal/311.JPG",
+      "mask": "",
+      "sha256": "c57c18ae9f9cb5536e5261ed655dac96d2363a3df9abcfdb7c22027e58dc11c6"
+    },
+    {
+      "object": "fryum",
+      "split": "train",
+      "label": "normal",
+      "image": "fryum/Data/Images/Normal/154.JPG",
+      "mask": "",
+      "sha256": "e3b35eca146f8da947b3961f98c44d6376a0f6a6f784e678495de5a4f87286dd"
+    },
+    {
+      "object": "fryum",
+      "split": "train",
+      "label": "normal",
+      "image": "fryum/Data/Images/Normal/335.JPG",
+      "mask": "",
+      "sha256": "f1a5014711551ee165934b89318d164b1e29d129a0306ca1ea3076dd4e7656b9"
+    },
+    {
+      "object": "fryum",
+      "split": "train",
+      "label": "normal",
+      "image": "fryum/Data/Images/Normal/470.JPG",
+      "mask": "",
+      "sha256": "3e8175932ed0a792d2ed28d1f057ed0afd91b405992970c5d5729bdf7b6f3e97"
+    },
+    {
+      "object": "fryum",
+      "split": "train",
+      "label": "normal",
+      "image": "fryum/Data/Images/Normal/282.JPG",
+      "mask": "",
+      "sha256": "6ac41147ebbc6d2420e08b69f0fb90e41c7e31b8c64bef1f463ffd964a0f94e1"
+    },
+    {
+      "object": "fryum",
+      "split": "train",
+      "label": "normal",
+      "image": "fryum/Data/Images/Normal/146.JPG",
+      "mask": "",
+      "sha256": "ff11e5afcf7fa14faccd108b0ef3062c48dd3440805fb7abaf2b5c1d393f5cc0"
+    },
+    {
+      "object": "fryum",
+      "split": "train",
+      "label": "normal",
+      "image": "fryum/Data/Images/Normal/478.JPG",
+      "mask": "",
+      "sha256": "c94139a21e75d8af3b5bca28602cc1b7e9f7cc3eed3f3b50214bee63ba0e008b"
+    },
+    {
+      "object": "fryum",
+      "split": "train",
+      "label": "normal",
+      "image": "fryum/Data/Images/Normal/165.JPG",
+      "mask": "",
+      "sha256": "e4c835c01923412cd613b2968395bbbb6c32626078956fcf89c954cf89a9280e"
+    },
+    {
+      "object": "fryum",
+      "split": "train",
+      "label": "normal",
+      "image": "fryum/Data/Images/Normal/346.JPG",
+      "mask": "",
+      "sha256": "6a66551c5e4a29cb7c14fbb24ccaadb341a36b4ece6524a4ab370f05d56eea49"
+    },
+    {
+      "object": "fryum",
+      "split": "train",
+      "label": "normal",
+      "image": "fryum/Data/Images/Normal/448.JPG",
+      "mask": "",
+      "sha256": "793ea2ac5cd878443225439b61434110cd9b1f41608b1b863316882a32c9f890"
+    },
+    {
+      "object": "fryum",
+      "split": "train",
+      "label": "normal",
+      "image": "fryum/Data/Images/Normal/466.JPG",
+      "mask": "",
+      "sha256": "ae4a6054fef1ef3f237d3b988f6b9608ed8804af6c4e2fa811cb31fc375c3bf3"
+    },
+    {
+      "object": "fryum",
+      "split": "train",
+      "label": "normal",
+      "image": "fryum/Data/Images/Normal/290.JPG",
+      "mask": "",
+      "sha256": "c2a177a604b29a99ccf31f0fb915cd43cfd52cb36fd161b43434391d59c58c89"
+    },
+    {
+      "object": "fryum",
+      "split": "train",
+      "label": "normal",
+      "image": "fryum/Data/Images/Normal/485.JPG",
+      "mask": "",
+      "sha256": "6d7393d8874c0ce0d9ccb5083e5b4dde2bd937a1ccaa3868b7d79799d6a0113a"
+    },
+    {
+      "object": "fryum",
+      "split": "train",
+      "label": "normal",
+      "image": "fryum/Data/Images/Normal/275.JPG",
+      "mask": "",
+      "sha256": "b6da834390dc3f5066b064a2c4c09f93046d7983fc479790915f80d15d1e7ee4"
+    },
+    {
+      "object": "fryum",
+      "split": "train",
+      "label": "normal",
+      "image": "fryum/Data/Images/Normal/285.JPG",
+      "mask": "",
+      "sha256": "cc768f3d553a61df2748131f483cdb37af05d254baedc2798d780cd0c404eba7"
+    },
+    {
+      "object": "fryum",
+      "split": "train",
+      "label": "normal",
+      "image": "fryum/Data/Images/Normal/420.JPG",
+      "mask": "",
+      "sha256": "1144ef9fa80c3f948b9fc668e5bbb54ade0be1217fedd980385d176c25d7e91f"
+    },
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "anomaly",
+      "image": "fryum/Data/Images/Anomaly/025.JPG",
+      "mask": "fryum/Data/Masks/Anomaly/025.png",
+      "sha256": "066acf02798373007ef6a764778045cf7b8326fba1aecb49758a87f47d5b7850"
+    },
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "anomaly",
+      "image": "fryum/Data/Images/Anomaly/007.JPG",
+      "mask": "fryum/Data/Masks/Anomaly/007.png",
+      "sha256": "cfa6515dcdc9710b79626f67379bc22bebc333d3336d114041ae55911a4cd293"
+    },
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "anomaly",
+      "image": "fryum/Data/Images/Anomaly/090.JPG",
+      "mask": "fryum/Data/Masks/Anomaly/090.png",
+      "sha256": "3538f10a1d93329b6b3512454f12d304bad710ba16d6f873decf595de8daec7a"
+    },
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "anomaly",
+      "image": "fryum/Data/Images/Anomaly/092.JPG",
+      "mask": "fryum/Data/Masks/Anomaly/092.png",
+      "sha256": "fdb4cf586219e9b3dbab6914cb432e3ccdf44638e89e29d9557a743aec5d4736"
+    },
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "anomaly",
+      "image": "fryum/Data/Images/Anomaly/011.JPG",
+      "mask": "fryum/Data/Masks/Anomaly/011.png",
+      "sha256": "bc67c9c2582c17a83b159af30264bee5589e217f033285fb755e22279ad45597"
+    },
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "anomaly",
+      "image": "fryum/Data/Images/Anomaly/036.JPG",
+      "mask": "fryum/Data/Masks/Anomaly/036.png",
+      "sha256": "0ae1a4ae995b0f87ceed9e19b6481dcc7cd765762332375731f28121ea05e830"
+    },
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "anomaly",
+      "image": "fryum/Data/Images/Anomaly/081.JPG",
+      "mask": "fryum/Data/Masks/Anomaly/081.png",
+      "sha256": "6f55f9413413d3febdef98b1919cb5882c0df8a9b6d28580ab8665be92be8e60"
+    },
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "anomaly",
+      "image": "fryum/Data/Images/Anomaly/078.JPG",
+      "mask": "fryum/Data/Masks/Anomaly/078.png",
+      "sha256": "1842f432c408697c50f52e6f7ac31be2a1907d4c3e45a9644488f5b179a2202a"
+    },
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "anomaly",
+      "image": "fryum/Data/Images/Anomaly/024.JPG",
+      "mask": "fryum/Data/Masks/Anomaly/024.png",
+      "sha256": "d326521b9d6b60bd3bd2a5bba087f09e92b383c2a913430e78d2b41256c05f47"
+    },
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "anomaly",
+      "image": "fryum/Data/Images/Anomaly/040.JPG",
+      "mask": "fryum/Data/Masks/Anomaly/040.png",
+      "sha256": "fc19c237e13cebd83e343f91bbd803372ad7f1a07935bc78a74227badcae1ede"
+    },
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "anomaly",
+      "image": "fryum/Data/Images/Anomaly/018.JPG",
+      "mask": "fryum/Data/Masks/Anomaly/018.png",
+      "sha256": "1e9a51c45b92bbb53bec75cd5411581ad545226f0e4415f5c2f4c5056d2d244b"
+    },
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "anomaly",
+      "image": "fryum/Data/Images/Anomaly/076.JPG",
+      "mask": "fryum/Data/Masks/Anomaly/076.png",
+      "sha256": "dc4ac3faa4555bb81c6389645b3dac6feceee097d243bb1a5f485f9eb40b3749"
+    },
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "anomaly",
+      "image": "fryum/Data/Images/Anomaly/061.JPG",
+      "mask": "fryum/Data/Masks/Anomaly/061.png",
+      "sha256": "2711fe2e4efab6f7dd231c0c3d6a9efd4e1757f29ff3f398fc84382c62e880b3"
+    },
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "anomaly",
+      "image": "fryum/Data/Images/Anomaly/091.JPG",
+      "mask": "fryum/Data/Masks/Anomaly/091.png",
+      "sha256": "8f4877d4234da0c03309dd08bea8ef7707baad87ed5b54c8c671664c5571c539"
+    },
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "anomaly",
+      "image": "fryum/Data/Images/Anomaly/052.JPG",
+      "mask": "fryum/Data/Masks/Anomaly/052.png",
+      "sha256": "62fc400c8af0c97d8308fbec64c86c64a14442c62eb550c58b5e75c3d0a51fe8"
+    },
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "anomaly",
+      "image": "fryum/Data/Images/Anomaly/071.JPG",
+      "mask": "fryum/Data/Masks/Anomaly/071.png",
+      "sha256": "d9e0c861832b343dd07240bd13650a59ea4d3a432bd2945af315f27ecb4bd754"
+    },
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "anomaly",
+      "image": "fryum/Data/Images/Anomaly/004.JPG",
+      "mask": "fryum/Data/Masks/Anomaly/004.png",
+      "sha256": "c0ed8287db0248bde475a3dc858b83860f480c6e79bb988a4f0d258e9b08bb6c"
+    },
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "anomaly",
+      "image": "fryum/Data/Images/Anomaly/026.JPG",
+      "mask": "fryum/Data/Masks/Anomaly/026.png",
+      "sha256": "04dcd932f5483346ad3dbcc58b13ac9dcf9614a854125689ee5488cfeabc831c"
+    },
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "anomaly",
+      "image": "fryum/Data/Images/Anomaly/065.JPG",
+      "mask": "fryum/Data/Masks/Anomaly/065.png",
+      "sha256": "cd8c54d4cf874e75fa50d75b523df8e77b90132ba9987146edcf1c6cd905c2ef"
+    },
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "anomaly",
+      "image": "fryum/Data/Images/Anomaly/014.JPG",
+      "mask": "fryum/Data/Masks/Anomaly/014.png",
+      "sha256": "8267abe3de1d28dbd35b1892e9bcb0e957f78fb15b04a4de787dc3d41e853494"
+    }
+  ],
+  "test": [
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "normal",
+      "image": "fryum/Data/Images/Normal/006.JPG",
+      "mask": "",
+      "sha256": "14645fde04e076f2362aaba6688710c8b29cffe94be14439e880f9cf039f0f83"
+    },
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "normal",
+      "image": "fryum/Data/Images/Normal/012.JPG",
+      "mask": "",
+      "sha256": "73b16366583abea44b441ea854b3d3a4d3b7e7cd47abc39e8f99698935010248"
+    },
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "normal",
+      "image": "fryum/Data/Images/Normal/013.JPG",
+      "mask": "",
+      "sha256": "a17f1c2bf885f438f02023b7ebfb78a1bb190c4c8197638dd37e1b0eec84cfd9"
+    },
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "normal",
+      "image": "fryum/Data/Images/Normal/023.JPG",
+      "mask": "",
+      "sha256": "db548191207692cbc34dea7dad16eac3d71530a87546aab09618f0256fa73a9a"
+    },
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "normal",
+      "image": "fryum/Data/Images/Normal/050.JPG",
+      "mask": "",
+      "sha256": "dc6eb2c122b8d610d3cf769f8f09fd18b827bb70874addf3cf648c16efe77126"
+    },
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "normal",
+      "image": "fryum/Data/Images/Normal/084.JPG",
+      "mask": "",
+      "sha256": "5bb8b3388658191483923f5b34608e65fba98564addd8e4a52453226ac064605"
+    },
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "normal",
+      "image": "fryum/Data/Images/Normal/087.JPG",
+      "mask": "",
+      "sha256": "5cd8cf26b477b8d6afd778f8394fe9e915cb316660cfcd45ab78f13a2da27837"
+    },
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "normal",
+      "image": "fryum/Data/Images/Normal/089.JPG",
+      "mask": "",
+      "sha256": "26a01f50ddd796e601875228cd570767eddca1993090309949e917a57908a3c5"
+    },
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "normal",
+      "image": "fryum/Data/Images/Normal/093.JPG",
+      "mask": "",
+      "sha256": "80fe64758838707d7e94e64c612360154107935a8e21c036c79661ddbc55c6e6"
+    },
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "normal",
+      "image": "fryum/Data/Images/Normal/098.JPG",
+      "mask": "",
+      "sha256": "85e89ddf9c346894b6a58e546b80b9cebcab342cb7b2f011f99e506cf0f096ba"
+    },
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "normal",
+      "image": "fryum/Data/Images/Normal/104.JPG",
+      "mask": "",
+      "sha256": "6766d231ca0dc8ad06c88839ffacd603840f5eba33c58539d50333458500553f"
+    },
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "normal",
+      "image": "fryum/Data/Images/Normal/130.JPG",
+      "mask": "",
+      "sha256": "3c320badc2d1d94fd131737526dab2b09cbcdd58013f1aa4badf41688cca58d9"
+    },
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "normal",
+      "image": "fryum/Data/Images/Normal/143.JPG",
+      "mask": "",
+      "sha256": "858a324aaebecc9d45a17f73cbde58dad3c3017a10d7c4aa5ccbda7a45dc0220"
+    },
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "normal",
+      "image": "fryum/Data/Images/Normal/148.JPG",
+      "mask": "",
+      "sha256": "d4911f579c5222e389b46742589f88627c653ebada78751b3dd9729fb36266ea"
+    },
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "normal",
+      "image": "fryum/Data/Images/Normal/166.JPG",
+      "mask": "",
+      "sha256": "21b0a448ba35872e140767986947e41d754ee7f1b1023708136567e8dfe738e9"
+    },
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "normal",
+      "image": "fryum/Data/Images/Normal/181.JPG",
+      "mask": "",
+      "sha256": "90469b9e7de6bc454458a2e19ebe0c807d6f9b363ee815e9a939ae216fd2d7ab"
+    },
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "normal",
+      "image": "fryum/Data/Images/Normal/213.JPG",
+      "mask": "",
+      "sha256": "643915cfe547270336077b43e35e50576733bbb55afa9faafd4b4e6da5b67c84"
+    },
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "normal",
+      "image": "fryum/Data/Images/Normal/228.JPG",
+      "mask": "",
+      "sha256": "f4a9c3c0d52a1de0b0172fb1e1c8cae890531a5b06da2d6e711c13be3b54d2b1"
+    },
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "normal",
+      "image": "fryum/Data/Images/Normal/239.JPG",
+      "mask": "",
+      "sha256": "5b1bf851e7b917ec5251d5db0dd89c13ab9270fd2aa1616670fbc4e0c924c3d4"
+    },
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "normal",
+      "image": "fryum/Data/Images/Normal/244.JPG",
+      "mask": "",
+      "sha256": "0248bed99fa3880cf7a77c80cbb2062df772dd48069aeb933e423af2489bbd53"
+    },
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "normal",
+      "image": "fryum/Data/Images/Normal/245.JPG",
+      "mask": "",
+      "sha256": "d42890c01abf725b80e8360530afeb6a748323685bbcf585281346a6c7239c47"
+    },
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "normal",
+      "image": "fryum/Data/Images/Normal/260.JPG",
+      "mask": "",
+      "sha256": "c7396c9623e52789caa318a7343bfd9d11583e5f685b8b1a004e74aa60d085c6"
+    },
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "normal",
+      "image": "fryum/Data/Images/Normal/272.JPG",
+      "mask": "",
+      "sha256": "243bed5f1e9dabc291189b5f02ba984902371c44f769513f41ab0490af825dc6"
+    },
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "normal",
+      "image": "fryum/Data/Images/Normal/276.JPG",
+      "mask": "",
+      "sha256": "8046428b4e50e7232230b94205e4ddcc4a45318d3da7e66b45d89d915973db77"
+    },
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "normal",
+      "image": "fryum/Data/Images/Normal/284.JPG",
+      "mask": "",
+      "sha256": "b5d1be27fb34748dde6301193d8fa19eb43bc882bc3a7fe8212cda7ba23ba623"
+    },
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "normal",
+      "image": "fryum/Data/Images/Normal/307.JPG",
+      "mask": "",
+      "sha256": "a276968afd87f4b9dc1a7d9309993336e9c764b4f0055e66396d9fd693f4f11b"
+    },
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "normal",
+      "image": "fryum/Data/Images/Normal/309.JPG",
+      "mask": "",
+      "sha256": "c773b7acb4af58781191b35421b19e6a1460b213c00337f63b5c2c48c8cfa16f"
+    },
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "normal",
+      "image": "fryum/Data/Images/Normal/324.JPG",
+      "mask": "",
+      "sha256": "dd236a16e64fb26875fcfa3ea683b158346aad7195143af37d2d7ce390d1e3e4"
+    },
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "normal",
+      "image": "fryum/Data/Images/Normal/337.JPG",
+      "mask": "",
+      "sha256": "1faf9fb1966c8859f96b78d63658ea851b9f988b9398a355f09d54b37db595e4"
+    },
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "normal",
+      "image": "fryum/Data/Images/Normal/342.JPG",
+      "mask": "",
+      "sha256": "55f9c1316b76364f5b03d409bf5bd70e24323704ab292084cd25ecf166652e70"
+    },
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "normal",
+      "image": "fryum/Data/Images/Normal/344.JPG",
+      "mask": "",
+      "sha256": "c467f4eda7c7c2eeafec4c04f08d476c7440df94c2bda2f8571aadda4ed5761d"
+    },
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "normal",
+      "image": "fryum/Data/Images/Normal/352.JPG",
+      "mask": "",
+      "sha256": "ea1de94b932a51357546a394281af1822c2a18dbe00d3a414a1537202f502eeb"
+    },
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "normal",
+      "image": "fryum/Data/Images/Normal/367.JPG",
+      "mask": "",
+      "sha256": "9ec90ed0b5e8b806b220943038f926c6f11731c0109ba5ac0de7634f7e043608"
+    },
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "normal",
+      "image": "fryum/Data/Images/Normal/369.JPG",
+      "mask": "",
+      "sha256": "989b125a15f5bef9086bba0aab22155c15cd955631f0c5583dacf5e0f0334052"
+    },
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "normal",
+      "image": "fryum/Data/Images/Normal/377.JPG",
+      "mask": "",
+      "sha256": "1fad3113220b049c8113b6be0dd57b17441abee658a1a49a8f04bf48fb8fa06e"
+    },
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "normal",
+      "image": "fryum/Data/Images/Normal/384.JPG",
+      "mask": "",
+      "sha256": "24e63fe54409e4ff4344d1c3c5cc930cfed40e80c44032189c56aecd8f5d14c0"
+    },
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "normal",
+      "image": "fryum/Data/Images/Normal/389.JPG",
+      "mask": "",
+      "sha256": "3c05dcf1c165cbdbd58c633f4a634ea2f31ff8daa46e496d43adf63bef2d0f89"
+    },
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "normal",
+      "image": "fryum/Data/Images/Normal/392.JPG",
+      "mask": "",
+      "sha256": "a6b895ebb9acc367ed8458f1c91343275b91a88b308936cf02e2a785ee2b4015"
+    },
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "normal",
+      "image": "fryum/Data/Images/Normal/398.JPG",
+      "mask": "",
+      "sha256": "a8c37ff17773f2f94c5c2a96f3a9d81797313fa941890cbf5bb426f68a8936c2"
+    },
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "normal",
+      "image": "fryum/Data/Images/Normal/400.JPG",
+      "mask": "",
+      "sha256": "6a20b1475d7e035227787df106808474ebc07be0530f10fc8d347f92588d492d"
+    },
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "normal",
+      "image": "fryum/Data/Images/Normal/402.JPG",
+      "mask": "",
+      "sha256": "236433b470850d6061c9d3cea85ec2be4f3b5d8e6caa2d96a579ab76b37ea42f"
+    },
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "normal",
+      "image": "fryum/Data/Images/Normal/405.JPG",
+      "mask": "",
+      "sha256": "9be1911119237ac1d65a6d69abd838c7d07eeb2084c3e6edd57f753ae55ed970"
+    },
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "normal",
+      "image": "fryum/Data/Images/Normal/435.JPG",
+      "mask": "",
+      "sha256": "a4227775b9ae20e2cad322ffe0735597d08a1b2d8ec5302c208c6df588cc1bce"
+    },
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "normal",
+      "image": "fryum/Data/Images/Normal/446.JPG",
+      "mask": "",
+      "sha256": "872aab6e3dcbd647acfe00c52917ba413f1c0efdc352230dc3aefdbfafdc4bb2"
+    },
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "normal",
+      "image": "fryum/Data/Images/Normal/460.JPG",
+      "mask": "",
+      "sha256": "892614dd5d2ce2b080136ef54fc175e225931c10adadfe782ff65013849e2bcc"
+    },
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "normal",
+      "image": "fryum/Data/Images/Normal/461.JPG",
+      "mask": "",
+      "sha256": "901b4a48f87721635f6d475c0c41de9ac80e423d6dd8b2ed035b08da74b4ba85"
+    },
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "normal",
+      "image": "fryum/Data/Images/Normal/467.JPG",
+      "mask": "",
+      "sha256": "c8f66a8a4fe18d7cdf8dc5055add8f704548a8ed3fdd1a90a60e217d28136544"
+    },
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "normal",
+      "image": "fryum/Data/Images/Normal/482.JPG",
+      "mask": "",
+      "sha256": "1f61bf836ede10fa60771c7f982eba729340ed73f04470e4429e17a70bf6e8df"
+    },
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "normal",
+      "image": "fryum/Data/Images/Normal/484.JPG",
+      "mask": "",
+      "sha256": "9300491f5b8e48d854c5b877a661990da4f37f351d5ee6571486df73871d920a"
+    },
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "normal",
+      "image": "fryum/Data/Images/Normal/487.JPG",
+      "mask": "",
+      "sha256": "cd0c3bc013dee5451839a77f6efe99a4840034e58c46a365f2c56fe9157bae6f"
+    },
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "anomaly",
+      "image": "fryum/Data/Images/Anomaly/023.JPG",
+      "mask": "fryum/Data/Masks/Anomaly/023.png",
+      "sha256": "ee13f55b345ddd997d31df17d8bcc75a3f0dd31edd2ef53ac232cb72483c4994"
+    },
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "anomaly",
+      "image": "fryum/Data/Images/Anomaly/093.JPG",
+      "mask": "fryum/Data/Masks/Anomaly/093.png",
+      "sha256": "37dc09ffdca8f77d175d4b53f355183b07ccc3014d8d215d2a6c85b8bcd9b9a3"
+    },
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "anomaly",
+      "image": "fryum/Data/Images/Anomaly/041.JPG",
+      "mask": "fryum/Data/Masks/Anomaly/041.png",
+      "sha256": "d5d37d40ee31db512dba664c79878bd6c1a89e14253da8f3bb6c495ac4837385"
+    },
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "anomaly",
+      "image": "fryum/Data/Images/Anomaly/086.JPG",
+      "mask": "fryum/Data/Masks/Anomaly/086.png",
+      "sha256": "168942c60a0ae90598a6f63e489dc99ead956a32197293dea51328b4a2e9d008"
+    },
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "anomaly",
+      "image": "fryum/Data/Images/Anomaly/056.JPG",
+      "mask": "fryum/Data/Masks/Anomaly/056.png",
+      "sha256": "f25f4f10e729b27fbbdc28bef8e86ee8bb9508e80942530d4508a366a6753de6"
+    },
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "anomaly",
+      "image": "fryum/Data/Images/Anomaly/029.JPG",
+      "mask": "fryum/Data/Masks/Anomaly/029.png",
+      "sha256": "133e01f64fedc1027d8e4b424b10af1031cd7722eed0c2e8369c47262ecfa2b3"
+    },
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "anomaly",
+      "image": "fryum/Data/Images/Anomaly/087.JPG",
+      "mask": "fryum/Data/Masks/Anomaly/087.png",
+      "sha256": "5ff93db7a8ccb1aab4f86dd271cd460e705ed3983fc24dc4f577e8b8834497d5"
+    },
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "anomaly",
+      "image": "fryum/Data/Images/Anomaly/077.JPG",
+      "mask": "fryum/Data/Masks/Anomaly/077.png",
+      "sha256": "bdd4b74c44123350829a15a2872386e5c91f9685a500daf737381b83aeac1bbc"
+    },
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "anomaly",
+      "image": "fryum/Data/Images/Anomaly/042.JPG",
+      "mask": "fryum/Data/Masks/Anomaly/042.png",
+      "sha256": "0f602414a603886e773421c8eea9efaf7f3963cba56e541adbcbe78dc8f7e9c5"
+    },
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "anomaly",
+      "image": "fryum/Data/Images/Anomaly/095.JPG",
+      "mask": "fryum/Data/Masks/Anomaly/095.png",
+      "sha256": "612ab2e664d155c62465bbee8d19942fc6c0331d4dd9eeb593a3f19b129814d9"
+    },
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "anomaly",
+      "image": "fryum/Data/Images/Anomaly/045.JPG",
+      "mask": "fryum/Data/Masks/Anomaly/045.png",
+      "sha256": "c8f57008611a6cb4a9ba8918fed8cba7facc232d0bc229124719f88462685126"
+    },
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "anomaly",
+      "image": "fryum/Data/Images/Anomaly/012.JPG",
+      "mask": "fryum/Data/Masks/Anomaly/012.png",
+      "sha256": "22d46fe93b56c9c54c70798c09510990dd80427f764469d742ccab3ae19cd22c"
+    },
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "anomaly",
+      "image": "fryum/Data/Images/Anomaly/075.JPG",
+      "mask": "fryum/Data/Masks/Anomaly/075.png",
+      "sha256": "dbd2631f13dce6dad47c9f0c4e5e48fb755def169a580434a09a1e30c171586e"
+    },
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "anomaly",
+      "image": "fryum/Data/Images/Anomaly/002.JPG",
+      "mask": "fryum/Data/Masks/Anomaly/002.png",
+      "sha256": "e3c2306694b9c2c3e17739cad6db820d2bd6f0eb13eae97edd5311c9f4d5c043"
+    },
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "anomaly",
+      "image": "fryum/Data/Images/Anomaly/099.JPG",
+      "mask": "fryum/Data/Masks/Anomaly/099.png",
+      "sha256": "86e42da714c928179061b16e68e462ca16b7a4cd1ac87c4914b404dcdc9bf4bf"
+    },
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "anomaly",
+      "image": "fryum/Data/Images/Anomaly/039.JPG",
+      "mask": "fryum/Data/Masks/Anomaly/039.png",
+      "sha256": "a858a3225486abcaf7eb0af440471053cc266d7834611f57b6268146e4ce435b"
+    },
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "anomaly",
+      "image": "fryum/Data/Images/Anomaly/037.JPG",
+      "mask": "fryum/Data/Masks/Anomaly/037.png",
+      "sha256": "33dc9a7d67391f49d3b3f82e492c850d339ed616320c31f439cdafd0e7538416"
+    },
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "anomaly",
+      "image": "fryum/Data/Images/Anomaly/083.JPG",
+      "mask": "fryum/Data/Masks/Anomaly/083.png",
+      "sha256": "bad32bd5bc574f0c6fcf3eeea05d2061f2f8bd2de326d49eb7936051f82407d3"
+    },
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "anomaly",
+      "image": "fryum/Data/Images/Anomaly/074.JPG",
+      "mask": "fryum/Data/Masks/Anomaly/074.png",
+      "sha256": "26b22385f1e652ace9e6da708daeaaa2be4e993d9b9ef078f07a50bc189afd7d"
+    },
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "anomaly",
+      "image": "fryum/Data/Images/Anomaly/044.JPG",
+      "mask": "fryum/Data/Masks/Anomaly/044.png",
+      "sha256": "afde46f9401eb76039499d484cbc412e8ad5542adb9c2341ae5478f24bdbeab2"
+    },
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "anomaly",
+      "image": "fryum/Data/Images/Anomaly/051.JPG",
+      "mask": "fryum/Data/Masks/Anomaly/051.png",
+      "sha256": "6b6c78513751314419209dffa03c21d693c0791f4e9ec92158addb73c1eca987"
+    },
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "anomaly",
+      "image": "fryum/Data/Images/Anomaly/067.JPG",
+      "mask": "fryum/Data/Masks/Anomaly/067.png",
+      "sha256": "ad662d336c2daa1b8225a499c27331be0eaa9800d7e7855e0e1b53807fe3879f"
+    },
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "anomaly",
+      "image": "fryum/Data/Images/Anomaly/059.JPG",
+      "mask": "fryum/Data/Masks/Anomaly/059.png",
+      "sha256": "882ec5a5c0e15884c24e0698e3e69e048f4bdfdb0f518e229b9ecd27e6f03c75"
+    },
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "anomaly",
+      "image": "fryum/Data/Images/Anomaly/034.JPG",
+      "mask": "fryum/Data/Masks/Anomaly/034.png",
+      "sha256": "4f4b02f647f4a65acc06857a1d808d7b0700934e28f826dcb1148c44efc18fde"
+    },
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "anomaly",
+      "image": "fryum/Data/Images/Anomaly/009.JPG",
+      "mask": "fryum/Data/Masks/Anomaly/009.png",
+      "sha256": "6228e5c3e4aaa31eb70b47da2354e915e69fd59b3a49405f013531ba126587dc"
+    },
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "anomaly",
+      "image": "fryum/Data/Images/Anomaly/008.JPG",
+      "mask": "fryum/Data/Masks/Anomaly/008.png",
+      "sha256": "2b87eb3cd8b8ad91ca292e64f16b71b38f7b63e375e64012d74c64f86a8c82b6"
+    },
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "anomaly",
+      "image": "fryum/Data/Images/Anomaly/055.JPG",
+      "mask": "fryum/Data/Masks/Anomaly/055.png",
+      "sha256": "0107cb0e7b4e18f1f5e6cb1f49c0e2ea617ff6252cb551bc3a0ebb0819685c7d"
+    },
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "anomaly",
+      "image": "fryum/Data/Images/Anomaly/096.JPG",
+      "mask": "fryum/Data/Masks/Anomaly/096.png",
+      "sha256": "73e90979debfe6975f680e272992a31ad1412400402c211a951411bbdb9c87b0"
+    },
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "anomaly",
+      "image": "fryum/Data/Images/Anomaly/006.JPG",
+      "mask": "fryum/Data/Masks/Anomaly/006.png",
+      "sha256": "6610da961550f032d8aceaa6db98b78468e28f5f49aec211335325a7dd53ef84"
+    },
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "anomaly",
+      "image": "fryum/Data/Images/Anomaly/015.JPG",
+      "mask": "fryum/Data/Masks/Anomaly/015.png",
+      "sha256": "7c988976fa1fafeccbd25c6acf52db826c9cd83186c72f96e725efcbae1bfea3"
+    },
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "anomaly",
+      "image": "fryum/Data/Images/Anomaly/031.JPG",
+      "mask": "fryum/Data/Masks/Anomaly/031.png",
+      "sha256": "575546c6e692a9e5a7622a5fa66993393f6494a33fe9b1d62773812403a9784e"
+    },
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "anomaly",
+      "image": "fryum/Data/Images/Anomaly/046.JPG",
+      "mask": "fryum/Data/Masks/Anomaly/046.png",
+      "sha256": "9d264247b865ae693b8c6f375dec983d6166404b0b95ee2d2a7e3b36a4b4716c"
+    },
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "anomaly",
+      "image": "fryum/Data/Images/Anomaly/043.JPG",
+      "mask": "fryum/Data/Masks/Anomaly/043.png",
+      "sha256": "dbea4a49d94b90e6248babf2713f65712d0ffec3cebc9c25ab3f684a576f6ed3"
+    },
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "anomaly",
+      "image": "fryum/Data/Images/Anomaly/013.JPG",
+      "mask": "fryum/Data/Masks/Anomaly/013.png",
+      "sha256": "e00723d8d2017eb3eee8726992d7f336908020e5585a1e1b8a3abce2c191c6e3"
+    },
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "anomaly",
+      "image": "fryum/Data/Images/Anomaly/027.JPG",
+      "mask": "fryum/Data/Masks/Anomaly/027.png",
+      "sha256": "f2327256f4f7ba515b5c86b9fd33c606f04b5cff12e99a3e67bf01c56f4b4351"
+    },
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "anomaly",
+      "image": "fryum/Data/Images/Anomaly/080.JPG",
+      "mask": "fryum/Data/Masks/Anomaly/080.png",
+      "sha256": "4c0d962316dc93a3c53c624655526a7d4353e854192774dc39fc7a3dd2e47fc4"
+    },
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "anomaly",
+      "image": "fryum/Data/Images/Anomaly/047.JPG",
+      "mask": "fryum/Data/Masks/Anomaly/047.png",
+      "sha256": "137cdd14791e10f3c5a901600efa6feac97294846c62c1ecb6c33e677438dcad"
+    },
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "anomaly",
+      "image": "fryum/Data/Images/Anomaly/021.JPG",
+      "mask": "fryum/Data/Masks/Anomaly/021.png",
+      "sha256": "81555cedb96880efecc598c62ceb396abce0fb6515db0ab9099410d558e8680f"
+    },
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "anomaly",
+      "image": "fryum/Data/Images/Anomaly/016.JPG",
+      "mask": "fryum/Data/Masks/Anomaly/016.png",
+      "sha256": "cf2705c41cdf35c49892004a3f74f7fa10960125194593aa732cd028c39d3fec"
+    },
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "anomaly",
+      "image": "fryum/Data/Images/Anomaly/033.JPG",
+      "mask": "fryum/Data/Masks/Anomaly/033.png",
+      "sha256": "35bc0343954476468151fd010a14f6135b82c5d78aa81a569e82d221940c707b"
+    },
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "anomaly",
+      "image": "fryum/Data/Images/Anomaly/094.JPG",
+      "mask": "fryum/Data/Masks/Anomaly/094.png",
+      "sha256": "5ecb5f96a284ce7e220fe09fccf6db0aae3a0a99ae3e2fbac1de5c4b59818ed8"
+    },
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "anomaly",
+      "image": "fryum/Data/Images/Anomaly/048.JPG",
+      "mask": "fryum/Data/Masks/Anomaly/048.png",
+      "sha256": "f1c76bda08d7432034f7aa9e8cfebf8ce9e1e9ef8425faf7dad5a458ae667f30"
+    },
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "anomaly",
+      "image": "fryum/Data/Images/Anomaly/079.JPG",
+      "mask": "fryum/Data/Masks/Anomaly/079.png",
+      "sha256": "3eced07ae13e4fd6fdcc91f0f3e788992ac6537d2dd09ead123cef6b0ecce95e"
+    },
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "anomaly",
+      "image": "fryum/Data/Images/Anomaly/053.JPG",
+      "mask": "fryum/Data/Masks/Anomaly/053.png",
+      "sha256": "73abe01b51ef04d24b4bfd6739e0a75630cc922bfa227cfb53ab6a271eeeb94d"
+    },
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "anomaly",
+      "image": "fryum/Data/Images/Anomaly/032.JPG",
+      "mask": "fryum/Data/Masks/Anomaly/032.png",
+      "sha256": "8f476115a44f86b6c1227475f6002aa511ab67d0c5fbbc1eb3f3c0ee068bc5b8"
+    },
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "anomaly",
+      "image": "fryum/Data/Images/Anomaly/010.JPG",
+      "mask": "fryum/Data/Masks/Anomaly/010.png",
+      "sha256": "a842b824f3f80526233e61adc8744a5f01088b04f8e99b45d956eb4f82ead9c4"
+    },
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "anomaly",
+      "image": "fryum/Data/Images/Anomaly/003.JPG",
+      "mask": "fryum/Data/Masks/Anomaly/003.png",
+      "sha256": "3717fd8ca05244f2edf406bbfdb1870d97a5aa12f0fa59537d1001385566c331"
+    },
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "anomaly",
+      "image": "fryum/Data/Images/Anomaly/073.JPG",
+      "mask": "fryum/Data/Masks/Anomaly/073.png",
+      "sha256": "6ee0716ab64fb9dcd670692e0cf7e9e2d705ba76978c8187ae4865b1ab7c4621"
+    },
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "anomaly",
+      "image": "fryum/Data/Images/Anomaly/064.JPG",
+      "mask": "fryum/Data/Masks/Anomaly/064.png",
+      "sha256": "58a2504fb854b1334ff4ff1e12864798758d50b959166397731ffc9bb00b3fe5"
+    },
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "anomaly",
+      "image": "fryum/Data/Images/Anomaly/022.JPG",
+      "mask": "fryum/Data/Masks/Anomaly/022.png",
+      "sha256": "b0fd79c328bc5d866abdb07c2994451fc1bdd844b9aeb590a8612c9860582b34"
+    },
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "anomaly",
+      "image": "fryum/Data/Images/Anomaly/066.JPG",
+      "mask": "fryum/Data/Masks/Anomaly/066.png",
+      "sha256": "11fa4e1b75a39bd73c3f760089787ef6686e8d3ab246e66e051e1b09cfdb02e3"
+    },
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "anomaly",
+      "image": "fryum/Data/Images/Anomaly/035.JPG",
+      "mask": "fryum/Data/Masks/Anomaly/035.png",
+      "sha256": "811223fac0db994bd92419ba77eea3cd8d69ce7169a49f994b304388201a2982"
+    },
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "anomaly",
+      "image": "fryum/Data/Images/Anomaly/054.JPG",
+      "mask": "fryum/Data/Masks/Anomaly/054.png",
+      "sha256": "5ee468c41650d6ff3032814ddfeb2cbb9b90eb6034c06733964b9ec01d676811"
+    },
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "anomaly",
+      "image": "fryum/Data/Images/Anomaly/038.JPG",
+      "mask": "fryum/Data/Masks/Anomaly/038.png",
+      "sha256": "5cdee635ac3e6b22b3518f58615d881fc2bf232dac5e9fe63fc11fb73bdfc08e"
+    },
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "anomaly",
+      "image": "fryum/Data/Images/Anomaly/085.JPG",
+      "mask": "fryum/Data/Masks/Anomaly/085.png",
+      "sha256": "5e0ceaeaeb2c02d54a9565f38898f41c4278131788a0c1b4e8fd3c7ddafdcf23"
+    },
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "anomaly",
+      "image": "fryum/Data/Images/Anomaly/063.JPG",
+      "mask": "fryum/Data/Masks/Anomaly/063.png",
+      "sha256": "17d594b5f2f602a071333753243c34be3a8bde01106d8f458cd1a59118dc2a2d"
+    },
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "anomaly",
+      "image": "fryum/Data/Images/Anomaly/000.JPG",
+      "mask": "fryum/Data/Masks/Anomaly/000.png",
+      "sha256": "44139ec9efb05d7106c45000d65f9310edf3bb47a9931b6a080b91ddd64222d5"
+    },
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "anomaly",
+      "image": "fryum/Data/Images/Anomaly/030.JPG",
+      "mask": "fryum/Data/Masks/Anomaly/030.png",
+      "sha256": "6da40f2a9203bd320c344618b9133d84bcf028ff5e892c00e1dd6740f94b202b"
+    },
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "anomaly",
+      "image": "fryum/Data/Images/Anomaly/005.JPG",
+      "mask": "fryum/Data/Masks/Anomaly/005.png",
+      "sha256": "fb25da4288b1d04111a6ed5d35fcbee4d247d8a032d02947061f24cd67cbded2"
+    },
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "anomaly",
+      "image": "fryum/Data/Images/Anomaly/019.JPG",
+      "mask": "fryum/Data/Masks/Anomaly/019.png",
+      "sha256": "7e2c337a1ef165c8ae0fe5d3b5d8d295ee37285658424a61c6a1c33cda6b3b0d"
+    },
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "anomaly",
+      "image": "fryum/Data/Images/Anomaly/017.JPG",
+      "mask": "fryum/Data/Masks/Anomaly/017.png",
+      "sha256": "907a2335b62a0fb62dedc9a2cb2bc9baab498479b925bf37c83fd7f7a9eb3a1a"
+    },
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "anomaly",
+      "image": "fryum/Data/Images/Anomaly/062.JPG",
+      "mask": "fryum/Data/Masks/Anomaly/062.png",
+      "sha256": "d2ca64c303d4fa89a751ab977bb2d72d97e161906e04a8fdae315f3444262a5e"
+    },
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "anomaly",
+      "image": "fryum/Data/Images/Anomaly/089.JPG",
+      "mask": "fryum/Data/Masks/Anomaly/089.png",
+      "sha256": "19369fef93aaab6c78f02585965b8f53b3ed9270cf8ae889a325395370dd1be2"
+    },
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "anomaly",
+      "image": "fryum/Data/Images/Anomaly/028.JPG",
+      "mask": "fryum/Data/Masks/Anomaly/028.png",
+      "sha256": "d152dc0d50ba181d070fac84f002105b83f0bc2b9f7ae3291319e4a2e24fcb27"
+    },
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "anomaly",
+      "image": "fryum/Data/Images/Anomaly/084.JPG",
+      "mask": "fryum/Data/Masks/Anomaly/084.png",
+      "sha256": "7bc109297c8063017a7303fbe01620e03c5d3b70331590e251a4915470d54a9d"
+    },
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "anomaly",
+      "image": "fryum/Data/Images/Anomaly/057.JPG",
+      "mask": "fryum/Data/Masks/Anomaly/057.png",
+      "sha256": "dae887ab0208eedef45ce47e3bea543324c47a09a7000648ecc25db646b99807"
+    },
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "anomaly",
+      "image": "fryum/Data/Images/Anomaly/001.JPG",
+      "mask": "fryum/Data/Masks/Anomaly/001.png",
+      "sha256": "47e7921085a2d55b1d3a47fdb3527cd03e86bdc670c29a5bad11ca5076a00caf"
+    },
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "anomaly",
+      "image": "fryum/Data/Images/Anomaly/072.JPG",
+      "mask": "fryum/Data/Masks/Anomaly/072.png",
+      "sha256": "c0b68650cad1e5283d7337e91662cde67f3ffa58004d69c5437e483b0ce534dc"
+    },
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "anomaly",
+      "image": "fryum/Data/Images/Anomaly/020.JPG",
+      "mask": "fryum/Data/Masks/Anomaly/020.png",
+      "sha256": "41ed9c16cdab902370f597a51bfeb124480e4d4da6aa611570abec7190e2823d"
+    },
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "anomaly",
+      "image": "fryum/Data/Images/Anomaly/097.JPG",
+      "mask": "fryum/Data/Masks/Anomaly/097.png",
+      "sha256": "be9c76765abf0972d4b5ded63da1e1d4c4f42776fff67473faa6d1a4164d70e1"
+    },
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "anomaly",
+      "image": "fryum/Data/Images/Anomaly/082.JPG",
+      "mask": "fryum/Data/Masks/Anomaly/082.png",
+      "sha256": "0a57efb47fd1c2b5207ca7ad0096ac872cc7ae29e19450012a70f8fcb037940d"
+    },
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "anomaly",
+      "image": "fryum/Data/Images/Anomaly/068.JPG",
+      "mask": "fryum/Data/Masks/Anomaly/068.png",
+      "sha256": "d09201a77e4190f9519d6aa938e6bbf25c51ab09a4fd7a1d509abbb8e81d9608"
+    },
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "anomaly",
+      "image": "fryum/Data/Images/Anomaly/088.JPG",
+      "mask": "fryum/Data/Masks/Anomaly/088.png",
+      "sha256": "39e73eb61611ee7306f54b98bb5e7607b93b0420814bf7f8731ee2ad5e858f2c"
+    },
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "anomaly",
+      "image": "fryum/Data/Images/Anomaly/070.JPG",
+      "mask": "fryum/Data/Masks/Anomaly/070.png",
+      "sha256": "605a0256b0e4b973e676415c50ebd9b118e911fddb96f35fb2c937349e510d64"
+    },
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "anomaly",
+      "image": "fryum/Data/Images/Anomaly/058.JPG",
+      "mask": "fryum/Data/Masks/Anomaly/058.png",
+      "sha256": "1b43dd65e0c413a8151af2a01222078eaef16b2eb0656fae1cbcddfd2688fd29"
+    },
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "anomaly",
+      "image": "fryum/Data/Images/Anomaly/049.JPG",
+      "mask": "fryum/Data/Masks/Anomaly/049.png",
+      "sha256": "4f317403fca570b695e22d0fc2e3590cf87183430067af61815915696a600b10"
+    },
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "anomaly",
+      "image": "fryum/Data/Images/Anomaly/098.JPG",
+      "mask": "fryum/Data/Masks/Anomaly/098.png",
+      "sha256": "8bc3cb5c1f6ebea07da719cb26988d8995957210860dff43d172063459bbb86a"
+    },
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "anomaly",
+      "image": "fryum/Data/Images/Anomaly/050.JPG",
+      "mask": "fryum/Data/Masks/Anomaly/050.png",
+      "sha256": "06c8479ee0ccff87e15c7e53a46bdbb4548b492231b5e7ac417d11cd18055b1e"
+    },
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "anomaly",
+      "image": "fryum/Data/Images/Anomaly/069.JPG",
+      "mask": "fryum/Data/Masks/Anomaly/069.png",
+      "sha256": "0f670a514024e921afe7fe2ef65490cf5537366f243aa8fe0be57dd9212186ee"
+    },
+    {
+      "object": "fryum",
+      "split": "test",
+      "label": "anomaly",
+      "image": "fryum/Data/Images/Anomaly/060.JPG",
+      "mask": "fryum/Data/Masks/Anomaly/060.png",
+      "sha256": "6a3a073df15c1ca2522f634872c63fdcd5913cfb2bebba78b0a40868cdee21b1"
+    }
+  ]
+}

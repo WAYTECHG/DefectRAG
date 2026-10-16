@@ -69,7 +69,7 @@ def create_app(settings=None, detector=None, workflow=None):
         return record
 
     def inspect_bytes(content,category,batch,filename):
-        if category not in CATEGORIES: raise HTTPException(422,'Choose pcb1, capsules or cashew')
+        if category not in CATEGORIES: raise HTTPException(422,'Choose a supported VisA product category')
         if len(batch)>80: raise HTTPException(422,'Batch label is limited to 80 characters')
         if len(content)>settings.max_upload: raise HTTPException(413,'Image limit is 10 MB')
         try:
@@ -121,11 +121,11 @@ def create_app(settings=None, detector=None, workflow=None):
     def stats(): return {'data':repo.stats()}
     @app.get('/api/samples')
     def samples():
-        return {'data':[{'name':p.stem,'category':p.stem.split('_')[0],'url':'/api/samples/'+p.name,
+        return {'data':[{'name':p.stem,'category':p.stem.rsplit('_',1)[0],'url':'/api/samples/'+p.name,
                          'attribution':'VisA, Zou et al., ECCV 2022; CC BY 4.0; resized preview','source':'https://github.com/amazon-science/spot-diff'} for p in sorted((settings.root/'samples').glob('*.jpg'))]}
     @app.get('/api/samples/{name}')
     def sample(name:str):
-        if not re.fullmatch(r'(pcb1|capsules|cashew)_(good|anomalous)\.jpg',name): raise HTTPException(404,'Sample not found')
+        if name not in {f'{category}_{kind}.jpg' for category in CATEGORIES for kind in ('good','anomalous')}: raise HTTPException(404,'Sample not found')
         path=settings.root/'samples'/name
         if not path.exists(): raise HTTPException(404,'Sample not available')
         return FileResponse(path)

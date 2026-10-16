@@ -23,6 +23,10 @@ def export(output=OUTPUT):
     scope = json.loads((ROOT / 'results/evidence_scope_verification.json').read_text())
     final_fingerprint = scope['answers'][0]['knowledge_fingerprint']
     examples.append({**scope['answers'][0]['observation'], 'truth': 1})
+    extra_path=ROOT/'results/all_categories_acceptance.json'
+    extra=json.loads(extra_path.read_text())['real_images'] if extra_path.exists() else []
+    examples.extend(extra)
+    extra_ids={e['id'] for e in extra}
     output.mkdir(parents=True, exist_ok=True)
     (output / 'images').mkdir(exist_ok=True)
     (output / 'reports').mkdir(exist_ok=True)
@@ -32,7 +36,9 @@ def export(output=OUTPUT):
     database = ROOT / 'runtime/inspection.sqlite3'
     with sqlite3.connect(database.as_uri() + '?mode=ro', uri=True) as db:
         for example in examples:
-            row = db.execute('SELECT payload FROM inspections WHERE id=?', (example['id'],)).fetchone()
+            extra_db=sqlite3.connect((ROOT/'runtime/verification12/inspection.sqlite3').as_uri()+'?mode=ro',uri=True) if example['id'] in extra_ids else None
+            selected=extra_db or db
+            row = selected.execute('SELECT payload FROM inspections WHERE id=?', (example['id'],)).fetchone()
             if not row:
                 raise ValueError('Saved measured example missing: ' + example['id'])
             source = json.loads(row[0])
@@ -44,7 +50,8 @@ def export(output=OUTPUT):
                           image_url=f'showcase/images/{identifier}.jpg',
                           heatmap_url=f'showcase/images/{identifier}_heatmap.jpg')
             for suffix in ('.jpg', '_heatmap.jpg'):
-                shutil.copyfile(ROOT / 'runtime/artifacts' / (identifier + suffix),
+                artifacts=ROOT/('runtime/verification12/artifacts' if extra_db else 'runtime/artifacts')
+                shutil.copyfile(artifacts / (identifier + suffix),
                                 output / 'images' / (identifier + suffix))
             name = record['category'] + ('_anomalous' if example['truth'] else '_good')
             if identifier == scope['inspection_id']:
@@ -52,7 +59,8 @@ def export(output=OUTPUT):
             samples.append({'name': name, 'category': record['category'], 'record_id': identifier,
                             'url': record['image_url'], 'attribution': 'VisA · Zou et al., ECCV 2022 · CC BY 4.0'})
             # Publish saved validated answers and abstentions; omit obsolete fallback diagnostics.
-            rows = db.execute('SELECT role,payload FROM messages WHERE inspection_id=? ORDER BY id', (identifier,)).fetchall()
+            rows = selected.execute('SELECT role,payload FROM messages WHERE inspection_id=? ORDER BY id', (identifier,)).fetchall()
+            if extra_db:extra_db.close()
             messages = []
             for previous, current in zip(rows, rows[1:]):
                 if previous[0] != 'user' or current[0] != 'assistant':

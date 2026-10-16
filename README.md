@@ -1,5 +1,7 @@
 # DefectRAG v2
 
+**Latest development checkpoint: all 12 VisA categories are fitted and evaluated.** See [all-category metrics](docs/ALL12_EVALUATION.md) and [resume instructions](DEVELOPMENT_PROGRESS.md). API/software/build checks passed; final expanded browser QA, documentation cleanup and release packaging are pending. Earlier release descriptions below refer to the prior three-category handoff.
+
 Local AI-powered industrial anomaly inspection and evidence assistant. React + Vite,
 FastAPI, frozen DINOv3, LangChain, LangGraph, SQLite and optional local Qwen generation.
 

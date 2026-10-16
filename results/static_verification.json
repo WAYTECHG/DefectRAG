@@ -1,20 +1,9 @@
 {
   "status": "passed",
-  "records": 7,
+  "records": 25,
   "snapshot_hashes": "passed",
   "scores_match_saved_acceptance": true,
   "report_images_exist": true,
   "saved_llm_conversation_present": true,
-  "no_private_paths_or_model_files": true,
-  "browser": {
-    "status": "passed",
-    "records": 7,
-    "combined_filter_records": 2,
-    "heatmap_toggle": true,
-    "recorded_cited_followup": true,
-    "report_images_loaded": 2,
-    "remaining_pages": "passed",
-    "console_errors": [],
-    "public_deployment": "not performed"
-  }
+  "no_private_paths_or_model_files": true
 }

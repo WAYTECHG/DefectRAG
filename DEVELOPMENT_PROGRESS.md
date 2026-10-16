@@ -1,6 +1,29 @@
-# DefectRAG v2 — verified local release
+# DefectRAG v2 — development checkpoint
 
-## Latest milestone — free static showcase (16 October 2026)
+## Latest checkpoint: all 12 evaluated; paused near 5% usage
+
+All nine missing categories completed fitting/calibration/final evaluation. All 12 cards, banks, split manifests and prediction files are saved. Original three-category models and predictions remain hash-identical (`results/all12_preservation.json`). No training or evaluation process remains active.
+
+Completed integration: backend category allowlist and safe sample routing for all 12 (including pipe_fryum); dashboard labels and category count; weak-separation warning when image AUROC < 0.6; incremental --resume fitting safeguards. `results/all_categories_acceptance.json` records 18 real API inspections for the new nine categories, saved separately under runtime/verification12. Scores matched evaluation; heatmaps and reports passed. All 29 software tests passed in results/software-tests-all12.xml.
+
+Both dashboard builds and 3 static contract tests passed. Static snapshot now contains 25 measured examples across 12 products. Snapshot hash/privacy/report-resource checks passed. Earlier three-category browser checks are preserved in results/static_verification_three_categories.json; browser QA for the expanded build has NOT been performed.
+
+Important measured limitations: macaroni2 image AUROC is 0.46825 (weak; do not claim reliable detection). Macaroni1/2 localization is extremely weak; capsule/PCB2 localization is also weak. See docs/ALL12_EVALUATION.md for all 12 measured rows. No final-test tuning or extra experiments were performed. Existing clean serving profile covers only the original three categories.
+
+The new artifact is DefectRAG-v2-all12-checkpoint.zip, a recoverable development checkpoint, NOT the final accepted all12 release. Earlier released ZIPs remain three-category versions and are preserved. Recovery bundle: development-support/git/DefectRAG-v2-all12-checkpoint.bundle. Archive and sync JSON receipts record hashes/commit and whether Desktop copy finished.
+
+Exact resume steps:
+1. Read this file, Git status and results/evaluation.json (must contain 12 categories). Do NOT refit or reevaluate completed categories.
+2. Verify the expanded dashboard in the browser: 12 category options, 24 local samples, 25 static examples, pipe_fryum routing, all 12 performance rows, macaroni2 warning and static report/CSV links. Existing local preview on 8766 still has the OLD Python process/category allowlist; restart only that identified v2 preview before testing the new backend. Static preview on 8771 serves the rebuilt files; reload it.
+3. Refresh README, deployment guide, static Space metadata and older three-category wording to the final scope. Keep old verification results clearly historical. Update final screenshot/browser receipt. Do not repeat model experiments.
+4. Create unique final all12 static/full ZIP names; the old ZIP names must not be overwritten. Commit final documentation, create a new recovery bundle, then sync Desktop with scripts.sync_release --archive NEW_FULL.zip --bundle NEW.bundle --extra-archive NEW_STATIC.zip.
+5. Preserve original dataset, runtime history and all models/results. The exporter uses runtime/verification12 (new nine examples) plus original runtime (earlier seven examples); both remain saved. No dependency installation is needed: use original verified Python + workspace sibling .test-deps overlay.
+
+Processes at pause: training session 77130 and API/tests session 38315 completed successfully. Build/test session 1643 completed. No fitting/training/test job remains running. Static preview localhost:8771, v2 preview localhost:8766 and shared Ollama localhost:11434 may remain active; no training state depends on them. A new verification database is under runtime/verification12; never replace user history with it.
+
+User requested saving around 3-5% remaining; account reported 5% at this checkpoint. Stop after checkpoint/archive synchronization and wait for a credit reset or further instruction.
+
+## Earlier milestone — free static showcase (16 October 2026)
 
 User requested a free static public version while preserving the full local app.
 Implemented a separate read-only build using **seven allowlisted, real saved VisA

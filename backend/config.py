@@ -8,7 +8,8 @@ os.environ.setdefault('USE_TF','0')
 
 ROOT = Path(__file__).resolve().parents[1]
 load_dotenv(ROOT / '.env')
-CATEGORIES = ('pcb1', 'capsules', 'cashew')
+CATEGORIES = ('pcb1', 'capsules', 'cashew', 'candle', 'chewinggum', 'fryum',
+              'macaroni1', 'macaroni2', 'pcb2', 'pcb3', 'pcb4', 'pipe_fryum')
 
 @dataclass
 class Settings:

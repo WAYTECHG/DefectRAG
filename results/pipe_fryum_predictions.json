@@ -1,0 +1,1280 @@
+{
+  "validation": [
+    {
+      "image": "pipe_fryum/Data/Images/Normal/063.JPG",
+      "sha256": "964a43e69785b263d4406955e6afcc082d4d4ff56f05cf4163bc3d805e24bf10",
+      "label": 0,
+      "score": 0.05518200993537903,
+      "latency_ms": 42.94309997931123
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Normal/112.JPG",
+      "sha256": "fd046e99e1ff1816084581df28226170acb5b90467293883364e4673d4083bbf",
+      "label": 0,
+      "score": 0.036362528800964355,
+      "latency_ms": 41.95460001938045
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Normal/249.JPG",
+      "sha256": "224a2446397b1a8f3a2019d0545778ca1a5143e3cde28068bf4a386b4e5daf08",
+      "label": 0,
+      "score": 0.1000421941280365,
+      "latency_ms": 41.94910000660457
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Normal/268.JPG",
+      "sha256": "05b41d316cba0583fdc447cee15bcd3fee96e5a22bb6432e04bd8280e938d2f2",
+      "label": 0,
+      "score": 0.05024540424346924,
+      "latency_ms": 44.310999976005405
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Normal/293.JPG",
+      "sha256": "270900df37a6550b8c8626d81dbb3f832ef2d1063234d3cb1fbd6a111dc01d0f",
+      "label": 0,
+      "score": 0.03295299410820007,
+      "latency_ms": 44.416399992769584
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Normal/263.JPG",
+      "sha256": "44d4b6d8e83ce57c02749e528709c6bb95f40abfd06f7e9190f0aa0723fce850",
+      "label": 0,
+      "score": 0.04245477914810181,
+      "latency_ms": 43.75219999928959
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Normal/177.JPG",
+      "sha256": "ac4bf5cb0650642552d96e1b43894179cf540c5e056b74c42c0c674954374cb8",
+      "label": 0,
+      "score": 0.04554462432861328,
+      "latency_ms": 44.265200005611405
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Normal/436.JPG",
+      "sha256": "96cf8949914f4e40311eadcef8831618ac4f2fdc77d06b8bc4461c79b880eef0",
+      "label": 0,
+      "score": 0.0403619110584259,
+      "latency_ms": 44.7005000023637
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Normal/318.JPG",
+      "sha256": "86868368268bb237cc16a739ae4349e9c14aed76c5a5e07ab364057a1c1c6f38",
+      "label": 0,
+      "score": 0.04624629020690918,
+      "latency_ms": 44.12350000347942
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Normal/055.JPG",
+      "sha256": "813fb599fe42935cdd0aafcbe2a62607c7a5be6546222dc2400d0a9c95372b4d",
+      "label": 0,
+      "score": 0.05109122395515442,
+      "latency_ms": 44.14440001710318
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Normal/450.JPG",
+      "sha256": "37a20e1931a2ebb5caaa3b5c28f890152f97bcaba1275c20c3ce602951896bc4",
+      "label": 0,
+      "score": 0.04694858193397522,
+      "latency_ms": 41.246899985708296
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Normal/126.JPG",
+      "sha256": "6ba386d7b9f101c1fc381e3ad205f2ffd717a50d1a764fa497adb74118e6c884",
+      "label": 0,
+      "score": 0.03912484645843506,
+      "latency_ms": 45.82440000376664
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Normal/132.JPG",
+      "sha256": "b2f0cf27687af90e438e946c8162824b497052c1c416fb21ef510ba653f76af0",
+      "label": 0,
+      "score": 0.05007925629615784,
+      "latency_ms": 40.280899993376806
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Normal/266.JPG",
+      "sha256": "9b3be5e4e0c25487e9c4b691ae3b655fa8ac058d527b0ef01125839b0ffcd0e2",
+      "label": 0,
+      "score": 0.04402455687522888,
+      "latency_ms": 43.33429998951033
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Normal/449.JPG",
+      "sha256": "9e0368d439112e221ee1c33df1b9fd7e1ec3748df8e4f0f8e785b759af35b7c7",
+      "label": 0,
+      "score": 0.04129365086555481,
+      "latency_ms": 43.380699993576854
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Normal/215.JPG",
+      "sha256": "dc09b06fda3f836c6b65ab9832652a7c45d6688cef4d86c6e1b968e3fcf971c3",
+      "label": 0,
+      "score": 0.04931676387786865,
+      "latency_ms": 41.3676000025589
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Normal/311.JPG",
+      "sha256": "a20be0372a84f884cfc84827e9d7e76b793a6a929c9bbe1dfaafaa252c18783b",
+      "label": 0,
+      "score": 0.03853029012680054,
+      "latency_ms": 43.448699987493455
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Normal/154.JPG",
+      "sha256": "eb05a7a44263b137530a492668c2bac1fb8b944ef8ffde6427e9d97cc4d4308f",
+      "label": 0,
+      "score": 0.049749135971069336,
+      "latency_ms": 42.026599985547364
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Normal/335.JPG",
+      "sha256": "2d17ed7f748024fd574562d409fb2c5dd005b2e0d5c0e86f9e7b773fecb5f210",
+      "label": 0,
+      "score": 0.0383429229259491,
+      "latency_ms": 40.04630001145415
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Normal/470.JPG",
+      "sha256": "3dd39486718e370a61da59cdafec1ae591a7ed26877d43cfb615ed74ddeeb00f",
+      "label": 0,
+      "score": 0.039556920528411865,
+      "latency_ms": 41.90720000769943
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Normal/282.JPG",
+      "sha256": "ad65efd374ae4b715ceed8f05aafe0175616af83b5ba00ff1091a842ea23234c",
+      "label": 0,
+      "score": 0.04253396391868591,
+      "latency_ms": 40.44950002571568
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Normal/146.JPG",
+      "sha256": "15479d89be49a8ee940ade116c4ec12bdba61b276d8bdaddfe2ab83bbbc02321",
+      "label": 0,
+      "score": 0.03824850916862488,
+      "latency_ms": 41.99209998478182
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Normal/478.JPG",
+      "sha256": "18423d9db643023e4d6d03b4e9097737197e0679fe4e2ffa3d50a56b85000c95",
+      "label": 0,
+      "score": 0.044209569692611694,
+      "latency_ms": 40.72140000062063
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Normal/165.JPG",
+      "sha256": "893ba894c982ca8d512f18ca02e1b258c673aea88f2c81850608795e32213f63",
+      "label": 0,
+      "score": 0.043472856283187866,
+      "latency_ms": 39.54399999929592
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Normal/346.JPG",
+      "sha256": "736c7009ea1395efbc59581fcb6296fcf012ced221855e1c64d9460f745fa51c",
+      "label": 0,
+      "score": 0.041672974824905396,
+      "latency_ms": 39.45990002830513
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Normal/448.JPG",
+      "sha256": "adc395ce126f5ac11edbd5320b19e048a08f4fb637966946d4d93144802ff02f",
+      "label": 0,
+      "score": 0.04592081904411316,
+      "latency_ms": 42.723799997475
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Normal/466.JPG",
+      "sha256": "2e398a2b58ef0a928047891408e34c58d5d6ae859219c6e64e5fc273ed6c1ee2",
+      "label": 0,
+      "score": 0.03325185179710388,
+      "latency_ms": 41.3088999921456
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Normal/290.JPG",
+      "sha256": "8e4079b7f0f52a43b0bbefe6aeba9bf7b7100e1a43793a14e0488c46e1f32994",
+      "label": 0,
+      "score": 0.07906797528266907,
+      "latency_ms": 39.62569998111576
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Normal/485.JPG",
+      "sha256": "e2a8e64e8fc3aeeaa7c5f77cb576599ead7eab9e771ac83c0574f694a5ce8acb",
+      "label": 0,
+      "score": 0.04197990894317627,
+      "latency_ms": 39.27300000214018
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Normal/275.JPG",
+      "sha256": "cb1d176bb2975f53bbc856277e3174118b139112ff42f96ecc6678dc60001928",
+      "label": 0,
+      "score": 0.0353681743144989,
+      "latency_ms": 41.72330000437796
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Normal/285.JPG",
+      "sha256": "20eef1296cfb26ad22e29bf0a4e7ff8fa28839b56aa908cc3b8dab22a6244c8f",
+      "label": 0,
+      "score": 0.036193519830703735,
+      "latency_ms": 39.1929000033997
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Normal/420.JPG",
+      "sha256": "eabe5b9a69ecb86bf3b2829980fcd02b968cf4914bdf2d82cc89f3ab6d0bbe87",
+      "label": 0,
+      "score": 0.04819110035896301,
+      "latency_ms": 42.60850002174266
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Anomaly/025.JPG",
+      "sha256": "cdbca24dcaef52628e8046314b4639e563808fa5e26cdbc5f5f52206fdeec7db",
+      "label": 1,
+      "score": 0.08201384544372559,
+      "latency_ms": 39.14549999171868
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Anomaly/007.JPG",
+      "sha256": "59d03e37eea528c7d0db06c8ee098f7cf37b34c0d9c43ceacf25758130febb44",
+      "label": 1,
+      "score": 0.08647462725639343,
+      "latency_ms": 40.472299995599315
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Anomaly/090.JPG",
+      "sha256": "504d97d84d513a3698c3d53190de94354e3c7a5840dc58796e4af31f480c00f9",
+      "label": 1,
+      "score": 0.14842084050178528,
+      "latency_ms": 38.392000016756356
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Anomaly/092.JPG",
+      "sha256": "3f91300f3124ca4f86a0d69e6486f20895d0f1be94a6f8e436bcf66b5a00ae28",
+      "label": 1,
+      "score": 0.11526796221733093,
+      "latency_ms": 42.20100000384264
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Anomaly/011.JPG",
+      "sha256": "3220e6647552607503f9f1a737e1058ea21b78e1883136b46247bb0e1d08dd01",
+      "label": 1,
+      "score": 0.081417977809906,
+      "latency_ms": 42.62749999179505
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Anomaly/036.JPG",
+      "sha256": "1aa1fc27ff7086b3fc96a558e13694522b95e76ea96e113313a38784b2ef85b2",
+      "label": 1,
+      "score": 0.10488316416740417,
+      "latency_ms": 38.926900015212595
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Anomaly/081.JPG",
+      "sha256": "df4db179654330124c861fc002bcfdc4ce65439ec83864bb67116e0fc960b6ab",
+      "label": 1,
+      "score": 0.07437950372695923,
+      "latency_ms": 41.28799997852184
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Anomaly/078.JPG",
+      "sha256": "38278d396c34d8669db6339b6fe0a30429d2ca67ca5d2b94e01fbd2f78287fe3",
+      "label": 1,
+      "score": 0.05846443772315979,
+      "latency_ms": 39.97469999012537
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Anomaly/024.JPG",
+      "sha256": "3f3f2fa90216100f4b0a9f3ab4dc30acbc0e3c30f015e2a8ec31749cf37fcc75",
+      "label": 1,
+      "score": 0.08679452538490295,
+      "latency_ms": 38.90109999338165
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Anomaly/040.JPG",
+      "sha256": "b64709cbb4dd3976557787859775a86f8b4fe5fd04f087814dce76f2cc6881f2",
+      "label": 1,
+      "score": 0.1991426944732666,
+      "latency_ms": 40.64959997776896
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Anomaly/018.JPG",
+      "sha256": "abdf8000c96671a1f863374c693f252581bcf879697da4949c0e735ea97745fb",
+      "label": 1,
+      "score": 0.06812790036201477,
+      "latency_ms": 40.663399995537475
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Anomaly/076.JPG",
+      "sha256": "a1e15f41f7a0aebb260b983d5e91ea8bb8558a599eefced2a417872b6853cffc",
+      "label": 1,
+      "score": 0.06535100936889648,
+      "latency_ms": 39.523999992525205
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Anomaly/061.JPG",
+      "sha256": "f5d2508ae3233cf108ce021112051d0e8149783e6d81744c9cfd10f7dee68bf9",
+      "label": 1,
+      "score": 0.06469151377677917,
+      "latency_ms": 39.461900014430285
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Anomaly/091.JPG",
+      "sha256": "565c6087de868172261d31eaaa3cf2380937eba004d6f21ac843d4c1271dfb81",
+      "label": 1,
+      "score": 0.14050421118736267,
+      "latency_ms": 40.779000002657995
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Anomaly/052.JPG",
+      "sha256": "39c5b1b12b510a6ceaf3dd19f1c8aba911c36d848f16e92e8b8c591abef7abb8",
+      "label": 1,
+      "score": 0.06431534886360168,
+      "latency_ms": 39.69609999330714
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Anomaly/071.JPG",
+      "sha256": "2aa6051e601fa582e5c9926c116e363d9d08f313146a340141daa8dbbdab12b8",
+      "label": 1,
+      "score": 0.09985452890396118,
+      "latency_ms": 40.507700003217906
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Anomaly/004.JPG",
+      "sha256": "f2d89eb3900d82a36156530fe59b98c4a6e6721cf8873b5cdfc79ecacd6e24b6",
+      "label": 1,
+      "score": 0.07483774423599243,
+      "latency_ms": 40.44299997622147
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Anomaly/026.JPG",
+      "sha256": "d952246579cce60db479f94662d19bf888a4635c957d8309b26114668c087309",
+      "label": 1,
+      "score": 0.15085050463676453,
+      "latency_ms": 38.864900008775294
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Anomaly/065.JPG",
+      "sha256": "10dff22542b97d967476a8672f8d24539443f352dcc3f7e787daa9a4342c8a73",
+      "label": 1,
+      "score": 0.08157667517662048,
+      "latency_ms": 40.72220000671223
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Anomaly/014.JPG",
+      "sha256": "3b9b3994672a8abe33f037b54e1127ecee2054ad483cc685c7c59b7451ab3800",
+      "label": 1,
+      "score": 0.14235597848892212,
+      "latency_ms": 39.42059999099001
+    }
+  ],
+  "test": [
+    {
+      "image": "pipe_fryum/Data/Images/Normal/006.JPG",
+      "sha256": "eae38f93ef89909bf1f7bb76838ad45826602ca6d19a537a19c7ff17e61e0aba",
+      "label": 0,
+      "score": 0.04459744691848755,
+      "latency_ms": 38.6343999998644
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Normal/012.JPG",
+      "sha256": "24cfd63b397e1696a747f829afba32f9e287a67ef77d6e3c6f2f59d74b9acbff",
+      "label": 0,
+      "score": 0.036691516637802124,
+      "latency_ms": 40.883899986511096
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Normal/013.JPG",
+      "sha256": "5de921960432f41e5ac9e37c58b47e09cc5e9f2a805d9e502ed76633a4aad28b",
+      "label": 0,
+      "score": 0.04031103849411011,
+      "latency_ms": 39.45830001612194
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Normal/023.JPG",
+      "sha256": "6990fd0459ec0aead44b20315e50ad9a00bcc4d3185ce9759988c6c8ac9ff8e8",
+      "label": 0,
+      "score": 0.0394473671913147,
+      "latency_ms": 44.5727999904193
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Normal/050.JPG",
+      "sha256": "828cb0fd28b6ea5d0305864c95bdeb4fb5bc2067e49ccd3adfb7063fc92e4888",
+      "label": 0,
+      "score": 0.0385819673538208,
+      "latency_ms": 41.086899989750236
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Normal/084.JPG",
+      "sha256": "395a98a574ece7e961755acbd1f707c8e2b8c40cae81ae8c2a55fd429be4fb2d",
+      "label": 0,
+      "score": 0.04020920395851135,
+      "latency_ms": 38.839699991513044
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Normal/087.JPG",
+      "sha256": "37ac45bd8d81e52e409c3b757c39728e89eabd3a8e229f4c931e5183f48a5d08",
+      "label": 0,
+      "score": 0.04181033372879028,
+      "latency_ms": 39.59770000074059
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Normal/089.JPG",
+      "sha256": "9372d4179f3cd453865f2025568fe5dc5bdc036e7cc50a43c25b9c85ecef935f",
+      "label": 0,
+      "score": 0.04766908288002014,
+      "latency_ms": 39.25519998301752
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Normal/093.JPG",
+      "sha256": "e4c2f770b0139e71de9dce7f51e87f64e91052d37518f407008b63bd8bff8f78",
+      "label": 0,
+      "score": 0.0537145733833313,
+      "latency_ms": 40.658899990376085
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Normal/098.JPG",
+      "sha256": "281a9eebfa5ef834bf83992d5a6679824b3e5e319e108d718ffc45a29a8a247b",
+      "label": 0,
+      "score": 0.04404419660568237,
+      "latency_ms": 42.50589999719523
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Normal/104.JPG",
+      "sha256": "a3d4967707ada419bd6638f0158cb1a42d2be647ec6fd320bc503c1181a5c7ba",
+      "label": 0,
+      "score": 0.04402679204940796,
+      "latency_ms": 41.06600000523031
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Normal/130.JPG",
+      "sha256": "72bd796dceaa09fdde86345c9099b81bc0397c9fbb6e06e597f4c8c00fbdfc9e",
+      "label": 0,
+      "score": 0.04024288058280945,
+      "latency_ms": 41.50299998582341
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Normal/143.JPG",
+      "sha256": "08112fdbb840c87326624249199e0ce8bcaa58149eabf765a6b483eff0a99187",
+      "label": 0,
+      "score": 0.045163124799728394,
+      "latency_ms": 41.1076000018511
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Normal/148.JPG",
+      "sha256": "e3897dd63780140444f49ea6b1c9ec73eb48ab24738594b1f36c70deb6fd54a2",
+      "label": 0,
+      "score": 0.03917801380157471,
+      "latency_ms": 42.77259999071248
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Normal/166.JPG",
+      "sha256": "93e9199c5d964b7e3c5e804b4ed23a013541495c82da5a1c934017f02ad1e365",
+      "label": 0,
+      "score": 0.04044094681739807,
+      "latency_ms": 46.546800003852695
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Normal/181.JPG",
+      "sha256": "9b866ab6deecd827a894c5b382f52babb957fb646e5475a7055fd6d1514b2feb",
+      "label": 0,
+      "score": 0.03658425807952881,
+      "latency_ms": 39.95760000543669
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Normal/213.JPG",
+      "sha256": "12a634c0f01879159cc61840af19af494237cea85fea5e92b221ef05d2a1db9e",
+      "label": 0,
+      "score": 0.04079979658126831,
+      "latency_ms": 39.466200018068776
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Normal/228.JPG",
+      "sha256": "a191e369aa36b50d4788ea8d59e7d61b153e296c76fee14ad45c68edc34a54c3",
+      "label": 0,
+      "score": 0.05653008818626404,
+      "latency_ms": 40.35120000480674
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Normal/239.JPG",
+      "sha256": "5154df389788cbcde28e5263e7c89ae6fd9b42c8a04e82c43ba70ca8cfdde959",
+      "label": 0,
+      "score": 0.04509040713310242,
+      "latency_ms": 40.573000005679205
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Normal/244.JPG",
+      "sha256": "d330864698c5ac8b7650fd18c03e36babac0796363ced4e775a19c0f5bb39432",
+      "label": 0,
+      "score": 0.03945416212081909,
+      "latency_ms": 41.28770000534132
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Normal/245.JPG",
+      "sha256": "b001f7f6cb95e8084681883db74f30c2bf7ab32e616e717d7974a4ecbc076b37",
+      "label": 0,
+      "score": 0.037332892417907715,
+      "latency_ms": 41.6127999778837
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Normal/260.JPG",
+      "sha256": "5bccd97be905ab47f9ffa7c7655ceffa3c4fd5d39ca3e7cbefb8750ca87337ca",
+      "label": 0,
+      "score": 0.04289403557777405,
+      "latency_ms": 39.7886999999173
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Normal/272.JPG",
+      "sha256": "aaf3fb31ca2b7e1dac5eedc8afc5fe6f3e3fd944b3475d9e9b18760837e3f93d",
+      "label": 0,
+      "score": 0.057014256715774536,
+      "latency_ms": 39.45030001341365
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Normal/276.JPG",
+      "sha256": "8f82a81cea243ca5de960eb17372c588be2e9b674ccfdc3fe4f5123da5b43dfb",
+      "label": 0,
+      "score": 0.04027488827705383,
+      "latency_ms": 40.05490001873113
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Normal/284.JPG",
+      "sha256": "4b612536f652512b631e330918907898609e3edcd5b504c410bcf3902be2b2b4",
+      "label": 0,
+      "score": 0.03767186403274536,
+      "latency_ms": 39.559700002428144
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Normal/307.JPG",
+      "sha256": "52ce2ee9a91a8b3d19ae62735ae5cce2349784d1af2639fa62dae725ef29f1f0",
+      "label": 0,
+      "score": 0.04162904620170593,
+      "latency_ms": 40.66990001592785
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Normal/309.JPG",
+      "sha256": "ab00a16b62043363b72fd151e9909cef2b25359e2dd51e3a7281c054b2168e73",
+      "label": 0,
+      "score": 0.0447254478931427,
+      "latency_ms": 39.90390000399202
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Normal/324.JPG",
+      "sha256": "a099b52e36fe87837100b2d43fa05b06d407827d54291baca011be7b56b55558",
+      "label": 0,
+      "score": 0.06388580799102783,
+      "latency_ms": 40.97720002755523
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Normal/337.JPG",
+      "sha256": "7a4e4555beef721c6bf6af5bb4967c43579f84e6ce8546001cb695897a540b68",
+      "label": 0,
+      "score": 0.05448257923126221,
+      "latency_ms": 41.469600022537634
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Normal/342.JPG",
+      "sha256": "3c7eb60b395822293f392f1d09928015e2980a09f781ccb902ae0c0b1c45e70c",
+      "label": 0,
+      "score": 0.05171796679496765,
+      "latency_ms": 42.70130000077188
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Normal/344.JPG",
+      "sha256": "7b7ee98d25b7ab9a0cfe0f4fc718c33e3f879ad2a0ff83401ce7dfbad3088c80",
+      "label": 0,
+      "score": 0.03861275315284729,
+      "latency_ms": 39.5925999910105
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Normal/352.JPG",
+      "sha256": "97322064fdb579b75c2026eb9b36112b63c8cc97168cbfa2440482a109c1037e",
+      "label": 0,
+      "score": 0.04971468448638916,
+      "latency_ms": 38.30870002275333
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Normal/367.JPG",
+      "sha256": "30de33b89ce52bf9283c02fff8718aafbfb84178af1e43ab67f3031eb68c7497",
+      "label": 0,
+      "score": 0.042137712240219116,
+      "latency_ms": 38.480899995192885
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Normal/369.JPG",
+      "sha256": "bd2d5a14ce7232e520281377059faa2b757380c26799b0d63d5a85bc81ea8a94",
+      "label": 0,
+      "score": 0.05002585053443909,
+      "latency_ms": 39.12150001269765
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Normal/377.JPG",
+      "sha256": "2193c2b84b819cb6ec63486567e46ea028d6627ae4b4d2479b6373a64f52bc33",
+      "label": 0,
+      "score": 0.04164668917655945,
+      "latency_ms": 38.400899997213855
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Normal/384.JPG",
+      "sha256": "72dd4a170c8acf064e74da1d4b1fd6549b096d8fbbfb7ac1420af66ed5b6ca44",
+      "label": 0,
+      "score": 0.04819035530090332,
+      "latency_ms": 39.36219998286106
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Normal/389.JPG",
+      "sha256": "fba98ade05b4310a0ec5870f06511fe52df3edbe8ba1642b9a2e367764513cbf",
+      "label": 0,
+      "score": 0.04453834891319275,
+      "latency_ms": 39.53680000267923
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Normal/392.JPG",
+      "sha256": "f1c33e06388fc92402d2fc3a724b191c21d23141bc4a3ff10cf691b26c015c24",
+      "label": 0,
+      "score": 0.041630953550338745,
+      "latency_ms": 39.357900008326396
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Normal/398.JPG",
+      "sha256": "7dd85f4d4f8c41c05ac5c29d6c2352a845de542190a691db5eb5d41dcfd7dc31",
+      "label": 0,
+      "score": 0.05750349164009094,
+      "latency_ms": 40.264899987960234
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Normal/400.JPG",
+      "sha256": "2652731484e15ae63c12b099a8b0c33c24dc62dcab02711470d3d4ced844341e",
+      "label": 0,
+      "score": 0.043442755937576294,
+      "latency_ms": 41.35849999147467
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Normal/402.JPG",
+      "sha256": "f838cd77a431f508f37d5847d942754f6e9a567d9e3394acf5e2196c3f395352",
+      "label": 0,
+      "score": 0.03839746117591858,
+      "latency_ms": 40.01339999376796
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Normal/405.JPG",
+      "sha256": "b537d43234dd0d19d409b73afe2fe09fb744a2ce4da722bb4994c12669676891",
+      "label": 0,
+      "score": 0.035049617290496826,
+      "latency_ms": 39.55539999878965
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Normal/435.JPG",
+      "sha256": "ee2977098fb2398cdeec501b410df63d1032db730103b5689c567734feeee51b",
+      "label": 0,
+      "score": 0.04139193892478943,
+      "latency_ms": 39.639700000407174
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Normal/446.JPG",
+      "sha256": "90f89b222797abc85acb3d29076d53478cc3bd6206a0d376bbdc7f2c92dd732c",
+      "label": 0,
+      "score": 0.07187232375144958,
+      "latency_ms": 38.666100008413196
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Normal/460.JPG",
+      "sha256": "8ec4157cfaba27b83c33fe1cfc679384502741cd7effd5a190a64bda8d922fb6",
+      "label": 0,
+      "score": 0.05126762390136719,
+      "latency_ms": 43.555499985814095
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Normal/461.JPG",
+      "sha256": "a041d66974604b5e49c02e4d8b88fc3b21980f2de034ab0b7aa158e780c2d6cc",
+      "label": 0,
+      "score": 0.03991711139678955,
+      "latency_ms": 39.506300003267825
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Normal/467.JPG",
+      "sha256": "68e57f1b9e2c1faf911feae090374d4c9359e98b3e27cac90ccac72259edee04",
+      "label": 0,
+      "score": 0.060462236404418945,
+      "latency_ms": 39.20940001262352
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Normal/482.JPG",
+      "sha256": "a727226e7bc3dc81291a10c12767a462f4f05fa4110adcc712fc66ae0a350c85",
+      "label": 0,
+      "score": 0.04373100399971008,
+      "latency_ms": 38.4728999924846
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Normal/484.JPG",
+      "sha256": "f1d12249261d62f00fd20c476804de6884a96d351e04e7943b3a82852ba86c34",
+      "label": 0,
+      "score": 0.04883313179016113,
+      "latency_ms": 39.36729999259114
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Normal/487.JPG",
+      "sha256": "83fbdd773db1bd75b7e78abb6c20852911df3e32d5fee4a282491827cc62ec9f",
+      "label": 0,
+      "score": 0.03418359160423279,
+      "latency_ms": 39.11109999171458
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Anomaly/023.JPG",
+      "sha256": "2dcf19f62ea393fe0079b63bb0874f04db01ec63a1ad17d926ac96c1099b53e4",
+      "label": 1,
+      "score": 0.08141562342643738,
+      "latency_ms": 39.47829999378882
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Anomaly/093.JPG",
+      "sha256": "2e74880a09ff68e0a6a96ee90849e3ac98bd31a189fd87f937f76c45d0c85c83",
+      "label": 1,
+      "score": 0.221360981464386,
+      "latency_ms": 39.492699987022206
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Anomaly/041.JPG",
+      "sha256": "67685e60fa8daa496649e58d85819ed04cceba24b9c633cfb73a62ead1bae3e5",
+      "label": 1,
+      "score": 0.17183107137680054,
+      "latency_ms": 39.507899986347184
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Anomaly/086.JPG",
+      "sha256": "a841c14d67be279182001b71ad5b48d80701a979a24626cd53867d6cc9669fd5",
+      "label": 1,
+      "score": 0.08121782541275024,
+      "latency_ms": 40.16509998473339
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Anomaly/056.JPG",
+      "sha256": "8a42c460b4117be0fc5ebfcaef9ce599ddb31abcb00eb7b0a4fab6a154acced9",
+      "label": 1,
+      "score": 0.047199130058288574,
+      "latency_ms": 41.89510000287555
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Anomaly/029.JPG",
+      "sha256": "1cdc654b9d368c3af5cce6d07b85eb96556a56f13e20de210c267924597287f5",
+      "label": 1,
+      "score": 0.06688842177391052,
+      "latency_ms": 40.9057000069879
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Anomaly/087.JPG",
+      "sha256": "ee39837b2dcde454584b22ff4872187c20c15fb449a1e4ff23d862ad86af2b6e",
+      "label": 1,
+      "score": 0.07789251208305359,
+      "latency_ms": 40.685399988433346
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Anomaly/077.JPG",
+      "sha256": "55645a149e5eb23d609b05274285ee1a2eb6d006689d150276a104c53a83b61f",
+      "label": 1,
+      "score": 0.06455036997795105,
+      "latency_ms": 40.68599999300204
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Anomaly/042.JPG",
+      "sha256": "b39f64fecd210e0818de4beb2eee3ab479b4571e2b3a1ca1d3af30654f26cf52",
+      "label": 1,
+      "score": 0.17478135228157043,
+      "latency_ms": 42.44459999608807
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Anomaly/095.JPG",
+      "sha256": "51a407312f8187581c55a41f1fa658365fdc41e2445d305ad13552fa5c583b62",
+      "label": 1,
+      "score": 0.1086454689502716,
+      "latency_ms": 38.91479998128489
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Anomaly/045.JPG",
+      "sha256": "a7b46f21cb4beabbc808503785ddaf2aa673610ea41f37ad0ba7af0a30c3d07e",
+      "label": 1,
+      "score": 0.17731007933616638,
+      "latency_ms": 39.141900022514164
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Anomaly/012.JPG",
+      "sha256": "461215936f1309a8c75f06be3d091f1feb0b19c388c3dc73e1aa313214e927cb",
+      "label": 1,
+      "score": 0.09635800123214722,
+      "latency_ms": 41.168399999151006
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Anomaly/075.JPG",
+      "sha256": "cec28b0624974c44d756b84b1fccaa52298fa5161f36d37d53aef6b4ec42a0b5",
+      "label": 1,
+      "score": 0.077206552028656,
+      "latency_ms": 45.01250002067536
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Anomaly/002.JPG",
+      "sha256": "8793cea5edd0b26805798c4bfa7c1793d3d2300c84395c77b8daa16288e2986f",
+      "label": 1,
+      "score": 0.1120016872882843,
+      "latency_ms": 38.59749998082407
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Anomaly/099.JPG",
+      "sha256": "d88dda3618902ac32a6ff5204edae367aa0abd7d079ea63097cf7aaa90498fb2",
+      "label": 1,
+      "score": 0.12213197350502014,
+      "latency_ms": 39.466399990487844
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Anomaly/039.JPG",
+      "sha256": "ea1ace33a2b88994c60af805257c80e39321f381e40d8c56aaee2b8e7181ef1f",
+      "label": 1,
+      "score": 0.0889076292514801,
+      "latency_ms": 39.57839999930002
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Anomaly/037.JPG",
+      "sha256": "791b0c7e80761632173701b864800bb459bf8ecf96a399ae85503fca91d1d95a",
+      "label": 1,
+      "score": 0.10058861970901489,
+      "latency_ms": 38.96500001428649
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Anomaly/083.JPG",
+      "sha256": "b96d96b9ae49d92733dfd89b3b07d62ef0cd1c8a34da6587f658bf74e2c907e7",
+      "label": 1,
+      "score": 0.05858662724494934,
+      "latency_ms": 41.72229999676347
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Anomaly/074.JPG",
+      "sha256": "fdd0662e9ef42f03db0c9edf0ceb2b529ab7cfbf492a24c57755578736895a40",
+      "label": 1,
+      "score": 0.06108620762825012,
+      "latency_ms": 40.00519998953678
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Anomaly/044.JPG",
+      "sha256": "c8cf6d89e799756f5fb0aa8331ebfc95c6dd095ee6a982d670a5fd6c6de14677",
+      "label": 1,
+      "score": 0.13764870166778564,
+      "latency_ms": 38.583199988352135
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Anomaly/051.JPG",
+      "sha256": "4e7fd7edcab5ea3f20ef1efd4040cc9f87f8ebad15f0f783fc4c89bbd880abe4",
+      "label": 1,
+      "score": 0.08062326908111572,
+      "latency_ms": 39.64360000099987
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Anomaly/067.JPG",
+      "sha256": "72fcac45fbc37af6e7e0c46451c6d967e7678a95d64587e088a5238b1d3fff18",
+      "label": 1,
+      "score": 0.10093304514884949,
+      "latency_ms": 39.378599991323426
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Anomaly/059.JPG",
+      "sha256": "68bab95c82960b1243a80107f2f8e73ab1589c543824d6a976abc35878df0d88",
+      "label": 1,
+      "score": 0.08183765411376953,
+      "latency_ms": 38.6685999983456
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Anomaly/034.JPG",
+      "sha256": "78078cef3e2089bdbd95f7dca59026bda13a6af31cd92573d3d8c1ae1699d4df",
+      "label": 1,
+      "score": 0.07071202993392944,
+      "latency_ms": 40.29970002011396
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Anomaly/009.JPG",
+      "sha256": "e0fbd71cb8c2694e341d871effaec13de35a8cca59d661996ff9d69edba80093",
+      "label": 1,
+      "score": 0.07106137275695801,
+      "latency_ms": 38.964099978329614
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Anomaly/008.JPG",
+      "sha256": "d0c7e6e20ed36e361943b13aafa57f83ae017049b8c636e9b7a5aeaceb49fba8",
+      "label": 1,
+      "score": 0.09687340259552002,
+      "latency_ms": 39.79130001971498
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Anomaly/055.JPG",
+      "sha256": "f5a3202f53a4a3dc6a252d5854a5ef0517cc3007ed7b7cda47e7fd20bd8db271",
+      "label": 1,
+      "score": 0.06407323479652405,
+      "latency_ms": 40.62549999798648
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Anomaly/096.JPG",
+      "sha256": "411d1f7417aa268869b42cafe9abe0ce74a3cb6f0da2e6d256b50fc2de79dbe2",
+      "label": 1,
+      "score": 0.18054834008216858,
+      "latency_ms": 39.17899998486973
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Anomaly/006.JPG",
+      "sha256": "c383522c08bb34a4be0d0446d7682f6cfad8cf8714ecd40dee1a2fb45a7a8296",
+      "label": 1,
+      "score": 0.05349665880203247,
+      "latency_ms": 40.36650000489317
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Anomaly/015.JPG",
+      "sha256": "3ee8db2fd5e2bee4cd7b51c1e84ad4ac396e750566673a96e7417278571ff4bc",
+      "label": 1,
+      "score": 0.05476784706115723,
+      "latency_ms": 38.61670001060702
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Anomaly/031.JPG",
+      "sha256": "d349d488e3f8dd61fd5cd1755bf0edd54e1ebfc1760d9cb599d397f80c14565a",
+      "label": 1,
+      "score": 0.12273836135864258,
+      "latency_ms": 38.748999999370426
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Anomaly/046.JPG",
+      "sha256": "abb5a29acab938ef6da1cb3590e95ec9768cd0ba4338c220cfa93676a56329c5",
+      "label": 1,
+      "score": 0.13373982906341553,
+      "latency_ms": 39.04149998561479
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Anomaly/043.JPG",
+      "sha256": "e504fc209fdd29d30b87eb92798d24411195b21fc8c97af729c944fbd937cbbc",
+      "label": 1,
+      "score": 0.15553072094917297,
+      "latency_ms": 39.67290002037771
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Anomaly/013.JPG",
+      "sha256": "3c514bb2c6d8c0997a1abd10b7210ff053d129fffb023aff0ccdde83ced675b5",
+      "label": 1,
+      "score": 0.09514063596725464,
+      "latency_ms": 39.57819999777712
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Anomaly/027.JPG",
+      "sha256": "31fe2bfc4e9ffa1c617c6415b8c968a04da8e0025587c20d81fa26ad474e02dc",
+      "label": 1,
+      "score": 0.061037689447402954,
+      "latency_ms": 39.70699998899363
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Anomaly/080.JPG",
+      "sha256": "785269558fd3f18e9b9e87f1ff667a774de91b8cccfe43d003bce836809f4791",
+      "label": 1,
+      "score": 0.06084039807319641,
+      "latency_ms": 40.83099999115802
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Anomaly/047.JPG",
+      "sha256": "69a89ce9bf726a8a376e41d01cef31dede1a6f7f8dd5e29aacfdd22ed3d92f2c",
+      "label": 1,
+      "score": 0.16541504859924316,
+      "latency_ms": 38.920999999390915
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Anomaly/021.JPG",
+      "sha256": "bcb735a0e83e6377b7995d1174ce117cce8e2acd93a364a604dcf603d338759a",
+      "label": 1,
+      "score": 0.06412458419799805,
+      "latency_ms": 40.34209999372251
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Anomaly/016.JPG",
+      "sha256": "06d6756770a3762dbd04216f88a4c14da3aa92683e06d584cecac3fb87a683b5",
+      "label": 1,
+      "score": 0.06837505102157593,
+      "latency_ms": 38.80730000673793
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Anomaly/033.JPG",
+      "sha256": "2c59a78ac661506d634be90c975e55be0bd23716dc4eb4379082abd4425c8544",
+      "label": 1,
+      "score": 0.10765060782432556,
+      "latency_ms": 38.68440000223927
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Anomaly/094.JPG",
+      "sha256": "cf284d53c01030c0de31122e34185a4e0a9fc324e88378a239dfc819fb95d8c0",
+      "label": 1,
+      "score": 0.14346769452095032,
+      "latency_ms": 38.451500004157424
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Anomaly/048.JPG",
+      "sha256": "62b4ea12c675bcd582159138ee94084ab55d83ad485fa39d32d4cc45e16e399a",
+      "label": 1,
+      "score": 0.20620813965797424,
+      "latency_ms": 40.94439998152666
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Anomaly/079.JPG",
+      "sha256": "e6dd0ed7a2cdca322caa64f9d98d075c6a2fb1289e9af3b30cea50b1350df475",
+      "label": 1,
+      "score": 0.10194489359855652,
+      "latency_ms": 39.95779997785576
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Anomaly/053.JPG",
+      "sha256": "afb2ab4dc819bc131c5fc389b2d76dfa546aae068b344a9af7e337632c7fcf6b",
+      "label": 1,
+      "score": 0.044829607009887695,
+      "latency_ms": 38.79390002111904
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Anomaly/032.JPG",
+      "sha256": "1c15fd37a4601b6f9fb6454160ae6018cf54cfca061640b63ab7f4f74509ad12",
+      "label": 1,
+      "score": 0.10430562496185303,
+      "latency_ms": 40.95340002095327
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Anomaly/010.JPG",
+      "sha256": "d5f4c75950c415a0e926355c8d87590078fcf294320f239e474ec00854d54591",
+      "label": 1,
+      "score": 0.1082979142665863,
+      "latency_ms": 41.91709999577142
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Anomaly/003.JPG",
+      "sha256": "71852a654f06d64627143b2601f5233387b6afdd2378ec3bf357fcfaf1df622f",
+      "label": 1,
+      "score": 0.1334618330001831,
+      "latency_ms": 38.78139998414554
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Anomaly/073.JPG",
+      "sha256": "24070105e6d23f5aedb110507abc6f82247b576716dd796a2f93e8c45d1e0e96",
+      "label": 1,
+      "score": 0.04802548885345459,
+      "latency_ms": 39.938900008564815
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Anomaly/064.JPG",
+      "sha256": "b5f2687fb0a9967fcae9c6cbfab838fe75e4c106d2c0ae281f254fe049fda7ad",
+      "label": 1,
+      "score": 0.043148696422576904,
+      "latency_ms": 38.89309999067336
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Anomaly/022.JPG",
+      "sha256": "17c2eac8c635c868d4ad09c3aa1e2027add14e79a2ef23e500a58b1d4c4cdf46",
+      "label": 1,
+      "score": 0.07410764694213867,
+      "latency_ms": 39.70209998078644
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Anomaly/066.JPG",
+      "sha256": "11f6957400ca7f073caacb3ee844dee5f1b50cbc53cb08260af8c608a14cf573",
+      "label": 1,
+      "score": 0.07523831725120544,
+      "latency_ms": 42.36510000191629
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Anomaly/035.JPG",
+      "sha256": "033dfce0b349f43e3b846a9dc122095c2e678e7a24320b66b6de4200d5156e36",
+      "label": 1,
+      "score": 0.1061505377292633,
+      "latency_ms": 39.920899987919256
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Anomaly/054.JPG",
+      "sha256": "588fd3b565d1e331c39cc38e071b0fafbeda27ffee7a5dcfa9cc6138e0277cd2",
+      "label": 1,
+      "score": 0.04052966833114624,
+      "latency_ms": 38.338999991538
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Anomaly/038.JPG",
+      "sha256": "c46bc734160732458466e853b1b156b08dfc806bd32f5c8b1dd4c8b0d91e824e",
+      "label": 1,
+      "score": 0.1287478804588318,
+      "latency_ms": 39.69340000185184
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Anomaly/085.JPG",
+      "sha256": "3e14ced880fb26c8fed002e3c2906cc897bad408c4319f499caae010b32687fd",
+      "label": 1,
+      "score": 0.07788079977035522,
+      "latency_ms": 39.73479999694973
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Anomaly/063.JPG",
+      "sha256": "a3b45e540cb29d848a329b6a7552ccec338c85cbda4f09178d715fe32391cf87",
+      "label": 1,
+      "score": 0.049725115299224854,
+      "latency_ms": 37.82100000535138
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Anomaly/000.JPG",
+      "sha256": "6f5b7859cf761971e7708bc08a8fa0da3fef70c5c9d1f06b32e81ab8cdcdc2ce",
+      "label": 1,
+      "score": 0.0895489752292633,
+      "latency_ms": 40.670699992915615
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Anomaly/030.JPG",
+      "sha256": "0baadf920192ef03e4992d45c28b80480b13ddf5d49a87eb278e6d3382b9b0c8",
+      "label": 1,
+      "score": 0.0878220796585083,
+      "latency_ms": 37.846799998078495
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Anomaly/005.JPG",
+      "sha256": "542fd997e69d3913ebe2138c6145124f634f2a5263e03dbf6016834e3e7e4bb7",
+      "label": 1,
+      "score": 0.13182049989700317,
+      "latency_ms": 39.0287000045646
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Anomaly/019.JPG",
+      "sha256": "d270766dd841066a6dffb386bda3ff139ae0684947b6dadeeec74f557ccc76bf",
+      "label": 1,
+      "score": 0.06958672404289246,
+      "latency_ms": 42.056200007209554
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Anomaly/017.JPG",
+      "sha256": "ac4bffdff4c1cb45d39a097a20d8c30aea93a5bbf16072fb48198d9d049bf786",
+      "label": 1,
+      "score": 0.05546650290489197,
+      "latency_ms": 39.72510001040064
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Anomaly/062.JPG",
+      "sha256": "89678d1d86aba5dd1fd24529a55ceb6ed1ea392a61d6fd78be6a19e1abc5e046",
+      "label": 1,
+      "score": 0.07399329543113708,
+      "latency_ms": 40.313900011824444
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Anomaly/089.JPG",
+      "sha256": "fe95d9293c1f5cf2331d8f6d29e35039783df09235c6ac1a8c88ade8205fae22",
+      "label": 1,
+      "score": 0.048836737871170044,
+      "latency_ms": 41.29100000136532
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Anomaly/028.JPG",
+      "sha256": "cec0e1b971f1da88b662b945d85555b01b9815008b385bd8d16280e33143f1c2",
+      "label": 1,
+      "score": 0.10642042756080627,
+      "latency_ms": 39.25480000907555
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Anomaly/084.JPG",
+      "sha256": "21deffec7844315ccf317222148070d763f4c17aadbffd3e3ac05cf490599529",
+      "label": 1,
+      "score": 0.12327423691749573,
+      "latency_ms": 39.91739999037236
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Anomaly/057.JPG",
+      "sha256": "16a7fcf62da0127eb201fad80cb10d732b8d27ef856b5d2bcd20ac795dfa9ebc",
+      "label": 1,
+      "score": 0.052332401275634766,
+      "latency_ms": 38.34509997977875
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Anomaly/001.JPG",
+      "sha256": "80f35897bd2cc6dad97baee1683bf11c402cb0489b6c3420fbf0b25ed1487581",
+      "label": 1,
+      "score": 0.08037835359573364,
+      "latency_ms": 40.64880000078119
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Anomaly/072.JPG",
+      "sha256": "07d9247e49e19eb64139a56a508974a4cb7f047b61008d7fd2fd3eee9f5d7f1e",
+      "label": 1,
+      "score": 0.0730741024017334,
+      "latency_ms": 38.30089999246411
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Anomaly/020.JPG",
+      "sha256": "30e2a7abcf1063555a32777934ff0811b65d50599ce173fa8c35594de8bd03c7",
+      "label": 1,
+      "score": 0.065959632396698,
+      "latency_ms": 40.875100006815046
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Anomaly/097.JPG",
+      "sha256": "5c32c0688106bd363fc7c93ee73cd9680d82bf324fc3d18db34265688f56124e",
+      "label": 1,
+      "score": 0.1403847336769104,
+      "latency_ms": 39.07270001946017
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Anomaly/082.JPG",
+      "sha256": "9fd312d14d1aa6167de337e91e66227cd056f1b9bb21bf85ec190919fb860257",
+      "label": 1,
+      "score": 0.08689525723457336,
+      "latency_ms": 42.48699999880046
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Anomaly/068.JPG",
+      "sha256": "6c963031a1e83e8d906c65116acb28619c8ab2f74cfae0253e894abd31e7494b",
+      "label": 1,
+      "score": 0.09100741147994995,
+      "latency_ms": 43.1580999866128
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Anomaly/088.JPG",
+      "sha256": "c793747befb009718201cf2821117967fd67da004fb0ff7d3c9f3964348f0ea8",
+      "label": 1,
+      "score": 0.06692537665367126,
+      "latency_ms": 42.62249998282641
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Anomaly/070.JPG",
+      "sha256": "78956f14cc83f9dc859038978c01778c08144c0491cbeeb9be9555197bb3023a",
+      "label": 1,
+      "score": 0.06614521145820618,
+      "latency_ms": 43.15869999118149
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Anomaly/058.JPG",
+      "sha256": "d4dbc62c540bb332e0918c260cd0af8fecdb213ba7223dfec88f983db9f390e0",
+      "label": 1,
+      "score": 0.07736268639564514,
+      "latency_ms": 44.95889999088831
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Anomaly/049.JPG",
+      "sha256": "293cd102cb83c202c42e630adf65158491312f1e3579d90d19ebba2070eabefd",
+      "label": 1,
+      "score": 0.1716035008430481,
+      "latency_ms": 43.04630000842735
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Anomaly/098.JPG",
+      "sha256": "c2051f9eb260ab747f881020c447610fcb3876dc2d52af7c0da32fb8fedf924f",
+      "label": 1,
+      "score": 0.12449979782104492,
+      "latency_ms": 41.161200002534315
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Anomaly/050.JPG",
+      "sha256": "ceade2018826bdd5dad8b87cffedff602ea19e59fe49878bb2c0594079d64f8e",
+      "label": 1,
+      "score": 0.050282031297683716,
+      "latency_ms": 40.61720002209768
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Anomaly/069.JPG",
+      "sha256": "41b39607433a3b9af9a496cb7cdd745312095196263666eb4b5ce54cc7bbd6a4",
+      "label": 1,
+      "score": 0.08146068453788757,
+      "latency_ms": 40.162599994800985
+    },
+    {
+      "image": "pipe_fryum/Data/Images/Anomaly/060.JPG",
+      "sha256": "dd5d436facb2a3acf4e284633b08933935dd13eff1d83856088fd42a920411f1",
+      "label": 1,
+      "score": 0.08601292967796326,
+      "latency_ms": 38.17610000260174
+    }
+  ]
+}

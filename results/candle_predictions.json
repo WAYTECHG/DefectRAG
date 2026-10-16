@@ -1,0 +1,1630 @@
+{
+  "validation": [
+    {
+      "image": "candle/Data/Images/Normal/0849.JPG",
+      "sha256": "7750c462835ecaa8b4acf57e6a2b5d7863320ec00e6ef444d0f1323e417ddc7f",
+      "label": 0,
+      "score": 0.026811182498931885,
+      "latency_ms": 173.71730000013486
+    },
+    {
+      "image": "candle/Data/Images/Normal/0260.JPG",
+      "sha256": "79aa963fabeedca83797500fa77dc5fe98cd821d15663c65383931a9e393c3bc",
+      "label": 0,
+      "score": 0.05291840434074402,
+      "latency_ms": 37.30830000131391
+    },
+    {
+      "image": "candle/Data/Images/Normal/0749.JPG",
+      "sha256": "e186df50b6745083bf00e6e29d851dc314677da7a47a129bd0029b7e749eaa98",
+      "label": 0,
+      "score": 0.02072852849960327,
+      "latency_ms": 34.44729998591356
+    },
+    {
+      "image": "candle/Data/Images/Normal/0834.JPG",
+      "sha256": "0ec197ab8e92190f1517dc586e713558e045408ede603082413a972cab48f056",
+      "label": 0,
+      "score": 0.01878499984741211,
+      "latency_ms": 35.19109997432679
+    },
+    {
+      "image": "candle/Data/Images/Normal/0374.JPG",
+      "sha256": "fda716495091838a9ec2c105678854586d13b230f8226444dbccfddde7fbbed5",
+      "label": 0,
+      "score": 0.022209137678146362,
+      "latency_ms": 32.23519999301061
+    },
+    {
+      "image": "candle/Data/Images/Normal/0109.JPG",
+      "sha256": "51997ae51b7d609f33030b4bd1348e028328bc54a74d82272262eb33203d2af1",
+      "label": 0,
+      "score": 0.028054356575012207,
+      "latency_ms": 37.508899986278266
+    },
+    {
+      "image": "candle/Data/Images/Normal/0160.JPG",
+      "sha256": "2d96452d83714816d2472ab2f97f524edc4cb6001879040345c1e14d4c4abb78",
+      "label": 0,
+      "score": 0.03133469820022583,
+      "latency_ms": 33.96720002638176
+    },
+    {
+      "image": "candle/Data/Images/Normal/0638.JPG",
+      "sha256": "0d1166c53310b5a7f712bc95e1dcc4c7a981bee4ef5c55eed6cd1a98851e4440",
+      "label": 0,
+      "score": 0.033184975385665894,
+      "latency_ms": 34.28340001846664
+    },
+    {
+      "image": "candle/Data/Images/Normal/0073.JPG",
+      "sha256": "accb02927d81b118709722a5d4b233762f53a6be9e92f1f0ca1c8479c3f1ad7e",
+      "label": 0,
+      "score": 0.021829813718795776,
+      "latency_ms": 35.839399992255494
+    },
+    {
+      "image": "candle/Data/Images/Normal/0090.JPG",
+      "sha256": "c0b0c067900a16f2caa856d40682a7fc54716418c750c8ed9644297ab4b8d959",
+      "label": 0,
+      "score": 0.026127606630325317,
+      "latency_ms": 32.63500001048669
+    },
+    {
+      "image": "candle/Data/Images/Normal/0582.JPG",
+      "sha256": "b4c36356ebd8714f5fd31022347f045bdda8f6ec2f66d6f59529aa3965e7e743",
+      "label": 0,
+      "score": 0.06074771285057068,
+      "latency_ms": 32.5713999918662
+    },
+    {
+      "image": "candle/Data/Images/Normal/0156.JPG",
+      "sha256": "04aad1e9e89a8ac664af317f40bd916d0dee81bebeb46d8efbb96b726cef6eed",
+      "label": 0,
+      "score": 0.025411218404769897,
+      "latency_ms": 33.17609999794513
+    },
+    {
+      "image": "candle/Data/Images/Normal/0801.JPG",
+      "sha256": "f0745e57d76124c662a038224a60bcd97ab69ff3cec2ed662eb8602f36f2cd0d",
+      "label": 0,
+      "score": 0.023676276206970215,
+      "latency_ms": 36.48740000789985
+    },
+    {
+      "image": "candle/Data/Images/Normal/0786.JPG",
+      "sha256": "1f00af52c167dbe1c938ad641d148cc7e23f6cf398c4525f883f07cd12524583",
+      "label": 0,
+      "score": 0.020605862140655518,
+      "latency_ms": 33.60830000019632
+    },
+    {
+      "image": "candle/Data/Images/Normal/0140.JPG",
+      "sha256": "a22bc50f2e85a96d38c37d97dc4f292323bc438108f1fa59f4134a7d7b0c32d0",
+      "label": 0,
+      "score": 0.03239339590072632,
+      "latency_ms": 36.0309999960009
+    },
+    {
+      "image": "candle/Data/Images/Normal/0984.JPG",
+      "sha256": "8b27b6849da8018aefbad79b7aaf776ec6e56a845588161c79a7ec3b6b80ba15",
+      "label": 0,
+      "score": 0.040001899003982544,
+      "latency_ms": 34.22189998673275
+    },
+    {
+      "image": "candle/Data/Images/Normal/0437.JPG",
+      "sha256": "a22663ca7fb42e5bd8eee468363065fd1827906604abbd58a38bdabe1e0e5d82",
+      "label": 0,
+      "score": 0.03897815942764282,
+      "latency_ms": 37.69500000635162
+    },
+    {
+      "image": "candle/Data/Images/Normal/0414.JPG",
+      "sha256": "72b42bf0e0788a5e88b5079be037ddfa1647a4499366c9f7f09f6755100271c4",
+      "label": 0,
+      "score": 0.0212690532207489,
+      "latency_ms": 33.38989999610931
+    },
+    {
+      "image": "candle/Data/Images/Normal/0405.JPG",
+      "sha256": "9f0cc7cc2b05515ae5b746ba99cfda318029974f470dd6aafdf747f6ae331286",
+      "label": 0,
+      "score": 0.027030140161514282,
+      "latency_ms": 33.344300027238205
+    },
+    {
+      "image": "candle/Data/Images/Normal/0432.JPG",
+      "sha256": "2b2189544997c0c8adad8afc2a98161e5020b463c0c143c209c377abf88378b4",
+      "label": 0,
+      "score": 0.024441540241241455,
+      "latency_ms": 34.09619999001734
+    },
+    {
+      "image": "candle/Data/Images/Normal/0325.JPG",
+      "sha256": "262546cd8a0e8cb796a1a0e67845ee0075302c4746fba9164cb90400746a6783",
+      "label": 0,
+      "score": 0.029101669788360596,
+      "latency_ms": 34.15230000973679
+    },
+    {
+      "image": "candle/Data/Images/Normal/0272.JPG",
+      "sha256": "316adf2a897c3e2a5f7a3d7f1a6c58c2113efa9338857c1799c520ffb536bf6f",
+      "label": 0,
+      "score": 0.017837941646575928,
+      "latency_ms": 35.32130000530742
+    },
+    {
+      "image": "candle/Data/Images/Normal/0693.JPG",
+      "sha256": "c8b7e921f146cfa78c099d30f6d4f93c6e5610e32a08c3414710f1b2e3a734cb",
+      "label": 0,
+      "score": 0.025478780269622803,
+      "latency_ms": 35.657000000355765
+    },
+    {
+      "image": "candle/Data/Images/Normal/0184.JPG",
+      "sha256": "4bb73ce3ffa3752a54e072bd5265b97f2ee8e891309e06937a684e3957c13607",
+      "label": 0,
+      "score": 0.023431777954101562,
+      "latency_ms": 35.1688000082504
+    },
+    {
+      "image": "candle/Data/Images/Normal/0431.JPG",
+      "sha256": "9258de1b46dcd69f3bf421caeb317a815e2a61900c29f75c556b1dcd83c4669a",
+      "label": 0,
+      "score": 0.02755451202392578,
+      "latency_ms": 33.628799981670454
+    },
+    {
+      "image": "candle/Data/Images/Normal/0025.JPG",
+      "sha256": "52df530fade3fd123c0eccc92d7a39b99de338ac122e07b017285056c24bedc3",
+      "label": 0,
+      "score": 0.0340447723865509,
+      "latency_ms": 33.32090002368204
+    },
+    {
+      "image": "candle/Data/Images/Normal/0446.JPG",
+      "sha256": "8e5702a360932cae80de08a683aad4a762d0b33ef52efb9b624f18a4cc76d517",
+      "label": 0,
+      "score": 0.026191234588623047,
+      "latency_ms": 32.668500003637746
+    },
+    {
+      "image": "candle/Data/Images/Normal/0151.JPG",
+      "sha256": "1d53faa037e2542aad4ac557edf9a78d25fe448c268e13119a2ec2218eda48bc",
+      "label": 0,
+      "score": 0.023197948932647705,
+      "latency_ms": 34.6438999986276
+    },
+    {
+      "image": "candle/Data/Images/Normal/0152.JPG",
+      "sha256": "0dfe732b05ccda6e9345cdc6750a39b446dffa8277e5cb0011147da1ea15b26f",
+      "label": 0,
+      "score": 0.020137041807174683,
+      "latency_ms": 33.89429999515414
+    },
+    {
+      "image": "candle/Data/Images/Normal/0197.JPG",
+      "sha256": "e055d3f9938784ae1d6a7d44291b59cdf3b0734c2af10c06f873cdadd04d8588",
+      "label": 0,
+      "score": 0.02292788028717041,
+      "latency_ms": 34.83389999018982
+    },
+    {
+      "image": "candle/Data/Images/Normal/0824.JPG",
+      "sha256": "7a374fc9b40452b9165dd86ba02738dffa149922df8875056f2de022d9197026",
+      "label": 0,
+      "score": 0.015565156936645508,
+      "latency_ms": 34.82170001370832
+    },
+    {
+      "image": "candle/Data/Images/Normal/0002.JPG",
+      "sha256": "121d75c652405a05c55ae78231655d9648a7fa61aa464c78cc66e3bfcf74b36c",
+      "label": 0,
+      "score": 0.027156740427017212,
+      "latency_ms": 32.93290000874549
+    },
+    {
+      "image": "candle/Data/Images/Anomaly/028.JPG",
+      "sha256": "f42cb90134eb0a2a36f37bd96c033ceb869a9dbf303f007e253de0c948e69d91",
+      "label": 1,
+      "score": 0.06629550457000732,
+      "latency_ms": 34.2098000110127
+    },
+    {
+      "image": "candle/Data/Images/Anomaly/084.JPG",
+      "sha256": "476202fd9634c1b5c80b8cb2d932773be64f556f56ccbfbec7c748086922bf6a",
+      "label": 1,
+      "score": 0.08594828844070435,
+      "latency_ms": 35.292399988975376
+    },
+    {
+      "image": "candle/Data/Images/Anomaly/051.JPG",
+      "sha256": "e5dc32a1a73252810c91140e444fb6757ff4173a4c6a10c34c85219de52fe6b6",
+      "label": 1,
+      "score": 0.027814418077468872,
+      "latency_ms": 35.918000008678064
+    },
+    {
+      "image": "candle/Data/Images/Anomaly/040.JPG",
+      "sha256": "28f78c66a48e01f80325c39a16b2f371f31c5d97804d3cc11be9f51b11e29cea",
+      "label": 1,
+      "score": 0.06299856305122375,
+      "latency_ms": 35.74409999419004
+    },
+    {
+      "image": "candle/Data/Images/Anomaly/083.JPG",
+      "sha256": "8da95f3453f8865d5bb48d532d3780d8d60f3b7b40df4a436ee2fd60e1144987",
+      "label": 1,
+      "score": 0.10820925235748291,
+      "latency_ms": 35.507299995515496
+    },
+    {
+      "image": "candle/Data/Images/Anomaly/014.JPG",
+      "sha256": "951eb96962971b0e673471bcf6ee9f94ba271a58f1df5f00328d7581b8730ead",
+      "label": 1,
+      "score": 0.04911535978317261,
+      "latency_ms": 36.2920000043232
+    },
+    {
+      "image": "candle/Data/Images/Anomaly/065.JPG",
+      "sha256": "713c8a64eece26d6096eab201d817daa1c3088f3906fbdd8d5e51e73640b6482",
+      "label": 1,
+      "score": 0.10050579905509949,
+      "latency_ms": 35.14970000833273
+    },
+    {
+      "image": "candle/Data/Images/Anomaly/043.JPG",
+      "sha256": "757787523515151bac3eafaf0e5e544b3e2507c05c620ce9307c2c9fbf677401",
+      "label": 1,
+      "score": 0.05541691184043884,
+      "latency_ms": 34.806800016667694
+    },
+    {
+      "image": "candle/Data/Images/Anomaly/072.JPG",
+      "sha256": "18aab4b2fdf9e4bb1afd476fe01978a9b47a9a2cdb1d05b3fb1a0202837b06df",
+      "label": 1,
+      "score": 0.07774639129638672,
+      "latency_ms": 34.68419998534955
+    },
+    {
+      "image": "candle/Data/Images/Anomaly/000.JPG",
+      "sha256": "c004dbc05698f01cf415e07d2a8cf8fef48aa19516eece6600e13f92f1f788b7",
+      "label": 1,
+      "score": 0.03026607632637024,
+      "latency_ms": 36.11089999321848
+    },
+    {
+      "image": "candle/Data/Images/Anomaly/030.JPG",
+      "sha256": "7ad582c6d170757fc1596fccbcdb12faa72547ec4cf76fc76911aa8da128de2d",
+      "label": 1,
+      "score": 0.0948377251625061,
+      "latency_ms": 33.01019998616539
+    },
+    {
+      "image": "candle/Data/Images/Anomaly/038.JPG",
+      "sha256": "0322a3ce7b6e7f63438a53f43ec97db9ced700ba395a3e0fbdeb35cda0799a72",
+      "label": 1,
+      "score": 0.037361592054367065,
+      "latency_ms": 34.977000002982095
+    },
+    {
+      "image": "candle/Data/Images/Anomaly/029.JPG",
+      "sha256": "2e6717e7f13d805c291ee4f928fee4fa29ab4e3f3105e25d4ff4ff941c42fdcf",
+      "label": 1,
+      "score": 0.04235455393791199,
+      "latency_ms": 34.49629998067394
+    },
+    {
+      "image": "candle/Data/Images/Anomaly/099.JPG",
+      "sha256": "4c5a9cef1b12ee2489b1276c9048b6afa7ed5437427c991d8cd3b42ffcd4e126",
+      "label": 1,
+      "score": 0.10626688599586487,
+      "latency_ms": 33.44769999966957
+    },
+    {
+      "image": "candle/Data/Images/Anomaly/002.JPG",
+      "sha256": "2f85fe439bcfe6cd120d84cc1fea37933d827a508549b0cf3f60ee595c87367a",
+      "label": 1,
+      "score": 0.05544501543045044,
+      "latency_ms": 36.99369999230839
+    },
+    {
+      "image": "candle/Data/Images/Anomaly/081.JPG",
+      "sha256": "4fab3cac2dc2702d1b9bf8c13b60a8110be3cca20f8a706e2aee23b39d73b62b",
+      "label": 1,
+      "score": 0.11415964365005493,
+      "latency_ms": 35.59600000153296
+    },
+    {
+      "image": "candle/Data/Images/Anomaly/042.JPG",
+      "sha256": "d74f0d820290319eb75893a51cd94c0624bee71925459c15de3649724d9db93d",
+      "label": 1,
+      "score": 0.0573401153087616,
+      "latency_ms": 35.267400002339855
+    },
+    {
+      "image": "candle/Data/Images/Anomaly/078.JPG",
+      "sha256": "8f54c410028ae62d5435d9c5b68ad764541de7c2b82f0db3dd094560b08cc586",
+      "label": 1,
+      "score": 0.09108617901802063,
+      "latency_ms": 35.037800000282004
+    },
+    {
+      "image": "candle/Data/Images/Anomaly/011.JPG",
+      "sha256": "dcc5f3a091f3235f80f5d18baf1c5b32ed5fe83c1abb0f4a2317b628aa18b772",
+      "label": 1,
+      "score": 0.048281699419021606,
+      "latency_ms": 32.98769998946227
+    },
+    {
+      "image": "candle/Data/Images/Anomaly/025.JPG",
+      "sha256": "4d62f52bc1761af6563837b8f56cceb9c6da45a4eab487c189d86bb70671aee3",
+      "label": 1,
+      "score": 0.08402961492538452,
+      "latency_ms": 33.505700004752725
+    }
+  ],
+  "test": [
+    {
+      "image": "candle/Data/Images/Normal/0011.JPG",
+      "sha256": "26da76bd9dbc5212bb4ae59a394aeb51a624ee42a67a318671fe02cdcb52443f",
+      "label": 0,
+      "score": 0.022238105535507202,
+      "latency_ms": 35.320599999977276
+    },
+    {
+      "image": "candle/Data/Images/Normal/0013.JPG",
+      "sha256": "3a94c3ff1a279dc3915aeba8a4a94a6831b6738a1107b4a579e6bcd9e417e512",
+      "label": 0,
+      "score": 0.02183184027671814,
+      "latency_ms": 34.45760000613518
+    },
+    {
+      "image": "candle/Data/Images/Normal/0016.JPG",
+      "sha256": "96e15a3889e079d6a63a30930eb3da385f93a403bd981a8ed9b676eadfc49a75",
+      "label": 0,
+      "score": 0.026275932788848877,
+      "latency_ms": 34.9335000209976
+    },
+    {
+      "image": "candle/Data/Images/Normal/0024.JPG",
+      "sha256": "5afd75bb65a109e66f6c7eeaa3d1bb4f4bbe017a8f232f3b46a148e8872a7c2a",
+      "label": 0,
+      "score": 0.03315627574920654,
+      "latency_ms": 36.034999997355044
+    },
+    {
+      "image": "candle/Data/Images/Normal/0026.JPG",
+      "sha256": "8e5a2c91be6e799f725b5c2e23a1d087ae0de3040d8a58295899c4764b55615b",
+      "label": 0,
+      "score": 0.02605721354484558,
+      "latency_ms": 34.96019999147393
+    },
+    {
+      "image": "candle/Data/Images/Normal/0027.JPG",
+      "sha256": "67552f1f17c5cd4d5a2003cdae310b4bb5f620da0bcef96782d3359701873d79",
+      "label": 0,
+      "score": 0.01726055145263672,
+      "latency_ms": 36.51460001128726
+    },
+    {
+      "image": "candle/Data/Images/Normal/0046.JPG",
+      "sha256": "ec5406d028a89477cd43fc776e42ebd609eb3521969a459889c601465ff3f97b",
+      "label": 0,
+      "score": 0.02710092067718506,
+      "latency_ms": 36.07840000768192
+    },
+    {
+      "image": "candle/Data/Images/Normal/0100.JPG",
+      "sha256": "2eacd4b6397fe6a874c0f599aa69d941a6d3e21f055c772c81c352c5d11bfa76",
+      "label": 0,
+      "score": 0.03673124313354492,
+      "latency_ms": 34.90339999552816
+    },
+    {
+      "image": "candle/Data/Images/Normal/0107.JPG",
+      "sha256": "d1b05beddcbaf7db4ae4e5e5dedca817bd822de02572d88852f437675f966f41",
+      "label": 0,
+      "score": 0.040567636489868164,
+      "latency_ms": 33.524800004670396
+    },
+    {
+      "image": "candle/Data/Images/Normal/0159.JPG",
+      "sha256": "64e5ab24e30e0c4c4aa6e4990ae466bcbc4cc6a4f21bcc73fa72eccf1f041e26",
+      "label": 0,
+      "score": 0.021511971950531006,
+      "latency_ms": 35.39239999372512
+    },
+    {
+      "image": "candle/Data/Images/Normal/0168.JPG",
+      "sha256": "ed9f5b2f3a09069bf7df4036a85ab531cf79cbc28b53c7f2d857b7808bba9c4d",
+      "label": 0,
+      "score": 0.018034309148788452,
+      "latency_ms": 33.86699999100529
+    },
+    {
+      "image": "candle/Data/Images/Normal/0170.JPG",
+      "sha256": "34ac215facc32788ae9fba47c0501a40f354276338b97732e9ec9850306a7a70",
+      "label": 0,
+      "score": 0.01771855354309082,
+      "latency_ms": 35.75589999672957
+    },
+    {
+      "image": "candle/Data/Images/Normal/0172.JPG",
+      "sha256": "50aca835b35512fed7bc44e1ed7b5c1d470823b0a2ea76b816717b13362421ee",
+      "label": 0,
+      "score": 0.022650092840194702,
+      "latency_ms": 35.655499988934025
+    },
+    {
+      "image": "candle/Data/Images/Normal/0174.JPG",
+      "sha256": "1f19af9d1e8c384682dbc05f42af48106dcdc3b5efb49b50e9e60d9b1349ffd9",
+      "label": 0,
+      "score": 0.03859913349151611,
+      "latency_ms": 34.06850001192652
+    },
+    {
+      "image": "candle/Data/Images/Normal/0178.JPG",
+      "sha256": "fa6c73cadc27884d0a695b1c88fc8ce3a0725444ba083347d3938cced3151f0b",
+      "label": 0,
+      "score": 0.022928476333618164,
+      "latency_ms": 32.353200018405914
+    },
+    {
+      "image": "candle/Data/Images/Normal/0187.JPG",
+      "sha256": "c64d4fa01958f736540517e3d43cd6e1bffcfdde26e838c1b4d907710be6742d",
+      "label": 0,
+      "score": 0.016962796449661255,
+      "latency_ms": 33.45210000406951
+    },
+    {
+      "image": "candle/Data/Images/Normal/0196.JPG",
+      "sha256": "e292c57e7288272d6bc44f5b0354ab3bc9e7168b26cb32f27b6b567c60d92a50",
+      "label": 0,
+      "score": 0.03211885690689087,
+      "latency_ms": 34.02700001606718
+    },
+    {
+      "image": "candle/Data/Images/Normal/0208.JPG",
+      "sha256": "4f18525be21b8ce9af0346edb2a9d5a9acb2f49ae9b4d08a612525a775a10520",
+      "label": 0,
+      "score": 0.02713671326637268,
+      "latency_ms": 32.98669998184778
+    },
+    {
+      "image": "candle/Data/Images/Normal/0214.JPG",
+      "sha256": "90717165ea83ee70fbd1038e4a871153c90fccdfeaa8513e759d8452762c67e6",
+      "label": 0,
+      "score": 0.027125179767608643,
+      "latency_ms": 35.06369999377057
+    },
+    {
+      "image": "candle/Data/Images/Normal/0215.JPG",
+      "sha256": "346e1ca8e257d11c0a59f55e05bea58c9336519d48cfd5e8d2801467b8927329",
+      "label": 0,
+      "score": 0.02553105354309082,
+      "latency_ms": 34.232999983942136
+    },
+    {
+      "image": "candle/Data/Images/Normal/0237.JPG",
+      "sha256": "513bf5373afa22f0bad1d33d68ac435adee752b884f2e18983cadc83a9385693",
+      "label": 0,
+      "score": 0.01759326457977295,
+      "latency_ms": 32.56279998458922
+    },
+    {
+      "image": "candle/Data/Images/Normal/0261.JPG",
+      "sha256": "8d5c98587ada74efdb778032b512471668d5faf47a35386b7bb75aa33e98c05b",
+      "label": 0,
+      "score": 0.023783504962921143,
+      "latency_ms": 33.47359999315813
+    },
+    {
+      "image": "candle/Data/Images/Normal/0286.JPG",
+      "sha256": "52251630b1699f7d1d8a0c693c3b87b2cac13ee600a8229a1b8c68689f75912f",
+      "label": 0,
+      "score": 0.025431305170059204,
+      "latency_ms": 36.64349997416139
+    },
+    {
+      "image": "candle/Data/Images/Normal/0294.JPG",
+      "sha256": "ad1c685a1babe8d3f916b84ad73a73e1581422989e1b0ff4a0b7cc7667e575ba",
+      "label": 0,
+      "score": 0.042096078395843506,
+      "latency_ms": 35.05150001728907
+    },
+    {
+      "image": "candle/Data/Images/Normal/0297.JPG",
+      "sha256": "ad250b1ea3674f48466adecf8c646737dd5cfbf2982bb86b98b95759f1716b07",
+      "label": 0,
+      "score": 0.021745920181274414,
+      "latency_ms": 33.916299988050014
+    },
+    {
+      "image": "candle/Data/Images/Normal/0303.JPG",
+      "sha256": "5a952ea079ee5d3f07dc4a9eccefe50e78bc876ee03e789785e05ac8149981c1",
+      "label": 0,
+      "score": 0.04096251726150513,
+      "latency_ms": 35.46759998425841
+    },
+    {
+      "image": "candle/Data/Images/Normal/0306.JPG",
+      "sha256": "805361432ea7bbe114946f59d700cdf10b17b4eece67d55528ab50590d147419",
+      "label": 0,
+      "score": 0.049056947231292725,
+      "latency_ms": 36.90780000761151
+    },
+    {
+      "image": "candle/Data/Images/Normal/0320.JPG",
+      "sha256": "3557c2ac1ba62d7fe73b8678e6dffed01de8bc1c702823fabdca053be82945b3",
+      "label": 0,
+      "score": 0.01782935857772827,
+      "latency_ms": 34.836100006941706
+    },
+    {
+      "image": "candle/Data/Images/Normal/0333.JPG",
+      "sha256": "da5f291ea4f88dfea04940698be70dac248ea02ddc8d00ffc694ee4e35763193",
+      "label": 0,
+      "score": 0.04671582579612732,
+      "latency_ms": 40.694399998756126
+    },
+    {
+      "image": "candle/Data/Images/Normal/0363.JPG",
+      "sha256": "06e9891b972a28fce97037803c61a76ec49a7967f8567fa11f907770fbd27d7c",
+      "label": 0,
+      "score": 0.01871541142463684,
+      "latency_ms": 36.394800001289696
+    },
+    {
+      "image": "candle/Data/Images/Normal/0377.JPG",
+      "sha256": "c2a54d23ca0475ef34906ea82b0144c0836d92a610d244e44b116dc1ec07c9d4",
+      "label": 0,
+      "score": 0.029987186193466187,
+      "latency_ms": 35.259900003438815
+    },
+    {
+      "image": "candle/Data/Images/Normal/0394.JPG",
+      "sha256": "6e62a31f34b1d9494e0b35fc4b267f755d2a2bb89df928c3b34ec249e447f273",
+      "label": 0,
+      "score": 0.03262832760810852,
+      "latency_ms": 34.702800010563806
+    },
+    {
+      "image": "candle/Data/Images/Normal/0400.JPG",
+      "sha256": "74a031a7c9cfd62d82fe279a7eb0757ba1ecc2e2b03b0a484a4e72989d48be46",
+      "label": 0,
+      "score": 0.03797823190689087,
+      "latency_ms": 35.66660001524724
+    },
+    {
+      "image": "candle/Data/Images/Normal/0402.JPG",
+      "sha256": "843610f6cd882f4294330341d40f6841a10626a879cf21c74baa1dfabfabed60",
+      "label": 0,
+      "score": 0.036696016788482666,
+      "latency_ms": 33.66529999766499
+    },
+    {
+      "image": "candle/Data/Images/Normal/0417.JPG",
+      "sha256": "c9de9768d4cd79255dbcd72bae5bb5d0000f9c9ee69b7562a1868b738874a8a4",
+      "label": 0,
+      "score": 0.022469699382781982,
+      "latency_ms": 33.14760001376271
+    },
+    {
+      "image": "candle/Data/Images/Normal/0423.JPG",
+      "sha256": "17dd059fab46cc8720e56c92d6f563992945a8b09fbd80d0931958e32ed7c42b",
+      "label": 0,
+      "score": 0.02071341872215271,
+      "latency_ms": 36.33929998613894
+    },
+    {
+      "image": "candle/Data/Images/Normal/0427.JPG",
+      "sha256": "cd39a51c9f7d6c5f141602f684d7cf22ce25c45bc7724a897c0736a27ec29ecd",
+      "label": 0,
+      "score": 0.04575294256210327,
+      "latency_ms": 35.22520000115037
+    },
+    {
+      "image": "candle/Data/Images/Normal/0457.JPG",
+      "sha256": "badf49b72231c3079c5018057abed66a8644c3be89bfc3e618d3ad1578b73817",
+      "label": 0,
+      "score": 0.027109533548355103,
+      "latency_ms": 33.9899999962654
+    },
+    {
+      "image": "candle/Data/Images/Normal/0469.JPG",
+      "sha256": "6aeb9bb1934e34b63dce85d0197d6a4db43f0a494d94047aa1c18f07db9a2afe",
+      "label": 0,
+      "score": 0.02340582013130188,
+      "latency_ms": 33.26769999694079
+    },
+    {
+      "image": "candle/Data/Images/Normal/0479.JPG",
+      "sha256": "1334074d44fd5cfccd3ab992bfcd6e6da7ca6b434c44ac354237e9167c021ac1",
+      "label": 0,
+      "score": 0.025606393814086914,
+      "latency_ms": 33.78329999395646
+    },
+    {
+      "image": "candle/Data/Images/Normal/0483.JPG",
+      "sha256": "5bf94dc8271e3eeab7eb3535ccdba962101d088558f56f06723757997f623319",
+      "label": 0,
+      "score": 0.02521762251853943,
+      "latency_ms": 36.34059999603778
+    },
+    {
+      "image": "candle/Data/Images/Normal/0484.JPG",
+      "sha256": "683fcb5c92b78773eaa8e141b66c8e08e77b57569585b7fb1eed8d1823e864f1",
+      "label": 0,
+      "score": 0.02278769016265869,
+      "latency_ms": 33.461299986811355
+    },
+    {
+      "image": "candle/Data/Images/Normal/0488.JPG",
+      "sha256": "d6f0cde9840af90c7a71245bccf9140c347997c60b179fc93e8a612aa1247744",
+      "label": 0,
+      "score": 0.056685447692871094,
+      "latency_ms": 35.48479999881238
+    },
+    {
+      "image": "candle/Data/Images/Normal/0490.JPG",
+      "sha256": "c8b1f398f4f63dd4c4fc2f36bd39f874b2cb6b8b69e0d669446fcf874bdd907f",
+      "label": 0,
+      "score": 0.03951558470726013,
+      "latency_ms": 34.636299998965114
+    },
+    {
+      "image": "candle/Data/Images/Normal/0514.JPG",
+      "sha256": "a6a47af9fe8fe7e8441fac10909bbaa77d38561058e1556682281fe494c257b7",
+      "label": 0,
+      "score": 0.02686077356338501,
+      "latency_ms": 35.75999999884516
+    },
+    {
+      "image": "candle/Data/Images/Normal/0518.JPG",
+      "sha256": "c43e010139111ec7a176d66b7ac52da80e07c9550e4dc02838ac99136b20bc3c",
+      "label": 0,
+      "score": 0.04581505060195923,
+      "latency_ms": 34.979999996721745
+    },
+    {
+      "image": "candle/Data/Images/Normal/0520.JPG",
+      "sha256": "c8d18b855dc832312ae2fce223af8422fd31de11d2c92f8d96e8041549ec1e42",
+      "label": 0,
+      "score": 0.026797771453857422,
+      "latency_ms": 33.8562999968417
+    },
+    {
+      "image": "candle/Data/Images/Normal/0525.JPG",
+      "sha256": "93e0d2a0379c35ff893a1b0df6a399fb3496d59789b9a5c177e26aff75bde2ff",
+      "label": 0,
+      "score": 0.043837398290634155,
+      "latency_ms": 35.09170000324957
+    },
+    {
+      "image": "candle/Data/Images/Normal/0545.JPG",
+      "sha256": "eb364c4b1bc504c4dc00321b48e73d9bc3c0130f4bcafcc229de32449e113ae7",
+      "label": 0,
+      "score": 0.0437871515750885,
+      "latency_ms": 33.5831000120379
+    },
+    {
+      "image": "candle/Data/Images/Normal/0552.JPG",
+      "sha256": "3a93aaa004aa2c06ba0765a2ace29666cd9228d0113b8442747f1efdb0924c9e",
+      "label": 0,
+      "score": 0.04955923557281494,
+      "latency_ms": 36.23299999162555
+    },
+    {
+      "image": "candle/Data/Images/Normal/0569.JPG",
+      "sha256": "523d4fd486a78273bf41a26a710888c1e4f05ef28573a5f50e32f4331fa820b4",
+      "label": 0,
+      "score": 0.022676676511764526,
+      "latency_ms": 34.08919999492355
+    },
+    {
+      "image": "candle/Data/Images/Normal/0615.JPG",
+      "sha256": "c62e9854e4ecf8aab69ffa31b0b119ab06c4aa907593a1cabd58255e20741f68",
+      "label": 0,
+      "score": 0.046275794506073,
+      "latency_ms": 33.22929999558255
+    },
+    {
+      "image": "candle/Data/Images/Normal/0617.JPG",
+      "sha256": "b04b6cece8b15a031f468c63366d97cf08421de72f69f9e4e1c3ec2ff8549296",
+      "label": 0,
+      "score": 0.02084052562713623,
+      "latency_ms": 33.09810001519509
+    },
+    {
+      "image": "candle/Data/Images/Normal/0619.JPG",
+      "sha256": "f9914422a90cb048e288a526b48b04f5baba5ae0350dffca746480e72839a816",
+      "label": 0,
+      "score": 0.018668174743652344,
+      "latency_ms": 36.85780000523664
+    },
+    {
+      "image": "candle/Data/Images/Normal/0621.JPG",
+      "sha256": "c42c8850922e01a18ff1e74191abd0605a0479d02a7cc74c9ad7ae8939547458",
+      "label": 0,
+      "score": 0.027838408946990967,
+      "latency_ms": 33.794499991927296
+    },
+    {
+      "image": "candle/Data/Images/Normal/0629.JPG",
+      "sha256": "bb4f5511b31bc99829d1f296777cb2e5c2f6e424e0aaf1e0411ca857d2c436d5",
+      "label": 0,
+      "score": 0.03453773260116577,
+      "latency_ms": 34.10200000507757
+    },
+    {
+      "image": "candle/Data/Images/Normal/0631.JPG",
+      "sha256": "10b0f3591156b7257935dd62c0c120155de7f3e6f72de30e68cf867df0ec48f7",
+      "label": 0,
+      "score": 0.0181104838848114,
+      "latency_ms": 36.70209998381324
+    },
+    {
+      "image": "candle/Data/Images/Normal/0648.JPG",
+      "sha256": "a840cabbc889a43f108dd16d2a64e711bbbef218a8f38e65277d1ce0bee1c9a0",
+      "label": 0,
+      "score": 0.034646302461624146,
+      "latency_ms": 36.64770000614226
+    },
+    {
+      "image": "candle/Data/Images/Normal/0654.JPG",
+      "sha256": "69c2539db6aa3ef15b77e40e6f4196fa78a096b74706ffe89eec8fab2bf1fac5",
+      "label": 0,
+      "score": 0.030714869499206543,
+      "latency_ms": 35.52409997791983
+    },
+    {
+      "image": "candle/Data/Images/Normal/0657.JPG",
+      "sha256": "b7f6e0cf8dc2692b0b76c6ba0f7da2c6c37288ae5b7e6c8d9a01907d550bbacd",
+      "label": 0,
+      "score": 0.015823304653167725,
+      "latency_ms": 39.66370000853203
+    },
+    {
+      "image": "candle/Data/Images/Normal/0659.JPG",
+      "sha256": "5d50905bad7a8a427cb153f877e0cfa125eeab5dbf5c4f30b39bec64856aa4c7",
+      "label": 0,
+      "score": 0.03601136803627014,
+      "latency_ms": 34.710200008703396
+    },
+    {
+      "image": "candle/Data/Images/Normal/0674.JPG",
+      "sha256": "980fba20e3d8d66e9d7c1643cda88ee87b91cee0c053ab3a80504cc82fecda01",
+      "label": 0,
+      "score": 0.024827629327774048,
+      "latency_ms": 33.148599992273375
+    },
+    {
+      "image": "candle/Data/Images/Normal/0684.JPG",
+      "sha256": "5c47d952e22916a742cae0ef379050724ffea36c107481c959802391742bc3f5",
+      "label": 0,
+      "score": 0.01906442642211914,
+      "latency_ms": 33.821199991507456
+    },
+    {
+      "image": "candle/Data/Images/Normal/0685.JPG",
+      "sha256": "597f036d6f6558bd237d3e96a5a5e86893a38b8c992d439986cdf1eaa143f465",
+      "label": 0,
+      "score": 0.01823297142982483,
+      "latency_ms": 36.59820000757463
+    },
+    {
+      "image": "candle/Data/Images/Normal/0688.JPG",
+      "sha256": "101a13faee2c8af871a0443a05e970f348e2433267fd67f026a091f445af44ad",
+      "label": 0,
+      "score": 0.02807280421257019,
+      "latency_ms": 34.115999995265156
+    },
+    {
+      "image": "candle/Data/Images/Normal/0690.JPG",
+      "sha256": "cd41c53c75c8ad5e4052c4f6e09d056c511f4fec98c691e40001af4d931ad3f7",
+      "label": 0,
+      "score": 0.014932751655578613,
+      "latency_ms": 32.49770001275465
+    },
+    {
+      "image": "candle/Data/Images/Normal/0694.JPG",
+      "sha256": "31eb7aa27f0ce9229875fa24c1b522b82e8e0be1ee657e01149d693601edaa70",
+      "label": 0,
+      "score": 0.02498716115951538,
+      "latency_ms": 38.23330000159331
+    },
+    {
+      "image": "candle/Data/Images/Normal/0705.JPG",
+      "sha256": "cd2cfe3132d7a4456146bb77954930fc5a1dbc641e5516b60b587dc90ace6fda",
+      "label": 0,
+      "score": 0.017734616994857788,
+      "latency_ms": 37.46660001343116
+    },
+    {
+      "image": "candle/Data/Images/Normal/0725.JPG",
+      "sha256": "eb953fdc3c114f737cd44dbd911efe22664df014cf04858e2f8c107e893cea68",
+      "label": 0,
+      "score": 0.03303349018096924,
+      "latency_ms": 34.22679999493994
+    },
+    {
+      "image": "candle/Data/Images/Normal/0730.JPG",
+      "sha256": "f80bf436942a900430ceb7a8a909b262a49822937b8dbb79f79657953794b19f",
+      "label": 0,
+      "score": 0.03588438034057617,
+      "latency_ms": 34.119300020392984
+    },
+    {
+      "image": "candle/Data/Images/Normal/0735.JPG",
+      "sha256": "f7162ce1da930d98fbd6cc4aad48d5db213e324b88155e5dd4883d23d63360af",
+      "label": 0,
+      "score": 0.02740749716758728,
+      "latency_ms": 36.40159999486059
+    },
+    {
+      "image": "candle/Data/Images/Normal/0739.JPG",
+      "sha256": "9e00f1386c897eb20ad7c94e29b819688a1ef5f978c3b4517e67970830a57506",
+      "label": 0,
+      "score": 0.025969892740249634,
+      "latency_ms": 34.03410001192242
+    },
+    {
+      "image": "candle/Data/Images/Normal/0751.JPG",
+      "sha256": "cac111f699f0a2b77294aab4e764a97715122fc181a6f7b0f276af9d2c4e8b15",
+      "label": 0,
+      "score": 0.06745666265487671,
+      "latency_ms": 37.41900000022724
+    },
+    {
+      "image": "candle/Data/Images/Normal/0755.JPG",
+      "sha256": "c264e04db09fb9018741e43579fc1faa593a3e5f8cb22c82897743aae3a8d828",
+      "label": 0,
+      "score": 0.05011144280433655,
+      "latency_ms": 35.85510002449155
+    },
+    {
+      "image": "candle/Data/Images/Normal/0764.JPG",
+      "sha256": "ac512fcd405ac8f5df85e094ef113130c3888e920dc6117bfa0da8f64e68f300",
+      "label": 0,
+      "score": 0.014875292778015137,
+      "latency_ms": 36.78490000311285
+    },
+    {
+      "image": "candle/Data/Images/Normal/0768.JPG",
+      "sha256": "5c8fef83f6ea25d8659789cf2ffc5c3b17eaa7b8a0a8222e1b6a68682d67ff80",
+      "label": 0,
+      "score": 0.024802207946777344,
+      "latency_ms": 35.406499984674156
+    },
+    {
+      "image": "candle/Data/Images/Normal/0779.JPG",
+      "sha256": "a2e5f310a4a70e7f6c90e9e31439eaf46cb4f41efa12849547287c95fd8e081d",
+      "label": 0,
+      "score": 0.0272771418094635,
+      "latency_ms": 35.64119999646209
+    },
+    {
+      "image": "candle/Data/Images/Normal/0784.JPG",
+      "sha256": "1e1983fd2ce9c43f6434f947a30235e2809f410d2cab8d6b638bbf2201808b1b",
+      "label": 0,
+      "score": 0.022933095693588257,
+      "latency_ms": 33.76150000258349
+    },
+    {
+      "image": "candle/Data/Images/Normal/0790.JPG",
+      "sha256": "27fa2ec32fec3979c3231ed1d0d6b2e8e7d15232d36fadd472fcbde1c6e2daec",
+      "label": 0,
+      "score": 0.020656228065490723,
+      "latency_ms": 34.12190001108684
+    },
+    {
+      "image": "candle/Data/Images/Normal/0796.JPG",
+      "sha256": "f45250fd5c61f44da1321c025935672f42021b2681c1377647a3dbf29377c79c",
+      "label": 0,
+      "score": 0.021367311477661133,
+      "latency_ms": 33.94329998991452
+    },
+    {
+      "image": "candle/Data/Images/Normal/0797.JPG",
+      "sha256": "17cf24a7db6b0d00b4e887689d4ce1d38e2da8863f2f6e04ba499d82472b5b2c",
+      "label": 0,
+      "score": 0.0337977409362793,
+      "latency_ms": 35.61530000297353
+    },
+    {
+      "image": "candle/Data/Images/Normal/0800.JPG",
+      "sha256": "2d9e67f49092b819fdb1098bffb4d1fab4fb96f584fae7b762b4dac3b8efadf5",
+      "label": 0,
+      "score": 0.055087894201278687,
+      "latency_ms": 34.49759999057278
+    },
+    {
+      "image": "candle/Data/Images/Normal/0804.JPG",
+      "sha256": "c7f81f3d0074629af0863388e0db9f7621b7d2f98864d0617ce6745907e3cf92",
+      "label": 0,
+      "score": 0.04467335343360901,
+      "latency_ms": 32.71260001929477
+    },
+    {
+      "image": "candle/Data/Images/Normal/0811.JPG",
+      "sha256": "cc8a2cd13305a855d3a77e1f4e445142fa709dbe476fcd0bfa8f3699c5e02af5",
+      "label": 0,
+      "score": 0.0421065092086792,
+      "latency_ms": 33.4310999896843
+    },
+    {
+      "image": "candle/Data/Images/Normal/0844.JPG",
+      "sha256": "5c1133c468dbf228268027a2c84609a4ea7dec69de7e7ff7f5d3d3aeaf52a506",
+      "label": 0,
+      "score": 0.0311814546585083,
+      "latency_ms": 35.83000000799075
+    },
+    {
+      "image": "candle/Data/Images/Normal/0869.JPG",
+      "sha256": "cbebfdc49c68d678f1c485568066faf262bd9b97302882dc2cc0de66d76c6dbe",
+      "label": 0,
+      "score": 0.023485273122787476,
+      "latency_ms": 32.794400001876056
+    },
+    {
+      "image": "candle/Data/Images/Normal/0871.JPG",
+      "sha256": "47f831dfc0c289cad4efb35e7f4bff5eb28fd1dcd7b6b0fceb99c16c05fd4562",
+      "label": 0,
+      "score": 0.03514707088470459,
+      "latency_ms": 34.94559999671765
+    },
+    {
+      "image": "candle/Data/Images/Normal/0892.JPG",
+      "sha256": "ebac59ac8d71c89ea4075886d3bffbd6c509315b8271bc5f86ceef887c5906ac",
+      "label": 0,
+      "score": 0.03523850440979004,
+      "latency_ms": 34.77890000795014
+    },
+    {
+      "image": "candle/Data/Images/Normal/0900.JPG",
+      "sha256": "a9a42a126138de7c1ca86f1e02d5e5eaba539c92a4035a4ccc42c8a8bcf99e9d",
+      "label": 0,
+      "score": 0.031361281871795654,
+      "latency_ms": 34.18499999679625
+    },
+    {
+      "image": "candle/Data/Images/Normal/0920.JPG",
+      "sha256": "1f6140a64bdf8b4fd5618f2abd20f511589b5f732e04c57bd7d5dc81b068f73a",
+      "label": 0,
+      "score": 0.019909381866455078,
+      "latency_ms": 32.66319999238476
+    },
+    {
+      "image": "candle/Data/Images/Normal/0923.JPG",
+      "sha256": "ca95ee8ac1408da1d161f0f5dca37d7a736dea33a83489745600f148fc103fe3",
+      "label": 0,
+      "score": 0.032405972480773926,
+      "latency_ms": 36.30040001007728
+    },
+    {
+      "image": "candle/Data/Images/Normal/0935.JPG",
+      "sha256": "77332b09babc588e08550d5765bb071020f50482afa3f2112b05ab383b8fef39",
+      "label": 0,
+      "score": 0.037099987268447876,
+      "latency_ms": 35.61880000052042
+    },
+    {
+      "image": "candle/Data/Images/Normal/0952.JPG",
+      "sha256": "e3cd3902751f0e75d5d2d31c740919b5d2de9bf2cfb114e543fdadd12dc2ff6a",
+      "label": 0,
+      "score": 0.025127410888671875,
+      "latency_ms": 32.876200013561174
+    },
+    {
+      "image": "candle/Data/Images/Normal/0953.JPG",
+      "sha256": "1aa25ace6757cc0d6b978066d2daffbe652856b18731848d190b4ae7cab3411e",
+      "label": 0,
+      "score": 0.03569480776786804,
+      "latency_ms": 33.07979999226518
+    },
+    {
+      "image": "candle/Data/Images/Normal/0964.JPG",
+      "sha256": "a98e6b5457c6e50dde35f4d00b06d0bcaf7a78333ccc87b762962d93392c6194",
+      "label": 0,
+      "score": 0.04374238848686218,
+      "latency_ms": 34.28410002379678
+    },
+    {
+      "image": "candle/Data/Images/Normal/0967.JPG",
+      "sha256": "e8ea702c602489a04207e087f6d6e6dab1ecea1675cf42bc3e9eaf0a3916fe77",
+      "label": 0,
+      "score": 0.04675784707069397,
+      "latency_ms": 33.26940000988543
+    },
+    {
+      "image": "candle/Data/Images/Normal/0974.JPG",
+      "sha256": "f4be3c81fe57a98039f93b24cd60cdfbd58d2ebee234a0553f7b3b73e6e40f7b",
+      "label": 0,
+      "score": 0.03768479824066162,
+      "latency_ms": 33.095299993874505
+    },
+    {
+      "image": "candle/Data/Images/Normal/0985.JPG",
+      "sha256": "aacaf8276e177da7cd01434f7a97d60441ca939ab1851e3317669ad673159e13",
+      "label": 0,
+      "score": 0.030547380447387695,
+      "latency_ms": 33.529300009831786
+    },
+    {
+      "image": "candle/Data/Images/Normal/0994.JPG",
+      "sha256": "de2e5f4eaaed3c1db69ba69564f9f378465d5276d7a5b9c9b01326dbfa6ba9df",
+      "label": 0,
+      "score": 0.03244653344154358,
+      "latency_ms": 33.6574999964796
+    },
+    {
+      "image": "candle/Data/Images/Normal/0996.JPG",
+      "sha256": "9b605800c2274d9afeba2d904ee3037d34ab491fcf6fce9845cc398326441b46",
+      "label": 0,
+      "score": 0.04329225420951843,
+      "latency_ms": 34.53949998947792
+    },
+    {
+      "image": "candle/Data/Images/Anomaly/020.JPG",
+      "sha256": "17e67c25458d626459201ab69423b78ee635a97c7c4a325cb20129c83c30c860",
+      "label": 1,
+      "score": 0.046729326248168945,
+      "latency_ms": 35.42800000286661
+    },
+    {
+      "image": "candle/Data/Images/Anomaly/018.JPG",
+      "sha256": "6b8ace3cb4bd8cfeb10706d70635d038f9e32fec6b002cd354fc8a195223987e",
+      "label": 1,
+      "score": 0.04724577069282532,
+      "latency_ms": 34.715599991614
+    },
+    {
+      "image": "candle/Data/Images/Anomaly/061.JPG",
+      "sha256": "48dbbc92f6e0214443bca554724c7597a659c48e116cadc7a7b84a2b61254ff1",
+      "label": 1,
+      "score": 0.08377024531364441,
+      "latency_ms": 33.36270002182573
+    },
+    {
+      "image": "candle/Data/Images/Anomaly/079.JPG",
+      "sha256": "e16179d515943b94cd539764b4a91b5695e0993bee61a23ae0a8ad99977263b6",
+      "label": 1,
+      "score": 0.08035898208618164,
+      "latency_ms": 35.062899987678975
+    },
+    {
+      "image": "candle/Data/Images/Anomaly/049.JPG",
+      "sha256": "02843fc7741551e2619c432f0996841050d91013d0212f70ee1eb9d22f66dea6",
+      "label": 1,
+      "score": 0.028616279363632202,
+      "latency_ms": 33.62530001322739
+    },
+    {
+      "image": "candle/Data/Images/Anomaly/080.JPG",
+      "sha256": "25489f889c5efbdef8631badc1188b756fe39eab6dac24ff487496235d810590",
+      "label": 1,
+      "score": 0.07708948850631714,
+      "latency_ms": 34.26509999553673
+    },
+    {
+      "image": "candle/Data/Images/Anomaly/008.JPG",
+      "sha256": "d3becb8969348027704b96aee8eb92479cb2a03a81fc17640d1d5bbf5d271df0",
+      "label": 1,
+      "score": 0.0465395450592041,
+      "latency_ms": 34.7040000197012
+    },
+    {
+      "image": "candle/Data/Images/Anomaly/044.JPG",
+      "sha256": "307fd8ab5fc39dc98cda8c452a5616df05a039062a3ce33ac89d63aef6e77420",
+      "label": 1,
+      "score": 0.05905124545097351,
+      "latency_ms": 33.738300000550225
+    },
+    {
+      "image": "candle/Data/Images/Anomaly/010.JPG",
+      "sha256": "7001b2b9d7d67ba54a908ff14b989dc2ab3a7f8ab020bfabad0b7c77827b9706",
+      "label": 1,
+      "score": 0.06791681051254272,
+      "latency_ms": 33.45149999950081
+    },
+    {
+      "image": "candle/Data/Images/Anomaly/085.JPG",
+      "sha256": "506705ee3cb96fdfe2c18ba999e727c2d08e33d82d61ceea944a0865c2c36460",
+      "label": 1,
+      "score": 0.06947460770606995,
+      "latency_ms": 33.891099999891594
+    },
+    {
+      "image": "candle/Data/Images/Anomaly/087.JPG",
+      "sha256": "a6661aa4e7e08c835b57c0cef029480738b082e5b6943c4c2cc4fe392beeee02",
+      "label": 1,
+      "score": 0.045988887548446655,
+      "latency_ms": 35.05970002152026
+    },
+    {
+      "image": "candle/Data/Images/Anomaly/068.JPG",
+      "sha256": "fd8588391603a3189beac07aa2b29b771657f02d9de4f5d412dc5d89dadbb9d4",
+      "label": 1,
+      "score": 0.1626431941986084,
+      "latency_ms": 33.41589999035932
+    },
+    {
+      "image": "candle/Data/Images/Anomaly/036.JPG",
+      "sha256": "4feabbc73aa0c908ee5e5c3ffd6870d880b1e98ace1aad31d34363bbbb1f132f",
+      "label": 1,
+      "score": 0.048365265130996704,
+      "latency_ms": 36.56460001366213
+    },
+    {
+      "image": "candle/Data/Images/Anomaly/053.JPG",
+      "sha256": "6fa8bfb06eb8a27917c0e8cefbbbefeaf031a237fdab670e417d12dea30a635a",
+      "label": 1,
+      "score": 0.052243560552597046,
+      "latency_ms": 33.121799991931766
+    },
+    {
+      "image": "candle/Data/Images/Anomaly/045.JPG",
+      "sha256": "ff5a330c70afcc311f80c21c5ede46f79577d04d589a9993918bd045bbf23a7b",
+      "label": 1,
+      "score": 0.0668422281742096,
+      "latency_ms": 33.09750001062639
+    },
+    {
+      "image": "candle/Data/Images/Anomaly/062.JPG",
+      "sha256": "888cc1ea92637bf0e46d2ee3f31d7e89fa874012123538b8bb6f2fd8303c106e",
+      "label": 1,
+      "score": 0.06698402762413025,
+      "latency_ms": 35.470300004817545
+    },
+    {
+      "image": "candle/Data/Images/Anomaly/071.JPG",
+      "sha256": "2d2082119d5a00f6764aa3c2086a7ebaa746fc6ff2c873998ed40a65c9eb815f",
+      "label": 1,
+      "score": 0.05368676781654358,
+      "latency_ms": 32.809600001201034
+    },
+    {
+      "image": "candle/Data/Images/Anomaly/069.JPG",
+      "sha256": "2a2ffc41ba050dfaa44e57a9e4daabbe2ae2827b5e4400c203534c7d900b95a0",
+      "label": 1,
+      "score": 0.0549483597278595,
+      "latency_ms": 33.702799992170185
+    },
+    {
+      "image": "candle/Data/Images/Anomaly/016.JPG",
+      "sha256": "00a89c587f366dfd0a2c751c62df7bed955743afdeeb7f4cf3b8f9a062fc0359",
+      "label": 1,
+      "score": 0.03830590844154358,
+      "latency_ms": 35.372599988477305
+    },
+    {
+      "image": "candle/Data/Images/Anomaly/006.JPG",
+      "sha256": "a4f10e275f63e5069c0215d06ad609582a84d0c9fe31a4cfc263f78e9d692e0d",
+      "label": 1,
+      "score": 0.0708358883857727,
+      "latency_ms": 34.10829999484122
+    },
+    {
+      "image": "candle/Data/Images/Anomaly/046.JPG",
+      "sha256": "ce16e7fd0da5edeb8599b00527c2bdef989a705edc689f963a5985829d59da8d",
+      "label": 1,
+      "score": 0.03866809606552124,
+      "latency_ms": 35.885199991753325
+    },
+    {
+      "image": "candle/Data/Images/Anomaly/057.JPG",
+      "sha256": "8a6ff36785b359f8bdfcce836c9f15a14c772d1d0b93d216b3c90217ddd1ddc4",
+      "label": 1,
+      "score": 0.06018555164337158,
+      "latency_ms": 34.43200001493096
+    },
+    {
+      "image": "candle/Data/Images/Anomaly/088.JPG",
+      "sha256": "623d49d0145cc23afcd36e990296440557fa3170cd11e76d05914c57b6d4ef2e",
+      "label": 1,
+      "score": 0.08261099457740784,
+      "latency_ms": 34.96310001355596
+    },
+    {
+      "image": "candle/Data/Images/Anomaly/024.JPG",
+      "sha256": "da366b78d3098de2b7f1a5efcda2f04f4de1cc1a78402fd1495f1589f9485068",
+      "label": 1,
+      "score": 0.06117117404937744,
+      "latency_ms": 35.200699989218265
+    },
+    {
+      "image": "candle/Data/Images/Anomaly/059.JPG",
+      "sha256": "28639d46df26280f574a548c7b5ef8c2d415e62c76ab26da6a28ad59266cdb45",
+      "label": 1,
+      "score": 0.030896544456481934,
+      "latency_ms": 34.99410001677461
+    },
+    {
+      "image": "candle/Data/Images/Anomaly/058.JPG",
+      "sha256": "63017aa3672d319cb1e08f6fc889889d56f371230b07b21e8dd4754818f659c3",
+      "label": 1,
+      "score": 0.03847765922546387,
+      "latency_ms": 33.82969999802299
+    },
+    {
+      "image": "candle/Data/Images/Anomaly/012.JPG",
+      "sha256": "b1bb734ac934f58421c178a6d8f6b7bf96148c5d0413f023e7da7075126c071d",
+      "label": 1,
+      "score": 0.0521162748336792,
+      "latency_ms": 34.27970001939684
+    },
+    {
+      "image": "candle/Data/Images/Anomaly/093.JPG",
+      "sha256": "20d6ff5d284eb4a975c53783aed42e4e4906dafba672a895ef6f9410a3042405",
+      "label": 1,
+      "score": 0.07651731371879578,
+      "latency_ms": 33.96129998145625
+    },
+    {
+      "image": "candle/Data/Images/Anomaly/066.JPG",
+      "sha256": "9c1d1f5ae6c30175bd38879f95a2f87d4e8eb2d6dbc9a577ca57c3cab22acc10",
+      "label": 1,
+      "score": 0.08418217301368713,
+      "latency_ms": 36.56900001806207
+    },
+    {
+      "image": "candle/Data/Images/Anomaly/095.JPG",
+      "sha256": "a6042c62da5de123b2bf39193d671d8af9decd6d8baf520431df36052d8e66a5",
+      "label": 1,
+      "score": 0.04395401477813721,
+      "latency_ms": 35.7306000078097
+    },
+    {
+      "image": "candle/Data/Images/Anomaly/007.JPG",
+      "sha256": "f0f1ba6f98a89d7f21785680d415b340842649534ca49febd946df0f75242ef3",
+      "label": 1,
+      "score": 0.0851958692073822,
+      "latency_ms": 43.87660001520999
+    },
+    {
+      "image": "candle/Data/Images/Anomaly/005.JPG",
+      "sha256": "db4d13adb2b47930feb10e0f6cd88ded671dca71987ab35cff50785081bc31fc",
+      "label": 1,
+      "score": 0.07351133227348328,
+      "latency_ms": 40.07689998252317
+    },
+    {
+      "image": "candle/Data/Images/Anomaly/086.JPG",
+      "sha256": "748465937c0833ba911c422f518e86a59f3fbe558a637abbb9970338a7722513",
+      "label": 1,
+      "score": 0.08128231763839722,
+      "latency_ms": 39.07559998333454
+    },
+    {
+      "image": "candle/Data/Images/Anomaly/022.JPG",
+      "sha256": "a84a9a364bf527803e035d51ce8fcd8c9550aba41a38f9a5c7586f14bf56afb5",
+      "label": 1,
+      "score": 0.05157884955406189,
+      "latency_ms": 37.253999995300546
+    },
+    {
+      "image": "candle/Data/Images/Anomaly/034.JPG",
+      "sha256": "4708e3eb1328f7aafa854dc7786b4b5ef1ec4d650a28eea9ebbf60889433d162",
+      "label": 1,
+      "score": 0.050830692052841187,
+      "latency_ms": 36.50409998954274
+    },
+    {
+      "image": "candle/Data/Images/Anomaly/035.JPG",
+      "sha256": "e2c7b688764a93f9fd6e9f12744bbb0a4f9669ce15c5494540286619f49f9d68",
+      "label": 1,
+      "score": 0.04878443479537964,
+      "latency_ms": 37.49679998145439
+    },
+    {
+      "image": "candle/Data/Images/Anomaly/019.JPG",
+      "sha256": "26e8994377df592315f6fe95dddf1f4bf7fa11e1844dabf8b10183b70c803ff2",
+      "label": 1,
+      "score": 0.0347864031791687,
+      "latency_ms": 38.94399999990128
+    },
+    {
+      "image": "candle/Data/Images/Anomaly/055.JPG",
+      "sha256": "e1b0ff3feb43ce597d40cf67913a60151bd23a52cc19309cc70ea0d35a8a8e15",
+      "label": 1,
+      "score": 0.05512925982475281,
+      "latency_ms": 40.372799994656816
+    },
+    {
+      "image": "candle/Data/Images/Anomaly/003.JPG",
+      "sha256": "5014dd3adb81c5d2a4d133233ad48ea67d28b0c624d7caeb4b34d30a117806ac",
+      "label": 1,
+      "score": 0.057687848806381226,
+      "latency_ms": 41.93119998672046
+    },
+    {
+      "image": "candle/Data/Images/Anomaly/067.JPG",
+      "sha256": "49a207c01e7c706ac0db19285beda07a959d3d28dc185ab3b4fa6d44409f9ee8",
+      "label": 1,
+      "score": 0.04334414005279541,
+      "latency_ms": 40.950599999632686
+    },
+    {
+      "image": "candle/Data/Images/Anomaly/001.JPG",
+      "sha256": "c697ce4e2176c0de5d9f3ba8f38cd5acf99c61be5f91656ebb49c86652875f9a",
+      "label": 1,
+      "score": 0.07491075992584229,
+      "latency_ms": 39.1953999933321
+    },
+    {
+      "image": "candle/Data/Images/Anomaly/075.JPG",
+      "sha256": "56b47a88e7611dce61fc642342e5dd846e69b40f094516d95458d0430f34e159",
+      "label": 1,
+      "score": 0.06629747152328491,
+      "latency_ms": 37.721000000601634
+    },
+    {
+      "image": "candle/Data/Images/Anomaly/092.JPG",
+      "sha256": "7f56545897076a2762b52bb69f44a12e312197d603e61a04027ee3075a501204",
+      "label": 1,
+      "score": 0.06239476799964905,
+      "latency_ms": 39.48619999573566
+    },
+    {
+      "image": "candle/Data/Images/Anomaly/089.JPG",
+      "sha256": "9e4d2c8c036eaa492b9ea6c225f5ed52be1c5e9a27bb97dc3b10c0628261ed12",
+      "label": 1,
+      "score": 0.07172268629074097,
+      "latency_ms": 40.364000014960766
+    },
+    {
+      "image": "candle/Data/Images/Anomaly/052.JPG",
+      "sha256": "df1e2690860cd04e88fbf7a9305c9c68df7c7852ee9fa0d042a641dc9de9c7c5",
+      "label": 1,
+      "score": 0.059738367795944214,
+      "latency_ms": 51.25889999908395
+    },
+    {
+      "image": "candle/Data/Images/Anomaly/056.JPG",
+      "sha256": "40eea732007d5556ebbe5b8378adfcc3fd4fe4d76c2a444d0ba24fbe52b437d2",
+      "label": 1,
+      "score": 0.042754799127578735,
+      "latency_ms": 43.623600009595975
+    },
+    {
+      "image": "candle/Data/Images/Anomaly/054.JPG",
+      "sha256": "4b441eba2eb7f9714bae59e8d3bfc21a4fc121c8aff89036704a12bb4a2434b0",
+      "label": 1,
+      "score": 0.03218385577201843,
+      "latency_ms": 41.71000001952052
+    },
+    {
+      "image": "candle/Data/Images/Anomaly/050.JPG",
+      "sha256": "c266e39c3158304403df0a155b4b30cf2819ed3ad4f163ab49f0683457777320",
+      "label": 1,
+      "score": 0.03141593933105469,
+      "latency_ms": 41.16540000541136
+    },
+    {
+      "image": "candle/Data/Images/Anomaly/041.JPG",
+      "sha256": "570a69ac73850577b4386d9bc8d0715ecf9301a0354068f7fa8bd38e1a9a7e05",
+      "label": 1,
+      "score": 0.06230542063713074,
+      "latency_ms": 38.934099982725456
+    },
+    {
+      "image": "candle/Data/Images/Anomaly/077.JPG",
+      "sha256": "af2a4751400c5a8be7e970130590a37c0e4bacb46c64af388c744644663d47f2",
+      "label": 1,
+      "score": 0.0811445415019989,
+      "latency_ms": 38.994900009129196
+    },
+    {
+      "image": "candle/Data/Images/Anomaly/033.JPG",
+      "sha256": "df4fe6c33142241d95ff4efe7ddf81ec427215dfec41b9325e8dfca2cc3994be",
+      "label": 1,
+      "score": 0.04805460572242737,
+      "latency_ms": 38.55709999334067
+    },
+    {
+      "image": "candle/Data/Images/Anomaly/098.JPG",
+      "sha256": "8da7702e989f8382558fcb931697861a029c8fc56e20c583eb18c0a5d96143ec",
+      "label": 1,
+      "score": 0.05781635642051697,
+      "latency_ms": 41.49580001831055
+    },
+    {
+      "image": "candle/Data/Images/Anomaly/039.JPG",
+      "sha256": "12a9a69f4a3e8ec4712c8e600caf54acc28b8dce79928a0eab994dc18a8f48ae",
+      "label": 1,
+      "score": 0.032411932945251465,
+      "latency_ms": 43.92379999626428
+    },
+    {
+      "image": "candle/Data/Images/Anomaly/094.JPG",
+      "sha256": "e3769b8894c1a6fff87472ae7294d4b2a19a91915b066f1e488642b7e7e48283",
+      "label": 1,
+      "score": 0.07030627131462097,
+      "latency_ms": 40.826399985235184
+    },
+    {
+      "image": "candle/Data/Images/Anomaly/009.JPG",
+      "sha256": "a015ce85aa10281bccc26b963c9400aef6882ad92dec2db5d934e79c1a1e44d8",
+      "label": 1,
+      "score": 0.0855761170387268,
+      "latency_ms": 40.88070002035238
+    },
+    {
+      "image": "candle/Data/Images/Anomaly/070.JPG",
+      "sha256": "f0256a6ccc6f7dfbe1d8b97b765e8e0cd1bb4777b401506818813625483bb6ce",
+      "label": 1,
+      "score": 0.11361485719680786,
+      "latency_ms": 41.7590000142809
+    },
+    {
+      "image": "candle/Data/Images/Anomaly/021.JPG",
+      "sha256": "003a9bd61bd32b9afd4fe17aa6459479aa8ae7860a891ab6a4f93d67c2cfcc46",
+      "label": 1,
+      "score": 0.06015613675117493,
+      "latency_ms": 41.97340001701377
+    },
+    {
+      "image": "candle/Data/Images/Anomaly/060.JPG",
+      "sha256": "ebf963283f39dac4b2b1982d45692214315e2fb200c44a2e7c47e22e78fcabe1",
+      "label": 1,
+      "score": 0.04725068807601929,
+      "latency_ms": 41.2769999820739
+    },
+    {
+      "image": "candle/Data/Images/Anomaly/015.JPG",
+      "sha256": "713bb8ac85cdca80cdb95c3a1d11887245ec92ccb7a186701c9e2113b1c1871f",
+      "label": 1,
+      "score": 0.03449440002441406,
+      "latency_ms": 40.195199981098995
+    },
+    {
+      "image": "candle/Data/Images/Anomaly/091.JPG",
+      "sha256": "0124678576e6a7f9fe80723f6eda3f72b88f91c10709b4d8284e8743082f6381",
+      "label": 1,
+      "score": 0.04437342286109924,
+      "latency_ms": 40.41859999415465
+    },
+    {
+      "image": "candle/Data/Images/Anomaly/031.JPG",
+      "sha256": "2f7c1bc64e4f849d1d884b8a77c80dfee6d277424b99637a5e31d6f45ecd88cd",
+      "label": 1,
+      "score": 0.04273906350135803,
+      "latency_ms": 40.98069999599829
+    },
+    {
+      "image": "candle/Data/Images/Anomaly/037.JPG",
+      "sha256": "2bfbfcfee08cda4d6cba1381101de93ed918128c55a5ee2da3c2214e2be1bffe",
+      "label": 1,
+      "score": 0.0377160906791687,
+      "latency_ms": 41.49999999208376
+    },
+    {
+      "image": "candle/Data/Images/Anomaly/004.JPG",
+      "sha256": "a78ee870594f161f86073b5983ae1f05be178009d819b4a73997f7cbc99a5ab2",
+      "label": 1,
+      "score": 0.06915497779846191,
+      "latency_ms": 42.55740001099184
+    },
+    {
+      "image": "candle/Data/Images/Anomaly/082.JPG",
+      "sha256": "034a7a2a2c434f43e2f534fb82f14b0edabfbb611960ec7e61ff581fd734095b",
+      "label": 1,
+      "score": 0.051666468381881714,
+      "latency_ms": 41.84359998907894
+    },
+    {
+      "image": "candle/Data/Images/Anomaly/063.JPG",
+      "sha256": "6a11d6df145c1908d2a574a037424c16948a65d25bd09c6728b9b6ae8e1f691d",
+      "label": 1,
+      "score": 0.16007304191589355,
+      "latency_ms": 42.87649999605492
+    },
+    {
+      "image": "candle/Data/Images/Anomaly/013.JPG",
+      "sha256": "cc21cd6bd2fb9b889e330e3cb1af81435785b922887b9abd090c2178a6bec5d6",
+      "label": 1,
+      "score": 0.05114072561264038,
+      "latency_ms": 42.44649998145178
+    },
+    {
+      "image": "candle/Data/Images/Anomaly/090.JPG",
+      "sha256": "792e12561bf76e51b784f1556f2d7a6afbbdbf2130a5283206aff17fa8ceecef",
+      "label": 1,
+      "score": 0.05760672688484192,
+      "latency_ms": 41.97689998545684
+    },
+    {
+      "image": "candle/Data/Images/Anomaly/076.JPG",
+      "sha256": "ba971e68f74e8d35f9fabb7c4a0ec811b6a64bece97eba8cf25afc1f021ac27f",
+      "label": 1,
+      "score": 0.06994333863258362,
+      "latency_ms": 44.184899976244196
+    },
+    {
+      "image": "candle/Data/Images/Anomaly/073.JPG",
+      "sha256": "cae77899078fe50c2ffab3efc6eee4b0625686802951abcbe87a4aa9c1f5bd5e",
+      "label": 1,
+      "score": 0.0823533833026886,
+      "latency_ms": 40.848399978131056
+    },
+    {
+      "image": "candle/Data/Images/Anomaly/097.JPG",
+      "sha256": "640406cfdf1a3de228aaeac43d063e17091457a2b08845a88b634148ca2c69c5",
+      "label": 1,
+      "score": 0.09977579116821289,
+      "latency_ms": 43.78020000876859
+    },
+    {
+      "image": "candle/Data/Images/Anomaly/026.JPG",
+      "sha256": "4565500ee90130b187b6077c93db383ec825c2c19010f3b499586aa4796c3434",
+      "label": 1,
+      "score": 0.06528142094612122,
+      "latency_ms": 43.273000017507
+    },
+    {
+      "image": "candle/Data/Images/Anomaly/048.JPG",
+      "sha256": "175456ae355690eff5fc07082b3db20d9e05dcb3456783806d77c72c446f8df2",
+      "label": 1,
+      "score": 0.054083675146102905,
+      "latency_ms": 41.51640000054613
+    },
+    {
+      "image": "candle/Data/Images/Anomaly/027.JPG",
+      "sha256": "6c48743e09af766c5693ae27c8c4ac07a877cb43fd5f0e63321eba3d10bf762a",
+      "label": 1,
+      "score": 0.04298773407936096,
+      "latency_ms": 38.44600002048537
+    },
+    {
+      "image": "candle/Data/Images/Anomaly/074.JPG",
+      "sha256": "030f3f6b3b5dc276cb4752296689c9e1fb244ed4419c8454534cb0e1048c4883",
+      "label": 1,
+      "score": 0.10575926303863525,
+      "latency_ms": 39.214499993249774
+    },
+    {
+      "image": "candle/Data/Images/Anomaly/023.JPG",
+      "sha256": "4fb6f1db3f34fddc6f394f15939cee8742c4e84892f26247b019f89e0cc35984",
+      "label": 1,
+      "score": 0.06389135122299194,
+      "latency_ms": 38.87280001072213
+    },
+    {
+      "image": "candle/Data/Images/Anomaly/064.JPG",
+      "sha256": "bbf2b4603904caf1369dddffa18ce7029859050197db3e38166c8a45264dfe71",
+      "label": 1,
+      "score": 0.12343144416809082,
+      "latency_ms": 41.67200002120808
+    },
+    {
+      "image": "candle/Data/Images/Anomaly/047.JPG",
+      "sha256": "19973078af0fcab1fb5e5a1ed4563790b8a60cba4689ab3bd3905e32a40dbbee",
+      "label": 1,
+      "score": 0.04947730898857117,
+      "latency_ms": 38.713399990228936
+    },
+    {
+      "image": "candle/Data/Images/Anomaly/096.JPG",
+      "sha256": "489650fe7cb08ab995c6578da223b4a61f50788ded6f8e9c055e3329c6331058",
+      "label": 1,
+      "score": 0.10378649830818176,
+      "latency_ms": 40.020300017204136
+    },
+    {
+      "image": "candle/Data/Images/Anomaly/017.JPG",
+      "sha256": "534e9fa943ff9b1300029b57e9acd9506a3d31890a3bb49bedaf4c590d393a4a",
+      "label": 1,
+      "score": 0.029814034700393677,
+      "latency_ms": 39.97400001389906
+    },
+    {
+      "image": "candle/Data/Images/Anomaly/032.JPG",
+      "sha256": "c610ec2ad3e42e590c393bfafb08e7d2f859a5b1ba637affb4bd2c99141f3cec",
+      "label": 1,
+      "score": 0.05153617262840271,
+      "latency_ms": 39.36520000570454
+    }
+  ]
+}

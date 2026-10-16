@@ -1,0 +1,150 @@
+{
+  "status": "passed",
+  "categories": [
+    "pcb1",
+    "capsules",
+    "cashew",
+    "candle",
+    "chewinggum",
+    "fryum",
+    "macaroni1",
+    "macaroni2",
+    "pcb2",
+    "pcb3",
+    "pcb4",
+    "pipe_fryum"
+  ],
+  "real_images": [
+    {
+      "id": "14418c36d94648adbdbc2779a6a33b3c",
+      "category": "candle",
+      "truth": 0,
+      "score": 0.022238105535507202,
+      "verdict": "Good"
+    },
+    {
+      "id": "7dbb6f27253b450698a1a503cfa9a8c8",
+      "category": "candle",
+      "truth": 1,
+      "score": 0.046729326248168945,
+      "verdict": "Anomalous"
+    },
+    {
+      "id": "6082416ed1c34be6a4fccd7e406f4a34",
+      "category": "chewinggum",
+      "truth": 0,
+      "score": 0.03845283389091492,
+      "verdict": "Good"
+    },
+    {
+      "id": "dcc3e255b90f466c9087d7e09af1a661",
+      "category": "chewinggum",
+      "truth": 1,
+      "score": 0.09018924832344055,
+      "verdict": "Anomalous"
+    },
+    {
+      "id": "d9023f03ff7945d8928216e8df02a620",
+      "category": "fryum",
+      "truth": 0,
+      "score": 0.02073901891708374,
+      "verdict": "Good"
+    },
+    {
+      "id": "118f64eaadfe43ce8b27b955a82c37ba",
+      "category": "fryum",
+      "truth": 1,
+      "score": 0.03211769461631775,
+      "verdict": "Uncertain"
+    },
+    {
+      "id": "e335298e27e843c38d81accf54fdb399",
+      "category": "macaroni1",
+      "truth": 0,
+      "score": 0.0720357894897461,
+      "verdict": "Anomalous"
+    },
+    {
+      "id": "1a5f9735b7dd44f18995b62e871ee3b7",
+      "category": "macaroni1",
+      "truth": 1,
+      "score": 0.04587012529373169,
+      "verdict": "Good"
+    },
+    {
+      "id": "d03553a7af274bba808fe090d4a7912b",
+      "category": "macaroni2",
+      "truth": 0,
+      "score": 0.07178214192390442,
+      "verdict": "Anomalous"
+    },
+    {
+      "id": "232cbf03a23f4eb2a3793fa1628e5f9c",
+      "category": "macaroni2",
+      "truth": 1,
+      "score": 0.055811017751693726,
+      "verdict": "Uncertain"
+    },
+    {
+      "id": "99d47a61108f4581b59c6fac6bfc224f",
+      "category": "pcb2",
+      "truth": 0,
+      "score": 0.0873120129108429,
+      "verdict": "Anomalous"
+    },
+    {
+      "id": "c6222fddf36d4c788ae4e96994b3e02b",
+      "category": "pcb2",
+      "truth": 1,
+      "score": 0.04729834198951721,
+      "verdict": "Anomalous"
+    },
+    {
+      "id": "2cb0f86c14d344019b28f77f4628257f",
+      "category": "pcb3",
+      "truth": 0,
+      "score": 0.052754610776901245,
+      "verdict": "Anomalous"
+    },
+    {
+      "id": "b43a98329ac646ef90f19861345d0884",
+      "category": "pcb3",
+      "truth": 1,
+      "score": 0.04286506772041321,
+      "verdict": "Uncertain"
+    },
+    {
+      "id": "d182ffb0791744d08f112d7321e69f1d",
+      "category": "pcb4",
+      "truth": 0,
+      "score": 0.040615081787109375,
+      "verdict": "Good"
+    },
+    {
+      "id": "09c2eda2da134adf829057bc0a4faccb",
+      "category": "pcb4",
+      "truth": 1,
+      "score": 0.05046689510345459,
+      "verdict": "Anomalous"
+    },
+    {
+      "id": "3c255e6f989c4bee88941ef44c2f81dc",
+      "category": "pipe_fryum",
+      "truth": 0,
+      "score": 0.04459744691848755,
+      "verdict": "Good"
+    },
+    {
+      "id": "eba4738a39db4a3192230964d15853bc",
+      "category": "pipe_fryum",
+      "truth": 1,
+      "score": 0.08141562342643738,
+      "verdict": "Anomalous"
+    }
+  ],
+  "data_directory": "runtime/verification12",
+  "new_records": 18,
+  "split_hash_checks": "passed",
+  "scores_match_saved_evaluation": true,
+  "original_three": "preserved; not repeated"
+}

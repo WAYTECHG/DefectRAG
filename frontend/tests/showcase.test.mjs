@@ -12,10 +12,10 @@ test('loads all pages through one static snapshot request and no backend', async
   const [records, stats, alerts, evaluation] = await Promise.all([
     showcaseApi('/api/inspections?limit=500'), showcaseApi('/api/stats'),
     showcaseApi('/api/alerts'), showcaseApi('/api/evaluation')]);
-  assert.equal(records.length, 7);
+  assert.equal(records.length, fixture.records.length);
   assert.equal(stats.total, records.length);
   assert.equal(alerts.length, records.filter(r=>r.verdict!=='Good').length);
-  assert.equal(Object.keys(evaluation.categories).length, 3);
+  assert.equal(Object.keys(evaluation.categories).length, 12);
   assert.equal(requests.length, 1);
   assert.equal(requests[0][0], './showcase/data.json');
 });

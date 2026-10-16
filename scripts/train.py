@@ -66,7 +66,26 @@ def main():
     parser.add_argument('--device',default='auto')
     parser.add_argument('--train-count',type=int,default=64)
     parser.add_argument('--categories',nargs='+',choices=CATEGORIES,default=list(CATEGORIES))
+    parser.add_argument('--resume',action='store_true',help='Skip completed categories; preserve and extend existing evaluation')
     args=parser.parse_args()
+    report_path=ROOT/'results'/'evaluation.json'
+    previous=json.loads(report_path.read_text()) if report_path.exists() else None
+    completed=[]
+    for category in args.categories:
+        files=[ROOT/'models'/f'{category}.npz',ROOT/'models'/f'{category}.json',
+               ROOT/'results'/f'{category}_splits.json',ROOT/'results'/f'{category}_predictions.json']
+        if any(p.exists() for p in files):
+            if not (args.resume and all(p.exists() for p in files) and category in (previous or {}).get('categories',{})):
+                raise RuntimeError('Existing artifacts preserved; inspect category before continuing: '+category)
+            card=json.loads(files[1].read_text())
+            if card['bank_sha256']!=sha256(files[0]) or card['train_normal_count']!=args.train_count:
+                raise RuntimeError('Saved category does not match requested configuration: '+category)
+            completed.append(category)
+            print('Preserved completed category: '+category,flush=True)
+    pending=[c for c in args.categories if c not in completed]
+    if not pending:
+        print('All requested categories already complete; no experiment repeated.',flush=True)
+        return
     rows=list(csv.DictReader((args.dataset/'split_csv'/'1cls.csv').open(newline='')))
     # Profile one forward before fitting all categories. No gradient training here.
     encoder=Encoder(args.encoder,args.device)
@@ -79,7 +98,11 @@ def main():
             'protocol':'64 normal fit images; 32 distinct training normals + 20 official test anomalies for calibration; remaining official test images for final evaluation. Seed 42. Not the full official VisA test protocol.',
             'platform':platform.platform(),'python':platform.python_version(),'torch':torch.__version__,
             'device':str(encoder.device),'encoder_sha256':fingerprint,'categories':{}}
-    for category in args.categories:
+    if previous:
+        if previous['encoder_sha256']!=fingerprint:
+            raise RuntimeError('Encoder differs from existing evaluation; use a separate experiment')
+        report=previous
+    for category in pending:
         start=time.perf_counter()
         splits=make_split(rows,category,train_count=args.train_count)
         hashes={name:{sha256(args.dataset/r['image']) for r in group} for name,group in splits.items()}
@@ -94,7 +117,8 @@ def main():
         bank=torch.cat(features)
         indices=np.random.default_rng(42).choice(len(bank),min(8192,len(bank)),replace=False)
         bank=bank[indices]
-        bank_path=ROOT/'models'/f'{category}.npz'
+        staging=ROOT/'runtime'/'training';staging.mkdir(parents=True,exist_ok=True)
+        bank_path=staging/f'{category}.npz'
         np.savez_compressed(bank_path,patches=bank.numpy().astype('float16'))
         # Use exactly the saved bank precision for calibration and test.
         bank=F.normalize(torch.from_numpy(np.load(bank_path)['patches'].astype('float32')).to(encoder.device),dim=-1)
@@ -119,10 +143,13 @@ def main():
               'encoder_size_bytes':(encoder_path/'model.safetensors').stat().st_size,
               'calibration':{'method':'Max F1 on separate validation identities','normal':32,'anomalous':20,'seed':42},
               'train_normal_count':len(splits['train']),'metrics':metrics,'fit_and_evaluation_seconds':time.perf_counter()-start}
-        (ROOT/'models'/f'{category}.json').write_text(json.dumps(card,indent=2))
         manifest={name:[{**r,'sha256':sha256(args.dataset/r['image'])} for r in group] for name,group in splits.items()}
         (ROOT/'results'/f'{category}_splits.json').write_text(json.dumps(manifest,indent=2))
         (ROOT/'results'/f'{category}_predictions.json').write_text(json.dumps({'validation':val,'test':test},indent=2))
+        final_bank=ROOT/'models'/f'{category}.npz'
+        if final_bank.exists():raise RuntimeError('Refusing to overwrite an existing bank')
+        bank_path.replace(final_bank)
+        (ROOT/'models'/f'{category}.json').write_text(json.dumps(card,indent=2))
         report['categories'][category]=card
         (ROOT/'results'/'evaluation.json').write_text(json.dumps(report,indent=2))
         print(category,json.dumps(metrics),flush=True)

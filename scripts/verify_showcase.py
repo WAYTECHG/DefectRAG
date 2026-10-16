@@ -19,7 +19,9 @@ def verify():
     expected = {e['id']: e for e in json.loads((ROOT / 'results/acceptance.json').read_text())['real_images']}
     scope = json.loads((ROOT / 'results/evidence_scope_verification.json').read_text())
     expected[scope['inspection_id']] = scope['answers'][0]['observation']
-    assert len(data['records']) == 7
+    extra=ROOT/'results/all_categories_acceptance.json'
+    if extra.exists():expected.update({e['id']:e for e in json.loads(extra.read_text())['real_images']})
+    assert len(data['records']) == len(expected)
     assert {r['id'] for r in data['records']} == set(expected)
     for record in data['records']:
         assert record['score'] == expected[record['id']]['score']
@@ -34,7 +36,7 @@ def verify():
     for path in output.rglob('*'):
         assert path.suffix not in {'.sqlite3', '.safetensors', '.pt', '.npz', '.env'}
     assert any(m.get('mode') == 'llm' for messages in data['messages'].values() for m in messages)
-    receipt = {'status': 'passed', 'records': 7, 'snapshot_hashes': 'passed',
+    receipt = {'status': 'passed', 'records': len(expected), 'snapshot_hashes': 'passed',
                'scores_match_saved_acceptance': True, 'report_images_exist': True,
                'saved_llm_conversation_present': True, 'no_private_paths_or_model_files': True}
     (ROOT / 'results/static_verification.json').write_text(json.dumps(receipt, indent=2))

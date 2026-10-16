@@ -1,0 +1,2376 @@
+{
+  "train": [
+    {
+      "object": "macaroni1",
+      "split": "train",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0458.JPG",
+      "mask": "",
+      "sha256": "a81e9acc5501d2dbe2238fd94560cd299fbb9accdcb44b8310073a4369c7c612"
+    },
+    {
+      "object": "macaroni1",
+      "split": "train",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0252.JPG",
+      "mask": "",
+      "sha256": "97ca697f0ef85f224edf10a41258962995c494a7fe6c9ba4ee65f3c307174d74"
+    },
+    {
+      "object": "macaroni1",
+      "split": "train",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0136.JPG",
+      "mask": "",
+      "sha256": "686ca14ddba3c8fa373f795acf1f4f790b10cc8ac2eae946e142bb48fb942513"
+    },
+    {
+      "object": "macaroni1",
+      "split": "train",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0219.JPG",
+      "mask": "",
+      "sha256": "c3b80a0da69eb879394b834e756f63808f29e8e49b73a0de704f0e497a406cc1"
+    },
+    {
+      "object": "macaroni1",
+      "split": "train",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0430.JPG",
+      "mask": "",
+      "sha256": "f20a31517bfab6cb364befb21a1adc5892a45189498c1579efd9bbf13bf8d3f6"
+    },
+    {
+      "object": "macaroni1",
+      "split": "train",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0993.JPG",
+      "mask": "",
+      "sha256": "73f1eccd2215e57046bad0e5df5f14bb76234e356f6ad7eeeb3ef50340dd7e0c"
+    },
+    {
+      "object": "macaroni1",
+      "split": "train",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0360.JPG",
+      "mask": "",
+      "sha256": "0edc5fedd118d19905f1d9f8b645d7eb8fa0dae859e68b274628749f904f23f6"
+    },
+    {
+      "object": "macaroni1",
+      "split": "train",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0211.JPG",
+      "mask": "",
+      "sha256": "6b8faf9906cf76ff42f02cf062e6acaf9b66f0ff9ceba2e84a0d35e57a399c9d"
+    },
+    {
+      "object": "macaroni1",
+      "split": "train",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0486.JPG",
+      "mask": "",
+      "sha256": "c3297444946dabc7f271e71077cc5025ba432f4008d150d765a8373e5e3f18e6"
+    },
+    {
+      "object": "macaroni1",
+      "split": "train",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0281.JPG",
+      "mask": "",
+      "sha256": "e2854cbf15e406a771035cfa9b45b1ae502e181e908a07065da4050842799405"
+    },
+    {
+      "object": "macaroni1",
+      "split": "train",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0443.JPG",
+      "mask": "",
+      "sha256": "fdc5cb1f735ca6f6da786e83148b527be2077813ed431b1a7248a93aa6aae50f"
+    },
+    {
+      "object": "macaroni1",
+      "split": "train",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0334.JPG",
+      "mask": "",
+      "sha256": "ac9d1ef516f462be9210fecf5789ff2be85183894d9e211ceb75bc657420256d"
+    },
+    {
+      "object": "macaroni1",
+      "split": "train",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0498.JPG",
+      "mask": "",
+      "sha256": "1a23dfe769034d9039741a6abff7fccc1d1d06e06a54f64bd4b4bee853ba616b"
+    },
+    {
+      "object": "macaroni1",
+      "split": "train",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0304.JPG",
+      "mask": "",
+      "sha256": "bbf9dc160d086c2b94d4c7a51f0e3df3f657f0d499b2cf29cf3ad49ef66cd88c"
+    },
+    {
+      "object": "macaroni1",
+      "split": "train",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0042.JPG",
+      "mask": "",
+      "sha256": "78aef298a1ab384336218f958eefe4373b513578903097434c7b80da6f5f6ec4"
+    },
+    {
+      "object": "macaroni1",
+      "split": "train",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0862.JPG",
+      "mask": "",
+      "sha256": "c7dba8a288f59553bfbf652fdb090d1e6571b17082a5d6454a113ab44c7ed4b9"
+    },
+    {
+      "object": "macaroni1",
+      "split": "train",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0350.JPG",
+      "mask": "",
+      "sha256": "ef8c01e59c0cd47bb8186a1dc022f2f01933fc6e1d8f1492d8c7c6672b35d2af"
+    },
+    {
+      "object": "macaroni1",
+      "split": "train",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0106.JPG",
+      "mask": "",
+      "sha256": "4b7ab66053ae60b0f0547a362cbeaabbc91076ffdc00c257278619759d7223e2"
+    },
+    {
+      "object": "macaroni1",
+      "split": "train",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0702.JPG",
+      "mask": "",
+      "sha256": "039a8863ef105e3294df908ba269595ebbd0bed1806c81d79f7286adf4837e71"
+    },
+    {
+      "object": "macaroni1",
+      "split": "train",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0031.JPG",
+      "mask": "",
+      "sha256": "061e4d265967c21d79fc8a0058400a90b40940926987f13b5a208004ee4d8bbe"
+    },
+    {
+      "object": "macaroni1",
+      "split": "train",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0780.JPG",
+      "mask": "",
+      "sha256": "ceb4595d1ad96e0e1fee23762059ae295a92fb1f364a98c32c6295299000bc5a"
+    },
+    {
+      "object": "macaroni1",
+      "split": "train",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0653.JPG",
+      "mask": "",
+      "sha256": "a71d3e20bff814f2b84b4c7c1b40ede28de32606017ed55f03c3f067166dff6f"
+    },
+    {
+      "object": "macaroni1",
+      "split": "train",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0044.JPG",
+      "mask": "",
+      "sha256": "293913fbe90f47f499a66d917773c3cd621a8d11b22268e2d686651d5c15f251"
+    },
+    {
+      "object": "macaroni1",
+      "split": "train",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0058.JPG",
+      "mask": "",
+      "sha256": "6b2bae172560da8c3bd67e23255820f11a689523667384e67934d0bd1810403d"
+    },
+    {
+      "object": "macaroni1",
+      "split": "train",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0186.JPG",
+      "mask": "",
+      "sha256": "e4c75a3b67c6139aac70b0299f7a187ca5a44dcb9043b9652117fc693d6c9c63"
+    },
+    {
+      "object": "macaroni1",
+      "split": "train",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0655.JPG",
+      "mask": "",
+      "sha256": "a24a1651220b87fbac6cd939461231944475eb3fe96cbfd21186fd7c725bb36b"
+    },
+    {
+      "object": "macaroni1",
+      "split": "train",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0511.JPG",
+      "mask": "",
+      "sha256": "1d3ae84cee5631f88d20c720cd0223ca26e67c42fd44bbd97b1fa504c8dd1710"
+    },
+    {
+      "object": "macaroni1",
+      "split": "train",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0499.JPG",
+      "mask": "",
+      "sha256": "e931a1c193e41216b5ea74f8705cf12e35b57e268d0cfa46fda8f93a54c12da2"
+    },
+    {
+      "object": "macaroni1",
+      "split": "train",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0733.JPG",
+      "mask": "",
+      "sha256": "882bb5a594ec2a82f1fb124d3d8a0bcc21d3389576a1d2925e844a1ca6ebacea"
+    },
+    {
+      "object": "macaroni1",
+      "split": "train",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0245.JPG",
+      "mask": "",
+      "sha256": "31fe9b69ab845bfde000933a29e7f430b0cf39ef36bcf0851430618d7e38c311"
+    },
+    {
+      "object": "macaroni1",
+      "split": "train",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0007.JPG",
+      "mask": "",
+      "sha256": "9257e0c1a51353862b15e9388057662cacff513a500a58a80f5c61d28bf350b0"
+    },
+    {
+      "object": "macaroni1",
+      "split": "train",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0226.JPG",
+      "mask": "",
+      "sha256": "01933b17d836d74fa210903138b85ea395a7f8d78745dc3d0611fd679667ee57"
+    },
+    {
+      "object": "macaroni1",
+      "split": "train",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0413.JPG",
+      "mask": "",
+      "sha256": "9e545d34ee59e57be242f4517c2463f57479950a26307163d0a3ae144f34e220"
+    },
+    {
+      "object": "macaroni1",
+      "split": "train",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0561.JPG",
+      "mask": "",
+      "sha256": "abdb891aabeebaa0e04a5a984fefdb223e1e67a9494960c4b4455bbe7569e19e"
+    },
+    {
+      "object": "macaroni1",
+      "split": "train",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0266.JPG",
+      "mask": "",
+      "sha256": "2d5e0f2444c43a47bd1f0197d5b80842a040cd570a77dfc985644c2b9a7acc8c"
+    },
+    {
+      "object": "macaroni1",
+      "split": "train",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0385.JPG",
+      "mask": "",
+      "sha256": "68592ee5f604d2637ee7c5cb1fba4c15a26db88b5d36e340a6916bc0ed65ecb4"
+    },
+    {
+      "object": "macaroni1",
+      "split": "train",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0370.JPG",
+      "mask": "",
+      "sha256": "a83f7f673f478b4e620521adaa8506fe5b10ef567c6a02786da40fea2681af63"
+    },
+    {
+      "object": "macaroni1",
+      "split": "train",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0769.JPG",
+      "mask": "",
+      "sha256": "17741f4c2b995b770c708c07e6410ba03f71c7d57e2611b09d7d3aea1b52b684"
+    },
+    {
+      "object": "macaroni1",
+      "split": "train",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0270.JPG",
+      "mask": "",
+      "sha256": "6bad23191449c1b800b0810ae86b0862409c81080b53a0d16845fb0626acf321"
+    },
+    {
+      "object": "macaroni1",
+      "split": "train",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0988.JPG",
+      "mask": "",
+      "sha256": "2529847d7630c75f1d1ffa66e7572c63a56534239a5f844cd4049b1aa9f02b18"
+    },
+    {
+      "object": "macaroni1",
+      "split": "train",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0089.JPG",
+      "mask": "",
+      "sha256": "156c3e56781829606a72027c3d37c4db0ba26ef58c445db8ea9cbe91bd6231a4"
+    },
+    {
+      "object": "macaroni1",
+      "split": "train",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0541.JPG",
+      "mask": "",
+      "sha256": "e9ed05f88f1fa931c725a1bfefe2159657165d590ab95a2056ddbd88e49b71fa"
+    },
+    {
+      "object": "macaroni1",
+      "split": "train",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0776.JPG",
+      "mask": "",
+      "sha256": "3b547c75792e0be709f68195dc279e7f88f6cfa965d0d1124c57b1f92081fa31"
+    },
+    {
+      "object": "macaroni1",
+      "split": "train",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0137.JPG",
+      "mask": "",
+      "sha256": "c37ff4b24f73dcdc423642cc98a6c985e3f2e8659c33037c705efd0e13254374"
+    },
+    {
+      "object": "macaroni1",
+      "split": "train",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0401.JPG",
+      "mask": "",
+      "sha256": "b4eadafd4d089c11911e20b56779ad40664dbf9476eee569410262acbb7a145a"
+    },
+    {
+      "object": "macaroni1",
+      "split": "train",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0882.JPG",
+      "mask": "",
+      "sha256": "9b4de42880a4167b80f5262ebea1a93fc59c575f5d307ca040eddc5a85b9d09e"
+    },
+    {
+      "object": "macaroni1",
+      "split": "train",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0865.JPG",
+      "mask": "",
+      "sha256": "45e9c0953b9aaa9dba8721d5d1546470e5cfb191fa03af5897cdb3df22118417"
+    },
+    {
+      "object": "macaroni1",
+      "split": "train",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0259.JPG",
+      "mask": "",
+      "sha256": "fc62febdd9adb143c7bafb71f3989f1ab86ef91fd113c1735b8019346a24cb45"
+    },
+    {
+      "object": "macaroni1",
+      "split": "train",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0436.JPG",
+      "mask": "",
+      "sha256": "d5a55df5671c695d0913f7535ac279afc82d8cb0f18c8e1b938c1bb134dbc336"
+    },
+    {
+      "object": "macaroni1",
+      "split": "train",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0062.JPG",
+      "mask": "",
+      "sha256": "98d43d2fdbcee884693d183480f4cfe84df1709461dcc484e9286a04255f5f7f"
+    },
+    {
+      "object": "macaroni1",
+      "split": "train",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0353.JPG",
+      "mask": "",
+      "sha256": "3360c6605f346959d0c5283a07cdcd24a676ca5f2a84b38be0fb9dd84de1414c"
+    },
+    {
+      "object": "macaroni1",
+      "split": "train",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0971.JPG",
+      "mask": "",
+      "sha256": "66f7efd2fa92eee83efabbd44173a6590965d450ba27e7b81152ff87d26f9576"
+    },
+    {
+      "object": "macaroni1",
+      "split": "train",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0929.JPG",
+      "mask": "",
+      "sha256": "568ea4389195c2e16a999f58d9f133998e8b1f1730222dea6f3153ac5cb523d8"
+    },
+    {
+      "object": "macaroni1",
+      "split": "train",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0832.JPG",
+      "mask": "",
+      "sha256": "dbbda8a6bdad71aa294552784ad52f2316baf2ff432d6004964a4d1bcbfe7274"
+    },
+    {
+      "object": "macaroni1",
+      "split": "train",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0680.JPG",
+      "mask": "",
+      "sha256": "65d22dc06e949d1aa77f400a0ad3f4ee838e961dd33ead312cdf4bfbde96ed10"
+    },
+    {
+      "object": "macaroni1",
+      "split": "train",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0282.JPG",
+      "mask": "",
+      "sha256": "6c7320e8a2fb62dde8cd94c546ce9fb30ba34b502db0545a43394f30fb8ead23"
+    },
+    {
+      "object": "macaroni1",
+      "split": "train",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0618.JPG",
+      "mask": "",
+      "sha256": "549bbff3087313bed231721f6c7fd6f5c03cc61e9d42f73b98f770b2935ef979"
+    },
+    {
+      "object": "macaroni1",
+      "split": "train",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0068.JPG",
+      "mask": "",
+      "sha256": "29fef7038db0dbab5bba692365369af9e62bd51a3fd53ef52eee19b593775e2f"
+    },
+    {
+      "object": "macaroni1",
+      "split": "train",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0885.JPG",
+      "mask": "",
+      "sha256": "2dae6af0a569bd49d25884f2a9fe2cf45c61510cd82445bcb58287e7bcb4b26f"
+    },
+    {
+      "object": "macaroni1",
+      "split": "train",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0144.JPG",
+      "mask": "",
+      "sha256": "7b210113dbd6d3738d72b4001872eccf770c37795c2c8a57ef5d288ed206eb00"
+    },
+    {
+      "object": "macaroni1",
+      "split": "train",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0521.JPG",
+      "mask": "",
+      "sha256": "cfb8677b63380c7ba7863d40dc394abd830bd536416409bb30db1b76bf5281ce"
+    },
+    {
+      "object": "macaroni1",
+      "split": "train",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0854.JPG",
+      "mask": "",
+      "sha256": "a157c635aa8bba3c90037600f5d8f78f956a8f309da921a2742058edd1bf5583"
+    },
+    {
+      "object": "macaroni1",
+      "split": "train",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0312.JPG",
+      "mask": "",
+      "sha256": "5a613b60243e9b54966aa94d35d0c1282dc80286890973bb40e446acefa5d8b2"
+    },
+    {
+      "object": "macaroni1",
+      "split": "train",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0478.JPG",
+      "mask": "",
+      "sha256": "d6f8abef6b666c36174a46402fcf3401bc5f28c30d8f42b5911787aaea6cbc48"
+    }
+  ],
+  "validation": [
+    {
+      "object": "macaroni1",
+      "split": "train",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0849.JPG",
+      "mask": "",
+      "sha256": "8d99484e699b8b460684600ab257877cf4811c0a0a021942f0e8835bb2d7ab45"
+    },
+    {
+      "object": "macaroni1",
+      "split": "train",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0260.JPG",
+      "mask": "",
+      "sha256": "88265a821a0d8a2eb9ba11dd9ca196e8789a9a4044f43c4ea3f579be86a15f8a"
+    },
+    {
+      "object": "macaroni1",
+      "split": "train",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0749.JPG",
+      "mask": "",
+      "sha256": "60a5dffe8ccbd2125fc31a8040add1e2d7043f13c6a127166f96e578194a1811"
+    },
+    {
+      "object": "macaroni1",
+      "split": "train",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0834.JPG",
+      "mask": "",
+      "sha256": "e3b0503f76388d7a4374b3795d0ab4301ef9b1a8611a37ffd19af66ae712a7c5"
+    },
+    {
+      "object": "macaroni1",
+      "split": "train",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0374.JPG",
+      "mask": "",
+      "sha256": "2569f6c5f027ea171510302ecb261e5f8e9ce6335d9d2789ef74b03c924438af"
+    },
+    {
+      "object": "macaroni1",
+      "split": "train",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0109.JPG",
+      "mask": "",
+      "sha256": "01e9d6f622c8b066d0803202c2c225e7ba45cfd2e4541a9ccf16b3520260f38a"
+    },
+    {
+      "object": "macaroni1",
+      "split": "train",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0160.JPG",
+      "mask": "",
+      "sha256": "27d149bfd13234a24d1d23e1cdfc9a7aa8db77f06231e0da50181c254a757876"
+    },
+    {
+      "object": "macaroni1",
+      "split": "train",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0638.JPG",
+      "mask": "",
+      "sha256": "f73222cdd1583cc3eee426d3fa26137f570c25d9d461d25da10b13c7a395faca"
+    },
+    {
+      "object": "macaroni1",
+      "split": "train",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0073.JPG",
+      "mask": "",
+      "sha256": "29d1ead2efb2d32c35f1ede1fa653e26a40d91a21b1175d3f377cdc8310fcd98"
+    },
+    {
+      "object": "macaroni1",
+      "split": "train",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0090.JPG",
+      "mask": "",
+      "sha256": "806b93f4015afe814bea25d9e76f67a2be3d6c1c53be2d88565a6c460c2e005c"
+    },
+    {
+      "object": "macaroni1",
+      "split": "train",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0582.JPG",
+      "mask": "",
+      "sha256": "0a05d98d2d9703e18ff4eb6fd20932fe9e3b776a3ae077ecb272874d8118e60c"
+    },
+    {
+      "object": "macaroni1",
+      "split": "train",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0156.JPG",
+      "mask": "",
+      "sha256": "8dc846e175e383a65c599efa77bb0013c534dbbe841bafc8b405f3fff65d25ac"
+    },
+    {
+      "object": "macaroni1",
+      "split": "train",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0801.JPG",
+      "mask": "",
+      "sha256": "1a047ae3b32ad1d56200d305b60adf0e03ce6501a164e7621dbb128881128eef"
+    },
+    {
+      "object": "macaroni1",
+      "split": "train",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0786.JPG",
+      "mask": "",
+      "sha256": "18668b33f58be4f5f0ae5fe8e4ff1ef6c64a6531ea9bd530b8bf784f399b6da4"
+    },
+    {
+      "object": "macaroni1",
+      "split": "train",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0140.JPG",
+      "mask": "",
+      "sha256": "245af4e00c07467a6c79bca646862343f8b788a2ba1f99e69fb276779729c8dc"
+    },
+    {
+      "object": "macaroni1",
+      "split": "train",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0984.JPG",
+      "mask": "",
+      "sha256": "9899dc88c774412e6292ae22042c27cfb13406526b3dd4f91a9219d60e3c5d19"
+    },
+    {
+      "object": "macaroni1",
+      "split": "train",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0437.JPG",
+      "mask": "",
+      "sha256": "9ea1eebeed7943e32c278abef534f7d9dd813143e95c3cb95360f02f5d2b5a46"
+    },
+    {
+      "object": "macaroni1",
+      "split": "train",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0414.JPG",
+      "mask": "",
+      "sha256": "c0d11130e568a502f77f777fcb0fb6be20d66e779501360659c61c230d03c3f3"
+    },
+    {
+      "object": "macaroni1",
+      "split": "train",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0405.JPG",
+      "mask": "",
+      "sha256": "84d7ddf6d19dee9cc35ae14728c6c3adcf6a9ef6de40f0b2870f1233adfa0fc8"
+    },
+    {
+      "object": "macaroni1",
+      "split": "train",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0432.JPG",
+      "mask": "",
+      "sha256": "d322dee6a747f02e7b31d69e01b487f019daf6cc05c69d0d21c3cbb9a6ce2ddc"
+    },
+    {
+      "object": "macaroni1",
+      "split": "train",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0325.JPG",
+      "mask": "",
+      "sha256": "f193ce0e189ffcbb9c5d2cbfccf4e646abbbb1c6eeb30bae7e3b1f00c7768954"
+    },
+    {
+      "object": "macaroni1",
+      "split": "train",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0272.JPG",
+      "mask": "",
+      "sha256": "b3b450b296086f91bb3011d8e43fb4833d64f81ce060d4519bf16cb6bff54335"
+    },
+    {
+      "object": "macaroni1",
+      "split": "train",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0693.JPG",
+      "mask": "",
+      "sha256": "09208a27bfe2588f1db3eea5e83bb7059f699826f1fd0f09f709c266b2cadc21"
+    },
+    {
+      "object": "macaroni1",
+      "split": "train",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0184.JPG",
+      "mask": "",
+      "sha256": "6d09a208a9736866ba1e85cd8af3ba7542722622a6db4220824a746468148d4d"
+    },
+    {
+      "object": "macaroni1",
+      "split": "train",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0431.JPG",
+      "mask": "",
+      "sha256": "03a73596b69739a33a91562460d97e5fced1fb2452076ad9b669d975b02ebcda"
+    },
+    {
+      "object": "macaroni1",
+      "split": "train",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0025.JPG",
+      "mask": "",
+      "sha256": "a0ea0d37c9e12e83c108a3913d2a48d9c13990ab01dffd42d5c1a4e799e396c9"
+    },
+    {
+      "object": "macaroni1",
+      "split": "train",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0446.JPG",
+      "mask": "",
+      "sha256": "31e380309e276774839e880c19101286b5408b694cadcb7e0205f530c4940337"
+    },
+    {
+      "object": "macaroni1",
+      "split": "train",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0151.JPG",
+      "mask": "",
+      "sha256": "7c72780aa3bd9cda4dd3d03d967ea0b65814bd227c96e58723705c67db9eb10e"
+    },
+    {
+      "object": "macaroni1",
+      "split": "train",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0152.JPG",
+      "mask": "",
+      "sha256": "ba48c3fa346790fdf19555d4536a3e8ed40bb85d5a86c139b7498cfe0f24bc12"
+    },
+    {
+      "object": "macaroni1",
+      "split": "train",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0197.JPG",
+      "mask": "",
+      "sha256": "4badb939e6a75a4d63747be7b2797389abe4fda9b30c5a0ddb5e7e57e946a953"
+    },
+    {
+      "object": "macaroni1",
+      "split": "train",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0824.JPG",
+      "mask": "",
+      "sha256": "92264786315feed510fa084204e2e24074494e11693f9a6087eff10b1d9a374c"
+    },
+    {
+      "object": "macaroni1",
+      "split": "train",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0002.JPG",
+      "mask": "",
+      "sha256": "ce367bf26de8df6fbfa73bbb6c1d6d89a8830953f7d7da2a4bcd0ca066a2a8c4"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "anomaly",
+      "image": "macaroni1/Data/Images/Anomaly/028.JPG",
+      "mask": "macaroni1/Data/Masks/Anomaly/028.png",
+      "sha256": "d83c71eaf4b15923ed632a73bf61f21c2e2a31b01405d3a9ea5c9b85588e12a1"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "anomaly",
+      "image": "macaroni1/Data/Images/Anomaly/084.JPG",
+      "mask": "macaroni1/Data/Masks/Anomaly/084.png",
+      "sha256": "c83272a3ddebbb392b5196e9131dd803b01f74aa5ed8f6ba11cd6a9b1ca7b6f8"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "anomaly",
+      "image": "macaroni1/Data/Images/Anomaly/051.JPG",
+      "mask": "macaroni1/Data/Masks/Anomaly/051.png",
+      "sha256": "fefb3866961b9abcaddf9c7394671ad04b773307d55b06537b8ae4100c979045"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "anomaly",
+      "image": "macaroni1/Data/Images/Anomaly/040.JPG",
+      "mask": "macaroni1/Data/Masks/Anomaly/040.png",
+      "sha256": "8a29979fca23b2648470483294ac423607a7b985ad05a2baa8ec80f4b9d08910"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "anomaly",
+      "image": "macaroni1/Data/Images/Anomaly/083.JPG",
+      "mask": "macaroni1/Data/Masks/Anomaly/083.png",
+      "sha256": "e921deb123909c968a997e414baed13e92a4c1c1c73121c100cfd71967b32253"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "anomaly",
+      "image": "macaroni1/Data/Images/Anomaly/014.JPG",
+      "mask": "macaroni1/Data/Masks/Anomaly/014.png",
+      "sha256": "2cd17e726689c3dd4daceb8118071d77369e8bd7777908e042d0b9dc83105537"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "anomaly",
+      "image": "macaroni1/Data/Images/Anomaly/065.JPG",
+      "mask": "macaroni1/Data/Masks/Anomaly/065.png",
+      "sha256": "ca0e3fcdf53532f9bb61ce10d4afc5498c65ef035d2d17582ccbb1b9da4ff558"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "anomaly",
+      "image": "macaroni1/Data/Images/Anomaly/043.JPG",
+      "mask": "macaroni1/Data/Masks/Anomaly/043.png",
+      "sha256": "1d9357fb53570dc7170badcdd180e54b0f8aede802a7afb782c99eb9b0b3028a"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "anomaly",
+      "image": "macaroni1/Data/Images/Anomaly/072.JPG",
+      "mask": "macaroni1/Data/Masks/Anomaly/072.png",
+      "sha256": "2535de349fa0adc0c0cb1bd7de5c531aaa982f2ca13d0e8668b26d7f07255fe5"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "anomaly",
+      "image": "macaroni1/Data/Images/Anomaly/000.JPG",
+      "mask": "macaroni1/Data/Masks/Anomaly/000.png",
+      "sha256": "e7592eacf0a723ca4c571bc9dc3792d64671b5fe4832f6127974fc5582e47bb2"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "anomaly",
+      "image": "macaroni1/Data/Images/Anomaly/030.JPG",
+      "mask": "macaroni1/Data/Masks/Anomaly/030.png",
+      "sha256": "cff334f72f353a708bbf46355cc25cf8fdde2309889565ede8ed12ed4d5c8e72"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "anomaly",
+      "image": "macaroni1/Data/Images/Anomaly/038.JPG",
+      "mask": "macaroni1/Data/Masks/Anomaly/038.png",
+      "sha256": "0ba6ad7e2683a649078c9969c29d16e7a6e5ee42e2b3eb651b492c13312382ec"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "anomaly",
+      "image": "macaroni1/Data/Images/Anomaly/029.JPG",
+      "mask": "macaroni1/Data/Masks/Anomaly/029.png",
+      "sha256": "c9ac892e9cd0cbbe5d293dde0eceaf5ebb81d15d6ce835a5b9480cc8c67de45f"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "anomaly",
+      "image": "macaroni1/Data/Images/Anomaly/099.JPG",
+      "mask": "macaroni1/Data/Masks/Anomaly/099.png",
+      "sha256": "5bcaeb84705adc5e300e0cb44fa5f57666424d8d376cade8e7fc2d648dbf925b"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "anomaly",
+      "image": "macaroni1/Data/Images/Anomaly/002.JPG",
+      "mask": "macaroni1/Data/Masks/Anomaly/002.png",
+      "sha256": "9fbfbf9b1814679dfe231399adfc59f788efe6138e91e0fa063ef725b7bbfd2a"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "anomaly",
+      "image": "macaroni1/Data/Images/Anomaly/081.JPG",
+      "mask": "macaroni1/Data/Masks/Anomaly/081.png",
+      "sha256": "4e41eb9d8edd8d2f8f6d38bbf0d0443ded79e6e0d4d766132fcc92ae0f6d3ad2"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "anomaly",
+      "image": "macaroni1/Data/Images/Anomaly/042.JPG",
+      "mask": "macaroni1/Data/Masks/Anomaly/042.png",
+      "sha256": "3b0255496a92014fd5493dc153e37c64f76ee8eb43cf8f0534cf3414e0ef4cb3"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "anomaly",
+      "image": "macaroni1/Data/Images/Anomaly/078.JPG",
+      "mask": "macaroni1/Data/Masks/Anomaly/078.png",
+      "sha256": "ea6ff49b03336888e8c61140fc760f45a01d824c44b29f8eb8845cde817fbeb6"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "anomaly",
+      "image": "macaroni1/Data/Images/Anomaly/011.JPG",
+      "mask": "macaroni1/Data/Masks/Anomaly/011.png",
+      "sha256": "c32480dad6beb0160b5bc969d18a533c4cd7242dc8ca96cd100cd3d067620c1d"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "anomaly",
+      "image": "macaroni1/Data/Images/Anomaly/025.JPG",
+      "mask": "macaroni1/Data/Masks/Anomaly/025.png",
+      "sha256": "73ee79b8b1f5e528e61ad441c76ce886d76d7041ce05c28b2829fa1545e866e3"
+    }
+  ],
+  "test": [
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0011.JPG",
+      "mask": "",
+      "sha256": "5031073e4913245b033b6910c4d85f5c16ae2cfbab374fa8dfeee3824523710a"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0013.JPG",
+      "mask": "",
+      "sha256": "b2961c30ec7ec668dedbe4f151b3aff6cfbbc1eea44b346c8e4d19c52d7a6986"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0016.JPG",
+      "mask": "",
+      "sha256": "4312a029be488bc6adbb41c01253cff43821f165c723292092c480bbe4e7af8a"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0024.JPG",
+      "mask": "",
+      "sha256": "305217e60992770b60451f3ad2660c9ed5f7fbcc3f3ebeb50a57b37f3206c2da"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0026.JPG",
+      "mask": "",
+      "sha256": "1c1fbd1bd654e5bb253fb1f58dafb3467bfb934d7156e07ba2712095b3ce47e8"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0027.JPG",
+      "mask": "",
+      "sha256": "901f416d5f57a72e0df36cc796effc9d4e4934007010bead1a32ed446500993b"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0046.JPG",
+      "mask": "",
+      "sha256": "27868928ee6104a634ba7a92991c8881574e2ae61849bc153785065a7b699453"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0100.JPG",
+      "mask": "",
+      "sha256": "30243dd223f53d6a47231e30a7ea448c24f2c9a8685c9af007850aca3c1f2b33"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0107.JPG",
+      "mask": "",
+      "sha256": "b80cac6f363173839360415bb9ddd9cd8413f20c923ca5108abd6317a8142f67"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0159.JPG",
+      "mask": "",
+      "sha256": "114718b448ce02494d1f6a35536f9d92c131ec4a5cc4580a0e0a58a004a10d89"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0168.JPG",
+      "mask": "",
+      "sha256": "e98b94336cec7c6662bfa9c9456631ec01a5bffe26c0141ef720bb1b9107b838"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0170.JPG",
+      "mask": "",
+      "sha256": "9dfac0b821609c09f741e2d89a4586d7d7009105986762b19692658cb371e0c3"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0172.JPG",
+      "mask": "",
+      "sha256": "fce5496023fe9280f81f3ac2a377cbbf5a9071ac6b9d01f7c6387be1066bcb79"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0174.JPG",
+      "mask": "",
+      "sha256": "33b8da7fc3ed9f66e9fd94b612cb9f7dcdaac0808ad2475b08d16d44eeaf65e3"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0178.JPG",
+      "mask": "",
+      "sha256": "a60c4bf128e25ede9ab810388e92854d536844ee1525b4a401c31d8338d84a0f"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0187.JPG",
+      "mask": "",
+      "sha256": "38e4cbb0c42ad1177a621c93bfa314054b419ca8aa780d00d41dd316336296bb"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0196.JPG",
+      "mask": "",
+      "sha256": "d2e980e84b613d26858b94f80307dcb035d62044655d3ba26b138db6dd67ffc5"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0208.JPG",
+      "mask": "",
+      "sha256": "fa789973b1a39ce23f837910486a3d6afcb48cb4ef5ba45e4093fed5f0bc7385"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0214.JPG",
+      "mask": "",
+      "sha256": "94cd85b3b3e7c4826ff5c7128ea1b4bc0b47e478c51e120820f74ef608456318"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0215.JPG",
+      "mask": "",
+      "sha256": "9309f87ae17618544c48054b15d14744f0b68ae76b5691ea556f396866d114c4"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0237.JPG",
+      "mask": "",
+      "sha256": "e37a019f3f66f741876caa6be4395922602d32cec0fc2bd59c892b5f8a9a70b1"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0261.JPG",
+      "mask": "",
+      "sha256": "1627f77458a72b25c7be3b9238b94a318fa809b4af63843e47609e925ee49494"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0286.JPG",
+      "mask": "",
+      "sha256": "32fbba22190d121d6bec38ab9431c389c086c7e16c048f911c8e5b18280a744b"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0294.JPG",
+      "mask": "",
+      "sha256": "7af7c767c34b3ed6e88579b55bbe8b5d688dfc69d508bb5acb6f64c233810db5"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0297.JPG",
+      "mask": "",
+      "sha256": "9a79f4f7fadadfa315347bcc465cc0c05dfa3fde674ddbb9eafe7db3affba73e"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0303.JPG",
+      "mask": "",
+      "sha256": "d1afedee552c0aa87deae6d3ccb2af661bac503782684be37a92ca4b77169a77"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0306.JPG",
+      "mask": "",
+      "sha256": "cdc30f68ad877fa256721219527df142c643fe2d8647beb3ee0c6649cc3a6030"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0320.JPG",
+      "mask": "",
+      "sha256": "e4f379517b79c7221d07f8f6c8dd13ffc8ab3c8c50440386f0ba5aa875c8d5dc"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0333.JPG",
+      "mask": "",
+      "sha256": "99b3f1740917d4cd4e277152ca2200ef5f4c153b35554a303c4b63804a5cd14c"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0363.JPG",
+      "mask": "",
+      "sha256": "eb4fb1f697a48f3dfc097a4ae8f2a91a3e34d3ae4818d5a87a61b7cea8a7b542"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0377.JPG",
+      "mask": "",
+      "sha256": "19a3c271e36f7f50fd52f56267aee40b660f52a856c4c975457ffe931607ad34"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0394.JPG",
+      "mask": "",
+      "sha256": "5b6888a16609480a572dbb911241d2eeaad7d6423582d09ee7a2691453b4c944"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0400.JPG",
+      "mask": "",
+      "sha256": "b96521b301f6e21e2aa70dde2a1c7b9803335d02d8f6e782accbdedf30c72101"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0402.JPG",
+      "mask": "",
+      "sha256": "a18749653a5b7bf3b4bc26725121565e1ef83c2c4244c43bd1a474a1f5262666"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0417.JPG",
+      "mask": "",
+      "sha256": "b3a61647fda51abc705bbbf1094ef683abdd48a085a63e3aaaa904ff151eb4f6"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0423.JPG",
+      "mask": "",
+      "sha256": "0d176c9fab39d5b22cb5a2709deeea4dc25ed6dece70fe02ef19cbc7ad26968a"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0427.JPG",
+      "mask": "",
+      "sha256": "6fcdf10efac90e054d5ed4885c2fbd064c274bc09811df9170cd2d3ff3177fce"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0457.JPG",
+      "mask": "",
+      "sha256": "91eda24fa310b906ff5a022e6ac92526dfea9eea6d667b417214e4235f1486ee"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0469.JPG",
+      "mask": "",
+      "sha256": "501b0d382814cfb5e636aa9af002185bf6a642c84eb1d28a0efd6a780bb8aba4"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0479.JPG",
+      "mask": "",
+      "sha256": "23b57a093425eae0681e4126feb9be3418e0f3cda79a254ac6b2b5dde910c9b0"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0483.JPG",
+      "mask": "",
+      "sha256": "7447c4b732bbd22738162c128907bb9a2d6471b1a94cceccc17a481261519f06"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0484.JPG",
+      "mask": "",
+      "sha256": "deea5d0e318b970cb2e14f42ef7b9d1a3644fd506c51aaa0105d2037e9f0d579"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0488.JPG",
+      "mask": "",
+      "sha256": "8cda48814441fbd7b4f8918cede36222da41bc1020049bd90aaa5bd0c675b604"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0490.JPG",
+      "mask": "",
+      "sha256": "f9cc026d8156ee03bc09e448dfac0276dd345c7791917b224041fe623afe343c"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0514.JPG",
+      "mask": "",
+      "sha256": "6eb772190d6795de40b4a4b5ab6c7bf616a7910b043cb1e579532b4f7f34a846"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0518.JPG",
+      "mask": "",
+      "sha256": "d82c91f73302438c85446219601494824e554857acd71327ade90e49fcf37f5b"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0520.JPG",
+      "mask": "",
+      "sha256": "d13c06a647be72b1f7d7eadb9b5212037e5f2770ea5b36e63bfb2da9db5408f7"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0525.JPG",
+      "mask": "",
+      "sha256": "b49962ebd9b4ddad2a19fe21f00dd20fbfa0bd4524bcf8f72339ce58e4e350c6"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0545.JPG",
+      "mask": "",
+      "sha256": "b31dc9baed51c9d5f704b6c62e4587ccdec9e55847a1c3a81c69fce56606e190"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0552.JPG",
+      "mask": "",
+      "sha256": "bf6aca88ed8b11a5984d43f5f7e807e9aa991b37737a3502644282adcf03dd61"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0569.JPG",
+      "mask": "",
+      "sha256": "5d86513ef3b509322cf2109ff5ced0a296f403dd28dd89caaff215897d5920ab"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0615.JPG",
+      "mask": "",
+      "sha256": "c75e4557692660c29e8c808cb095787dd363d128bc5a8bc670d98ef1e68e2a6b"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0617.JPG",
+      "mask": "",
+      "sha256": "515d807eff616d5bce58be41989d36c09e7669a6064fdd68d45976e1b2b1b38c"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0619.JPG",
+      "mask": "",
+      "sha256": "4d4d4d9c67667ee7eb8939d0efceea17ec632bf29326b9175b122e67f2a08f93"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0621.JPG",
+      "mask": "",
+      "sha256": "5508f714332b44cdd9fe3461d8733da72103351f60bf473f7301de615fad500c"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0629.JPG",
+      "mask": "",
+      "sha256": "2dcbc273acf0ea169316448ae7c6dd316f0f43c42fc9e716fce847c6b0572489"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0631.JPG",
+      "mask": "",
+      "sha256": "7d485ef524defd00d6cb7085cc5ee1776fbee0cdc4a98aca32a76f51b521ade2"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0648.JPG",
+      "mask": "",
+      "sha256": "700946ed408356e7839b6a363386871d7153bb03b01d9a368d7e55febb42bc1d"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0654.JPG",
+      "mask": "",
+      "sha256": "d64c99f9745b1fe6efcc4b02af441b9e2bd4ab5d18237150f039eb3bcfb2ae11"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0657.JPG",
+      "mask": "",
+      "sha256": "197a7fe8ea7299fb74b18a679333fc3dead636926e9ac0812678b38ff3caae08"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0659.JPG",
+      "mask": "",
+      "sha256": "822a8d550b14d0f4f80d818f12348c1f73ba51f47ef033ce31b0bb72a0c2a0e4"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0674.JPG",
+      "mask": "",
+      "sha256": "724b233231149487eed8e85db020e63583ebc17926272bf7f6365fe903376e61"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0684.JPG",
+      "mask": "",
+      "sha256": "0f431c9b38ae8c8b17f58c3174cf334c2f9df632838ac20d7a5d291de41ab404"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0685.JPG",
+      "mask": "",
+      "sha256": "8c954813247e632ccbe727ac118c415be9f39cb66234e9943f15dc14f4ca93be"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0688.JPG",
+      "mask": "",
+      "sha256": "f92dcec62b29dae61abeaa46bb309d5f0262aaa000686bae52b6f4d441afc319"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0690.JPG",
+      "mask": "",
+      "sha256": "c6f7d0e1dc582e1ac7ac655b76fe77afe49fa95aae13b6a63e367515aee86a36"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0694.JPG",
+      "mask": "",
+      "sha256": "d7815d7e6a5be74a19eb5ff6e081f0145ef51fa157e723b8dcec04b768991b79"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0705.JPG",
+      "mask": "",
+      "sha256": "43d35382c502123765ebb4aae70da479e8dde59d205d940272589993317e5389"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0725.JPG",
+      "mask": "",
+      "sha256": "5f8bdf6ba7395792643ca6874f286b8208b419111e23de0a82c7e67cae4fd9e2"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0730.JPG",
+      "mask": "",
+      "sha256": "f2621eb40c500f054761c3ed01ef52aa5d06246fab15584658151ae36f5c7ead"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0735.JPG",
+      "mask": "",
+      "sha256": "9ca1ed02a751fe47806a42784605e03ef18063f6cfd10e42116a6d55b97037dc"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0739.JPG",
+      "mask": "",
+      "sha256": "67067e91e77ed3e649bbb5c14d749f9832ee2db6540f480e97ee0c38a4dde47a"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0751.JPG",
+      "mask": "",
+      "sha256": "89731aeda1b5497fd27983da10b82368341c03695f4af11a939dce1fc4135882"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0755.JPG",
+      "mask": "",
+      "sha256": "422a77e1758092c8a83e35fb17c0c4f792308843bdc298c0454460b9ec2b98e0"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0764.JPG",
+      "mask": "",
+      "sha256": "544be7e5ce360b2376060f5a0e6838a340962e916baa0022f1159c84997a58d3"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0768.JPG",
+      "mask": "",
+      "sha256": "f933b270757794301bfef6d79f288e2a1e6c6ff433dea1cb17581c9b11f22a6b"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0779.JPG",
+      "mask": "",
+      "sha256": "4f25c9feb517f6a935709dba1bfb6e4d1c2ba1134a9bd0f500b87f02919071da"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0784.JPG",
+      "mask": "",
+      "sha256": "e7bf8c9ca71975258407bcb95f0ec2aed6bc18f4e9600bbc0a716fe35f46b638"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0790.JPG",
+      "mask": "",
+      "sha256": "c33178ab7591ce1ff82fb1009428599564ab578d9672bd123c38e9663771ea09"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0796.JPG",
+      "mask": "",
+      "sha256": "ad22167c9a1f7d0abe2a5d17a40441b383479d6a523b4e17fdcf08251d9a2920"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0797.JPG",
+      "mask": "",
+      "sha256": "77180e703d8c4ebc592788b1a8d8bbc389109a6ff726b723382363e3036fa20b"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0800.JPG",
+      "mask": "",
+      "sha256": "ce38b57d5ed8b4f7ab0e08627adb0ee322d38d5b9ca981191b84f930b2010c0e"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0804.JPG",
+      "mask": "",
+      "sha256": "bfcb4859cd3a0b6aea1e6298f4886efaaa80cb3e88817ef7b54230dca73c6b94"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0811.JPG",
+      "mask": "",
+      "sha256": "dc64a668ba275020210d88a1318a08d67fc31b500b57537a0b6be2511e64f7b7"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0844.JPG",
+      "mask": "",
+      "sha256": "2e8fe2ab1e6fc83e29c2b3144471f18d14ade7876f8c05071138ae9fa1a27efe"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0869.JPG",
+      "mask": "",
+      "sha256": "b7f83260539e105191b51a02c259a43f35b7c51417547ff53e75142ac33b4c04"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0871.JPG",
+      "mask": "",
+      "sha256": "5e0bf2c2ce0c6d65c7a53182de4038fd79b0cec8b4662c47baa3c465d92e200f"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0892.JPG",
+      "mask": "",
+      "sha256": "b05a04b38babc18213f1c849f90640c2caf146e10f8bc9065dfb33d70aca1c87"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0900.JPG",
+      "mask": "",
+      "sha256": "02c7c6c2599e0c4e6339677b6c7cccabe0a708d3896c021712c6835d6d4c72f7"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0920.JPG",
+      "mask": "",
+      "sha256": "2afaf4722c48a35a7fed32a46c72959240688569050a52561bdf5a6b33743ff1"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0923.JPG",
+      "mask": "",
+      "sha256": "da39015922d5795935c02dc34bf61d3b0a413b825065517de7797f52475d7cb3"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0935.JPG",
+      "mask": "",
+      "sha256": "1486dd3f0b0e861044ec5fa3bfa9fe585e2c52ebc05ed36adb4801a46cc2a6af"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0952.JPG",
+      "mask": "",
+      "sha256": "111b87621f01e6e47b3db45754798c7107f7e1fc9227051551a66029e36ce4cc"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0953.JPG",
+      "mask": "",
+      "sha256": "338f5bb56b4f658289f87d640159568aa910feb69208bd47c49e1366c5e6cc86"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0964.JPG",
+      "mask": "",
+      "sha256": "ec9cce63c0dec276931c51c4e478ccbf43be96f0b816f44d2da0b698466c7843"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0967.JPG",
+      "mask": "",
+      "sha256": "5bfe6a053bea45b4849d5756c187397e8e187fa4010f812b8e0c744f51fafa71"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0974.JPG",
+      "mask": "",
+      "sha256": "359e4727bec6853a0b85e2a07d523b2c149e1c3c471c6039360f6e5f7afa1f65"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0985.JPG",
+      "mask": "",
+      "sha256": "389935da4244b1446092fc5393f0e61e8a0d050dd81e440ba0194331f50c9e00"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0994.JPG",
+      "mask": "",
+      "sha256": "f95243401acc6ad9e3acbd58fc2215efc9118d17f86107c9b1dbcac125834565"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "normal",
+      "image": "macaroni1/Data/Images/Normal/0996.JPG",
+      "mask": "",
+      "sha256": "020e21cedb47d5c315f183607f6ef43cd9c5a37778ff6b3e1fdf202994cfa9e8"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "anomaly",
+      "image": "macaroni1/Data/Images/Anomaly/020.JPG",
+      "mask": "macaroni1/Data/Masks/Anomaly/020.png",
+      "sha256": "f0a380a1aed8b1654a5cc791bff848e6cfd0f22776e4f0d187104f25d1d6b388"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "anomaly",
+      "image": "macaroni1/Data/Images/Anomaly/018.JPG",
+      "mask": "macaroni1/Data/Masks/Anomaly/018.png",
+      "sha256": "b0cf71bb416f3b3198056010d8208d1f605a0a1d4d2866184cd7a649dfc262a5"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "anomaly",
+      "image": "macaroni1/Data/Images/Anomaly/061.JPG",
+      "mask": "macaroni1/Data/Masks/Anomaly/061.png",
+      "sha256": "ceba60c419ca5b73c99e9b42e49eb3d09d04fb265fd9956323caa5d7f11fc831"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "anomaly",
+      "image": "macaroni1/Data/Images/Anomaly/079.JPG",
+      "mask": "macaroni1/Data/Masks/Anomaly/079.png",
+      "sha256": "cf21f51317328745f6e2272b72c7b18668024b159bd9c882f324e401df1d74f7"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "anomaly",
+      "image": "macaroni1/Data/Images/Anomaly/049.JPG",
+      "mask": "macaroni1/Data/Masks/Anomaly/049.png",
+      "sha256": "6a805346b8f28c66f5ae7cd3de1b21b298564c293e56fab19607c3927212d3dc"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "anomaly",
+      "image": "macaroni1/Data/Images/Anomaly/080.JPG",
+      "mask": "macaroni1/Data/Masks/Anomaly/080.png",
+      "sha256": "de5f6dc0675e69c4e04af0e4307f4c4c4154ac13673d6c6fe0d7e4dceec78de7"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "anomaly",
+      "image": "macaroni1/Data/Images/Anomaly/008.JPG",
+      "mask": "macaroni1/Data/Masks/Anomaly/008.png",
+      "sha256": "ab96f94f811fe246eb4275908533f63fa7c520d71a853eda20bb59f1b4574cab"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "anomaly",
+      "image": "macaroni1/Data/Images/Anomaly/044.JPG",
+      "mask": "macaroni1/Data/Masks/Anomaly/044.png",
+      "sha256": "01bf2a4362be34e9fd556da20d9e542cfeb140532c321ba6e5972232bcb17bde"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "anomaly",
+      "image": "macaroni1/Data/Images/Anomaly/010.JPG",
+      "mask": "macaroni1/Data/Masks/Anomaly/010.png",
+      "sha256": "c9b188e0d18a2c51cbf1e55b32b1a7f26e60af14480ebe0a037c35cf7c029488"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "anomaly",
+      "image": "macaroni1/Data/Images/Anomaly/085.JPG",
+      "mask": "macaroni1/Data/Masks/Anomaly/085.png",
+      "sha256": "654efd9955e7cf55e240e5dcc6c4b45319ad3f688c48a853e584e83e25d40fb4"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "anomaly",
+      "image": "macaroni1/Data/Images/Anomaly/087.JPG",
+      "mask": "macaroni1/Data/Masks/Anomaly/087.png",
+      "sha256": "bced5aee3169da2d2cb4fef6e6df9840e0882c58c04410cb2af5a01709d36164"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "anomaly",
+      "image": "macaroni1/Data/Images/Anomaly/068.JPG",
+      "mask": "macaroni1/Data/Masks/Anomaly/068.png",
+      "sha256": "1cce621d9561d3841c60b8700955be9012c9bef8ca9ed221834eede02acf9de7"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "anomaly",
+      "image": "macaroni1/Data/Images/Anomaly/036.JPG",
+      "mask": "macaroni1/Data/Masks/Anomaly/036.png",
+      "sha256": "cb651c4b57c2855e7b6c3f701b587877a3f4b29192927cf027c209b6a29273c9"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "anomaly",
+      "image": "macaroni1/Data/Images/Anomaly/053.JPG",
+      "mask": "macaroni1/Data/Masks/Anomaly/053.png",
+      "sha256": "ce7a324629995ab5ebe2ce2c4c5ce6d220bb59590bb368356496bc547dd8a5a3"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "anomaly",
+      "image": "macaroni1/Data/Images/Anomaly/045.JPG",
+      "mask": "macaroni1/Data/Masks/Anomaly/045.png",
+      "sha256": "4dcbe02b992f66cee82793409a7c78b3ea014e7cc93be8b88691fc2590c87ca6"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "anomaly",
+      "image": "macaroni1/Data/Images/Anomaly/062.JPG",
+      "mask": "macaroni1/Data/Masks/Anomaly/062.png",
+      "sha256": "d0a7e12ba5c9a44a9043482462683bba9129095b4fd0ae6b92236ed174093986"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "anomaly",
+      "image": "macaroni1/Data/Images/Anomaly/071.JPG",
+      "mask": "macaroni1/Data/Masks/Anomaly/071.png",
+      "sha256": "2b05a04f9896cd5b5dff9ae758fc548ebe59da00abe3b1909f54de7fc90d52b7"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "anomaly",
+      "image": "macaroni1/Data/Images/Anomaly/069.JPG",
+      "mask": "macaroni1/Data/Masks/Anomaly/069.png",
+      "sha256": "70d95cb518ff5458107f9e2bf46c76d6ad5fd47739c614cf925d0d92e1f2986a"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "anomaly",
+      "image": "macaroni1/Data/Images/Anomaly/016.JPG",
+      "mask": "macaroni1/Data/Masks/Anomaly/016.png",
+      "sha256": "204ee95464de30358989677585832c4c6ab88b85e4a785a6e37e56e57baf108e"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "anomaly",
+      "image": "macaroni1/Data/Images/Anomaly/006.JPG",
+      "mask": "macaroni1/Data/Masks/Anomaly/006.png",
+      "sha256": "8ceafbc2f471f85b60bcea1eda2c99796302a8e050cafbf2fe5655e2fabbc611"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "anomaly",
+      "image": "macaroni1/Data/Images/Anomaly/046.JPG",
+      "mask": "macaroni1/Data/Masks/Anomaly/046.png",
+      "sha256": "d52748971f4f4e1c8bbebe52dd67fbe4afebf0384cded1bdfb47ee563480d1c4"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "anomaly",
+      "image": "macaroni1/Data/Images/Anomaly/057.JPG",
+      "mask": "macaroni1/Data/Masks/Anomaly/057.png",
+      "sha256": "274537cc9cf2df811c54a90477f1af5c0bc01ed89b8d1f586040f844f7aefb31"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "anomaly",
+      "image": "macaroni1/Data/Images/Anomaly/088.JPG",
+      "mask": "macaroni1/Data/Masks/Anomaly/088.png",
+      "sha256": "f886d2c7e3048e91caa30aacb8efe25b34ffceaefcd14872e6027fd9e13fc894"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "anomaly",
+      "image": "macaroni1/Data/Images/Anomaly/024.JPG",
+      "mask": "macaroni1/Data/Masks/Anomaly/024.png",
+      "sha256": "facbeb1f61f74301a4b9154c59f6c57f2797f73c754da1e2ee3356578f4518ad"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "anomaly",
+      "image": "macaroni1/Data/Images/Anomaly/059.JPG",
+      "mask": "macaroni1/Data/Masks/Anomaly/059.png",
+      "sha256": "8649edfd42907b9b87eeca8f244c9475ef93bfa360ced44d985202a3a7d41955"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "anomaly",
+      "image": "macaroni1/Data/Images/Anomaly/058.JPG",
+      "mask": "macaroni1/Data/Masks/Anomaly/058.png",
+      "sha256": "9c7a681e1154e5312cf0625ade0ab331fb3c45e194f5f22f32493d04c4301ec8"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "anomaly",
+      "image": "macaroni1/Data/Images/Anomaly/012.JPG",
+      "mask": "macaroni1/Data/Masks/Anomaly/012.png",
+      "sha256": "b2774446412a0c2336a6cddf7c327db417d6949ab7f8fb662ae60ec6429b3c31"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "anomaly",
+      "image": "macaroni1/Data/Images/Anomaly/093.JPG",
+      "mask": "macaroni1/Data/Masks/Anomaly/093.png",
+      "sha256": "45f14c058ec3c4681f306043974cc8ea0204b417108047817f655243235e9a54"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "anomaly",
+      "image": "macaroni1/Data/Images/Anomaly/066.JPG",
+      "mask": "macaroni1/Data/Masks/Anomaly/066.png",
+      "sha256": "9e970045c27a4e4ed001421041d5dc6721a4e444d13dc1341d50a50f274050e7"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "anomaly",
+      "image": "macaroni1/Data/Images/Anomaly/095.JPG",
+      "mask": "macaroni1/Data/Masks/Anomaly/095.png",
+      "sha256": "4796e06ebe471bf06e8d78d8f07c309dcf900ea41cdda58e9ad59c5d3466ed22"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "anomaly",
+      "image": "macaroni1/Data/Images/Anomaly/007.JPG",
+      "mask": "macaroni1/Data/Masks/Anomaly/007.png",
+      "sha256": "6e3aeb325040d8b7d06a5f8a67991aba1160f7c80c1dbf03bc7a1d82ea044c04"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "anomaly",
+      "image": "macaroni1/Data/Images/Anomaly/005.JPG",
+      "mask": "macaroni1/Data/Masks/Anomaly/005.png",
+      "sha256": "985b19a08b4d9d258889e7730a89f5ccde4ccc394494393c284da1de7e1f7c59"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "anomaly",
+      "image": "macaroni1/Data/Images/Anomaly/086.JPG",
+      "mask": "macaroni1/Data/Masks/Anomaly/086.png",
+      "sha256": "fb3431424ae39454d50b88bf85bc87fdf737ec9cd8b4e02af30f8f1005babbba"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "anomaly",
+      "image": "macaroni1/Data/Images/Anomaly/022.JPG",
+      "mask": "macaroni1/Data/Masks/Anomaly/022.png",
+      "sha256": "98268e88a44faf3773bf7506ac4bdfc8ee704b68bfb933af13e537654d980eb1"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "anomaly",
+      "image": "macaroni1/Data/Images/Anomaly/034.JPG",
+      "mask": "macaroni1/Data/Masks/Anomaly/034.png",
+      "sha256": "f9f3e8ef99623c63b69a694e7ab9e5a958c62b5e9cfb238136e6ad06a833737c"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "anomaly",
+      "image": "macaroni1/Data/Images/Anomaly/035.JPG",
+      "mask": "macaroni1/Data/Masks/Anomaly/035.png",
+      "sha256": "3f2787c4d4c600fc31685088d6072dbfe3dfac70e573cc381009669152376d61"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "anomaly",
+      "image": "macaroni1/Data/Images/Anomaly/019.JPG",
+      "mask": "macaroni1/Data/Masks/Anomaly/019.png",
+      "sha256": "f0ecf55701dba8a8ab7a107598898e4b96db9251d66d8c037870c690d542f2e2"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "anomaly",
+      "image": "macaroni1/Data/Images/Anomaly/055.JPG",
+      "mask": "macaroni1/Data/Masks/Anomaly/055.png",
+      "sha256": "80da976a5c8585fd1a16e1bcbb920cb778b8ea196c833d9ddc9b69cd60d03ec2"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "anomaly",
+      "image": "macaroni1/Data/Images/Anomaly/003.JPG",
+      "mask": "macaroni1/Data/Masks/Anomaly/003.png",
+      "sha256": "8e7999fbc1ef0dee1015d48e9f008f738e99742b45054d03657519976a97bf7d"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "anomaly",
+      "image": "macaroni1/Data/Images/Anomaly/067.JPG",
+      "mask": "macaroni1/Data/Masks/Anomaly/067.png",
+      "sha256": "9c974a065a04d391cb503788f974e6b9d878846cbe36e367e0d4263d27b00d0d"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "anomaly",
+      "image": "macaroni1/Data/Images/Anomaly/001.JPG",
+      "mask": "macaroni1/Data/Masks/Anomaly/001.png",
+      "sha256": "ea2ceb1add4fdc31fb0fd25818bf0b7ea663ca9242dd00b4fd182a34c2664186"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "anomaly",
+      "image": "macaroni1/Data/Images/Anomaly/075.JPG",
+      "mask": "macaroni1/Data/Masks/Anomaly/075.png",
+      "sha256": "714a7ff7da09f14cd5d66da2cab960457a5d51698db0287388226b8d7290ff54"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "anomaly",
+      "image": "macaroni1/Data/Images/Anomaly/092.JPG",
+      "mask": "macaroni1/Data/Masks/Anomaly/092.png",
+      "sha256": "8a88ea97edab8a4a0a63b361af6162ce1a1980f3452f91cd353c5ebeb282d076"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "anomaly",
+      "image": "macaroni1/Data/Images/Anomaly/089.JPG",
+      "mask": "macaroni1/Data/Masks/Anomaly/089.png",
+      "sha256": "b39aa1f42a8eb0a685c755b75ce937d8a77259f5464327094e321b09b0897014"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "anomaly",
+      "image": "macaroni1/Data/Images/Anomaly/052.JPG",
+      "mask": "macaroni1/Data/Masks/Anomaly/052.png",
+      "sha256": "e3bfc211d1223f887170892910d53b68a0b2ece4aba309d74e7146eef104b365"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "anomaly",
+      "image": "macaroni1/Data/Images/Anomaly/056.JPG",
+      "mask": "macaroni1/Data/Masks/Anomaly/056.png",
+      "sha256": "418fd1b9d9af0e59cc4506952ab30f1727550df1f3090206add81a87ab445081"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "anomaly",
+      "image": "macaroni1/Data/Images/Anomaly/054.JPG",
+      "mask": "macaroni1/Data/Masks/Anomaly/054.png",
+      "sha256": "4702dc1e5740112208e50f16c0fb121b5f38240ab67900fa05db551ce7dd613c"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "anomaly",
+      "image": "macaroni1/Data/Images/Anomaly/050.JPG",
+      "mask": "macaroni1/Data/Masks/Anomaly/050.png",
+      "sha256": "333096e07319ef2c792486e2dd40e743f488fe79f6a7e46ca48641b6854ef149"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "anomaly",
+      "image": "macaroni1/Data/Images/Anomaly/041.JPG",
+      "mask": "macaroni1/Data/Masks/Anomaly/041.png",
+      "sha256": "dc7a6dab7cec250751f1385d9098246c2145dd40a0b5624c281ccabbb85a6659"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "anomaly",
+      "image": "macaroni1/Data/Images/Anomaly/077.JPG",
+      "mask": "macaroni1/Data/Masks/Anomaly/077.png",
+      "sha256": "280129c4f3842411f3ea52a197615c9083c6ad1be529eae4613c2d1090eda162"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "anomaly",
+      "image": "macaroni1/Data/Images/Anomaly/033.JPG",
+      "mask": "macaroni1/Data/Masks/Anomaly/033.png",
+      "sha256": "8b66ee7c009d155ab8dfc9092571b3d84ba910212724677486f0a7e743e4fba1"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "anomaly",
+      "image": "macaroni1/Data/Images/Anomaly/098.JPG",
+      "mask": "macaroni1/Data/Masks/Anomaly/098.png",
+      "sha256": "be716a9f82603b66d3ba44be5ef4019a76773a63fbf98b277c8fd6907589e9c3"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "anomaly",
+      "image": "macaroni1/Data/Images/Anomaly/039.JPG",
+      "mask": "macaroni1/Data/Masks/Anomaly/039.png",
+      "sha256": "a4447b8030532c4452a2f81b13de27bb5da4fd4eeabf42106f75d689c7ef8143"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "anomaly",
+      "image": "macaroni1/Data/Images/Anomaly/094.JPG",
+      "mask": "macaroni1/Data/Masks/Anomaly/094.png",
+      "sha256": "bcf29112d2423a68bffafba3a31b3fc523282d94fa2f13aa7267e1dc5288811a"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "anomaly",
+      "image": "macaroni1/Data/Images/Anomaly/009.JPG",
+      "mask": "macaroni1/Data/Masks/Anomaly/009.png",
+      "sha256": "9faff564af5f602fc0c7a8c4f4553fbfb37208f2af5dcb29ed390dc0672c3e7e"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "anomaly",
+      "image": "macaroni1/Data/Images/Anomaly/070.JPG",
+      "mask": "macaroni1/Data/Masks/Anomaly/070.png",
+      "sha256": "e29d0d7197ddbdabf86080c9af7474b1672d42b00b77ecfee83629fd444eae05"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "anomaly",
+      "image": "macaroni1/Data/Images/Anomaly/021.JPG",
+      "mask": "macaroni1/Data/Masks/Anomaly/021.png",
+      "sha256": "25e758bf2a1a2eaac84921257496aff14b4fed54f80e5e6de3dbfdf468b42f33"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "anomaly",
+      "image": "macaroni1/Data/Images/Anomaly/060.JPG",
+      "mask": "macaroni1/Data/Masks/Anomaly/060.png",
+      "sha256": "3ed701f3b99e0a37c8e37a61796398f9234e1599199623ab4b798d9d875e615e"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "anomaly",
+      "image": "macaroni1/Data/Images/Anomaly/015.JPG",
+      "mask": "macaroni1/Data/Masks/Anomaly/015.png",
+      "sha256": "2f72ab07dfa60961713f80dd1d3fb4ff743060e23b695dac32f62ea0076ac4d0"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "anomaly",
+      "image": "macaroni1/Data/Images/Anomaly/091.JPG",
+      "mask": "macaroni1/Data/Masks/Anomaly/091.png",
+      "sha256": "7eace5a2fd5b57b63c61f2f9aab9a61694c9f667b5e9ca8c5a206d3d9852a848"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "anomaly",
+      "image": "macaroni1/Data/Images/Anomaly/031.JPG",
+      "mask": "macaroni1/Data/Masks/Anomaly/031.png",
+      "sha256": "44ff6316fbcdfc33998c7e84946b0ef0fafca37507de510dd142fa5542f42179"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "anomaly",
+      "image": "macaroni1/Data/Images/Anomaly/037.JPG",
+      "mask": "macaroni1/Data/Masks/Anomaly/037.png",
+      "sha256": "af9bd637067e98b7954f40829402d9ea7a9a63ec256d0eed1b66ac95b5f221e9"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "anomaly",
+      "image": "macaroni1/Data/Images/Anomaly/004.JPG",
+      "mask": "macaroni1/Data/Masks/Anomaly/004.png",
+      "sha256": "003957cc015d290ae3fa4d05657c823c44485cb90e3153a17ac415e964f52f22"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "anomaly",
+      "image": "macaroni1/Data/Images/Anomaly/082.JPG",
+      "mask": "macaroni1/Data/Masks/Anomaly/082.png",
+      "sha256": "0fd1aab45d29bbbde9055e3764e6047cf0bb60f06aa737e91e859a5741d265c0"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "anomaly",
+      "image": "macaroni1/Data/Images/Anomaly/063.JPG",
+      "mask": "macaroni1/Data/Masks/Anomaly/063.png",
+      "sha256": "9795305455e22627645218c7bc83683a340f64bd32199f2f8df49364e238fc73"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "anomaly",
+      "image": "macaroni1/Data/Images/Anomaly/013.JPG",
+      "mask": "macaroni1/Data/Masks/Anomaly/013.png",
+      "sha256": "2ac867400afbba6cacb21c9668b7b254b1e754c2e71e7c9833dc4becf6b37946"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "anomaly",
+      "image": "macaroni1/Data/Images/Anomaly/090.JPG",
+      "mask": "macaroni1/Data/Masks/Anomaly/090.png",
+      "sha256": "c548433c45a5cb792d136f42b8cf34e7fc4404bd9a1a681e6eb02765a52b2765"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "anomaly",
+      "image": "macaroni1/Data/Images/Anomaly/076.JPG",
+      "mask": "macaroni1/Data/Masks/Anomaly/076.png",
+      "sha256": "0ba6e256ec2b38c6988a501be472563adc6fd8a276d77f9df95e6defe5d6016d"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "anomaly",
+      "image": "macaroni1/Data/Images/Anomaly/073.JPG",
+      "mask": "macaroni1/Data/Masks/Anomaly/073.png",
+      "sha256": "9736647bf2be95ea9802c7886a45a37b1b3e2d2fd1243d9354664f8f92d09fa4"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "anomaly",
+      "image": "macaroni1/Data/Images/Anomaly/097.JPG",
+      "mask": "macaroni1/Data/Masks/Anomaly/097.png",
+      "sha256": "4a73df6d53ce467af4a432842a8e11ffb2eb098d52036e5e10582eace74f8bf1"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "anomaly",
+      "image": "macaroni1/Data/Images/Anomaly/026.JPG",
+      "mask": "macaroni1/Data/Masks/Anomaly/026.png",
+      "sha256": "35d90ac0d81715c3c539e996defbcb4a5256aaae1d3593e4553d5a87a02a90b4"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "anomaly",
+      "image": "macaroni1/Data/Images/Anomaly/048.JPG",
+      "mask": "macaroni1/Data/Masks/Anomaly/048.png",
+      "sha256": "692eb4f7c66b2847a0167a495710fa20c4672574f48426ae5a464e1b8b7e4382"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "anomaly",
+      "image": "macaroni1/Data/Images/Anomaly/027.JPG",
+      "mask": "macaroni1/Data/Masks/Anomaly/027.png",
+      "sha256": "e7b93a85f209027bc4a2220c67b2e9dd07422b711f4ef20f2ef8836e716a28e5"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "anomaly",
+      "image": "macaroni1/Data/Images/Anomaly/074.JPG",
+      "mask": "macaroni1/Data/Masks/Anomaly/074.png",
+      "sha256": "3f0f5a7401ca54471802a1f97b5a2fbec12c7f3834357748dce5f217c78dd1a2"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "anomaly",
+      "image": "macaroni1/Data/Images/Anomaly/023.JPG",
+      "mask": "macaroni1/Data/Masks/Anomaly/023.png",
+      "sha256": "dc08336b97a6f1edd6e47069804f610e0348c393aca1c5040a93b13eb705240f"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "anomaly",
+      "image": "macaroni1/Data/Images/Anomaly/064.JPG",
+      "mask": "macaroni1/Data/Masks/Anomaly/064.png",
+      "sha256": "7d548a83e5c482c7e7e715833d7802ec56a3c1c523b2ce8c9ecc1054dfaae6ce"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "anomaly",
+      "image": "macaroni1/Data/Images/Anomaly/047.JPG",
+      "mask": "macaroni1/Data/Masks/Anomaly/047.png",
+      "sha256": "f58a4bf476511d2b6f678d942c13fc8289db1c9bfc71b29c4e4226984674db98"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "anomaly",
+      "image": "macaroni1/Data/Images/Anomaly/096.JPG",
+      "mask": "macaroni1/Data/Masks/Anomaly/096.png",
+      "sha256": "c367bb4286b5b1cdc45030be263d5fdc52011e6690d1fbc480213bd08bed9ed9"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "anomaly",
+      "image": "macaroni1/Data/Images/Anomaly/017.JPG",
+      "mask": "macaroni1/Data/Masks/Anomaly/017.png",
+      "sha256": "e4cbeee2983fbbf5e0e6f70ee9735d5f5cd5546d6a22869002216641443c94c5"
+    },
+    {
+      "object": "macaroni1",
+      "split": "test",
+      "label": "anomaly",
+      "image": "macaroni1/Data/Images/Anomaly/032.JPG",
+      "mask": "macaroni1/Data/Masks/Anomaly/032.png",
+      "sha256": "8675a1afaaf8c4f3de3113ce92c8de471199c1f853124aa4c478afcb9420faf9"
+    }
+  ]
+}

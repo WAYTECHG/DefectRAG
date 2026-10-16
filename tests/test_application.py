@@ -230,7 +230,8 @@ def test_graph_retrieval_failure_is_visible():
     assert answer['mode']=='abstained' and 'unavailable' in answer['answer']
 
 def test_final_manifest_has_no_cross_split_identities():
-    for category in ('pcb1','capsules','cashew'):
+    from backend.config import CATEGORIES
+    for category in CATEGORIES:
         manifest=json.loads((ROOT/'results'/f'{category}_splits.json').read_text())
         sets={k:{r['sha256'] for r in v} for k,v in manifest.items()}
         assert not sets['train']&sets['validation'] and not sets['train']&sets['test'] and not sets['validation']&sets['test']

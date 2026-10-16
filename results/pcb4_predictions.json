@@ -1,0 +1,1637 @@
+{
+  "validation": [
+    {
+      "image": "pcb4/Data/Images/Normal/0387.JPG",
+      "sha256": "0d330e3d24506e012e03accfbf3be4166021e69b711598bbe901fa2330c3eaa1",
+      "label": 0,
+      "score": 0.03555363416671753,
+      "latency_ms": 50.54520000703633
+    },
+    {
+      "image": "pcb4/Data/Images/Normal/0459.JPG",
+      "sha256": "50f597e84fd4ee83b2e003480a308ceb4758ccc5e4dd9fb20eb426acd9c14f2e",
+      "label": 0,
+      "score": 0.02753785252571106,
+      "latency_ms": 45.10720001417212
+    },
+    {
+      "image": "pcb4/Data/Images/Normal/0993.JPG",
+      "sha256": "9b374adca3e3219ba73c8e57dc648ddded5dd74cbaec49e96339ce376509e0ef",
+      "label": 0,
+      "score": 0.029641389846801758,
+      "latency_ms": 44.25679999985732
+    },
+    {
+      "image": "pcb4/Data/Images/Normal/0743.JPG",
+      "sha256": "4ce39ce8ab0ba1b1a10f2ff30af254e011c0e6f94ee03c8f821408cd99b5ecc5",
+      "label": 0,
+      "score": 0.0412466824054718,
+      "latency_ms": 47.73570000543259
+    },
+    {
+      "image": "pcb4/Data/Images/Normal/0595.JPG",
+      "sha256": "930215c6fca7fb9e6adb96dd4d749e25e1ec62214dde5b92c0768761494b3665",
+      "label": 0,
+      "score": 0.033165693283081055,
+      "latency_ms": 43.89399997307919
+    },
+    {
+      "image": "pcb4/Data/Images/Normal/0355.JPG",
+      "sha256": "767b29aac106f03a4de878958fd21204b948b64adf9817e7482638df151f284b",
+      "label": 0,
+      "score": 0.038900226354599,
+      "latency_ms": 46.127699984936044
+    },
+    {
+      "image": "pcb4/Data/Images/Normal/0939.JPG",
+      "sha256": "d2c4982cf4cde7957d2c39a3b55e5d54985fc9e11050ad0476e5ab125c94be15",
+      "label": 0,
+      "score": 0.03626987338066101,
+      "latency_ms": 46.449100016616285
+    },
+    {
+      "image": "pcb4/Data/Images/Normal/0787.JPG",
+      "sha256": "5b60bd78150e23e315d8ebf9bde7594c6a4f76307ec876e0fb880630fcc56f2f",
+      "label": 0,
+      "score": 0.035366982221603394,
+      "latency_ms": 43.712600017897785
+    },
+    {
+      "image": "pcb4/Data/Images/Normal/0253.JPG",
+      "sha256": "904ce4a03596e2d7a336dc0400b4b68b6a6fa82ceb87a8deea7a9206e1453c28",
+      "label": 0,
+      "score": 0.03713676333427429,
+      "latency_ms": 43.200100015383214
+    },
+    {
+      "image": "pcb4/Data/Images/Normal/0933.JPG",
+      "sha256": "54cdc4d638006eeace962720f044423c9f252a32b042417928adf713c05da1ae",
+      "label": 0,
+      "score": 0.028665632009506226,
+      "latency_ms": 44.43939999327995
+    },
+    {
+      "image": "pcb4/Data/Images/Normal/0943.JPG",
+      "sha256": "7ec17549aad467b5363862c0e446b2a47153a181fb4fbb2cb22248b3686a13a6",
+      "label": 0,
+      "score": 0.04356449842453003,
+      "latency_ms": 42.87350000231527
+    },
+    {
+      "image": "pcb4/Data/Images/Normal/0894.JPG",
+      "sha256": "465e9899e64b1737a6670197f372c238b48294b5b310767d66e5c9d254bf1a4f",
+      "label": 0,
+      "score": 0.036691874265670776,
+      "latency_ms": 47.32589999912307
+    },
+    {
+      "image": "pcb4/Data/Images/Normal/0405.JPG",
+      "sha256": "ef8d51057bf068387291890601123c02f20f34bbbf3797394c0f5c05fc48c9c5",
+      "label": 0,
+      "score": 0.026097655296325684,
+      "latency_ms": 42.281200003344566
+    },
+    {
+      "image": "pcb4/Data/Images/Normal/0164.JPG",
+      "sha256": "13155c2ef77f73e2795d41db4831be6200c05ef82830a346e32059f55a569b59",
+      "label": 0,
+      "score": 0.026413381099700928,
+      "latency_ms": 43.02119999192655
+    },
+    {
+      "image": "pcb4/Data/Images/Normal/0782.JPG",
+      "sha256": "4f52014e935865b76f7d6e12734ac311f0f331d58490fe2805b2be59cc6f9849",
+      "label": 0,
+      "score": 0.032706260681152344,
+      "latency_ms": 44.41100000985898
+    },
+    {
+      "image": "pcb4/Data/Images/Normal/0073.JPG",
+      "sha256": "7fdb193a8a61ed7de69a258867101eef3d469c135ef054bb2737c0db85d699eb",
+      "label": 0,
+      "score": 0.031060367822647095,
+      "latency_ms": 43.648899998515844
+    },
+    {
+      "image": "pcb4/Data/Images/Normal/0263.JPG",
+      "sha256": "bbb72dbbb76811ff486c5205e0ce9c35a8f8dddfe4b5da1ab7d0978e3998cdf5",
+      "label": 0,
+      "score": 0.033712953329086304,
+      "latency_ms": 44.817799993325025
+    },
+    {
+      "image": "pcb4/Data/Images/Normal/0915.JPG",
+      "sha256": "7bdd4b22bc9fdeda07e08e80a4ff7a42106b0bbf9b367e2f3ef4e7f8c8d43b1c",
+      "label": 0,
+      "score": 0.028859615325927734,
+      "latency_ms": 46.88959999475628
+    },
+    {
+      "image": "pcb4/Data/Images/Normal/0439.JPG",
+      "sha256": "72aaf18e23e45b5423ff86a758ebf9befefe10b3636431bc70c940f931cdb6b8",
+      "label": 0,
+      "score": 0.04057684540748596,
+      "latency_ms": 45.81579999648966
+    },
+    {
+      "image": "pcb4/Data/Images/Normal/0266.JPG",
+      "sha256": "218e93366ddbbd2b9e7e0fb9bdc933e9d0862bfa1fa35827a573f3ed6f3ad001",
+      "label": 0,
+      "score": 0.02269461750984192,
+      "latency_ms": 41.740400018170476
+    },
+    {
+      "image": "pcb4/Data/Images/Normal/0803.JPG",
+      "sha256": "e2adaa13abf4d822d24e602546920e742bd04408dc7ac75fae6be8a25fe6749d",
+      "label": 0,
+      "score": 0.026627659797668457,
+      "latency_ms": 41.42520000459626
+    },
+    {
+      "image": "pcb4/Data/Images/Normal/0692.JPG",
+      "sha256": "f95d944136d0a62fce879371b2b5493e8b3d6aed80948b57259df274dafdab25",
+      "label": 0,
+      "score": 0.032471299171447754,
+      "latency_ms": 41.67340000276454
+    },
+    {
+      "image": "pcb4/Data/Images/Normal/0581.JPG",
+      "sha256": "a5efca5b2601731154d5e87adc638bff2f5bc622ca49b069690734fc2f027768",
+      "label": 0,
+      "score": 0.03477698564529419,
+      "latency_ms": 47.97600000165403
+    },
+    {
+      "image": "pcb4/Data/Images/Normal/0376.JPG",
+      "sha256": "efac7a4a21042b69338741bd6833c3472f49bcf94706581f9db90bac2686c1e7",
+      "label": 0,
+      "score": 0.025234967470169067,
+      "latency_ms": 42.112499999348074
+    },
+    {
+      "image": "pcb4/Data/Images/Normal/0211.JPG",
+      "sha256": "706600ff2d2b125dfabbd8b19713136820a30a9326e7ccccd39f7c8df5d5ad2a",
+      "label": 0,
+      "score": 0.04378059506416321,
+      "latency_ms": 46.575000014854595
+    },
+    {
+      "image": "pcb4/Data/Images/Normal/0106.JPG",
+      "sha256": "b599ec91eb3e32715a88caddc436b71e0ba401129d6a632ff12f5a2f7fbfc64e",
+      "label": 0,
+      "score": 0.036972254514694214,
+      "latency_ms": 45.457700005499646
+    },
+    {
+      "image": "pcb4/Data/Images/Normal/0756.JPG",
+      "sha256": "9a0a487e624e52a467234586f32f28772ff28c047128de938a3f3aa5a860f076",
+      "label": 0,
+      "score": 0.029858529567718506,
+      "latency_ms": 47.97029998735525
+    },
+    {
+      "image": "pcb4/Data/Images/Normal/0259.JPG",
+      "sha256": "ebda6c672577cc498d0a14a3ed2f4b8769c76c64914c981748200952aa52a10d",
+      "label": 0,
+      "score": 0.028318405151367188,
+      "latency_ms": 47.82950002118014
+    },
+    {
+      "image": "pcb4/Data/Images/Normal/0267.JPG",
+      "sha256": "82e9dcea859244db4a70fb923bb18872959d7d6cdd453449feac03fab955ed37",
+      "label": 0,
+      "score": 0.042394012212753296,
+      "latency_ms": 41.543300001649186
+    },
+    {
+      "image": "pcb4/Data/Images/Normal/0181.JPG",
+      "sha256": "f646eb01bed0e999c9ffa201fa7bdf62b83c098c082d35c68c9d330d5844a5eb",
+      "label": 0,
+      "score": 0.021674424409866333,
+      "latency_ms": 46.976400015410036
+    },
+    {
+      "image": "pcb4/Data/Images/Normal/0711.JPG",
+      "sha256": "6a73b05c3c8eead5060cdab912dc424a4d6e356e17794593556ce20c61303f22",
+      "label": 0,
+      "score": 0.026558339595794678,
+      "latency_ms": 45.61659999308176
+    },
+    {
+      "image": "pcb4/Data/Images/Normal/0936.JPG",
+      "sha256": "9e92f77c7ffd998b4386bab069abfa02aafe258780b19e33f65948fd06060b15",
+      "label": 0,
+      "score": 0.03701755404472351,
+      "latency_ms": 44.94029999477789
+    },
+    {
+      "image": "pcb4/Data/Images/Anomaly/058.JPG",
+      "sha256": "919baa0e24d99bde925e5931f01620c5e0849d00494886ad3f6bc587c4559c1c",
+      "label": 1,
+      "score": 0.03366893529891968,
+      "latency_ms": 45.46910000499338
+    },
+    {
+      "image": "pcb4/Data/Images/Anomaly/057.JPG",
+      "sha256": "861485565029af19ad54c1bff3f3ea539a9ec750fce356a12044ebe37ca712fa",
+      "label": 1,
+      "score": 0.06341350078582764,
+      "latency_ms": 45.27239999151789
+    },
+    {
+      "image": "pcb4/Data/Images/Anomaly/071.JPG",
+      "sha256": "0f2ebebf0c05d5b88b3a59806644ec54a57ae122e59feaf43a182abdc8e7b58f",
+      "label": 1,
+      "score": 0.044418931007385254,
+      "latency_ms": 41.08289998839609
+    },
+    {
+      "image": "pcb4/Data/Images/Anomaly/066.JPG",
+      "sha256": "93efd132b19b69fb0d429c2335e71dcc6d0071f7c3dbec93e13de35ffc775019",
+      "label": 1,
+      "score": 0.0405806303024292,
+      "latency_ms": 44.84699998283759
+    },
+    {
+      "image": "pcb4/Data/Images/Anomaly/091.JPG",
+      "sha256": "40fff4ee7b279d57ab683cd9539e80e2991ddd1629e4a3e13530f79db7c86fab",
+      "label": 1,
+      "score": 0.04941040277481079,
+      "latency_ms": 43.62300000502728
+    },
+    {
+      "image": "pcb4/Data/Images/Anomaly/049.JPG",
+      "sha256": "d7873fe67f9e5c195504e3fec7d71daeb7818791e3bf4be23b6ec2764fa91d2e",
+      "label": 1,
+      "score": 0.05890011787414551,
+      "latency_ms": 45.196899998700246
+    },
+    {
+      "image": "pcb4/Data/Images/Anomaly/036.JPG",
+      "sha256": "b5c3a7c206549df7d85357f68e0794a6bf6c46d170cdbc4f5ac0916ec2869945",
+      "label": 1,
+      "score": 0.11591064929962158,
+      "latency_ms": 42.42029998567887
+    },
+    {
+      "image": "pcb4/Data/Images/Anomaly/079.JPG",
+      "sha256": "00c748d3ddf5a923af1ea6cfeae3d682a2c53bbdfe1891709d22df0331a4a677",
+      "label": 1,
+      "score": 0.07215684652328491,
+      "latency_ms": 42.540700000245124
+    },
+    {
+      "image": "pcb4/Data/Images/Anomaly/046.JPG",
+      "sha256": "8bcd0cee6f923dd1dc8902507b20e89656736d7247331d9f6505d2e35dfb29bf",
+      "label": 1,
+      "score": 0.043793290853500366,
+      "latency_ms": 40.4176999873016
+    },
+    {
+      "image": "pcb4/Data/Images/Anomaly/089.JPG",
+      "sha256": "59e1ed65b17d3fad98a21e460b19e5598608e2f9e26e056bbf17a4468886a73c",
+      "label": 1,
+      "score": 0.0614890456199646,
+      "latency_ms": 41.04630000074394
+    },
+    {
+      "image": "pcb4/Data/Images/Anomaly/025.JPG",
+      "sha256": "f098880a2ac5537f3135284dcbb541d2271f9d516ac0c3108d4ce0e7b3f1b76f",
+      "label": 1,
+      "score": 0.04216638207435608,
+      "latency_ms": 43.16329999710433
+    },
+    {
+      "image": "pcb4/Data/Images/Anomaly/092.JPG",
+      "sha256": "1a28ea3f3911d0b1736c328e7a1eee2119e0c79e580bc4bc1403ab622fd34ad4",
+      "label": 1,
+      "score": 0.04939272999763489,
+      "latency_ms": 45.91149999760091
+    },
+    {
+      "image": "pcb4/Data/Images/Anomaly/002.JPG",
+      "sha256": "a451469ef3c7a51a6cf214e8e227ab24fc235091b7a34ed35fbd5c2fce9a4415",
+      "label": 1,
+      "score": 0.0765703022480011,
+      "latency_ms": 42.74920001626015
+    },
+    {
+      "image": "pcb4/Data/Images/Anomaly/019.JPG",
+      "sha256": "c857c6af258a04c1beaa7b34a5c5b74adc68b9fe3b66287af1814853c5949361",
+      "label": 1,
+      "score": 0.06614652276039124,
+      "latency_ms": 45.5161000136286
+    },
+    {
+      "image": "pcb4/Data/Images/Anomaly/028.JPG",
+      "sha256": "d1d7116ea2632f12a3075db7c0a4f67e3edc092bb0481ee8d3602f4b3a088179",
+      "label": 1,
+      "score": 0.06869345903396606,
+      "latency_ms": 45.66860001068562
+    },
+    {
+      "image": "pcb4/Data/Images/Anomaly/099.JPG",
+      "sha256": "97f868fba2c9b87432abfd6aad3a79b8152445da93954b8e743c9df1b70a2a85",
+      "label": 1,
+      "score": 0.07655131816864014,
+      "latency_ms": 41.23020000406541
+    },
+    {
+      "image": "pcb4/Data/Images/Anomaly/000.JPG",
+      "sha256": "c121111d1240de839c9716022873a68efa9af569979d4c0ff5bc26a678079b26",
+      "label": 1,
+      "score": 0.059462904930114746,
+      "latency_ms": 44.94789999444038
+    },
+    {
+      "image": "pcb4/Data/Images/Anomaly/014.JPG",
+      "sha256": "e1cef38bd9dc10219276a255e06ae21d0695c72acc9818b16cef888ce5ec4b2a",
+      "label": 1,
+      "score": 0.06358602643013,
+      "latency_ms": 40.183300006901845
+    },
+    {
+      "image": "pcb4/Data/Images/Anomaly/097.JPG",
+      "sha256": "3b0f4804be677937167fa6d8aae4be137208ba24fe26c4fdafb983be207166a2",
+      "label": 1,
+      "score": 0.04549100995063782,
+      "latency_ms": 47.567500005243346
+    },
+    {
+      "image": "pcb4/Data/Images/Anomaly/029.JPG",
+      "sha256": "85087716d642dd94de044987af175e39257d26ea94806109bf0e17bd08874d6d",
+      "label": 1,
+      "score": 0.05360156297683716,
+      "latency_ms": 45.47340000863187
+    }
+  ],
+  "test": [
+    {
+      "image": "pcb4/Data/Images/Normal/0011.JPG",
+      "sha256": "829addcef8ce290b35f00218d508c633cc37f628c8304591d62995e3f09cf411",
+      "label": 0,
+      "score": 0.040615081787109375,
+      "latency_ms": 46.90770001616329
+    },
+    {
+      "image": "pcb4/Data/Images/Normal/0013.JPG",
+      "sha256": "90eb97218809e48ab63bd1d08bee5fa524cc8b385cfe1a5b5702d29c82d156ba",
+      "label": 0,
+      "score": 0.03835207223892212,
+      "latency_ms": 43.96509999060072
+    },
+    {
+      "image": "pcb4/Data/Images/Normal/0016.JPG",
+      "sha256": "73318ae154fd193f29fd1cc066dfff36c74ecd33e8745be32a6df15051356db1",
+      "label": 0,
+      "score": 0.046822965145111084,
+      "latency_ms": 46.30419999011792
+    },
+    {
+      "image": "pcb4/Data/Images/Normal/0024.JPG",
+      "sha256": "6a4eee461cab17ff79ec7aa12c5febed45363cd2cbaff81350304bc18055c326",
+      "label": 0,
+      "score": 0.033717721700668335,
+      "latency_ms": 46.62609999650158
+    },
+    {
+      "image": "pcb4/Data/Images/Normal/0026.JPG",
+      "sha256": "8fdcac208429a9ce0cf0feccdde508a890a8123670eab8a1fb106e0e0f4f4301",
+      "label": 0,
+      "score": 0.03760746121406555,
+      "latency_ms": 49.271299998508766
+    },
+    {
+      "image": "pcb4/Data/Images/Normal/0027.JPG",
+      "sha256": "3d02198b0fe44a8830246a22e0f6191b8f7a0c8f8ea13ff09f8c69818d24127f",
+      "label": 0,
+      "score": 0.026295334100723267,
+      "latency_ms": 41.398400004254654
+    },
+    {
+      "image": "pcb4/Data/Images/Normal/0046.JPG",
+      "sha256": "715d7369d52a50b907281da70fb2a07d498c110f0fa8abace570ea90737a8713",
+      "label": 0,
+      "score": 0.03089556097984314,
+      "latency_ms": 45.76979999546893
+    },
+    {
+      "image": "pcb4/Data/Images/Normal/0100.JPG",
+      "sha256": "93dfd3d0258fd0b48e4b062014bdafd6b356d50b3669386246caf6ca7fae5f03",
+      "label": 0,
+      "score": 0.028711259365081787,
+      "latency_ms": 42.8818000073079
+    },
+    {
+      "image": "pcb4/Data/Images/Normal/0107.JPG",
+      "sha256": "0d3a83f6016389ac045943f341852cfd8da166c0d0a85d8cf29bd7697365e538",
+      "label": 0,
+      "score": 0.027392029762268066,
+      "latency_ms": 42.74179998901673
+    },
+    {
+      "image": "pcb4/Data/Images/Normal/0159.JPG",
+      "sha256": "f50e1562f04e5ec534252f70fa14c8a4f4fb5d556ddf167734d789a9d87fcdb1",
+      "label": 0,
+      "score": 0.03858059644699097,
+      "latency_ms": 45.452000020304695
+    },
+    {
+      "image": "pcb4/Data/Images/Normal/0168.JPG",
+      "sha256": "84f28e8d6e1fe11e293c48f6dac21affe8d74b8dbabac0d170a2117c03bce8f7",
+      "label": 0,
+      "score": 0.02402251958847046,
+      "latency_ms": 45.04080000333488
+    },
+    {
+      "image": "pcb4/Data/Images/Normal/0170.JPG",
+      "sha256": "79ef2c656da77e4701be574c91acccf38989db44565aeccc087af9592ff79a63",
+      "label": 0,
+      "score": 0.024664252996444702,
+      "latency_ms": 43.43869999866001
+    },
+    {
+      "image": "pcb4/Data/Images/Normal/0172.JPG",
+      "sha256": "8de0231451951066881d42b552a1e37bbbae6aa36e4d9ccf3e34d45a21f34d60",
+      "label": 0,
+      "score": 0.026709020137786865,
+      "latency_ms": 43.792499986011535
+    },
+    {
+      "image": "pcb4/Data/Images/Normal/0174.JPG",
+      "sha256": "7d3aa4e776f64433f7a5d3069ee52d14c34ba85a92529b61c97c16cdcd675c41",
+      "label": 0,
+      "score": 0.03351709246635437,
+      "latency_ms": 45.232600008603185
+    },
+    {
+      "image": "pcb4/Data/Images/Normal/0178.JPG",
+      "sha256": "eab4316bd5b416c553be45bc0cda8e301832f44e98fb20d6779193372a6921bb",
+      "label": 0,
+      "score": 0.03824940323829651,
+      "latency_ms": 45.923199999378994
+    },
+    {
+      "image": "pcb4/Data/Images/Normal/0187.JPG",
+      "sha256": "0ac3842af6606940a154f323d64fa7400f0f2106786cecbcfff2801941068c6f",
+      "label": 0,
+      "score": 0.027726173400878906,
+      "latency_ms": 40.081300016026944
+    },
+    {
+      "image": "pcb4/Data/Images/Normal/0196.JPG",
+      "sha256": "b12bbbda663f0489a584d08df416a2d23ffb068e80f13b0e23ba51221f485cfb",
+      "label": 0,
+      "score": 0.0343988835811615,
+      "latency_ms": 43.268200010061264
+    },
+    {
+      "image": "pcb4/Data/Images/Normal/0208.JPG",
+      "sha256": "9a97438847d2b2970d8825d01d372377b38be4b3843ce345429cc9282958db09",
+      "label": 0,
+      "score": 0.02805420756340027,
+      "latency_ms": 41.74089999287389
+    },
+    {
+      "image": "pcb4/Data/Images/Normal/0214.JPG",
+      "sha256": "5e235e72178c41c3d06cba3e48220a7674a7816fc5969f20f12df4c88d0b1110",
+      "label": 0,
+      "score": 0.03334212303161621,
+      "latency_ms": 43.397000001277775
+    },
+    {
+      "image": "pcb4/Data/Images/Normal/0215.JPG",
+      "sha256": "4875de89644ba6bb5b49a950fcf7f0d743ea571e1482aeaec7091258be73298a",
+      "label": 0,
+      "score": 0.032992660999298096,
+      "latency_ms": 48.33269998198375
+    },
+    {
+      "image": "pcb4/Data/Images/Normal/0237.JPG",
+      "sha256": "32064e5f0a6fb5bc664c963f54d85b2896109ce94ebdb65dde4e89cf7b3d7656",
+      "label": 0,
+      "score": 0.05536013841629028,
+      "latency_ms": 46.454900002572685
+    },
+    {
+      "image": "pcb4/Data/Images/Normal/0261.JPG",
+      "sha256": "8839ec154a7370d594c99e99f98c6b6a7ab51f2ea96fa129c6c2a1f6bf488e00",
+      "label": 0,
+      "score": 0.03358107805252075,
+      "latency_ms": 41.28770000534132
+    },
+    {
+      "image": "pcb4/Data/Images/Normal/0286.JPG",
+      "sha256": "c569e1dd4a82b6bcfee57a6673a292697e263899bedf78c33617430391e3f00f",
+      "label": 0,
+      "score": 0.037888914346694946,
+      "latency_ms": 46.73970001749694
+    },
+    {
+      "image": "pcb4/Data/Images/Normal/0294.JPG",
+      "sha256": "2b7899e0e939271a4e7e21df9d584f0e3808fddef969f1a27c21877f8a0457ba",
+      "label": 0,
+      "score": 0.0337500274181366,
+      "latency_ms": 45.127499994123355
+    },
+    {
+      "image": "pcb4/Data/Images/Normal/0297.JPG",
+      "sha256": "d2bbfc380c6716d358503c9192a363b9dcced3f8cdb6fbbcb8e956f209f3f3b2",
+      "label": 0,
+      "score": 0.022930026054382324,
+      "latency_ms": 42.869700002484024
+    },
+    {
+      "image": "pcb4/Data/Images/Normal/0303.JPG",
+      "sha256": "c818646685254281f3c6b71ad27568ba5c3019292c0a0831ddeccafdeb931f5b",
+      "label": 0,
+      "score": 0.038219988346099854,
+      "latency_ms": 41.40190000180155
+    },
+    {
+      "image": "pcb4/Data/Images/Normal/0306.JPG",
+      "sha256": "a1600529953b2195b046fe360ec32f463085e1161a3ea4c19e24d66cff57d671",
+      "label": 0,
+      "score": 0.03217458724975586,
+      "latency_ms": 47.927300009178
+    },
+    {
+      "image": "pcb4/Data/Images/Normal/0320.JPG",
+      "sha256": "f7a666f6c90c817b083435a4dc4917e6e7d6266ce222bce7cca0e1907d0eb67c",
+      "label": 0,
+      "score": 0.05803653597831726,
+      "latency_ms": 40.33829999389127
+    },
+    {
+      "image": "pcb4/Data/Images/Normal/0333.JPG",
+      "sha256": "f8a3b9d58e27fe9c9cfc6237579316945dfedbae5e39bbd8fa57e74d6cfbe79d",
+      "label": 0,
+      "score": 0.03020051121711731,
+      "latency_ms": 47.833000018727034
+    },
+    {
+      "image": "pcb4/Data/Images/Normal/0363.JPG",
+      "sha256": "5f85de4ce463354877f46133f791e1d2427f798fb85236969ae781c22213d34c",
+      "label": 0,
+      "score": 0.028601735830307007,
+      "latency_ms": 45.23390001850203
+    },
+    {
+      "image": "pcb4/Data/Images/Normal/0377.JPG",
+      "sha256": "d3c1828e92711ff97f82d9f7265171519b66addbcc02fbfb3c401142300e009e",
+      "label": 0,
+      "score": 0.02766844630241394,
+      "latency_ms": 43.105200020363554
+    },
+    {
+      "image": "pcb4/Data/Images/Normal/0394.JPG",
+      "sha256": "5f9a560939f420c7911f7f380e34aa4979b3a5e032195b06f2ac92be08d5d218",
+      "label": 0,
+      "score": 0.03186357021331787,
+      "latency_ms": 41.08310001902282
+    },
+    {
+      "image": "pcb4/Data/Images/Normal/0400.JPG",
+      "sha256": "8160ae0a2baeb0ffdd1e53df210b7127eb8ea527bdd10bc751b4c5616069a28d",
+      "label": 0,
+      "score": 0.029587626457214355,
+      "latency_ms": 43.033900001319125
+    },
+    {
+      "image": "pcb4/Data/Images/Normal/0402.JPG",
+      "sha256": "1b75cde0543528a45c43d7156bed12fe1a444b62773881fbaba63bc2c28825d8",
+      "label": 0,
+      "score": 0.024955928325653076,
+      "latency_ms": 46.137900004396215
+    },
+    {
+      "image": "pcb4/Data/Images/Normal/0417.JPG",
+      "sha256": "0272459cf8ad7baca8b863285cb4c21e2066e5c838cab96243cecc6a730e8efc",
+      "label": 0,
+      "score": 0.02347901463508606,
+      "latency_ms": 44.93170001660474
+    },
+    {
+      "image": "pcb4/Data/Images/Normal/0423.JPG",
+      "sha256": "dcb13b8b67637cd29bb9e2ddd5a941e218c5ed767875e46cf1d9799543d8f62f",
+      "label": 0,
+      "score": 0.04216420650482178,
+      "latency_ms": 47.499600012088194
+    },
+    {
+      "image": "pcb4/Data/Images/Normal/0427.JPG",
+      "sha256": "d15d5fa3e08b6602e00e4e0866613b5f8e8e5f28a404ad2f97339c3813f14690",
+      "label": 0,
+      "score": 0.03157752752304077,
+      "latency_ms": 45.94600002747029
+    },
+    {
+      "image": "pcb4/Data/Images/Normal/0457.JPG",
+      "sha256": "1465ab70e5c8fb6d81107fda619a195fb91444de845c10832e3288dd152890cf",
+      "label": 0,
+      "score": 0.03676491975784302,
+      "latency_ms": 47.918800002662465
+    },
+    {
+      "image": "pcb4/Data/Images/Normal/0469.JPG",
+      "sha256": "9bde4def801c2fbc86a93dfee1fd12c4f2d9e6314caea56b4ca90bf083fbc894",
+      "label": 0,
+      "score": 0.032307326793670654,
+      "latency_ms": 46.40279998420738
+    },
+    {
+      "image": "pcb4/Data/Images/Normal/0479.JPG",
+      "sha256": "549822cebe997287914b9aee67a38650d83243196ac17f33c02528c250f7e584",
+      "label": 0,
+      "score": 0.03278326988220215,
+      "latency_ms": 47.38430000725202
+    },
+    {
+      "image": "pcb4/Data/Images/Normal/0483.JPG",
+      "sha256": "e47c86323999a82085d474dfcf4e11794773f792966b6823f9fc35dfdb5939ca",
+      "label": 0,
+      "score": 0.024191319942474365,
+      "latency_ms": 46.00659999414347
+    },
+    {
+      "image": "pcb4/Data/Images/Normal/0484.JPG",
+      "sha256": "45586b11137ad74712cac9fe407740c1dac014e48e67f3ccc97a63b4ff71dcc5",
+      "label": 0,
+      "score": 0.026151835918426514,
+      "latency_ms": 42.42020001402125
+    },
+    {
+      "image": "pcb4/Data/Images/Normal/0488.JPG",
+      "sha256": "21657c405b0d4c55964ec1645dfce284a4be161da9f9785a67db8cd65a5db194",
+      "label": 0,
+      "score": 0.0312214195728302,
+      "latency_ms": 47.548299975460395
+    },
+    {
+      "image": "pcb4/Data/Images/Normal/0490.JPG",
+      "sha256": "598e482707cd303ce2089f86df1fbfd77dd4b5eb2402fd973132e9a7cda97462",
+      "label": 0,
+      "score": 0.03750118613243103,
+      "latency_ms": 44.64249999728054
+    },
+    {
+      "image": "pcb4/Data/Images/Normal/0514.JPG",
+      "sha256": "f476f28dffd2d6b2d9660354630e86e94dead2c06074851d2e4f83bc69d0c173",
+      "label": 0,
+      "score": 0.03152942657470703,
+      "latency_ms": 46.933599980548024
+    },
+    {
+      "image": "pcb4/Data/Images/Normal/0518.JPG",
+      "sha256": "f3d24378f1352dd989703accc9ec8de582434fe5a682b318aeb5b12479dd90f1",
+      "label": 0,
+      "score": 0.02899661660194397,
+      "latency_ms": 42.51339999609627
+    },
+    {
+      "image": "pcb4/Data/Images/Normal/0520.JPG",
+      "sha256": "f7064f37210ac3ca2c75f108474e96807a7dc8d5f74f988bf4a489f402a1826f",
+      "label": 0,
+      "score": 0.02457892894744873,
+      "latency_ms": 42.010000004665926
+    },
+    {
+      "image": "pcb4/Data/Images/Normal/0525.JPG",
+      "sha256": "5db00ffb8d029845da6fb67730c88666ba45d27f08df589012607500f7533be5",
+      "label": 0,
+      "score": 0.041277527809143066,
+      "latency_ms": 44.58280000835657
+    },
+    {
+      "image": "pcb4/Data/Images/Normal/0545.JPG",
+      "sha256": "4ea70f76a50133b3aa984f7bbf8af9fa4f30587049ad9dfe87f6591af979721b",
+      "label": 0,
+      "score": 0.047208577394485474,
+      "latency_ms": 40.932900010375306
+    },
+    {
+      "image": "pcb4/Data/Images/Normal/0552.JPG",
+      "sha256": "59d0e709051379154ea125d0809cf3d40d73ea4dbea8f9e7d2c191a06461831f",
+      "label": 0,
+      "score": 0.047810256481170654,
+      "latency_ms": 45.1743999728933
+    },
+    {
+      "image": "pcb4/Data/Images/Normal/0569.JPG",
+      "sha256": "ef6597931dffe4be4882d36a26bdf9d7eb9194fef9a986a4615ea111b1cefce2",
+      "label": 0,
+      "score": 0.027930915355682373,
+      "latency_ms": 44.515699992189184
+    },
+    {
+      "image": "pcb4/Data/Images/Normal/0615.JPG",
+      "sha256": "b05faa11ed910e8342991924168baf6fde0cf23f8c0a1c811912914e409d7736",
+      "label": 0,
+      "score": 0.03815522789955139,
+      "latency_ms": 44.90320000331849
+    },
+    {
+      "image": "pcb4/Data/Images/Normal/0617.JPG",
+      "sha256": "668821d2e47b361384a4b581d634dfcda07d98ed2f7c02c9102acf3220497c0e",
+      "label": 0,
+      "score": 0.022986948490142822,
+      "latency_ms": 43.702099996153265
+    },
+    {
+      "image": "pcb4/Data/Images/Normal/0619.JPG",
+      "sha256": "f5cc20037f8f839ecf1fd28e4f5a7dac8de226a16f5cc44e9c1618e4f02347a7",
+      "label": 0,
+      "score": 0.03026100993156433,
+      "latency_ms": 41.29640001337975
+    },
+    {
+      "image": "pcb4/Data/Images/Normal/0621.JPG",
+      "sha256": "23c558a38fb0942f8c9c6c33f0c846536c55abb301a0c1cf34fbf4a3a228bfb4",
+      "label": 0,
+      "score": 0.037169307470321655,
+      "latency_ms": 45.37409998010844
+    },
+    {
+      "image": "pcb4/Data/Images/Normal/0629.JPG",
+      "sha256": "6bf94572cba07b15c6e9592bb00756c555357bb4601ff0c015e652902c3cd22e",
+      "label": 0,
+      "score": 0.0347457230091095,
+      "latency_ms": 40.81419997964986
+    },
+    {
+      "image": "pcb4/Data/Images/Normal/0631.JPG",
+      "sha256": "5ddf2d4564374a59bd99ef5079c87db4a2a9e958986a84f6937934fae63b05dc",
+      "label": 0,
+      "score": 0.0268898606300354,
+      "latency_ms": 41.10620002029464
+    },
+    {
+      "image": "pcb4/Data/Images/Normal/0648.JPG",
+      "sha256": "b950fbe1c1d270c91219a1e22dfcb168da16dfa600d9a5ba2cf1371752a2e7ee",
+      "label": 0,
+      "score": 0.03510996699333191,
+      "latency_ms": 44.5725999888964
+    },
+    {
+      "image": "pcb4/Data/Images/Normal/0654.JPG",
+      "sha256": "04698225328b09fe6b90be254504569b7070802ffb5c412a9ea61549295e1dea",
+      "label": 0,
+      "score": 0.03013312816619873,
+      "latency_ms": 44.07079998054542
+    },
+    {
+      "image": "pcb4/Data/Images/Normal/0657.JPG",
+      "sha256": "febc88c1f6491849dd0d6152c9ea339a148af1ea35479be5662937ba6e80b22a",
+      "label": 0,
+      "score": 0.03923320770263672,
+      "latency_ms": 44.48519999277778
+    },
+    {
+      "image": "pcb4/Data/Images/Normal/0659.JPG",
+      "sha256": "dad608121b58d4d1abe1c74698ec3ead893fe4d467fc2f8237b95b2ff35c1360",
+      "label": 0,
+      "score": 0.02796289324760437,
+      "latency_ms": 43.97859997698106
+    },
+    {
+      "image": "pcb4/Data/Images/Normal/0674.JPG",
+      "sha256": "552a428753eb3024e3505d753dcda732b09c1518c2ad5894a4bdcde2fa2b57a0",
+      "label": 0,
+      "score": 0.02926868200302124,
+      "latency_ms": 44.9040999810677
+    },
+    {
+      "image": "pcb4/Data/Images/Normal/0684.JPG",
+      "sha256": "f2ffc3695cf936a930f01d25d2ba6cb8e896f5f07289aef88b564ca3c629aed9",
+      "label": 0,
+      "score": 0.03157186508178711,
+      "latency_ms": 41.546399996150285
+    },
+    {
+      "image": "pcb4/Data/Images/Normal/0685.JPG",
+      "sha256": "f537b735b36f29f35465df24192b74dacd505b628663a52ffc2528e849bbb2d5",
+      "label": 0,
+      "score": 0.025338292121887207,
+      "latency_ms": 42.69490001024678
+    },
+    {
+      "image": "pcb4/Data/Images/Normal/0688.JPG",
+      "sha256": "a53db3b3344af5a28b790f8a4d3b02cfdba826ccc96caafaa4e26eb245f75089",
+      "label": 0,
+      "score": 0.06257429718971252,
+      "latency_ms": 41.40499999630265
+    },
+    {
+      "image": "pcb4/Data/Images/Normal/0690.JPG",
+      "sha256": "bf6c45e70713e3d80ca9778565df7894832d1e9d04bf22e9f7444aef06f0eb6e",
+      "label": 0,
+      "score": 0.02940109372138977,
+      "latency_ms": 42.29719997965731
+    },
+    {
+      "image": "pcb4/Data/Images/Normal/0694.JPG",
+      "sha256": "079fd97f763dba030afee09522805606fd46a19bcabf65ed6602c74dc17efab7",
+      "label": 0,
+      "score": 0.03193694353103638,
+      "latency_ms": 42.17440000502393
+    },
+    {
+      "image": "pcb4/Data/Images/Normal/0705.JPG",
+      "sha256": "5a7a2249cfe33ac58781b33cf8cff6fdec8e748f103ca29aa8ce8823ca547d47",
+      "label": 0,
+      "score": 0.03289753198623657,
+      "latency_ms": 40.3280999744311
+    },
+    {
+      "image": "pcb4/Data/Images/Normal/0725.JPG",
+      "sha256": "aca2fc6dff9e07b264d957e8872b2744aa71ac36c6de43af0e703ae6405c38ba",
+      "label": 0,
+      "score": 0.026180893182754517,
+      "latency_ms": 40.77630001120269
+    },
+    {
+      "image": "pcb4/Data/Images/Normal/0730.JPG",
+      "sha256": "0c4ec618bc42e65cb5256becb6bb558844e11eed6874ea69b81dfe1e3fa1532f",
+      "label": 0,
+      "score": 0.05333968997001648,
+      "latency_ms": 40.543500013882294
+    },
+    {
+      "image": "pcb4/Data/Images/Normal/0735.JPG",
+      "sha256": "827426bddb8292dc2b926e1e296ebd8040248495d7709f73cfe889187474efd6",
+      "label": 0,
+      "score": 0.035263508558273315,
+      "latency_ms": 42.37109998939559
+    },
+    {
+      "image": "pcb4/Data/Images/Normal/0739.JPG",
+      "sha256": "4c61d9fa79ee3d490f7fca2904fb3d7c225b3726ba17985511b9896f41598447",
+      "label": 0,
+      "score": 0.03876331448554993,
+      "latency_ms": 40.57109999121167
+    },
+    {
+      "image": "pcb4/Data/Images/Normal/0751.JPG",
+      "sha256": "b14a69b96e20ced8bc08d4671928ccf407a05f76bb5c15013bcd9e259f316a64",
+      "label": 0,
+      "score": 0.028034627437591553,
+      "latency_ms": 44.02390000177547
+    },
+    {
+      "image": "pcb4/Data/Images/Normal/0755.JPG",
+      "sha256": "452c6f5c3bae7973a63a3ec070fcde58d240bb8818b6cc89ed3dfd43e83eb52e",
+      "label": 0,
+      "score": 0.043959349393844604,
+      "latency_ms": 44.386599998688325
+    },
+    {
+      "image": "pcb4/Data/Images/Normal/0764.JPG",
+      "sha256": "a887725b9f433308514fb8814ee86fe3469759e28b0f056e92a843113b095bda",
+      "label": 0,
+      "score": 0.026925712823867798,
+      "latency_ms": 44.31649998878129
+    },
+    {
+      "image": "pcb4/Data/Images/Normal/0768.JPG",
+      "sha256": "ca5f7d12fb0a81cfbbcf6328a6aaef3b836af556f5eda6553ec5806fb5153eda",
+      "label": 0,
+      "score": 0.027564674615859985,
+      "latency_ms": 41.61119999480434
+    },
+    {
+      "image": "pcb4/Data/Images/Normal/0779.JPG",
+      "sha256": "993e65929c2152b84f4b5b88231a19aef13a6f0735225a3cc4834334ea4f3379",
+      "label": 0,
+      "score": 0.036615610122680664,
+      "latency_ms": 40.90259998338297
+    },
+    {
+      "image": "pcb4/Data/Images/Normal/0784.JPG",
+      "sha256": "541097c5bbf0708c78d9968294a31d9283a7d968d3a839ade6c89c93f398a4c8",
+      "label": 0,
+      "score": 0.05136546492576599,
+      "latency_ms": 40.433900023344904
+    },
+    {
+      "image": "pcb4/Data/Images/Normal/0796.JPG",
+      "sha256": "4b35ecc555f0078ec63d4f21e3735e611b102c2ac0487136cd0c1054c70c7e20",
+      "label": 0,
+      "score": 0.023783951997756958,
+      "latency_ms": 40.4432000068482
+    },
+    {
+      "image": "pcb4/Data/Images/Normal/0797.JPG",
+      "sha256": "0b4d7037acaa46ee55ec77106777bdd11667a2455694f7ccddfabba6b9e0ac24",
+      "label": 0,
+      "score": 0.03387904167175293,
+      "latency_ms": 41.858799988403916
+    },
+    {
+      "image": "pcb4/Data/Images/Normal/0800.JPG",
+      "sha256": "e62a6f24fae7d1d54e155b78e8a6bb79212df31c1cd1a9be26b4914a3175ed66",
+      "label": 0,
+      "score": 0.031440526247024536,
+      "latency_ms": 40.17960000783205
+    },
+    {
+      "image": "pcb4/Data/Images/Normal/0804.JPG",
+      "sha256": "b88304e4dec3f977828c6b79aeddea717b97903b91dfed50b28a00266890010f",
+      "label": 0,
+      "score": 0.026744604110717773,
+      "latency_ms": 44.79509999509901
+    },
+    {
+      "image": "pcb4/Data/Images/Normal/0811.JPG",
+      "sha256": "b322b957c0cf64a344bcc9776f90aaf85a397b269d37c75042e06ec6e0995497",
+      "label": 0,
+      "score": 0.02769571542739868,
+      "latency_ms": 41.14290000870824
+    },
+    {
+      "image": "pcb4/Data/Images/Normal/0844.JPG",
+      "sha256": "0f1380fa806055d3b8d8890c08b285f116d5a42be32487721f4124916e6702bd",
+      "label": 0,
+      "score": 0.03842613101005554,
+      "latency_ms": 41.05060000438243
+    },
+    {
+      "image": "pcb4/Data/Images/Normal/0869.JPG",
+      "sha256": "422183fad100fc2b7e2f71a16828ef36749d065654973271c4be328bbd7c1a64",
+      "label": 0,
+      "score": 0.02879810333251953,
+      "latency_ms": 39.810099988244474
+    },
+    {
+      "image": "pcb4/Data/Images/Normal/0871.JPG",
+      "sha256": "d24dc69cc75277639cfe9a7ed2b9f274461f70d4b60c1719e6de31a4808dc03c",
+      "label": 0,
+      "score": 0.048721104860305786,
+      "latency_ms": 41.25140001997352
+    },
+    {
+      "image": "pcb4/Data/Images/Normal/0892.JPG",
+      "sha256": "4572ae5b9cbb819112a9661153cca2932ffa2d2bd3ce5cd0e949a4c8cf5ea7b8",
+      "label": 0,
+      "score": 0.04353010654449463,
+      "latency_ms": 41.58099999767728
+    },
+    {
+      "image": "pcb4/Data/Images/Normal/0900.JPG",
+      "sha256": "bc65cfbefd389b5d8b213ff726a6fcd1263fb91fcd65d764e9207148567f1da0",
+      "label": 0,
+      "score": 0.027245283126831055,
+      "latency_ms": 40.01319999224506
+    },
+    {
+      "image": "pcb4/Data/Images/Normal/0920.JPG",
+      "sha256": "8d42cfcc132862faa0dd30fb65c3f9d4f0dbf2212af4ca1ea5ee175cf4ce858c",
+      "label": 0,
+      "score": 0.033413857221603394,
+      "latency_ms": 39.51100000995211
+    },
+    {
+      "image": "pcb4/Data/Images/Normal/0923.JPG",
+      "sha256": "8c874ff9497c160d6d5aa0f99305aee33cb01274a5b98c2176a4c4ada346c3ca",
+      "label": 0,
+      "score": 0.03651946783065796,
+      "latency_ms": 41.89409999526106
+    },
+    {
+      "image": "pcb4/Data/Images/Normal/0935.JPG",
+      "sha256": "54339b66cb36430ceb100e3bffdf530c18b8643d4af30b69e8a01fea67cc15d2",
+      "label": 0,
+      "score": 0.024089395999908447,
+      "latency_ms": 41.44040000392124
+    },
+    {
+      "image": "pcb4/Data/Images/Normal/0940.JPG",
+      "sha256": "c9de1b4e19c267b7831e0b12f4b65447a8e8fac56fdeae4e84ba558fdce7702f",
+      "label": 0,
+      "score": 0.03173741698265076,
+      "latency_ms": 42.506400001002476
+    },
+    {
+      "image": "pcb4/Data/Images/Normal/0952.JPG",
+      "sha256": "d8475dab6ca2a55890f1c802b2ee16966bba777b4edadb5f90925514905a8c51",
+      "label": 0,
+      "score": 0.0331481397151947,
+      "latency_ms": 40.33509999862872
+    },
+    {
+      "image": "pcb4/Data/Images/Normal/0957.JPG",
+      "sha256": "b73f5bb76a3397cc0f94d029fcd7b378a310f0d5da0bca2202460c56e98ef10c",
+      "label": 0,
+      "score": 0.045541971921920776,
+      "latency_ms": 43.6362000182271
+    },
+    {
+      "image": "pcb4/Data/Images/Normal/0964.JPG",
+      "sha256": "8000c57bc059afc8b8a3b2f270f6a3581db9df4feeefeed93a16733b67771846",
+      "label": 0,
+      "score": 0.035667240619659424,
+      "latency_ms": 39.913699991302565
+    },
+    {
+      "image": "pcb4/Data/Images/Normal/0971.JPG",
+      "sha256": "f2c930acbd686b32bd75695fbca6c517f07fa80f1e22e409af733c36ad705cf8",
+      "label": 0,
+      "score": 0.02441549301147461,
+      "latency_ms": 40.44149999390356
+    },
+    {
+      "image": "pcb4/Data/Images/Normal/0974.JPG",
+      "sha256": "8026d523461bbbd1f8980d9cf77a6b5b96b0c50558442cac8a8b53d06f211ec0",
+      "label": 0,
+      "score": 0.03568103909492493,
+      "latency_ms": 42.510799976298586
+    },
+    {
+      "image": "pcb4/Data/Images/Normal/0977.JPG",
+      "sha256": "a29ff038bf8a504b58ae78bbf20e4030a2c014f3c3347e9490f3884201306c92",
+      "label": 0,
+      "score": 0.028976231813430786,
+      "latency_ms": 40.20780001883395
+    },
+    {
+      "image": "pcb4/Data/Images/Normal/0990.JPG",
+      "sha256": "6645d30d7063683f04832d512ee758589fc65becfc650cc24ebb8cc26cbf9695",
+      "label": 0,
+      "score": 0.04217544198036194,
+      "latency_ms": 42.59639998781495
+    },
+    {
+      "image": "pcb4/Data/Images/Normal/0994.JPG",
+      "sha256": "4f1ceec677cecd0a55e26e64f96b88a08aaee180528e7aebc7acf59b4011c4b7",
+      "label": 0,
+      "score": 0.025738924741744995,
+      "latency_ms": 42.41379999439232
+    },
+    {
+      "image": "pcb4/Data/Images/Normal/1001.JPG",
+      "sha256": "ac1795837c23e7211f508cee3ed6f573a66c0d77481161cc9639d7469c9324ff",
+      "label": 0,
+      "score": 0.04879319667816162,
+      "latency_ms": 42.15589998057112
+    },
+    {
+      "image": "pcb4/Data/Images/Anomaly/078.JPG",
+      "sha256": "a4d6f70e9901319f8485ae4b2567da04799abd1ad9c660f0befc0028d7aaae1c",
+      "label": 1,
+      "score": 0.05046689510345459,
+      "latency_ms": 41.89779999433085
+    },
+    {
+      "image": "pcb4/Data/Images/Anomaly/030.JPG",
+      "sha256": "abba1a7ea45ad7d5de00de562240ff7aa3eb1ac4a14049d806aecd35f1ce53d7",
+      "label": 1,
+      "score": 0.0439581573009491,
+      "latency_ms": 43.45710002235137
+    },
+    {
+      "image": "pcb4/Data/Images/Anomaly/045.JPG",
+      "sha256": "a0f1ce92ab04d110f102a0b39abe1d6fd988d3a570cafb11bc2195c6fee15f8e",
+      "label": 1,
+      "score": 0.05374407768249512,
+      "latency_ms": 40.87930000969209
+    },
+    {
+      "image": "pcb4/Data/Images/Anomaly/032.JPG",
+      "sha256": "73312ecd9c378573d48c586240484d1f9c444185e030a1cb9e7238f38a899633",
+      "label": 1,
+      "score": 0.05272892117500305,
+      "latency_ms": 41.88830000930466
+    },
+    {
+      "image": "pcb4/Data/Images/Anomaly/088.JPG",
+      "sha256": "581832f1ac9a8f0bf338832d1c4c4c0548c2236e083e76ec78b06d7630d480a6",
+      "label": 1,
+      "score": 0.0459250807762146,
+      "latency_ms": 41.1102999933064
+    },
+    {
+      "image": "pcb4/Data/Images/Anomaly/090.JPG",
+      "sha256": "9d2ae7988d07d5b9a9e803e057d502e9cae8f96e40859ababeed2f90ab5ce46a",
+      "label": 1,
+      "score": 0.06492230296134949,
+      "latency_ms": 41.40350001398474
+    },
+    {
+      "image": "pcb4/Data/Images/Anomaly/011.JPG",
+      "sha256": "7cf29bbf475c7f48574e53fd518fd1ceb294e5dfd97dd18e64fdedd10238f414",
+      "label": 1,
+      "score": 0.06721284985542297,
+      "latency_ms": 40.88079999201
+    },
+    {
+      "image": "pcb4/Data/Images/Anomaly/077.JPG",
+      "sha256": "5fe1ad0c9cf37b02adc22e9f9c55c76223df4f817d4a5ef9f76ce75dd5d4d7e1",
+      "label": 1,
+      "score": 0.06099459528923035,
+      "latency_ms": 41.39210001449101
+    },
+    {
+      "image": "pcb4/Data/Images/Anomaly/051.JPG",
+      "sha256": "50a25b6fd34ab8066c7a366a1ba9f3dfbafe2585caf023f378fe41d9b37ec917",
+      "label": 1,
+      "score": 0.03482866287231445,
+      "latency_ms": 40.23839998990297
+    },
+    {
+      "image": "pcb4/Data/Images/Anomaly/020.JPG",
+      "sha256": "8f4f3d796fdf279dd06b7ab1527ead774bdff6da0822162c060e2622c74480a7",
+      "label": 1,
+      "score": 0.04469114542007446,
+      "latency_ms": 40.28029998880811
+    },
+    {
+      "image": "pcb4/Data/Images/Anomaly/018.JPG",
+      "sha256": "903f0e13d0ede1d996c5f7cdcc21962116befc0f52dc15aa74c419163438854d",
+      "label": 1,
+      "score": 0.044799864292144775,
+      "latency_ms": 41.63300001528114
+    },
+    {
+      "image": "pcb4/Data/Images/Anomaly/093.JPG",
+      "sha256": "d4fd83b5b076b592255ccd0f4239acb78ea989e09819e7860294a51c9db5ca2a",
+      "label": 1,
+      "score": 0.09546932578086853,
+      "latency_ms": 41.18279999238439
+    },
+    {
+      "image": "pcb4/Data/Images/Anomaly/040.JPG",
+      "sha256": "38a3881862e433f38422f6a682e93298f6699dac6e62f1ef0452efb8a55d60b3",
+      "label": 1,
+      "score": 0.05004259943962097,
+      "latency_ms": 41.88199999043718
+    },
+    {
+      "image": "pcb4/Data/Images/Anomaly/008.JPG",
+      "sha256": "9d22db22650c38ef26986670624f71bfa5847a2f901c1e7edcbe29cc8138103b",
+      "label": 1,
+      "score": 0.045213162899017334,
+      "latency_ms": 42.55350001039915
+    },
+    {
+      "image": "pcb4/Data/Images/Anomaly/010.JPG",
+      "sha256": "dc043da3309a857efe390d908f36b73e7ddedc381e200cd5971fc337271aa5b6",
+      "label": 1,
+      "score": 0.06255772709846497,
+      "latency_ms": 42.6207999989856
+    },
+    {
+      "image": "pcb4/Data/Images/Anomaly/095.JPG",
+      "sha256": "6b62d029cb3dc9a5d98505410f123a2cae513dd797b5eadbbe66ec9f9911ef7a",
+      "label": 1,
+      "score": 0.04824063181877136,
+      "latency_ms": 40.39939999347553
+    },
+    {
+      "image": "pcb4/Data/Images/Anomaly/086.JPG",
+      "sha256": "874f3e86927191808b5f52213a5d7ba5f2bcd8fb9ba9f05f8425ee828b62f546",
+      "label": 1,
+      "score": 0.041600823402404785,
+      "latency_ms": 42.30859997915104
+    },
+    {
+      "image": "pcb4/Data/Images/Anomaly/043.JPG",
+      "sha256": "752fcdd9b46fa21edbd291115aae68504c7e07dcedf1aea0a2dc0108a3c4f908",
+      "label": 1,
+      "score": 0.07012242078781128,
+      "latency_ms": 41.43169999588281
+    },
+    {
+      "image": "pcb4/Data/Images/Anomaly/044.JPG",
+      "sha256": "fd9413e32e9951ba65bc9d927d125ab3307ce14f9fec9dd1ac1e8e1d3ab4ed43",
+      "label": 1,
+      "score": 0.05396851897239685,
+      "latency_ms": 40.8400000014808
+    },
+    {
+      "image": "pcb4/Data/Images/Anomaly/064.JPG",
+      "sha256": "a544912545f1a926709f7286cad78ea76aa2f1db5d0b445a3a72b60596f9cca5",
+      "label": 1,
+      "score": 0.048452019691467285,
+      "latency_ms": 40.59839999536052
+    },
+    {
+      "image": "pcb4/Data/Images/Anomaly/062.JPG",
+      "sha256": "a13b46c060d2b09a2948d698af0eb6ffef8e4599143997f32e94c5a2b9612310",
+      "label": 1,
+      "score": 0.0511416494846344,
+      "latency_ms": 41.45049999351613
+    },
+    {
+      "image": "pcb4/Data/Images/Anomaly/042.JPG",
+      "sha256": "ed1f1582b3386553aa7eb1f0e4d3ca167e6bc2c7daed35daebd8ef600613bf1d",
+      "label": 1,
+      "score": 0.054835498332977295,
+      "latency_ms": 44.185299979289994
+    },
+    {
+      "image": "pcb4/Data/Images/Anomaly/038.JPG",
+      "sha256": "aa5ae5fdc5f4c5c685fd22bc50a5348530bb9e7b5cff2bef3a850257126249db",
+      "label": 1,
+      "score": 0.053284287452697754,
+      "latency_ms": 42.91030002059415
+    },
+    {
+      "image": "pcb4/Data/Images/Anomaly/027.JPG",
+      "sha256": "e807cc1fb5ed8a506ab39e5a159a350dac5e804dba3a78ad33ac730337078ffb",
+      "label": 1,
+      "score": 0.05622631311416626,
+      "latency_ms": 41.251399990869686
+    },
+    {
+      "image": "pcb4/Data/Images/Anomaly/081.JPG",
+      "sha256": "8b391e74fc77a015252353ff409c53e38a2f33ab621e629e6708f158c13389b4",
+      "label": 1,
+      "score": 0.051634252071380615,
+      "latency_ms": 43.71580001316033
+    },
+    {
+      "image": "pcb4/Data/Images/Anomaly/001.JPG",
+      "sha256": "a8939fa9a4bd657899017c6403a0fcba3d799311c7c6921c7fa9a67fe096085c",
+      "label": 1,
+      "score": 0.07770538330078125,
+      "latency_ms": 42.17040000366978
+    },
+    {
+      "image": "pcb4/Data/Images/Anomaly/016.JPG",
+      "sha256": "9f0f8ff0ea98c96bc0d305e88d50f14b43a88c19e35c969ab491c726f4823fd6",
+      "label": 1,
+      "score": 0.07206761837005615,
+      "latency_ms": 41.425000003073364
+    },
+    {
+      "image": "pcb4/Data/Images/Anomaly/006.JPG",
+      "sha256": "58455e44823be8d08c127e99efdc1b9415677f0a6f6430af6697ac123b6b3ce3",
+      "label": 1,
+      "score": 0.06239333748817444,
+      "latency_ms": 43.47070000949316
+    },
+    {
+      "image": "pcb4/Data/Images/Anomaly/075.JPG",
+      "sha256": "1937ddb3219e16f3b556c7c6f66a37031739f21b2f18c4115ffdaa3ae281f82d",
+      "label": 1,
+      "score": 0.08779895305633545,
+      "latency_ms": 41.497400001389906
+    },
+    {
+      "image": "pcb4/Data/Images/Anomaly/085.JPG",
+      "sha256": "bcd512f4be329030f2319f4e1a32862cad5d2a21c013dea4f08638d868fccfdf",
+      "label": 1,
+      "score": 0.05050644278526306,
+      "latency_ms": 41.26399999950081
+    },
+    {
+      "image": "pcb4/Data/Images/Anomaly/083.JPG",
+      "sha256": "c4738bffb2f51f7cc6043e44eee3bfd9b5afca6bdc5181391ac103a3afeef711",
+      "label": 1,
+      "score": 0.061560213565826416,
+      "latency_ms": 41.75949998898432
+    },
+    {
+      "image": "pcb4/Data/Images/Anomaly/024.JPG",
+      "sha256": "8ccccb89d0294146184a56ebb430f75c7885c991edcddd87881168b9abff5f02",
+      "label": 1,
+      "score": 0.05166640877723694,
+      "latency_ms": 44.28270002244972
+    },
+    {
+      "image": "pcb4/Data/Images/Anomaly/059.JPG",
+      "sha256": "fe0224276e660caa25bf76f541892798cfac91f424e4229369ee910e9ae2c349",
+      "label": 1,
+      "score": 0.042116791009902954,
+      "latency_ms": 41.34840000187978
+    },
+    {
+      "image": "pcb4/Data/Images/Anomaly/003.JPG",
+      "sha256": "6694fbb48e1b02cd95189a863c03b13df2517a7d6b61e0f15cbde25ffc73f233",
+      "label": 1,
+      "score": 0.0395258367061615,
+      "latency_ms": 44.066800008295104
+    },
+    {
+      "image": "pcb4/Data/Images/Anomaly/012.JPG",
+      "sha256": "4b0f2c901ca18f8e632d722140e4f051a92c05fdfd6e9130c40de585d52bdf63",
+      "label": 1,
+      "score": 0.04359397292137146,
+      "latency_ms": 42.77829997590743
+    },
+    {
+      "image": "pcb4/Data/Images/Anomaly/084.JPG",
+      "sha256": "78ebb9b40e1732eb5a76ece26bedbfb56716d29e3628d0d90be29f44f0039f4a",
+      "label": 1,
+      "score": 0.07033738493919373,
+      "latency_ms": 40.92020000098273
+    },
+    {
+      "image": "pcb4/Data/Images/Anomaly/068.JPG",
+      "sha256": "13066cba67908461ce71a48c5e2e23fb3b21ba8e362939be9fef8abb6c19dbab",
+      "label": 1,
+      "score": 0.06891292333602905,
+      "latency_ms": 43.7136999971699
+    },
+    {
+      "image": "pcb4/Data/Images/Anomaly/034.JPG",
+      "sha256": "715f8c06798d09dc4f928855980794f1141e25c0361b56db1e70618a7fe0c597",
+      "label": 1,
+      "score": 0.04783615469932556,
+      "latency_ms": 40.656099998159334
+    },
+    {
+      "image": "pcb4/Data/Images/Anomaly/094.JPG",
+      "sha256": "3445bd8167bb404fb8c19332726b4b5e674820e3314319d3ed6229f56c7f686f",
+      "label": 1,
+      "score": 0.0491614043712616,
+      "latency_ms": 41.86559998197481
+    },
+    {
+      "image": "pcb4/Data/Images/Anomaly/007.JPG",
+      "sha256": "a83335577081b46db08f7e3cbc2a713702d06c64829f83d096d4b108e226e882",
+      "label": 1,
+      "score": 0.05642852187156677,
+      "latency_ms": 41.210199997294694
+    },
+    {
+      "image": "pcb4/Data/Images/Anomaly/005.JPG",
+      "sha256": "e1f17e47688839d15cae4bed860c3f061ddbbd3e5ed6a029d114558c8e41178e",
+      "label": 1,
+      "score": 0.041183143854141235,
+      "latency_ms": 43.97209998569451
+    },
+    {
+      "image": "pcb4/Data/Images/Anomaly/053.JPG",
+      "sha256": "31f551a7dc2e0f81f99e359e058c12d4da161be07601634531b5bc6cc5dc281d",
+      "label": 1,
+      "score": 0.06498464941978455,
+      "latency_ms": 43.22130000218749
+    },
+    {
+      "image": "pcb4/Data/Images/Anomaly/069.JPG",
+      "sha256": "5767ec2db2d3e3e1b24afc3468f26449df7a82bbc59529c23d4c0b95722679f5",
+      "label": 1,
+      "score": 0.03979328274726868,
+      "latency_ms": 42.01939998893067
+    },
+    {
+      "image": "pcb4/Data/Images/Anomaly/096.JPG",
+      "sha256": "af822e7a03633bc31cbae1a23f2748606cd37817be6902e96a3e89dcc7fa746d",
+      "label": 1,
+      "score": 0.05173251032829285,
+      "latency_ms": 41.69939999701455
+    },
+    {
+      "image": "pcb4/Data/Images/Anomaly/022.JPG",
+      "sha256": "6b6bca78ae7ba8babca4c24f7e04125e1e96a3ded627288e67d945d2e474791a",
+      "label": 1,
+      "score": 0.03205537796020508,
+      "latency_ms": 41.47450000164099
+    },
+    {
+      "image": "pcb4/Data/Images/Anomaly/035.JPG",
+      "sha256": "6ba5b35d2aad222266e55eb9a4caac5889146be26e06338407caa467ff3d1eff",
+      "label": 1,
+      "score": 0.0716501772403717,
+      "latency_ms": 43.90389999025501
+    },
+    {
+      "image": "pcb4/Data/Images/Anomaly/098.JPG",
+      "sha256": "992d21e87b852f621b70a9f62725cde7975f2ac9130f942f8523be7a3bd083d7",
+      "label": 1,
+      "score": 0.04927009344100952,
+      "latency_ms": 40.986200008774176
+    },
+    {
+      "image": "pcb4/Data/Images/Anomaly/055.JPG",
+      "sha256": "e7c62008b7f4bc8e0e3e43d4d65823a9623fe467a1f27584a9876580c04ab6e8",
+      "label": 1,
+      "score": 0.04471203684806824,
+      "latency_ms": 42.11009998107329
+    },
+    {
+      "image": "pcb4/Data/Images/Anomaly/074.JPG",
+      "sha256": "59261648b344053c2f75436747f39503fa272f962e72d87a2177457aa08fee8d",
+      "label": 1,
+      "score": 0.03380820155143738,
+      "latency_ms": 44.44060000241734
+    },
+    {
+      "image": "pcb4/Data/Images/Anomaly/061.JPG",
+      "sha256": "1b41cfd78fe586e2488e8ead40133bd582192c8e00fc12685570d2a7816e7e32",
+      "label": 1,
+      "score": 0.0416734516620636,
+      "latency_ms": 43.42560001532547
+    },
+    {
+      "image": "pcb4/Data/Images/Anomaly/065.JPG",
+      "sha256": "0139b994d9904b4137770ce828316a4d1502ac4d4ec713f9fa52137e7464c543",
+      "label": 1,
+      "score": 0.060691505670547485,
+      "latency_ms": 42.37650000141002
+    },
+    {
+      "image": "pcb4/Data/Images/Anomaly/080.JPG",
+      "sha256": "540cfb1000958ffbc60490a9fb2c23401dad4b08484b9abc003f748981d7af4b",
+      "label": 1,
+      "score": 0.05556008219718933,
+      "latency_ms": 45.70769998827018
+    },
+    {
+      "image": "pcb4/Data/Images/Anomaly/052.JPG",
+      "sha256": "1d042a5db718e37d5ba6319c314a6d7139fa40e0accac4caaa3d8e1842028d51",
+      "label": 1,
+      "score": 0.07055878639221191,
+      "latency_ms": 42.02900000382215
+    },
+    {
+      "image": "pcb4/Data/Images/Anomaly/056.JPG",
+      "sha256": "574025675f14b648a6032106ee457a633baeddb2bd35f0ac0c13688664031dfd",
+      "label": 1,
+      "score": 0.07465586066246033,
+      "latency_ms": 42.77199998614378
+    },
+    {
+      "image": "pcb4/Data/Images/Anomaly/067.JPG",
+      "sha256": "d65c1dc93286d0ffbe848eed61fc305444aeda15708da7c0041521e30359858d",
+      "label": 1,
+      "score": 0.0506114661693573,
+      "latency_ms": 41.804099979344755
+    },
+    {
+      "image": "pcb4/Data/Images/Anomaly/054.JPG",
+      "sha256": "4126ec08462b18ea4b13813c517313610c1edd6a96a37e7e46cb8c78a357be37",
+      "label": 1,
+      "score": 0.0428241491317749,
+      "latency_ms": 42.71569999400526
+    },
+    {
+      "image": "pcb4/Data/Images/Anomaly/050.JPG",
+      "sha256": "3a6d026d75569c94900a5e9741dfe838e806b13fcf778d1b0bf6701e5f5e9f11",
+      "label": 1,
+      "score": 0.04817315936088562,
+      "latency_ms": 44.95390001102351
+    },
+    {
+      "image": "pcb4/Data/Images/Anomaly/072.JPG",
+      "sha256": "2afa2e1fc0f7055106ffdb0cfe670292578b43d135f5a6916921d384e3f83cde",
+      "label": 1,
+      "score": 0.03369852900505066,
+      "latency_ms": 44.12790000787936
+    },
+    {
+      "image": "pcb4/Data/Images/Anomaly/041.JPG",
+      "sha256": "522ca4cd0899607402482aa71aa3fc5ae4d2aafe9e70d9970bc545b0713d2193",
+      "label": 1,
+      "score": 0.07237967848777771,
+      "latency_ms": 41.404400020837784
+    },
+    {
+      "image": "pcb4/Data/Images/Anomaly/087.JPG",
+      "sha256": "1ef54fe80e52269424a225462000403cc7b273e70e635f1fb54100580c7238dd",
+      "label": 1,
+      "score": 0.06018921732902527,
+      "latency_ms": 42.5647999800276
+    },
+    {
+      "image": "pcb4/Data/Images/Anomaly/033.JPG",
+      "sha256": "5f82619970ebdcd83c3d4e61a275bbbb93eb9f8a5e6dcd9b12302a1bc5c4bcbe",
+      "label": 1,
+      "score": 0.05150282382965088,
+      "latency_ms": 41.56780001358129
+    },
+    {
+      "image": "pcb4/Data/Images/Anomaly/017.JPG",
+      "sha256": "09b3eb7bdf19da02bcc2ec52969df9961560a9fcf94eb4a5f68e74337e157903",
+      "label": 1,
+      "score": 0.09036943316459656,
+      "latency_ms": 42.429300025105476
+    },
+    {
+      "image": "pcb4/Data/Images/Anomaly/039.JPG",
+      "sha256": "34b5052c9fcb26dadaa62c1c38f19151af48686aec348dc5693f297e9e8ce30a",
+      "label": 1,
+      "score": 0.05092090368270874,
+      "latency_ms": 43.257699988316745
+    },
+    {
+      "image": "pcb4/Data/Images/Anomaly/023.JPG",
+      "sha256": "d830228ecbb8eb829458694d3020b21b25e4000419601cfe688c4214ed896ad6",
+      "label": 1,
+      "score": 0.04706186056137085,
+      "latency_ms": 41.827999986708164
+    },
+    {
+      "image": "pcb4/Data/Images/Anomaly/009.JPG",
+      "sha256": "95dc4a49b4b8648cf7e42c46e566f3145913d94ac71f3fd35c93c72173f2e330",
+      "label": 1,
+      "score": 0.04698675870895386,
+      "latency_ms": 41.80760000599548
+    },
+    {
+      "image": "pcb4/Data/Images/Anomaly/070.JPG",
+      "sha256": "a86219453383878015db8b8c5255835977578d5004e9a57acec2df2a6f186bc0",
+      "label": 1,
+      "score": 0.05355101823806763,
+      "latency_ms": 42.25430000224151
+    },
+    {
+      "image": "pcb4/Data/Images/Anomaly/021.JPG",
+      "sha256": "f3e2e986d45c592ee0bbc9c0e70e3bac8ea54ce6b7afec3adab47412657a9da0",
+      "label": 1,
+      "score": 0.05412548780441284,
+      "latency_ms": 43.40379999484867
+    },
+    {
+      "image": "pcb4/Data/Images/Anomaly/060.JPG",
+      "sha256": "27c397ed733f3323f87a84a922aa8ee51a7c587a3742338008a71d4705c8294a",
+      "label": 1,
+      "score": 0.05137979984283447,
+      "latency_ms": 45.64659998868592
+    },
+    {
+      "image": "pcb4/Data/Images/Anomaly/015.JPG",
+      "sha256": "4be5990a1ba80e06cceac8ae0fea5c16226c314ba9af294fc1d7cdcea4aa089c",
+      "label": 1,
+      "score": 0.04293188452720642,
+      "latency_ms": 42.9537000018172
+    },
+    {
+      "image": "pcb4/Data/Images/Anomaly/048.JPG",
+      "sha256": "12a20ae2c2bcc5b3e4645ad794af740fd7ac59a6e658d66bda3135d8dc3f4c21",
+      "label": 1,
+      "score": 0.04261481761932373,
+      "latency_ms": 41.42419999698177
+    },
+    {
+      "image": "pcb4/Data/Images/Anomaly/031.JPG",
+      "sha256": "258b74e2b264cc5b9db86787be62be6aace925c159cbd3a5178b803971a4ce38",
+      "label": 1,
+      "score": 0.05834299325942993,
+      "latency_ms": 46.61900000064634
+    },
+    {
+      "image": "pcb4/Data/Images/Anomaly/037.JPG",
+      "sha256": "54c7de1f3c21c3995d88f07ad64cd7018a8ba3c7897385c86afef6450530f872",
+      "label": 1,
+      "score": 0.09988567233085632,
+      "latency_ms": 45.83650000859052
+    },
+    {
+      "image": "pcb4/Data/Images/Anomaly/004.JPG",
+      "sha256": "26f112af1d7d4d4d0bc8721dece06ff50fdc6a81a0e07b71f870ed6394d6ebe7",
+      "label": 1,
+      "score": 0.05902594327926636,
+      "latency_ms": 44.46160001680255
+    },
+    {
+      "image": "pcb4/Data/Images/Anomaly/082.JPG",
+      "sha256": "b84065ade97593f348b8633126078abbbac228373e63711c4aa82f1acf41f03a",
+      "label": 1,
+      "score": 0.05074179172515869,
+      "latency_ms": 50.742699997499585
+    },
+    {
+      "image": "pcb4/Data/Images/Anomaly/063.JPG",
+      "sha256": "df3715ab457d0ad1e21765b769951bdaa6e5e14cc74dc2169ce12bd6bf6dc70c",
+      "label": 1,
+      "score": 0.07154273986816406,
+      "latency_ms": 43.724500021198764
+    },
+    {
+      "image": "pcb4/Data/Images/Anomaly/013.JPG",
+      "sha256": "58520840bd9769106cbee922aa27f47ef3e12db2c505c70c77c87a0a7a0b33f3",
+      "label": 1,
+      "score": 0.04784795641899109,
+      "latency_ms": 43.774899997515604
+    },
+    {
+      "image": "pcb4/Data/Images/Anomaly/026.JPG",
+      "sha256": "b23598f6bfae1bd646745091f93d540d1d9421ed4bafa68c6f9ed0203663fc00",
+      "label": 1,
+      "score": 0.06883010268211365,
+      "latency_ms": 45.02650001086295
+    },
+    {
+      "image": "pcb4/Data/Images/Anomaly/076.JPG",
+      "sha256": "3f0eb76d52933fbe7607fe4ec7fe07abfabe536506df7a756313d432e9698b88",
+      "label": 1,
+      "score": 0.056584715843200684,
+      "latency_ms": 43.380499992053956
+    },
+    {
+      "image": "pcb4/Data/Images/Anomaly/073.JPG",
+      "sha256": "b8405bffcb87a0519c78f7a03a3f0a87737ff6f68eb0a215c806047d4dcfa73b",
+      "label": 1,
+      "score": 0.05956834554672241,
+      "latency_ms": 43.88529999414459
+    },
+    {
+      "image": "pcb4/Data/Images/Anomaly/047.JPG",
+      "sha256": "7d90ac1b60201cf35068c0f7fd2d42f68806384911d01fbd3c76c4ba25ca90d1",
+      "label": 1,
+      "score": 0.04870787262916565,
+      "latency_ms": 42.45239999727346
+    }
+  ]
+}
