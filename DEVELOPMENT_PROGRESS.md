@@ -1,3 +1,36 @@
+# Local folder consolidation — 16 October 2026
+
+User requested one Desktop application folder, without duplicating large assets.
+This section supersedes old interpreter paths below. Consolidation status is
+authoritative in development-support/consolidation-moves.json and
+consolidation-verification.json. Only status=passed confirms all final checks.
+
+Target: C:\Users\User\Desktop\DefectRAG-v2. Existing environment moves from
+Desktop\.venv-defectrag into .venv (user had already moved it out of Verified).
+Activation and executable entry points are repaired offline; no package download
+or CUDA replacement. Local .python-deps replaces the Codex PYTHONPATH dependency.
+Both complete experiments move here into experiments; the source mirror gets
+a junction to avoid duplicate storage and accidental reruns. Original VisA stays
+unchanged in Downloads. Legacy Unified project (including datasets/secrets) and
+remaining Verified Git history are preserved privately under
+development-support/legacy-projects, excluded from Git and release packaging.
+
+Run after successful verification:
+cd C:\Users\User\Desktop\DefectRAG-v2
+.\Start-DefectRAG.cmd -Port 8767
+VS Code interpreter: .venv\Scripts\python.exe. No external overlay variables.
+The existing base Anaconda Python and global Ollama remain system requirements.
+
+No new large ZIP is created. Existing local-accuracy and highres-benchmark-assets
+ZIPs become optional backups after both experiments and real CUDA/API checks pass.
+Deleting them removes independent backups, not the consolidated on-disk assets.
+Do not delete runtime, models, experiments, .venv, .python-deps or legacy datasets.
+No training reruns are authorized or necessary. Old owned previews on 8766/8771
+may be stopped for consolidation; do not stop unrelated Python/Ollama processes.
+Resume any incomplete move by inspecting the receipt before touching directories.
+
+---
+
 # Completed accuracy upgrade — 16 October 2026
 
 This is the latest checkpoint; older sections below are historical. Preserve

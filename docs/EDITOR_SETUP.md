@@ -6,11 +6,11 @@ the one running DefectRAG. They do not by themselves mean the application failed
 1. Open the project folder in VS Code.
 2. Press Ctrl+Shift+P, choose Python: Select Interpreter, then Enter interpreter
    path. On this computer choose:
-   C:\Users\User\Desktop\DefectRAG-Verified\.venv-defectrag\Scripts\python.exe
-3. Saved .vscode/settings.json also exposes the existing workspace .test-deps
-   overlay. Reload the editor window after changing the interpreter.
+   C:\Users\User\Desktop\DefectRAG-v2\.venv\Scripts\python.exe
+3. Saved .vscode/settings.json exposes the local .python-deps overlay.
+   Reload the editor window after changing the interpreter.
 4. Verify with `python -m scripts.check_environment` using that environment.
-   Set PYTHONPATH as shown in the README for the existing overlay.
+   The relocated environment loads its local overlay automatically.
 
 Settings describe this workstation. On another computer select the project's
 .venv\Scripts\python.exe and remove unavailable overlay paths. Do not repeatedly

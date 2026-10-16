@@ -16,13 +16,14 @@ Stop the previous server with Ctrl+C in its PowerShell window, then run:
 
 ```powershell
 cd C:\Users\User\Desktop\DefectRAG-v2
-$env:PYTHONPATH="C:\Users\User\.codex\.chatgpt-projects\g-p-6abf9c3f00a4819198b9ff56b5456844\.test-deps"
-$env:USE_TF="0"
-.\Start-DefectRAG.cmd -Port 8767 -PythonPath "C:\Users\User\Desktop\DefectRAG-Verified\.venv-defectrag\Scripts\python.exe"
+.\Start-DefectRAG.cmd -Port 8767
 ```
 
 Open http://127.0.0.1:8767. No rebuilding or model fitting is needed. Leave this
-window running. In another terminal, `ollama list` checks your installed models.
+window running. The local interpreter is `.venv\Scripts\python.exe`; auxiliary
+dependencies are inside `.python-deps`. The old Verified/Unified folders are not
+required. See [folder and storage guide](docs/LOCAL_FOLDER_GUIDE.md).
+In another terminal, `ollama list` checks your installed models.
 The active detector profile is selected automatically from installed model assets.
 Set `DEFECTRAG_PROFILE=legacy` before launch to use the original DINOv3 profile.
 Only `qwen2.5:3b` is used by default; Ollama must run for generated document

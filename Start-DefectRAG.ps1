@@ -1,6 +1,9 @@
 param([switch]$Setup,[switch]$NoBrowser,[switch]$Verify,[int]$Port=8765,[string]$PythonPath='')
 $ErrorActionPreference='Stop'
 Set-Location $PSScriptRoot
+$env:USE_TF='0'
+$localDeps=Join-Path $PSScriptRoot '.python-deps'
+if (Test-Path -LiteralPath $localDeps) { $env:PYTHONPATH=$localDeps }
 $pythonExe=Join-Path $PSScriptRoot '.venv\Scripts\python.exe'
 if ($PythonPath) { $pythonExe=$PythonPath }
 if (-not (Test-Path -LiteralPath $pythonExe)) {
