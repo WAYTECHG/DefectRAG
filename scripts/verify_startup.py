@@ -1,4 +1,6 @@
 import json
+import platform
+import importlib.metadata
 from PIL import Image
 from fastapi.testclient import TestClient
 from backend.main import app
@@ -10,4 +12,7 @@ if __name__=='__main__':
         sample=next((app.state.detector.settings.root/'samples').glob('*.jpg'))
         result,_=app.state.detector.predict(Image.open(sample),sample.stem.split('_')[0])
         assert result['score']>=0
-        print(json.dumps({'startup':'passed','real_model_prediction':result},indent=2))
+        report={'startup':'passed','python':platform.python_version(),'torch':importlib.metadata.version('torch'),
+                'transformers':importlib.metadata.version('transformers'),'real_model_prediction':result}
+        (app.state.detector.settings.root/'results'/'startup_verification.json').write_text(json.dumps(report,indent=2))
+        print(json.dumps(report,indent=2))

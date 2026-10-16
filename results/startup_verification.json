@@ -1,0 +1,28 @@
+{
+  "startup": "passed",
+  "python": "3.11.15",
+  "torch": "2.5.1+cu121",
+  "transformers": "4.57.6",
+  "real_model_prediction": {
+    "category": "capsules",
+    "verdict": "Anomalous",
+    "score": 0.060357898473739624,
+    "threshold": 0.04728597402572632,
+    "uncertainty_margin": 0.0023642987012863163,
+    "defect_category": null,
+    "model_id": "dinov3-normal-bank-capsules-v1",
+    "inference_ms": 746.03,
+    "total_model_ms": 3839.17,
+    "peak_gpu_mb": 65.61,
+    "device": "cuda",
+    "localization": "14 x 14 patch distances, interpolated; not a defect segmentation classifier",
+    "scope": "VisA benchmark appearance anomaly screening; category is user-selected and not verified by this model.",
+    "calibration": {
+      "method": "Max F1 on separate validation identities",
+      "normal": 32,
+      "anomalous": 20,
+      "seed": 42
+    },
+    "model_sha256": "04c06d14d8a95cdcc25f2db57d5156c5f3ad3ccc5997b1a94762f4e6953f3230"
+  }
+}

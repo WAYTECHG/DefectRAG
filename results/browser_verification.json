@@ -1,0 +1,35 @@
+{
+  "status": "passed_with_environment_limitations",
+  "real_batch": {
+    "label": "browser-final-pcb",
+    "completed": 2,
+    "failed": 0,
+    "verdicts": [
+      "Good",
+      "Anomalous"
+    ]
+  },
+  "history_combined_filters": {
+    "records": 1,
+    "batch": "browser-final-pcb",
+    "verdict": "Anomalous"
+  },
+  "alert_acknowledgement": true,
+  "report_rendered": true,
+  "report_images_loaded": 2,
+  "cited_llm_answer_rendered": true,
+  "graceful_api_restart_error": true,
+  "desktop_viewport": 1280,
+  "mobile_check": {
+    "requested_width": 390,
+    "observed_width": 1280,
+    "verified": false,
+    "reason": "In-app browser viewport override had no effect, including after reload and in a new tab"
+  },
+  "console_errors": [],
+  "screenshots": [
+    "docs/screenshots/overview.jpg",
+    "docs/screenshots/inspection.jpg",
+    "docs/screenshots/evidence.jpg"
+  ]
+}

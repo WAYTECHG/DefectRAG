@@ -113,7 +113,10 @@ def create_app(settings=None, detector=None, workflow=None):
     @app.get('/api/evaluation')
     def evaluation():
         path=settings.root/'results'/'evaluation.json'
-        return {'data':json.loads(path.read_text()) if path.exists() else {'status':'unverified'}}
+        result=json.loads(path.read_text()) if path.exists() else {'status':'unverified'}
+        profile=settings.root/'results'/'serving_profile.json'
+        if profile.exists():result['serving_profile']=json.loads(profile.read_text())
+        return {'data':result}
     @app.get('/api/stats')
     def stats(): return {'data':repo.stats()}
     @app.get('/api/samples')
@@ -173,7 +176,8 @@ def create_app(settings=None, detector=None, workflow=None):
         record=require(payload.inspection_id)
         history=repo.messages(payload.inspection_id)
         # Save user and assistant turns together only after workflow completion.
-        answer=workflow.run(payload.question,record,[{'role':m['role'],'text':m.get('question',m.get('answer',''))} for m in history])
+        answer=workflow.run(payload.question,record,[{'role':m['role'],'text':m.get('question',m.get('answer','')),
+            'knowledge_fingerprint':m.get('knowledge_fingerprint')} for m in history])
         repo.add_conversation(payload.inspection_id,payload.question,answer)
         return {'data':{**answer,'observation':{k:record[k] for k in ('id','category','verdict','score','threshold')}}}
     @app.get('/api/inspections/{identifier}/messages')

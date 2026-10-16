@@ -1,0 +1,116 @@
+{
+  "status": "passed",
+  "answers": [
+    {
+      "question": "What does this inspection heatmap show?",
+      "seconds": 7.412822200014489,
+      "answer": "The map uses a 14 by 14 patch grid for localization, not for identifying specific defects or diagnosing them. [screening-4]",
+      "mode": "llm",
+      "evidence": [
+        {
+          "text": "# Current detector heatmap\nThe current DefectRAG detector uses a frozen DINOv3 encoder and a nearest-normal memory bank. Its heatmap displays the cosine distance between each image patch feature and its closest stored normal patch feature. Larger distances mean a larger departure from the reference appearance. The map interpolates a 14 by 14 patch grid; it is coarse localization, not a verified defect segmentation or a named defect diagnosis. This detector does not reconstruct image features with a trained decoder. General Dinomaly reconstruction documentation describes a different method.",
+          "id": "screening",
+          "file": "screening.md",
+          "title": "DefectRAG v2 screening and evidence policy",
+          "url": "project://docs/inspection-policy",
+          "license": "Project-authored, MIT",
+          "scope": "application policy; not a factory SOP",
+          "start_index": 1282,
+          "chunk_id": "screening-4",
+          "similarity": 0.7689
+        },
+        {
+          "text": "# Evidence limits and response\nThe system does not predict specific defect types, component counts, root causes, process parameters, acceptance tolerances or repair instructions. Those require additional validated supervision or approved process records. Model failures create an error event, never a successful inspection. Anomaly and uncertain events create local review alerts. Review source images and heatmaps before acting. Product category is selected by the operator; arbitrary or wrong-product uploads are outside validated scope. Documentation is general context and must remain separate from image measurements.",
+          "id": "screening",
+          "file": "screening.md",
+          "title": "DefectRAG v2 screening and evidence policy",
+          "url": "project://docs/inspection-policy",
+          "license": "Project-authored, MIT",
+          "scope": "application policy; not a factory SOP",
+          "start_index": 1880,
+          "chunk_id": "screening-5",
+          "similarity": 0.7055
+        }
+      ],
+      "claims": [
+        {
+          "text": "The map uses a 14 by 14 patch grid for localization, not for identifying specific defects or diagnosing them.",
+          "source_id": "screening-4",
+          "quote": "The map interpolates a 14 by 14 patch grid; it is coarse localization, not a verified defect segmentation or a named defect diagnosis."
+        }
+      ],
+      "trace": [
+        "route",
+        "retrieve",
+        "validate_evidence",
+        "generate",
+        "validate_answer"
+      ],
+      "error": null,
+      "knowledge_fingerprint": "f64658b2b468d89a660134f7a70fe5df041e54ee791e98cd56d988ba24854fb4",
+      "observation": {
+        "id": "a6226ef392eb417e8991369e890d816b",
+        "category": "pcb1",
+        "verdict": "Anomalous",
+        "score": 0.09611436724662781,
+        "threshold": 0.047802507877349854
+      }
+    },
+    {
+      "question": "How does that map relate to anomaly scoring?",
+      "seconds": 1.6568936000112444,
+      "answer": "A larger anomaly score indicates a larger feature distance; the score is not a defect probability. [screening-2]",
+      "mode": "llm",
+      "evidence": [
+        {
+          "text": "# Current detector heatmap\nThe current DefectRAG detector uses a frozen DINOv3 encoder and a nearest-normal memory bank. Its heatmap displays the cosine distance between each image patch feature and its closest stored normal patch feature. Larger distances mean a larger departure from the reference appearance. The map interpolates a 14 by 14 patch grid; it is coarse localization, not a verified defect segmentation or a named defect diagnosis. This detector does not reconstruct image features with a trained decoder. General Dinomaly reconstruction documentation describes a different method.",
+          "id": "screening",
+          "file": "screening.md",
+          "title": "DefectRAG v2 screening and evidence policy",
+          "url": "project://docs/inspection-policy",
+          "license": "Project-authored, MIT",
+          "scope": "application policy; not a factory SOP",
+          "start_index": 1282,
+          "chunk_id": "screening-4",
+          "similarity": 0.751
+        },
+        {
+          "text": "# Reading an inspection\nDefectRAG compares an uploaded image with normal VisA reference features for the selected product. A larger anomaly score indicates a larger feature distance; the score is not a defect probability. Good means the score lies below the validated decision threshold and outside the review band. Anomalous means it lies above the threshold and outside the review band. Uncertain means it lies within a fixed five-percent band around the threshold. This review band is an operational heuristic, not calibrated statistical confidence. A Good result is screening evidence, not proof that a product is safe or meets a factory specification.",
+          "id": "screening",
+          "file": "screening.md",
+          "title": "DefectRAG v2 screening and evidence policy",
+          "url": "project://docs/inspection-policy",
+          "license": "Project-authored, MIT",
+          "scope": "application policy; not a factory SOP",
+          "start_index": 0,
+          "chunk_id": "screening-2",
+          "similarity": 0.7219
+        }
+      ],
+      "claims": [
+        {
+          "text": "A larger anomaly score indicates a larger feature distance; the score is not a defect probability.",
+          "source_id": "screening-2",
+          "quote": "A larger anomaly score indicates a larger feature distance; the score is not a defect probability."
+        }
+      ],
+      "trace": [
+        "route",
+        "retrieve",
+        "validate_evidence",
+        "generate",
+        "validate_answer"
+      ],
+      "error": null,
+      "knowledge_fingerprint": "f64658b2b468d89a660134f7a70fe5df041e54ee791e98cd56d988ba24854fb4",
+      "observation": {
+        "id": "a6226ef392eb417e8991369e890d816b",
+        "category": "pcb1",
+        "verdict": "Anomalous",
+        "score": 0.09611436724662781,
+        "threshold": 0.047802507877349854
+      }
+    }
+  ],
+  "inspection_id": "a6226ef392eb417e8991369e890d816b"
+}

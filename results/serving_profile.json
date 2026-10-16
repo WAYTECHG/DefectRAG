@@ -1,0 +1,49 @@
+{
+  "method": "Existing calibrated models; 6 original held-out images, 5 warm repetitions each; no training",
+  "categories": {
+    "pcb1": {
+      "samples": 10,
+      "core_median_ms": 54.59,
+      "core_p95_ms": 60.916999999999994,
+      "decoded_image_to_result_median_ms": 172.78114998771343,
+      "decoded_image_to_result_p95_ms": 182.06591499620117,
+      "category_load_ms": 1318.0554999853484,
+      "peak_torch_allocated_gpu_mb": 65.61,
+      "device": "cuda"
+    },
+    "capsules": {
+      "samples": 10,
+      "core_median_ms": 53.875,
+      "core_p95_ms": 57.915,
+      "decoded_image_to_result_median_ms": 158.5184499999741,
+      "decoded_image_to_result_p95_ms": 162.40958499111002,
+      "category_load_ms": 78.86780000990257,
+      "peak_torch_allocated_gpu_mb": 77.61,
+      "device": "cuda"
+    },
+    "cashew": {
+      "samples": 10,
+      "core_median_ms": 65.61500000000001,
+      "core_p95_ms": 89.65849999999999,
+      "decoded_image_to_result_median_ms": 229.5610500004841,
+      "decoded_image_to_result_p95_ms": 258.9202900038799,
+      "category_load_ms": 77.84360001096502,
+      "peak_torch_allocated_gpu_mb": 89.61,
+      "device": "cuda"
+    }
+  },
+  "python": "3.12.4",
+  "torch": "2.8.0+cu126",
+  "gpu": {
+    "name": "NVIDIA GeForce RTX 4060 Laptop GPU",
+    "free_mb_before": 7097.0,
+    "total_mb": 8187.5
+  },
+  "cpu_smoke": {
+    "verdict": "Good",
+    "score": 0.03067457675933838,
+    "reference_cuda_score": 0.030725598335266113,
+    "absolute_difference": 5.1021575927734375e-05,
+    "total_ms": 1110.6508999946527
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "status": "passed",
+  "baseline": "2026-10-16T02:33:34.848558+00:00",
+  "frozen_artifacts_unchanged": [
+    "models/capsules.json",
+    "models/capsules.npz",
+    "models/cashew.json",
+    "models/cashew.npz",
+    "models/embedding/model.safetensors",
+    "models/encoder/model.safetensors",
+    "models/pcb1.json",
+    "models/pcb1.npz",
+    "results/capsules_predictions.json",
+    "results/capsules_splits.json",
+    "results/cashew_predictions.json",
+    "results/cashew_splits.json",
+    "results/evaluation.json",
+    "results/pcb1_predictions.json",
+    "results/pcb1_splits.json"
+  ],
+  "count": 15,
+  "dataset_usage": "existing VisA files read only; no dataset download or fitting repeated this resume"
+}

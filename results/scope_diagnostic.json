@@ -1,0 +1,82 @@
+{
+  "question": "What does this inspection heatmap show?",
+  "inspection": {
+    "category": "pcb1",
+    "verdict": "Anomalous",
+    "score": 0.09611436724662781,
+    "threshold": 0.047802507877349854,
+    "uncertainty_margin": 0.0023901253938674928,
+    "defect_category": null,
+    "model_id": "dinov3-normal-bank-pcb1-v1",
+    "inference_ms": 1161.03,
+    "total_model_ms": 3563.94,
+    "peak_gpu_mb": 65.61,
+    "device": "cuda",
+    "localization": "14 x 14 patch distances, interpolated; not a defect segmentation classifier",
+    "scope": "VisA benchmark appearance anomaly screening; category is user-selected and not verified by this model.",
+    "calibration": {
+      "method": "Max F1 on separate validation identities",
+      "normal": 32,
+      "anomalous": 20,
+      "seed": 42
+    },
+    "model_sha256": "32786eb59ad977de43f1eac542defa92a62c856c3e6013762373c5d8428ff41f",
+    "id": "7732bca0cede4431b212a15858795cd0",
+    "created_at": "2026-10-16T02:14:15.961249+00:00",
+    "batch": "",
+    "filename": "pcb1_anomalous.jpg",
+    "image_url": "/api/inspections/7732bca0cede4431b212a15858795cd0/image",
+    "heatmap_url": "/api/inspections/7732bca0cede4431b212a15858795cd0/heatmap"
+  },
+  "history": [],
+  "evidence": [
+    {
+      "text": "# Current detector heatmap\nThe current DefectRAG detector uses a frozen DINOv3 encoder and a nearest-normal memory bank. Its heatmap displays the cosine distance between each image patch feature and its closest stored normal patch feature. Larger distances mean a larger departure from the reference appearance. The map interpolates a 14 by 14 patch grid; it is coarse localization, not a verified defect segmentation or a named defect diagnosis. This detector does not reconstruct image features with a trained decoder. General Dinomaly reconstruction documentation describes a different method.",
+      "id": "screening",
+      "file": "screening.md",
+      "title": "DefectRAG v2 screening and evidence policy",
+      "url": "project://docs/inspection-policy",
+      "license": "Project-authored, MIT",
+      "scope": "application policy; not a factory SOP",
+      "start_index": 1282,
+      "chunk_id": "screening-4",
+      "similarity": 0.7689
+    },
+    {
+      "text": "# Evidence limits and response\nThe system does not predict specific defect types, component counts, root causes, process parameters, acceptance tolerances or repair instructions. Those require additional validated supervision or approved process records. Model failures create an error event, never a successful inspection. Anomaly and uncertain events create local review alerts. Review source images and heatmaps before acting. Product category is selected by the operator; arbitrary or wrong-product uploads are outside validated scope. Documentation is general context and must remain separate from image measurements.",
+      "id": "screening",
+      "file": "screening.md",
+      "title": "DefectRAG v2 screening and evidence policy",
+      "url": "project://docs/inspection-policy",
+      "license": "Project-authored, MIT",
+      "scope": "application policy; not a factory SOP",
+      "start_index": 1880,
+      "chunk_id": "screening-5",
+      "similarity": 0.7055
+    }
+  ],
+  "answer": "The heatmap uses a 14 by 14 patch grid for localization, not for identifying specific defects or diagnosing them. [screening-4]",
+  "mode": "llm",
+  "error": null,
+  "trace": [
+    "route",
+    "retrieve",
+    "validate_evidence",
+    "generate",
+    "validate_answer"
+  ],
+  "claims": [
+    {
+      "text": "The heatmap uses a 14 by 14 patch grid for localization, not for identifying specific defects or diagnosing them.",
+      "source_id": "screening-4",
+      "quote": "The map interpolates a 14 by 14 patch grid; it is coarse localization, not a verified defect segmentation or a named defect diagnosis."
+    }
+  ],
+  "raw_claims": [
+    {
+      "quote": "The map interpolates a 14 by 14 patch grid; it is coarse localization, not a verified defect segmentation or a named defect diagnosis.",
+      "source_id": "screening-4",
+      "text": "The heatmap uses a 14 by 14 patch grid for localization, not for identifying specific defects or diagnosing them."
+    }
+  ]
+}

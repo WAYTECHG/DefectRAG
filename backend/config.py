@@ -3,6 +3,9 @@ from pathlib import Path
 import os
 from dotenv import load_dotenv
 
+# This application uses PyTorch; optional TensorFlow installs must not affect it.
+os.environ.setdefault('USE_TF','0')
+
 ROOT = Path(__file__).resolve().parents[1]
 load_dotenv(ROOT / '.env')
 CATEGORIES = ('pcb1', 'capsules', 'cashew')

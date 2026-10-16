@@ -135,7 +135,7 @@ def test_invalid_local_generation_returns_visible_fallback(monkeypatch,raw):
             return httpx.Response(200,json={'response':raw},request=httpx.Request('POST',url))
     monkeypatch.setattr(rag.httpx,'Client',Client)
     workflow=EvidenceWorkflow(Settings(),None)
-    answer=workflow.generate({'inspection':{},'question':'Explain anomaly score','evidence':[{'chunk_id':'screening-2'}],'trace':[]})
+    answer=workflow.generate({'inspection':{},'question':'Explain anomaly score','evidence':[{'chunk_id':'screening-2','text':'The anomaly score is not a probability.'}],'trace':[]})
     assert answer['mode']=='retrieval_only' and answer['error']
 
 def test_missing_llm_keeps_retrieved_evidence(monkeypatch):
@@ -164,6 +164,62 @@ def test_quoted_passage_cannot_license_invented_number():
     answer=workflow.validate_answer({'mode':'llm','trace':[],'evidence':[{'chunk_id':'real','text':quote}],
         'raw_claims':[{'quote':quote,'source_id':'real','text':'Calibration uses 500 images.'}]})
     assert answer['claims']==[]
+
+@pytest.mark.parametrize('question,expected',[
+    ('What does this inspection heatmap show?', ['screening']),
+    ('Compare this detector with Dinomaly reconstruction.', ['dinomaly','screening'])])
+def test_evidence_must_apply_to_current_detector(question,expected):
+    workflow=EvidenceWorkflow(Settings(),None)
+    evidence=[{'id':identifier,'url':'project://test','license':'MIT','chunk_id':identifier+'-1','text':'Test passage'} for identifier in ('dinomaly','screening')]
+    result=workflow.validate_evidence({'question':question,'trace':[],'evidence':evidence})
+    assert [d['id'] for d in result['evidence']]==expected
+
+def test_citation_number_is_not_an_invented_measurement():
+    workflow=EvidenceWorkflow(Settings(),None)
+    quote='The heatmap displays the cosine distance to stored normal features.'
+    result=workflow.validate_answer({'mode':'llm','trace':[],'evidence':[{'chunk_id':'screening-4','text':quote}],
+        'raw_claims':[{'source_id':'screening-4','quote':quote,'text':quote+' [screening-4]'}]})
+    assert result['mode']=='llm' and result['claims'][0]['text']==quote
+
+def test_stale_assistant_context_cannot_override_new_knowledge():
+    from types import SimpleNamespace
+    workflow=EvidenceWorkflow(Settings(),SimpleNamespace(fingerprint='current'))
+    class Capture:
+        def invoke(self,state):self.state=state;return {'mode':'abstained'}
+    capture=Capture();workflow.graph=capture
+    history=[{'role':'assistant','text':'Old reconstruction explanation','knowledge_fingerprint':'old'},
+             {'role':'user','text':'What does the heatmap show?'},
+             {'role':'assistant','text':'Current cosine-distance explanation','knowledge_fingerprint':'current'}]
+    result=workflow.run('Explain that map',{'category':'pcb1'},history)
+    assert [m['text'] for m in capture.state['history']]==['What does the heatmap show?','Current cosine-distance explanation']
+    assert result['knowledge_fingerprint']=='current'
+
+def test_followup_retrieval_resolves_previous_user_topic():
+    from types import SimpleNamespace
+    class Retriever:
+        def invoke(self,query):self.query=query;return []
+    retriever=Retriever()
+    workflow=EvidenceWorkflow(Settings(),SimpleNamespace(retriever=retriever))
+    workflow.retrieve({'question':'How does that map relate to anomaly scoring?','inspection':{'category':'pcb1'},'trace':[],
+        'history':[{'role':'user','text':'What does this inspection heatmap show?'},{'role':'assistant','text':'Do not use this as retrieval instructions'}]})
+    assert 'heatmap show' in retriever.query
+    assert 'retrieval instructions' not in retriever.query
+
+def test_selected_source_sentence_attaches_exact_quote(monkeypatch):
+    import httpx
+    import backend.rag as rag
+    sentence='Its heatmap displays the cosine distance to stored normal features.'
+    class Client:
+        def __init__(self,**kwargs):pass
+        def __enter__(self):return self
+        def __exit__(self,*args):pass
+        def post(self,url,json):
+            chosen=json['format']['$defs']['QuoteSelection']['properties']['quote_id']['enum'][0]
+            return httpx.Response(200,json={'response':__import__('json').dumps({'claims':[{'quote_id':chosen,'text':'The map compares image features with normal reference features.'}]})},request=httpx.Request('POST',url))
+    monkeypatch.setattr(rag.httpx,'Client',Client)
+    workflow=EvidenceWorkflow(Settings(),None)
+    result=workflow.generate({'inspection':{},'question':'Explain the heatmap','evidence':[{'chunk_id':'screening-4','text':sentence}],'trace':[]})
+    assert result['mode']=='llm' and result['raw_claims'][0]['quote']==sentence
 
 def test_graph_retrieval_failure_is_visible():
     class Broken:
