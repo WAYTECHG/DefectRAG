@@ -1,0 +1,22 @@
+{
+  "captured_local": "2026-10-16T10:26:41.9789111+08:00",
+  "action": "User-requested safe pause",
+  "processes": [
+    {
+      "pid": 21784,
+      "kind": "DefectRAG v2 local test server",
+      "command": "\"C:\\Users\\User\\Desktop\\DefectRAG-Verified\\.venv-defectrag\\Scripts\\python.exe\" -u -m uvicorn backend.main:app --host 127.0.0.1 --port 8766",
+      "action": "stopped for checkpoint"
+    },
+    {
+      "pid": 18964,
+      "kind": "DefectRAG v2 local test server",
+      "command": "\"C:\\Users\\User\\anaconda3\\python.exe\" -u -m uvicorn backend.main:app --host 127.0.0.1 --port 8766",
+      "action": "already exited"
+    }
+  ],
+  "training_jobs_started_this_resume": 0,
+  "owned_operations_remaining": 0,
+  "shared_ollama": "Left running; shared service, no new generation requested",
+  "original_project_processes": "Not stopped or modified"
+}

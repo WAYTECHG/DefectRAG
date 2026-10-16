@@ -1,0 +1,25 @@
+.venv*/
+.env
+runtime/
+node_modules/
+__pycache__/
+.pytest_cache/
+*.pyc
+*.zip
+# Code-only local checkpoint: assets remain on disk and in development archives.
+/models/
+/samples/
+/knowledge/index/
+/development-support/
+/frontend/dist/
+/CHECKPOINT_MANIFEST.json
+*.bundle
+*.safetensors
+*.npz
+*.pt
+*.pth
+*.onnx
+*.sqlite*
+*.tar
+.env.*
+!.env.example

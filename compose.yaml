@@ -1,0 +1,11 @@
+services:
+  defectrag:
+    build: .
+    ports: ["127.0.0.1:8765:8765"]
+    environment:
+      DEFECTRAG_DEVICE: cpu
+      OLLAMA_URL: http://host.docker.internal:11434
+      OLLAMA_MODEL: qwen2.5:3b
+    volumes: ["inspection-data:/app/runtime"]
+volumes:
+  inspection-data:

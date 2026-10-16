@@ -1,0 +1,1976 @@
+{
+  "train": [
+    {
+      "object": "cashew",
+      "split": "train",
+      "label": "normal",
+      "image": "cashew/Data/Images/Normal/371.JPG",
+      "mask": "",
+      "sha256": "62e0e43fcb9269f5627825a1974909925503d4cf88b34261929aee7877cebded"
+    },
+    {
+      "object": "cashew",
+      "split": "train",
+      "label": "normal",
+      "image": "cashew/Data/Images/Normal/199.JPG",
+      "mask": "",
+      "sha256": "126e2ec7abf19222e250c5d476b96207fa442b48e6c715fd7cbb03de7be9643b"
+    },
+    {
+      "object": "cashew",
+      "split": "train",
+      "label": "normal",
+      "image": "cashew/Data/Images/Normal/190.JPG",
+      "mask": "",
+      "sha256": "5d75e7ab57495d40508b1d5d0e32b11fbccf4704191b966fe11639ad6345d0a7"
+    },
+    {
+      "object": "cashew",
+      "split": "train",
+      "label": "normal",
+      "image": "cashew/Data/Images/Normal/214.JPG",
+      "mask": "",
+      "sha256": "07c9e64cadeb98dfe4cd4344bfc357b09f1cce64e1030ad9effb458dca1bb160"
+    },
+    {
+      "object": "cashew",
+      "split": "train",
+      "label": "normal",
+      "image": "cashew/Data/Images/Normal/252.JPG",
+      "mask": "",
+      "sha256": "921b949fb1dfe39ba45a4a462ed2fffe44bb76c53ed9a023dcc4404aac1ae2f5"
+    },
+    {
+      "object": "cashew",
+      "split": "train",
+      "label": "normal",
+      "image": "cashew/Data/Images/Normal/375.JPG",
+      "mask": "",
+      "sha256": "6b031473e589f541b75c75c74c77540d394d5f063f19220d32a729490990d4f5"
+    },
+    {
+      "object": "cashew",
+      "split": "train",
+      "label": "normal",
+      "image": "cashew/Data/Images/Normal/404.JPG",
+      "mask": "",
+      "sha256": "3583b5a11775aa01ee20f3ae49cd2c4d4ddfbdb181916b42a1c07dcea6cf8885"
+    },
+    {
+      "object": "cashew",
+      "split": "train",
+      "label": "normal",
+      "image": "cashew/Data/Images/Normal/184.JPG",
+      "mask": "",
+      "sha256": "7cbe7ef96ebda0620b714c19348b3408b2a61c3ca2f0fe4d14f3e435db489dc4"
+    },
+    {
+      "object": "cashew",
+      "split": "train",
+      "label": "normal",
+      "image": "cashew/Data/Images/Normal/118.JPG",
+      "mask": "",
+      "sha256": "70d39b5d06ce0af0965009a996a978a61db838c05a1b7ddaa9d3f4284bd5939b"
+    },
+    {
+      "object": "cashew",
+      "split": "train",
+      "label": "normal",
+      "image": "cashew/Data/Images/Normal/167.JPG",
+      "mask": "",
+      "sha256": "98764bf11926bd9cbc5f353d7fd1662bce9c6182051d6755a6b67ebf8b2ec30f"
+    },
+    {
+      "object": "cashew",
+      "split": "train",
+      "label": "normal",
+      "image": "cashew/Data/Images/Normal/201.JPG",
+      "mask": "",
+      "sha256": "1dd3559303246b55587ca719b81bf3bf88d0660edc4c59914585d00e1ba069cc"
+    },
+    {
+      "object": "cashew",
+      "split": "train",
+      "label": "normal",
+      "image": "cashew/Data/Images/Normal/091.JPG",
+      "mask": "",
+      "sha256": "742ca2a4b7f7c3b976bf8390bdbd5e49154cc0641cee28c1487e4519199a770b"
+    },
+    {
+      "object": "cashew",
+      "split": "train",
+      "label": "normal",
+      "image": "cashew/Data/Images/Normal/049.JPG",
+      "mask": "",
+      "sha256": "a346de812a8b46a6510527c3b85810d343313433903c8d2a86675bb64a81e96e"
+    },
+    {
+      "object": "cashew",
+      "split": "train",
+      "label": "normal",
+      "image": "cashew/Data/Images/Normal/310.JPG",
+      "mask": "",
+      "sha256": "b3275dcb6277fa07bb676f0a3eead397048ac5d01477d71f10b6a8da7e43f181"
+    },
+    {
+      "object": "cashew",
+      "split": "train",
+      "label": "normal",
+      "image": "cashew/Data/Images/Normal/434.JPG",
+      "mask": "",
+      "sha256": "3a73b299e6033769a5930e1fb2a1e377d9fa5f3ddfa3e38859326da61e5b8f5b"
+    },
+    {
+      "object": "cashew",
+      "split": "train",
+      "label": "normal",
+      "image": "cashew/Data/Images/Normal/495.JPG",
+      "mask": "",
+      "sha256": "16006256b171421cd641984fa235f3c52fd44c12113034896f1ec6eb4355aae0"
+    },
+    {
+      "object": "cashew",
+      "split": "train",
+      "label": "normal",
+      "image": "cashew/Data/Images/Normal/286.JPG",
+      "mask": "",
+      "sha256": "531f96b516293e696f02dd08e16e24735d76569a70541d531c4ec7f192ec7137"
+    },
+    {
+      "object": "cashew",
+      "split": "train",
+      "label": "normal",
+      "image": "cashew/Data/Images/Normal/158.JPG",
+      "mask": "",
+      "sha256": "3117eb2e15d816c6083245a1bbf85112d483ae091e6522aed22375e878362bd5"
+    },
+    {
+      "object": "cashew",
+      "split": "train",
+      "label": "normal",
+      "image": "cashew/Data/Images/Normal/200.JPG",
+      "mask": "",
+      "sha256": "0d6e900875347ebe54cee85673900ccffeb74b5a507a50aaaf332bd855f91069"
+    },
+    {
+      "object": "cashew",
+      "split": "train",
+      "label": "normal",
+      "image": "cashew/Data/Images/Normal/174.JPG",
+      "mask": "",
+      "sha256": "ba9a3a5c5dbbd950e98ed6a618f30d7db8857e8ee711053ab8742391d3d07206"
+    },
+    {
+      "object": "cashew",
+      "split": "train",
+      "label": "normal",
+      "image": "cashew/Data/Images/Normal/308.JPG",
+      "mask": "",
+      "sha256": "0411a792255e22280d1fffbaf07aa5dde820b47fcc4257cb49c3f3e0c5df8ce9"
+    },
+    {
+      "object": "cashew",
+      "split": "train",
+      "label": "normal",
+      "image": "cashew/Data/Images/Normal/000.JPG",
+      "mask": "",
+      "sha256": "5de461535f04175ac89dde90c4d662894aec6eef8ba946b6bc521ddeb5bdf885"
+    },
+    {
+      "object": "cashew",
+      "split": "train",
+      "label": "normal",
+      "image": "cashew/Data/Images/Normal/368.JPG",
+      "mask": "",
+      "sha256": "d9fe8686ade17d7b8b5cefd672620aa3a6893138182e39a5655b36fb9dce6154"
+    },
+    {
+      "object": "cashew",
+      "split": "train",
+      "label": "normal",
+      "image": "cashew/Data/Images/Normal/136.JPG",
+      "mask": "",
+      "sha256": "308f722cf3584514a9696a530f5e39865d592d5674867f3e9aabc1767e9aab80"
+    },
+    {
+      "object": "cashew",
+      "split": "train",
+      "label": "normal",
+      "image": "cashew/Data/Images/Normal/334.JPG",
+      "mask": "",
+      "sha256": "7124ae0359137ced54749ec7dfc6a9e0c2eab5c4c998471e2ceb69711bdf6a8c"
+    },
+    {
+      "object": "cashew",
+      "split": "train",
+      "label": "normal",
+      "image": "cashew/Data/Images/Normal/283.JPG",
+      "mask": "",
+      "sha256": "71bc1d45e958db75b42d001262111c464fa4d3b7ac0f4217da2c8de500fed52d"
+    },
+    {
+      "object": "cashew",
+      "split": "train",
+      "label": "normal",
+      "image": "cashew/Data/Images/Normal/152.JPG",
+      "mask": "",
+      "sha256": "5201be9dd0ae04acb90da5ddf7957b50be4e07187e949197c6ab5148c103ed85"
+    },
+    {
+      "object": "cashew",
+      "split": "train",
+      "label": "normal",
+      "image": "cashew/Data/Images/Normal/058.JPG",
+      "mask": "",
+      "sha256": "efd308d0d86dfb093d86c4c4aaaf62e6d4fd9a10db247c2953e9e0d585e9dd54"
+    },
+    {
+      "object": "cashew",
+      "split": "train",
+      "label": "normal",
+      "image": "cashew/Data/Images/Normal/411.JPG",
+      "mask": "",
+      "sha256": "df8fc23c1d793cf7ace84a84c50d73e109b419d3a38c7e05a6df4880d682489d"
+    },
+    {
+      "object": "cashew",
+      "split": "train",
+      "label": "normal",
+      "image": "cashew/Data/Images/Normal/333.JPG",
+      "mask": "",
+      "sha256": "635c7919b162116bb3ae34f5810e216ee8726638a1f49bcbd75ceda600758722"
+    },
+    {
+      "object": "cashew",
+      "split": "train",
+      "label": "normal",
+      "image": "cashew/Data/Images/Normal/359.JPG",
+      "mask": "",
+      "sha256": "94cc4d4fad0dd809004866e20b7e7aa8c0d13f182f6fd226a3836deea415c8e9"
+    },
+    {
+      "object": "cashew",
+      "split": "train",
+      "label": "normal",
+      "image": "cashew/Data/Images/Normal/144.JPG",
+      "mask": "",
+      "sha256": "4d13f9cc11cda6f74381c35da4c25605b6a5a39f8fdd50892c3f0bfd184c1a88"
+    },
+    {
+      "object": "cashew",
+      "split": "train",
+      "label": "normal",
+      "image": "cashew/Data/Images/Normal/247.JPG",
+      "mask": "",
+      "sha256": "90342589b021491bbeff28ac9ae9bae6231edfc31ab5c8eb0e9e1f9eff2440ce"
+    },
+    {
+      "object": "cashew",
+      "split": "train",
+      "label": "normal",
+      "image": "cashew/Data/Images/Normal/322.JPG",
+      "mask": "",
+      "sha256": "9d7e604c747f90c933c8a9f78510fc679393a10f937d884e4ebe4e9a80fb5959"
+    },
+    {
+      "object": "cashew",
+      "split": "train",
+      "label": "normal",
+      "image": "cashew/Data/Images/Normal/391.JPG",
+      "mask": "",
+      "sha256": "7a239506ed38657badda239e6a717b0c0e9bae9f2f08fcf7ba3c02d076132b21"
+    },
+    {
+      "object": "cashew",
+      "split": "train",
+      "label": "normal",
+      "image": "cashew/Data/Images/Normal/145.JPG",
+      "mask": "",
+      "sha256": "bb29281181839bf81ced0c087265f08aed8c51714c2660df7d77c081583c6eb9"
+    },
+    {
+      "object": "cashew",
+      "split": "train",
+      "label": "normal",
+      "image": "cashew/Data/Images/Normal/425.JPG",
+      "mask": "",
+      "sha256": "da04e707032b0ea83a4cc65bd7d408e48c68eda98850ccb798be24db123d0b08"
+    },
+    {
+      "object": "cashew",
+      "split": "train",
+      "label": "normal",
+      "image": "cashew/Data/Images/Normal/056.JPG",
+      "mask": "",
+      "sha256": "338972225cf7fedf6dfc9aa1c84f1b8e489fd2c8d24e8d4dc9b993d57cbdf57c"
+    },
+    {
+      "object": "cashew",
+      "split": "train",
+      "label": "normal",
+      "image": "cashew/Data/Images/Normal/280.JPG",
+      "mask": "",
+      "sha256": "ccae91b8d73d5a5865bc7e3a848b4f5ca118b3d0b8fd82d9256296fcc058c2c6"
+    },
+    {
+      "object": "cashew",
+      "split": "train",
+      "label": "normal",
+      "image": "cashew/Data/Images/Normal/428.JPG",
+      "mask": "",
+      "sha256": "8d95fe10b435adfd8bebd40370dd166eddcd079e64c9f246fe86a6adebc1020d"
+    },
+    {
+      "object": "cashew",
+      "split": "train",
+      "label": "normal",
+      "image": "cashew/Data/Images/Normal/265.JPG",
+      "mask": "",
+      "sha256": "7573caf54800fd9cfac8baafd0fbe6419922f62324022f49eb591409411f73ed"
+    },
+    {
+      "object": "cashew",
+      "split": "train",
+      "label": "normal",
+      "image": "cashew/Data/Images/Normal/037.JPG",
+      "mask": "",
+      "sha256": "dcf8bd48cae28d15c66f7219a2646116c857c88a1ff16634d47968adc713d125"
+    },
+    {
+      "object": "cashew",
+      "split": "train",
+      "label": "normal",
+      "image": "cashew/Data/Images/Normal/429.JPG",
+      "mask": "",
+      "sha256": "ac8512164e7ebfd91364d00136a0ce469845908a9409151abddc8bf2370e8709"
+    },
+    {
+      "object": "cashew",
+      "split": "train",
+      "label": "normal",
+      "image": "cashew/Data/Images/Normal/415.JPG",
+      "mask": "",
+      "sha256": "6b9f04504366e23f6628247c1c633b674ddc5ebd2f24007a3295d853c7549c36"
+    },
+    {
+      "object": "cashew",
+      "split": "train",
+      "label": "normal",
+      "image": "cashew/Data/Images/Normal/048.JPG",
+      "mask": "",
+      "sha256": "0e90286d9516eba1f112ae19a6c841480cf90a0dfc9516b73557857fcd94c378"
+    },
+    {
+      "object": "cashew",
+      "split": "train",
+      "label": "normal",
+      "image": "cashew/Data/Images/Normal/024.JPG",
+      "mask": "",
+      "sha256": "739d3d9841a58b4dc4b8c3b45fc6abfa64fb74329132c734c79158a5f3ea6862"
+    },
+    {
+      "object": "cashew",
+      "split": "train",
+      "label": "normal",
+      "image": "cashew/Data/Images/Normal/086.JPG",
+      "mask": "",
+      "sha256": "25d1706abebeb3da482cab8f7df28b8a99341f9c0621e5515f328257a55579df"
+    },
+    {
+      "object": "cashew",
+      "split": "train",
+      "label": "normal",
+      "image": "cashew/Data/Images/Normal/077.JPG",
+      "mask": "",
+      "sha256": "4edd8c50ff86e5bc3e3d0b0ca748a17ebc818a6634798e6f5e05b05161a5c88d"
+    },
+    {
+      "object": "cashew",
+      "split": "train",
+      "label": "normal",
+      "image": "cashew/Data/Images/Normal/085.JPG",
+      "mask": "",
+      "sha256": "d7242ab02418304db0093995f981dbccefe8b1c0cd89cfdb1d90727c35e7cccb"
+    },
+    {
+      "object": "cashew",
+      "split": "train",
+      "label": "normal",
+      "image": "cashew/Data/Images/Normal/454.JPG",
+      "mask": "",
+      "sha256": "560a061fd31ce53e890cd12fbea7e68f7c104eb7cbe4fc2ae79d7602036fdff0"
+    },
+    {
+      "object": "cashew",
+      "split": "train",
+      "label": "normal",
+      "image": "cashew/Data/Images/Normal/254.JPG",
+      "mask": "",
+      "sha256": "c0eead04237e19140664421a1fa2f782185dd7c48de50fc644bfcc305acc9bca"
+    },
+    {
+      "object": "cashew",
+      "split": "train",
+      "label": "normal",
+      "image": "cashew/Data/Images/Normal/179.JPG",
+      "mask": "",
+      "sha256": "7219a045fc7e4a54edaeda110e1c79b4b329ce018322e89ab938a664a6a0ae97"
+    },
+    {
+      "object": "cashew",
+      "split": "train",
+      "label": "normal",
+      "image": "cashew/Data/Images/Normal/353.JPG",
+      "mask": "",
+      "sha256": "a5c450630c1d789cbe68393bb853e435edac54e2380603b9ad0fae79e6b97c19"
+    },
+    {
+      "object": "cashew",
+      "split": "train",
+      "label": "normal",
+      "image": "cashew/Data/Images/Normal/251.JPG",
+      "mask": "",
+      "sha256": "d1dd4619c65d123c4d251884d2974615e2896f8c678b52f7e086429f0db5d701"
+    },
+    {
+      "object": "cashew",
+      "split": "train",
+      "label": "normal",
+      "image": "cashew/Data/Images/Normal/306.JPG",
+      "mask": "",
+      "sha256": "cf115c5524e47cad4f0a19cd5b60879c31b4656f220a8eda1a377592cfc35cb0"
+    },
+    {
+      "object": "cashew",
+      "split": "train",
+      "label": "normal",
+      "image": "cashew/Data/Images/Normal/279.JPG",
+      "mask": "",
+      "sha256": "7d704d60ca8559a64040d282331a855416a3f4d1886e01a081fb54d1343063e6"
+    },
+    {
+      "object": "cashew",
+      "split": "train",
+      "label": "normal",
+      "image": "cashew/Data/Images/Normal/030.JPG",
+      "mask": "",
+      "sha256": "cae48f144857dde7a9d81fe4b082f607e3a41a6aa5fd9583bf987042ba9c257c"
+    },
+    {
+      "object": "cashew",
+      "split": "train",
+      "label": "normal",
+      "image": "cashew/Data/Images/Normal/066.JPG",
+      "mask": "",
+      "sha256": "65ee74c33809c023644438e981e94b2ab0b420f6dd2d54212c733411edddcb74"
+    },
+    {
+      "object": "cashew",
+      "split": "train",
+      "label": "normal",
+      "image": "cashew/Data/Images/Normal/002.JPG",
+      "mask": "",
+      "sha256": "538f350d15b89c2e524b47d8c899c86bad560bd8464be4dc7e8cc8153d9867bd"
+    },
+    {
+      "object": "cashew",
+      "split": "train",
+      "label": "normal",
+      "image": "cashew/Data/Images/Normal/082.JPG",
+      "mask": "",
+      "sha256": "8913530031710b29cb119823c9bd450c3473d32241f8a3f94f2f5ed1afe2c034"
+    },
+    {
+      "object": "cashew",
+      "split": "train",
+      "label": "normal",
+      "image": "cashew/Data/Images/Normal/316.JPG",
+      "mask": "",
+      "sha256": "c7451ec67f9b5752adaa542d068e726c092ff437507d04dfbd4f5418f02e020e"
+    },
+    {
+      "object": "cashew",
+      "split": "train",
+      "label": "normal",
+      "image": "cashew/Data/Images/Normal/195.JPG",
+      "mask": "",
+      "sha256": "43c6ee17618748b83274f0ec2c582322267d72c00cf1e5775b253b46b9d38c1d"
+    },
+    {
+      "object": "cashew",
+      "split": "train",
+      "label": "normal",
+      "image": "cashew/Data/Images/Normal/107.JPG",
+      "mask": "",
+      "sha256": "918ebdaefb6a98c97086dbe43c9d90aa9f959e9ecc24d932e17167890bb86b89"
+    },
+    {
+      "object": "cashew",
+      "split": "train",
+      "label": "normal",
+      "image": "cashew/Data/Images/Normal/363.JPG",
+      "mask": "",
+      "sha256": "1c5a60461f16acd33d4bcc29c3c379c969b605560cec645ba29f45b41fd28122"
+    }
+  ],
+  "validation": [
+    {
+      "object": "cashew",
+      "split": "train",
+      "label": "normal",
+      "image": "cashew/Data/Images/Normal/063.JPG",
+      "mask": "",
+      "sha256": "ad5ad30515492f780d78b4c49a31150b6b3f00780df1ffe3eed818ec19605f1c"
+    },
+    {
+      "object": "cashew",
+      "split": "train",
+      "label": "normal",
+      "image": "cashew/Data/Images/Normal/112.JPG",
+      "mask": "",
+      "sha256": "0111e27a96c149626113522e9efbb86b7980bca0236a46e35afe9031f9bd8043"
+    },
+    {
+      "object": "cashew",
+      "split": "train",
+      "label": "normal",
+      "image": "cashew/Data/Images/Normal/249.JPG",
+      "mask": "",
+      "sha256": "0b383b7582e72a2d050fef643a1a7d129e199955cec7c23e488743cca7967c3c"
+    },
+    {
+      "object": "cashew",
+      "split": "train",
+      "label": "normal",
+      "image": "cashew/Data/Images/Normal/268.JPG",
+      "mask": "",
+      "sha256": "74b419d264fee36d303b89cbeb22c1907c993c9384bdbe3be4eb4ddc74daa61f"
+    },
+    {
+      "object": "cashew",
+      "split": "train",
+      "label": "normal",
+      "image": "cashew/Data/Images/Normal/293.JPG",
+      "mask": "",
+      "sha256": "7cde37b7de9bd264da5899d04e3cab1b8c16c65ac0badfc225218c8a4d4d4bfb"
+    },
+    {
+      "object": "cashew",
+      "split": "train",
+      "label": "normal",
+      "image": "cashew/Data/Images/Normal/263.JPG",
+      "mask": "",
+      "sha256": "7f7e773e782acaca7e48be41c5e15666c16642f3fa62e02e63a0cdf69247055c"
+    },
+    {
+      "object": "cashew",
+      "split": "train",
+      "label": "normal",
+      "image": "cashew/Data/Images/Normal/177.JPG",
+      "mask": "",
+      "sha256": "0deb8688f2b0b86104d75e089f5e04560dcc4d2e8b1a99017124d90977cf9dbd"
+    },
+    {
+      "object": "cashew",
+      "split": "train",
+      "label": "normal",
+      "image": "cashew/Data/Images/Normal/436.JPG",
+      "mask": "",
+      "sha256": "bfacb2cf63e81b641d76200389c463469f8b494130a50457107433e34537b454"
+    },
+    {
+      "object": "cashew",
+      "split": "train",
+      "label": "normal",
+      "image": "cashew/Data/Images/Normal/318.JPG",
+      "mask": "",
+      "sha256": "69b265bf6b31c473b945b7794b4100b7078255387beaa7380015cee2c47bf020"
+    },
+    {
+      "object": "cashew",
+      "split": "train",
+      "label": "normal",
+      "image": "cashew/Data/Images/Normal/055.JPG",
+      "mask": "",
+      "sha256": "8068b12f51ee3717b6baa5d637330ab1793e87e4a4f266874e5b55ee56597b41"
+    },
+    {
+      "object": "cashew",
+      "split": "train",
+      "label": "normal",
+      "image": "cashew/Data/Images/Normal/450.JPG",
+      "mask": "",
+      "sha256": "0323cdb6467eaaa780777acaff44b99fba07d72258f6d699b8329d9981cc418b"
+    },
+    {
+      "object": "cashew",
+      "split": "train",
+      "label": "normal",
+      "image": "cashew/Data/Images/Normal/126.JPG",
+      "mask": "",
+      "sha256": "b58d3eeb2c4efeafcc0c1ae3a65e72a0c474a4d76338f33939873ba448dfe99b"
+    },
+    {
+      "object": "cashew",
+      "split": "train",
+      "label": "normal",
+      "image": "cashew/Data/Images/Normal/132.JPG",
+      "mask": "",
+      "sha256": "f74828b51047d4dd1e28cf43de03bde823f01b1b9a51c0a495f16c50d77a4ca1"
+    },
+    {
+      "object": "cashew",
+      "split": "train",
+      "label": "normal",
+      "image": "cashew/Data/Images/Normal/266.JPG",
+      "mask": "",
+      "sha256": "6bd4a884b90d00ec0d4e7c9dd87f9bd17c9765c4ae42404c51c043540bce93ad"
+    },
+    {
+      "object": "cashew",
+      "split": "train",
+      "label": "normal",
+      "image": "cashew/Data/Images/Normal/449.JPG",
+      "mask": "",
+      "sha256": "c42e05d3ab1f4aa9470c93d60b2e369994ff75dc6b2ca7b76c2d2730f1f479c2"
+    },
+    {
+      "object": "cashew",
+      "split": "train",
+      "label": "normal",
+      "image": "cashew/Data/Images/Normal/215.JPG",
+      "mask": "",
+      "sha256": "928522b8ea10cc7b1a08241766a4cfe03815520f73c7c869ef9f309b2ebdc346"
+    },
+    {
+      "object": "cashew",
+      "split": "train",
+      "label": "normal",
+      "image": "cashew/Data/Images/Normal/311.JPG",
+      "mask": "",
+      "sha256": "2dee9d88b433002a756f6f531b2be7c7b05932aadca8d87d262ecd87836eab6a"
+    },
+    {
+      "object": "cashew",
+      "split": "train",
+      "label": "normal",
+      "image": "cashew/Data/Images/Normal/154.JPG",
+      "mask": "",
+      "sha256": "27c5128afc13d1c3dd0018219ce17c964f7a81da8d218651b822c7ef0ce6c6a1"
+    },
+    {
+      "object": "cashew",
+      "split": "train",
+      "label": "normal",
+      "image": "cashew/Data/Images/Normal/335.JPG",
+      "mask": "",
+      "sha256": "c52b463e3e12ac2988449832e7bf37d44be7c9f3319ee17bbb396e392e9e2662"
+    },
+    {
+      "object": "cashew",
+      "split": "train",
+      "label": "normal",
+      "image": "cashew/Data/Images/Normal/470.JPG",
+      "mask": "",
+      "sha256": "bd967dbd5e4aae78fe97026a0df73c55b41b7a0700619276a1e3da29c2fa7688"
+    },
+    {
+      "object": "cashew",
+      "split": "train",
+      "label": "normal",
+      "image": "cashew/Data/Images/Normal/282.JPG",
+      "mask": "",
+      "sha256": "a5ac021097405a42b817c02d334647501a586d04d753e67c3d3a42dd31ddff9d"
+    },
+    {
+      "object": "cashew",
+      "split": "train",
+      "label": "normal",
+      "image": "cashew/Data/Images/Normal/146.JPG",
+      "mask": "",
+      "sha256": "990875749bd5469ca0fab715fddbdb4b4b8483483b19223aeb3460a5c76183cf"
+    },
+    {
+      "object": "cashew",
+      "split": "train",
+      "label": "normal",
+      "image": "cashew/Data/Images/Normal/478.JPG",
+      "mask": "",
+      "sha256": "15653074b2c9e507c807dec4317f2b8b6d5f78f337eaaa25cfa98848e0b05ffa"
+    },
+    {
+      "object": "cashew",
+      "split": "train",
+      "label": "normal",
+      "image": "cashew/Data/Images/Normal/165.JPG",
+      "mask": "",
+      "sha256": "4188991e6a1aa4e55f4d04c95e051bbf256aa5cd483307d8e097df3e4a4d6158"
+    },
+    {
+      "object": "cashew",
+      "split": "train",
+      "label": "normal",
+      "image": "cashew/Data/Images/Normal/346.JPG",
+      "mask": "",
+      "sha256": "fb96a5e11aa711f0471cf6ab3c1390097099eae99ae5367d7e42a0c2e6548d24"
+    },
+    {
+      "object": "cashew",
+      "split": "train",
+      "label": "normal",
+      "image": "cashew/Data/Images/Normal/448.JPG",
+      "mask": "",
+      "sha256": "e5cc19db0b8b120190fa3bab77eaa270edaadc68ccec516aee79bcc9357d0dcf"
+    },
+    {
+      "object": "cashew",
+      "split": "train",
+      "label": "normal",
+      "image": "cashew/Data/Images/Normal/466.JPG",
+      "mask": "",
+      "sha256": "9a73122698ccab60c43a3c8ccfe07e79192d843dc98cd4ead899c4f8ab30bc57"
+    },
+    {
+      "object": "cashew",
+      "split": "train",
+      "label": "normal",
+      "image": "cashew/Data/Images/Normal/290.JPG",
+      "mask": "",
+      "sha256": "1d3f0a70fc969847d161c06f978e1dc137b2055275a214f603c41f5a6fb306f8"
+    },
+    {
+      "object": "cashew",
+      "split": "train",
+      "label": "normal",
+      "image": "cashew/Data/Images/Normal/485.JPG",
+      "mask": "",
+      "sha256": "591c08a879c27f016a237d4347667c0cda10ded72a963efdd14746cd5f196785"
+    },
+    {
+      "object": "cashew",
+      "split": "train",
+      "label": "normal",
+      "image": "cashew/Data/Images/Normal/275.JPG",
+      "mask": "",
+      "sha256": "068d866c34d5741c90a196b55dda0b10e33cd88c4d0cccc0f387476968f9a9f3"
+    },
+    {
+      "object": "cashew",
+      "split": "train",
+      "label": "normal",
+      "image": "cashew/Data/Images/Normal/285.JPG",
+      "mask": "",
+      "sha256": "4781f2766fb0f501e0668cee39d148e29751bb850b13a1fb289fc660103cb504"
+    },
+    {
+      "object": "cashew",
+      "split": "train",
+      "label": "normal",
+      "image": "cashew/Data/Images/Normal/420.JPG",
+      "mask": "",
+      "sha256": "6b318e557d2f24149282c140da5a9c03a56c4ca201588c9cab1dacfa3e5ffbee"
+    },
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "anomaly",
+      "image": "cashew/Data/Images/Anomaly/025.JPG",
+      "mask": "cashew/Data/Masks/Anomaly/025.png",
+      "sha256": "642685d7e32f6c6ce52b6531eb183abed50b813a3f731f23e4254fd179a408cb"
+    },
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "anomaly",
+      "image": "cashew/Data/Images/Anomaly/007.JPG",
+      "mask": "cashew/Data/Masks/Anomaly/007.png",
+      "sha256": "b9bee2aa906dbb2d043871a0d268cacd7f5de0e2d4c326dfb80c1ef30ca581fb"
+    },
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "anomaly",
+      "image": "cashew/Data/Images/Anomaly/090.JPG",
+      "mask": "cashew/Data/Masks/Anomaly/090.png",
+      "sha256": "5b450766a7ce9f978d31fa11bb7596eb4b55c35d81df436a58bc0424c1b1393a"
+    },
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "anomaly",
+      "image": "cashew/Data/Images/Anomaly/092.JPG",
+      "mask": "cashew/Data/Masks/Anomaly/092.png",
+      "sha256": "88a4ed3ac7ce2f1e19147667a548da6927b84eb1db2e1aaf5fd6a18fa4cab9cd"
+    },
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "anomaly",
+      "image": "cashew/Data/Images/Anomaly/011.JPG",
+      "mask": "cashew/Data/Masks/Anomaly/011.png",
+      "sha256": "092024555927b90207bb0f42304c585e359ae593a48dc6c6d696faf50dcd1b68"
+    },
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "anomaly",
+      "image": "cashew/Data/Images/Anomaly/036.JPG",
+      "mask": "cashew/Data/Masks/Anomaly/036.png",
+      "sha256": "23233851cb9b191bd400f05cfbb49e41427ce5bbf739d3a7cb56d3becad7a7aa"
+    },
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "anomaly",
+      "image": "cashew/Data/Images/Anomaly/081.JPG",
+      "mask": "cashew/Data/Masks/Anomaly/081.png",
+      "sha256": "e58f397f2626c027ab7ce9fa223d09055c14081e07e0c12af9ce72e70b51fc6e"
+    },
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "anomaly",
+      "image": "cashew/Data/Images/Anomaly/078.JPG",
+      "mask": "cashew/Data/Masks/Anomaly/078.png",
+      "sha256": "cb3caf32e8ed901c0c793a0810d721739e8b36bd7363504f0c47df3b7d16cbae"
+    },
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "anomaly",
+      "image": "cashew/Data/Images/Anomaly/024.JPG",
+      "mask": "cashew/Data/Masks/Anomaly/024.png",
+      "sha256": "9596a120007f62fb15b3fc37580d68032cc1c707e4a4006b943a49bbf89659ea"
+    },
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "anomaly",
+      "image": "cashew/Data/Images/Anomaly/040.JPG",
+      "mask": "cashew/Data/Masks/Anomaly/040.png",
+      "sha256": "e62b1b12714fca373b124aa309f934b5fd7073049558a55c75cdc88a0d5e6c28"
+    },
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "anomaly",
+      "image": "cashew/Data/Images/Anomaly/018.JPG",
+      "mask": "cashew/Data/Masks/Anomaly/018.png",
+      "sha256": "036881b0ed3bb05418c6238ce740dd64a8f8124a997b994133ee8897fec94e05"
+    },
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "anomaly",
+      "image": "cashew/Data/Images/Anomaly/076.JPG",
+      "mask": "cashew/Data/Masks/Anomaly/076.png",
+      "sha256": "e128b2de664eaa2e70fecd558de434714e7aa204d47eafe9ff22ff33910a4c15"
+    },
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "anomaly",
+      "image": "cashew/Data/Images/Anomaly/061.JPG",
+      "mask": "cashew/Data/Masks/Anomaly/061.png",
+      "sha256": "714f007e870705512d57f2324e3e0b669e9de25d0448e6ee5b6b0f4d0a58d0fc"
+    },
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "anomaly",
+      "image": "cashew/Data/Images/Anomaly/091.JPG",
+      "mask": "cashew/Data/Masks/Anomaly/091.png",
+      "sha256": "b9c2aef1408dfb378c6424094b1bd15de2f6bcb69d98e9ba8e636635d0a29ce1"
+    },
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "anomaly",
+      "image": "cashew/Data/Images/Anomaly/052.JPG",
+      "mask": "cashew/Data/Masks/Anomaly/052.png",
+      "sha256": "bd2d0817cf50c44f7a3473a03221a989d59976f6447f265baf5026210fc72266"
+    },
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "anomaly",
+      "image": "cashew/Data/Images/Anomaly/071.JPG",
+      "mask": "cashew/Data/Masks/Anomaly/071.png",
+      "sha256": "ffd74d10a1c3ffa7ff3e0933f12cceaa5d6da84fab5023f6da9075ce664bd640"
+    },
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "anomaly",
+      "image": "cashew/Data/Images/Anomaly/004.JPG",
+      "mask": "cashew/Data/Masks/Anomaly/004.png",
+      "sha256": "45d663eff3442220b6c67e1677f9c31188ac9aa6eba455dd1d7730a58551ad66"
+    },
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "anomaly",
+      "image": "cashew/Data/Images/Anomaly/026.JPG",
+      "mask": "cashew/Data/Masks/Anomaly/026.png",
+      "sha256": "2f8dbf7a194a09eb72b5c56ab9a03d751e024c9cf7948793c4a7559a64f5d93d"
+    },
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "anomaly",
+      "image": "cashew/Data/Images/Anomaly/065.JPG",
+      "mask": "cashew/Data/Masks/Anomaly/065.png",
+      "sha256": "da010d69a70ccd8d2b68c5170f1330fe440ef91d95d99b9a17f54e1462744c72"
+    },
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "anomaly",
+      "image": "cashew/Data/Images/Anomaly/014.JPG",
+      "mask": "cashew/Data/Masks/Anomaly/014.png",
+      "sha256": "6480685c4fb8abae24ba05f68846824d9bc50520f207841ba6314070106ad748"
+    }
+  ],
+  "test": [
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "normal",
+      "image": "cashew/Data/Images/Normal/006.JPG",
+      "mask": "",
+      "sha256": "4a0c0a6607571d54302bbab3605ecf764e66eb282618580a598ed9485f9c426c"
+    },
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "normal",
+      "image": "cashew/Data/Images/Normal/012.JPG",
+      "mask": "",
+      "sha256": "494eb7731a83b707726944af16a645ceb887071a68f25d2f45beb039f8c95a01"
+    },
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "normal",
+      "image": "cashew/Data/Images/Normal/013.JPG",
+      "mask": "",
+      "sha256": "b1df106228847db2ae14725109aa2e70c5e6f63bc972f36029f12a3ae8b30d98"
+    },
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "normal",
+      "image": "cashew/Data/Images/Normal/023.JPG",
+      "mask": "",
+      "sha256": "5d36d00bdfe844f2e34136112078158ad0e9739a82b17c6b3800d015a6cfdb56"
+    },
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "normal",
+      "image": "cashew/Data/Images/Normal/050.JPG",
+      "mask": "",
+      "sha256": "14eecd411457339e2f9bd85bc87894acc73125d5d4f26aaeb35d17be52ddd073"
+    },
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "normal",
+      "image": "cashew/Data/Images/Normal/084.JPG",
+      "mask": "",
+      "sha256": "7a31658ff62a6c679988f4fe00da6ae1962e0ca1a4c413277fd1b2df960ca733"
+    },
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "normal",
+      "image": "cashew/Data/Images/Normal/087.JPG",
+      "mask": "",
+      "sha256": "491c8ce73cb94bc376d48c22e33db81bd535eb10c942e76479a5d0ea68f68016"
+    },
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "normal",
+      "image": "cashew/Data/Images/Normal/089.JPG",
+      "mask": "",
+      "sha256": "b77aa89e6460e0d5f48b39fd45eb210fb9773dbb80b03a07706b86fb682109cd"
+    },
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "normal",
+      "image": "cashew/Data/Images/Normal/093.JPG",
+      "mask": "",
+      "sha256": "74ec1060a2e4da765e277a7e85e81a71a8b6941bb4557436d06ef792df5881f0"
+    },
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "normal",
+      "image": "cashew/Data/Images/Normal/098.JPG",
+      "mask": "",
+      "sha256": "57f29ccfb56f9fadf17b61e2fd1283db921ba0ccd906e294938155fcd85f0fcf"
+    },
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "normal",
+      "image": "cashew/Data/Images/Normal/104.JPG",
+      "mask": "",
+      "sha256": "5a2f5ec9e35a18497525f220666e3a8a090f4439d68f3d2724c69acc1511452a"
+    },
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "normal",
+      "image": "cashew/Data/Images/Normal/130.JPG",
+      "mask": "",
+      "sha256": "8cddfe1e6601c0565812dfab8383c6875da125d0705f0ed1460bc647e944384b"
+    },
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "normal",
+      "image": "cashew/Data/Images/Normal/143.JPG",
+      "mask": "",
+      "sha256": "ba202711c41eb3d71d1afda4c1ca1f84e8b1bd744e853c8e1d6b907ca6676fc2"
+    },
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "normal",
+      "image": "cashew/Data/Images/Normal/148.JPG",
+      "mask": "",
+      "sha256": "eb8b299c789da101c2856f1693bab14c7297f268db817fc29c505710653e7998"
+    },
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "normal",
+      "image": "cashew/Data/Images/Normal/166.JPG",
+      "mask": "",
+      "sha256": "e9321e7f07ff915eefd7e1bb278ad53439c3c9403da0db33925814b16ecf97d1"
+    },
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "normal",
+      "image": "cashew/Data/Images/Normal/181.JPG",
+      "mask": "",
+      "sha256": "de2cc1726b2d82b7d138a4ba013acd024ddce97575b981d50d0b7f5fe0d3616a"
+    },
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "normal",
+      "image": "cashew/Data/Images/Normal/213.JPG",
+      "mask": "",
+      "sha256": "9f25ab443d48e5b4f5c4e030a85c9214368715258e89327175458f8a4672eff5"
+    },
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "normal",
+      "image": "cashew/Data/Images/Normal/228.JPG",
+      "mask": "",
+      "sha256": "a0bfa3680284a78c21e334458e3ba2be40dae0371b42edd36b9c00b8d71c7555"
+    },
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "normal",
+      "image": "cashew/Data/Images/Normal/239.JPG",
+      "mask": "",
+      "sha256": "a701b133e01246025b418391b6cf0bfa7da431486fd29a4a8cd964c6ca85e007"
+    },
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "normal",
+      "image": "cashew/Data/Images/Normal/244.JPG",
+      "mask": "",
+      "sha256": "070026c3c1f52a67ad8526ff57f6b25d9ebcdfb5c3e044ef260f82cf6a221fc2"
+    },
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "normal",
+      "image": "cashew/Data/Images/Normal/245.JPG",
+      "mask": "",
+      "sha256": "914c8f76d75c7b2c73ba8a4deb323ab4e614b487ff189ffde794c0bc7e06b482"
+    },
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "normal",
+      "image": "cashew/Data/Images/Normal/260.JPG",
+      "mask": "",
+      "sha256": "95b2c3ae450f10b37ff19ff99697cc48ecf762bae1f56db6ac8c762471d31891"
+    },
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "normal",
+      "image": "cashew/Data/Images/Normal/272.JPG",
+      "mask": "",
+      "sha256": "035b1bc38b8ac7d7979caf491a902d12afa7f02a9b30714b725bed21503d31a9"
+    },
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "normal",
+      "image": "cashew/Data/Images/Normal/276.JPG",
+      "mask": "",
+      "sha256": "c380bbcfe962baa20128471ebc5647f8aed651119db4fd0aebdb0d7ee11ce5c1"
+    },
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "normal",
+      "image": "cashew/Data/Images/Normal/284.JPG",
+      "mask": "",
+      "sha256": "3884d8742d277004b5740bcde69def9dad1ca9b3993e180e3d4570706dc2f6e0"
+    },
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "normal",
+      "image": "cashew/Data/Images/Normal/307.JPG",
+      "mask": "",
+      "sha256": "b236323a6c93b8940e8ece3132375149c443fbd45c0dcdf28434cf43a9359432"
+    },
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "normal",
+      "image": "cashew/Data/Images/Normal/309.JPG",
+      "mask": "",
+      "sha256": "3e1a3c06a9742600e6e5f377eed69441a98bdeef465175cc3f1580e25d36e346"
+    },
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "normal",
+      "image": "cashew/Data/Images/Normal/324.JPG",
+      "mask": "",
+      "sha256": "85a066d105d04caba4e3010297580174546a9394552035fc9c58c8517ccd2cae"
+    },
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "normal",
+      "image": "cashew/Data/Images/Normal/337.JPG",
+      "mask": "",
+      "sha256": "560cd4f581079ce13e661f5fc538c32f69983c0df7a5406dcc06ed6dd58a1ac6"
+    },
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "normal",
+      "image": "cashew/Data/Images/Normal/342.JPG",
+      "mask": "",
+      "sha256": "6e6fe8ef555fc0b882680e1c55e64693cfc66b336c9e704b235ececff5648646"
+    },
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "normal",
+      "image": "cashew/Data/Images/Normal/344.JPG",
+      "mask": "",
+      "sha256": "226ee279d471f181a4332cabc5ba2c82581fd65bf2205a4a8352af064c1eaa6e"
+    },
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "normal",
+      "image": "cashew/Data/Images/Normal/352.JPG",
+      "mask": "",
+      "sha256": "b5988a0f63a00e31f0a5c0b3b017bd806ca82fcc315eec6c7e40176c906bb5e3"
+    },
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "normal",
+      "image": "cashew/Data/Images/Normal/367.JPG",
+      "mask": "",
+      "sha256": "2d847bca6ad1c89d7819bf553f3f1ace1a8e4087401cbedb55a4c9fd8a6b17c8"
+    },
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "normal",
+      "image": "cashew/Data/Images/Normal/369.JPG",
+      "mask": "",
+      "sha256": "aa5efd323327485830c6186eb21f0441c1534e13e78f2b9cc3ba40d1805effc5"
+    },
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "normal",
+      "image": "cashew/Data/Images/Normal/377.JPG",
+      "mask": "",
+      "sha256": "5e65b242d5647b663f2e649d8f1a7efdf0c9f11138655ee3caba639f849c7a79"
+    },
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "normal",
+      "image": "cashew/Data/Images/Normal/384.JPG",
+      "mask": "",
+      "sha256": "03cc6104b351eb87b3ee76691f94dc6fe4566fc5ece5870fbbdb3666f5024f2a"
+    },
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "normal",
+      "image": "cashew/Data/Images/Normal/389.JPG",
+      "mask": "",
+      "sha256": "35db528fd2477857bea07a53c62e8a9a6c4370a5781b0ea83169b53e603563ed"
+    },
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "normal",
+      "image": "cashew/Data/Images/Normal/392.JPG",
+      "mask": "",
+      "sha256": "0c6475f5a03daefc4136040f12a798b4f5a3eedbb904dd29e49b433e069d0566"
+    },
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "normal",
+      "image": "cashew/Data/Images/Normal/398.JPG",
+      "mask": "",
+      "sha256": "09a805d48a5eaf64a119b0d868b925697a52c2edf8f54586ed89eb66d85e84a9"
+    },
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "normal",
+      "image": "cashew/Data/Images/Normal/400.JPG",
+      "mask": "",
+      "sha256": "c591d72c32cd5b53b4d7fd9265098ae905a7b83014e6b4d5cd3f6399c9a4b095"
+    },
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "normal",
+      "image": "cashew/Data/Images/Normal/402.JPG",
+      "mask": "",
+      "sha256": "87a79d7844c326cc58158dd8513d8011876192a65867c9e56e29fcd3848a7c3b"
+    },
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "normal",
+      "image": "cashew/Data/Images/Normal/405.JPG",
+      "mask": "",
+      "sha256": "10d02d979744b0b63fb47ca51ead65b3d6356057d9429e00783a66e505a8d9a1"
+    },
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "normal",
+      "image": "cashew/Data/Images/Normal/435.JPG",
+      "mask": "",
+      "sha256": "3b5778a5571b18730dad9beeaf2bd570e823c367e060e02ff6697f8dbbedadc7"
+    },
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "normal",
+      "image": "cashew/Data/Images/Normal/446.JPG",
+      "mask": "",
+      "sha256": "2854861a65506b2685205abb63f1bb9d02f68204385f13ddaec3aeeff43b248e"
+    },
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "normal",
+      "image": "cashew/Data/Images/Normal/460.JPG",
+      "mask": "",
+      "sha256": "4365915112c2d354dd9640508b225312c6060c653b5629428df4872038d85445"
+    },
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "normal",
+      "image": "cashew/Data/Images/Normal/461.JPG",
+      "mask": "",
+      "sha256": "bc7c65dd416ad222f610bbcb41adc5a57d40e48991190ad4c588e0e28238a56f"
+    },
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "normal",
+      "image": "cashew/Data/Images/Normal/467.JPG",
+      "mask": "",
+      "sha256": "f94cfc31389450515dff4da4a1e3c0e44dcdd445367ccd109cb7e2ac5c4a50fb"
+    },
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "normal",
+      "image": "cashew/Data/Images/Normal/482.JPG",
+      "mask": "",
+      "sha256": "db1cb02e19ce0d427e999a8f10b4d3a0db23e32f365330efdeeede86b0ac1cc8"
+    },
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "normal",
+      "image": "cashew/Data/Images/Normal/484.JPG",
+      "mask": "",
+      "sha256": "c2d85b228a181c15953d78c6321dd9cad3a9e9d2a919faed108235efa7fd3d39"
+    },
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "normal",
+      "image": "cashew/Data/Images/Normal/487.JPG",
+      "mask": "",
+      "sha256": "392f72bb5db4d57f5df86b32465538ae7d905f82809dfe36d82fddb129a3f7f5"
+    },
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "anomaly",
+      "image": "cashew/Data/Images/Anomaly/023.JPG",
+      "mask": "cashew/Data/Masks/Anomaly/023.png",
+      "sha256": "f52b3cb3c5a93561ebe7dc55b52855b4b21bb423bc4aaa49ac49a079455a9455"
+    },
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "anomaly",
+      "image": "cashew/Data/Images/Anomaly/093.JPG",
+      "mask": "cashew/Data/Masks/Anomaly/093.png",
+      "sha256": "ba581bed168e3b762d6ec1c91a6ef800676314b176d28b42a31814351025eacd"
+    },
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "anomaly",
+      "image": "cashew/Data/Images/Anomaly/041.JPG",
+      "mask": "cashew/Data/Masks/Anomaly/041.png",
+      "sha256": "b6309a80dbbf0c8b08fc8b44ce5709135d7799d44d273a37956539d4c5e02d32"
+    },
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "anomaly",
+      "image": "cashew/Data/Images/Anomaly/086.JPG",
+      "mask": "cashew/Data/Masks/Anomaly/086.png",
+      "sha256": "55b5b61f144016955c76981448d2df546d168f4e0ab03d35767bd8fe01864e60"
+    },
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "anomaly",
+      "image": "cashew/Data/Images/Anomaly/056.JPG",
+      "mask": "cashew/Data/Masks/Anomaly/056.png",
+      "sha256": "868235b910b333735e825cde8a8feff10b357ef1689a2b56c51e9ff1b7becee2"
+    },
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "anomaly",
+      "image": "cashew/Data/Images/Anomaly/029.JPG",
+      "mask": "cashew/Data/Masks/Anomaly/029.png",
+      "sha256": "fda9500cb0430a3d06ed7c54f3ed8825b75e2ecc7f95d7699485c8f88336e8b0"
+    },
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "anomaly",
+      "image": "cashew/Data/Images/Anomaly/087.JPG",
+      "mask": "cashew/Data/Masks/Anomaly/087.png",
+      "sha256": "083aa84f9b77ff445ed2cde3f0797755c858312b9a8e7310c5967ab33338cbc3"
+    },
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "anomaly",
+      "image": "cashew/Data/Images/Anomaly/077.JPG",
+      "mask": "cashew/Data/Masks/Anomaly/077.png",
+      "sha256": "7bf16d2a67baa3419d3ccc4e84d34232731a8235668f1eea0e40a704e17081d7"
+    },
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "anomaly",
+      "image": "cashew/Data/Images/Anomaly/042.JPG",
+      "mask": "cashew/Data/Masks/Anomaly/042.png",
+      "sha256": "5678f95bc5f147b9c15e7935565929cbc4d133c76914afc4d21cd8daad5f2a39"
+    },
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "anomaly",
+      "image": "cashew/Data/Images/Anomaly/095.JPG",
+      "mask": "cashew/Data/Masks/Anomaly/095.png",
+      "sha256": "977a9bbd36a97c135fb04ede695d01ae7ea5842526482ea4c8e16991bf0c5638"
+    },
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "anomaly",
+      "image": "cashew/Data/Images/Anomaly/045.JPG",
+      "mask": "cashew/Data/Masks/Anomaly/045.png",
+      "sha256": "8e2d179dc4293e20a3610354fb33018c4717d12fdc68562b13444fa4a106739a"
+    },
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "anomaly",
+      "image": "cashew/Data/Images/Anomaly/012.JPG",
+      "mask": "cashew/Data/Masks/Anomaly/012.png",
+      "sha256": "8b64e5b0ded27c537ec766473e55f30967f4b060b677b75802f9f740b698eef5"
+    },
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "anomaly",
+      "image": "cashew/Data/Images/Anomaly/075.JPG",
+      "mask": "cashew/Data/Masks/Anomaly/075.png",
+      "sha256": "d9eb3cf8ff878eac084c0d9e4bad90322ea3fae7eddeafb4fbf99ddd8a55de15"
+    },
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "anomaly",
+      "image": "cashew/Data/Images/Anomaly/002.JPG",
+      "mask": "cashew/Data/Masks/Anomaly/002.png",
+      "sha256": "5720374cb888b29bbbb6499237479423610b584346bc72a20e9f82b56427f6d6"
+    },
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "anomaly",
+      "image": "cashew/Data/Images/Anomaly/099.JPG",
+      "mask": "cashew/Data/Masks/Anomaly/099.png",
+      "sha256": "da562ca3791862ac9b24d2de94ad43aee47dff52f85bf704f0c0344f4d7bc3f6"
+    },
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "anomaly",
+      "image": "cashew/Data/Images/Anomaly/039.JPG",
+      "mask": "cashew/Data/Masks/Anomaly/039.png",
+      "sha256": "392759bb3d41ab7b655e1e43662116f31ab326838c1e0a8785feed505faf82aa"
+    },
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "anomaly",
+      "image": "cashew/Data/Images/Anomaly/037.JPG",
+      "mask": "cashew/Data/Masks/Anomaly/037.png",
+      "sha256": "64c023785a044cad331225052541ff9d068be8c21a8f5e88aa8d46823ca95e1b"
+    },
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "anomaly",
+      "image": "cashew/Data/Images/Anomaly/083.JPG",
+      "mask": "cashew/Data/Masks/Anomaly/083.png",
+      "sha256": "5765e4ae39ffe77d66c85f55130312774a9c018dea2bfa02391cd7c1df785013"
+    },
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "anomaly",
+      "image": "cashew/Data/Images/Anomaly/074.JPG",
+      "mask": "cashew/Data/Masks/Anomaly/074.png",
+      "sha256": "85e5b2c8efbd0736e31f28ab9a9ca602248fd47b254fd4fa187b48008855260e"
+    },
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "anomaly",
+      "image": "cashew/Data/Images/Anomaly/044.JPG",
+      "mask": "cashew/Data/Masks/Anomaly/044.png",
+      "sha256": "0ff644948f103d0a81d7d46e569e8f95d23c48bd5ef4c9f9c391bf75964e7bae"
+    },
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "anomaly",
+      "image": "cashew/Data/Images/Anomaly/051.JPG",
+      "mask": "cashew/Data/Masks/Anomaly/051.png",
+      "sha256": "b057bf4294fc3e9b404feeb448f1162049628f75da2c46c5f68844f105bf72aa"
+    },
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "anomaly",
+      "image": "cashew/Data/Images/Anomaly/067.JPG",
+      "mask": "cashew/Data/Masks/Anomaly/067.png",
+      "sha256": "90023ac5f3ae7ffd1b86c1e0c09bc035cc77eec5d50c56289a663099b1404e80"
+    },
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "anomaly",
+      "image": "cashew/Data/Images/Anomaly/059.JPG",
+      "mask": "cashew/Data/Masks/Anomaly/059.png",
+      "sha256": "56f45eaca3c8b8e9cc7641e1216adf60055779e1a5ace2a5507959a6e019b089"
+    },
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "anomaly",
+      "image": "cashew/Data/Images/Anomaly/034.JPG",
+      "mask": "cashew/Data/Masks/Anomaly/034.png",
+      "sha256": "84ff5d59f3e24419625f495f28bc9e0827b6ff7a24e4d047cda4f19b81f310b1"
+    },
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "anomaly",
+      "image": "cashew/Data/Images/Anomaly/009.JPG",
+      "mask": "cashew/Data/Masks/Anomaly/009.png",
+      "sha256": "1de23d3918040a75681172c92be8c8d7730ea0858511fd4c5213e63ce667b86a"
+    },
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "anomaly",
+      "image": "cashew/Data/Images/Anomaly/008.JPG",
+      "mask": "cashew/Data/Masks/Anomaly/008.png",
+      "sha256": "4c60c95292a4331244d829bf1e5284fe56d0176c7051760a36d1b45da4d0d763"
+    },
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "anomaly",
+      "image": "cashew/Data/Images/Anomaly/055.JPG",
+      "mask": "cashew/Data/Masks/Anomaly/055.png",
+      "sha256": "affb1f10ad4494b6603dadfca0353cd97ef01ceed3c816242b3c098ceb1c28e9"
+    },
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "anomaly",
+      "image": "cashew/Data/Images/Anomaly/096.JPG",
+      "mask": "cashew/Data/Masks/Anomaly/096.png",
+      "sha256": "66f65d3bcfa923c909ff02c35dcfdaa5ff0e60a765fe85f24cbbcda8610ca16a"
+    },
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "anomaly",
+      "image": "cashew/Data/Images/Anomaly/006.JPG",
+      "mask": "cashew/Data/Masks/Anomaly/006.png",
+      "sha256": "0831aa04e2c6f9b29d68aa85d93152a8bc5698aeea9676d832bb8a80c0ff5682"
+    },
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "anomaly",
+      "image": "cashew/Data/Images/Anomaly/015.JPG",
+      "mask": "cashew/Data/Masks/Anomaly/015.png",
+      "sha256": "26fb234171e03a7e45c03379d2d624df92e60b1d66b7399deb2130bfe7305c57"
+    },
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "anomaly",
+      "image": "cashew/Data/Images/Anomaly/031.JPG",
+      "mask": "cashew/Data/Masks/Anomaly/031.png",
+      "sha256": "9bbc6918b4e27164a84131c99ae9a13344f07cc37d8e594ff2c420f2b90ee4d3"
+    },
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "anomaly",
+      "image": "cashew/Data/Images/Anomaly/046.JPG",
+      "mask": "cashew/Data/Masks/Anomaly/046.png",
+      "sha256": "129e2ad0414b654ee200de6a60629242c5855a8aab3edcc6b8b4161ffb573204"
+    },
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "anomaly",
+      "image": "cashew/Data/Images/Anomaly/043.JPG",
+      "mask": "cashew/Data/Masks/Anomaly/043.png",
+      "sha256": "f4488431532ccc2b7938edf777649129cfa16935403398e9fe84666077123528"
+    },
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "anomaly",
+      "image": "cashew/Data/Images/Anomaly/013.JPG",
+      "mask": "cashew/Data/Masks/Anomaly/013.png",
+      "sha256": "4e1a274d5eec117e1cba89a02f68988714e706902aebacf7920760c8a55fab60"
+    },
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "anomaly",
+      "image": "cashew/Data/Images/Anomaly/027.JPG",
+      "mask": "cashew/Data/Masks/Anomaly/027.png",
+      "sha256": "3fba1bd5f3f10ab90d4f1e44a8132412415892f00896860da689c6c854cb49bd"
+    },
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "anomaly",
+      "image": "cashew/Data/Images/Anomaly/080.JPG",
+      "mask": "cashew/Data/Masks/Anomaly/080.png",
+      "sha256": "683f1ca92d55497b947fc4dc78b20bee45e5fe8c569c3873446f477df8366dda"
+    },
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "anomaly",
+      "image": "cashew/Data/Images/Anomaly/047.JPG",
+      "mask": "cashew/Data/Masks/Anomaly/047.png",
+      "sha256": "aaaf740d78cae7b1b119b8f021e2c17fb1a5280ffdda041aa8f13602008045de"
+    },
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "anomaly",
+      "image": "cashew/Data/Images/Anomaly/021.JPG",
+      "mask": "cashew/Data/Masks/Anomaly/021.png",
+      "sha256": "410097b4888ea20de38d47c0033ca19060159224f8168da340525767a51f2c64"
+    },
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "anomaly",
+      "image": "cashew/Data/Images/Anomaly/016.JPG",
+      "mask": "cashew/Data/Masks/Anomaly/016.png",
+      "sha256": "dfecbed137813a7ff810d9d2780e685d630e511d3e5529a3e8188d40cf7b116b"
+    },
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "anomaly",
+      "image": "cashew/Data/Images/Anomaly/033.JPG",
+      "mask": "cashew/Data/Masks/Anomaly/033.png",
+      "sha256": "7848aec7251cd4ef1bff7955bb9e0f92987770b5040ed5eebe0dd957d85086eb"
+    },
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "anomaly",
+      "image": "cashew/Data/Images/Anomaly/094.JPG",
+      "mask": "cashew/Data/Masks/Anomaly/094.png",
+      "sha256": "d6b391ed5bf059028e613d29322a736282d8781074aed43ab60c5a9709038869"
+    },
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "anomaly",
+      "image": "cashew/Data/Images/Anomaly/048.JPG",
+      "mask": "cashew/Data/Masks/Anomaly/048.png",
+      "sha256": "4544d2284be8a9f43889a2f09c1141e27e9e146de1ac31f63422d2b4a7795a0c"
+    },
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "anomaly",
+      "image": "cashew/Data/Images/Anomaly/079.JPG",
+      "mask": "cashew/Data/Masks/Anomaly/079.png",
+      "sha256": "0692995106653d68ba73dd2394e09a6c83d3850aa81029d14c65375facf422f4"
+    },
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "anomaly",
+      "image": "cashew/Data/Images/Anomaly/053.JPG",
+      "mask": "cashew/Data/Masks/Anomaly/053.png",
+      "sha256": "a8a78c492c98f87da21bbf4155311ede574403477a8d3a14fb7d83c2e87fae20"
+    },
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "anomaly",
+      "image": "cashew/Data/Images/Anomaly/032.JPG",
+      "mask": "cashew/Data/Masks/Anomaly/032.png",
+      "sha256": "fd78e36ad21b32a65ac940279be55cf8817cdaa05d55be17e0987c40acf614d0"
+    },
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "anomaly",
+      "image": "cashew/Data/Images/Anomaly/010.JPG",
+      "mask": "cashew/Data/Masks/Anomaly/010.png",
+      "sha256": "097a1e896fe72e46172d059f613cfbd7b95748a8c6080b4ef26b184af686db0c"
+    },
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "anomaly",
+      "image": "cashew/Data/Images/Anomaly/003.JPG",
+      "mask": "cashew/Data/Masks/Anomaly/003.png",
+      "sha256": "07f720473af99ba5e94c7bb254d24f86061a91405d6f5c71c7d3cda3a61f54dc"
+    },
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "anomaly",
+      "image": "cashew/Data/Images/Anomaly/073.JPG",
+      "mask": "cashew/Data/Masks/Anomaly/073.png",
+      "sha256": "4ee70af0afd542d98f74444a09995157ee2944502b9441c27472853358052690"
+    },
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "anomaly",
+      "image": "cashew/Data/Images/Anomaly/064.JPG",
+      "mask": "cashew/Data/Masks/Anomaly/064.png",
+      "sha256": "80d1c1f5eae37620d5e072c89f6f9ab593ba92d2749892a49ab022323c6b1959"
+    },
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "anomaly",
+      "image": "cashew/Data/Images/Anomaly/022.JPG",
+      "mask": "cashew/Data/Masks/Anomaly/022.png",
+      "sha256": "63ce0a3c46752728fc8b0047dd2aeb7cb2d245ca88a20c3473977ce837e9e434"
+    },
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "anomaly",
+      "image": "cashew/Data/Images/Anomaly/066.JPG",
+      "mask": "cashew/Data/Masks/Anomaly/066.png",
+      "sha256": "3fb01d7debf6369fd33a73b6e3ba820475d750d32e92c30abe78f043572b5e53"
+    },
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "anomaly",
+      "image": "cashew/Data/Images/Anomaly/035.JPG",
+      "mask": "cashew/Data/Masks/Anomaly/035.png",
+      "sha256": "aba4dc8bce8ad27a1d75f35fc0ad9870aa53d707d41136e63620051a86a70633"
+    },
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "anomaly",
+      "image": "cashew/Data/Images/Anomaly/054.JPG",
+      "mask": "cashew/Data/Masks/Anomaly/054.png",
+      "sha256": "28a7d78011dda969a047c43fe4d7b77adc28e1d4dae08201791f52f78ef73ba6"
+    },
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "anomaly",
+      "image": "cashew/Data/Images/Anomaly/038.JPG",
+      "mask": "cashew/Data/Masks/Anomaly/038.png",
+      "sha256": "716ff0c1dbab230797aab0299b4d7e97286e53f38f0ef8202a77e1f5f1039a0f"
+    },
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "anomaly",
+      "image": "cashew/Data/Images/Anomaly/085.JPG",
+      "mask": "cashew/Data/Masks/Anomaly/085.png",
+      "sha256": "4fe0c4e50d512f8eb102c6c613da596902b99e8c315d8c0b27a03281955392ed"
+    },
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "anomaly",
+      "image": "cashew/Data/Images/Anomaly/063.JPG",
+      "mask": "cashew/Data/Masks/Anomaly/063.png",
+      "sha256": "f73129c149180454813610aa1b84be557d7af53c8b467633b581ccf299494e11"
+    },
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "anomaly",
+      "image": "cashew/Data/Images/Anomaly/000.JPG",
+      "mask": "cashew/Data/Masks/Anomaly/000.png",
+      "sha256": "f28c4dad19810bc27bd38389a430dcc77c4aace06a5350e74c66c9ccb38affbd"
+    },
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "anomaly",
+      "image": "cashew/Data/Images/Anomaly/030.JPG",
+      "mask": "cashew/Data/Masks/Anomaly/030.png",
+      "sha256": "ec1295138bd464c739c1d54b4fb502cf45cbeb79b69101ce8be8cb29eacb7a2c"
+    },
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "anomaly",
+      "image": "cashew/Data/Images/Anomaly/005.JPG",
+      "mask": "cashew/Data/Masks/Anomaly/005.png",
+      "sha256": "b219608cf9d3ec804d13b5627b3d7d952de57730462dc22e01dd5637a025591d"
+    },
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "anomaly",
+      "image": "cashew/Data/Images/Anomaly/019.JPG",
+      "mask": "cashew/Data/Masks/Anomaly/019.png",
+      "sha256": "32177d2076f8e4e325d2c9cc849851cbcabc14d0a52008be4808b89c07999238"
+    },
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "anomaly",
+      "image": "cashew/Data/Images/Anomaly/017.JPG",
+      "mask": "cashew/Data/Masks/Anomaly/017.png",
+      "sha256": "1959a1a89d011285777f3a488cde5f42863cfc8a8954fd2bbd2ed15089eb918e"
+    },
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "anomaly",
+      "image": "cashew/Data/Images/Anomaly/062.JPG",
+      "mask": "cashew/Data/Masks/Anomaly/062.png",
+      "sha256": "69da5ab4624cccb94c625cac793ca5454bcfbd580fbfd67ff8ad56d5ec5eca2e"
+    },
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "anomaly",
+      "image": "cashew/Data/Images/Anomaly/089.JPG",
+      "mask": "cashew/Data/Masks/Anomaly/089.png",
+      "sha256": "dae18fd2615f0acd11b1860f88e7d5aa426ec8afd0848dc01ccefe157d36d034"
+    },
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "anomaly",
+      "image": "cashew/Data/Images/Anomaly/028.JPG",
+      "mask": "cashew/Data/Masks/Anomaly/028.png",
+      "sha256": "f8f2281ab983cbeb9cb650ffe437b81642df1565764d2c7675ff173788bf1008"
+    },
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "anomaly",
+      "image": "cashew/Data/Images/Anomaly/084.JPG",
+      "mask": "cashew/Data/Masks/Anomaly/084.png",
+      "sha256": "a1a184d1f4bda8efc9fb36f582f8142e8d37f35c1683539914e8f7d73078388b"
+    },
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "anomaly",
+      "image": "cashew/Data/Images/Anomaly/057.JPG",
+      "mask": "cashew/Data/Masks/Anomaly/057.png",
+      "sha256": "ad811220191260bbe24a935c22bb8e036e08357a2d0ef5632ac47ae812c6da49"
+    },
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "anomaly",
+      "image": "cashew/Data/Images/Anomaly/001.JPG",
+      "mask": "cashew/Data/Masks/Anomaly/001.png",
+      "sha256": "1ed3b61cb81c75ffebf65bb8cbf49282f488ad634846b78c039b429c9aea61af"
+    },
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "anomaly",
+      "image": "cashew/Data/Images/Anomaly/072.JPG",
+      "mask": "cashew/Data/Masks/Anomaly/072.png",
+      "sha256": "0495f4e3ca8bd83dd410e27fa880dd830f410794af4d5470f994a11764d95b1e"
+    },
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "anomaly",
+      "image": "cashew/Data/Images/Anomaly/020.JPG",
+      "mask": "cashew/Data/Masks/Anomaly/020.png",
+      "sha256": "07bfdf2da58b61d1de26368da4b5aa2c4587de4c3ea220389647057745ba6c4a"
+    },
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "anomaly",
+      "image": "cashew/Data/Images/Anomaly/097.JPG",
+      "mask": "cashew/Data/Masks/Anomaly/097.png",
+      "sha256": "efe707ec993500470947b4e03df45d1eb630d99452b17ba2681de2f9fc41a862"
+    },
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "anomaly",
+      "image": "cashew/Data/Images/Anomaly/082.JPG",
+      "mask": "cashew/Data/Masks/Anomaly/082.png",
+      "sha256": "9790b27321f8e545a938bd2cd49ea8dc0dc5ca3b292b737009d3175cd167f5e6"
+    },
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "anomaly",
+      "image": "cashew/Data/Images/Anomaly/068.JPG",
+      "mask": "cashew/Data/Masks/Anomaly/068.png",
+      "sha256": "690e837a3e56d0cffbe645be6ed2b95b7dcb0c8f37c0893fc9e0df997d6cb71e"
+    },
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "anomaly",
+      "image": "cashew/Data/Images/Anomaly/088.JPG",
+      "mask": "cashew/Data/Masks/Anomaly/088.png",
+      "sha256": "2b0ac194c98338f44b5b3ebf3fe9e96b955b0a9cb2745b5e4f6005b75a677b20"
+    },
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "anomaly",
+      "image": "cashew/Data/Images/Anomaly/070.JPG",
+      "mask": "cashew/Data/Masks/Anomaly/070.png",
+      "sha256": "af46b61bf22fcf80d139251946d30310aad1858f35585ed33009e18d806112c4"
+    },
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "anomaly",
+      "image": "cashew/Data/Images/Anomaly/058.JPG",
+      "mask": "cashew/Data/Masks/Anomaly/058.png",
+      "sha256": "c765753d3b3f06de90428ee947f4ec5f51ee3baaacd10ff6dcd23ce533474432"
+    },
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "anomaly",
+      "image": "cashew/Data/Images/Anomaly/049.JPG",
+      "mask": "cashew/Data/Masks/Anomaly/049.png",
+      "sha256": "abd6940583cb435c246a9f30c71eed10d9bd7f58c10bd419e0fc80ddfb9afe1c"
+    },
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "anomaly",
+      "image": "cashew/Data/Images/Anomaly/098.JPG",
+      "mask": "cashew/Data/Masks/Anomaly/098.png",
+      "sha256": "12c87f3bc3a5f5ada71344c3a64e4f02f50db696c0e76f035d9a3b38b0afcfac"
+    },
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "anomaly",
+      "image": "cashew/Data/Images/Anomaly/050.JPG",
+      "mask": "cashew/Data/Masks/Anomaly/050.png",
+      "sha256": "02118dfcc70533cacff3d1f94e7545584a0162a8d5af70a71a95e9a44c1ec23b"
+    },
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "anomaly",
+      "image": "cashew/Data/Images/Anomaly/069.JPG",
+      "mask": "cashew/Data/Masks/Anomaly/069.png",
+      "sha256": "8563ea0f5b787c19274e4ec865d226ac09605542f7f003f13f0c7bb593590151"
+    },
+    {
+      "object": "cashew",
+      "split": "test",
+      "label": "anomaly",
+      "image": "cashew/Data/Images/Anomaly/060.JPG",
+      "mask": "cashew/Data/Masks/Anomaly/060.png",
+      "sha256": "c4a0cd07bbf86529361593138afb4e6af4cf72d5e9a9d90d88b93b902bf11417"
+    }
+  ]
+}

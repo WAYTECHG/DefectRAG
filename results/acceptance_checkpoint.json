@@ -1,0 +1,18 @@
+{
+  "checkpoint_date_local": "2026-10-16",
+  "status": "partial; not final acceptance",
+  "real_model_http_predictions": 6,
+  "categories": ["pcb1", "capsules", "cashew"],
+  "score_equivalence_tolerance": 0.00001,
+  "all_six_scores_matched_saved_evaluation": true,
+  "saved_image_and_heatmap_endpoints": "HTTP 200 for all six",
+  "inspection_record_retrieval": "HTTP 200 for all six",
+  "actual_bge_retrieval": "verified relevant source-attributed passages",
+  "langgraph_generation_node": "executed",
+  "genuine_accepted_llm_answer": false,
+  "blocker": "Qwen response yielded no claims passing exact source/citation validation; honest retrieval_only fallback returned; investigate raw response before retrying acceptance",
+  "browser": "Actual IAB dashboard loaded and showed saved real inspections. Full interaction and responsive QA pending.",
+  "software_tests": {"passed": 16, "failed": 0, "report": "software-tests.xml"},
+  "frontend_production_build": "passed",
+  "final_release_zip": "not yet created"
+}

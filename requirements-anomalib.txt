@@ -1,0 +1,2 @@
+# OPTIONAL; install in a separate environment. Not the shipped inference method.
+anomalib==2.6.1

@@ -1,0 +1,168 @@
+{
+  "answers": [
+    {
+      "question": "Explain this anomaly score and its limitations.",
+      "seconds": 10.394233500002883,
+      "answer": "A Good result is screening evidence, not proof that a product is safe or meets a factory specification. This score indicates the image is within the validated decision threshold and outside the review band, suggesting no significant defects were found. [screening-2]\n\nAnomaly and uncertain events create local review alerts. Review source images and heatmaps before acting. This suggests that if the anomaly score is above the threshold, further inspection is required to confirm the presence of defects. [screening-4]",
+      "mode": "llm",
+      "evidence": [
+        {
+          "text": "# Reading an inspection\nDefectRAG compares an uploaded image with normal VisA reference features for the selected product. A larger anomaly score indicates a larger feature distance; the score is not a defect probability. Good means the score lies below the validated decision threshold and outside the review band. Anomalous means it lies above the threshold and outside the review band. Uncertain means it lies within a fixed five-percent band around the threshold. This review band is an operational heuristic, not calibrated statistical confidence. A Good result is screening evidence, not proof that a product is safe or meets a factory specification.",
+          "id": "screening",
+          "file": "screening.md",
+          "title": "DefectRAG v2 screening and evidence policy",
+          "url": "project://docs/inspection-policy",
+          "license": "Project-authored, MIT",
+          "scope": "application policy; not a factory SOP",
+          "start_index": 0,
+          "chunk_id": "screening-2",
+          "similarity": 0.7585
+        },
+        {
+          "text": "# Evidence limits and response\nThe system does not predict specific defect types, component counts, root causes, process parameters, acceptance tolerances or repair instructions. Those require additional validated supervision or approved process records. Model failures create an error event, never a successful inspection. Anomaly and uncertain events create local review alerts. Review source images and heatmaps before acting. Product category is selected by the operator; arbitrary or wrong-product uploads are outside validated scope. Documentation is general context and must remain separate from image measurements.",
+          "id": "screening",
+          "file": "screening.md",
+          "title": "DefectRAG v2 screening and evidence policy",
+          "url": "project://docs/inspection-policy",
+          "license": "Project-authored, MIT",
+          "scope": "application policy; not a factory SOP",
+          "start_index": 1282,
+          "chunk_id": "screening-4",
+          "similarity": 0.7091
+        },
+        {
+          "text": "# VisA benchmark\nVisA provides normal and anomalous product images with anomaly segmentation masks. PCB1, capsules and cashew are included. The official one-class split fits on normal images; labelled normal and anomalous images are used for evaluation. Multiclass masks can be reduced to binary anomaly masks. Normal images have no stored anomaly mask. Image-level labels establish benchmark anomaly status, not a validated diagnosis for a newly uploaded photograph.\n\n# Scope and attribution\nThe VisA dataset is released by Amazon Science under CC BY 4.0. Attribute Yang Zou, Jongheon Jeong, Latha Pemula, Dongqing Zhang and Onkar Dabeer, SPot-the-Difference Self-Supervised Pre-training for Anomaly Detection and Segmentation, ECCV 2022. DefectRAG sample previews are resized JPEG derivatives. Dataset annotations are benchmark evidence, not factory acceptance tolerances.",
+          "id": "visa",
+          "file": "visa.md",
+          "title": "VisA dataset and benchmark protocol",
+          "url": "https://github.com/amazon-science/spot-diff",
+          "license": "CC BY 4.0 (dataset); attributed summary",
+          "scope": "published benchmark",
+          "start_index": 0,
+          "chunk_id": "visa-0",
+          "similarity": 0.706
+        }
+      ],
+      "claims": [
+        {
+          "text": "A Good result is screening evidence, not proof that a product is safe or meets a factory specification. This score indicates the image is within the validated decision threshold and outside the review band, suggesting no significant defects were found.",
+          "source_id": "screening-2",
+          "quote": "Good means the score lies below the validated decision threshold and outside the review band."
+        },
+        {
+          "text": "Anomaly and uncertain events create local review alerts. Review source images and heatmaps before acting. This suggests that if the anomaly score is above the threshold, further inspection is required to confirm the presence of defects.",
+          "source_id": "screening-4",
+          "quote": "Anomaly and uncertain events create local review alerts. Review source images and heatmaps before acting."
+        }
+      ],
+      "trace": [
+        "route",
+        "retrieve",
+        "validate_evidence",
+        "generate",
+        "validate_answer"
+      ],
+      "error": null,
+      "observation": {
+        "id": "18c7586f94de4b6d8ef773779f7cea2f",
+        "category": "pcb1",
+        "verdict": "Good",
+        "score": 0.029462307691574097,
+        "threshold": 0.047802507877349854
+      }
+    },
+    {
+      "question": "How is its decision threshold calibrated?",
+      "seconds": 3.855487399996491,
+      "answer": "The threshold is calibrated to maximize validation F1. This means the threshold is determined by evaluating the model's performance on a validation set that contains 32 other normal images and 20 anomalous images taken out of the official test pool. [screening-3] [screening-3]\n\nThe threshold is not a factory specification and is not calibrated to a statistical confidence. It is an operational heuristic. [screening-2] [screening-2]",
+      "mode": "llm",
+      "evidence": [
+        {
+          "text": "# Reading an inspection\nDefectRAG compares an uploaded image with normal VisA reference features for the selected product. A larger anomaly score indicates a larger feature distance; the score is not a defect probability. Good means the score lies below the validated decision threshold and outside the review band. Anomalous means it lies above the threshold and outside the review band. Uncertain means it lies within a fixed five-percent band around the threshold. This review band is an operational heuristic, not calibrated statistical confidence. A Good result is screening evidence, not proof that a product is safe or meets a factory specification.",
+          "id": "screening",
+          "file": "screening.md",
+          "title": "DefectRAG v2 screening and evidence policy",
+          "url": "project://docs/inspection-policy",
+          "license": "Project-authored, MIT",
+          "scope": "application policy; not a factory SOP",
+          "start_index": 0,
+          "chunk_id": "screening-2",
+          "similarity": 0.7415
+        },
+        {
+          "text": "# Calibration and measurements\nThe compact detector fits on 64 normal images per category. The validation set contains 32 other normal images and 20 anomalous images taken out of the official test pool. The threshold maximizes validation F1. Final test identities are disjoint from fitting and validation, verified by file checksums. This modified protocol is not the full official VisA benchmark. Precision, recall and F1 use the frozen binary threshold; dashboard uncertainty may defer some decisions. Heatmaps interpolate a 14 by 14 patch grid. Pixel metrics use 64 by 64 resized binary masks and include normal images.",
+          "id": "screening",
+          "file": "screening.md",
+          "title": "DefectRAG v2 screening and evidence policy",
+          "url": "project://docs/inspection-policy",
+          "license": "Project-authored, MIT",
+          "scope": "application policy; not a factory SOP",
+          "start_index": 658,
+          "chunk_id": "screening-3",
+          "similarity": 0.7088
+        },
+        {
+          "text": "# Evidence limits and response\nThe system does not predict specific defect types, component counts, root causes, process parameters, acceptance tolerances or repair instructions. Those require additional validated supervision or approved process records. Model failures create an error event, never a successful inspection. Anomaly and uncertain events create local review alerts. Review source images and heatmaps before acting. Product category is selected by the operator; arbitrary or wrong-product uploads are outside validated scope. Documentation is general context and must remain separate from image measurements.",
+          "id": "screening",
+          "file": "screening.md",
+          "title": "DefectRAG v2 screening and evidence policy",
+          "url": "project://docs/inspection-policy",
+          "license": "Project-authored, MIT",
+          "scope": "application policy; not a factory SOP",
+          "start_index": 1282,
+          "chunk_id": "screening-4",
+          "similarity": 0.6988
+        }
+      ],
+      "claims": [
+        {
+          "text": "The threshold is calibrated to maximize validation F1. This means the threshold is determined by evaluating the model's performance on a validation set that contains 32 other normal images and 20 anomalous images taken out of the official test pool. [screening-3]",
+          "source_id": "screening-3",
+          "quote": "The threshold maximizes validation F1. Final test identities are disjoint from fitting and validation, verified by file checksums."
+        },
+        {
+          "text": "The threshold is not a factory specification and is not calibrated to a statistical confidence. It is an operational heuristic. [screening-2]",
+          "source_id": "screening-2",
+          "quote": "A Good result is screening evidence, not proof that a product is safe or meets a factory specification."
+        }
+      ],
+      "trace": [
+        "route",
+        "retrieve",
+        "validate_evidence",
+        "generate",
+        "validate_answer"
+      ],
+      "error": null,
+      "observation": {
+        "id": "18c7586f94de4b6d8ef773779f7cea2f",
+        "category": "pcb1",
+        "verdict": "Good",
+        "score": 0.029462307691574097,
+        "threshold": 0.047802507877349854
+      }
+    },
+    {
+      "question": "What caused this defect?",
+      "seconds": 0.08932650001952425,
+      "answer": "The available measurements and documentation do not establish that claim. Specific defect names, counts, root causes, tolerances and repair instructions require additional validated evidence.",
+      "mode": "abstained",
+      "evidence": [],
+      "claims": [],
+      "trace": [
+        "route",
+        "abstain"
+      ],
+      "error": null,
+      "observation": {
+        "id": "18c7586f94de4b6d8ef773779f7cea2f",
+        "category": "pcb1",
+        "verdict": "Good",
+        "score": 0.029462307691574097,
+        "threshold": 0.047802507877349854
+      }
+    }
+  ],
+  "status": "passed",
+  "inspection_id": "18c7586f94de4b6d8ef773779f7cea2f"
+}

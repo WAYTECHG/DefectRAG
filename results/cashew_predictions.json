@@ -1,0 +1,1280 @@
+{
+  "validation": [
+    {
+      "image": "cashew/Data/Images/Normal/063.JPG",
+      "sha256": "ad5ad30515492f780d78b4c49a31150b6b3f00780df1ffe3eed818ec19605f1c",
+      "label": 0,
+      "score": 0.026144802570343018,
+      "latency_ms": 44.65750002418645
+    },
+    {
+      "image": "cashew/Data/Images/Normal/112.JPG",
+      "sha256": "0111e27a96c149626113522e9efbb86b7980bca0236a46e35afe9031f9bd8043",
+      "label": 0,
+      "score": 0.02786785364151001,
+      "latency_ms": 44.515499990666285
+    },
+    {
+      "image": "cashew/Data/Images/Normal/249.JPG",
+      "sha256": "0b383b7582e72a2d050fef643a1a7d129e199955cec7c23e488743cca7967c3c",
+      "label": 0,
+      "score": 0.026932120323181152,
+      "latency_ms": 49.83700002776459
+    },
+    {
+      "image": "cashew/Data/Images/Normal/268.JPG",
+      "sha256": "74b419d264fee36d303b89cbeb22c1907c993c9384bdbe3be4eb4ddc74daa61f",
+      "label": 0,
+      "score": 0.038818538188934326,
+      "latency_ms": 40.58380000060424
+    },
+    {
+      "image": "cashew/Data/Images/Normal/293.JPG",
+      "sha256": "7cde37b7de9bd264da5899d04e3cab1b8c16c65ac0badfc225218c8a4d4d4bfb",
+      "label": 0,
+      "score": 0.03178456425666809,
+      "latency_ms": 36.96060000220314
+    },
+    {
+      "image": "cashew/Data/Images/Normal/263.JPG",
+      "sha256": "7f7e773e782acaca7e48be41c5e15666c16642f3fa62e02e63a0cdf69247055c",
+      "label": 0,
+      "score": 0.029756009578704834,
+      "latency_ms": 36.291199998231605
+    },
+    {
+      "image": "cashew/Data/Images/Normal/177.JPG",
+      "sha256": "0deb8688f2b0b86104d75e089f5e04560dcc4d2e8b1a99017124d90977cf9dbd",
+      "label": 0,
+      "score": 0.029252201318740845,
+      "latency_ms": 35.43729998636991
+    },
+    {
+      "image": "cashew/Data/Images/Normal/436.JPG",
+      "sha256": "bfacb2cf63e81b641d76200389c463469f8b494130a50457107433e34537b454",
+      "label": 0,
+      "score": 0.028882592916488647,
+      "latency_ms": 35.32029999769293
+    },
+    {
+      "image": "cashew/Data/Images/Normal/318.JPG",
+      "sha256": "69b265bf6b31c473b945b7794b4100b7078255387beaa7380015cee2c47bf020",
+      "label": 0,
+      "score": 0.032057225704193115,
+      "latency_ms": 35.201999999117106
+    },
+    {
+      "image": "cashew/Data/Images/Normal/055.JPG",
+      "sha256": "8068b12f51ee3717b6baa5d637330ab1793e87e4a4f266874e5b55ee56597b41",
+      "label": 0,
+      "score": 0.03132057189941406,
+      "latency_ms": 36.24929999932647
+    },
+    {
+      "image": "cashew/Data/Images/Normal/450.JPG",
+      "sha256": "0323cdb6467eaaa780777acaff44b99fba07d72258f6d699b8329d9981cc418b",
+      "label": 0,
+      "score": 0.04104289412498474,
+      "latency_ms": 33.733799995388836
+    },
+    {
+      "image": "cashew/Data/Images/Normal/126.JPG",
+      "sha256": "b58d3eeb2c4efeafcc0c1ae3a65e72a0c474a4d76338f33939873ba448dfe99b",
+      "label": 0,
+      "score": 0.042619675397872925,
+      "latency_ms": 34.89949999493547
+    },
+    {
+      "image": "cashew/Data/Images/Normal/132.JPG",
+      "sha256": "f74828b51047d4dd1e28cf43de03bde823f01b1b9a51c0a495f16c50d77a4ca1",
+      "label": 0,
+      "score": 0.03377249836921692,
+      "latency_ms": 33.923699986189604
+    },
+    {
+      "image": "cashew/Data/Images/Normal/266.JPG",
+      "sha256": "6bd4a884b90d00ec0d4e7c9dd87f9bd17c9765c4ae42404c51c043540bce93ad",
+      "label": 0,
+      "score": 0.03165543079376221,
+      "latency_ms": 33.84729998651892
+    },
+    {
+      "image": "cashew/Data/Images/Normal/449.JPG",
+      "sha256": "c42e05d3ab1f4aa9470c93d60b2e369994ff75dc6b2ca7b76c2d2730f1f479c2",
+      "label": 0,
+      "score": 0.041344135999679565,
+      "latency_ms": 36.953500006347895
+    },
+    {
+      "image": "cashew/Data/Images/Normal/215.JPG",
+      "sha256": "928522b8ea10cc7b1a08241766a4cfe03815520f73c7c869ef9f309b2ebdc346",
+      "label": 0,
+      "score": 0.02770182490348816,
+      "latency_ms": 36.04199999244884
+    },
+    {
+      "image": "cashew/Data/Images/Normal/311.JPG",
+      "sha256": "2dee9d88b433002a756f6f531b2be7c7b05932aadca8d87d262ecd87836eab6a",
+      "label": 0,
+      "score": 0.029483258724212646,
+      "latency_ms": 36.05809999862686
+    },
+    {
+      "image": "cashew/Data/Images/Normal/154.JPG",
+      "sha256": "27c5128afc13d1c3dd0018219ce17c964f7a81da8d218651b822c7ef0ce6c6a1",
+      "label": 0,
+      "score": 0.02947571873664856,
+      "latency_ms": 39.13849999662489
+    },
+    {
+      "image": "cashew/Data/Images/Normal/335.JPG",
+      "sha256": "c52b463e3e12ac2988449832e7bf37d44be7c9f3319ee17bbb396e392e9e2662",
+      "label": 0,
+      "score": 0.028786808252334595,
+      "latency_ms": 34.532499994384125
+    },
+    {
+      "image": "cashew/Data/Images/Normal/470.JPG",
+      "sha256": "bd967dbd5e4aae78fe97026a0df73c55b41b7a0700619276a1e3da29c2fa7688",
+      "label": 0,
+      "score": 0.036810219287872314,
+      "latency_ms": 31.833500019274652
+    },
+    {
+      "image": "cashew/Data/Images/Normal/282.JPG",
+      "sha256": "a5ac021097405a42b817c02d334647501a586d04d753e67c3d3a42dd31ddff9d",
+      "label": 0,
+      "score": 0.034657567739486694,
+      "latency_ms": 32.29319999809377
+    },
+    {
+      "image": "cashew/Data/Images/Normal/146.JPG",
+      "sha256": "990875749bd5469ca0fab715fddbdb4b4b8483483b19223aeb3460a5c76183cf",
+      "label": 0,
+      "score": 0.026594579219818115,
+      "latency_ms": 31.388800009153783
+    },
+    {
+      "image": "cashew/Data/Images/Normal/478.JPG",
+      "sha256": "15653074b2c9e507c807dec4317f2b8b6d5f78f337eaaa25cfa98848e0b05ffa",
+      "label": 0,
+      "score": 0.03372007608413696,
+      "latency_ms": 32.388800027547404
+    },
+    {
+      "image": "cashew/Data/Images/Normal/165.JPG",
+      "sha256": "4188991e6a1aa4e55f4d04c95e051bbf256aa5cd483307d8e097df3e4a4d6158",
+      "label": 0,
+      "score": 0.0386616587638855,
+      "latency_ms": 32.43629998178221
+    },
+    {
+      "image": "cashew/Data/Images/Normal/346.JPG",
+      "sha256": "fb96a5e11aa711f0471cf6ab3c1390097099eae99ae5367d7e42a0c2e6548d24",
+      "label": 0,
+      "score": 0.02683582901954651,
+      "latency_ms": 28.583400009665638
+    },
+    {
+      "image": "cashew/Data/Images/Normal/448.JPG",
+      "sha256": "e5cc19db0b8b120190fa3bab77eaa270edaadc68ccec516aee79bcc9357d0dcf",
+      "label": 0,
+      "score": 0.024519145488739014,
+      "latency_ms": 28.507100010756403
+    },
+    {
+      "image": "cashew/Data/Images/Normal/466.JPG",
+      "sha256": "9a73122698ccab60c43a3c8ccfe07e79192d843dc98cd4ead899c4f8ab30bc57",
+      "label": 0,
+      "score": 0.04136022925376892,
+      "latency_ms": 30.06449999520555
+    },
+    {
+      "image": "cashew/Data/Images/Normal/290.JPG",
+      "sha256": "1d3f0a70fc969847d161c06f978e1dc137b2055275a214f603c41f5a6fb306f8",
+      "label": 0,
+      "score": 0.023328930139541626,
+      "latency_ms": 30.083599995123222
+    },
+    {
+      "image": "cashew/Data/Images/Normal/485.JPG",
+      "sha256": "591c08a879c27f016a237d4347667c0cda10ded72a963efdd14746cd5f196785",
+      "label": 0,
+      "score": 0.025296390056610107,
+      "latency_ms": 29.544999997597188
+    },
+    {
+      "image": "cashew/Data/Images/Normal/275.JPG",
+      "sha256": "068d866c34d5741c90a196b55dda0b10e33cd88c4d0cccc0f387476968f9a9f3",
+      "label": 0,
+      "score": 0.02602440118789673,
+      "latency_ms": 39.49670001748018
+    },
+    {
+      "image": "cashew/Data/Images/Normal/285.JPG",
+      "sha256": "4781f2766fb0f501e0668cee39d148e29751bb850b13a1fb289fc660103cb504",
+      "label": 0,
+      "score": 0.02895978093147278,
+      "latency_ms": 65.77499999548309
+    },
+    {
+      "image": "cashew/Data/Images/Normal/420.JPG",
+      "sha256": "6b318e557d2f24149282c140da5a9c03a56c4ca201588c9cab1dacfa3e5ffbee",
+      "label": 0,
+      "score": 0.029058009386062622,
+      "latency_ms": 81.74029999645427
+    },
+    {
+      "image": "cashew/Data/Images/Anomaly/025.JPG",
+      "sha256": "642685d7e32f6c6ce52b6531eb183abed50b813a3f731f23e4254fd179a408cb",
+      "label": 1,
+      "score": 0.09294801950454712,
+      "latency_ms": 99.34169999905862
+    },
+    {
+      "image": "cashew/Data/Images/Anomaly/007.JPG",
+      "sha256": "b9bee2aa906dbb2d043871a0d268cacd7f5de0e2d4c326dfb80c1ef30ca581fb",
+      "label": 1,
+      "score": 0.07332834601402283,
+      "latency_ms": 74.8955000017304
+    },
+    {
+      "image": "cashew/Data/Images/Anomaly/090.JPG",
+      "sha256": "5b450766a7ce9f978d31fa11bb7596eb4b55c35d81df436a58bc0424c1b1393a",
+      "label": 1,
+      "score": 0.031506121158599854,
+      "latency_ms": 77.14559999294579
+    },
+    {
+      "image": "cashew/Data/Images/Anomaly/092.JPG",
+      "sha256": "88a4ed3ac7ce2f1e19147667a548da6927b84eb1db2e1aaf5fd6a18fa4cab9cd",
+      "label": 1,
+      "score": 0.03883698582649231,
+      "latency_ms": 73.7399999925401
+    },
+    {
+      "image": "cashew/Data/Images/Anomaly/011.JPG",
+      "sha256": "092024555927b90207bb0f42304c585e359ae593a48dc6c6d696faf50dcd1b68",
+      "label": 1,
+      "score": 0.07275483012199402,
+      "latency_ms": 75.54499999969266
+    },
+    {
+      "image": "cashew/Data/Images/Anomaly/036.JPG",
+      "sha256": "23233851cb9b191bd400f05cfbb49e41427ce5bbf739d3a7cb56d3becad7a7aa",
+      "label": 1,
+      "score": 0.08589297533035278,
+      "latency_ms": 83.87890001176856
+    },
+    {
+      "image": "cashew/Data/Images/Anomaly/081.JPG",
+      "sha256": "e58f397f2626c027ab7ce9fa223d09055c14081e07e0c12af9ce72e70b51fc6e",
+      "label": 1,
+      "score": 0.041349858045578,
+      "latency_ms": 109.0470000053756
+    },
+    {
+      "image": "cashew/Data/Images/Anomaly/078.JPG",
+      "sha256": "cb3caf32e8ed901c0c793a0810d721739e8b36bd7363504f0c47df3b7d16cbae",
+      "label": 1,
+      "score": 0.04038485884666443,
+      "latency_ms": 96.3558999937959
+    },
+    {
+      "image": "cashew/Data/Images/Anomaly/024.JPG",
+      "sha256": "9596a120007f62fb15b3fc37580d68032cc1c707e4a4006b943a49bbf89659ea",
+      "label": 1,
+      "score": 0.07128557562828064,
+      "latency_ms": 75.0560000014957
+    },
+    {
+      "image": "cashew/Data/Images/Anomaly/040.JPG",
+      "sha256": "e62b1b12714fca373b124aa309f934b5fd7073049558a55c75cdc88a0d5e6c28",
+      "label": 1,
+      "score": 0.06606924533843994,
+      "latency_ms": 78.59299998381175
+    },
+    {
+      "image": "cashew/Data/Images/Anomaly/018.JPG",
+      "sha256": "036881b0ed3bb05418c6238ce740dd64a8f8124a997b994133ee8897fec94e05",
+      "label": 1,
+      "score": 0.08616101741790771,
+      "latency_ms": 82.56409998284653
+    },
+    {
+      "image": "cashew/Data/Images/Anomaly/076.JPG",
+      "sha256": "e128b2de664eaa2e70fecd558de434714e7aa204d47eafe9ff22ff33910a4c15",
+      "label": 1,
+      "score": 0.08030587434768677,
+      "latency_ms": 66.56040000962093
+    },
+    {
+      "image": "cashew/Data/Images/Anomaly/061.JPG",
+      "sha256": "714f007e870705512d57f2324e3e0b669e9de25d0448e6ee5b6b0f4d0a58d0fc",
+      "label": 1,
+      "score": 0.06787851452827454,
+      "latency_ms": 73.6406999931205
+    },
+    {
+      "image": "cashew/Data/Images/Anomaly/091.JPG",
+      "sha256": "b9c2aef1408dfb378c6424094b1bd15de2f6bcb69d98e9ba8e636635d0a29ce1",
+      "label": 1,
+      "score": 0.051523059606552124,
+      "latency_ms": 69.03600000077859
+    },
+    {
+      "image": "cashew/Data/Images/Anomaly/052.JPG",
+      "sha256": "bd2d0817cf50c44f7a3473a03221a989d59976f6447f265baf5026210fc72266",
+      "label": 1,
+      "score": 0.059975653886795044,
+      "latency_ms": 72.77590001467615
+    },
+    {
+      "image": "cashew/Data/Images/Anomaly/071.JPG",
+      "sha256": "ffd74d10a1c3ffa7ff3e0933f12cceaa5d6da84fab5023f6da9075ce664bd640",
+      "label": 1,
+      "score": 0.059582799673080444,
+      "latency_ms": 72.4441000202205
+    },
+    {
+      "image": "cashew/Data/Images/Anomaly/004.JPG",
+      "sha256": "45d663eff3442220b6c67e1677f9c31188ac9aa6eba455dd1d7730a58551ad66",
+      "label": 1,
+      "score": 0.06411415338516235,
+      "latency_ms": 80.9292999911122
+    },
+    {
+      "image": "cashew/Data/Images/Anomaly/026.JPG",
+      "sha256": "2f8dbf7a194a09eb72b5c56ab9a03d751e024c9cf7948793c4a7559a64f5d93d",
+      "label": 1,
+      "score": 0.12594029307365417,
+      "latency_ms": 98.39610001654364
+    },
+    {
+      "image": "cashew/Data/Images/Anomaly/065.JPG",
+      "sha256": "da010d69a70ccd8d2b68c5170f1330fe440ef91d95d99b9a17f54e1462744c72",
+      "label": 1,
+      "score": 0.09714612364768982,
+      "latency_ms": 83.88160000322387
+    },
+    {
+      "image": "cashew/Data/Images/Anomaly/014.JPG",
+      "sha256": "6480685c4fb8abae24ba05f68846824d9bc50520f207841ba6314070106ad748",
+      "label": 1,
+      "score": 0.08319693803787231,
+      "latency_ms": 71.48519999464042
+    }
+  ],
+  "test": [
+    {
+      "image": "cashew/Data/Images/Normal/006.JPG",
+      "sha256": "4a0c0a6607571d54302bbab3605ecf764e66eb282618580a598ed9485f9c426c",
+      "label": 0,
+      "score": 0.030725598335266113,
+      "latency_ms": 75.3262999933213
+    },
+    {
+      "image": "cashew/Data/Images/Normal/012.JPG",
+      "sha256": "494eb7731a83b707726944af16a645ceb887071a68f25d2f45beb039f8c95a01",
+      "label": 0,
+      "score": 0.026413321495056152,
+      "latency_ms": 83.15029999357648
+    },
+    {
+      "image": "cashew/Data/Images/Normal/013.JPG",
+      "sha256": "b1df106228847db2ae14725109aa2e70c5e6f63bc972f36029f12a3ae8b30d98",
+      "label": 0,
+      "score": 0.024982333183288574,
+      "latency_ms": 69.74909998825751
+    },
+    {
+      "image": "cashew/Data/Images/Normal/023.JPG",
+      "sha256": "5d36d00bdfe844f2e34136112078158ad0e9739a82b17c6b3800d015a6cfdb56",
+      "label": 0,
+      "score": 0.026118576526641846,
+      "latency_ms": 76.66099999914877
+    },
+    {
+      "image": "cashew/Data/Images/Normal/050.JPG",
+      "sha256": "14eecd411457339e2f9bd85bc87894acc73125d5d4f26aaeb35d17be52ddd073",
+      "label": 0,
+      "score": 0.04360467195510864,
+      "latency_ms": 72.5158000132069
+    },
+    {
+      "image": "cashew/Data/Images/Normal/084.JPG",
+      "sha256": "7a31658ff62a6c679988f4fe00da6ae1962e0ca1a4c413277fd1b2df960ca733",
+      "label": 0,
+      "score": 0.029191136360168457,
+      "latency_ms": 73.06419999804348
+    },
+    {
+      "image": "cashew/Data/Images/Normal/087.JPG",
+      "sha256": "491c8ce73cb94bc376d48c22e33db81bd535eb10c942e76479a5d0ea68f68016",
+      "label": 0,
+      "score": 0.021801680326461792,
+      "latency_ms": 71.97729998733848
+    },
+    {
+      "image": "cashew/Data/Images/Normal/089.JPG",
+      "sha256": "b77aa89e6460e0d5f48b39fd45eb210fb9773dbb80b03a07706b86fb682109cd",
+      "label": 0,
+      "score": 0.02445894479751587,
+      "latency_ms": 84.51630000490695
+    },
+    {
+      "image": "cashew/Data/Images/Normal/093.JPG",
+      "sha256": "74ec1060a2e4da765e277a7e85e81a71a8b6941bb4557436d06ef792df5881f0",
+      "label": 0,
+      "score": 0.03315350413322449,
+      "latency_ms": 79.73920000949875
+    },
+    {
+      "image": "cashew/Data/Images/Normal/098.JPG",
+      "sha256": "57f29ccfb56f9fadf17b61e2fd1283db921ba0ccd906e294938155fcd85f0fcf",
+      "label": 0,
+      "score": 0.03399667143821716,
+      "latency_ms": 89.52660000068136
+    },
+    {
+      "image": "cashew/Data/Images/Normal/104.JPG",
+      "sha256": "5a2f5ec9e35a18497525f220666e3a8a090f4439d68f3d2724c69acc1511452a",
+      "label": 0,
+      "score": 0.024359852075576782,
+      "latency_ms": 78.48029999877326
+    },
+    {
+      "image": "cashew/Data/Images/Normal/130.JPG",
+      "sha256": "8cddfe1e6601c0565812dfab8383c6875da125d0705f0ed1460bc647e944384b",
+      "label": 0,
+      "score": 0.03267937898635864,
+      "latency_ms": 88.60570000251755
+    },
+    {
+      "image": "cashew/Data/Images/Normal/143.JPG",
+      "sha256": "ba202711c41eb3d71d1afda4c1ca1f84e8b1bd744e853c8e1d6b907ca6676fc2",
+      "label": 0,
+      "score": 0.03184729814529419,
+      "latency_ms": 79.36740000150166
+    },
+    {
+      "image": "cashew/Data/Images/Normal/148.JPG",
+      "sha256": "eb8b299c789da101c2856f1693bab14c7297f268db817fc29c505710653e7998",
+      "label": 0,
+      "score": 0.026115894317626953,
+      "latency_ms": 72.01730000087991
+    },
+    {
+      "image": "cashew/Data/Images/Normal/166.JPG",
+      "sha256": "e9321e7f07ff915eefd7e1bb278ad53439c3c9403da0db33925814b16ecf97d1",
+      "label": 0,
+      "score": 0.024714261293411255,
+      "latency_ms": 75.2541999972891
+    },
+    {
+      "image": "cashew/Data/Images/Normal/181.JPG",
+      "sha256": "de2cc1726b2d82b7d138a4ba013acd024ddce97575b981d50d0b7f5fe0d3616a",
+      "label": 0,
+      "score": 0.034534573554992676,
+      "latency_ms": 73.38260000688024
+    },
+    {
+      "image": "cashew/Data/Images/Normal/213.JPG",
+      "sha256": "9f25ab443d48e5b4f5c4e030a85c9214368715258e89327175458f8a4672eff5",
+      "label": 0,
+      "score": 0.028500854969024658,
+      "latency_ms": 69.92280000122264
+    },
+    {
+      "image": "cashew/Data/Images/Normal/228.JPG",
+      "sha256": "a0bfa3680284a78c21e334458e3ba2be40dae0371b42edd36b9c00b8d71c7555",
+      "label": 0,
+      "score": 0.02347967028617859,
+      "latency_ms": 129.6083000197541
+    },
+    {
+      "image": "cashew/Data/Images/Normal/239.JPG",
+      "sha256": "a701b133e01246025b418391b6cf0bfa7da431486fd29a4a8cd964c6ca85e007",
+      "label": 0,
+      "score": 0.024237781763076782,
+      "latency_ms": 130.31690000207163
+    },
+    {
+      "image": "cashew/Data/Images/Normal/244.JPG",
+      "sha256": "070026c3c1f52a67ad8526ff57f6b25d9ebcdfb5c3e044ef260f82cf6a221fc2",
+      "label": 0,
+      "score": 0.03188025951385498,
+      "latency_ms": 51.28240000340156
+    },
+    {
+      "image": "cashew/Data/Images/Normal/245.JPG",
+      "sha256": "914c8f76d75c7b2c73ba8a4deb323ab4e614b487ff189ffde794c0bc7e06b482",
+      "label": 0,
+      "score": 0.028135448694229126,
+      "latency_ms": 42.319700005464256
+    },
+    {
+      "image": "cashew/Data/Images/Normal/260.JPG",
+      "sha256": "95b2c3ae450f10b37ff19ff99697cc48ecf762bae1f56db6ac8c762471d31891",
+      "label": 0,
+      "score": 0.029077589511871338,
+      "latency_ms": 54.4831000152044
+    },
+    {
+      "image": "cashew/Data/Images/Normal/272.JPG",
+      "sha256": "035b1bc38b8ac7d7979caf491a902d12afa7f02a9b30714b725bed21503d31a9",
+      "label": 0,
+      "score": 0.027242511510849,
+      "latency_ms": 46.3698000239674
+    },
+    {
+      "image": "cashew/Data/Images/Normal/276.JPG",
+      "sha256": "c380bbcfe962baa20128471ebc5647f8aed651119db4fd0aebdb0d7ee11ce5c1",
+      "label": 0,
+      "score": 0.030448615550994873,
+      "latency_ms": 44.64239999651909
+    },
+    {
+      "image": "cashew/Data/Images/Normal/284.JPG",
+      "sha256": "3884d8742d277004b5740bcde69def9dad1ca9b3993e180e3d4570706dc2f6e0",
+      "label": 0,
+      "score": 0.025490641593933105,
+      "latency_ms": 51.3016999757383
+    },
+    {
+      "image": "cashew/Data/Images/Normal/307.JPG",
+      "sha256": "b236323a6c93b8940e8ece3132375149c443fbd45c0dcdf28434cf43a9359432",
+      "label": 0,
+      "score": 0.030971258878707886,
+      "latency_ms": 50.158900005044416
+    },
+    {
+      "image": "cashew/Data/Images/Normal/309.JPG",
+      "sha256": "3e1a3c06a9742600e6e5f377eed69441a98bdeef465175cc3f1580e25d36e346",
+      "label": 0,
+      "score": 0.022253990173339844,
+      "latency_ms": 51.1292000010144
+    },
+    {
+      "image": "cashew/Data/Images/Normal/324.JPG",
+      "sha256": "85a066d105d04caba4e3010297580174546a9394552035fc9c58c8517ccd2cae",
+      "label": 0,
+      "score": 0.021828919649124146,
+      "latency_ms": 47.25990002043545
+    },
+    {
+      "image": "cashew/Data/Images/Normal/337.JPG",
+      "sha256": "560cd4f581079ce13e661f5fc538c32f69983c0df7a5406dcc06ed6dd58a1ac6",
+      "label": 0,
+      "score": 0.027525991201400757,
+      "latency_ms": 50.68610000307672
+    },
+    {
+      "image": "cashew/Data/Images/Normal/342.JPG",
+      "sha256": "6e6fe8ef555fc0b882680e1c55e64693cfc66b336c9e704b235ececff5648646",
+      "label": 0,
+      "score": 0.03343656659126282,
+      "latency_ms": 47.29999997653067
+    },
+    {
+      "image": "cashew/Data/Images/Normal/344.JPG",
+      "sha256": "226ee279d471f181a4332cabc5ba2c82581fd65bf2205a4a8352af064c1eaa6e",
+      "label": 0,
+      "score": 0.028808146715164185,
+      "latency_ms": 47.31160000665113
+    },
+    {
+      "image": "cashew/Data/Images/Normal/352.JPG",
+      "sha256": "b5988a0f63a00e31f0a5c0b3b017bd806ca82fcc315eec6c7e40176c906bb5e3",
+      "label": 0,
+      "score": 0.026570022106170654,
+      "latency_ms": 46.42410000087693
+    },
+    {
+      "image": "cashew/Data/Images/Normal/367.JPG",
+      "sha256": "2d847bca6ad1c89d7819bf553f3f1ace1a8e4087401cbedb55a4c9fd8a6b17c8",
+      "label": 0,
+      "score": 0.034343987703323364,
+      "latency_ms": 40.05830001551658
+    },
+    {
+      "image": "cashew/Data/Images/Normal/369.JPG",
+      "sha256": "aa5efd323327485830c6186eb21f0441c1534e13e78f2b9cc3ba40d1805effc5",
+      "label": 0,
+      "score": 0.023706138134002686,
+      "latency_ms": 40.58139998232946
+    },
+    {
+      "image": "cashew/Data/Images/Normal/377.JPG",
+      "sha256": "5e65b242d5647b663f2e649d8f1a7efdf0c9f11138655ee3caba639f849c7a79",
+      "label": 0,
+      "score": 0.02873191237449646,
+      "latency_ms": 38.12149999430403
+    },
+    {
+      "image": "cashew/Data/Images/Normal/384.JPG",
+      "sha256": "03cc6104b351eb87b3ee76691f94dc6fe4566fc5ece5870fbbdb3666f5024f2a",
+      "label": 0,
+      "score": 0.022419482469558716,
+      "latency_ms": 39.10590001032688
+    },
+    {
+      "image": "cashew/Data/Images/Normal/389.JPG",
+      "sha256": "35db528fd2477857bea07a53c62e8a9a6c4370a5781b0ea83169b53e603563ed",
+      "label": 0,
+      "score": 0.033697545528411865,
+      "latency_ms": 68.0784999858588
+    },
+    {
+      "image": "cashew/Data/Images/Normal/392.JPG",
+      "sha256": "0c6475f5a03daefc4136040f12a798b4f5a3eedbb904dd29e49b433e069d0566",
+      "label": 0,
+      "score": 0.029123246669769287,
+      "latency_ms": 41.16049999720417
+    },
+    {
+      "image": "cashew/Data/Images/Normal/398.JPG",
+      "sha256": "09a805d48a5eaf64a119b0d868b925697a52c2edf8f54586ed89eb66d85e84a9",
+      "label": 0,
+      "score": 0.028472423553466797,
+      "latency_ms": 46.58729999209754
+    },
+    {
+      "image": "cashew/Data/Images/Normal/400.JPG",
+      "sha256": "c591d72c32cd5b53b4d7fd9265098ae905a7b83014e6b4d5cd3f6399c9a4b095",
+      "label": 0,
+      "score": 0.03202220797538757,
+      "latency_ms": 41.50250001111999
+    },
+    {
+      "image": "cashew/Data/Images/Normal/402.JPG",
+      "sha256": "87a79d7844c326cc58158dd8513d8011876192a65867c9e56e29fcd3848a7c3b",
+      "label": 0,
+      "score": 0.024876266717910767,
+      "latency_ms": 38.900299987290055
+    },
+    {
+      "image": "cashew/Data/Images/Normal/405.JPG",
+      "sha256": "10d02d979744b0b63fb47ca51ead65b3d6356057d9429e00783a66e505a8d9a1",
+      "label": 0,
+      "score": 0.033035606145858765,
+      "latency_ms": 38.85260000242852
+    },
+    {
+      "image": "cashew/Data/Images/Normal/435.JPG",
+      "sha256": "3b5778a5571b18730dad9beeaf2bd570e823c367e060e02ff6697f8dbbedadc7",
+      "label": 0,
+      "score": 0.043758541345596313,
+      "latency_ms": 40.99580002366565
+    },
+    {
+      "image": "cashew/Data/Images/Normal/446.JPG",
+      "sha256": "2854861a65506b2685205abb63f1bb9d02f68204385f13ddaec3aeeff43b248e",
+      "label": 0,
+      "score": 0.04070255160331726,
+      "latency_ms": 40.16279999632388
+    },
+    {
+      "image": "cashew/Data/Images/Normal/460.JPG",
+      "sha256": "4365915112c2d354dd9640508b225312c6060c653b5629428df4872038d85445",
+      "label": 0,
+      "score": 0.025947779417037964,
+      "latency_ms": 44.694899988826364
+    },
+    {
+      "image": "cashew/Data/Images/Normal/461.JPG",
+      "sha256": "bc7c65dd416ad222f610bbcb41adc5a57d40e48991190ad4c588e0e28238a56f",
+      "label": 0,
+      "score": 0.027077138423919678,
+      "latency_ms": 38.716499984730035
+    },
+    {
+      "image": "cashew/Data/Images/Normal/467.JPG",
+      "sha256": "f94cfc31389450515dff4da4a1e3c0e44dcdd445367ccd109cb7e2ac5c4a50fb",
+      "label": 0,
+      "score": 0.040095627307891846,
+      "latency_ms": 54.51720001292415
+    },
+    {
+      "image": "cashew/Data/Images/Normal/482.JPG",
+      "sha256": "db1cb02e19ce0d427e999a8f10b4d3a0db23e32f365330efdeeede86b0ac1cc8",
+      "label": 0,
+      "score": 0.0473499596118927,
+      "latency_ms": 52.470099995844066
+    },
+    {
+      "image": "cashew/Data/Images/Normal/484.JPG",
+      "sha256": "c2d85b228a181c15953d78c6321dd9cad3a9e9d2a919faed108235efa7fd3d39",
+      "label": 0,
+      "score": 0.037571340799331665,
+      "latency_ms": 48.87669999152422
+    },
+    {
+      "image": "cashew/Data/Images/Normal/487.JPG",
+      "sha256": "392f72bb5db4d57f5df86b32465538ae7d905f82809dfe36d82fddb129a3f7f5",
+      "label": 0,
+      "score": 0.031769365072250366,
+      "latency_ms": 52.64450001413934
+    },
+    {
+      "image": "cashew/Data/Images/Anomaly/023.JPG",
+      "sha256": "f52b3cb3c5a93561ebe7dc55b52855b4b21bb423bc4aaa49ac49a079455a9455",
+      "label": 1,
+      "score": 0.07818332314491272,
+      "latency_ms": 48.77310001756996
+    },
+    {
+      "image": "cashew/Data/Images/Anomaly/093.JPG",
+      "sha256": "ba581bed168e3b762d6ec1c91a6ef800676314b176d28b42a31814351025eacd",
+      "label": 1,
+      "score": 0.04845646023750305,
+      "latency_ms": 42.419099976541474
+    },
+    {
+      "image": "cashew/Data/Images/Anomaly/041.JPG",
+      "sha256": "b6309a80dbbf0c8b08fc8b44ce5709135d7799d44d273a37956539d4c5e02d32",
+      "label": 1,
+      "score": 0.074439138174057,
+      "latency_ms": 43.13229999388568
+    },
+    {
+      "image": "cashew/Data/Images/Anomaly/086.JPG",
+      "sha256": "55b5b61f144016955c76981448d2df546d168f4e0ab03d35767bd8fe01864e60",
+      "label": 1,
+      "score": 0.06573706865310669,
+      "latency_ms": 40.89219999150373
+    },
+    {
+      "image": "cashew/Data/Images/Anomaly/056.JPG",
+      "sha256": "868235b910b333735e825cde8a8feff10b357ef1689a2b56c51e9ff1b7becee2",
+      "label": 1,
+      "score": 0.03530868887901306,
+      "latency_ms": 43.29830000642687
+    },
+    {
+      "image": "cashew/Data/Images/Anomaly/029.JPG",
+      "sha256": "fda9500cb0430a3d06ed7c54f3ed8825b75e2ecc7f95d7699485c8f88336e8b0",
+      "label": 1,
+      "score": 0.11218288540840149,
+      "latency_ms": 38.96309999981895
+    },
+    {
+      "image": "cashew/Data/Images/Anomaly/087.JPG",
+      "sha256": "083aa84f9b77ff445ed2cde3f0797755c858312b9a8e7310c5967ab33338cbc3",
+      "label": 1,
+      "score": 0.04464098811149597,
+      "latency_ms": 44.73870000219904
+    },
+    {
+      "image": "cashew/Data/Images/Anomaly/077.JPG",
+      "sha256": "7bf16d2a67baa3419d3ccc4e84d34232731a8235668f1eea0e40a704e17081d7",
+      "label": 1,
+      "score": 0.07067087292671204,
+      "latency_ms": 44.577799999387935
+    },
+    {
+      "image": "cashew/Data/Images/Anomaly/042.JPG",
+      "sha256": "5678f95bc5f147b9c15e7935565929cbc4d133c76914afc4d21cd8daad5f2a39",
+      "label": 1,
+      "score": 0.08825099468231201,
+      "latency_ms": 57.981999998446554
+    },
+    {
+      "image": "cashew/Data/Images/Anomaly/095.JPG",
+      "sha256": "977a9bbd36a97c135fb04ede695d01ae7ea5842526482ea4c8e16991bf0c5638",
+      "label": 1,
+      "score": 0.1771509349346161,
+      "latency_ms": 57.88719997508451
+    },
+    {
+      "image": "cashew/Data/Images/Anomaly/045.JPG",
+      "sha256": "8e2d179dc4293e20a3610354fb33018c4717d12fdc68562b13444fa4a106739a",
+      "label": 1,
+      "score": 0.029585570096969604,
+      "latency_ms": 52.24619997898117
+    },
+    {
+      "image": "cashew/Data/Images/Anomaly/012.JPG",
+      "sha256": "8b64e5b0ded27c537ec766473e55f30967f4b060b677b75802f9f740b698eef5",
+      "label": 1,
+      "score": 0.0952296257019043,
+      "latency_ms": 56.39409998548217
+    },
+    {
+      "image": "cashew/Data/Images/Anomaly/075.JPG",
+      "sha256": "d9eb3cf8ff878eac084c0d9e4bad90322ea3fae7eddeafb4fbf99ddd8a55de15",
+      "label": 1,
+      "score": 0.055667877197265625,
+      "latency_ms": 71.91979998606257
+    },
+    {
+      "image": "cashew/Data/Images/Anomaly/002.JPG",
+      "sha256": "5720374cb888b29bbbb6499237479423610b584346bc72a20e9f82b56427f6d6",
+      "label": 1,
+      "score": 0.05338665843009949,
+      "latency_ms": 65.57480001356453
+    },
+    {
+      "image": "cashew/Data/Images/Anomaly/099.JPG",
+      "sha256": "da562ca3791862ac9b24d2de94ad43aee47dff52f85bf704f0c0344f4d7bc3f6",
+      "label": 1,
+      "score": 0.15655386447906494,
+      "latency_ms": 56.29910001880489
+    },
+    {
+      "image": "cashew/Data/Images/Anomaly/039.JPG",
+      "sha256": "392759bb3d41ab7b655e1e43662116f31ab326838c1e0a8785feed505faf82aa",
+      "label": 1,
+      "score": 0.09404173493385315,
+      "latency_ms": 55.23870000615716
+    },
+    {
+      "image": "cashew/Data/Images/Anomaly/037.JPG",
+      "sha256": "64c023785a044cad331225052541ff9d068be8c21a8f5e88aa8d46823ca95e1b",
+      "label": 1,
+      "score": 0.10856783390045166,
+      "latency_ms": 51.0723999759648
+    },
+    {
+      "image": "cashew/Data/Images/Anomaly/083.JPG",
+      "sha256": "5765e4ae39ffe77d66c85f55130312774a9c018dea2bfa02391cd7c1df785013",
+      "label": 1,
+      "score": 0.06729739904403687,
+      "latency_ms": 49.662399978842586
+    },
+    {
+      "image": "cashew/Data/Images/Anomaly/074.JPG",
+      "sha256": "85e5b2c8efbd0736e31f28ab9a9ca602248fd47b254fd4fa187b48008855260e",
+      "label": 1,
+      "score": 0.08006379008293152,
+      "latency_ms": 44.21999998157844
+    },
+    {
+      "image": "cashew/Data/Images/Anomaly/044.JPG",
+      "sha256": "0ff644948f103d0a81d7d46e569e8f95d23c48bd5ef4c9f9c391bf75964e7bae",
+      "label": 1,
+      "score": 0.029273509979248047,
+      "latency_ms": 57.01070002396591
+    },
+    {
+      "image": "cashew/Data/Images/Anomaly/051.JPG",
+      "sha256": "b057bf4294fc3e9b404feeb448f1162049628f75da2c46c5f68844f105bf72aa",
+      "label": 1,
+      "score": 0.03680303692817688,
+      "latency_ms": 41.84689998510294
+    },
+    {
+      "image": "cashew/Data/Images/Anomaly/067.JPG",
+      "sha256": "90023ac5f3ae7ffd1b86c1e0c09bc035cc77eec5d50c56289a663099b1404e80",
+      "label": 1,
+      "score": 0.04956090450286865,
+      "latency_ms": 46.91969999112189
+    },
+    {
+      "image": "cashew/Data/Images/Anomaly/059.JPG",
+      "sha256": "56f45eaca3c8b8e9cc7641e1216adf60055779e1a5ace2a5507959a6e019b089",
+      "label": 1,
+      "score": 0.03249591588973999,
+      "latency_ms": 42.23500000080094
+    },
+    {
+      "image": "cashew/Data/Images/Anomaly/034.JPG",
+      "sha256": "84ff5d59f3e24419625f495f28bc9e0827b6ff7a24e4d047cda4f19b81f310b1",
+      "label": 1,
+      "score": 0.10629260540008545,
+      "latency_ms": 46.8125999905169
+    },
+    {
+      "image": "cashew/Data/Images/Anomaly/009.JPG",
+      "sha256": "1de23d3918040a75681172c92be8c8d7730ea0858511fd4c5213e63ce667b86a",
+      "label": 1,
+      "score": 0.0549454391002655,
+      "latency_ms": 41.896300012012944
+    },
+    {
+      "image": "cashew/Data/Images/Anomaly/008.JPG",
+      "sha256": "4c60c95292a4331244d829bf1e5284fe56d0176c7051760a36d1b45da4d0d763",
+      "label": 1,
+      "score": 0.03538388013839722,
+      "latency_ms": 37.98639998422004
+    },
+    {
+      "image": "cashew/Data/Images/Anomaly/055.JPG",
+      "sha256": "affb1f10ad4494b6603dadfca0353cd97ef01ceed3c816242b3c098ceb1c28e9",
+      "label": 1,
+      "score": 0.03415316343307495,
+      "latency_ms": 43.80179999861866
+    },
+    {
+      "image": "cashew/Data/Images/Anomaly/096.JPG",
+      "sha256": "66f65d3bcfa923c909ff02c35dcfdaa5ff0e60a765fe85f24cbbcda8610ca16a",
+      "label": 1,
+      "score": 0.1364891529083252,
+      "latency_ms": 46.331999998074025
+    },
+    {
+      "image": "cashew/Data/Images/Anomaly/006.JPG",
+      "sha256": "0831aa04e2c6f9b29d68aa85d93152a8bc5698aeea9676d832bb8a80c0ff5682",
+      "label": 1,
+      "score": 0.06878170371055603,
+      "latency_ms": 40.793899999698624
+    },
+    {
+      "image": "cashew/Data/Images/Anomaly/015.JPG",
+      "sha256": "26fb234171e03a7e45c03379d2d624df92e60b1d66b7399deb2130bfe7305c57",
+      "label": 1,
+      "score": 0.058752089738845825,
+      "latency_ms": 39.03340001124889
+    },
+    {
+      "image": "cashew/Data/Images/Anomaly/031.JPG",
+      "sha256": "9bbc6918b4e27164a84131c99ae9a13344f07cc37d8e594ff2c420f2b90ee4d3",
+      "label": 1,
+      "score": 0.12961187958717346,
+      "latency_ms": 39.22559999045916
+    },
+    {
+      "image": "cashew/Data/Images/Anomaly/046.JPG",
+      "sha256": "129e2ad0414b654ee200de6a60629242c5855a8aab3edcc6b8b4161ffb573204",
+      "label": 1,
+      "score": 0.0647377073764801,
+      "latency_ms": 41.00289999041706
+    },
+    {
+      "image": "cashew/Data/Images/Anomaly/043.JPG",
+      "sha256": "f4488431532ccc2b7938edf777649129cfa16935403398e9fe84666077123528",
+      "label": 1,
+      "score": 0.06338876485824585,
+      "latency_ms": 43.0099000222981
+    },
+    {
+      "image": "cashew/Data/Images/Anomaly/013.JPG",
+      "sha256": "4e1a274d5eec117e1cba89a02f68988714e706902aebacf7920760c8a55fab60",
+      "label": 1,
+      "score": 0.06248018145561218,
+      "latency_ms": 37.62940000160597
+    },
+    {
+      "image": "cashew/Data/Images/Anomaly/027.JPG",
+      "sha256": "3fba1bd5f3f10ab90d4f1e44a8132412415892f00896860da689c6c854cb49bd",
+      "label": 1,
+      "score": 0.09597533941268921,
+      "latency_ms": 37.81049998360686
+    },
+    {
+      "image": "cashew/Data/Images/Anomaly/080.JPG",
+      "sha256": "683f1ca92d55497b947fc4dc78b20bee45e5fe8c569c3873446f477df8366dda",
+      "label": 1,
+      "score": 0.05150645971298218,
+      "latency_ms": 38.233400002354756
+    },
+    {
+      "image": "cashew/Data/Images/Anomaly/047.JPG",
+      "sha256": "aaaf740d78cae7b1b119b8f021e2c17fb1a5280ffdda041aa8f13602008045de",
+      "label": 1,
+      "score": 0.04311639070510864,
+      "latency_ms": 34.57069999421947
+    },
+    {
+      "image": "cashew/Data/Images/Anomaly/021.JPG",
+      "sha256": "410097b4888ea20de38d47c0033ca19060159224f8168da340525767a51f2c64",
+      "label": 1,
+      "score": 0.0413985550403595,
+      "latency_ms": 35.92130000470206
+    },
+    {
+      "image": "cashew/Data/Images/Anomaly/016.JPG",
+      "sha256": "dfecbed137813a7ff810d9d2780e685d630e511d3e5529a3e8188d40cf7b116b",
+      "label": 1,
+      "score": 0.06647726893424988,
+      "latency_ms": 36.88620001776144
+    },
+    {
+      "image": "cashew/Data/Images/Anomaly/033.JPG",
+      "sha256": "7848aec7251cd4ef1bff7955bb9e0f92987770b5040ed5eebe0dd957d85086eb",
+      "label": 1,
+      "score": 0.0952078104019165,
+      "latency_ms": 36.79270000429824
+    },
+    {
+      "image": "cashew/Data/Images/Anomaly/094.JPG",
+      "sha256": "d6b391ed5bf059028e613d29322a736282d8781074aed43ab60c5a9709038869",
+      "label": 1,
+      "score": 0.1698417365550995,
+      "latency_ms": 33.690799988107756
+    },
+    {
+      "image": "cashew/Data/Images/Anomaly/048.JPG",
+      "sha256": "4544d2284be8a9f43889a2f09c1141e27e9e146de1ac31f63422d2b4a7795a0c",
+      "label": 1,
+      "score": 0.05177459120750427,
+      "latency_ms": 35.15859998879023
+    },
+    {
+      "image": "cashew/Data/Images/Anomaly/079.JPG",
+      "sha256": "0692995106653d68ba73dd2394e09a6c83d3850aa81029d14c65375facf422f4",
+      "label": 1,
+      "score": 0.07434213161468506,
+      "latency_ms": 37.839299999177456
+    },
+    {
+      "image": "cashew/Data/Images/Anomaly/053.JPG",
+      "sha256": "a8a78c492c98f87da21bbf4155311ede574403477a8d3a14fb7d83c2e87fae20",
+      "label": 1,
+      "score": 0.03402501344680786,
+      "latency_ms": 38.35759998764843
+    },
+    {
+      "image": "cashew/Data/Images/Anomaly/032.JPG",
+      "sha256": "fd78e36ad21b32a65ac940279be55cf8817cdaa05d55be17e0987c40acf614d0",
+      "label": 1,
+      "score": 0.14948540925979614,
+      "latency_ms": 40.20160000072792
+    },
+    {
+      "image": "cashew/Data/Images/Anomaly/010.JPG",
+      "sha256": "097a1e896fe72e46172d059f613cfbd7b95748a8c6080b4ef26b184af686db0c",
+      "label": 1,
+      "score": 0.044051945209503174,
+      "latency_ms": 36.0930000024382
+    },
+    {
+      "image": "cashew/Data/Images/Anomaly/003.JPG",
+      "sha256": "07f720473af99ba5e94c7bb254d24f86061a91405d6f5c71c7d3cda3a61f54dc",
+      "label": 1,
+      "score": 0.04823264479637146,
+      "latency_ms": 35.535400005755946
+    },
+    {
+      "image": "cashew/Data/Images/Anomaly/073.JPG",
+      "sha256": "4ee70af0afd542d98f74444a09995157ee2944502b9441c27472853358052690",
+      "label": 1,
+      "score": 0.06329602003097534,
+      "latency_ms": 35.0103999953717
+    },
+    {
+      "image": "cashew/Data/Images/Anomaly/064.JPG",
+      "sha256": "80d1c1f5eae37620d5e072c89f6f9ab593ba92d2749892a49ab022323c6b1959",
+      "label": 1,
+      "score": 0.05670472979545593,
+      "latency_ms": 38.304800022160634
+    },
+    {
+      "image": "cashew/Data/Images/Anomaly/022.JPG",
+      "sha256": "63ce0a3c46752728fc8b0047dd2aeb7cb2d245ca88a20c3473977ce837e9e434",
+      "label": 1,
+      "score": 0.07597896456718445,
+      "latency_ms": 35.836099996231496
+    },
+    {
+      "image": "cashew/Data/Images/Anomaly/066.JPG",
+      "sha256": "3fb01d7debf6369fd33a73b6e3ba820475d750d32e92c30abe78f043572b5e53",
+      "label": 1,
+      "score": 0.04669228196144104,
+      "latency_ms": 34.50820001307875
+    },
+    {
+      "image": "cashew/Data/Images/Anomaly/035.JPG",
+      "sha256": "aba4dc8bce8ad27a1d75f35fc0ad9870aa53d707d41136e63620051a86a70633",
+      "label": 1,
+      "score": 0.10047057271003723,
+      "latency_ms": 34.58020000834949
+    },
+    {
+      "image": "cashew/Data/Images/Anomaly/054.JPG",
+      "sha256": "28a7d78011dda969a047c43fe4d7b77adc28e1d4dae08201791f52f78ef73ba6",
+      "label": 1,
+      "score": 0.03359532356262207,
+      "latency_ms": 33.14220000174828
+    },
+    {
+      "image": "cashew/Data/Images/Anomaly/038.JPG",
+      "sha256": "716ff0c1dbab230797aab0299b4d7e97286e53f38f0ef8202a77e1f5f1039a0f",
+      "label": 1,
+      "score": 0.09900012612342834,
+      "latency_ms": 34.05939997173846
+    },
+    {
+      "image": "cashew/Data/Images/Anomaly/085.JPG",
+      "sha256": "4fe0c4e50d512f8eb102c6c613da596902b99e8c315d8c0b27a03281955392ed",
+      "label": 1,
+      "score": 0.04581764340400696,
+      "latency_ms": 34.44909999961965
+    },
+    {
+      "image": "cashew/Data/Images/Anomaly/063.JPG",
+      "sha256": "f73129c149180454813610aa1b84be557d7af53c8b467633b581ccf299494e11",
+      "label": 1,
+      "score": 0.0698729157447815,
+      "latency_ms": 47.12819997803308
+    },
+    {
+      "image": "cashew/Data/Images/Anomaly/000.JPG",
+      "sha256": "f28c4dad19810bc27bd38389a430dcc77c4aace06a5350e74c66c9ccb38affbd",
+      "label": 1,
+      "score": 0.0899057686328888,
+      "latency_ms": 35.52720000152476
+    },
+    {
+      "image": "cashew/Data/Images/Anomaly/030.JPG",
+      "sha256": "ec1295138bd464c739c1d54b4fb502cf45cbeb79b69101ce8be8cb29eacb7a2c",
+      "label": 1,
+      "score": 0.09956082701683044,
+      "latency_ms": 43.924300000071526
+    },
+    {
+      "image": "cashew/Data/Images/Anomaly/005.JPG",
+      "sha256": "b219608cf9d3ec804d13b5627b3d7d952de57730462dc22e01dd5637a025591d",
+      "label": 1,
+      "score": 0.0477677583694458,
+      "latency_ms": 42.54620001302101
+    },
+    {
+      "image": "cashew/Data/Images/Anomaly/019.JPG",
+      "sha256": "32177d2076f8e4e325d2c9cc849851cbcabc14d0a52008be4808b89c07999238",
+      "label": 1,
+      "score": 0.07535350322723389,
+      "latency_ms": 38.8295000011567
+    },
+    {
+      "image": "cashew/Data/Images/Anomaly/017.JPG",
+      "sha256": "1959a1a89d011285777f3a488cde5f42863cfc8a8954fd2bbd2ed15089eb918e",
+      "label": 1,
+      "score": 0.09518036246299744,
+      "latency_ms": 37.698699976317585
+    },
+    {
+      "image": "cashew/Data/Images/Anomaly/062.JPG",
+      "sha256": "69da5ab4624cccb94c625cac793ca5454bcfbd580fbfd67ff8ad56d5ec5eca2e",
+      "label": 1,
+      "score": 0.06102949380874634,
+      "latency_ms": 34.18339998461306
+    },
+    {
+      "image": "cashew/Data/Images/Anomaly/089.JPG",
+      "sha256": "dae18fd2615f0acd11b1860f88e7d5aa426ec8afd0848dc01ccefe157d36d034",
+      "label": 1,
+      "score": 0.044129520654678345,
+      "latency_ms": 34.78200000245124
+    },
+    {
+      "image": "cashew/Data/Images/Anomaly/028.JPG",
+      "sha256": "f8f2281ab983cbeb9cb650ffe437b81642df1565764d2c7675ff173788bf1008",
+      "label": 1,
+      "score": 0.07499182224273682,
+      "latency_ms": 58.509499998763204
+    },
+    {
+      "image": "cashew/Data/Images/Anomaly/084.JPG",
+      "sha256": "a1a184d1f4bda8efc9fb36f582f8142e8d37f35c1683539914e8f7d73078388b",
+      "label": 1,
+      "score": 0.07036074995994568,
+      "latency_ms": 77.96569998026825
+    },
+    {
+      "image": "cashew/Data/Images/Anomaly/057.JPG",
+      "sha256": "ad811220191260bbe24a935c22bb8e036e08357a2d0ef5632ac47ae812c6da49",
+      "label": 1,
+      "score": 0.05203664302825928,
+      "latency_ms": 80.52999997744337
+    },
+    {
+      "image": "cashew/Data/Images/Anomaly/001.JPG",
+      "sha256": "1ed3b61cb81c75ffebf65bb8cbf49282f488ad634846b78c039b429c9aea61af",
+      "label": 1,
+      "score": 0.042588382959365845,
+      "latency_ms": 80.63169999513775
+    },
+    {
+      "image": "cashew/Data/Images/Anomaly/072.JPG",
+      "sha256": "0495f4e3ca8bd83dd410e27fa880dd830f410794af4d5470f994a11764d95b1e",
+      "label": 1,
+      "score": 0.10050207376480103,
+      "latency_ms": 78.95610001287423
+    },
+    {
+      "image": "cashew/Data/Images/Anomaly/020.JPG",
+      "sha256": "07bfdf2da58b61d1de26368da4b5aa2c4587de4c3ea220389647057745ba6c4a",
+      "label": 1,
+      "score": 0.09165489673614502,
+      "latency_ms": 72.10719998693094
+    },
+    {
+      "image": "cashew/Data/Images/Anomaly/097.JPG",
+      "sha256": "efe707ec993500470947b4e03df45d1eb630d99452b17ba2681de2f9fc41a862",
+      "label": 1,
+      "score": 0.13735046982765198,
+      "latency_ms": 81.96670000324957
+    },
+    {
+      "image": "cashew/Data/Images/Anomaly/082.JPG",
+      "sha256": "9790b27321f8e545a938bd2cd49ea8dc0dc5ca3b292b737009d3175cd167f5e6",
+      "label": 1,
+      "score": 0.05491653084754944,
+      "latency_ms": 72.07900000503287
+    },
+    {
+      "image": "cashew/Data/Images/Anomaly/068.JPG",
+      "sha256": "690e837a3e56d0cffbe645be6ed2b95b7dcb0c8f37c0893fc9e0df997d6cb71e",
+      "label": 1,
+      "score": 0.0845404863357544,
+      "latency_ms": 88.73249997850507
+    },
+    {
+      "image": "cashew/Data/Images/Anomaly/088.JPG",
+      "sha256": "2b0ac194c98338f44b5b3ebf3fe9e96b955b0a9cb2745b5e4f6005b75a677b20",
+      "label": 1,
+      "score": 0.0402836799621582,
+      "latency_ms": 78.37140001356602
+    },
+    {
+      "image": "cashew/Data/Images/Anomaly/070.JPG",
+      "sha256": "af46b61bf22fcf80d139251946d30310aad1858f35585ed33009e18d806112c4",
+      "label": 1,
+      "score": 0.06354305148124695,
+      "latency_ms": 86.19339999859221
+    },
+    {
+      "image": "cashew/Data/Images/Anomaly/058.JPG",
+      "sha256": "c765753d3b3f06de90428ee947f4ec5f51ee3baaacd10ff6dcd23ce533474432",
+      "label": 1,
+      "score": 0.05337876081466675,
+      "latency_ms": 68.66720001562499
+    },
+    {
+      "image": "cashew/Data/Images/Anomaly/049.JPG",
+      "sha256": "abd6940583cb435c246a9f30c71eed10d9bd7f58c10bd419e0fc80ddfb9afe1c",
+      "label": 1,
+      "score": 0.05268862843513489,
+      "latency_ms": 79.80239999596961
+    },
+    {
+      "image": "cashew/Data/Images/Anomaly/098.JPG",
+      "sha256": "12c87f3bc3a5f5ada71344c3a64e4f02f50db696c0e76f035d9a3b38b0afcfac",
+      "label": 1,
+      "score": 0.12966030836105347,
+      "latency_ms": 69.45169999380596
+    },
+    {
+      "image": "cashew/Data/Images/Anomaly/050.JPG",
+      "sha256": "02118dfcc70533cacff3d1f94e7545584a0162a8d5af70a71a95e9a44c1ec23b",
+      "label": 1,
+      "score": 0.04777359962463379,
+      "latency_ms": 96.70560000813566
+    },
+    {
+      "image": "cashew/Data/Images/Anomaly/069.JPG",
+      "sha256": "8563ea0f5b787c19274e4ec865d226ac09605542f7f003f13f0c7bb593590151",
+      "label": 1,
+      "score": 0.056066811084747314,
+      "latency_ms": 89.38190000480972
+    },
+    {
+      "image": "cashew/Data/Images/Anomaly/060.JPG",
+      "sha256": "c4a0cd07bbf86529361593138afb4e6af4cf72d5e9a9d90d88b93b902bf11417",
+      "label": 1,
+      "score": 0.053638964891433716,
+      "latency_ms": 86.44899999490008
+    }
+  ]
+}
