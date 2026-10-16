@@ -103,3 +103,11 @@ No training recipe guarantees improved macaroni2 performance.
 - Reference metric implementation: https://github.com/amazon-science/spot-diff/blob/main/utils/metrics.py
 - Related frozen-feature research (different method/backbone): https://arxiv.org/html/2405.14529v2
 - Normal-only threshold handling: https://anomalib.readthedocs.io/en/latest/markdown/guides/how_to/models/post_processor.html
+
+## Higher-resolution accuracy experiment
+
+See [ACCURACY_AND_METRICS.md](ACCURACY_AND_METRICS.md) for the separate frozen
+DINOv2 candidate, settings, AP/mAP definitions, operational calibration and resume
+commands. Existing DINOv3 runs are retained. The new profile is inspired by
+AnomalyDINO but differs from its default few-shot implementation. No test masks
+are used to fit the model. A retrospective release comparison is disclosed.

@@ -1,0 +1,12 @@
+{
+  "status": "passed",
+  "original_files_hash_identical": 66,
+  "private_backup": "development-support\\saved-runtime\\desktop-before-highres.sqlite3",
+  "backup_integrity": "ok",
+  "backup_counts": {
+    "inspections": 9,
+    "messages": 10
+  },
+  "original_desktop_rows_preserved": true,
+  "runtime_excluded_from_release": true
+}

@@ -10,7 +10,8 @@ pinned: false
 # DefectRAG — inspection evidence workspace
 
 25 real saved VisA inspections across 12 products, heatmaps, recorded conversations,
-reports and measured evaluations. No new model inference or LLM generation runs
+reports and measured evaluations. The examples retain their original DINOv3
+measurements; the Benchmark page compares the higher-resolution DINOv2 profile. No new model inference or LLM generation runs
 on static hosting. Optional Supabase configuration connects an allowlisted staff
 workspace; it requires your own project, schema and accounts. Empty configuration
 makes no Supabase requests. Live AI still requires a running backend.

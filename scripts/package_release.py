@@ -11,7 +11,7 @@ import subprocess
 import zipfile
 
 ROOT=Path(__file__).resolve().parents[1]
-EXCLUDED_PARTS={'node_modules','__pycache__','.pytest_cache','.git','runtime','development-support','.venv'}
+EXCLUDED_PARTS={'node_modules','__pycache__','.pytest_cache','.git','runtime','development-support','.venv','.cache'}
 HISTORICAL={'DEVELOPMENT_PROGRESS.previous.md','PAUSE_CHECKPOINT_20261016.md','acceptance_checkpoint.json',
             'rag_diagnostic.json','scope_diagnostic.json','pause_processes.json'}
 ROOT_FILES={'README.md','LICENSE','DEVELOPMENT_PROGRESS.md','.env.example','.gitignore','.dockerignore',

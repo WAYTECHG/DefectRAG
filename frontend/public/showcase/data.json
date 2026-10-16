@@ -2196,6 +2196,804 @@
       "pixel_auroc": 0.0007431686692634315,
       "pixel_au_pr": 0.0005305469182348207,
       "pixel_average_precision": 0.0005331201377259799
+    },
+    "candidate": {
+      "protocol": {
+        "schema": 1,
+        "method": "AnomalyDINO-inspired DINOv2 ViT-S/14; custom full-data adaptation",
+        "resolution": "short edge448; bicubic; retain aspect; crop trailing pixels to patch multiple14",
+        "encoder_sha256": "ae1e99fcefd534ed978cdeb8326f08030c96e28b7a81ffcbc98a857c84d14be1",
+        "split_csv_sha256": "a48557e6033318cb90556f706196bc9d247a776a23ea51aecee5a80dd0332995",
+        "seeds": [
+          42,
+          43,
+          44
+        ],
+        "bank_patches": 32768,
+        "memory_sampling": "per train normal: up to48 PCA foreground +16 other patches, seeded uniform cap",
+        "foreground": "PCA first component threshold10; center-sign rule; 2D3x3 dilation/closing; <1% mask falls back to all patches",
+        "score": "mean of top1% foreground cosine distances",
+        "fit": "all official training normals for benchmark",
+        "calibration": "separate deployment bank excludes every tenth content-hash-sorted training normal; maximum heldout normal score",
+        "evaluation": "full official test; masks only for pixel metrics at224x224; image AP and trapezoidal AU-PR separately",
+        "selection": "one fixed candidate; no test-based hyperparameter changes; seeds42/43/44 all reported; deployment seed42 fixed",
+        "exposure": "retrospective development comparison; official test identities and earlier results already seen; not an untouched external test",
+        "references": [
+          "https://arxiv.org/html/2405.14529v2",
+          "https://github.com/dammsi/AnomalyDINO"
+        ],
+        "differences_from_paper": "HF encoder; image-balanced limited full-data memory; masking train and test; 2D morphology; no rotation augmentation"
+      },
+      "python": "3.12.4",
+      "torch": "2.8.0+cu126",
+      "device": "cuda",
+      "categories": {
+        "macaroni2": {
+          "official_train_normals": 900,
+          "official_test_images": 200,
+          "benchmark_runs": [
+            {
+              "seed": 42,
+              "auroc": 0.8447,
+              "au_pr": 0.837609437596522,
+              "average_precision": 0.8387483523714999,
+              "pixel_auroc": 0.9939494150699683,
+              "pixel_au_pr": 0.15619858519387228,
+              "pixel_average_precision": 0.15653869576515458
+            },
+            {
+              "seed": 43,
+              "auroc": 0.8244,
+              "au_pr": 0.8342875038001054,
+              "average_precision": 0.835288930423173,
+              "pixel_auroc": 0.9941328078917665,
+              "pixel_au_pr": 0.15365590865968637,
+              "pixel_average_precision": 0.15385826448902645
+            },
+            {
+              "seed": 44,
+              "auroc": 0.8268000000000001,
+              "au_pr": 0.82322819785278,
+              "average_precision": 0.8244805378917035,
+              "pixel_auroc": 0.9932291868085448,
+              "pixel_au_pr": 0.1521970939306702,
+              "pixel_average_precision": 0.15240427679230106
+            }
+          ],
+          "benchmark_mean": {
+            "auroc": 0.8319666666666667,
+            "au_pr": 0.8317083797498025,
+            "average_precision": 0.8328392735621254,
+            "pixel_auroc": 0.9937704699234265,
+            "pixel_au_pr": 0.1540171959280763,
+            "pixel_average_precision": 0.15426707901549405
+          },
+          "benchmark_std": {
+            "auroc": 0.01109248995191489,
+            "au_pr": 0.007529536824525402,
+            "average_precision": 0.0074426639424422444,
+            "pixel_auroc": 0.0004776492328203173,
+            "pixel_au_pr": 0.002025062826209623,
+            "pixel_average_precision": 0.002097308286485555
+          },
+          "deployment_holdout_profile": {
+            "threshold": 0.15817631781101227,
+            "heatmap_scale": 0.11770220518112187,
+            "auroc": 0.845,
+            "au_pr": 0.8435705368551327,
+            "average_precision": 0.8446602099722114,
+            "pixel_auroc": 0.9942242061289198,
+            "pixel_au_pr": 0.15741764917137446,
+            "pixel_average_precision": 0.15769057747120718
+          },
+          "seconds": 135.40084509999724
+        },
+        "macaroni1": {
+          "official_train_normals": 900,
+          "official_test_images": 200,
+          "benchmark_runs": [
+            {
+              "seed": 42,
+              "auroc": 0.918,
+              "au_pr": 0.932786840237027,
+              "average_precision": 0.933081657808966,
+              "pixel_auroc": 0.9931323622243489,
+              "pixel_au_pr": 0.22549630696338402,
+              "pixel_average_precision": 0.22579868648536688
+            },
+            {
+              "seed": 43,
+              "auroc": 0.9107,
+              "au_pr": 0.9239509925163285,
+              "average_precision": 0.9243019415241156,
+              "pixel_auroc": 0.992904762589421,
+              "pixel_au_pr": 0.21863043402124735,
+              "pixel_average_precision": 0.2188116322733481
+            },
+            {
+              "seed": 44,
+              "auroc": 0.907,
+              "au_pr": 0.9199703014532423,
+              "average_precision": 0.920343639849281,
+              "pixel_auroc": 0.9928691842690383,
+              "pixel_au_pr": 0.21706041388603783,
+              "pixel_average_precision": 0.21738255135304616
+            }
+          ],
+          "benchmark_mean": {
+            "auroc": 0.9119,
+            "au_pr": 0.925569378068866,
+            "average_precision": 0.9259090797274542,
+            "pixel_auroc": 0.9929687696942694,
+            "pixel_au_pr": 0.22039571829022306,
+            "pixel_average_precision": 0.2206642900372537
+          },
+          "benchmark_std": {
+            "auroc": 0.005597320787662625,
+            "au_pr": 0.006559748123713314,
+            "average_precision": 0.006519313252850117,
+            "pixel_auroc": 0.00014278774857695058,
+            "pixel_au_pr": 0.00448645120510902,
+            "pixel_average_precision": 0.004503563948029452
+          },
+          "deployment_holdout_profile": {
+            "threshold": 0.21722275018692017,
+            "heatmap_scale": 0.09929629743099211,
+            "auroc": 0.909,
+            "au_pr": 0.9251309284382584,
+            "average_precision": 0.9254645749095916,
+            "pixel_auroc": 0.9932559185087934,
+            "pixel_au_pr": 0.22101242411741848,
+            "pixel_average_precision": 0.22125282869927704
+          },
+          "seconds": 138.32114929999807
+        },
+        "pcb1": {
+          "official_train_normals": 904,
+          "official_test_images": 200,
+          "benchmark_runs": [
+            {
+              "seed": 42,
+              "auroc": 0.9525,
+              "au_pr": 0.946087107136921,
+              "average_precision": 0.9464671661037876,
+              "pixel_auroc": 0.9944586387417026,
+              "pixel_au_pr": 0.8464118976709029,
+              "pixel_average_precision": 0.846427424617724
+            },
+            {
+              "seed": 43,
+              "auroc": 0.9479,
+              "au_pr": 0.9476376952747854,
+              "average_precision": 0.9479555666854507,
+              "pixel_auroc": 0.9944482838147902,
+              "pixel_au_pr": 0.8531528892315858,
+              "pixel_average_precision": 0.8531825227347262
+            },
+            {
+              "seed": 44,
+              "auroc": 0.9503,
+              "au_pr": 0.9512781827394374,
+              "average_precision": 0.9515451522688605,
+              "pixel_auroc": 0.994454625316606,
+              "pixel_au_pr": 0.8477368705549233,
+              "pixel_average_precision": 0.8477233530396995
+            }
+          ],
+          "benchmark_mean": {
+            "auroc": 0.9502333333333333,
+            "au_pr": 0.9483343283837146,
+            "average_precision": 0.948655961686033,
+            "pixel_auroc": 0.994453849291033,
+            "pixel_au_pr": 0.8491005524858041,
+            "pixel_average_precision": 0.8491111001307164
+          },
+          "benchmark_std": {
+            "auroc": 0.0023007245235650113,
+            "au_pr": 0.002664730707614299,
+            "average_precision": 0.0026104407177330187,
+            "pixel_auroc": 5.220899310240183e-06,
+            "pixel_au_pr": 0.0035714091213073927,
+            "pixel_average_precision": 0.003584999181875953
+          },
+          "deployment_holdout_profile": {
+            "threshold": 0.16181933879852295,
+            "heatmap_scale": 0.10316987216472613,
+            "auroc": 0.9597,
+            "au_pr": 0.9561930064621866,
+            "average_precision": 0.9564653221826244,
+            "pixel_auroc": 0.9946015614062951,
+            "pixel_au_pr": 0.856268349620392,
+            "pixel_average_precision": 0.8562862818777615
+          },
+          "seconds": 130.61381800001254
+        },
+        "capsules": {
+          "official_train_normals": 542,
+          "official_test_images": 160,
+          "benchmark_runs": [
+            {
+              "seed": 42,
+              "auroc": 0.968,
+              "au_pr": 0.9763334548720008,
+              "average_precision": 0.976495652745956,
+              "pixel_auroc": 0.9694939889285102,
+              "pixel_au_pr": 0.40129786284523034,
+              "pixel_average_precision": 0.4012847974451588
+            },
+            {
+              "seed": 43,
+              "auroc": 0.9686666666666668,
+              "au_pr": 0.9764671035244079,
+              "average_precision": 0.9766334139497022,
+              "pixel_auroc": 0.97044846089275,
+              "pixel_au_pr": 0.397617206547916,
+              "pixel_average_precision": 0.3976678565607239
+            },
+            {
+              "seed": 44,
+              "auroc": 0.9713333333333333,
+              "au_pr": 0.9787056543871668,
+              "average_precision": 0.9788507777162221,
+              "pixel_auroc": 0.9701251715230256,
+              "pixel_au_pr": 0.4041945944570431,
+              "pixel_average_precision": 0.40422112389698794
+            }
+          ],
+          "benchmark_mean": {
+            "auroc": 0.9693333333333333,
+            "au_pr": 0.9771687375945252,
+            "average_precision": 0.97732661480396,
+            "pixel_auroc": 0.9700225404480953,
+            "pixel_au_pr": 0.4010365546167298,
+            "pixel_average_precision": 0.4010579259676235
+          },
+          "benchmark_std": {
+            "auroc": 0.0017638342073763465,
+            "au_pr": 0.0013326854134417649,
+            "average_precision": 0.0013217598021768872,
+            "pixel_auroc": 0.00048544210343352004,
+            "pixel_au_pr": 0.003296470752106622,
+            "pixel_average_precision": 0.003282519032027932
+          },
+          "deployment_holdout_profile": {
+            "threshold": 0.19718621671199799,
+            "heatmap_scale": 0.1274158811569204,
+            "auroc": 0.9683333333333333,
+            "au_pr": 0.9797118272127361,
+            "average_precision": 0.9798232872953215,
+            "pixel_auroc": 0.9704973188279925,
+            "pixel_au_pr": 0.40366595976940756,
+            "pixel_average_precision": 0.403655563796705
+          },
+          "seconds": 94.91161680000369
+        },
+        "cashew": {
+          "official_train_normals": 450,
+          "official_test_images": 150,
+          "benchmark_runs": [
+            {
+              "seed": 42,
+              "auroc": 0.9555999999999999,
+              "au_pr": 0.9798344986141854,
+              "average_precision": 0.9799284257916656,
+              "pixel_auroc": 0.9960590367672582,
+              "pixel_au_pr": 0.6940909426916273,
+              "pixel_average_precision": 0.694126095923703
+            },
+            {
+              "seed": 43,
+              "auroc": 0.9578000000000001,
+              "au_pr": 0.9809117646282322,
+              "average_precision": 0.9809999318079211,
+              "pixel_auroc": 0.9961226559982549,
+              "pixel_au_pr": 0.697751529343841,
+              "pixel_average_precision": 0.6978133678203721
+            },
+            {
+              "seed": 44,
+              "auroc": 0.9688,
+              "au_pr": 0.9858445920160998,
+              "average_precision": 0.9859098832312743,
+              "pixel_auroc": 0.9961110128509749,
+              "pixel_au_pr": 0.6924916996495216,
+              "pixel_average_precision": 0.6925347276159604
+            }
+          ],
+          "benchmark_mean": {
+            "auroc": 0.9607333333333333,
+            "au_pr": 0.9821969517528392,
+            "average_precision": 0.982279413610287,
+            "pixel_auroc": 0.9960975685388292,
+            "pixel_au_pr": 0.69477805722833,
+            "pixel_average_precision": 0.6948247304533451
+          },
+          "benchmark_std": {
+            "auroc": 0.0070720105580615155,
+            "au_pr": 0.0032045413297187,
+            "average_precision": 0.0031893986168871256,
+            "pixel_auroc": 3.387349679255494e-05,
+            "pixel_au_pr": 0.0026963951663697317,
+            "pixel_average_precision": 0.0027077810576954238
+          },
+          "deployment_holdout_profile": {
+            "threshold": 0.13224798440933228,
+            "heatmap_scale": 0.10505769878625872,
+            "auroc": 0.9608000000000001,
+            "au_pr": 0.9816829641673432,
+            "average_precision": 0.9817707260519815,
+            "pixel_auroc": 0.9960830910862268,
+            "pixel_au_pr": 0.703436397078779,
+            "pixel_average_precision": 0.7034966403298871
+          },
+          "seconds": 72.7265475000022
+        },
+        "candle": {
+          "official_train_normals": 900,
+          "official_test_images": 200,
+          "benchmark_runs": [
+            {
+              "seed": 42,
+              "auroc": 0.9558,
+              "au_pr": 0.9621606881772008,
+              "average_precision": 0.9623367827893016,
+              "pixel_auroc": 0.9903982538707946,
+              "pixel_au_pr": 0.33895358283555577,
+              "pixel_average_precision": 0.3389159342327367
+            },
+            {
+              "seed": 43,
+              "auroc": 0.9536,
+              "au_pr": 0.9544234987148842,
+              "average_precision": 0.9546667684680096,
+              "pixel_auroc": 0.9908451687141144,
+              "pixel_au_pr": 0.3378197922542562,
+              "pixel_average_precision": 0.33783760689070347
+            },
+            {
+              "seed": 44,
+              "auroc": 0.9443,
+              "au_pr": 0.9489440077401582,
+              "average_precision": 0.9492007022384481,
+              "pixel_auroc": 0.990951012382223,
+              "pixel_au_pr": 0.32271350806250704,
+              "pixel_average_precision": 0.32276634541885246
+            }
+          ],
+          "benchmark_mean": {
+            "auroc": 0.9512333333333333,
+            "au_pr": 0.9551760648774144,
+            "average_precision": 0.9554014178319198,
+            "pixel_auroc": 0.9907314783223774,
+            "pixel_au_pr": 0.33316229438410633,
+            "pixel_average_precision": 0.3331732955140976
+          },
+          "benchmark_std": {
+            "auroc": 0.006104370019365886,
+            "au_pr": 0.00664040114115595,
+            "average_precision": 0.006598782866979933,
+            "pixel_auroc": 0.0002933932887254627,
+            "pixel_au_pr": 0.009066654397648078,
+            "pixel_average_precision": 0.009028795887483296
+          },
+          "deployment_holdout_profile": {
+            "threshold": 0.22504067420959473,
+            "heatmap_scale": 0.1193666505813595,
+            "auroc": 0.9410000000000001,
+            "au_pr": 0.9456741403322482,
+            "average_precision": 0.9459465742669609,
+            "pixel_auroc": 0.9911336061961822,
+            "pixel_au_pr": 0.3375717699673859,
+            "pixel_average_precision": 0.33767271945011856
+          },
+          "seconds": 129.0740725999931
+        },
+        "chewinggum": {
+          "official_train_normals": 453,
+          "official_test_images": 150,
+          "benchmark_runs": [
+            {
+              "seed": 42,
+              "auroc": 0.9932,
+              "au_pr": 0.9969466609199811,
+              "average_precision": 0.9969604682469676,
+              "pixel_auroc": 0.9954117320863656,
+              "pixel_au_pr": 0.6850700777255413,
+              "pixel_average_precision": 0.6850388759883876
+            },
+            {
+              "seed": 43,
+              "auroc": 0.9892000000000001,
+              "au_pr": 0.9952337041797067,
+              "average_precision": 0.9952549042275805,
+              "pixel_auroc": 0.9953773487370392,
+              "pixel_au_pr": 0.6846896840964964,
+              "pixel_average_precision": 0.684733727423744
+            },
+            {
+              "seed": 44,
+              "auroc": 0.9916,
+              "au_pr": 0.996171900969947,
+              "average_precision": 0.9961895142750861,
+              "pixel_auroc": 0.9952795650960506,
+              "pixel_au_pr": 0.6676922561430878,
+              "pixel_average_precision": 0.6676931239584004
+            }
+          ],
+          "benchmark_mean": {
+            "auroc": 0.9913333333333334,
+            "au_pr": 0.9961174220232115,
+            "average_precision": 0.996134962249878,
+            "pixel_auroc": 0.9953562153064851,
+            "pixel_au_pr": 0.6791506726550418,
+            "pixel_average_precision": 0.679155242456844
+          },
+          "benchmark_std": {
+            "auroc": 0.002013289182738814,
+            "au_pr": 0.0008577768738086334,
+            "average_precision": 0.0008540896315069846,
+            "pixel_auroc": 6.85710926518182e-05,
+            "pixel_au_pr": 0.00992510234452624,
+            "pixel_average_precision": 0.009927658297196707
+          },
+          "deployment_holdout_profile": {
+            "threshold": 0.1614319533109665,
+            "heatmap_scale": 0.11275605440139722,
+            "auroc": 0.9885999999999999,
+            "au_pr": 0.994444649292763,
+            "average_precision": 0.9944721280040146,
+            "pixel_auroc": 0.9952665200400623,
+            "pixel_au_pr": 0.6596933281197321,
+            "pixel_average_precision": 0.6597053568827396
+          },
+          "seconds": 77.3525510999898
+        },
+        "fryum": {
+          "official_train_normals": 450,
+          "official_test_images": 150,
+          "benchmark_runs": [
+            {
+              "seed": 42,
+              "auroc": 0.9891999999999999,
+              "au_pr": 0.9949168165129106,
+              "average_precision": 0.9949409420549524,
+              "pixel_auroc": 0.9738082020921681,
+              "pixel_au_pr": 0.4379800592981127,
+              "pixel_average_precision": 0.43799433572118596
+            },
+            {
+              "seed": 43,
+              "auroc": 0.9958,
+              "au_pr": 0.9978909116915007,
+              "average_precision": 0.997901515122974,
+              "pixel_auroc": 0.973882263507042,
+              "pixel_au_pr": 0.43803860398905753,
+              "pixel_average_precision": 0.4380513505278392
+            },
+            {
+              "seed": 44,
+              "auroc": 0.9892,
+              "au_pr": 0.9949145081810289,
+              "average_precision": 0.9949385524097363,
+              "pixel_auroc": 0.9739487459423446,
+              "pixel_au_pr": 0.43927674150289875,
+              "pixel_average_precision": 0.43931148808215037
+            }
+          ],
+          "benchmark_mean": {
+            "auroc": 0.9914,
+            "au_pr": 0.9959074121284801,
+            "average_precision": 0.9959270031958876,
+            "pixel_auroc": 0.9738797371805182,
+            "pixel_au_pr": 0.43843180159668965,
+            "pixel_average_precision": 0.4384523914437251
+          },
+          "benchmark_std": {
+            "auroc": 0.0038105117766515915,
+            "au_pr": 0.0017177613977139654,
+            "average_precision": 0.001709977906364863,
+            "pixel_auroc": 7.03059755631449e-05,
+            "pixel_au_pr": 0.0007323246916757177,
+            "pixel_average_precision": 0.000744545463796214
+          },
+          "deployment_holdout_profile": {
+            "threshold": 0.15253151953220367,
+            "heatmap_scale": 0.10057919770479187,
+            "auroc": 0.9924,
+            "au_pr": 0.9963414765677349,
+            "average_precision": 0.9963591766254614,
+            "pixel_auroc": 0.9735429349543053,
+            "pixel_au_pr": 0.4359936878538498,
+            "pixel_average_precision": 0.4360142987071739
+          },
+          "seconds": 75.21686919999775
+        },
+        "pcb2": {
+          "official_train_normals": 901,
+          "official_test_images": 200,
+          "benchmark_runs": [
+            {
+              "seed": 42,
+              "auroc": 0.9202,
+              "au_pr": 0.9322088542538738,
+              "average_precision": 0.932545698262865,
+              "pixel_auroc": 0.9712767185430914,
+              "pixel_au_pr": 0.26902216961670095,
+              "pixel_average_precision": 0.269116591248745
+            },
+            {
+              "seed": 43,
+              "auroc": 0.9289000000000001,
+              "au_pr": 0.9329793541058563,
+              "average_precision": 0.9333614467676451,
+              "pixel_auroc": 0.9717626924423868,
+              "pixel_au_pr": 0.2798493987176048,
+              "pixel_average_precision": 0.27991198670004014
+            },
+            {
+              "seed": 44,
+              "auroc": 0.9283,
+              "au_pr": 0.9280660798216491,
+              "average_precision": 0.9285879887356563,
+              "pixel_auroc": 0.9716170427305009,
+              "pixel_au_pr": 0.2697964905619438,
+              "pixel_average_precision": 0.2698079968958421
+            }
+          ],
+          "benchmark_mean": {
+            "auroc": 0.9258000000000001,
+            "au_pr": 0.9310847627271265,
+            "average_precision": 0.9314983779220555,
+            "pixel_auroc": 0.9715521512386598,
+            "pixel_au_pr": 0.27288935296541655,
+            "pixel_average_precision": 0.27294552494820906
+          },
+          "benchmark_std": {
+            "auroc": 0.004859012245302549,
+            "au_pr": 0.0026424898047753827,
+            "average_precision": 0.0025532597435425006,
+            "pixel_auroc": 0.0002494009562614438,
+            "pixel_au_pr": 0.006039997589898184,
+            "pixel_average_precision": 0.006043029244261792
+          },
+          "deployment_holdout_profile": {
+            "threshold": 0.341839998960495,
+            "heatmap_scale": 0.09851976394653338,
+            "auroc": 0.9062,
+            "au_pr": 0.9091607663548358,
+            "average_precision": 0.9098166487308751,
+            "pixel_auroc": 0.9714470671684394,
+            "pixel_au_pr": 0.2629794270140921,
+            "pixel_average_precision": 0.26303790724220233
+          },
+          "seconds": 134.38419250000152
+        },
+        "pcb3": {
+          "official_train_normals": 905,
+          "official_test_images": 201,
+          "benchmark_runs": [
+            {
+              "seed": 42,
+              "auroc": 0.9433663366336634,
+              "au_pr": 0.9573257944956892,
+              "average_precision": 0.9574934355764043,
+              "pixel_auroc": 0.9804594500562178,
+              "pixel_au_pr": 0.33440243549415977,
+              "pixel_average_precision": 0.33442549268444677
+            },
+            {
+              "seed": 43,
+              "auroc": 0.9477227722772278,
+              "au_pr": 0.959595644345721,
+              "average_precision": 0.9597596806082674,
+              "pixel_auroc": 0.9805071690010876,
+              "pixel_au_pr": 0.33373335990639547,
+              "pixel_average_precision": 0.333819556432083
+            },
+            {
+              "seed": 44,
+              "auroc": 0.9466336633663367,
+              "au_pr": 0.9577819308568531,
+              "average_precision": 0.9579591053290832,
+              "pixel_auroc": 0.9798799216744494,
+              "pixel_au_pr": 0.33973787538078626,
+              "pixel_average_precision": 0.3397522193939622
+            }
+          ],
+          "benchmark_mean": {
+            "auroc": 0.9459075907590759,
+            "au_pr": 0.9582344565660877,
+            "average_precision": 0.9584040738379184,
+            "pixel_auroc": 0.9802821802439183,
+            "pixel_au_pr": 0.3359578902604472,
+            "pixel_average_precision": 0.3359990895034973
+          },
+          "benchmark_std": {
+            "auroc": 0.0022671609895175723,
+            "au_pr": 0.0012006828155516466,
+            "average_precision": 0.0011968560341587735,
+            "pixel_auroc": 0.00034918224748437215,
+            "pixel_au_pr": 0.0032906125824873787,
+            "pixel_average_precision": 0.003264395451918764
+          },
+          "deployment_holdout_profile": {
+            "threshold": 0.16282716393470764,
+            "heatmap_scale": 0.1029075479507446,
+            "auroc": 0.9547524752475247,
+            "au_pr": 0.9643689895252089,
+            "average_precision": 0.9645187368797429,
+            "pixel_auroc": 0.9805302802001331,
+            "pixel_au_pr": 0.3377368540626885,
+            "pixel_average_precision": 0.33774957148695994
+          },
+          "seconds": 135.53616119999788
+        },
+        "pcb4": {
+          "official_train_normals": 904,
+          "official_test_images": 201,
+          "benchmark_runs": [
+            {
+              "seed": 42,
+              "auroc": 0.9888118811881188,
+              "au_pr": 0.9880168371253286,
+              "average_precision": 0.9880817605339174,
+              "pixel_auroc": 0.9797851572798281,
+              "pixel_au_pr": 0.2918409934178783,
+              "pixel_average_precision": 0.2918620534311465
+            },
+            {
+              "seed": 43,
+              "auroc": 0.9905940594059406,
+              "au_pr": 0.9904921945653063,
+              "average_precision": 0.9905403726682713,
+              "pixel_auroc": 0.9800535279608199,
+              "pixel_au_pr": 0.3113890405329925,
+              "pixel_average_precision": 0.3114066877489506
+            },
+            {
+              "seed": 44,
+              "auroc": 0.9902970297029704,
+              "au_pr": 0.9907507181331998,
+              "average_precision": 0.9907947926063193,
+              "pixel_auroc": 0.9811058153456667,
+              "pixel_au_pr": 0.3112462297344757,
+              "pixel_average_precision": 0.31127896730004057
+            }
+          ],
+          "benchmark_mean": {
+            "auroc": 0.9899009900990099,
+            "au_pr": 0.9897532499412782,
+            "average_precision": 0.9898056419361693,
+            "pixel_auroc": 0.9803148335287716,
+            "pixel_au_pr": 0.3048254212284488,
+            "pixel_average_precision": 0.3048492361600459
+          },
+          "benchmark_std": {
+            "auroc": 0.0009548169070290293,
+            "au_pr": 0.0015093229307655532,
+            "average_precision": 0.001498334973559554,
+            "pixel_auroc": 0.0006980292841980381,
+            "pixel_au_pr": 0.011245071049441238,
+            "pixel_average_precision": 0.011247411460137574
+          },
+          "deployment_holdout_profile": {
+            "threshold": 0.17516569793224335,
+            "heatmap_scale": 0.10422959923744202,
+            "auroc": 0.9865346534653465,
+            "au_pr": 0.9821331587999459,
+            "average_precision": 0.9822685098306626,
+            "pixel_auroc": 0.9806894408642699,
+            "pixel_au_pr": 0.3216559666615416,
+            "pixel_average_precision": 0.3216614985757051
+          },
+          "seconds": 133.8244237000181
+        },
+        "pipe_fryum": {
+          "official_train_normals": 450,
+          "official_test_images": 150,
+          "benchmark_runs": [
+            {
+              "seed": 42,
+              "auroc": 0.995,
+              "au_pr": 0.9977423374213756,
+              "average_precision": 0.9977526197670599,
+              "pixel_auroc": 0.9927515748074147,
+              "pixel_au_pr": 0.47981081512851037,
+              "pixel_average_precision": 0.4800110544187529
+            },
+            {
+              "seed": 43,
+              "auroc": 0.9964000000000001,
+              "au_pr": 0.9982273652036702,
+              "average_precision": 0.9982361328885846,
+              "pixel_auroc": 0.992764142075617,
+              "pixel_au_pr": 0.4830566976570724,
+              "pixel_average_precision": 0.48318326819265506
+            },
+            {
+              "seed": 44,
+              "auroc": 0.9962,
+              "au_pr": 0.9982256566034399,
+              "average_precision": 0.9982339839967207,
+              "pixel_auroc": 0.9927469763458546,
+              "pixel_au_pr": 0.481216205091409,
+              "pixel_average_precision": 0.48138223354046783
+            }
+          ],
+          "benchmark_mean": {
+            "auroc": 0.9958666666666667,
+            "au_pr": 0.9980651197428285,
+            "average_precision": 0.9980742455507885,
+            "pixel_auroc": 0.9927542310762955,
+            "pixel_au_pr": 0.4813612392923306,
+            "pixel_average_precision": 0.48152551871729193
+          },
+          "benchmark_std": {
+            "auroc": 0.0007571877794400558,
+            "au_pr": 0.0002795389956885984,
+            "average_precision": 0.0002785381715372213,
+            "pixel_auroc": 8.885797254273498e-06,
+            "pixel_au_pr": 0.0016277943779494204,
+            "pixel_average_precision": 0.0015909534997154244
+          },
+          "deployment_holdout_profile": {
+            "threshold": 0.18373285233974457,
+            "heatmap_scale": 0.1333938717842105,
+            "auroc": 0.9891999999999999,
+            "au_pr": 0.9951107263654106,
+            "average_precision": 0.9951337553868363,
+            "pixel_auroc": 0.9927315263511816,
+            "pixel_au_pr": 0.47978917789024056,
+            "pixel_average_precision": 0.47984772131593945
+          },
+          "seconds": 71.54133030000958
+        }
+      },
+      "macro_mean": {
+        "auroc": 0.9513007150715072,
+        "au_pr": 0.9574430219630145,
+        "average_precision": 0.9576880054928729,
+        "pixel_auroc": 0.98601533539939,
+        "pixel_au_pr": 0.430425562577637,
+        "pixel_average_precision": 0.4305021186956786
+      },
+      "macro_runs": [
+        {
+          "seed": 42,
+          "auroc": 0.9520315181518151,
+          "au_pr": 0.9584974439469179,
+          "average_precision": 0.958736080171112,
+          "pixel_auroc": 0.9859153775389724,
+          "pixel_au_pr": 0.43004797740678957,
+          "pixel_average_precision": 0.4301283364968757
+        },
+        {
+          "seed": 43,
+          "auroc": 0.9509736248624864,
+          "au_pr": 0.9576748110458753,
+          "average_precision": 0.9579083837618078,
+          "pixel_auroc": 0.9861041069687575,
+          "pixel_au_pr": 0.432448712079846,
+          "pixel_average_precision": 0.4325231523161844
+        },
+        {
+          "seed": 44,
+          "auroc": 0.95089700220022,
+          "au_pr": 0.9561568108962502,
+          "average_precision": 0.9564195525456993,
+          "pixel_auroc": 0.9860265216904399,
+          "pixel_au_pr": 0.4287799982462753,
+          "pixel_average_precision": 0.428854867273976
+        }
+      ],
+      "macro_std": {
+        "auroc": 0.0006340525331026325,
+        "au_pr": 0.001187407008430423,
+        "average_precision": 0.0011738824455153193,
+        "pixel_auroc": 9.486068335903378e-05,
+        "pixel_au_pr": 0.0018632748640743098,
+        "pixel_average_precision": 0.0018624885601874065
+      }
     }
   },
   "attribution": "VisA \u00b7 Zou et al., ECCV 2022 \u00b7 CC BY 4.0 \u00b7 resized images and model overlays",

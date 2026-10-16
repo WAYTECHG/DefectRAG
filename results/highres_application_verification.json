@@ -1,0 +1,573 @@
+{
+  "status": "passed",
+  "examples": [
+    {
+      "category": "pcb1",
+      "truth": 0,
+      "id": "2618243eea844875b71beb09e40cb0aa",
+      "model_id": "dinov2-highres-pcb1-v1",
+      "verdict": "Good",
+      "score": 0.11500968039035797,
+      "threshold": 0.16181933879852295,
+      "inference_ms": 1704.36,
+      "peak_gpu_mb": 116.51,
+      "localization": "32 x 41 DINOv2 patch distances with PCA foreground heuristic; interpolated, not supervised segmentation",
+      "foreground_fraction": 0.42301829268292684
+    },
+    {
+      "category": "pcb1",
+      "truth": 1,
+      "id": "7a12ff1a0d6e4140bd24a386142a9514",
+      "model_id": "dinov2-highres-pcb1-v1",
+      "verdict": "Anomalous",
+      "score": 0.31308862566947937,
+      "threshold": 0.16181933879852295,
+      "inference_ms": 57.58,
+      "peak_gpu_mb": 116.51,
+      "localization": "32 x 41 DINOv2 patch distances with PCA foreground heuristic; interpolated, not supervised segmentation",
+      "foreground_fraction": 0.4291158536585366
+    },
+    {
+      "category": "capsules",
+      "truth": 0,
+      "id": "c30190d52a8f480dba90291dcc18c1c0",
+      "model_id": "dinov2-highres-capsules-v1",
+      "verdict": "Good",
+      "score": 0.13203802704811096,
+      "threshold": 0.19718621671199799,
+      "inference_ms": 61.88,
+      "peak_gpu_mb": 165.67,
+      "localization": "32 x 47 DINOv2 patch distances with PCA foreground heuristic; interpolated, not supervised segmentation",
+      "foreground_fraction": 0.75
+    },
+    {
+      "category": "capsules",
+      "truth": 1,
+      "id": "3b696165719f4c47b813b1a495063a98",
+      "model_id": "dinov2-highres-capsules-v1",
+      "verdict": "Uncertain",
+      "score": 0.20568740367889404,
+      "threshold": 0.19718621671199799,
+      "inference_ms": 55.47,
+      "peak_gpu_mb": 165.67,
+      "localization": "32 x 47 DINOv2 patch distances with PCA foreground heuristic; interpolated, not supervised segmentation",
+      "foreground_fraction": 0.7041223404255319
+    },
+    {
+      "category": "cashew",
+      "truth": 0,
+      "id": "28aeb09d8b9a4abab1d367ba6fd12513",
+      "model_id": "dinov2-highres-cashew-v1",
+      "verdict": "Uncertain",
+      "score": 0.12766224145889282,
+      "threshold": 0.13224798440933228,
+      "inference_ms": 105.98,
+      "peak_gpu_mb": 198.15,
+      "localization": "32 x 34 DINOv2 patch distances with PCA foreground heuristic; interpolated, not supervised segmentation",
+      "foreground_fraction": 0.32077205882352944
+    },
+    {
+      "category": "cashew",
+      "truth": 1,
+      "id": "16baaa686fd648509d7e05cd3ebcee67",
+      "model_id": "dinov2-highres-cashew-v1",
+      "verdict": "Anomalous",
+      "score": 0.24140049517154694,
+      "threshold": 0.13224798440933228,
+      "inference_ms": 62.93,
+      "peak_gpu_mb": 198.15,
+      "localization": "32 x 34 DINOv2 patch distances with PCA foreground heuristic; interpolated, not supervised segmentation",
+      "foreground_fraction": 0.34558823529411764
+    },
+    {
+      "category": "candle",
+      "truth": 0,
+      "id": "d52c6799982f4037bd82b0a7ae4f1f7a",
+      "model_id": "dinov2-highres-candle-v1",
+      "verdict": "Good",
+      "score": 0.11167139559984207,
+      "threshold": 0.22504067420959473,
+      "inference_ms": 82.93,
+      "peak_gpu_mb": 246.48,
+      "localization": "32 x 35 DINOv2 patch distances with PCA foreground heuristic; interpolated, not supervised segmentation",
+      "foreground_fraction": 0.6678571428571428
+    },
+    {
+      "category": "candle",
+      "truth": 1,
+      "id": "4954614776ae481992da6bcf6f126d83",
+      "model_id": "dinov2-highres-candle-v1",
+      "verdict": "Anomalous",
+      "score": 0.2978086769580841,
+      "threshold": 0.22504067420959473,
+      "inference_ms": 63.05,
+      "peak_gpu_mb": 246.48,
+      "localization": "32 x 35 DINOv2 patch distances with PCA foreground heuristic; interpolated, not supervised segmentation",
+      "foreground_fraction": 0.6875
+    },
+    {
+      "category": "chewinggum",
+      "truth": 0,
+      "id": "6d4f47ffccfc42ac9cd459955a938dca",
+      "model_id": "dinov2-highres-chewinggum-v1",
+      "verdict": "Good",
+      "score": 0.12641631066799164,
+      "threshold": 0.1614319533109665,
+      "inference_ms": 63.94,
+      "peak_gpu_mb": 285.94,
+      "localization": "32 x 38 DINOv2 patch distances with PCA foreground heuristic; interpolated, not supervised segmentation",
+      "foreground_fraction": 0.4004934210526316
+    },
+    {
+      "category": "chewinggum",
+      "truth": 1,
+      "id": "b39840cde5d24e989b08db8a822b942a",
+      "model_id": "dinov2-highres-chewinggum-v1",
+      "verdict": "Anomalous",
+      "score": 0.3545075058937073,
+      "threshold": 0.1614319533109665,
+      "inference_ms": 69.98,
+      "peak_gpu_mb": 285.94,
+      "localization": "32 x 38 DINOv2 patch distances with PCA foreground heuristic; interpolated, not supervised segmentation",
+      "foreground_fraction": 0.3832236842105263
+    },
+    {
+      "category": "fryum",
+      "truth": 0,
+      "id": "1c4c9a40abe64c539627884061bec7bb",
+      "model_id": "dinov2-highres-fryum-v1",
+      "verdict": "Good",
+      "score": 0.09197403490543365,
+      "threshold": 0.15253151953220367,
+      "inference_ms": 93.44,
+      "peak_gpu_mb": 328.57,
+      "localization": "32 x 47 DINOv2 patch distances with PCA foreground heuristic; interpolated, not supervised segmentation",
+      "foreground_fraction": 0.2978723404255319
+    },
+    {
+      "category": "fryum",
+      "truth": 1,
+      "id": "96e298d0ba6c4c83b2bb37acd4bad12d",
+      "model_id": "dinov2-highres-fryum-v1",
+      "verdict": "Anomalous",
+      "score": 0.24023504555225372,
+      "threshold": 0.15253151953220367,
+      "inference_ms": 96.87,
+      "peak_gpu_mb": 328.57,
+      "localization": "32 x 47 DINOv2 patch distances with PCA foreground heuristic; interpolated, not supervised segmentation",
+      "foreground_fraction": 0.29853723404255317
+    },
+    {
+      "category": "macaroni1",
+      "truth": 0,
+      "id": "28bc81ceb6414adbbd3bfbc1b19a10e8",
+      "model_id": "dinov2-highres-macaroni1-v1",
+      "verdict": "Good",
+      "score": 0.12326576560735703,
+      "threshold": 0.21722275018692017,
+      "inference_ms": 104.25,
+      "peak_gpu_mb": 376.57,
+      "localization": "32 x 47 DINOv2 patch distances with PCA foreground heuristic; interpolated, not supervised segmentation",
+      "foreground_fraction": 0.4753989361702128
+    },
+    {
+      "category": "macaroni1",
+      "truth": 1,
+      "id": "b9ec126c2fde4cf58158d71f2c11998f",
+      "model_id": "dinov2-highres-macaroni1-v1",
+      "verdict": "Good",
+      "score": 0.12101970613002777,
+      "threshold": 0.21722275018692017,
+      "inference_ms": 111.02,
+      "peak_gpu_mb": 376.57,
+      "localization": "32 x 47 DINOv2 patch distances with PCA foreground heuristic; interpolated, not supervised segmentation",
+      "foreground_fraction": 0.5259308510638298
+    },
+    {
+      "category": "macaroni2",
+      "truth": 0,
+      "id": "2efa009b756a443ebe49a9ae55f82d51",
+      "model_id": "dinov2-highres-macaroni2-v1",
+      "verdict": "Good",
+      "score": 0.11692015081644058,
+      "threshold": 0.15817631781101227,
+      "inference_ms": 178.97,
+      "peak_gpu_mb": 424.57,
+      "localization": "32 x 47 DINOv2 patch distances with PCA foreground heuristic; interpolated, not supervised segmentation",
+      "foreground_fraction": 0.5206117021276596
+    },
+    {
+      "category": "macaroni2",
+      "truth": 1,
+      "id": "9545db3a87db40b3bc6700fef5b35541",
+      "model_id": "dinov2-highres-macaroni2-v1",
+      "verdict": "Good",
+      "score": 0.146302729845047,
+      "threshold": 0.15817631781101227,
+      "inference_ms": 98.92,
+      "peak_gpu_mb": 424.57,
+      "localization": "32 x 47 DINOv2 patch distances with PCA foreground heuristic; interpolated, not supervised segmentation",
+      "foreground_fraction": 0.5957446808510638
+    },
+    {
+      "category": "pcb2",
+      "truth": 0,
+      "id": "a435b6bb48534b5aabc7dac113a141c6",
+      "model_id": "dinov2-highres-pcb2-v1",
+      "verdict": "Good",
+      "score": 0.22242999076843262,
+      "threshold": 0.341839998960495,
+      "inference_ms": 86.88,
+      "peak_gpu_mb": 468.67,
+      "localization": "32 x 41 DINOv2 patch distances with PCA foreground heuristic; interpolated, not supervised segmentation",
+      "foreground_fraction": 0.4428353658536585
+    },
+    {
+      "category": "pcb2",
+      "truth": 1,
+      "id": "a44d23fea4454438a3d84013a82d7342",
+      "model_id": "dinov2-highres-pcb2-v1",
+      "verdict": "Good",
+      "score": 0.11302043497562408,
+      "threshold": 0.341839998960495,
+      "inference_ms": 94.15,
+      "peak_gpu_mb": 468.67,
+      "localization": "32 x 41 DINOv2 patch distances with PCA foreground heuristic; interpolated, not supervised segmentation",
+      "foreground_fraction": 0.47484756097560976
+    },
+    {
+      "category": "pcb3",
+      "truth": 0,
+      "id": "99be90e13c4d4b33937347eb77ed0529",
+      "model_id": "dinov2-highres-pcb3-v1",
+      "verdict": "Good",
+      "score": 0.11812633275985718,
+      "threshold": 0.16282716393470764,
+      "inference_ms": 146.7,
+      "peak_gpu_mb": 522.98,
+      "localization": "32 x 52 DINOv2 patch distances with PCA foreground heuristic; interpolated, not supervised segmentation",
+      "foreground_fraction": 0.40444711538461536
+    },
+    {
+      "category": "pcb3",
+      "truth": 1,
+      "id": "f5fa21ab9fde4c0a92a393ee1ec6d2d6",
+      "model_id": "dinov2-highres-pcb3-v1",
+      "verdict": "Uncertain",
+      "score": 0.1663447469472885,
+      "threshold": 0.16282716393470764,
+      "inference_ms": 128.15,
+      "peak_gpu_mb": 522.98,
+      "localization": "32 x 52 DINOv2 patch distances with PCA foreground heuristic; interpolated, not supervised segmentation",
+      "foreground_fraction": 0.3936298076923077
+    },
+    {
+      "category": "pcb4",
+      "truth": 0,
+      "id": "bafd33851a694866bbe808db57b139e0",
+      "model_id": "dinov2-highres-pcb4-v1",
+      "verdict": "Good",
+      "score": 0.09985935688018799,
+      "threshold": 0.17516569793224335,
+      "inference_ms": 129.51,
+      "peak_gpu_mb": 564.31,
+      "localization": "32 x 39 DINOv2 patch distances with PCA foreground heuristic; interpolated, not supervised segmentation",
+      "foreground_fraction": 0.4310897435897436
+    },
+    {
+      "category": "pcb4",
+      "truth": 1,
+      "id": "950d5d94c25d4512abca4ad1ae07afef",
+      "model_id": "dinov2-highres-pcb4-v1",
+      "verdict": "Anomalous",
+      "score": 0.27075982093811035,
+      "threshold": 0.17516569793224335,
+      "inference_ms": 110.49,
+      "peak_gpu_mb": 564.31,
+      "localization": "32 x 39 DINOv2 patch distances with PCA foreground heuristic; interpolated, not supervised segmentation",
+      "foreground_fraction": 0.41746794871794873
+    },
+    {
+      "category": "pipe_fryum",
+      "truth": 0,
+      "id": "d08cc46ae25e47c58404a0bc3c44cee6",
+      "model_id": "dinov2-highres-pipe_fryum-v1",
+      "verdict": "Good",
+      "score": 0.13938486576080322,
+      "threshold": 0.18373285233974457,
+      "inference_ms": 133.59,
+      "peak_gpu_mb": 601.01,
+      "localization": "31 x 36 DINOv2 patch distances with PCA foreground heuristic; interpolated, not supervised segmentation",
+      "foreground_fraction": 0.31451612903225806
+    },
+    {
+      "category": "pipe_fryum",
+      "truth": 1,
+      "id": "8167c9b0fb8d4fcf91ca775709962684",
+      "model_id": "dinov2-highres-pipe_fryum-v1",
+      "verdict": "Anomalous",
+      "score": 0.38042277097702026,
+      "threshold": 0.18373285233974457,
+      "inference_ms": 135.4,
+      "peak_gpu_mb": 601.01,
+      "localization": "31 x 36 DINOv2 patch distances with PCA foreground heuristic; interpolated, not supervised segmentation",
+      "foreground_fraction": 0.31989247311827956
+    }
+  ],
+  "answers": [
+    {
+      "question": "Is this image anomalous?",
+      "answer": "No\u2014the model flagged this macaroni2 image as Good. Its anomaly score is 0.14630, below the lower review boundary of 0.15027; the decision threshold is 0.15818. This is a screening result, not proof that the product is defect-free.",
+      "mode": "measurement_only",
+      "evidence": [],
+      "claims": [],
+      "trace": [
+        "read_saved_inspection",
+        "check_score_and_review_band",
+        "answer_measurement_question"
+      ],
+      "error": null,
+      "measurement_summary": {
+        "text": "No\u2014the model flagged this macaroni2 image as Good. Its anomaly score is 0.14630, below the lower review boundary of 0.15027; the decision threshold is 0.15818. This is a screening result, not proof that the product is defect-free.",
+        "direct": true,
+        "source": "saved_inspection",
+        "inspection_id": "9545db3a87db40b3bc6700fef5b35541",
+        "measurements": {
+          "category": "macaroni2",
+          "verdict": "Good",
+          "score": 0.146302729845047,
+          "threshold": 0.15817631781101227,
+          "uncertainty_margin": 0.007908815890550614,
+          "model_id": "dinov2-highres-macaroni2-v1"
+        }
+      },
+      "knowledge_fingerprint": "89bdca23a0f734399d8681d6ac521339a2c802e3dbe09fe62dcf05dc58b3f0c3",
+      "observation": {
+        "id": "9545db3a87db40b3bc6700fef5b35541",
+        "category": "macaroni2",
+        "verdict": "Good",
+        "score": 0.146302729845047,
+        "threshold": 0.15817631781101227
+      }
+    },
+    {
+      "question": "Does the score mean accuracy?",
+      "answer": "The model flagged this macaroni2 image as Good. Its anomaly score is 0.14630, below the lower review boundary of 0.15027; the decision threshold is 0.15818. This score measures feature difference from normal references. It is not an accuracy percentage, confidence level or defect probability.",
+      "mode": "measurement_only",
+      "evidence": [],
+      "claims": [],
+      "trace": [
+        "read_saved_inspection",
+        "check_score_and_review_band",
+        "answer_measurement_question"
+      ],
+      "error": null,
+      "measurement_summary": {
+        "text": "The model flagged this macaroni2 image as Good. Its anomaly score is 0.14630, below the lower review boundary of 0.15027; the decision threshold is 0.15818. This score measures feature difference from normal references. It is not an accuracy percentage, confidence level or defect probability.",
+        "direct": true,
+        "source": "saved_inspection",
+        "inspection_id": "9545db3a87db40b3bc6700fef5b35541",
+        "measurements": {
+          "category": "macaroni2",
+          "verdict": "Good",
+          "score": 0.146302729845047,
+          "threshold": 0.15817631781101227,
+          "uncertainty_margin": 0.007908815890550614,
+          "model_id": "dinov2-highres-macaroni2-v1"
+        }
+      },
+      "knowledge_fingerprint": "89bdca23a0f734399d8681d6ac521339a2c802e3dbe09fe62dcf05dc58b3f0c3",
+      "observation": {
+        "id": "9545db3a87db40b3bc6700fef5b35541",
+        "category": "macaroni2",
+        "verdict": "Good",
+        "score": 0.146302729845047,
+        "threshold": 0.15817631781101227
+      }
+    },
+    {
+      "question": "What does this saved inspection heatmap show?",
+      "answer": "The model flagged this macaroni2 image as Good. Its anomaly score is 0.14630, below the lower review boundary of 0.15027; the decision threshold is 0.15818. This is a screening result, not proof that the product is defect-free.\n\nThe heatmap illustrates the cosine distance between each image patch feature and its closest stored normal reference feature. [screening-4]\n\nLarger distances in the heatmap signify a greater deviation from the appearance of normal references. [screening-4]",
+      "mode": "llm",
+      "evidence": [
+        {
+          "text": "# Reading the heatmap\nThe heatmap shows cosine distance between each image patch feature and its closest stored normal reference feature. Larger distances indicate a greater departure from normal reference appearance. The patch grid depends on the saved model profile and image shape; interpolation does not add measured detail. This is coarse localization, not a supervised defect segmentation or named defect diagnosis. These memory-bank detectors do not reconstruct image features with a trained decoder. General Dinomaly reconstruction documentation describes a different method.",
+          "id": "screening",
+          "file": "screening.md",
+          "title": "DefectRAG screening and evidence policy",
+          "url": "project://docs/inspection-policy",
+          "license": "Project-authored, MIT",
+          "scope": "application policy; not a factory SOP",
+          "start_index": 1094,
+          "chunk_id": "screening-4",
+          "similarity": 0.7562
+        },
+        {
+          "text": "# DINOv2 high-resolution profile\nA saved model ID beginning dinov2-highres identifies the AnomalyDINO-inspired profile. It uses frozen DINOv2 ViT-S/14, a 448-pixel short edge, retained aspect ratio and a rectangular grid of 14-pixel patches. A PCA-based foreground heuristic filters background patches; it is not an annotated segmentation model and can fail. The anomaly score averages the largest one percent of retained patch distances. This custom implementation is an adaptation rather than an exact reproduction of AnomalyDINO.",
+          "id": "highres-profile",
+          "file": "highres-profile.md",
+          "title": "DINOv2 high-resolution profile and metrics",
+          "url": "https://github.com/dammsi/AnomalyDINO",
+          "license": "Project-authored summary, MIT; attributed method",
+          "scope": "custom high-resolution profile, not paper reproduction",
+          "model_family": "dinov2",
+          "start_index": 0,
+          "chunk_id": "highres-profile-7",
+          "similarity": 0.7403
+        }
+      ],
+      "claims": [
+        {
+          "text": "The heatmap illustrates the cosine distance between each image patch feature and its closest stored normal reference feature.",
+          "source_id": "screening-4",
+          "quote": "The heatmap shows cosine distance between each image patch feature and its closest stored normal reference feature."
+        },
+        {
+          "text": "Larger distances in the heatmap signify a greater deviation from the appearance of normal references.",
+          "source_id": "screening-4",
+          "quote": "Larger distances indicate a greater departure from normal reference appearance."
+        }
+      ],
+      "trace": [
+        "route",
+        "retrieve",
+        "validate_evidence",
+        "generate",
+        "validate_answer"
+      ],
+      "error": null,
+      "measurement_summary": {
+        "text": "The model flagged this macaroni2 image as Good. Its anomaly score is 0.14630, below the lower review boundary of 0.15027; the decision threshold is 0.15818. This is a screening result, not proof that the product is defect-free.",
+        "direct": false,
+        "source": "saved_inspection",
+        "inspection_id": "9545db3a87db40b3bc6700fef5b35541",
+        "measurements": {
+          "category": "macaroni2",
+          "verdict": "Good",
+          "score": 0.146302729845047,
+          "threshold": 0.15817631781101227,
+          "uncertainty_margin": 0.007908815890550614,
+          "model_id": "dinov2-highres-macaroni2-v1"
+        }
+      },
+      "knowledge_fingerprint": "89bdca23a0f734399d8681d6ac521339a2c802e3dbe09fe62dcf05dc58b3f0c3",
+      "observation": {
+        "id": "9545db3a87db40b3bc6700fef5b35541",
+        "category": "macaroni2",
+        "verdict": "Good",
+        "score": 0.146302729845047,
+        "threshold": 0.15817631781101227
+      }
+    },
+    {
+      "question": "How was this model threshold calibrated?",
+      "answer": "The model flagged this macaroni2 image as Good. Its anomaly score is 0.14630, below the lower review boundary of 0.15027; the decision threshold is 0.15818. This is a screening result, not proof that the product is defect-free.\n\nThe anomaly score is the average of the largest one percent of retained patch distances. [highres-profile-7]",
+      "mode": "llm",
+      "evidence": [
+        {
+          "text": "# DINOv2 high-resolution profile\nA saved model ID beginning dinov2-highres identifies the AnomalyDINO-inspired profile. It uses frozen DINOv2 ViT-S/14, a 448-pixel short edge, retained aspect ratio and a rectangular grid of 14-pixel patches. A PCA-based foreground heuristic filters background patches; it is not an annotated segmentation model and can fail. The anomaly score averages the largest one percent of retained patch distances. This custom implementation is an adaptation rather than an exact reproduction of AnomalyDINO.",
+          "id": "highres-profile",
+          "file": "highres-profile.md",
+          "title": "DINOv2 high-resolution profile and metrics",
+          "url": "https://github.com/dammsi/AnomalyDINO",
+          "license": "Project-authored summary, MIT; attributed method",
+          "scope": "custom high-resolution profile, not paper reproduction",
+          "model_family": "dinov2",
+          "start_index": 0,
+          "chunk_id": "highres-profile-7",
+          "similarity": 0.7865
+        }
+      ],
+      "claims": [
+        {
+          "text": "The anomaly score is the average of the largest one percent of retained patch distances.",
+          "source_id": "highres-profile-7",
+          "quote": "The anomaly score averages the largest one percent of retained patch distances."
+        }
+      ],
+      "trace": [
+        "route",
+        "retrieve",
+        "validate_evidence",
+        "generate",
+        "validate_answer"
+      ],
+      "error": null,
+      "measurement_summary": {
+        "text": "The model flagged this macaroni2 image as Good. Its anomaly score is 0.14630, below the lower review boundary of 0.15027; the decision threshold is 0.15818. This is a screening result, not proof that the product is defect-free.",
+        "direct": false,
+        "source": "saved_inspection",
+        "inspection_id": "9545db3a87db40b3bc6700fef5b35541",
+        "measurements": {
+          "category": "macaroni2",
+          "verdict": "Good",
+          "score": 0.146302729845047,
+          "threshold": 0.15817631781101227,
+          "uncertainty_margin": 0.007908815890550614,
+          "model_id": "dinov2-highres-macaroni2-v1"
+        }
+      },
+      "knowledge_fingerprint": "89bdca23a0f734399d8681d6ac521339a2c802e3dbe09fe62dcf05dc58b3f0c3",
+      "observation": {
+        "id": "9545db3a87db40b3bc6700fef5b35541",
+        "category": "macaroni2",
+        "verdict": "Good",
+        "score": 0.146302729845047,
+        "threshold": 0.15817631781101227
+      }
+    },
+    {
+      "question": "What caused this defect?",
+      "answer": "The model flagged this macaroni2 image as Good. Its anomaly score is 0.14630, below the lower review boundary of 0.15027; the decision threshold is 0.15818. This is a screening result, not proof that the product is defect-free.\n\nThe available measurements and documentation do not establish that claim. Specific defect names, counts, root causes, tolerances and repair instructions require additional validated evidence.",
+      "mode": "abstained",
+      "evidence": [],
+      "claims": [],
+      "trace": [
+        "route",
+        "abstain"
+      ],
+      "error": null,
+      "measurement_summary": {
+        "text": "The model flagged this macaroni2 image as Good. Its anomaly score is 0.14630, below the lower review boundary of 0.15027; the decision threshold is 0.15818. This is a screening result, not proof that the product is defect-free.",
+        "direct": false,
+        "source": "saved_inspection",
+        "inspection_id": "9545db3a87db40b3bc6700fef5b35541",
+        "measurements": {
+          "category": "macaroni2",
+          "verdict": "Good",
+          "score": 0.146302729845047,
+          "threshold": 0.15817631781101227,
+          "uncertainty_margin": 0.007908815890550614,
+          "model_id": "dinov2-highres-macaroni2-v1"
+        }
+      },
+      "knowledge_fingerprint": "89bdca23a0f734399d8681d6ac521339a2c802e3dbe09fe62dcf05dc58b3f0c3",
+      "observation": {
+        "id": "9545db3a87db40b3bc6700fef5b35541",
+        "category": "macaroni2",
+        "verdict": "Good",
+        "score": 0.146302729845047,
+        "threshold": 0.15817631781101227
+      }
+    }
+  ],
+  "cpu_smoke": {
+    "model_id": "dinov2-highres-macaroni2-v1",
+    "score": 0.14649993181228638,
+    "verdict": "Good",
+    "inference_ms": 1931.45,
+    "device": "cpu"
+  },
+  "checks": {
+    "real_images": 24,
+    "all12_highres_profiles": true,
+    "separate_normal_only_calibration": true,
+    "images_reports_saved_records": true,
+    "trusted_measurement_answers": 2,
+    "real_qwen_heatmap": true,
+    "wrong_family_documents_excluded": true,
+    "unsupported_cause_abstains": true,
+    "cpu_smoke": true,
+    "scope": "software/runtime acceptance on resized sample derivatives; not a new accuracy benchmark"
+  }
+}

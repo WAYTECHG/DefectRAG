@@ -17,6 +17,18 @@ from .config import CATEGORIES
 class ModelUnavailable(RuntimeError):
     pass
 
+
+def create_detector(settings):
+    marker=settings.root/'models/highres/PROFILE.json'
+    mode=settings.profile
+    if mode not in ('auto','legacy','dinov2_highres_v1'):raise ModelUnavailable('Unknown detector profile')
+    if mode=='legacy' or (mode=='auto' and not marker.exists()):return Detector(settings)
+    if not marker.exists():raise ModelUnavailable('Requested high-resolution profile is not installed')
+    manifest=json.loads(marker.read_text())
+    if manifest.get('status')!='active':raise ModelUnavailable('High-resolution profile is not validated for activation')
+    from .highres import HighResolutionDetector
+    return HighResolutionDetector(settings)
+
 def sha256(path):
     digest = hashlib.sha256()
     with open(path, 'rb') as stream:
@@ -71,6 +83,7 @@ def display_map(raw, image, scale):
     return Image.fromarray(overlay.astype('uint8'))
 
 class Detector:
+    profile_name='legacy'
     def __init__(self, settings):
         self.settings = settings
         self.encoder = None

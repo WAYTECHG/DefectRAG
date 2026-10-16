@@ -106,6 +106,8 @@ def export(output=OUTPUT):
             'official_evaluation':json.loads((ROOT/'results/official_evaluation.json').read_text()),
             'attribution': 'VisA · Zou et al., ECCV 2022 · CC BY 4.0 · resized images and model overlays',
             'source': 'https://github.com/amazon-science/spot-diff'}
+    candidate=ROOT/'results/highres_evaluation.json'
+    if candidate.exists():data['official_evaluation']['candidate']=json.loads(candidate.read_text())
     text = json.dumps(data, indent=2)
     if ':\\' in text or 'Users/' in text or 'localhost' in text or '127.0.0.1' in text:
         raise ValueError('Local path or service address found in public snapshot')
@@ -117,7 +119,7 @@ def export(output=OUTPUT):
     hashes = {p.relative_to(output).as_posix(): hashlib.sha256(p.read_bytes()).hexdigest()
               for p in sorted(output.rglob('*')) if p.is_file() and p.name != 'manifest.json'}
     (output / 'manifest.json').write_text(json.dumps({'files': hashes, 'records': len(records),
-        'provenance': 'results/acceptance.json + results/evidence_scope_verification.json; existing runtime artifacts; no experiments repeated'}, indent=2))
+        'provenance': 'allowlisted acceptance + all_categories_acceptance + passed assistant_quality receipts; original saved runtime artifacts; old experiments not repeated'}, indent=2))
     print(json.dumps({'status': 'passed', 'examples': len(records), 'files': len(hashes), 'output': str(output)}))
 
 

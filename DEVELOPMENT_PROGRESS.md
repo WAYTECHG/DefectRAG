@@ -1,3 +1,82 @@
+# Completed accuracy upgrade — 16 October 2026
+
+This is the latest checkpoint; older sections below are historical. Preserve
+every earlier model, experiment, dataset, history and release. Previous upgrade
+is still recoverable at commit 39590a6. Final Git identity and packaging/sync
+status are recorded in the sibling accuracy ZIP receipts and
+development-support/release_sync_receipt.json; inspect these before repeating.
+
+Completed: AnomalyDINO-inspired frozen DINOv2 Small/14, 448px short edge with
+aspect retained, unsupervised PCA foreground, image-balanced normal memory up to
+32,768 vectors. Three fixed benchmark seeds 42/43/44, all 8,659 official train
+normals and identical 2,162 official test images across all 12 products. This is
+a custom adaptation, not exact paper reproduction or weight fine-tuning.
+Prior test exposure is disclosed; no fresh untouched-test claim. Masks and test
+anomaly labels never fit the bank, foreground heuristic or operating threshold.
+
+Measured overall means (original -> candidate): image AUROC 85.38% -> 95.13%,
+image AU-PR 86.47% -> 95.74%, pixel AUROC 92.96% -> 98.60%, pixel AU-PR
+33.29% -> 43.04%. Macaroni 2 image AUROC 48.27% -> 83.20%. Cashew image
+AUROC regresses slightly; Cashew and Pipe fryum pixel AP regress. All rows and
+seeds are saved, including regressions. Official VisA reports mean AUROC and
+AU-PR; supplementary mean AP is separate from YOLO bounding-box mAP@IoU.
+
+Operational model is a separate fixed-seed normal-holdout bank installed beside
+the original models in models/highres. PROFILE.json enables auto selection;
+DEFECTRAG_PROFILE=legacy restores the original DINOv3 detector. Its conservative
+threshold yields macro precision 97.59%, recall 60.17%, F1 68.63%. Some anomalous
+images are classified Good. High AUROC is not classification accuracy. No
+threshold adjustment after test exposure was performed.
+
+Saved assets: models/encoder_dinov2 (revision/hash/license receipt),
+models/highres (all 12 operational banks/cards), experiments/dinov2_highres_v1
+(all completion receipts, four banks per product, split/calibration/predictions,
+metrics and intermediate caches/maps). Original DINOv3 assets are unchanged.
+The benchmark finished successfully; do NOT repeat completed experiments or
+restart scripts.train / benchmark_official / benchmark_highres.
+
+Verification: 46 Python tests, six frontend checks, both builds, 24 real API
+inspections across all 12 products, five assistant cases including real Qwen,
+CPU/CUDA checks, browser benchmark profile switch and static provenance/privacy
+checks passed. Actual receipts: results/software-tests-highres.xml,
+highres_application_verification.json, highres_preservation.json and
+static_verification.json. See docs/ACCURACY_VERIFICATION.md for exact limits.
+The 25 static examples retain their original DINOv3 measurements; the static
+benchmark includes both reports and does not pretend to run live inference.
+
+Recoverable release artifacts (unique names; never replace earlier archives):
+- DefectRAG-local-accuracy.zip: application, both detector profiles, builds/docs.
+- DefectRAG-static-accuracy.zip: saved-example dashboard for free static hosting.
+- DefectRAG-highres-benchmark-assets.zip: all experimental banks/manifests/
+  predictions/metrics. Intermediate feature caches/maps stay on this workstation.
+- development-support/git/DefectRAG-accuracy.bundle: code-only Git recovery.
+Private database backup: development-support/saved-runtime/
+desktop-before-highres.sqlite3 (integrity OK; 9 inspections / 10 messages).
+Excluded from all releases. Original 66 model/evaluation files hash-identical.
+
+Exact next steps on resume:
+1. Inspect Git status and accuracy receipts; preserve any newer user edits.
+2. In the user's existing PowerShell server window, Ctrl+C and use README.md's
+   exact existing-computer command on port 8767. The already-running old process
+   keeps its imported code until restarted. No fitting/build/install is needed.
+3. Read docs/ACCURACY_AND_METRICS.md and ACCURACY_RESULTS.md before reporting
+   performance. New experiments must have new versioned outputs and frozen
+   settings, with a genuinely held-out evaluation if making generalization claims.
+4. Supabase remains unprovisioned. User must create their own free project;
+   deployment/SUPABASE_SETUP.md contains setup and hosted validation steps.
+   No public deployment exists. Static hosting serves saved examples; live AI
+   needs the local/running backend. Preserve optional cloud config and secrets.
+
+Running state: benchmark session 55802 and acceptance session 91404 completed.
+Owned port 8782 preview was stopped after browser checks. User's port 8767 /
+PID 10108 and shared Ollama were left alone. Earlier preview ports 8766 / 8771
+may remain; these are servers, not training jobs. No fitting job remains.
+Docker execution, a fresh dependency installation, 390px mobile visuals and
+hosted Supabase auth/RLS/storage remain unverified. Final archive/sync results
+are authoritative in receipts, not inferred from the historical text below.
+
+---
+
 # DefectRAG development checkpoint — upgrade, 16 October 2026
 
 This section supersedes the historical checkpoints below. Preserve original

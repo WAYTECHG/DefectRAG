@@ -81,7 +81,7 @@ Official instructions: https://render.com/docs/static-sites
 ## Hugging Face — Static Space
 
 1. Create a Space and select **Static** SDK.
-2. Extract `DefectRAG-static-upgrade.zip`.
+2. Extract `DefectRAG-static-accuracy.zip`.
 3. Upload its contents (index.html, assets/, showcase/, README.md and notices)
    to the Space repository root. Do not upload the enclosing folder or full AI ZIP.
 4. Commit the files. The included README metadata sets `sdk: static`.

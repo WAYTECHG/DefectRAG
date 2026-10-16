@@ -1,0 +1,159 @@
+{
+  "status": "passed",
+  "same_official_test_identities_and_content_hashes": true,
+  "baseline_macro": {
+    "auroc": 0.8538392280894755,
+    "au_pr": 0.8646743814043232,
+    "average_precision": 0.8658458138046231,
+    "pixel_auroc": 0.9296270879250635,
+    "pixel_au_pr": 0.33294457605927946,
+    "pixel_average_precision": 0.33296395330821005
+  },
+  "candidate_macro": {
+    "auroc": 0.9513007150715072,
+    "au_pr": 0.9574430219630145,
+    "average_precision": 0.9576880054928729,
+    "pixel_auroc": 0.98601533539939,
+    "pixel_au_pr": 0.430425562577637,
+    "pixel_average_precision": 0.4305021186956786
+  },
+  "candidate_macro_std": {
+    "auroc": 0.0006340525331026325,
+    "au_pr": 0.001187407008430423,
+    "average_precision": 0.0011738824455153193,
+    "pixel_auroc": 9.486068335903378e-05,
+    "pixel_au_pr": 0.0018632748640743098,
+    "pixel_average_precision": 0.0018624885601874065
+  },
+  "all_categories": [
+    {
+      "category": "pcb1",
+      "old_image_auroc": 0.8795000000000001,
+      "new_image_auroc": 0.9502333333333333,
+      "auroc_change_pp": 7.07333333333332,
+      "old_image_ap": 0.8549151631883652,
+      "new_image_ap": 0.948655961686033,
+      "old_pixel_ap": 0.7583862097257025,
+      "new_pixel_ap": 0.8491111001307164
+    },
+    {
+      "category": "capsules",
+      "old_image_auroc": 0.8163888888888889,
+      "new_image_auroc": 0.9693333333333333,
+      "auroc_change_pp": 15.294444444444434,
+      "old_image_ap": 0.8957998725471622,
+      "new_image_ap": 0.97732661480396,
+      "old_pixel_ap": 0.06181241509569846,
+      "new_pixel_ap": 0.4010579259676235
+    },
+    {
+      "category": "cashew",
+      "old_image_auroc": 0.9691333333333333,
+      "new_image_auroc": 0.9607333333333333,
+      "auroc_change_pp": -0.8399999999999963,
+      "old_image_ap": 0.985662433507433,
+      "new_image_ap": 0.982279413610287,
+      "old_pixel_ap": 0.9049601544630095,
+      "new_pixel_ap": 0.6948247304533451
+    },
+    {
+      "category": "candle",
+      "old_image_auroc": 0.9165666666666666,
+      "new_image_auroc": 0.9512333333333333,
+      "auroc_change_pp": 3.4666666666666623,
+      "old_image_ap": 0.9138528565787077,
+      "new_image_ap": 0.9554014178319198,
+      "old_pixel_ap": 0.1921277625144918,
+      "new_pixel_ap": 0.3331732955140976
+    },
+    {
+      "category": "chewinggum",
+      "old_image_auroc": 0.961,
+      "new_image_auroc": 0.9913333333333334,
+      "auroc_change_pp": 3.0333333333333434,
+      "old_image_ap": 0.9850250587158236,
+      "new_image_ap": 0.996134962249878,
+      "old_pixel_ap": 0.6278468585656265,
+      "new_pixel_ap": 0.679155242456844
+    },
+    {
+      "category": "fryum",
+      "old_image_auroc": 0.8994,
+      "new_image_auroc": 0.9914,
+      "auroc_change_pp": 9.199999999999998,
+      "old_image_ap": 0.9509899251906617,
+      "new_image_ap": 0.9959270031958876,
+      "old_pixel_ap": 0.37631552952863623,
+      "new_pixel_ap": 0.4384523914437251
+    },
+    {
+      "category": "macaroni1",
+      "old_image_auroc": 0.8207333333333334,
+      "new_image_auroc": 0.9119,
+      "auroc_change_pp": 9.116666666666662,
+      "old_image_ap": 0.7977119004087658,
+      "new_image_ap": 0.9259090797274542,
+      "old_pixel_ap": 0.0015462985385290267,
+      "new_pixel_ap": 0.2206642900372537
+    },
+    {
+      "category": "macaroni2",
+      "old_image_auroc": 0.4827333333333333,
+      "new_image_auroc": 0.8319666666666667,
+      "auroc_change_pp": 34.923333333333346,
+      "old_image_ap": 0.48363015395566816,
+      "new_image_ap": 0.8328392735621254,
+      "old_pixel_ap": 0.0022423845651259977,
+      "new_pixel_ap": 0.15426707901549405
+    },
+    {
+      "category": "pcb2",
+      "old_image_auroc": 0.7951333333333332,
+      "new_image_auroc": 0.9258000000000001,
+      "auroc_change_pp": 13.066666666666682,
+      "old_image_ap": 0.7906713476028439,
+      "new_image_ap": 0.9314983779220555,
+      "old_pixel_ap": 0.041348433544105265,
+      "new_pixel_ap": 0.27294552494820906
+    },
+    {
+      "category": "pcb3",
+      "old_image_auroc": 0.7983498349834983,
+      "new_image_auroc": 0.9459075907590759,
+      "auroc_change_pp": 14.755775577557761,
+      "old_image_ap": 0.812432005283877,
+      "new_image_ap": 0.9584040738379184,
+      "old_pixel_ap": 0.1366654433393344,
+      "new_pixel_ap": 0.3359990895034973
+    },
+    {
+      "category": "pcb4",
+      "old_image_auroc": 0.9367986798679868,
+      "new_image_auroc": 0.9899009900990099,
+      "auroc_change_pp": 5.3102310231023075,
+      "old_image_ap": 0.9332718480899257,
+      "new_image_ap": 0.9898056419361693,
+      "old_pixel_ap": 0.2913028924219848,
+      "new_pixel_ap": 0.3048492361600459
+    },
+    {
+      "category": "pipe_fryum",
+      "old_image_auroc": 0.9703333333333332,
+      "new_image_auroc": 0.9958666666666667,
+      "auroc_change_pp": 2.553333333333352,
+      "old_image_ap": 0.9861872005862442,
+      "new_image_ap": 0.9980742455507885,
+      "old_pixel_ap": 0.6010130573962768,
+      "new_pixel_ap": 0.48152551871729193
+    }
+  ],
+  "image_auroc_regressions": [
+    "cashew"
+  ],
+  "pixel_ap_regressions": [
+    "cashew",
+    "pipe_fryum"
+  ],
+  "metric_definitions": "Image mAP=unweighted mean of12 category image APs, averaged over3 seeds. Pixel mAP analogous. AU-PR trapezoidal, AP non-interpolated. Seed SD is bank variability, not a generalization confidence interval.",
+  "exposure": "Retrospective model development comparison; not an untouched external test."
+}

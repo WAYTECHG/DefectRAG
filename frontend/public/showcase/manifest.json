@@ -1,6 +1,6 @@
 {
   "files": {
-    "data.json": "79d6102a3a6451709db1bf7b5c9fb300c753d6ee5862b418b4c2aaade9e2f214",
+    "data.json": "f3632529a2286e4b12be151eca04c6ede861b342698c29d879f9c52212954e0f",
     "images/09c2eda2da134adf829057bc0a4faccb.jpg": "63552af9d08f3944cd3f61308539f0ff323b9857b4d7e146d2806019ef8bf63b",
     "images/09c2eda2da134adf829057bc0a4faccb_heatmap.jpg": "7d87b5c9d8d2e1101839520e130527fcb37c417ca3722652cadfc3eafc27c2c4",
     "images/118f64eaadfe43ce8b27b955a82c37ba.jpg": "14b32003bd653507f429364407717aa17cb3633efd7e364ebf30ec58a8e13b18",
@@ -79,5 +79,5 @@
     "reports/eba4738a39db4a3192230964d15853bc.html": "fe02d6734ca40fafaf1810d9e7cd36fe6b4c4d6d654ebbb4723d5a50f6082a54"
   },
   "records": 25,
-  "provenance": "results/acceptance.json + results/evidence_scope_verification.json; existing runtime artifacts; no experiments repeated"
+  "provenance": "allowlisted acceptance + all_categories_acceptance + passed assistant_quality receipts; original saved runtime artifacts; old experiments not repeated"
 }

@@ -1,6 +1,6 @@
 # Deployment
 
-The ready static ZIP is DefectRAG-static-upgrade.zip: 25 saved real examples,
+The ready static ZIP is DefectRAG-static-accuracy.zip: 25 saved real examples,
 recorded evidence and both 12-category evaluation reports. It runs on Vercel,
 Render Static Site or Hugging Face Static Spaces without an AI server.
 [Exact commands](RUN_AND_DEPLOY.md).

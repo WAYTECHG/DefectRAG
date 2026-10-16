@@ -208,7 +208,8 @@ class EvidenceWorkflow:
             if re.search(r'\b(that|it|its|those|previous|above)\b',query,re.I):
                 prior=next((m.get('text','') for m in reversed(state.get('history',[])) if m.get('role')=='user'),'')
                 query+=' '+prior[:300]
-            docs=self.index.retriever.invoke(query+' '+state['inspection'].get('category','')+' anomaly inspection')
+            family=state['inspection'].get('model_id','').split('-')[0]
+            docs=self.index.retriever.invoke(query+' '+state['inspection'].get('category','')+' '+family+' anomaly inspection')
             evidence=[{'text':d.page_content,**d.metadata} for d in docs]
             return {'evidence':evidence,'trace':state['trace']+['retrieve']}
         except Exception:
@@ -221,10 +222,12 @@ class EvidenceWorkflow:
         comparison=bool(re.search(r'\b(dinomaly|reconstruct(?:ion|ing|ed)?)\b',state.get('question',''),re.I))
         if not comparison:
             evidence=[d for d in evidence if d.get('id')!='dinomaly']
+        family=state.get('inspection',{}).get('model_id','').split('-')[0]
+        evidence=[d for d in evidence if not d.get('model_family') or d['model_family']==family]
         return {'evidence':evidence,'trace':state['trace']+['validate_evidence']}
 
     def generate(self,state):
-        inspection={k:state['inspection'].get(k) for k in ('category','verdict','score','threshold','scope','localization')}
+        inspection={k:state['inspection'].get(k) for k in ('category','verdict','score','threshold','scope','localization','model_id','calibration','profile')}
         quotes=evidence_quotes(state['evidence'])
         prompt=PROMPT.format(inspection=json.dumps(inspection),history=json.dumps(state.get('history',[])[-4:]),question=state['question'],evidence=json.dumps(list(quotes.values())))
         try:

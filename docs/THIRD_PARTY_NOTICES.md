@@ -31,3 +31,10 @@ weights or published benchmark performance are represented as the shipped detect
 Qwen is an optional separately installed Ollama model and is not bundled. No raw
 user history, credentials, full dataset, training cache or dependency environment
 is included in the release ZIP.
+
+DINOv2 Small/14: Meta, Apache2.0. Public tensors are fetched without remote-code
+execution from https://huggingface.co/facebook/dinov2-small . The pinned source
+revision and tensor checksum are saved beside the downloaded assets. The new
+memory/foreground approach is inspired by Damm, Laszkiewicz, Lederer and Fischer,
+AnomalyDINO (WACV2025), https://github.com/dammsi/AnomalyDINO (Apache2.0). This
+project implementation is a custom full-data adaptation, not an exact reproduction.

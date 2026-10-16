@@ -32,7 +32,8 @@ def main():
             sample=project/'samples'/'pcb1_anomalous.jpg'
             response=client.post('/api/inspect',data={'category':'pcb1','batch':'extracted-release'},files={'file':(sample.name,sample.read_bytes(),'image/jpeg')})
             response.raise_for_status();record=response.json()['data']
-            assert record['score']>=0 and record['model_id'].startswith('dinov3-')
+            expected='dinov2-highres-' if (project/'models/highres/PROFILE.json').exists() else 'dinov3-'
+            assert record['score']>=0 and record['model_id'].startswith(expected)
             report['prediction']={k:record[k] for k in ('category','verdict','score','threshold','inference_ms','model_sha256')}
             report['checks']['genuine_inference']=True
             report['checks']['heatmap']=client.get(record['heatmap_url']).status_code==200

@@ -1,7 +1,12 @@
 # DefectRAG
 
+The accuracy upgrade adds a separate high-resolution DINOv2 profile and overall
+image/pixel AUROC and AU-PR. See [accuracy comparison](docs/ACCURACY_RESULTS.md) and
+[settings and metric definitions](docs/ACCURACY_AND_METRICS.md). Original DINOv3
+models, results, records and releases remain preserved.
+
 Local visual anomaly screening with an inspection-linked evidence assistant.
-React/Vite dashboard, FastAPI, frozen DINOv3, LangChain/LangGraph, SQLite and
+React/Vite dashboard, FastAPI, frozen DINOv2 / DINOv3, LangChain/LangGraph, SQLite and
 optional Qwen through Ollama. All **12 VisA product categories** are available.
 The existing directory name `DefectRAG-v2` is retained for command compatibility.
 
@@ -18,6 +23,8 @@ $env:USE_TF="0"
 
 Open http://127.0.0.1:8767. No rebuilding or model fitting is needed. Leave this
 window running. In another terminal, `ollama list` checks your installed models.
+The active detector profile is selected automatically from installed model assets.
+Set `DEFECTRAG_PROFILE=legacy` before launch to use the original DINOv3 profile.
 Only `qwen2.5:3b` is used by default; Ollama must run for generated document
 explanations. Verdict and score answers work without an LLM.
 
@@ -46,52 +53,56 @@ Exact quotes/IDs are checked, but this does not guarantee semantic correctness.
 Unsupported causes, repairs and tolerances are not invented.
 See [assistant data flow](docs/EVIDENCE_ASSISTANT.md).
 
-## Official-split benchmark
+## Official-split benchmark — accuracy improvement
 
-The new report follows official VisA one-class train/test assignments: all
-training normals and all test images. Masks are used only for localization
-metrics. Three fixed bank seeds (42,43,44), no best-seed selection.
-Image AU-PR is trapezoidal area; AP is separately reported.
+The official VisA evaluation reports AUROC and AU-PR averaged across all 12
+products. Mean image AUROC is our headline anomaly-detection number; mean image
+AU-PR is reported alongside it. Pixel metrics assess localization separately.
+There is no single official score combining image detection and localization.
+See Section 4.2: https://arxiv.org/html/2207.14315 .
 
-| Product | Image AUROC | Image AU-PR |
+Both experiments use all 8,659 official training normals and the same 2,162 official
+test images, with three fixed bank seeds 42/43/44. These are retrospective
+benchmarks: earlier results informed development. They are not an untouched
+external test or reproduction of a published method.
+
+| Overall metric | Original DINOv3 | DINOv2 high resolution |
 |---|---:|---:|
-| Candle | 0.917 | 0.913 |
-| Capsules | 0.816 | 0.895 |
-| Cashew | 0.969 | 0.986 |
-| Chewing gum | 0.961 | 0.985 |
-| Fryum | 0.899 | 0.951 |
-| Macaroni 1 | 0.821 | 0.796 |
-| Macaroni 2 | **0.483** | **0.478** |
-| PCB 1 | 0.880 | 0.854 |
-| PCB 2 | 0.795 | 0.789 |
-| PCB 3 | 0.798 | 0.811 |
-| PCB 4 | 0.937 | 0.933 |
-| Pipe fryum | 0.970 | 0.986 |
-| Equal-weight macro mean | **0.854** | **0.865** |
+| Mean image AUROC | 85.38% | 95.13% |
+| Mean image AU-PR | 86.47% | 95.74% |
+| Mean pixel AUROC | 92.96% | 98.60% |
+| Mean pixel AU-PR | 33.29% | 43.04% |
+| Supplementary mean image AP | 86.58% | 95.77% |
 
-Means over three seeds; the Benchmark page includes standard deviations, counts
-and pixel metrics. This custom frozen-feature method is **not Dinomaly** and
-**does not fine-tune neural weights**. Learning rate and epochs do not apply.
-See [training settings and commands](docs/TRAINING_AND_EVALUATION.md) and
-[measured report](results/official_evaluation.json).
+Macaroni 2 image AUROC improved from 0.483 to 0.832. The candidate improves most
+categories; Cashew regresses slightly in image AUROC and also in pixel AP.
+All category results and regressions are in [the measured comparison](docs/ACCURACY_RESULTS.md).
 
-This is retrospective: earlier development already exposed test identities and
-results. It is not an untouched external test or published-method reproduction.
-Pixel evaluation uses 224×224 maps from a coarse 14×14 grid. Macaroni 2 separation
-is weak; macaroni localization is particularly poor. No factory diagnosis or
-product-safety guarantee is established. The operator-selected product is not
-verified automatically.
+The new profile is inspired by AnomalyDINO: frozen DINOv2 Small/14, 448px short
+edge, retained aspect ratio, PCA foreground filtering and a larger normal memory.
+It does not fine-tune weights and is not Dinomaly. Ground-truth masks are used
+only for evaluation, never for fitting or foreground selection. Pixel evaluation
+uses 224×224 maps. PCA can miss foreground and localization remains imperfect.
+No factory diagnosis, wrong-product detection or product-safety guarantee is made.
 
-Original application banks and modified-split evaluations remain unchanged in
-`models/` and `results/evaluation.json`. Performance describes those deployed
-banks; Benchmark describes the separate official experiment. Its normal-only
-calibration variant is also saved separately, not substituted into the app.
-The serving profile measured roughly 54–66 ms median inference on the original
-three categories on RTX 4060; this is not an all-category latency guarantee.
+Operational deployment uses a separate fixed-seed bank, with a content-grouped
+10% normal training holdout excluded from fitting. Its threshold is the maximum
+holdout normal score. The Model performance page reports that deployment profile's
+actual precision/recall/F1; those depend on the threshold and review band.
+At the current conservative maximum-normal threshold, macro precision is 97.59%,
+recall 60.17% and F1 68.63%. Higher AUROC is not
+the same as 95% classification accuracy, and this operating point can miss defects.
+The three-seed benchmark uses every official training normal and reports ranking
+metrics. These two profiles are clearly separated in the results.
+
+Original DINOv3 banks, modified-split evaluations and historical inspection results
+remain unchanged. Set DEFECTRAG_PROFILE=legacy to return to that detector. Existing
+54–66 ms serving figures apply only to the original model, not the new profile.
+See [settings, resume commands and metric definitions](docs/ACCURACY_AND_METRICS.md).
 
 ## Free public dashboard and shared staff history
 
-`DefectRAG-static-upgrade.zip` contains **25 measured examples**, heatmaps,
+`DefectRAG-static-accuracy.zip` contains **25 measured examples**, heatmaps,
 recorded conversations, reports and both evaluation views. Serve the extracted
 folder over HTTP, or use Vercel, Render Static Site or Hugging Face Static Spaces.
 [Run/deploy commands](deployment/RUN_AND_DEPLOY.md).

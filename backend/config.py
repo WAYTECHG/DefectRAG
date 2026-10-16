@@ -17,6 +17,7 @@ class Settings:
     data: Path = Path(os.getenv('DEFECTRAG_DATA', str(ROOT / 'runtime')))
     encoder: str = os.getenv('DEFECTRAG_ENCODER', str(ROOT / 'models' / 'encoder'))
     device: str = os.getenv('DEFECTRAG_DEVICE', 'auto')
+    profile: str = os.getenv('DEFECTRAG_PROFILE', 'auto')
     ollama_url: str = os.getenv('OLLAMA_URL', 'http://127.0.0.1:11434')
     ollama_model: str = os.getenv('OLLAMA_MODEL', 'qwen2.5:3b')
     max_upload: int = 10 * 1024 * 1024

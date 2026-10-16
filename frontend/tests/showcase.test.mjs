@@ -38,3 +38,13 @@ test('preserves real measurements, final cited conversations and static report U
   assert.equal(assetUrl('/api/inspections/'+record.id+'/report'), './showcase/reports/'+record.id+'.html');
   assert.equal(assetUrl('/api/export.csv'), './showcase/inspections.csv');
 });
+
+test('both completed benchmark profiles preserve category-averaged image mAP',async()=>{
+  const report=await showcaseApi('/api/benchmark/official');
+  assert.equal(Object.keys(report.candidate.categories).length,12);
+  for(const profile of [report,report.candidate]){
+    const mean=Object.values(profile.categories).reduce((sum,c)=>sum+c.benchmark_mean.average_precision,0)/12;
+    assert.ok(Math.abs(mean-profile.macro_mean.average_precision)<1e-12);
+  }
+  assert.ok(report.candidate.macro_mean.auroc>=0&&report.candidate.macro_mean.auroc<=1);
+});

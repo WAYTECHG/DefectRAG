@@ -17,7 +17,7 @@ from pydantic import BaseModel, Field
 from PIL import Image, ImageOps, UnidentifiedImageError
 from .config import Settings, CATEGORIES
 from .storage import SQLiteRepository, now
-from .vision import Detector, ModelUnavailable
+from .vision import Detector, ModelUnavailable, create_detector
 from .rag import KnowledgeIndex, EvidenceWorkflow
 
 log=logging.getLogger('defectrag')
@@ -27,7 +27,7 @@ def create_app(settings=None, detector=None, workflow=None):
     settings.data.mkdir(parents=True,exist_ok=True)
     artifacts=settings.data/'artifacts'; artifacts.mkdir(exist_ok=True)
     repo=SQLiteRepository(settings.data/'inspection.sqlite3')
-    detector=detector or Detector(settings)
+    detector=detector or create_detector(settings)
     if workflow is None:
         workflow=EvidenceWorkflow(settings,KnowledgeIndex(settings.root,settings.data/'index'))
     app=FastAPI(title='DefectRAG',version='2.1.0',description='Industrial inspection and evidence workspace')
@@ -112,10 +112,11 @@ def create_app(settings=None, detector=None, workflow=None):
     def models(): return {'data':detector.cards()}
     @app.get('/api/evaluation')
     def evaluation():
-        path=settings.root/'results'/'evaluation.json'
+        active=getattr(detector,'profile_name','legacy')=='dinov2_highres_v1'
+        path=settings.root/'results'/('highres_deployment_evaluation.json' if active else 'evaluation.json')
         result=json.loads(path.read_text()) if path.exists() else {'status':'unverified'}
         profile=settings.root/'results'/'serving_profile.json'
-        if profile.exists():result['serving_profile']=json.loads(profile.read_text())
+        if profile.exists() and not active:result['serving_profile']=json.loads(profile.read_text())
         return {'data':result}
     @app.get('/api/stats')
     def stats(): return {'data':repo.stats()}
@@ -172,7 +173,12 @@ def create_app(settings=None, detector=None, workflow=None):
         path=settings.root/'results/official_evaluation.json'
         progress=settings.root/'experiments/official_visa_v1/evaluation.json'
         source=path if path.exists() else progress
-        return {'data':json.loads(source.read_text()) if source.exists() else {'categories':{},'status':'not_run'}}
+        report=json.loads(source.read_text()) if source.exists() else {'categories':{},'status':'not_run'}
+        candidate=settings.root/'results/highres_evaluation.json'
+        candidate_progress=settings.root/'experiments/dinov2_highres_v1/evaluation.json'
+        candidate_source=candidate if candidate.exists() else candidate_progress
+        if candidate_source.exists():report['candidate']=json.loads(candidate_source.read_text())
+        return {'data':report}
     @app.get('/api/inspections/{identifier}')
     def inspection(identifier:str): return {'data':require(identifier)}
     @app.get('/api/inspections/{identifier}/image')
