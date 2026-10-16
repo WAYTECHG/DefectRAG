@@ -86,7 +86,7 @@ class Detector:
     profile_name='legacy'
     def __init__(self, settings):
         self.settings = settings
-        self.encoder = None
+        self.encoder: Encoder | None = None
         self.banks = {}
         self.lock = threading.Lock()
 
@@ -118,22 +118,28 @@ class Detector:
             if fingerprint != card['encoder_sha256']:
                 self.encoder = None
                 raise ModelUnavailable('Encoder checksum differs from the calibrated model')
+        encoder = self.encoder
+        if encoder is None:
+            raise ModelUnavailable('DINOv3 encoder did not initialize')
         if category not in self.banks:
             if sha256(bank_path) != card['bank_sha256']:
                 raise ModelUnavailable('Normal memory bank checksum mismatch')
             bank = np.load(bank_path, allow_pickle=False)['patches'].astype('float32')
-            self.banks[category] = F.normalize(torch.from_numpy(bank).to(self.encoder.device), dim=-1)
+            self.banks[category] = F.normalize(torch.from_numpy(bank).to(encoder.device), dim=-1)
         return card, self.banks[category]
 
     def predict(self, image, category):
         with self.lock:
             start = time.perf_counter()
             card, bank = self.load(category)
-            if self.encoder.device.type == 'cuda':
+            encoder = self.encoder
+            if encoder is None:
+                raise ModelUnavailable('DINOv3 encoder did not initialize')
+            if encoder.device.type == 'cuda':
                 torch.cuda.reset_peak_memory_stats()
             inference_start = time.perf_counter()
-            raw, score = map_and_score(self.encoder, bank, image)
-            if self.encoder.device.type == 'cuda':
+            raw, score = map_and_score(encoder, bank, image)
+            if encoder.device.type == 'cuda':
                 torch.cuda.synchronize()
             elapsed = (time.perf_counter() - inference_start) * 1000
             threshold, margin = card['threshold'], card['uncertainty_margin']
@@ -141,8 +147,8 @@ class Detector:
             result = {'category': category, 'verdict': verdict, 'score': score, 'threshold': threshold,
                       'uncertainty_margin': margin, 'defect_category': None, 'model_id': card['model_id'],
                       'inference_ms': round(elapsed, 2), 'total_model_ms': round((time.perf_counter()-start)*1000, 2),
-                      'peak_gpu_mb': round(torch.cuda.max_memory_allocated()/1024**2, 2) if self.encoder.device.type == 'cuda' else None,
-                      'device': str(self.encoder.device), 'localization': '14 x 14 patch distances, interpolated; not a defect segmentation classifier',
+                      'peak_gpu_mb': round(torch.cuda.max_memory_allocated()/1024**2, 2) if encoder.device.type == 'cuda' else None,
+                      'device': str(encoder.device), 'localization': '14 x 14 patch distances, interpolated; not a defect segmentation classifier',
                       'scope': 'VisA benchmark appearance anomaly screening; category is user-selected and not verified by this model.',
                       'calibration': card['calibration'], 'model_sha256': card['bank_sha256']}
             preview = image.copy()

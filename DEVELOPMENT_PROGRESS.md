@@ -7,6 +7,12 @@ No model assets, thresholds or saved benchmark results changed. Actual VS Code
 hover diagnostics were not supplied; if an underline persists, inspect its exact
 message and confirm the local .venv interpreter. No experiment rerun is needed.
 
+The subsequently supplied reportOptionalMemberAccess screenshot was for the
+legacy backend/vision.py. The same explicit optional type and checked local
+encoder fix is now applied there. One real CUDA DINOv3 PCB1 inspection passed
+(score 0.0961143672, Anomalous); development-support/legacy-device-smoke.json.
+No training, thresholds, model assets or existing results were changed.
+
 COMPLETED AND PAUSED near 4% usage at the user's request. Both receipt files
 confirm status=passed. All 228 experimental receipt files are hash-verified;
 both 12-category experiments, banks/results/caches, legacy projects, interpreter
