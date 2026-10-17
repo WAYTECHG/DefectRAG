@@ -1,3 +1,40 @@
+# ZeroGPU assessment — 17 October 2026 — awaiting architecture approval
+
+User requested feasibility/architecture review ONLY before major implementation.
+Assessment complete in docs/ZEROGPU_MIGRATION_ASSESSMENT.md. STOP here for approval.
+No UI, application code, dependencies, models, data or cloud services changed.
+No GPU runs, installations, model experiments, rewrites, new ZIPs or deployment.
+
+Recommendation: preserve the exact React/Vite UI in one Gradio SDK Space using
+documented gradio.Server mode; @gradio/client transports scheduled GPU requests,
+existing CPU/FastAPI services retain reports/evaluation/history contracts. Use a
+separate ZeroGPU runtime adapter for DINOv2 (DINOv3 optional), CPU BGE retrieval,
+an injected in-Space Transformers generation provider, and the existing Supabase
+project for durable authenticated history/artifacts/collaboration. Proposed cloud
+LLM candidate is Qwen3-4B-Instruct-2507 (not downloaded or tested for this app).
+Existing local Qwen2.5-3B/Ollama remains unchanged. No model retraining proposed.
+
+Current Desktop Git HEAD 67b2378. Preserve existing user edits to
+deployment/RUN_AND_DEPLOY.md and frontend/public/config.js. Unlike older notes,
+Desktop public and built configs now contain a non-placeholder Supabase URL and
+publishable key. Do not overwrite them with the blank source-mirror config.
+No live database/schema/RLS/login was checked; account/Space entitlement unknown.
+
+Key risks: Gradio route ordering and HF iframe quota headers; lazy CUDA loading,
+worker isolation/locks and CPU-only startup computations; unauthenticated global
+SQLite/history must not be exposed publicly; ephemeral disk; separate Supabase/HF
+identities; missing durable backend message/alert/artifact repository; generation
+JSON differences, quota/cold starts and exact dependency compatibility. No claim
+of cloud performance, numerical parity, or always-free uninterrupted availability.
+
+Next after approval: only an isolated Phase 1 test retaining the React build,
+one queued existing-model job, actual account hardware/quota context and dual-auth
+transport. Then scoped vision parity, one generation provider, additive Supabase
+migration and full UI/persistence acceptance. Details, options, files and gates
+are in the assessment. Do not rerun old experiments or start implementation now.
+
+---
+
 # Local folder consolidation — 16 October 2026
 
 Follow-up editor fix: backend/highres.py explicitly types the optional encoder
