@@ -1,4 +1,42 @@
-# ZeroGPU migration assessment — 17 October 2026
+# ZeroGPU migration assessment — updated 18 October 2026
+
+## Phase 1 decision and measured outcome
+
+The user approved React + Gradio Server mode and Phase 1 testing only. That proof
+now passed locally and on the existing empty `Wizzas/DefectRAG` ZeroGPU Space.
+The original React dashboard/CSS was preserved, and the official JS client carried
+one genuine DINOv2 inspection in each environment. Cloud execution reported
+ZeroGPU=true and an RTX PRO 6000 Blackwell MIG 48 GB allocation. Score difference
+for the same public PCB1 fixture was 0.0000825822, with the same Anomalous verdict.
+This supports the recommended architecture for the tested path, not full migration
+or all-category numerical certification. Detailed evidence, versions and saved
+artifacts: [Phase 1 results](ZEROGPU_PHASE1_RESULTS.md).
+
+Compatibility changes are isolated under deployment/zerogpu_phase1. The Gradio
+6.30.0 / original Transformers 4.57.6 dependencies conflict over Hub (<1 versus
+>=1.16). The proof uses Transformers 5.20.1/Hub 2.2.0 in its own environment;
+production dependencies remain unchanged. HF's preflight rejects the +cu128 Torch
+version suffix; supported torch==2.8.0 resolved that error. Cloud Python 3.12.12,
+Gradio 6.30.0, spaces 0.51.3 and Torch 2.8.0 executed successfully. Its unused
+preinstalled datasets package has a remaining Hub <2 dependency warning.
+
+The cloud proof permits only the public PCB1 fixture, uses ephemeral isolated
+history and publishes blank Supabase settings. No RAG/batch/cloud-staff migration,
+Qwen model, private history, retraining or full application release occurred.
+Original local app, models/results, Supabase configuration and static showcase
+are preserved; Wizzas/defectrag-inference was not changed.
+
+Cloud logs also expose post-result SSE errors when Gradio cannot find a stream's
+queue session. Immediate condition is traced to routes.py's missing-session check;
+the reconnect/cleanup trigger remains unconfirmed. This did not prevent delivery
+of the genuine result, but requires bounded diagnosis before production readiness.
+
+Outstanding gates: SSE session lifecycle, authenticated HF iframe quota identity, dual authentication,
+restart/concurrency/quota tests, remaining-category parity, generation-provider
+quality and durable authenticated backend persistence. Phase 1's direct hf.space
+guest request does not prove these. **STOP after Phase 1; Phase 2 needs approval.**
+
+## Original assessment — 17 October 2026 (historical)
 
 Status: assessment complete; implementation awaits user approval. No application
 code, UI assets, dependencies, model weights, thresholds, datasets or database

@@ -1,4 +1,53 @@
-# ZeroGPU assessment — 17 October 2026 — awaiting architecture approval
+# ZeroGPU Phase 1 — 18 October 2026 — core passed, issues recorded, STOPPED
+
+User approved React + Gradio Server architecture and Phase 1 compatibility ONLY.
+Phase 1 passed locally and on the existing empty Wizzas/DefectRAG ZeroGPU Space.
+STOP here. No Phase 2, full RAG migration, Qwen download, training, Supabase
+schema change or full production deployment is authorized.
+
+Read docs/ZEROGPU_PHASE1_RESULTS.md for detailed evidence and limitations;
+deployment/zerogpu_phase1/README.md for exact local resume commands. All new
+implementation is isolated under deployment/zerogpu_phase1. Existing React/backend
+source, CSS, dist/static showcase, models, thresholds, data and evaluations remain
+unchanged. Desktop's preexisting config.js and RUN_AND_DEPLOY.md edits are preserved.
+
+Completed: original React served by gradio.Server, nine navigation pages checked,
+file upload, real @gradio/client -> scheduled DINOv2 -> saved score/heatmap -> React,
+comparison/zoom, HTTP report/history/evaluation/CSV and identical production CSS.
+Exactly one real local and one cloud inspection were run; no benchmark repeated.
+Local score 0.3130886257; cloud 0.3130060434; both Anomalous, threshold 0.1618193388.
+Cloud GPU: RTX PRO 6000 Blackwell Server Edition MIG 2g.48gb; ZeroGPU=true.
+Cloud Python 3.12.12 / Torch 2.8.0 / Gradio 6.30.0 / spaces 0.51.3 /
+Transformers 5.20.1 / Hub 2.2.0. Local original production environment unchanged.
+Gradio/old Transformers Hub conflict resolved only in isolated test environment.
+One HF CONFIG_ERROR fixed by removing +cu128 from requirements' Torch version.
+Unused preinstalled datasets/Hub dependency warning remains documented.
+After successful result delivery, cloud logs show Gradio SSE missing-session 404
+errors and a response-already-started exception. Immediate server condition traced
+to missing pending_messages_per_session entry; reconnect/cleanup trigger remains
+unconfirmed. This needs bounded lifecycle diagnosis before a production migration.
+
+Public test: https://huggingface.co/spaces/Wizzas/DefectRAG
+Cloud commit 84df9af3f59b2fe43fdb6ad14a1820c930329abc. Only public PCB1 fixture
+and its bank are accepted; no private history/config, RAG, batch or cloud staff
+migration published. The separate Wizzas/defectrag-inference Space is untouched.
+Read-only metadata and local/cloud verification saved under
+development-support/zerogpu-phase1 and docs/zerogpu_phase1. Genuine local artifacts
+and isolated SQLite remain in runtime/zerogpu-phase1. No new large release ZIP.
+
+Owned local adapter on port 8783 stopped after testing. No owned training or
+inference job remains. HF minimal test remains hosted/idle and can sleep; temporary
+history is not durable. All other existing user processes are left alone.
+
+Next only after approval: diagnose SSE session cleanup; review HF iframe identity/quota and restart
+tests, clean the unused cloud dependency warning, then migrate bounded vision
+requests for remaining existing banks with approved parity checks. RAG and durable
+Supabase persistence remain later gates. Do not repeat completed work or rerun
+publish_minimal (it intentionally refuses to overwrite the existing test).
+
+---
+
+# Historical ZeroGPU assessment — 17 October 2026
 
 User requested feasibility/architecture review ONLY before major implementation.
 Assessment complete in docs/ZEROGPU_MIGRATION_ASSESSMENT.md. STOP here for approval.

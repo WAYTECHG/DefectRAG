@@ -1,0 +1,105 @@
+{
+  "status": "passed",
+  "ready": {
+    "message": "react-gradio-phase1",
+    "server_mode": true,
+    "zero_gpu_environment": false,
+    "python": "3.12.4",
+    "device": "cuda",
+    "versions": {
+      "gradio": "6.30.0",
+      "spaces": "0.51.3",
+      "torch": "2.8.0+cu126",
+      "transformers": "5.20.1",
+      "huggingface-hub": "2.2.0",
+      "fastapi": "0.142.2"
+    }
+  },
+  "checks": {
+    "dashboard": "passed",
+    "history": "passed",
+    "heatmap": "passed",
+    "image": "passed",
+    "report": "passed",
+    "evaluation": "passed",
+    "benchmark": "passed",
+    "csv": "passed"
+  },
+  "one_browser_inspection": {
+    "inference_ms": 1188.57,
+    "device": "cuda",
+    "gpu_name": "NVIDIA GeForce RTX 4060 Laptop GPU",
+    "peak_gpu_mb": 113.71,
+    "foreground_fraction": 0.4291158536585366,
+    "id": "b01ad894f1c6490ead703e3793c52539",
+    "created_at": "2026-10-17T15:45:14.374404+00:00",
+    "category": "pcb1",
+    "batch": "",
+    "filename": "pcb1_anomalous.jpg",
+    "verdict": "Anomalous",
+    "score": 0.31308862566947937,
+    "threshold": 0.16181933879852295,
+    "uncertainty_margin": 0.008090966939926147,
+    "defect_category": null,
+    "model_id": "dinov2-highres-pcb1-v1",
+    "model_sha256": "14e71cb6285f22e3d12d2b0d6357c552a26685a8f03a9b626a3e8999e8a89c65",
+    "total_model_ms": 1224.58,
+    "localization": "32 x 41 DINOv2 patch distances with PCA foreground heuristic; interpolated, not supervised segmentation",
+    "scope": "Phase 1 compatibility request using a public VisA fixture; not a new accuracy evaluation.",
+    "profile": "dinov2_highres_v1",
+    "calibration": {
+      "method": "Maximum heldout normal score; no anomalous calibration",
+      "normal": 91,
+      "anomalous": 0,
+      "seed": 42
+    },
+    "phase1": {
+      "transport": "@gradio/client",
+      "zero_gpu_environment": false
+    },
+    "image_url": "/api/inspections/b01ad894f1c6490ead703e3793c52539/image",
+    "heatmap_url": "/api/inspections/b01ad894f1c6490ead703e3793c52539/heatmap"
+  },
+  "css_sha256": "087e3c48084e6752afdd5667f4ad43b22bd240038b904dc746f51b90b0732661",
+  "production_css_identical": true,
+  "navigation": [
+    {
+      "page": "Overview",
+      "heading": "A clearer view of quality."
+    },
+    {
+      "page": "Batch monitoring",
+      "heading": "Every batch, in view."
+    },
+    {
+      "page": "Inspection history",
+      "heading": "A record you can return to."
+    },
+    {
+      "page": "Review alerts 1",
+      "heading": "Give uncertainty a second look."
+    },
+    {
+      "page": "Model performance",
+      "heading": "Measured, not assumed."
+    },
+    {
+      "page": "Official benchmark",
+      "heading": "Follow the evidence."
+    },
+    {
+      "page": "Staff workspace",
+      "heading": "Better decisions, together."
+    },
+    {
+      "page": "History recovery",
+      "heading": "Nothing important gets lost."
+    },
+    {
+      "page": "About & evidence",
+      "heading": "Evidence behind the answer."
+    }
+  ],
+  "rest_gpu_bypass": "blocked",
+  "zerogpu": "not tested by this local CUDA run"
+}

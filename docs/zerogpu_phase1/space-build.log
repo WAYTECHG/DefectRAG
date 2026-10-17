@@ -1,0 +1,377 @@
+data: {"data":"===== Build Queued at 2026-10-17 16:10:25 / Commit SHA: 84df9af =====\n","timestamp":"2026-10-17T16:10:25Z"}
+data: {"data":"--> FROM docker.io/library/python:3.12.12@sha256:cb770de9f47e77715f13434d96f7ebaae7ad3a1f4fd9c8b338549bf99c9980ab","timestamp":"2026-10-17T16:10:29.195Z"}
+data: {"data":"DONE 0.0s\n","timestamp":"2026-10-17T16:10:29.195Z"}
+data: {"data":"--> COPY --from=root / /","timestamp":"2026-10-17T16:10:29.306Z"}
+data: {"data":"CACHED\n","timestamp":"2026-10-17T16:10:29.306Z"}
+data: {"data":"--> WORKDIR /app","timestamp":"2026-10-17T16:10:29.306Z"}
+data: {"data":"CACHED\n","timestamp":"2026-10-17T16:10:29.306Z"}
+data: {"data":"--> RUN apt-get update && apt-get install -y \tgit \tgit-lfs \tffmpeg \tlibsm6 \tlibxext6 \tcmake \trsync \tlibgl1 \t&& rm -rf /var/lib/apt/lists/* \t&& git lfs install","timestamp":"2026-10-17T16:10:29.306Z"}
+data: {"data":"CACHED\n","timestamp":"2026-10-17T16:10:29.306Z"}
+data: {"data":"--> RUN pip install --no-cache-dir pip -U &&     pip install --no-cache-dir     datasets     \"huggingface-hub>=0.30\" \"hf-transfer>=0.1.4\" \"protobuf<4\" \"click<8.1\" torch==2.8.0","timestamp":"2026-10-17T16:10:29.306Z"}
+data: {"data":"CACHED\n","timestamp":"2026-10-17T16:10:29.306Z"}
+data: {"data":"--> RUN \tapt-get update && \tapt-get install -y curl && \tcurl -fsSL https://deb.nodesource.com/setup_20.x | bash - && \tapt-get install -y nodejs && \trm -rf /var/lib/apt/lists/* && apt-get clean","timestamp":"2026-10-17T16:10:29.306Z"}
+data: {"data":"CACHED\n\n--> Restoring cache","timestamp":"2026-10-17T16:10:29.306Z"}
+data: {"data":"DONE 35.0s\n\n--> RUN --mount=target=/tmp/requirements.txt,source=requirements.txt     pip install --no-cache-dir -r /tmp/requirements.txt \"torch<=2.13.0\"     gradio[oauth,mcp]==6.30.0     \"uvicorn>=0.14.0\" \"websockets>=10.4\"     spaces==0.51.3","timestamp":"2026-10-17T16:11:04.382Z"}
+data: {"data":"Looking in indexes: https://pypi.org/simple, https://download.pytorch.org/whl/cu128","timestamp":"2026-10-17T16:11:04.758Z"}
+data: {"data":"Requirement already satisfied: torch<=2.13.0 in /usr/local/lib/python3.12/site-packages (2.8.0)","timestamp":"2026-10-17T16:11:04.909Z"}
+data: {"data":"Collecting gradio==6.30.0 (from gradio[mcp,oauth]==6.30.0)","timestamp":"2026-10-17T16:11:05.010Z"}
+data: {"data":"  Downloading gradio-6.30.0-py3-none-any.whl.metadata (16 kB)","timestamp":"2026-10-17T16:11:05.146Z"}
+data: {"data":"Collecting uvicorn>=0.14.0","timestamp":"2026-10-17T16:11:05.146Z"}
+data: {"data":"  Downloading uvicorn-0.54.0-py3-none-any.whl.metadata (6.6 kB)","timestamp":"2026-10-17T16:11:05.307Z"}
+data: {"data":"Collecting websockets>=10.4","timestamp":"2026-10-17T16:11:05.323Z"}
+data: {"data":"  Downloading websockets-17.2-cp312-cp312-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl.metadata (6.3 kB)","timestamp":"2026-10-17T16:11:05.482Z"}
+data: {"data":"Collecting spaces==0.51.3","timestamp":"2026-10-17T16:11:05.482Z"}
+data: {"data":"  Downloading spaces-0.51.3-py3-none-any.whl.metadata (633 bytes)","timestamp":"2026-10-17T16:11:05.482Z"}
+data: {"data":"Collecting torchvision==0.23.0 (from -r /tmp/requirements.txt (line 3))","timestamp":"2026-10-17T16:11:05.482Z"}
+data: {"data":"  Downloading torchvision-0.23.0%2Bcu128-cp312-cp312-manylinux_2_28_x86_64.whl.metadata (6.1 kB)","timestamp":"2026-10-17T16:11:05.629Z"}
+data: {"data":"Collecting transformers==5.20.1 (from -r /tmp/requirements.txt (line 6))","timestamp":"2026-10-17T16:11:05.630Z"}
+data: {"data":"  Downloading transformers-5.20.1-py3-none-any.whl.metadata (31 kB)","timestamp":"2026-10-17T16:11:05.767Z"}
+data: {"data":"Collecting huggingface-hub==2.2.0 (from -r /tmp/requirements.txt (line 7))","timestamp":"2026-10-17T16:11:05.767Z"}
+data: {"data":"  Downloading huggingface_hub-2.2.0-py3-none-any.whl.metadata (16 kB)","timestamp":"2026-10-17T16:11:05.881Z"}
+data: {"data":"Collecting fastapi==0.142.2 (from -r /tmp/requirements.txt (line 8))","timestamp":"2026-10-17T16:11:05.881Z"}
+data: {"data":"  Downloading fastapi-0.142.2-py3-none-any.whl.metadata (27 kB)","timestamp":"2026-10-17T16:11:06.129Z"}
+data: {"data":"Collecting starlette==1.8.0 (from -r /tmp/requirements.txt (line 9))","timestamp":"2026-10-17T16:11:06.129Z"}
+data: {"data":"  Downloading starlette-1.8.0-py3-none-any.whl.metadata (6.6 kB)","timestamp":"2026-10-17T16:11:06.129Z"}
+data: {"data":"Collecting numpy==2.1.3 (from -r /tmp/requirements.txt (line 10))","timestamp":"2026-10-17T16:11:06.358Z"}
+data: {"data":"  Downloading numpy-2.1.3-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (62 kB)","timestamp":"2026-10-17T16:11:06.519Z"}
+data: {"data":"Collecting scipy==1.18.1 (from -r /tmp/requirements.txt (line 11))","timestamp":"2026-10-17T16:11:06.528Z"}
+data: {"data":"  Downloading scipy-1.18.1-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (62 kB)","timestamp":"2026-10-17T16:11:06.633Z"}
+data: {"data":"Collecting scikit-learn==1.9.1 (from -r /tmp/requirements.txt (line 12))","timestamp":"2026-10-17T16:11:06.633Z"}
+data: {"data":"  Downloading scikit_learn-1.9.1-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (9.3 kB)","timestamp":"2026-10-17T16:11:06.794Z"}
+data: {"data":"Collecting Pillow==11.3.0 (from -r /tmp/requirements.txt (line 13))","timestamp":"2026-10-17T16:11:06.977Z"}
+data: {"data":"  Downloading pillow-11.3.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (9.0 kB)","timestamp":"2026-10-17T16:11:07.138Z"}
+data: {"data":"Collecting threadpoolctl<4,>=3 (from -r /tmp/requirements.txt (line 14))","timestamp":"2026-10-17T16:11:07.138Z"}
+data: {"data":"  Downloading threadpoolctl-3.7.0-py3-none-any.whl.metadata (24 kB)","timestamp":"2026-10-17T16:11:07.138Z"}
+data: {"data":"Collecting python-dotenv<2,>=1 (from -r /tmp/requirements.txt (line 15))","timestamp":"2026-10-17T16:11:07.138Z"}
+data: {"data":"  Downloading python_dotenv-1.2.4-py3-none-any.whl.metadata (29 kB)","timestamp":"2026-10-17T16:11:07.247Z"}
+data: {"data":"Collecting langchain-core==1.6.10 (from -r /tmp/requirements.txt (line 16))","timestamp":"2026-10-17T16:11:07.247Z"}
+data: {"data":"  Downloading langchain_core-1.6.10-py3-none-any.whl.metadata (4.8 kB)","timestamp":"2026-10-17T16:11:07.247Z"}
+data: {"data":"Collecting langchain-community==0.4.1 (from -r /tmp/requirements.txt (line 17))","timestamp":"2026-10-17T16:11:07.418Z"}
+data: {"data":"  Downloading langchain_community-0.4.1-py3-none-any.whl.metadata (3.0 kB)","timestamp":"2026-10-17T16:11:07.418Z"}
+data: {"data":"Collecting langchain-text-splitters==1.1.2 (from -r /tmp/requirements.txt (line 18))","timestamp":"2026-10-17T16:11:07.418Z"}
+data: {"data":"  Downloading langchain_text_splitters-1.1.2-py3-none-any.whl.metadata (3.3 kB)","timestamp":"2026-10-17T16:11:07.525Z"}
+data: {"data":"Collecting langgraph==1.2.14 (from -r /tmp/requirements.txt (line 19))","timestamp":"2026-10-17T16:11:07.525Z"}
+data: {"data":"  Downloading langgraph-1.2.14-py3-none-any.whl.metadata (4.9 kB)","timestamp":"2026-10-17T16:11:07.647Z"}
+data: {"data":"Requirement already satisfied: filelock in /usr/local/lib/python3.12/site-packages (from torch<=2.13.0) (3.29.4)","timestamp":"2026-10-17T16:11:07.647Z"}
+data: {"data":"Requirement already satisfied: typing-extensions>=4.10.0 in /usr/local/lib/python3.12/site-packages (from torch<=2.13.0) (4.15.0)","timestamp":"2026-10-17T16:11:07.647Z"}
+data: {"data":"Requirement already satisfied: setuptools in /usr/local/lib/python3.12/site-packages (from torch<=2.13.0) (82.0.1)","timestamp":"2026-10-17T16:11:07.647Z"}
+data: {"data":"Requirement already satisfied: sympy>=1.13.3 in /usr/local/lib/python3.12/site-packages (from torch<=2.13.0) (1.14.0)","timestamp":"2026-10-17T16:11:07.647Z"}
+data: {"data":"Requirement already satisfied: networkx in /usr/local/lib/python3.12/site-packages (from torch<=2.13.0) (3.6.1)","timestamp":"2026-10-17T16:11:07.647Z"}
+data: {"data":"Requirement already satisfied: jinja2 in /usr/local/lib/python3.12/site-packages (from torch<=2.13.0) (3.1.6)","timestamp":"2026-10-17T16:11:07.647Z"}
+data: {"data":"Requirement already satisfied: fsspec in /usr/local/lib/python3.12/site-packages (from torch<=2.13.0) (2026.4.0)","timestamp":"2026-10-17T16:11:07.647Z"}
+data: {"data":"Requirement already satisfied: nvidia-cuda-nvrtc-cu12==12.8.93 in /usr/local/lib/python3.12/site-packages (from torch<=2.13.0) (12.8.93)","timestamp":"2026-10-17T16:11:07.647Z"}
+data: {"data":"Requirement already satisfied: nvidia-cuda-runtime-cu12==12.8.90 in /usr/local/lib/python3.12/site-packages (from torch<=2.13.0) (12.8.90)","timestamp":"2026-10-17T16:11:07.647Z"}
+data: {"data":"Requirement already satisfied: nvidia-cuda-cupti-cu12==12.8.90 in /usr/local/lib/python3.12/site-packages (from torch<=2.13.0) (12.8.90)","timestamp":"2026-10-17T16:11:07.647Z"}
+data: {"data":"Requirement already satisfied: nvidia-cudnn-cu12==9.10.2.21 in /usr/local/lib/python3.12/site-packages (from torch<=2.13.0) (9.10.2.21)","timestamp":"2026-10-17T16:11:07.647Z"}
+data: {"data":"Requirement already satisfied: nvidia-cublas-cu12==12.8.4.1 in /usr/local/lib/python3.12/site-packages (from torch<=2.13.0) (12.8.4.1)","timestamp":"2026-10-17T16:11:07.647Z"}
+data: {"data":"Requirement already satisfied: nvidia-cufft-cu12==11.3.3.83 in /usr/local/lib/python3.12/site-packages (from torch<=2.13.0) (11.3.3.83)","timestamp":"2026-10-17T16:11:07.647Z"}
+data: {"data":"Requirement already satisfied: nvidia-curand-cu12==10.3.9.90 in /usr/local/lib/python3.12/site-packages (from torch<=2.13.0) (10.3.9.90)","timestamp":"2026-10-17T16:11:07.647Z"}
+data: {"data":"Requirement already satisfied: nvidia-cusolver-cu12==11.7.3.90 in /usr/local/lib/python3.12/site-packages (from torch<=2.13.0) (11.7.3.90)","timestamp":"2026-10-17T16:11:07.647Z"}
+data: {"data":"Requirement already satisfied: nvidia-cusparse-cu12==12.5.8.93 in /usr/local/lib/python3.12/site-packages (from torch<=2.13.0) (12.5.8.93)","timestamp":"2026-10-17T16:11:07.647Z"}
+data: {"data":"Requirement already satisfied: nvidia-cusparselt-cu12==0.7.1 in /usr/local/lib/python3.12/site-packages (from torch<=2.13.0) (0.7.1)","timestamp":"2026-10-17T16:11:07.647Z"}
+data: {"data":"Requirement already satisfied: nvidia-nccl-cu12==2.27.3 in /usr/local/lib/python3.12/site-packages (from torch<=2.13.0) (2.27.3)","timestamp":"2026-10-17T16:11:07.647Z"}
+data: {"data":"Requirement already satisfied: nvidia-nvtx-cu12==12.8.90 in /usr/local/lib/python3.12/site-packages (from torch<=2.13.0) (12.8.90)","timestamp":"2026-10-17T16:11:07.647Z"}
+data: {"data":"Requirement already satisfied: nvidia-nvjitlink-cu12==12.8.93 in /usr/local/lib/python3.12/site-packages (from torch<=2.13.0) (12.8.93)","timestamp":"2026-10-17T16:11:07.647Z"}
+data: {"data":"Requirement already satisfied: nvidia-cufile-cu12==1.13.1.3 in /usr/local/lib/python3.12/site-packages (from torch<=2.13.0) (1.13.1.3)","timestamp":"2026-10-17T16:11:07.647Z"}
+data: {"data":"Requirement already satisfied: triton==3.4.0 in /usr/local/lib/python3.12/site-packages (from torch<=2.13.0) (3.4.0)","timestamp":"2026-10-17T16:11:07.647Z"}
+data: {"data":"Requirement already satisfied: anyio<5.0,>=3.0 in /usr/local/lib/python3.12/site-packages (from gradio==6.30.0->gradio[mcp,oauth]==6.30.0) (4.13.0)","timestamp":"2026-10-17T16:11:07.647Z"}
+data: {"data":"Collecting brotli>=1.1.0 (from gradio==6.30.0->gradio[mcp,oauth]==6.30.0)","timestamp":"2026-10-17T16:11:07.647Z"}
+data: {"data":"  Downloading brotli-1.2.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (6.1 kB)","timestamp":"2026-10-17T16:11:07.822Z"}
+data: {"data":"Collecting gradio-client==2.7.2 (from gradio==6.30.0->gradio[mcp,oauth]==6.30.0)","timestamp":"2026-10-17T16:11:07.822Z"}
+data: {"data":"  Downloading gradio_client-2.7.2-py3-none-any.whl.metadata (7.1 kB)","timestamp":"2026-10-17T16:11:07.822Z"}
+data: {"data":"Collecting groovy~=0.1 (from gradio==6.30.0->gradio[mcp,oauth]==6.30.0)","timestamp":"2026-10-17T16:11:07.822Z"}
+data: {"data":"  Downloading groovy-0.1.2-py3-none-any.whl.metadata (6.1 kB)","timestamp":"2026-10-17T16:11:08.062Z"}
+data: {"data":"Collecting hf-gradio<1.0,>=0.4.1 (from gradio==6.30.0->gradio[mcp,oauth]==6.30.0)","timestamp":"2026-10-17T16:11:08.062Z"}
+data: {"data":"  Downloading hf_gradio-0.4.1-py3-none-any.whl.metadata (428 bytes)","timestamp":"2026-10-17T16:11:08.062Z"}
+data: {"data":"Requirement already satisfied: httpx<1.0,>=0.24.1 in /usr/local/lib/python3.12/site-packages (from gradio==6.30.0->gradio[mcp,oauth]==6.30.0) (0.28.1)","timestamp":"2026-10-17T16:11:08.062Z"}
+data: {"data":"Requirement already satisfied: markupsafe<4.0,>=2.0 in /usr/local/lib/python3.12/site-packages (from gradio==6.30.0->gradio[mcp,oauth]==6.30.0) (3.0.3)","timestamp":"2026-10-17T16:11:08.062Z"}
+data: {"data":"Collecting orjson~=3.0 (from gradio==6.30.0->gradio[mcp,oauth]==6.30.0)","timestamp":"2026-10-17T16:11:08.160Z"}
+data: {"data":"  Downloading orjson-3.13.0-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (42 kB)","timestamp":"2026-10-17T16:11:08.317Z"}
+data: {"data":"Requirement already satisfied: packaging in /usr/local/lib/python3.12/site-packages (from gradio==6.30.0->gradio[mcp,oauth]==6.30.0) (26.2)","timestamp":"2026-10-17T16:11:08.317Z"}
+data: {"data":"Requirement already satisfied: pandas<4.0,>=1.0 in /usr/local/lib/python3.12/site-packages (from gradio==6.30.0->gradio[mcp,oauth]==6.30.0) (3.0.3)","timestamp":"2026-10-17T16:11:08.317Z"}
+data: {"data":"Collecting pydantic<=3.0,>=2.0 (from gradio==6.30.0->gradio[mcp,oauth]==6.30.0)","timestamp":"2026-10-17T16:11:08.317Z"}
+data: {"data":"  Downloading pydantic-2.14.1-py3-none-any.whl.metadata (133 kB)","timestamp":"2026-10-17T16:11:08.463Z"}
+data: {"data":"Collecting pydub<1.0 (from gradio==6.30.0->gradio[mcp,oauth]==6.30.0)","timestamp":"2026-10-17T16:11:08.463Z"}
+data: {"data":"  Downloading pydub-0.25.1-py2.py3-none-any.whl.metadata (1.4 kB)","timestamp":"2026-10-17T16:11:08.463Z"}
+data: {"data":"Collecting python-multipart<1.0,>=0.0.18 (from gradio==6.30.0->gradio[mcp,oauth]==6.30.0)","timestamp":"2026-10-17T16:11:08.463Z"}
+data: {"data":"  Downloading python_multipart-0.0.32-py3-none-any.whl.metadata (2.1 kB)","timestamp":"2026-10-17T16:11:08.575Z"}
+data: {"data":"Collecting pytz>=2017.2 (from gradio==6.30.0->gradio[mcp,oauth]==6.30.0)","timestamp":"2026-10-17T16:11:08.575Z"}
+data: {"data":"  Downloading pytz-2026.5-py2.py3-none-any.whl.metadata (22 kB)","timestamp":"2026-10-17T16:11:08.734Z"}
+data: {"data":"Requirement already satisfied: pyyaml<7.0,>=5.0 in /usr/local/lib/python3.12/site-packages (from gradio==6.30.0->gradio[mcp,oauth]==6.30.0) (6.0.3)","timestamp":"2026-10-17T16:11:08.734Z"}
+data: {"data":"Collecting safehttpx<0.2.0,>=0.1.7 (from gradio==6.30.0->gradio[mcp,oauth]==6.30.0)","timestamp":"2026-10-17T16:11:08.734Z"}
+data: {"data":"  Downloading safehttpx-0.1.7-py3-none-any.whl.metadata (4.2 kB)","timestamp":"2026-10-17T16:11:08.734Z"}
+data: {"data":"Collecting semantic-version~=2.0 (from gradio==6.30.0->gradio[mcp,oauth]==6.30.0)","timestamp":"2026-10-17T16:11:08.734Z"}
+data: {"data":"  Downloading semantic_version-2.10.0-py2.py3-none-any.whl.metadata (9.7 kB)","timestamp":"2026-10-17T16:11:08.865Z"}
+data: {"data":"Collecting tomlkit<0.15.0,>=0.12.0 (from gradio==6.30.0->gradio[mcp,oauth]==6.30.0)","timestamp":"2026-10-17T16:11:08.865Z"}
+data: {"data":"  Downloading tomlkit-0.14.0-py3-none-any.whl.metadata (2.8 kB)","timestamp":"2026-10-17T16:11:08.865Z"}
+data: {"data":"Requirement already satisfied: typer<1.0,>=0.12 in /usr/local/lib/python3.12/site-packages (from gradio==6.30.0->gradio[mcp,oauth]==6.30.0) (0.26.7)","timestamp":"2026-10-17T16:11:08.984Z"}
+data: {"data":"Collecting click<9.0.0,>=8.4.2 (from huggingface-hub==2.2.0->-r /tmp/requirements.txt (line 7))","timestamp":"2026-10-17T16:11:08.984Z"}
+data: {"data":"  Downloading click-8.5.0-py3-none-any.whl.metadata (2.6 kB)","timestamp":"2026-10-17T16:11:09.146Z"}
+data: {"data":"Collecting hf-xet<2.0.0,>=1.6.0 (from huggingface-hub==2.2.0->-r /tmp/requirements.txt (line 7))","timestamp":"2026-10-17T16:11:09.146Z"}
+data: {"data":"  Downloading hf_xet-1.7.0-cp38-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (4.9 kB)","timestamp":"2026-10-17T16:11:09.146Z"}
+data: {"data":"Collecting httpx2<3,>=2.0.0 (from huggingface-hub==2.2.0->-r /tmp/requirements.txt (line 7))","timestamp":"2026-10-17T16:11:09.146Z"}
+data: {"data":"  Downloading httpx2-2.13.1-py3-none-any.whl.metadata (9.8 kB)","timestamp":"2026-10-17T16:11:09.251Z"}
+data: {"data":"Requirement already satisfied: tqdm>=4.42.1 in /usr/local/lib/python3.12/site-packages (from huggingface-hub==2.2.0->-r /tmp/requirements.txt (line 7)) (4.68.2)","timestamp":"2026-10-17T16:11:09.251Z"}
+data: {"data":"Collecting typing-inspection>=0.4.2 (from fastapi==0.142.2->-r /tmp/requirements.txt (line 8))","timestamp":"2026-10-17T16:11:09.251Z"}
+data: {"data":"  Downloading typing_inspection-0.4.4-py3-none-any.whl.metadata (2.6 kB)","timestamp":"2026-10-17T16:11:09.251Z"}
+data: {"data":"Requirement already satisfied: annotated-doc>=0.0.2 in /usr/local/lib/python3.12/site-packages (from fastapi==0.142.2->-r /tmp/requirements.txt (line 8)) (0.0.4)","timestamp":"2026-10-17T16:11:09.460Z"}
+data: {"data":"Collecting opentelemetry-api>=1.44.0 (from fastapi==0.142.2->-r /tmp/requirements.txt (line 8))","timestamp":"2026-10-17T16:11:09.460Z"}
+data: {"data":"  Downloading opentelemetry_api-1.45.1-py3-none-any.whl.metadata (1.4 kB)","timestamp":"2026-10-17T16:11:09.460Z"}
+data: {"data":"Requirement already satisfied: requests<3,>=2.19 in /usr/local/lib/python3.12/site-packages (from spaces==0.51.3) (2.34.2)","timestamp":"2026-10-17T16:11:09.460Z"}
+data: {"data":"Collecting regex>=2025.10.22 (from transformers==5.20.1->-r /tmp/requirements.txt (line 6))","timestamp":"2026-10-17T16:11:09.679Z"}
+data: {"data":"  Downloading regex-2026.9.29-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (40 kB)","timestamp":"2026-10-17T16:11:09.839Z"}
+data: {"data":"Collecting tokenizers<0.24.0,>=0.23.1 (from transformers==5.20.1->-r /tmp/requirements.txt (line 6))","timestamp":"2026-10-17T16:11:09.866Z"}
+data: {"data":"  Downloading tokenizers-0.23.3-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (9.8 kB)","timestamp":"2026-10-17T16:11:10.027Z"}
+data: {"data":"Collecting safetensors>=0.8.0 (from transformers==5.20.1->-r /tmp/requirements.txt (line 6))","timestamp":"2026-10-17T16:11:10.033Z"}
+data: {"data":"  Downloading safetensors-0.8.0-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.2 kB)","timestamp":"2026-10-17T16:11:10.184Z"}
+data: {"data":"Collecting joblib>=1.4.0 (from scikit-learn==1.9.1->-r /tmp/requirements.txt (line 12))","timestamp":"2026-10-17T16:11:10.184Z"}
+data: {"data":"  Downloading joblib-1.6.0-py3-none-any.whl.metadata (6.5 kB)","timestamp":"2026-10-17T16:11:10.184Z"}
+data: {"data":"Collecting narwhals>=2.0.1 (from scikit-learn==1.9.1->-r /tmp/requirements.txt (line 12))","timestamp":"2026-10-17T16:11:10.184Z"}
+data: {"data":"  Downloading narwhals-2.27.1-py3-none-any.whl.metadata (15 kB)","timestamp":"2026-10-17T16:11:10.365Z"}
+data: {"data":"Collecting jsonpatch<2.0.0,>=1.33.0 (from langchain-core==1.6.10->-r /tmp/requirements.txt (line 16))","timestamp":"2026-10-17T16:11:10.365Z"}
+data: {"data":"  Downloading jsonpatch-1.35-py3-none-any.whl.metadata (3.7 kB)","timestamp":"2026-10-17T16:11:10.365Z"}
+data: {"data":"Collecting langchain-protocol>=0.0.17 (from langchain-core==1.6.10->-r /tmp/requirements.txt (line 16))","timestamp":"2026-10-17T16:11:10.365Z"}
+data: {"data":"  Downloading langchain_protocol-0.0.19-py3-none-any.whl.metadata (2.4 kB)","timestamp":"2026-10-17T16:11:10.489Z"}
+data: {"data":"Collecting langsmith<1.0.0,>=0.3.45 (from langchain-core==1.6.10->-r /tmp/requirements.txt (line 16))","timestamp":"2026-10-17T16:11:10.489Z"}
+data: {"data":"  Downloading langsmith-0.14.11-py3-none-any.whl.metadata (38 kB)","timestamp":"2026-10-17T16:11:10.590Z"}
+data: {"data":"Collecting tenacity!=8.4.0,<10.0.0,>=8.1.0 (from langchain-core==1.6.10->-r /tmp/requirements.txt (line 16))","timestamp":"2026-10-17T16:11:10.590Z"}
+data: {"data":"  Downloading tenacity-9.2.1-py3-none-any.whl.metadata (1.4 kB)","timestamp":"2026-10-17T16:11:10.749Z"}
+data: {"data":"Collecting uuid-utils<1.0,>=0.12.0 (from langchain-core==1.6.10->-r /tmp/requirements.txt (line 16))","timestamp":"2026-10-17T16:11:10.749Z"}
+data: {"data":"  Downloading uuid_utils-0.17.1-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (6.4 kB)","timestamp":"2026-10-17T16:11:10.993Z"}
+data: {"data":"Collecting langchain-classic<2.0.0,>=1.0.0 (from langchain-community==0.4.1->-r /tmp/requirements.txt (line 17))","timestamp":"2026-10-17T16:11:10.993Z"}
+data: {"data":"  Downloading langchain_classic-1.0.8-py3-none-any.whl.metadata (5.1 kB)","timestamp":"2026-10-17T16:11:10.993Z"}
+data: {"data":"Collecting SQLAlchemy<3.0.0,>=1.4.0 (from langchain-community==0.4.1->-r /tmp/requirements.txt (line 17))","timestamp":"2026-10-17T16:11:11.121Z"}
+data: {"data":"  Downloading sqlalchemy-2.1.5-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (9.7 kB)","timestamp":"2026-10-17T16:11:11.287Z"}
+data: {"data":"Requirement already satisfied: aiohttp<4.0.0,>=3.8.3 in /usr/local/lib/python3.12/site-packages (from langchain-community==0.4.1->-r /tmp/requirements.txt (line 17)) (3.14.1)","timestamp":"2026-10-17T16:11:11.287Z"}
+data: {"data":"Collecting dataclasses-json<0.7.0,>=0.6.7 (from langchain-community==0.4.1->-r /tmp/requirements.txt (line 17))","timestamp":"2026-10-17T16:11:11.287Z"}
+data: {"data":"  Downloading dataclasses_json-0.6.7-py3-none-any.whl.metadata (25 kB)","timestamp":"2026-10-17T16:11:11.287Z"}
+data: {"data":"Collecting pydantic-settings<3.0.0,>=2.10.1 (from langchain-community==0.4.1->-r /tmp/requirements.txt (line 17))","timestamp":"2026-10-17T16:11:11.287Z"}
+data: {"data":"  Downloading pydantic_settings-2.16.0-py3-none-any.whl.metadata (4.0 kB)","timestamp":"2026-10-17T16:11:11.394Z"}
+data: {"data":"Collecting httpx-sse<1.0.0,>=0.4.0 (from langchain-community==0.4.1->-r /tmp/requirements.txt (line 17))","timestamp":"2026-10-17T16:11:11.394Z"}
+data: {"data":"  Downloading httpx_sse-0.4.3-py3-none-any.whl.metadata (9.7 kB)","timestamp":"2026-10-17T16:11:11.394Z"}
+data: {"data":"Collecting langgraph-checkpoint<5.0.0,>=4.1.0 (from langgraph==1.2.14->-r /tmp/requirements.txt (line 19))","timestamp":"2026-10-17T16:11:11.572Z"}
+data: {"data":"  Downloading langgraph_checkpoint-4.3.0-py3-none-any.whl.metadata (6.7 kB)","timestamp":"2026-10-17T16:11:11.572Z"}
+data: {"data":"Collecting langgraph-prebuilt<1.2.0,>=1.1.0 (from langgraph==1.2.14->-r /tmp/requirements.txt (line 19))","timestamp":"2026-10-17T16:11:11.572Z"}
+data: {"data":"  Downloading langgraph_prebuilt-1.1.1-py3-none-any.whl.metadata (6.9 kB)","timestamp":"2026-10-17T16:11:11.786Z"}
+data: {"data":"Collecting langgraph-sdk<0.5.0,>=0.4.6 (from langgraph==1.2.14->-r /tmp/requirements.txt (line 19))","timestamp":"2026-10-17T16:11:11.786Z"}
+data: {"data":"  Downloading langgraph_sdk-0.4.8-py3-none-any.whl.metadata (5.1 kB)","timestamp":"2026-10-17T16:11:11.786Z"}
+data: {"data":"Requirement already satisfied: xxhash>=3.5.0 in /usr/local/lib/python3.12/site-packages (from langgraph==1.2.14->-r /tmp/requirements.txt (line 19)) (3.7.0)","timestamp":"2026-10-17T16:11:11.786Z"}
+data: {"data":"Collecting mcp<2.0.0,>=1.21.0 (from gradio[mcp,oauth]==6.30.0)","timestamp":"2026-10-17T16:11:11.786Z"}
+data: {"data":"  Downloading mcp-1.30.0-py3-none-any.whl.metadata (9.3 kB)","timestamp":"2026-10-17T16:11:11.893Z"}
+data: {"data":"Collecting pydantic<=3.0,>=2.0 (from gradio==6.30.0->gradio[mcp,oauth]==6.30.0)","timestamp":"2026-10-17T16:11:11.893Z"}
+data: {"data":"  Downloading pydantic-2.12.5-py3-none-any.whl.metadata (90 kB)","timestamp":"2026-10-17T16:11:11.893Z"}
+data: {"data":"Collecting authlib (from gradio[mcp,oauth]==6.30.0)","timestamp":"2026-10-17T16:11:11.893Z"}
+data: {"data":"  Downloading authlib-1.9.1-py2.py3-none-any.whl.metadata (10 kB)","timestamp":"2026-10-17T16:11:11.994Z"}
+data: {"data":"Collecting itsdangerous (from gradio[mcp,oauth]==6.30.0)","timestamp":"2026-10-17T16:11:11.994Z"}
+data: {"data":"  Downloading itsdangerous-2.2.0-py3-none-any.whl.metadata (1.9 kB)","timestamp":"2026-10-17T16:11:11.994Z"}
+data: {"data":"Requirement already satisfied: aiohappyeyeballs>=2.5.0 in /usr/local/lib/python3.12/site-packages (from aiohttp<4.0.0,>=3.8.3->langchain-community==0.4.1->-r /tmp/requirements.txt (line 17)) (2.6.2)","timestamp":"2026-10-17T16:11:11.994Z"}
+data: {"data":"Requirement already satisfied: aiosignal>=1.4.0 in /usr/local/lib/python3.12/site-packages (from aiohttp<4.0.0,>=3.8.3->langchain-community==0.4.1->-r /tmp/requirements.txt (line 17)) (1.4.0)","timestamp":"2026-10-17T16:11:11.994Z"}
+data: {"data":"Requirement already satisfied: attrs>=17.3.0 in /usr/local/lib/python3.12/site-packages (from aiohttp<4.0.0,>=3.8.3->langchain-community==0.4.1->-r /tmp/requirements.txt (line 17)) (26.1.0)","timestamp":"2026-10-17T16:11:11.994Z"}
+data: {"data":"Requirement already satisfied: frozenlist>=1.1.1 in /usr/local/lib/python3.12/site-packages (from aiohttp<4.0.0,>=3.8.3->langchain-community==0.4.1->-r /tmp/requirements.txt (line 17)) (1.8.0)","timestamp":"2026-10-17T16:11:11.994Z"}
+data: {"data":"Requirement already satisfied: multidict<7.0,>=4.5 in /usr/local/lib/python3.12/site-packages (from aiohttp<4.0.0,>=3.8.3->langchain-community==0.4.1->-r /tmp/requirements.txt (line 17)) (6.7.1)","timestamp":"2026-10-17T16:11:12.097Z"}
+data: {"data":"Requirement already satisfied: propcache>=0.2.0 in /usr/local/lib/python3.12/site-packages (from aiohttp<4.0.0,>=3.8.3->langchain-community==0.4.1->-r /tmp/requirements.txt (line 17)) (0.5.2)","timestamp":"2026-10-17T16:11:12.097Z"}
+data: {"data":"Requirement already satisfied: yarl<2.0,>=1.17.0 in /usr/local/lib/python3.12/site-packages (from aiohttp<4.0.0,>=3.8.3->langchain-community==0.4.1->-r /tmp/requirements.txt (line 17)) (1.24.2)","timestamp":"2026-10-17T16:11:12.097Z"}
+data: {"data":"Requirement already satisfied: idna>=2.8 in /usr/local/lib/python3.12/site-packages (from anyio<5.0,>=3.0->gradio==6.30.0->gradio[mcp,oauth]==6.30.0) (3.18)","timestamp":"2026-10-17T16:11:12.097Z"}
+data: {"data":"Collecting marshmallow<4.0.0,>=3.18.0 (from dataclasses-json<0.7.0,>=0.6.7->langchain-community==0.4.1->-r /tmp/requirements.txt (line 17))","timestamp":"2026-10-17T16:11:12.097Z"}
+data: {"data":"  Downloading marshmallow-3.26.2-py3-none-any.whl.metadata (7.3 kB)","timestamp":"2026-10-17T16:11:12.097Z"}
+data: {"data":"Collecting typing-inspect<1,>=0.4.0 (from dataclasses-json<0.7.0,>=0.6.7->langchain-community==0.4.1->-r /tmp/requirements.txt (line 17))","timestamp":"2026-10-17T16:11:12.201Z"}
+data: {"data":"  Downloading typing_inspect-0.9.0-py3-none-any.whl (8.8 kB)","timestamp":"2026-10-17T16:11:12.201Z"}
+data: {"data":"Requirement already satisfied: certifi in /usr/local/lib/python3.12/site-packages (from httpx<1.0,>=0.24.1->gradio==6.30.0->gradio[mcp,oauth]==6.30.0) (2026.5.20)","timestamp":"2026-10-17T16:11:12.201Z"}
+data: {"data":"Requirement already satisfied: httpcore==1.* in /usr/local/lib/python3.12/site-packages (from httpx<1.0,>=0.24.1->gradio==6.30.0->gradio[mcp,oauth]==6.30.0) (1.0.9)","timestamp":"2026-10-17T16:11:12.201Z"}
+data: {"data":"Requirement already satisfied: h11>=0.16 in /usr/local/lib/python3.12/site-packages (from httpcore==1.*->httpx<1.0,>=0.24.1->gradio==6.30.0->gradio[mcp,oauth]==6.30.0) (0.16.0)","timestamp":"2026-10-17T16:11:12.201Z"}
+data: {"data":"Collecting httpcore2==2.13.1 (from httpx2<3,>=2.0.0->huggingface-hub==2.2.0->-r /tmp/requirements.txt (line 7))","timestamp":"2026-10-17T16:11:12.201Z"}
+data: {"data":"  Downloading httpcore2-2.13.1-py3-none-any.whl.metadata (26 kB)","timestamp":"2026-10-17T16:11:12.372Z"}
+data: {"data":"Collecting truststore>=0.10 (from httpx2<3,>=2.0.0->huggingface-hub==2.2.0->-r /tmp/requirements.txt (line 7))","timestamp":"2026-10-17T16:11:12.372Z"}
+data: {"data":"  Downloading truststore-0.10.5-py3-none-any.whl.metadata (4.5 kB)","timestamp":"2026-10-17T16:11:12.372Z"}
+data: {"data":"Collecting jsonpointer>=3.2 (from jsonpatch<2.0.0,>=1.33.0->langchain-core==1.6.10->-r /tmp/requirements.txt (line 16))","timestamp":"2026-10-17T16:11:12.372Z"}
+data: {"data":"  Downloading jsonpointer-3.2.1-py3-none-any.whl.metadata (2.6 kB)","timestamp":"2026-10-17T16:11:12.512Z"}
+data: {"data":"Collecting ormsgpack>=1.12.0 (from langgraph-checkpoint<5.0.0,>=4.1.0->langgraph==1.2.14->-r /tmp/requirements.txt (line 19))","timestamp":"2026-10-17T16:11:12.512Z"}
+data: {"data":"  Downloading ormsgpack-1.13.0-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (3.2 kB)","timestamp":"2026-10-17T16:11:12.614Z"}
+data: {"data":"Collecting websockets>=10.4","timestamp":"2026-10-17T16:11:12.614Z"}
+data: {"data":"  Downloading websockets-16.1.1-cp312-cp312-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl.metadata (6.8 kB)","timestamp":"2026-10-17T16:11:12.614Z"}
+data: {"data":"Collecting distro<2,>=1.7.0 (from langsmith<1.0.0,>=0.3.45->langchain-core==1.6.10->-r /tmp/requirements.txt (line 16))","timestamp":"2026-10-17T16:11:12.614Z"}
+data: {"data":"  Downloading distro-1.9.0-py3-none-any.whl.metadata (6.8 kB)","timestamp":"2026-10-17T16:11:12.786Z"}
+data: {"data":"Collecting requests-toolbelt>=1.0.0 (from langsmith<1.0.0,>=0.3.45->langchain-core==1.6.10->-r /tmp/requirements.txt (line 16))","timestamp":"2026-10-17T16:11:12.786Z"}
+data: {"data":"  Downloading requests_toolbelt-1.0.0-py2.py3-none-any.whl.metadata (14 kB)","timestamp":"2026-10-17T16:11:12.786Z"}
+data: {"data":"Collecting sniffio (from langsmith<1.0.0,>=0.3.45->langchain-core==1.6.10->-r /tmp/requirements.txt (line 16))","timestamp":"2026-10-17T16:11:12.786Z"}
+data: {"data":"  Downloading sniffio-1.3.1-py3-none-any.whl.metadata (3.9 kB)","timestamp":"2026-10-17T16:11:12.914Z"}
+data: {"data":"Collecting zstandard>=0.23.0 (from langsmith<1.0.0,>=0.3.45->langchain-core==1.6.10->-r /tmp/requirements.txt (line 16))","timestamp":"2026-10-17T16:11:12.914Z"}
+data: {"data":"  Downloading zstandard-0.25.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (3.3 kB)","timestamp":"2026-10-17T16:11:13.018Z"}
+data: {"data":"Collecting jsonschema>=4.20.0 (from mcp<2.0.0,>=1.21.0->gradio[mcp,oauth]==6.30.0)","timestamp":"2026-10-17T16:11:13.018Z"}
+data: {"data":"  Downloading jsonschema-4.26.0-py3-none-any.whl.metadata (7.6 kB)","timestamp":"2026-10-17T16:11:13.018Z"}
+data: {"data":"Collecting pyjwt>=2.10.1 (from pyjwt[crypto]>=2.10.1->mcp<2.0.0,>=1.21.0->gradio[mcp,oauth]==6.30.0)","timestamp":"2026-10-17T16:11:13.178Z"}
+data: {"data":"  Downloading pyjwt-2.15.1-py3-none-any.whl.metadata (3.5 kB)","timestamp":"2026-10-17T16:11:13.178Z"}
+data: {"data":"Collecting sse-starlette>=1.6.1 (from mcp<2.0.0,>=1.21.0->gradio[mcp,oauth]==6.30.0)","timestamp":"2026-10-17T16:11:13.178Z"}
+data: {"data":"  Downloading sse_starlette-3.5.0-py3-none-any.whl.metadata (15 kB)","timestamp":"2026-10-17T16:11:13.284Z"}
+data: {"data":"Requirement already satisfied: python-dateutil>=2.8.2 in /usr/local/lib/python3.12/site-packages (from pandas<4.0,>=1.0->gradio==6.30.0->gradio[mcp,oauth]==6.30.0) (2.9.0.post0)","timestamp":"2026-10-17T16:11:13.284Z"}
+data: {"data":"Collecting annotated-types>=0.6.0 (from pydantic<=3.0,>=2.0->gradio==6.30.0->gradio[mcp,oauth]==6.30.0)","timestamp":"2026-10-17T16:11:13.284Z"}
+data: {"data":"  Downloading annotated_types-0.8.0-py3-none-any.whl.metadata (15 kB)","timestamp":"2026-10-17T16:11:13.445Z"}
+data: {"data":"Collecting pydantic-core==2.41.5 (from pydantic<=3.0,>=2.0->gradio==6.30.0->gradio[mcp,oauth]==6.30.0)","timestamp":"2026-10-17T16:11:13.923Z"}
+data: {"data":"  Downloading pydantic_core-2.41.5-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (7.3 kB)","timestamp":"2026-10-17T16:11:14.088Z"}
+data: {"data":"Requirement already satisfied: charset_normalizer<4,>=2 in /usr/local/lib/python3.12/site-packages (from requests<3,>=2.19->spaces==0.51.3) (3.4.7)","timestamp":"2026-10-17T16:11:14.088Z"}
+data: {"data":"Requirement already satisfied: urllib3<3,>=1.26 in /usr/local/lib/python3.12/site-packages (from requests<3,>=2.19->spaces==0.51.3) (2.7.0)","timestamp":"2026-10-17T16:11:14.088Z"}
+data: {"data":"Requirement already satisfied: shellingham>=1.3.0 in /usr/local/lib/python3.12/site-packages (from typer<1.0,>=0.12->gradio==6.30.0->gradio[mcp,oauth]==6.30.0) (1.5.4)","timestamp":"2026-10-17T16:11:14.088Z"}
+data: {"data":"Requirement already satisfied: rich>=13.8.0 in /usr/local/lib/python3.12/site-packages (from typer<1.0,>=0.12->gradio==6.30.0->gradio[mcp,oauth]==6.30.0) (15.0.0)","timestamp":"2026-10-17T16:11:14.088Z"}
+data: {"data":"Collecting mypy-extensions>=0.3.0 (from typing-inspect<1,>=0.4.0->dataclasses-json<0.7.0,>=0.6.7->langchain-community==0.4.1->-r /tmp/requirements.txt (line 17))","timestamp":"2026-10-17T16:11:14.088Z"}
+data: {"data":"  Downloading mypy_extensions-1.1.0-py3-none-any.whl.metadata (1.1 kB)","timestamp":"2026-10-17T16:11:14.088Z"}
+data: {"data":"Collecting cloudpickle>=3.0 (from joblib>=1.4.0->scikit-learn==1.9.1->-r /tmp/requirements.txt (line 12))","timestamp":"2026-10-17T16:11:14.088Z"}
+data: {"data":"  Downloading cloudpickle-3.1.2-py3-none-any.whl.metadata (7.1 kB)","timestamp":"2026-10-17T16:11:14.238Z"}
+data: {"data":"Collecting jsonschema-specifications>=2023.03.6 (from jsonschema>=4.20.0->mcp<2.0.0,>=1.21.0->gradio[mcp,oauth]==6.30.0)","timestamp":"2026-10-17T16:11:14.238Z"}
+data: {"data":"  Downloading jsonschema_specifications-2025.9.1-py3-none-any.whl.metadata (2.9 kB)","timestamp":"2026-10-17T16:11:14.238Z"}
+data: {"data":"Collecting referencing>=0.28.4 (from jsonschema>=4.20.0->mcp<2.0.0,>=1.21.0->gradio[mcp,oauth]==6.30.0)","timestamp":"2026-10-17T16:11:14.238Z"}
+data: {"data":"  Downloading referencing-0.37.0-py3-none-any.whl.metadata (2.8 kB)","timestamp":"2026-10-17T16:11:14.398Z"}
+data: {"data":"Collecting rpds-py>=0.25.0 (from jsonschema>=4.20.0->mcp<2.0.0,>=1.21.0->gradio[mcp,oauth]==6.30.0)","timestamp":"2026-10-17T16:11:14.516Z"}
+data: {"data":"  Downloading rpds_py-2026.9.1-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.1 kB)","timestamp":"2026-10-17T16:11:14.676Z"}
+data: {"data":"Collecting cryptography>=3.4.0 (from pyjwt[crypto]>=2.10.1->mcp<2.0.0,>=1.21.0->gradio[mcp,oauth]==6.30.0)","timestamp":"2026-10-17T16:11:14.791Z"}
+data: {"data":"  Downloading cryptography-50.0.2-cp311-abi3-manylinux_2_34_x86_64.whl.metadata (4.4 kB)","timestamp":"2026-10-17T16:11:14.934Z"}
+data: {"data":"Collecting cffi>=2.0.0 (from cryptography>=3.4.0->pyjwt[crypto]>=2.10.1->mcp<2.0.0,>=1.21.0->gradio[mcp,oauth]==6.30.0)","timestamp":"2026-10-17T16:11:14.934Z"}
+data: {"data":"  Downloading cffi-2.1.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (2.5 kB)","timestamp":"2026-10-17T16:11:15.041Z"}
+data: {"data":"Collecting pycparser (from cffi>=2.0.0->cryptography>=3.4.0->pyjwt[crypto]>=2.10.1->mcp<2.0.0,>=1.21.0->gradio[mcp,oauth]==6.30.0)","timestamp":"2026-10-17T16:11:15.041Z"}
+data: {"data":"  Downloading pycparser-3.11-py3-none-any.whl.metadata (8.2 kB)","timestamp":"2026-10-17T16:11:15.041Z"}
+data: {"data":"Requirement already satisfied: six>=1.5 in /usr/local/lib/python3.12/site-packages (from python-dateutil>=2.8.2->pandas<4.0,>=1.0->gradio==6.30.0->gradio[mcp,oauth]==6.30.0) (1.17.0)","timestamp":"2026-10-17T16:11:15.041Z"}
+data: {"data":"Requirement already satisfied: markdown-it-py>=2.2.0 in /usr/local/lib/python3.12/site-packages (from rich>=13.8.0->typer<1.0,>=0.12->gradio==6.30.0->gradio[mcp,oauth]==6.30.0) (4.2.0)","timestamp":"2026-10-17T16:11:15.041Z"}
+data: {"data":"Requirement already satisfied: pygments<3.0.0,>=2.13.0 in /usr/local/lib/python3.12/site-packages (from rich>=13.8.0->typer<1.0,>=0.12->gradio==6.30.0->gradio[mcp,oauth]==6.30.0) (2.20.0)","timestamp":"2026-10-17T16:11:15.163Z"}
+data: {"data":"Requirement already satisfied: mdurl~=0.1 in /usr/local/lib/python3.12/site-packages (from markdown-it-py>=2.2.0->rich>=13.8.0->typer<1.0,>=0.12->gradio==6.30.0->gradio[mcp,oauth]==6.30.0) (0.1.2)","timestamp":"2026-10-17T16:11:15.163Z"}
+data: {"data":"Requirement already satisfied: mpmath<1.4,>=1.1.0 in /usr/local/lib/python3.12/site-packages (from sympy>=1.13.3->torch<=2.13.0) (1.3.0)","timestamp":"2026-10-17T16:11:15.163Z"}
+data: {"data":"Collecting joserfc>=1.6.8 (from authlib->gradio[mcp,oauth]==6.30.0)","timestamp":"2026-10-17T16:11:15.163Z"}
+data: {"data":"  Downloading joserfc-1.7.5-py3-none-any.whl.metadata (3.1 kB)","timestamp":"2026-10-17T16:11:15.303Z"}
+data: {"data":"Downloading gradio-6.30.0-py3-none-any.whl (31.4 MB)","timestamp":"2026-10-17T16:11:15.303Z"}
+data: {"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 31.4/31.4 MB 320.9 MB/s  0:00:00","timestamp":"2026-10-17T16:11:15.406Z"}
+data: {"data":"Downloading huggingface_hub-2.2.0-py3-none-any.whl (839 kB)","timestamp":"2026-10-17T16:11:15.406Z"}
+data: {"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 839.9/839.9 kB 607.1 MB/s  0:00:00","timestamp":"2026-10-17T16:11:15.406Z"}
+data: {"data":"Downloading fastapi-0.142.2-py3-none-any.whl (144 kB)","timestamp":"2026-10-17T16:11:15.406Z"}
+data: {"data":"Downloading starlette-1.8.0-py3-none-any.whl (79 kB)","timestamp":"2026-10-17T16:11:15.406Z"}
+data: {"data":"Downloading numpy-2.1.3-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (16.0 MB)","timestamp":"2026-10-17T16:11:15.406Z"}
+data: {"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.0/16.0 MB 334.6 MB/s  0:00:00","timestamp":"2026-10-17T16:11:15.406Z"}
+data: {"data":"Downloading pillow-11.3.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (6.6 MB)","timestamp":"2026-10-17T16:11:15.406Z"}
+data: {"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.6/6.6 MB 305.0 MB/s  0:00:00","timestamp":"2026-10-17T16:11:15.526Z"}
+data: {"data":"Downloading spaces-0.51.3-py3-none-any.whl (111 kB)","timestamp":"2026-10-17T16:11:15.526Z"}
+data: {"data":"Downloading torchvision-0.23.0%2Bcu128-cp312-cp312-manylinux_2_28_x86_64.whl (8.6 MB)","timestamp":"2026-10-17T16:11:15.526Z"}
+data: {"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 8.6/8.6 MB 161.9 MB/s  0:00:00","timestamp":"2026-10-17T16:11:15.663Z"}
+data: {"data":"Downloading transformers-5.20.1-py3-none-any.whl (12.8 MB)","timestamp":"2026-10-17T16:11:15.663Z"}
+data: {"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 12.8/12.8 MB 429.8 MB/s  0:00:00","timestamp":"2026-10-17T16:11:15.663Z"}
+data: {"data":"Downloading scipy-1.18.1-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (35.3 MB)","timestamp":"2026-10-17T16:11:15.663Z"}
+data: {"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 35.3/35.3 MB 425.1 MB/s  0:00:00","timestamp":"2026-10-17T16:11:15.772Z"}
+data: {"data":"Downloading scikit_learn-1.9.1-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (9.2 MB)","timestamp":"2026-10-17T16:11:15.772Z"}
+data: {"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 9.2/9.2 MB 494.3 MB/s  0:00:00","timestamp":"2026-10-17T16:11:15.772Z"}
+data: {"data":"Downloading langchain_core-1.6.10-py3-none-any.whl (573 kB)","timestamp":"2026-10-17T16:11:15.772Z"}
+data: {"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 573.3/573.3 kB 941.8 MB/s  0:00:00","timestamp":"2026-10-17T16:11:15.772Z"}
+data: {"data":"Downloading langchain_community-0.4.1-py3-none-any.whl (2.5 MB)","timestamp":"2026-10-17T16:11:15.772Z"}
+data: {"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.5/2.5 MB 172.3 MB/s  0:00:00","timestamp":"2026-10-17T16:11:15.772Z"}
+data: {"data":"Downloading langchain_text_splitters-1.1.2-py3-none-any.whl (35 kB)","timestamp":"2026-10-17T16:11:15.772Z"}
+data: {"data":"Downloading langgraph-1.2.14-py3-none-any.whl (255 kB)","timestamp":"2026-10-17T16:11:15.772Z"}
+data: {"data":"Downloading gradio_client-2.7.2-py3-none-any.whl (64 kB)","timestamp":"2026-10-17T16:11:15.772Z"}
+data: {"data":"Downloading threadpoolctl-3.7.0-py3-none-any.whl (26 kB)","timestamp":"2026-10-17T16:11:15.772Z"}
+data: {"data":"Downloading python_dotenv-1.2.4-py3-none-any.whl (23 kB)","timestamp":"2026-10-17T16:11:15.879Z"}
+data: {"data":"Downloading click-8.5.0-py3-none-any.whl (125 kB)","timestamp":"2026-10-17T16:11:15.879Z"}
+data: {"data":"Downloading dataclasses_json-0.6.7-py3-none-any.whl (28 kB)","timestamp":"2026-10-17T16:11:15.879Z"}
+data: {"data":"Downloading groovy-0.1.2-py3-none-any.whl (14 kB)","timestamp":"2026-10-17T16:11:15.879Z"}
+data: {"data":"Downloading hf_gradio-0.4.1-py3-none-any.whl (4.5 kB)","timestamp":"2026-10-17T16:11:15.879Z"}
+data: {"data":"Downloading hf_xet-1.7.0-cp38-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (4.2 MB)","timestamp":"2026-10-17T16:11:15.879Z"}
+data: {"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.2/4.2 MB 465.4 MB/s  0:00:00","timestamp":"2026-10-17T16:11:15.879Z"}
+data: {"data":"Downloading httpx_sse-0.4.3-py3-none-any.whl (9.0 kB)","timestamp":"2026-10-17T16:11:15.879Z"}
+data: {"data":"Downloading httpx2-2.13.1-py3-none-any.whl (95 kB)","timestamp":"2026-10-17T16:11:15.879Z"}
+data: {"data":"Downloading httpcore2-2.13.1-py3-none-any.whl (83 kB)","timestamp":"2026-10-17T16:11:15.879Z"}
+data: {"data":"Downloading jsonpatch-1.35-py3-none-any.whl (17 kB)","timestamp":"2026-10-17T16:11:15.879Z"}
+data: {"data":"Downloading langchain_classic-1.0.8-py3-none-any.whl (1.0 MB)","timestamp":"2026-10-17T16:11:15.988Z"}
+data: {"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.0/1.0 MB 92.6 MB/s  0:00:00","timestamp":"2026-10-17T16:11:15.988Z"}
+data: {"data":"Downloading langgraph_checkpoint-4.3.0-py3-none-any.whl (58 kB)","timestamp":"2026-10-17T16:11:15.988Z"}
+data: {"data":"Downloading langgraph_prebuilt-1.1.1-py3-none-any.whl (42 kB)","timestamp":"2026-10-17T16:11:15.988Z"}
+data: {"data":"Downloading langgraph_sdk-0.4.8-py3-none-any.whl (164 kB)","timestamp":"2026-10-17T16:11:15.988Z"}
+data: {"data":"Downloading websockets-16.1.1-cp312-cp312-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl (187 kB)","timestamp":"2026-10-17T16:11:15.988Z"}
+data: {"data":"Downloading langsmith-0.14.11-py3-none-any.whl (869 kB)","timestamp":"2026-10-17T16:11:15.988Z"}
+data: {"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 869.0/869.0 kB 549.1 MB/s  0:00:00","timestamp":"2026-10-17T16:11:15.988Z"}
+data: {"data":"Downloading distro-1.9.0-py3-none-any.whl (20 kB)","timestamp":"2026-10-17T16:11:15.988Z"}
+data: {"data":"Downloading marshmallow-3.26.2-py3-none-any.whl (50 kB)","timestamp":"2026-10-17T16:11:15.988Z"}
+data: {"data":"Downloading mcp-1.30.0-py3-none-any.whl (234 kB)","timestamp":"2026-10-17T16:11:15.988Z"}
+data: {"data":"Downloading orjson-3.13.0-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (130 kB)","timestamp":"2026-10-17T16:11:16.096Z"}
+data: {"data":"Downloading pydantic-2.12.5-py3-none-any.whl (463 kB)","timestamp":"2026-10-17T16:11:16.096Z"}
+data: {"data":"Downloading pydantic_core-2.41.5-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (2.1 MB)","timestamp":"2026-10-17T16:11:16.096Z"}
+data: {"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.1/2.1 MB 508.9 MB/s  0:00:00","timestamp":"2026-10-17T16:11:16.096Z"}
+data: {"data":"Downloading pydantic_settings-2.16.0-py3-none-any.whl (80 kB)","timestamp":"2026-10-17T16:11:16.096Z"}
+data: {"data":"Downloading pydub-0.25.1-py2.py3-none-any.whl (32 kB)","timestamp":"2026-10-17T16:11:16.096Z"}
+data: {"data":"Downloading python_multipart-0.0.32-py3-none-any.whl (30 kB)","timestamp":"2026-10-17T16:11:16.096Z"}
+data: {"data":"Downloading safehttpx-0.1.7-py3-none-any.whl (9.0 kB)","timestamp":"2026-10-17T16:11:16.096Z"}
+data: {"data":"Downloading semantic_version-2.10.0-py2.py3-none-any.whl (15 kB)","timestamp":"2026-10-17T16:11:16.096Z"}
+data: {"data":"Downloading sqlalchemy-2.1.5-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (4.7 MB)","timestamp":"2026-10-17T16:11:16.096Z"}
+data: {"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.7/4.7 MB 468.4 MB/s  0:00:00","timestamp":"2026-10-17T16:11:16.206Z"}
+data: {"data":"Downloading tenacity-9.2.1-py3-none-any.whl (32 kB)","timestamp":"2026-10-17T16:11:16.206Z"}
+data: {"data":"Downloading tokenizers-0.23.3-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.4 MB)","timestamp":"2026-10-17T16:11:16.206Z"}
+data: {"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.4/3.4 MB 484.5 MB/s  0:00:00","timestamp":"2026-10-17T16:11:16.206Z"}
+data: {"data":"Downloading tomlkit-0.14.0-py3-none-any.whl (39 kB)","timestamp":"2026-10-17T16:11:16.206Z"}
+data: {"data":"Downloading uuid_utils-0.17.1-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (323 kB)","timestamp":"2026-10-17T16:11:16.206Z"}
+data: {"data":"Downloading uvicorn-0.54.0-py3-none-any.whl (87 kB)","timestamp":"2026-10-17T16:11:16.206Z"}
+data: {"data":"Downloading annotated_types-0.8.0-py3-none-any.whl (13 kB)","timestamp":"2026-10-17T16:11:16.206Z"}
+data: {"data":"Downloading brotli-1.2.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (1.4 MB)","timestamp":"2026-10-17T16:11:16.206Z"}
+data: {"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.4/1.4 MB 545.9 MB/s  0:00:00","timestamp":"2026-10-17T16:11:16.206Z"}
+data: {"data":"Downloading joblib-1.6.0-py3-none-any.whl (306 kB)","timestamp":"2026-10-17T16:11:16.206Z"}
+data: {"data":"Downloading cloudpickle-3.1.2-py3-none-any.whl (22 kB)","timestamp":"2026-10-17T16:11:16.206Z"}
+data: {"data":"Downloading jsonpointer-3.2.1-py3-none-any.whl (8.3 kB)","timestamp":"2026-10-17T16:11:16.206Z"}
+data: {"data":"Downloading jsonschema-4.26.0-py3-none-any.whl (90 kB)","timestamp":"2026-10-17T16:11:16.308Z"}
+data: {"data":"Downloading jsonschema_specifications-2025.9.1-py3-none-any.whl (18 kB)","timestamp":"2026-10-17T16:11:16.308Z"}
+data: {"data":"Downloading langchain_protocol-0.0.19-py3-none-any.whl (7.3 kB)","timestamp":"2026-10-17T16:11:16.308Z"}
+data: {"data":"Downloading mypy_extensions-1.1.0-py3-none-any.whl (5.0 kB)","timestamp":"2026-10-17T16:11:16.308Z"}
+data: {"data":"Downloading narwhals-2.27.1-py3-none-any.whl (483 kB)","timestamp":"2026-10-17T16:11:16.308Z"}
+data: {"data":"Downloading opentelemetry_api-1.45.1-py3-none-any.whl (60 kB)","timestamp":"2026-10-17T16:11:16.308Z"}
+data: {"data":"Downloading ormsgpack-1.13.0-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (254 kB)","timestamp":"2026-10-17T16:11:16.308Z"}
+data: {"data":"Downloading pyjwt-2.15.1-py3-none-any.whl (33 kB)","timestamp":"2026-10-17T16:11:16.308Z"}
+data: {"data":"Downloading cryptography-50.0.2-cp311-abi3-manylinux_2_34_x86_64.whl (4.8 MB)","timestamp":"2026-10-17T16:11:16.308Z"}
+data: {"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.8/4.8 MB 457.8 MB/s  0:00:00","timestamp":"2026-10-17T16:11:16.413Z"}
+data: {"data":"Downloading cffi-2.1.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (221 kB)","timestamp":"2026-10-17T16:11:16.413Z"}
+data: {"data":"Downloading pytz-2026.5-py2.py3-none-any.whl (506 kB)","timestamp":"2026-10-17T16:11:16.413Z"}
+data: {"data":"Downloading referencing-0.37.0-py3-none-any.whl (26 kB)","timestamp":"2026-10-17T16:11:16.413Z"}
+data: {"data":"Downloading regex-2026.9.29-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (807 kB)","timestamp":"2026-10-17T16:11:16.413Z"}
+data: {"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 807.8/807.8 kB 607.3 MB/s  0:00:00","timestamp":"2026-10-17T16:11:16.413Z"}
+data: {"data":"Downloading requests_toolbelt-1.0.0-py2.py3-none-any.whl (54 kB)","timestamp":"2026-10-17T16:11:16.413Z"}
+data: {"data":"Downloading rpds_py-2026.9.1-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (371 kB)","timestamp":"2026-10-17T16:11:16.413Z"}
+data: {"data":"Downloading safetensors-0.8.0-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (516 kB)","timestamp":"2026-10-17T16:11:16.413Z"}
+data: {"data":"Downloading sse_starlette-3.5.0-py3-none-any.whl (17 kB)","timestamp":"2026-10-17T16:11:16.413Z"}
+data: {"data":"Downloading truststore-0.10.5-py3-none-any.whl (19 kB)","timestamp":"2026-10-17T16:11:16.413Z"}
+data: {"data":"Downloading typing_inspection-0.4.4-py3-none-any.whl (14 kB)","timestamp":"2026-10-17T16:11:16.413Z"}
+data: {"data":"Downloading zstandard-0.25.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (5.5 MB)","timestamp":"2026-10-17T16:11:16.636Z"}
+data: {"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.5/5.5 MB 460.9 MB/s  0:00:00","timestamp":"2026-10-17T16:11:16.636Z"}
+data: {"data":"Downloading authlib-1.9.1-py2.py3-none-any.whl (266 kB)","timestamp":"2026-10-17T16:11:16.636Z"}
+data: {"data":"Downloading joserfc-1.7.5-py3-none-any.whl (71 kB)","timestamp":"2026-10-17T16:11:16.636Z"}
+data: {"data":"Downloading itsdangerous-2.2.0-py3-none-any.whl (16 kB)","timestamp":"2026-10-17T16:11:16.636Z"}
+data: {"data":"Downloading pycparser-3.11-py3-none-any.whl (51 kB)","timestamp":"2026-10-17T16:11:16.636Z"}
+data: {"data":"Downloading sniffio-1.3.1-py3-none-any.whl (10 kB)","timestamp":"2026-10-17T16:11:16.636Z"}
+data: {"data":"Installing collected packages: pytz, pydub, brotli, zstandard, websockets, uuid-utils, typing-inspection, truststore, tomlkit, threadpoolctl, tenacity, SQLAlchemy, sniffio, semantic-version, safetensors, rpds-py, regex, python-multipart, python-dotenv, pyjwt, pydantic-core, pycparser, Pillow, ormsgpack, orjson, opentelemetry-api, numpy, narwhals, mypy-extensions, marshmallow, langchain-protocol, jsonpointer, itsdangerous, httpx-sse, hf-xet, groovy, distro, cloudpickle, click, annotated-types, uvicorn, typing-inspect, starlette, scipy, requests-toolbelt, referencing, pydantic, jsonpatch, joblib, httpcore2, cffi, sse-starlette, scikit-learn, safehttpx, pydantic-settings, jsonschema-specifications, httpx2, fastapi, dataclasses-json, cryptography, torchvision, langsmith, jsonschema, joserfc, huggingface-hub, tokenizers, mcp, langchain-core, gradio-client, authlib, transformers, langgraph-sdk, langgraph-checkpoint, langchain-text-splitters, hf-gradio, langgraph-prebuilt, langchain-classic, gradio, spaces, langgraph, langchain-community","timestamp":"2026-10-17T16:11:16.945Z"}
+data: {"data":"  Attempting uninstall: numpy","timestamp":"2026-10-17T16:11:18.919Z"}
+data: {"data":"    Found existing installation: numpy 2.4.6","timestamp":"2026-10-17T16:11:19.113Z"}
+data: {"data":"    Uninstalling numpy-2.4.6:","timestamp":"2026-10-17T16:11:19.113Z"}
+data: {"data":"      Successfully uninstalled numpy-2.4.6","timestamp":"2026-10-17T16:11:19.433Z"}
+data: {"data":"  Attempting uninstall: hf-xet","timestamp":"2026-10-17T16:11:21.441Z"}
+data: {"data":"    Found existing installation: hf-xet 1.5.1","timestamp":"2026-10-17T16:11:21.549Z"}
+data: {"data":"    Uninstalling hf-xet-1.5.1:","timestamp":"2026-10-17T16:11:21.549Z"}
+data: {"data":"      Successfully uninstalled hf-xet-1.5.1","timestamp":"2026-10-17T16:11:21.549Z"}
+data: {"data":"  Attempting uninstall: click","timestamp":"2026-10-17T16:11:21.549Z"}
+data: {"data":"    Found existing installation: click 8.0.4","timestamp":"2026-10-17T16:11:21.549Z"}
+data: {"data":"    Uninstalling click-8.0.4:","timestamp":"2026-10-17T16:11:21.549Z"}
+data: {"data":"      Successfully uninstalled click-8.0.4","timestamp":"2026-10-17T16:11:21.549Z"}
+data: {"data":"  Attempting uninstall: huggingface-hub","timestamp":"2026-10-17T16:11:29.248Z"}
+data: {"data":"    Found existing installation: huggingface_hub 1.16.1","timestamp":"2026-10-17T16:11:29.380Z"}
+data: {"data":"    Uninstalling huggingface_hub-1.16.1:","timestamp":"2026-10-17T16:11:29.380Z"}
+data: {"data":"      Successfully uninstalled huggingface_hub-1.16.1","timestamp":"2026-10-17T16:11:29.380Z"}
+data: {"data":"","timestamp":"2026-10-17T16:11:40.658Z"}
+data: {"data":"ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.","timestamp":"2026-10-17T16:11:40.818Z"}
+data: {"data":"datasets 5.0.0 requires huggingface-hub<2.0,>=0.25.0, but you have huggingface-hub 2.2.0 which is incompatible.","timestamp":"2026-10-17T16:11:40.818Z"}
+data: {"data":"Successfully installed Pillow-11.3.0 SQLAlchemy-2.1.5 annotated-types-0.8.0 authlib-1.9.1 brotli-1.2.0 cffi-2.1.1 click-8.5.0 cloudpickle-3.1.2 cryptography-50.0.2 dataclasses-json-0.6.7 distro-1.9.0 fastapi-0.142.2 gradio-6.30.0 gradio-client-2.7.2 groovy-0.1.2 hf-gradio-0.4.1 hf-xet-1.7.0 httpcore2-2.13.1 httpx-sse-0.4.3 httpx2-2.13.1 huggingface-hub-2.2.0 itsdangerous-2.2.0 joblib-1.6.0 joserfc-1.7.5 jsonpatch-1.35 jsonpointer-3.2.1 jsonschema-4.26.0 jsonschema-specifications-2025.9.1 langchain-classic-1.0.8 langchain-community-0.4.1 langchain-core-1.6.10 langchain-protocol-0.0.19 langchain-text-splitters-1.1.2 langgraph-1.2.14 langgraph-checkpoint-4.3.0 langgraph-prebuilt-1.1.1 langgraph-sdk-0.4.8 langsmith-0.14.11 marshmallow-3.26.2 mcp-1.30.0 mypy-extensions-1.1.0 narwhals-2.27.1 numpy-2.1.3 opentelemetry-api-1.45.1 orjson-3.13.0 ormsgpack-1.13.0 pycparser-3.11 pydantic-2.12.5 pydantic-core-2.41.5 pydantic-settings-2.16.0 pydub-0.25.1 pyjwt-2.15.1 python-dotenv-1.2.4 python-multipart-0.0.32 pytz-2026.5 referencing-0.37.0 regex-2026.9.29 requests-toolbelt-1.0.0 rpds-py-2026.9.1 safehttpx-0.1.7 safetensors-0.8.0 scikit-learn-1.9.1 scipy-1.18.1 semantic-version-2.10.0 sniffio-1.3.1 spaces-0.51.3 sse-starlette-3.5.0 starlette-1.8.0 tenacity-9.2.1 threadpoolctl-3.7.0 tokenizers-0.23.3 tomlkit-0.14.0 torchvision-0.23.0+cu128 transformers-5.20.1 truststore-0.10.5 typing-inspect-0.9.0 typing-inspection-0.4.4 uuid-utils-0.17.1 uvicorn-0.54.0 websockets-16.1.1 zstandard-0.25.0","timestamp":"2026-10-17T16:11:40.818Z"}
+data: {"data":"WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.","timestamp":"2026-10-17T16:11:40.818Z"}
+data: {"data":"","timestamp":"2026-10-17T16:11:40.818Z"}
+data: {"data":"[notice] A new release of pip is available: 26.1.2 -> 26.2.1","timestamp":"2026-10-17T16:11:40.818Z"}
+data: {"data":"[notice] To update, run: pip install --upgrade pip","timestamp":"2026-10-17T16:11:40.818Z"}
+data: {"data":"DONE 36.9s\n","timestamp":"2026-10-17T16:11:41.093Z"}
+data: {"data":"--> RUN mkdir -p /home/user && ( [ -e /home/user/app ] || ln -s /app/ /home/user/app ) || true","timestamp":"2026-10-17T16:11:41.247Z"}
+data: {"data":"DONE 0.2s\n","timestamp":"2026-10-17T16:11:41.249Z"}
+data: {"data":"--> COPY --link ./ /app","timestamp":"2026-10-17T16:11:41.444Z"}
+data: {"data":"DONE 0.1s\n","timestamp":"2026-10-17T16:11:41.444Z"}
+data: {"data":"--> RUN mkdir -p /pipfreeze","timestamp":"2026-10-17T16:11:41.444Z"}
+data: {"data":"DONE 0.0s\n","timestamp":"2026-10-17T16:11:41.444Z"}
+data: {"data":"--> RUN pip freeze > /pipfreeze/freeze.txt","timestamp":"2026-10-17T16:11:41.444Z"}
+data: {"data":"DONE 0.3s\n","timestamp":"2026-10-17T16:11:41.633Z"}
+data: {"data":"--> COPY --from=pipfreeze --link /pipfreeze/ /pipfreeze/","timestamp":"2026-10-17T16:11:43.001Z"}
+data: {"data":"DONE 0.0s\n","timestamp":"2026-10-17T16:11:43.001Z"}
+data: {"data":"--> Pushing image","timestamp":"2026-10-17T16:11:43.001Z"}
+data: {"data":"DONE 5.1s\n","timestamp":"2026-10-17T16:11:48.019Z"}
+data: {"data":"--> Exporting cache","timestamp":"2026-10-17T16:11:48.019Z"}
+data: {"data":"DONE 0.6s\n","timestamp":"2026-10-17T16:11:48.511Z"}
