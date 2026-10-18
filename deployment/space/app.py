@@ -94,6 +94,17 @@ else:
     WORKFLOW=None
 cpu_app = create_app(Settings(), detector=MetadataDetector(), repository=REPO,workflow=WORKFLOW)
 server = Server(title='DefectRAG')
+server.exception_handlers.update(cpu_app.exception_handlers)
+
+
+@server.exception_handler(ValueError)
+async def staff_access_error(request,exc):
+    return JSONResponse({'error':{'message':str(exc)}},status_code=403)
+
+
+@server.exception_handler(RuntimeError)
+async def cloud_storage_error(request,exc):
+    return JSONResponse({'error':{'message':str(exc)}},status_code=503)
 
 
 @server.middleware('http')

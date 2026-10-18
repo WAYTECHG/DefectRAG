@@ -1,5 +1,41 @@
 # ZeroGPU migration assessment — updated 18 October 2026
 
+## Current implementation status — supersedes historical Phase 1 restrictions
+
+The user authorized continuous Phases2–5. Phases2/3 now passed in the existing
+Space at commit a31f52b64c91b7d6dab34113bc17a5bfac37ff72. The same React dashboard
+is retained with byte-identical CSS, Gradio-client model calls and reused FastAPI
+CPU routes. All12 existing DINOv2 banks passed24-image local/cloud parity checks;
+no training, threshold changes or repeated accuracy experiments. Arbitrary valid
+uploads are supported. See ZEROGPU_PHASE2_RESULTS.md and ZEROGPU_PHASE3_RESULTS.md.
+
+Real in-Space Qwen3-4B-Instruct-2507 generation passed after moving existing CPU BGE
+embedding into a bounded CPU-only child process within the same Space. This avoids
+the observed parent/fork CUDA initialization interaction. Existing workflow evidence,
+measurement, quote and citation guards remain. Measurement answers bypass generation;
+failed generation is explicitly retrieval-only. Cloud does not depend on Ollama.
+Python3.12.12/Torch2.8/Gradio6.30/spaces0.51.3/Transformers5.20.1/Hub1.31.0 are
+verified in cloud; original local dependencies remain unchanged. Hub1.31 resolves
+the historical preinstalled datasets warning below. Actual GPU: Blackwell MIG48GB.
+
+Fresh per-job clients and SSR disabled resolved the observed session-lifecycle
+errors in captured bounded tests; long-running concurrency/reconnect tests remain
+unverified. Anonymous sessions/files are isolated and temporary; generic Gradio
+private-file reads403. Browser inspection, live RAG, archive/recovery, report and
+CSV passed. A two-image guest batch hit quota after one success; no full batch pass
+is claimed. This is shared free GPU capacity, not guaranteed unlimited service.
+
+Phase4 Supabase adapter reuses existing staff JWTs, RLS, tables and private bucket;
+no service key. It is disabled in the deployed app. Latest user answer: SQL NOT
+executed. User will execute the reviewed additive two-function migration manually;
+the agent must not modify the database. Do not enable persistence or write-test it
+until their explicit success confirmation. Authenticated staff and live nonstaff
+denial tests, durable multi-user/restart acceptance and full Phase5 remain pending.
+Staff-submitted answers lack model provenance attestation; acknowledgement lacks
+actor/time audit. See ZEROGPU_PHASE4_READINESS.md and ZEROGPU_PHASE5_PARTIAL_RESULTS.md.
+
+## Historical Phase 1 assessment and evidence
+
 ## Phase 1 decision and measured outcome
 
 The user approved React + Gradio Server mode and Phase 1 testing only. That proof

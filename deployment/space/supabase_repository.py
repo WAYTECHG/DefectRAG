@@ -7,7 +7,6 @@ import threading
 import time
 from urllib.parse import quote
 import httpx
-from backend.storage import now
 
 log=logging.getLogger('defectrag.cloud')
 _staff_cache={}
@@ -98,17 +97,24 @@ class StaffRepository:
         return self.decorate(self.raw(identifier))
 
     def raw_list(self,category='',verdict='',batch='',limit=100,offset=0,archived=False):
-        params={'select':'*','archived_at':'not.is.null' if archived else 'is.null',
+        params={'select':'id,owner_id,created_at,payload,image_path,heatmap_path,archived_at','archived_at':'not.is.null' if archived else 'is.null',
                 'order':'created_at.desc','limit':str(limit),'offset':str(offset)}
         for key,value in (('category',category),('verdict',verdict),('batch',batch)):
             if value:
                 params['payload->>'+key]='eq.'+value
         return self.request('GET','/rest/v1/shared_inspections',params=params)
 
-    def list(self,*args,**kwargs):
+    def list(self,category='',verdict='',batch='',limit=100,offset=0,archived=False):
         # Lists need no images until a record is opened. Avoid two storage API
         # calls per row for large history pages.
-        return [{**row['payload'],'storage':'supabase','owner_id':row['owner_id']} for row in self.raw_list(*args,**kwargs)]
+        rows=[]
+        while len(rows)<limit:
+            count=min(1000,limit-len(rows))
+            page=self.raw_list(category,verdict,batch,count,offset+len(rows),archived)
+            rows.extend(page)
+            if len(page)<count:
+                break
+        return [{**row['payload'],'storage':'supabase','owner_id':row['owner_id']} for row in rows]
 
     def stats(self):
         rows=self.list(limit=1000)

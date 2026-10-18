@@ -67,3 +67,47 @@ def test_public_config_does_not_accept_service_role_key(tmp_path):
     config.write_text('window.DEFECTRAG_PUBLIC_CONFIG='+json.dumps({'supabaseUrl':'https://example.invalid','supabasePublishableKey':'sb_secret_invalid'}))
     with pytest.raises(ValueError):
         read_public_config(config)
+
+
+def test_staff_export_paginates_without_signing_every_image():
+    repo=StaffRepository.__new__(StaffRepository)
+    calls=[]
+    def page(category,verdict,batch,limit,offset,archived):
+        calls.append((limit,offset,archived))
+        return [{'payload':{'id':str(index)},'owner_id':'staff-fixture'}
+                for index in range(offset,min(offset+limit,1017))]
+    repo.raw_list=page
+    rows=repo.list(category='pcb1',limit=2000,offset=7)
+    assert len(rows)==1010 and rows[0]['id']=='7' and rows[-1]['id']=='1016'
+    assert calls==[(1000,7,False),(1000,1007,False)]
+
+
+def test_ordinary_staff_archives_only_owned_visible_records():
+    repo=StaffRepository.__new__(StaffRepository)
+    repo.staff={'role':'staff'}
+    repo.user={'id':'own-user'}
+    repo.raw_list=lambda *args,**kwargs:[{'id':'own-record','owner_id':'own-user'},
+                                        {'id':'foreign-record','owner_id':'other-user'}]
+    calls=[]
+    def request(method,path,**kwargs):
+        calls.append((method,path,kwargs['json']))
+        return 1
+    repo.request=request
+    assert repo.archive()['archived']==1
+    assert calls==[('POST','/rest/v1/rpc/archive_team_inspections',{'p_ids':['own-record']})]
+
+
+def test_failed_upload_does_not_insert_record_or_report_success(tmp_path):
+    repo=StaffRepository.__new__(StaffRepository)
+    repo.user={'id':'staff-fixture'}
+    repo.artifacts=tmp_path
+    item=record()
+    (tmp_path/(item['id']+'.jpg')).write_bytes(b'fixture')
+    calls=[]
+    def request(method,path,**kwargs):
+        calls.append(path)
+        raise RuntimeError('Simulated storage unavailable')
+    repo.request=request
+    with pytest.raises(RuntimeError,match='storage unavailable'):
+        repo.save(item)
+    assert len(calls)==1 and calls[0].startswith('/storage/v1/object/')

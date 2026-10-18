@@ -19,6 +19,10 @@ def main():
         confirmation=OUT/'migration-confirmed.json'
         assert confirmation.exists() and json.loads(confirmation.read_text()).get('user_confirmed_manual_execution'), 'Wait for the user to confirm manual SQL execution before enabling staff persistence.'
     files = {}
+    for relative in ('docs/THIRD_PARTY_NOTICES.md','docs/FRONTEND_LICENSES.txt','models/BGE-LICENSE.txt'):
+        path=ROOT/relative
+        if path.exists():
+            files[relative]=path
     for directory in ('backend','deployment/space'):
         for path in (ROOT/directory).glob('*.py'):
             files[path.relative_to(ROOT).as_posix()] = path

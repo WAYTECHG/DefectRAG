@@ -1,3 +1,71 @@
+# Latest resumable checkpoint — 18 October 2026
+
+Phases 2 and 3 VERIFIED. Phase 4 prepared but disabled; Phase 5 partially verified.
+Latest user answer: **SQL not executed yet**. Do not execute SQL or perform staff
+database-writing/RPC tests. User will manually execute the exact reviewed
+deployment/supabase_additive_conversations.sql. No additional phase approval is
+needed; successful manual SQL execution and account-based acceptance are the gate.
+
+Current verified cloud: a31f52b64c91b7d6dab34113bc17a5bfac37ff72,
+https://wizzas-defectrag.hf.space. Real DINOv2 all12 inference and real Qwen3-4B
+cited RAG passed. Existing React/CSS retained, no model training or new benchmark.
+Phase3 source checkpoint: 2c4c31561c6451c25487a56e818fa71faa14f8b3.
+The next Git commit adds readiness/error handling, bounded staff export pagination,
+cloud-specific archive wording, nine security software checks and acceptance docs.
+Those readiness changes are NOT yet deployed to the cloud; do not confuse source
+readiness with live staff acceptance. Avoid another rebuild before SQL is ready.
+
+Completed evidence (do not repeat):
+- Phase2: 24 real images locally +24 in cloud, all12 categories. Verdict parity
+  24/24; maximum score difference0.00052985549. Original benchmark results intact.
+- Phase3: real Qwen heatmap/context answers passed citation/quote checks; measurement
+  answers and scope refusal passed; ten saved turns. CPU BGE subprocess fixes the
+  diagnosed ZeroGPU fork interaction. No Qwen weights downloaded to this laptop.
+- Browser QA: nine navigation destinations locally and in cloud; genuine Cashew
+  inspection4551ace05dba4237a22a1630f7b18d34 (score0.24145314, threshold0.13224798,
+  Anomalous), live cited follow-up, history archive/restore, populated image/report
+  evidence and signed CSV export passed. Generic Gradio private-file routes403.
+- Browser batch: one real Capsules image completed (Good, displayed score0.132,
+  threshold0.197); second image rejected by anonymous ZeroGPU run quota. UI showed
+  1 completed/1 failed and retained success. Not a fully passed two-image batch;
+  no retry or paid quota purchase. Screenshot and limitation saved.
+- Existing44 focused regressions passed at Phase3. Latest9 security software
+  tests passed0.63s; these are local fixtures, not proof of live Supabase RLS.
+  Latest isolated frontend production build passed; original CSS unchanged.
+
+Private resumable evidence: development-support/space (Git-ignored). Full reports
+contain workspace secrets/signed capabilities: never publish them. Sanitized
+summaries and screenshots: docs/zerogpu_phase2, docs/zerogpu_phase3,
+docs/zerogpu_phase5; see docs/ZEROGPU_PHASE4_READINESS.md and
+docs/ZEROGPU_PHASE5_PARTIAL_RESULTS.md.
+
+Exact resume sequence:
+1. Read this checkpoint, Git status and Phase4 readiness doc. Preserve Desktop's
+   existing frontend/public/config.js and deployment/RUN_AND_DEPLOY.md user edits.
+2. Await explicit user confirmation that the reviewed SQL executed successfully.
+   Do not apply SQL, create accounts or create migration-confirmed.json before it.
+3. After confirmation, record it privately, build isolated UI with existing public
+   Supabase config and publish phase4. Existing RLS/tables/storage remain intact.
+4. User signs in themselves. Test both RPCs with approved staff, anonymous and a
+   real existing nonstaff account; no fabricated claims from software mocks.
+5. Verify durable inspections/images/conversations/acknowledgements, collaboration,
+   reports, archive ownership and developer recovery. Finish remaining quota,
+   refresh/restart and multi-user acceptance; only then claim Phases4/5 complete.
+
+Future hardening: staff-submitted conversation answers lack verified model
+provenance; alert acknowledgements record no actor/timestamp. Staff dashboard
+statistics cover latest1000 active records; archive operates on up to500 matches.
+Anonymous history is temporary and quota-limited. No fitting/training jobs running.
+Owned local compatibility server on8784 was stopped; no listener remains there.
+original local app/Ollama/user processes are left alone. HF hosted app stays live.
+Desktop code sync uses deployment/space/sync_code.ps1 with ff-only Git and checksums
+for existing config/guide. Its private receipt records the exact synced commit.
+Reviewed SQL SHA256: 025ef75f224fbefda7d24b9a291b4532ec43b014d8f7659209cd8de4578beb47.
+
+---
+
+## Superseded chronological notes (latest checkpoint above takes precedence)
+
 # Phases 2–5 authorized — 18 October 2026 — IN PROGRESS
 
 LATEST MILESTONE: PHASE3 LIVE CLOUD RAG PASSED at a31f52b64c91b7d6dab34113bc17a5bfac37ff72.
