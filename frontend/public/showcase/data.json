@@ -1,0 +1,3001 @@
+{
+  "schema": 1,
+  "mode": "saved_examples",
+  "records": [
+    {
+      "id": "18c7586f94de4b6d8ef773779f7cea2f",
+      "created_at": "2026-10-16T01:54:06.141819+00:00",
+      "category": "pcb1",
+      "verdict": "Good",
+      "score": 0.029462307691574097,
+      "threshold": 0.047802507877349854,
+      "uncertainty_margin": 0.0023901253938674928,
+      "inference_ms": 626.97,
+      "model_id": "dinov3-normal-bank-pcb1-v1",
+      "batch": "Verified VisA examples",
+      "filename": "VisA example",
+      "image_url": "showcase/images/18c7586f94de4b6d8ef773779f7cea2f.jpg",
+      "heatmap_url": "showcase/images/18c7586f94de4b6d8ef773779f7cea2f_heatmap.jpg"
+    },
+    {
+      "id": "52ee2c6d54934fcfaffb0f273c70dc87",
+      "created_at": "2026-10-16T01:54:06.454213+00:00",
+      "category": "pcb1",
+      "verdict": "Anomalous",
+      "score": 0.09511521458625793,
+      "threshold": 0.047802507877349854,
+      "uncertainty_margin": 0.0023901253938674928,
+      "inference_ms": 79.49,
+      "model_id": "dinov3-normal-bank-pcb1-v1",
+      "batch": "Verified VisA examples",
+      "filename": "VisA example",
+      "image_url": "showcase/images/52ee2c6d54934fcfaffb0f273c70dc87.jpg",
+      "heatmap_url": "showcase/images/52ee2c6d54934fcfaffb0f273c70dc87_heatmap.jpg"
+    },
+    {
+      "id": "e701c08ef3264b20bcb11149f734b219",
+      "created_at": "2026-10-16T01:54:06.826573+00:00",
+      "category": "capsules",
+      "verdict": "Uncertain",
+      "score": 0.04526650905609131,
+      "threshold": 0.04728597402572632,
+      "uncertainty_margin": 0.0023642987012863163,
+      "inference_ms": 47.72,
+      "model_id": "dinov3-normal-bank-capsules-v1",
+      "batch": "Verified VisA examples",
+      "filename": "VisA example",
+      "image_url": "showcase/images/e701c08ef3264b20bcb11149f734b219.jpg",
+      "heatmap_url": "showcase/images/e701c08ef3264b20bcb11149f734b219_heatmap.jpg"
+    },
+    {
+      "id": "e3964b50d4cf4860a1f7a926d1ae444a",
+      "created_at": "2026-10-16T01:54:07.099544+00:00",
+      "category": "capsules",
+      "verdict": "Anomalous",
+      "score": 0.06019875407218933,
+      "threshold": 0.04728597402572632,
+      "uncertainty_margin": 0.0023642987012863163,
+      "inference_ms": 53.84,
+      "model_id": "dinov3-normal-bank-capsules-v1",
+      "batch": "Verified VisA examples",
+      "filename": "VisA example",
+      "image_url": "showcase/images/e3964b50d4cf4860a1f7a926d1ae444a.jpg",
+      "heatmap_url": "showcase/images/e3964b50d4cf4860a1f7a926d1ae444a_heatmap.jpg"
+    },
+    {
+      "id": "b5d1bd5c7ed1493ab8f4a849eeeb7712",
+      "created_at": "2026-10-16T01:54:07.485318+00:00",
+      "category": "cashew",
+      "verdict": "Good",
+      "score": 0.030725598335266113,
+      "threshold": 0.051523059606552124,
+      "uncertainty_margin": 0.0025761529803276064,
+      "inference_ms": 53.57,
+      "model_id": "dinov3-normal-bank-cashew-v1",
+      "batch": "Verified VisA examples",
+      "filename": "VisA example",
+      "image_url": "showcase/images/b5d1bd5c7ed1493ab8f4a849eeeb7712.jpg",
+      "heatmap_url": "showcase/images/b5d1bd5c7ed1493ab8f4a849eeeb7712_heatmap.jpg"
+    },
+    {
+      "id": "3243fbe65d59477b9811da0f306535aa",
+      "created_at": "2026-10-16T01:54:07.777072+00:00",
+      "category": "cashew",
+      "verdict": "Anomalous",
+      "score": 0.07818332314491272,
+      "threshold": 0.051523059606552124,
+      "uncertainty_margin": 0.0025761529803276064,
+      "inference_ms": 51.4,
+      "model_id": "dinov3-normal-bank-cashew-v1",
+      "batch": "Verified VisA examples",
+      "filename": "VisA example",
+      "image_url": "showcase/images/3243fbe65d59477b9811da0f306535aa.jpg",
+      "heatmap_url": "showcase/images/3243fbe65d59477b9811da0f306535aa_heatmap.jpg"
+    },
+    {
+      "id": "a6226ef392eb417e8991369e890d816b",
+      "created_at": "2026-10-16T03:37:21.911121+00:00",
+      "category": "pcb1",
+      "verdict": "Anomalous",
+      "score": 0.09611436724662781,
+      "threshold": 0.047802507877349854,
+      "uncertainty_margin": 0.0023901253938674928,
+      "inference_ms": 38.44,
+      "model_id": "dinov3-normal-bank-pcb1-v1",
+      "batch": "Verified VisA examples",
+      "filename": "VisA example",
+      "image_url": "showcase/images/a6226ef392eb417e8991369e890d816b.jpg",
+      "heatmap_url": "showcase/images/a6226ef392eb417e8991369e890d816b_heatmap.jpg"
+    },
+    {
+      "id": "14418c36d94648adbdbc2779a6a33b3c",
+      "created_at": "2026-10-16T05:04:08.792238+00:00",
+      "category": "candle",
+      "verdict": "Good",
+      "score": 0.022238105535507202,
+      "threshold": 0.04235455393791199,
+      "uncertainty_margin": 0.0021177276968955996,
+      "inference_ms": 373.68,
+      "model_id": "dinov3-normal-bank-candle-v1",
+      "batch": "Verified VisA examples",
+      "filename": "VisA example",
+      "image_url": "showcase/images/14418c36d94648adbdbc2779a6a33b3c.jpg",
+      "heatmap_url": "showcase/images/14418c36d94648adbdbc2779a6a33b3c_heatmap.jpg"
+    },
+    {
+      "id": "7dbb6f27253b450698a1a503cfa9a8c8",
+      "created_at": "2026-10-16T05:04:09.045272+00:00",
+      "category": "candle",
+      "verdict": "Anomalous",
+      "score": 0.046729326248168945,
+      "threshold": 0.04235455393791199,
+      "uncertainty_margin": 0.0021177276968955996,
+      "inference_ms": 34.73,
+      "model_id": "dinov3-normal-bank-candle-v1",
+      "batch": "Verified VisA examples",
+      "filename": "VisA example",
+      "image_url": "showcase/images/7dbb6f27253b450698a1a503cfa9a8c8.jpg",
+      "heatmap_url": "showcase/images/7dbb6f27253b450698a1a503cfa9a8c8_heatmap.jpg"
+    },
+    {
+      "id": "6082416ed1c34be6a4fccd7e406f4a34",
+      "created_at": "2026-10-16T05:04:09.292761+00:00",
+      "category": "chewinggum",
+      "verdict": "Good",
+      "score": 0.03845283389091492,
+      "threshold": 0.06446045637130737,
+      "uncertainty_margin": 0.003223022818565369,
+      "inference_ms": 37.45,
+      "model_id": "dinov3-normal-bank-chewinggum-v1",
+      "batch": "Verified VisA examples",
+      "filename": "VisA example",
+      "image_url": "showcase/images/6082416ed1c34be6a4fccd7e406f4a34.jpg",
+      "heatmap_url": "showcase/images/6082416ed1c34be6a4fccd7e406f4a34_heatmap.jpg"
+    },
+    {
+      "id": "dcc3e255b90f466c9087d7e09af1a661",
+      "created_at": "2026-10-16T05:04:09.469926+00:00",
+      "category": "chewinggum",
+      "verdict": "Anomalous",
+      "score": 0.09018924832344055,
+      "threshold": 0.06446045637130737,
+      "uncertainty_margin": 0.003223022818565369,
+      "inference_ms": 29.3,
+      "model_id": "dinov3-normal-bank-chewinggum-v1",
+      "batch": "Verified VisA examples",
+      "filename": "VisA example",
+      "image_url": "showcase/images/dcc3e255b90f466c9087d7e09af1a661.jpg",
+      "heatmap_url": "showcase/images/dcc3e255b90f466c9087d7e09af1a661_heatmap.jpg"
+    },
+    {
+      "id": "d9023f03ff7945d8928216e8df02a620",
+      "created_at": "2026-10-16T05:04:09.704431+00:00",
+      "category": "fryum",
+      "verdict": "Good",
+      "score": 0.02073901891708374,
+      "threshold": 0.031331419944763184,
+      "uncertainty_margin": 0.0015665709972381592,
+      "inference_ms": 31.32,
+      "model_id": "dinov3-normal-bank-fryum-v1",
+      "batch": "Verified VisA examples",
+      "filename": "VisA example",
+      "image_url": "showcase/images/d9023f03ff7945d8928216e8df02a620.jpg",
+      "heatmap_url": "showcase/images/d9023f03ff7945d8928216e8df02a620_heatmap.jpg"
+    },
+    {
+      "id": "118f64eaadfe43ce8b27b955a82c37ba",
+      "created_at": "2026-10-16T05:04:09.853046+00:00",
+      "category": "fryum",
+      "verdict": "Uncertain",
+      "score": 0.03211769461631775,
+      "threshold": 0.031331419944763184,
+      "uncertainty_margin": 0.0015665709972381592,
+      "inference_ms": 29.33,
+      "model_id": "dinov3-normal-bank-fryum-v1",
+      "batch": "Verified VisA examples",
+      "filename": "VisA example",
+      "image_url": "showcase/images/118f64eaadfe43ce8b27b955a82c37ba.jpg",
+      "heatmap_url": "showcase/images/118f64eaadfe43ce8b27b955a82c37ba_heatmap.jpg"
+    },
+    {
+      "id": "e335298e27e843c38d81accf54fdb399",
+      "created_at": "2026-10-16T05:04:10.096196+00:00",
+      "category": "macaroni1",
+      "verdict": "Anomalous",
+      "score": 0.0720357894897461,
+      "threshold": 0.04998299479484558,
+      "uncertainty_margin": 0.002499149739742279,
+      "inference_ms": 29.82,
+      "model_id": "dinov3-normal-bank-macaroni1-v1",
+      "batch": "Verified VisA examples",
+      "filename": "VisA example",
+      "image_url": "showcase/images/e335298e27e843c38d81accf54fdb399.jpg",
+      "heatmap_url": "showcase/images/e335298e27e843c38d81accf54fdb399_heatmap.jpg"
+    },
+    {
+      "id": "1a5f9735b7dd44f18995b62e871ee3b7",
+      "created_at": "2026-10-16T05:04:10.240752+00:00",
+      "category": "macaroni1",
+      "verdict": "Good",
+      "score": 0.04587012529373169,
+      "threshold": 0.04998299479484558,
+      "uncertainty_margin": 0.002499149739742279,
+      "inference_ms": 29.49,
+      "model_id": "dinov3-normal-bank-macaroni1-v1",
+      "batch": "Verified VisA examples",
+      "filename": "VisA example",
+      "image_url": "showcase/images/1a5f9735b7dd44f18995b62e871ee3b7.jpg",
+      "heatmap_url": "showcase/images/1a5f9735b7dd44f18995b62e871ee3b7_heatmap.jpg"
+    },
+    {
+      "id": "d03553a7af274bba808fe090d4a7912b",
+      "created_at": "2026-10-16T05:04:10.476998+00:00",
+      "category": "macaroni2",
+      "verdict": "Anomalous",
+      "score": 0.07178214192390442,
+      "threshold": 0.056429386138916016,
+      "uncertainty_margin": 0.002821469306945801,
+      "inference_ms": 28.18,
+      "model_id": "dinov3-normal-bank-macaroni2-v1",
+      "batch": "Verified VisA examples",
+      "filename": "VisA example",
+      "image_url": "showcase/images/d03553a7af274bba808fe090d4a7912b.jpg",
+      "heatmap_url": "showcase/images/d03553a7af274bba808fe090d4a7912b_heatmap.jpg"
+    },
+    {
+      "id": "232cbf03a23f4eb2a3793fa1628e5f9c",
+      "created_at": "2026-10-16T05:04:10.617141+00:00",
+      "category": "macaroni2",
+      "verdict": "Uncertain",
+      "score": 0.055811017751693726,
+      "threshold": 0.056429386138916016,
+      "uncertainty_margin": 0.002821469306945801,
+      "inference_ms": 28.8,
+      "model_id": "dinov3-normal-bank-macaroni2-v1",
+      "batch": "Verified VisA examples",
+      "filename": "VisA example",
+      "image_url": "showcase/images/232cbf03a23f4eb2a3793fa1628e5f9c.jpg",
+      "heatmap_url": "showcase/images/232cbf03a23f4eb2a3793fa1628e5f9c_heatmap.jpg"
+    },
+    {
+      "id": "99d47a61108f4581b59c6fac6bfc224f",
+      "created_at": "2026-10-16T05:04:10.847182+00:00",
+      "category": "pcb2",
+      "verdict": "Anomalous",
+      "score": 0.0873120129108429,
+      "threshold": 0.03412127494812012,
+      "uncertainty_margin": 0.0017060637474060059,
+      "inference_ms": 28.92,
+      "model_id": "dinov3-normal-bank-pcb2-v1",
+      "batch": "Verified VisA examples",
+      "filename": "VisA example",
+      "image_url": "showcase/images/99d47a61108f4581b59c6fac6bfc224f.jpg",
+      "heatmap_url": "showcase/images/99d47a61108f4581b59c6fac6bfc224f_heatmap.jpg"
+    },
+    {
+      "id": "c6222fddf36d4c788ae4e96994b3e02b",
+      "created_at": "2026-10-16T05:04:11.008753+00:00",
+      "category": "pcb2",
+      "verdict": "Anomalous",
+      "score": 0.04729834198951721,
+      "threshold": 0.03412127494812012,
+      "uncertainty_margin": 0.0017060637474060059,
+      "inference_ms": 33.07,
+      "model_id": "dinov3-normal-bank-pcb2-v1",
+      "batch": "Verified VisA examples",
+      "filename": "VisA example",
+      "image_url": "showcase/images/c6222fddf36d4c788ae4e96994b3e02b.jpg",
+      "heatmap_url": "showcase/images/c6222fddf36d4c788ae4e96994b3e02b_heatmap.jpg"
+    },
+    {
+      "id": "2cb0f86c14d344019b28f77f4628257f",
+      "created_at": "2026-10-16T05:04:11.261839+00:00",
+      "category": "pcb3",
+      "verdict": "Anomalous",
+      "score": 0.052754610776901245,
+      "threshold": 0.04104718565940857,
+      "uncertainty_margin": 0.0020523592829704285,
+      "inference_ms": 27.26,
+      "model_id": "dinov3-normal-bank-pcb3-v1",
+      "batch": "Verified VisA examples",
+      "filename": "VisA example",
+      "image_url": "showcase/images/2cb0f86c14d344019b28f77f4628257f.jpg",
+      "heatmap_url": "showcase/images/2cb0f86c14d344019b28f77f4628257f_heatmap.jpg"
+    },
+    {
+      "id": "b43a98329ac646ef90f19861345d0884",
+      "created_at": "2026-10-16T05:04:11.412727+00:00",
+      "category": "pcb3",
+      "verdict": "Uncertain",
+      "score": 0.04286506772041321,
+      "threshold": 0.04104718565940857,
+      "uncertainty_margin": 0.0020523592829704285,
+      "inference_ms": 31.02,
+      "model_id": "dinov3-normal-bank-pcb3-v1",
+      "batch": "Verified VisA examples",
+      "filename": "VisA example",
+      "image_url": "showcase/images/b43a98329ac646ef90f19861345d0884.jpg",
+      "heatmap_url": "showcase/images/b43a98329ac646ef90f19861345d0884_heatmap.jpg"
+    },
+    {
+      "id": "d182ffb0791744d08f112d7321e69f1d",
+      "created_at": "2026-10-16T05:04:11.654455+00:00",
+      "category": "pcb4",
+      "verdict": "Good",
+      "score": 0.040615081787109375,
+      "threshold": 0.043793290853500366,
+      "uncertainty_margin": 0.0021896645426750182,
+      "inference_ms": 27.27,
+      "model_id": "dinov3-normal-bank-pcb4-v1",
+      "batch": "Verified VisA examples",
+      "filename": "VisA example",
+      "image_url": "showcase/images/d182ffb0791744d08f112d7321e69f1d.jpg",
+      "heatmap_url": "showcase/images/d182ffb0791744d08f112d7321e69f1d_heatmap.jpg"
+    },
+    {
+      "id": "09c2eda2da134adf829057bc0a4faccb",
+      "created_at": "2026-10-16T05:04:11.824898+00:00",
+      "category": "pcb4",
+      "verdict": "Anomalous",
+      "score": 0.05046689510345459,
+      "threshold": 0.043793290853500366,
+      "uncertainty_margin": 0.0021896645426750182,
+      "inference_ms": 35.16,
+      "model_id": "dinov3-normal-bank-pcb4-v1",
+      "batch": "Verified VisA examples",
+      "filename": "VisA example",
+      "image_url": "showcase/images/09c2eda2da134adf829057bc0a4faccb.jpg",
+      "heatmap_url": "showcase/images/09c2eda2da134adf829057bc0a4faccb_heatmap.jpg"
+    },
+    {
+      "id": "3c255e6f989c4bee88941ef44c2f81dc",
+      "created_at": "2026-10-16T05:04:12.082369+00:00",
+      "category": "pipe_fryum",
+      "verdict": "Good",
+      "score": 0.04459744691848755,
+      "threshold": 0.05846443772315979,
+      "uncertainty_margin": 0.0029232218861579896,
+      "inference_ms": 28.43,
+      "model_id": "dinov3-normal-bank-pipe_fryum-v1",
+      "batch": "Verified VisA examples",
+      "filename": "VisA example",
+      "image_url": "showcase/images/3c255e6f989c4bee88941ef44c2f81dc.jpg",
+      "heatmap_url": "showcase/images/3c255e6f989c4bee88941ef44c2f81dc_heatmap.jpg"
+    },
+    {
+      "id": "eba4738a39db4a3192230964d15853bc",
+      "created_at": "2026-10-16T05:04:12.265434+00:00",
+      "category": "pipe_fryum",
+      "verdict": "Anomalous",
+      "score": 0.08141562342643738,
+      "threshold": 0.05846443772315979,
+      "uncertainty_margin": 0.0029232218861579896,
+      "inference_ms": 27.96,
+      "model_id": "dinov3-normal-bank-pipe_fryum-v1",
+      "batch": "Verified VisA examples",
+      "filename": "VisA example",
+      "image_url": "showcase/images/eba4738a39db4a3192230964d15853bc.jpg",
+      "heatmap_url": "showcase/images/eba4738a39db4a3192230964d15853bc_heatmap.jpg"
+    }
+  ],
+  "samples": [
+    {
+      "name": "pcb1_good",
+      "category": "pcb1",
+      "record_id": "18c7586f94de4b6d8ef773779f7cea2f",
+      "url": "showcase/images/18c7586f94de4b6d8ef773779f7cea2f.jpg",
+      "attribution": "VisA \u00b7 Zou et al., ECCV 2022 \u00b7 CC BY 4.0"
+    },
+    {
+      "name": "pcb1_anomalous",
+      "category": "pcb1",
+      "record_id": "52ee2c6d54934fcfaffb0f273c70dc87",
+      "url": "showcase/images/52ee2c6d54934fcfaffb0f273c70dc87.jpg",
+      "attribution": "VisA \u00b7 Zou et al., ECCV 2022 \u00b7 CC BY 4.0"
+    },
+    {
+      "name": "capsules_good",
+      "category": "capsules",
+      "record_id": "e701c08ef3264b20bcb11149f734b219",
+      "url": "showcase/images/e701c08ef3264b20bcb11149f734b219.jpg",
+      "attribution": "VisA \u00b7 Zou et al., ECCV 2022 \u00b7 CC BY 4.0"
+    },
+    {
+      "name": "capsules_anomalous",
+      "category": "capsules",
+      "record_id": "e3964b50d4cf4860a1f7a926d1ae444a",
+      "url": "showcase/images/e3964b50d4cf4860a1f7a926d1ae444a.jpg",
+      "attribution": "VisA \u00b7 Zou et al., ECCV 2022 \u00b7 CC BY 4.0"
+    },
+    {
+      "name": "cashew_good",
+      "category": "cashew",
+      "record_id": "b5d1bd5c7ed1493ab8f4a849eeeb7712",
+      "url": "showcase/images/b5d1bd5c7ed1493ab8f4a849eeeb7712.jpg",
+      "attribution": "VisA \u00b7 Zou et al., ECCV 2022 \u00b7 CC BY 4.0"
+    },
+    {
+      "name": "cashew_anomalous",
+      "category": "cashew",
+      "record_id": "3243fbe65d59477b9811da0f306535aa",
+      "url": "showcase/images/3243fbe65d59477b9811da0f306535aa.jpg",
+      "attribution": "VisA \u00b7 Zou et al., ECCV 2022 \u00b7 CC BY 4.0"
+    },
+    {
+      "name": "pcb1_anomalous_followup",
+      "category": "pcb1",
+      "record_id": "a6226ef392eb417e8991369e890d816b",
+      "url": "showcase/images/a6226ef392eb417e8991369e890d816b.jpg",
+      "attribution": "VisA \u00b7 Zou et al., ECCV 2022 \u00b7 CC BY 4.0"
+    },
+    {
+      "name": "candle_good",
+      "category": "candle",
+      "record_id": "14418c36d94648adbdbc2779a6a33b3c",
+      "url": "showcase/images/14418c36d94648adbdbc2779a6a33b3c.jpg",
+      "attribution": "VisA \u00b7 Zou et al., ECCV 2022 \u00b7 CC BY 4.0"
+    },
+    {
+      "name": "candle_anomalous",
+      "category": "candle",
+      "record_id": "7dbb6f27253b450698a1a503cfa9a8c8",
+      "url": "showcase/images/7dbb6f27253b450698a1a503cfa9a8c8.jpg",
+      "attribution": "VisA \u00b7 Zou et al., ECCV 2022 \u00b7 CC BY 4.0"
+    },
+    {
+      "name": "chewinggum_good",
+      "category": "chewinggum",
+      "record_id": "6082416ed1c34be6a4fccd7e406f4a34",
+      "url": "showcase/images/6082416ed1c34be6a4fccd7e406f4a34.jpg",
+      "attribution": "VisA \u00b7 Zou et al., ECCV 2022 \u00b7 CC BY 4.0"
+    },
+    {
+      "name": "chewinggum_anomalous",
+      "category": "chewinggum",
+      "record_id": "dcc3e255b90f466c9087d7e09af1a661",
+      "url": "showcase/images/dcc3e255b90f466c9087d7e09af1a661.jpg",
+      "attribution": "VisA \u00b7 Zou et al., ECCV 2022 \u00b7 CC BY 4.0"
+    },
+    {
+      "name": "fryum_good",
+      "category": "fryum",
+      "record_id": "d9023f03ff7945d8928216e8df02a620",
+      "url": "showcase/images/d9023f03ff7945d8928216e8df02a620.jpg",
+      "attribution": "VisA \u00b7 Zou et al., ECCV 2022 \u00b7 CC BY 4.0"
+    },
+    {
+      "name": "fryum_anomalous",
+      "category": "fryum",
+      "record_id": "118f64eaadfe43ce8b27b955a82c37ba",
+      "url": "showcase/images/118f64eaadfe43ce8b27b955a82c37ba.jpg",
+      "attribution": "VisA \u00b7 Zou et al., ECCV 2022 \u00b7 CC BY 4.0"
+    },
+    {
+      "name": "macaroni1_good",
+      "category": "macaroni1",
+      "record_id": "e335298e27e843c38d81accf54fdb399",
+      "url": "showcase/images/e335298e27e843c38d81accf54fdb399.jpg",
+      "attribution": "VisA \u00b7 Zou et al., ECCV 2022 \u00b7 CC BY 4.0"
+    },
+    {
+      "name": "macaroni1_anomalous",
+      "category": "macaroni1",
+      "record_id": "1a5f9735b7dd44f18995b62e871ee3b7",
+      "url": "showcase/images/1a5f9735b7dd44f18995b62e871ee3b7.jpg",
+      "attribution": "VisA \u00b7 Zou et al., ECCV 2022 \u00b7 CC BY 4.0"
+    },
+    {
+      "name": "macaroni2_good",
+      "category": "macaroni2",
+      "record_id": "d03553a7af274bba808fe090d4a7912b",
+      "url": "showcase/images/d03553a7af274bba808fe090d4a7912b.jpg",
+      "attribution": "VisA \u00b7 Zou et al., ECCV 2022 \u00b7 CC BY 4.0"
+    },
+    {
+      "name": "macaroni2_anomalous",
+      "category": "macaroni2",
+      "record_id": "232cbf03a23f4eb2a3793fa1628e5f9c",
+      "url": "showcase/images/232cbf03a23f4eb2a3793fa1628e5f9c.jpg",
+      "attribution": "VisA \u00b7 Zou et al., ECCV 2022 \u00b7 CC BY 4.0"
+    },
+    {
+      "name": "pcb2_good",
+      "category": "pcb2",
+      "record_id": "99d47a61108f4581b59c6fac6bfc224f",
+      "url": "showcase/images/99d47a61108f4581b59c6fac6bfc224f.jpg",
+      "attribution": "VisA \u00b7 Zou et al., ECCV 2022 \u00b7 CC BY 4.0"
+    },
+    {
+      "name": "pcb2_anomalous",
+      "category": "pcb2",
+      "record_id": "c6222fddf36d4c788ae4e96994b3e02b",
+      "url": "showcase/images/c6222fddf36d4c788ae4e96994b3e02b.jpg",
+      "attribution": "VisA \u00b7 Zou et al., ECCV 2022 \u00b7 CC BY 4.0"
+    },
+    {
+      "name": "pcb3_good",
+      "category": "pcb3",
+      "record_id": "2cb0f86c14d344019b28f77f4628257f",
+      "url": "showcase/images/2cb0f86c14d344019b28f77f4628257f.jpg",
+      "attribution": "VisA \u00b7 Zou et al., ECCV 2022 \u00b7 CC BY 4.0"
+    },
+    {
+      "name": "pcb3_anomalous",
+      "category": "pcb3",
+      "record_id": "b43a98329ac646ef90f19861345d0884",
+      "url": "showcase/images/b43a98329ac646ef90f19861345d0884.jpg",
+      "attribution": "VisA \u00b7 Zou et al., ECCV 2022 \u00b7 CC BY 4.0"
+    },
+    {
+      "name": "pcb4_good",
+      "category": "pcb4",
+      "record_id": "d182ffb0791744d08f112d7321e69f1d",
+      "url": "showcase/images/d182ffb0791744d08f112d7321e69f1d.jpg",
+      "attribution": "VisA \u00b7 Zou et al., ECCV 2022 \u00b7 CC BY 4.0"
+    },
+    {
+      "name": "pcb4_anomalous",
+      "category": "pcb4",
+      "record_id": "09c2eda2da134adf829057bc0a4faccb",
+      "url": "showcase/images/09c2eda2da134adf829057bc0a4faccb.jpg",
+      "attribution": "VisA \u00b7 Zou et al., ECCV 2022 \u00b7 CC BY 4.0"
+    },
+    {
+      "name": "pipe_fryum_good",
+      "category": "pipe_fryum",
+      "record_id": "3c255e6f989c4bee88941ef44c2f81dc",
+      "url": "showcase/images/3c255e6f989c4bee88941ef44c2f81dc.jpg",
+      "attribution": "VisA \u00b7 Zou et al., ECCV 2022 \u00b7 CC BY 4.0"
+    },
+    {
+      "name": "pipe_fryum_anomalous",
+      "category": "pipe_fryum",
+      "record_id": "eba4738a39db4a3192230964d15853bc",
+      "url": "showcase/images/eba4738a39db4a3192230964d15853bc.jpg",
+      "attribution": "VisA \u00b7 Zou et al., ECCV 2022 \u00b7 CC BY 4.0"
+    }
+  ],
+  "messages": {
+    "18c7586f94de4b6d8ef773779f7cea2f": [
+      {
+        "role": "user",
+        "question": "What caused this defect?"
+      },
+      {
+        "role": "assistant",
+        "answer": "The available measurements and documentation do not establish that claim. Specific defect names, counts, root causes, tolerances and repair instructions require additional validated evidence.",
+        "mode": "abstained",
+        "evidence": [],
+        "trace": [
+          "route",
+          "abstain"
+        ]
+      },
+      {
+        "role": "user",
+        "question": "What caused this defect?"
+      },
+      {
+        "role": "assistant",
+        "answer": "The available measurements and documentation do not establish that claim. Specific defect names, counts, root causes, tolerances and repair instructions require additional validated evidence.",
+        "mode": "abstained",
+        "evidence": [],
+        "trace": [
+          "route",
+          "abstain"
+        ]
+      }
+    ],
+    "52ee2c6d54934fcfaffb0f273c70dc87": [],
+    "e701c08ef3264b20bcb11149f734b219": [],
+    "e3964b50d4cf4860a1f7a926d1ae444a": [],
+    "b5d1bd5c7ed1493ab8f4a849eeeb7712": [],
+    "3243fbe65d59477b9811da0f306535aa": [],
+    "a6226ef392eb417e8991369e890d816b": [
+      {
+        "role": "user",
+        "question": "So this product is anomaly right?"
+      },
+      {
+        "role": "assistant",
+        "answer": "Yes\u2014the model flagged this pcb1 image as Anomalous. Its anomaly score is 0.09611, above the upper review boundary of 0.05019; the decision threshold is 0.04780. This flags unusual appearance; it does not identify a specific defect or its cause.",
+        "mode": "measurement_only",
+        "evidence": [],
+        "trace": [
+          "read_saved_inspection",
+          "check_score_and_review_band",
+          "answer_measurement_question"
+        ]
+      },
+      {
+        "role": "user",
+        "question": "Does 0.09 mean 9% accurate?"
+      },
+      {
+        "role": "assistant",
+        "answer": "The model flagged this pcb1 image as Anomalous. Its anomaly score is 0.09611, above the upper review boundary of 0.05019; the decision threshold is 0.04780. This score measures feature difference from normal references. It is not an accuracy percentage, confidence level or defect probability.",
+        "mode": "measurement_only",
+        "evidence": [],
+        "trace": [
+          "read_saved_inspection",
+          "check_score_and_review_band",
+          "answer_measurement_question"
+        ]
+      },
+      {
+        "role": "user",
+        "question": "What does this inspection heatmap show?"
+      },
+      {
+        "role": "assistant",
+        "answer": "The model flagged this pcb1 image as Anomalous. Its anomaly score is 0.09611, above the upper review boundary of 0.05019; the decision threshold is 0.04780. This flags unusual appearance; it does not identify a specific defect or its cause.\n\nThe heatmap illustrates the cosine distance between each image patch feature and its closest stored normal patch feature. [screening-4]\n\nThe map represents a 14 by 14 patch grid for coarse localization, not for verified defect segmentation or named defect diagnosis. [screening-4]",
+        "mode": "llm",
+        "evidence": [
+          {
+            "text": "# Current detector heatmap\nThe current DefectRAG detector uses a frozen DINOv3 encoder and a nearest-normal memory bank. Its heatmap displays the cosine distance between each image patch feature and its closest stored normal patch feature. Larger distances mean a larger departure from the reference appearance. The map interpolates a 14 by 14 patch grid; it is coarse localization, not a verified defect segmentation or a named defect diagnosis. This detector does not reconstruct image features with a trained decoder. General Dinomaly reconstruction documentation describes a different method.",
+            "id": "screening",
+            "file": "screening.md",
+            "title": "DefectRAG v2 screening and evidence policy",
+            "url": "project://docs/inspection-policy",
+            "license": "Project-authored, MIT",
+            "scope": "application policy; not a factory SOP",
+            "start_index": 1282,
+            "chunk_id": "screening-4",
+            "similarity": 0.7689
+          },
+          {
+            "text": "# Evidence limits and response\nThe system does not predict specific defect types, component counts, root causes, process parameters, acceptance tolerances or repair instructions. Those require additional validated supervision or approved process records. Model failures create an error event, never a successful inspection. Anomaly and uncertain events create local review alerts. Review source images and heatmaps before acting. Product category is selected by the operator; arbitrary or wrong-product uploads are outside validated scope. Documentation is general context and must remain separate from image measurements.",
+            "id": "screening",
+            "file": "screening.md",
+            "title": "DefectRAG v2 screening and evidence policy",
+            "url": "project://docs/inspection-policy",
+            "license": "Project-authored, MIT",
+            "scope": "application policy; not a factory SOP",
+            "start_index": 1880,
+            "chunk_id": "screening-5",
+            "similarity": 0.7055
+          }
+        ],
+        "trace": [
+          "route",
+          "retrieve",
+          "validate_evidence",
+          "generate",
+          "validate_answer"
+        ]
+      },
+      {
+        "role": "user",
+        "question": "How does that map relate to the anomaly score?"
+      },
+      {
+        "role": "assistant",
+        "answer": "The model flagged this pcb1 image as Anomalous. Its anomaly score is 0.09611, above the upper review boundary of 0.05019; the decision threshold is 0.04780. This flags unusual appearance; it does not identify a specific defect or its cause.\n\nA larger anomaly score indicates a larger feature distance; the score is not a defect probability. [screening-2]\n\nThe map represents a 14 by 14 patch grid; it is coarse localization, not a verified defect segmentation or a named defect diagnosis. [screening-4]",
+        "mode": "llm",
+        "evidence": [
+          {
+            "text": "# Current detector heatmap\nThe current DefectRAG detector uses a frozen DINOv3 encoder and a nearest-normal memory bank. Its heatmap displays the cosine distance between each image patch feature and its closest stored normal patch feature. Larger distances mean a larger departure from the reference appearance. The map interpolates a 14 by 14 patch grid; it is coarse localization, not a verified defect segmentation or a named defect diagnosis. This detector does not reconstruct image features with a trained decoder. General Dinomaly reconstruction documentation describes a different method.",
+            "id": "screening",
+            "file": "screening.md",
+            "title": "DefectRAG v2 screening and evidence policy",
+            "url": "project://docs/inspection-policy",
+            "license": "Project-authored, MIT",
+            "scope": "application policy; not a factory SOP",
+            "start_index": 1282,
+            "chunk_id": "screening-4",
+            "similarity": 0.7411
+          },
+          {
+            "text": "# Reading an inspection\nDefectRAG compares an uploaded image with normal VisA reference features for the selected product. A larger anomaly score indicates a larger feature distance; the score is not a defect probability. Good means the score lies below the validated decision threshold and outside the review band. Anomalous means it lies above the threshold and outside the review band. Uncertain means it lies within a fixed five-percent band around the threshold. This review band is an operational heuristic, not calibrated statistical confidence. A Good result is screening evidence, not proof that a product is safe or meets a factory specification.",
+            "id": "screening",
+            "file": "screening.md",
+            "title": "DefectRAG v2 screening and evidence policy",
+            "url": "project://docs/inspection-policy",
+            "license": "Project-authored, MIT",
+            "scope": "application policy; not a factory SOP",
+            "start_index": 0,
+            "chunk_id": "screening-2",
+            "similarity": 0.7304
+          }
+        ],
+        "trace": [
+          "route",
+          "retrieve",
+          "validate_evidence",
+          "generate",
+          "validate_answer"
+        ]
+      },
+      {
+        "role": "user",
+        "question": "What caused this defect?"
+      },
+      {
+        "role": "assistant",
+        "answer": "The model flagged this pcb1 image as Anomalous. Its anomaly score is 0.09611, above the upper review boundary of 0.05019; the decision threshold is 0.04780. This flags unusual appearance; it does not identify a specific defect or its cause.\n\nThe available measurements and documentation do not establish that claim. Specific defect names, counts, root causes, tolerances and repair instructions require additional validated evidence.",
+        "mode": "abstained",
+        "evidence": [],
+        "trace": [
+          "route",
+          "abstain"
+        ]
+      }
+    ],
+    "14418c36d94648adbdbc2779a6a33b3c": [],
+    "7dbb6f27253b450698a1a503cfa9a8c8": [],
+    "6082416ed1c34be6a4fccd7e406f4a34": [],
+    "dcc3e255b90f466c9087d7e09af1a661": [],
+    "d9023f03ff7945d8928216e8df02a620": [],
+    "118f64eaadfe43ce8b27b955a82c37ba": [],
+    "e335298e27e843c38d81accf54fdb399": [],
+    "1a5f9735b7dd44f18995b62e871ee3b7": [],
+    "d03553a7af274bba808fe090d4a7912b": [],
+    "232cbf03a23f4eb2a3793fa1628e5f9c": [],
+    "99d47a61108f4581b59c6fac6bfc224f": [],
+    "c6222fddf36d4c788ae4e96994b3e02b": [],
+    "2cb0f86c14d344019b28f77f4628257f": [],
+    "b43a98329ac646ef90f19861345d0884": [],
+    "d182ffb0791744d08f112d7321e69f1d": [],
+    "09c2eda2da134adf829057bc0a4faccb": [],
+    "3c255e6f989c4bee88941ef44c2f81dc": [],
+    "eba4738a39db4a3192230964d15853bc": []
+  },
+  "evaluation": {
+    "method": "Frozen DINOv3 ViT-S/16 + cosine nearest-normal patch bank",
+    "protocol": "64 normal fit images; 32 distinct training normals + 20 official test anomalies for calibration; remaining official test images for final evaluation. Seed 42. Not the full official VisA test protocol.",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "python": "3.12.4",
+    "torch": "2.8.0+cu126",
+    "device": "cuda",
+    "encoder_sha256": "4610ad75edef83e75afdebf162d148dc628045ea6cbb83d67d4708c709c4f91d",
+    "categories": {
+      "pcb1": {
+        "category": "pcb1",
+        "available": true,
+        "model_id": "dinov3-normal-bank-pcb1-v1",
+        "method": "Frozen DINOv3 ViT-S/16 + cosine nearest-normal patch bank",
+        "encoder_sha256": "4610ad75edef83e75afdebf162d148dc628045ea6cbb83d67d4708c709c4f91d",
+        "bank_sha256": "32786eb59ad977de43f1eac542defa92a62c856c3e6013762373c5d8428ff41f",
+        "threshold": 0.047802507877349854,
+        "uncertainty_margin": 0.0023901253938674928,
+        "uncertainty_policy": "Fixed \u00b15% of validated threshold. Operational review band, not calibrated confidence.",
+        "heatmap_scale": 0.05350043252110481,
+        "bank_size_bytes": 5826022,
+        "encoder_size_bytes": 86406384,
+        "calibration": {
+          "method": "Max F1 on separate validation identities",
+          "normal": 32,
+          "anomalous": 20,
+          "seed": 42
+        },
+        "train_normal_count": 64,
+        "metrics": {
+          "image_auroc": 0.8966250000000001,
+          "average_precision": 0.8663194463972607,
+          "precision": 0.7790697674418605,
+          "recall": 0.8375,
+          "f1": 0.8072289156626506,
+          "confusion_matrix": [
+            [
+              81,
+              19
+            ],
+            [
+              13,
+              67
+            ]
+          ],
+          "n_images": 180,
+          "pixel_auroc_64": 0.9898054522947226,
+          "pixel_average_precision_64": 0.7869819025878954,
+          "pixel_f1_64": 0.7252747252747253,
+          "pixel_threshold": 0.09545719623565674,
+          "latency_median_ms": 107.9613499896368,
+          "latency_p95_ms": 200.43043499463238,
+          "peak_gpu_mb": 75.25634765625,
+          "uncertain_fraction": 0.10555555555555556
+        },
+        "fit_and_evaluation_seconds": 46.72307930000534
+      },
+      "capsules": {
+        "category": "capsules",
+        "available": true,
+        "model_id": "dinov3-normal-bank-capsules-v1",
+        "method": "Frozen DINOv3 ViT-S/16 + cosine nearest-normal patch bank",
+        "encoder_sha256": "4610ad75edef83e75afdebf162d148dc628045ea6cbb83d67d4708c709c4f91d",
+        "bank_sha256": "04c06d14d8a95cdcc25f2db57d5156c5f3ad3ccc5997b1a94762f4e6953f3230",
+        "threshold": 0.04728597402572632,
+        "uncertainty_margin": 0.0023642987012863163,
+        "uncertainty_policy": "Fixed \u00b15% of validated threshold. Operational review band, not calibrated confidence.",
+        "heatmap_scale": 0.051162537187337875,
+        "bank_size_bytes": 5829829,
+        "encoder_size_bytes": 86406384,
+        "calibration": {
+          "method": "Max F1 on separate validation identities",
+          "normal": 32,
+          "anomalous": 20,
+          "seed": 42
+        },
+        "train_normal_count": 64,
+        "metrics": {
+          "image_auroc": 0.825,
+          "average_precision": 0.888730323581443,
+          "precision": 0.8382352941176471,
+          "recall": 0.7125,
+          "f1": 0.7702702702702703,
+          "confusion_matrix": [
+            [
+              49,
+              11
+            ],
+            [
+              23,
+              57
+            ]
+          ],
+          "n_images": 140,
+          "pixel_auroc_64": 0.9262537759349578,
+          "pixel_average_precision_64": 0.045138180218283995,
+          "pixel_f1_64": 0.11524251238110211,
+          "pixel_threshold": 0.05173458158969879,
+          "latency_median_ms": 63.487500010523945,
+          "latency_p95_ms": 154.34065499284767,
+          "peak_gpu_mb": 75.25634765625,
+          "uncertain_fraction": 0.2642857142857143
+        },
+        "fit_and_evaluation_seconds": 22.833901800011517
+      },
+      "cashew": {
+        "category": "cashew",
+        "available": true,
+        "model_id": "dinov3-normal-bank-cashew-v1",
+        "method": "Frozen DINOv3 ViT-S/16 + cosine nearest-normal patch bank",
+        "encoder_sha256": "4610ad75edef83e75afdebf162d148dc628045ea6cbb83d67d4708c709c4f91d",
+        "bank_sha256": "2da63dd9fec7bba903090659fad56c7d3dbb39cf7cc8525a68ebbb5cf13031c5",
+        "threshold": 0.051523059606552124,
+        "uncertainty_margin": 0.0025761529803276064,
+        "uncertainty_policy": "Fixed \u00b15% of validated threshold. Operational review band, not calibrated confidence.",
+        "heatmap_scale": 0.05220940336585045,
+        "bank_size_bytes": 5818641,
+        "encoder_size_bytes": 86406384,
+        "calibration": {
+          "method": "Max F1 on separate validation identities",
+          "normal": 32,
+          "anomalous": 20,
+          "seed": 42
+        },
+        "train_normal_count": 64,
+        "metrics": {
+          "image_auroc": 0.9705,
+          "average_precision": 0.9830165610895263,
+          "precision": 1.0,
+          "recall": 0.7,
+          "f1": 0.8235294117647058,
+          "confusion_matrix": [
+            [
+              50,
+              0
+            ],
+            [
+              24,
+              56
+            ]
+          ],
+          "n_images": 130,
+          "pixel_auroc_64": 0.996374825929817,
+          "pixel_average_precision_64": 0.9143062834240087,
+          "pixel_f1_64": 0.7389403146118462,
+          "pixel_threshold": 0.060025766491889954,
+          "latency_median_ms": 46.69994999130722,
+          "latency_p95_ms": 87.63518499908969,
+          "peak_gpu_mb": 75.25634765625,
+          "uncertain_fraction": 0.06153846153846154
+        },
+        "fit_and_evaluation_seconds": 15.456038499978604
+      },
+      "candle": {
+        "category": "candle",
+        "available": true,
+        "model_id": "dinov3-normal-bank-candle-v1",
+        "method": "Frozen DINOv3 ViT-S/16 + cosine nearest-normal patch bank",
+        "encoder_sha256": "4610ad75edef83e75afdebf162d148dc628045ea6cbb83d67d4708c709c4f91d",
+        "bank_sha256": "f7465d73990b2e0ada0b4ffd493341af104debf37ba5add778767ba955406eaa",
+        "threshold": 0.04235455393791199,
+        "uncertainty_margin": 0.0021177276968955996,
+        "uncertainty_policy": "Fixed \u00b15% of validated threshold. Operational review band, not calibrated confidence.",
+        "heatmap_scale": 0.049472544342279434,
+        "bank_size_bytes": 5833565,
+        "encoder_size_bytes": 86406384,
+        "calibration": {
+          "method": "Max F1 on separate validation identities",
+          "normal": 32,
+          "anomalous": 20,
+          "seed": 42
+        },
+        "train_normal_count": 64,
+        "metrics": {
+          "image_auroc": 0.9247500000000001,
+          "average_precision": 0.9157839305972371,
+          "precision": 0.8095238095238095,
+          "recall": 0.85,
+          "f1": 0.8292682926829268,
+          "confusion_matrix": [
+            [
+              84,
+              16
+            ],
+            [
+              12,
+              68
+            ]
+          ],
+          "n_images": 180,
+          "pixel_auroc_64": 0.9843575395340302,
+          "pixel_average_precision_64": 0.21910140819834925,
+          "pixel_f1_64": 0.21270521056388295,
+          "pixel_threshold": 0.0849744901061058,
+          "latency_median_ms": 35.39944998919964,
+          "latency_p95_ms": 42.45204498292878,
+          "peak_gpu_mb": 75.25634765625,
+          "uncertain_fraction": 0.07777777777777778
+        },
+        "fit_and_evaluation_seconds": 16.015594900003634
+      },
+      "chewinggum": {
+        "category": "chewinggum",
+        "available": true,
+        "model_id": "dinov3-normal-bank-chewinggum-v1",
+        "method": "Frozen DINOv3 ViT-S/16 + cosine nearest-normal patch bank",
+        "encoder_sha256": "4610ad75edef83e75afdebf162d148dc628045ea6cbb83d67d4708c709c4f91d",
+        "bank_sha256": "457aa7d24353f019c0cd279b927e686d85fb9642d61f35fa7837eac9180971d1",
+        "threshold": 0.06446045637130737,
+        "uncertainty_margin": 0.003223022818565369,
+        "uncertainty_policy": "Fixed \u00b15% of validated threshold. Operational review band, not calibrated confidence.",
+        "heatmap_scale": 0.12498166412115097,
+        "bank_size_bytes": 5818815,
+        "encoder_size_bytes": 86406384,
+        "calibration": {
+          "method": "Max F1 on separate validation identities",
+          "normal": 32,
+          "anomalous": 20,
+          "seed": 42
+        },
+        "train_normal_count": 64,
+        "metrics": {
+          "image_auroc": 0.9615,
+          "average_precision": 0.9817544815300773,
+          "precision": 1.0,
+          "recall": 0.8375,
+          "f1": 0.9115646258503401,
+          "confusion_matrix": [
+            [
+              50,
+              0
+            ],
+            [
+              13,
+              67
+            ]
+          ],
+          "n_images": 130,
+          "pixel_auroc_64": 0.9764362172320896,
+          "pixel_average_precision_64": 0.6115074532633727,
+          "pixel_f1_64": 0.535268768428215,
+          "pixel_threshold": 0.15793992578983307,
+          "latency_median_ms": 35.14035000989679,
+          "latency_p95_ms": 38.95726999035105,
+          "peak_gpu_mb": 75.25634765625,
+          "uncertain_fraction": 0.05384615384615385
+        },
+        "fit_and_evaluation_seconds": 12.904443200008245
+      },
+      "fryum": {
+        "category": "fryum",
+        "available": true,
+        "model_id": "dinov3-normal-bank-fryum-v1",
+        "method": "Frozen DINOv3 ViT-S/16 + cosine nearest-normal patch bank",
+        "encoder_sha256": "4610ad75edef83e75afdebf162d148dc628045ea6cbb83d67d4708c709c4f91d",
+        "bank_sha256": "8ace2cfe248a0fcc2cf4de52a724e5eb0bb40b8982cc1940a0ebc1d328b14bf5",
+        "threshold": 0.031331419944763184,
+        "uncertainty_margin": 0.0015665709972381592,
+        "uncertainty_policy": "Fixed \u00b15% of validated threshold. Operational review band, not calibrated confidence.",
+        "heatmap_scale": 0.03678131476044655,
+        "bank_size_bytes": 5837639,
+        "encoder_size_bytes": 86406384,
+        "calibration": {
+          "method": "Max F1 on separate validation identities",
+          "normal": 32,
+          "anomalous": 20,
+          "seed": 42
+        },
+        "train_normal_count": 64,
+        "metrics": {
+          "image_auroc": 0.9045000000000001,
+          "average_precision": 0.9462912998505075,
+          "precision": 0.8518518518518519,
+          "recall": 0.8625,
+          "f1": 0.8571428571428571,
+          "confusion_matrix": [
+            [
+              38,
+              12
+            ],
+            [
+              11,
+              69
+            ]
+          ],
+          "n_images": 130,
+          "pixel_auroc_64": 0.9719083051766001,
+          "pixel_average_precision_64": 0.3980462068371827,
+          "pixel_f1_64": 0.4379701239538087,
+          "pixel_threshold": 0.032756902277469635,
+          "latency_median_ms": 42.533050014753826,
+          "latency_p95_ms": 46.57477499276865,
+          "peak_gpu_mb": 75.25634765625,
+          "uncertain_fraction": 0.1076923076923077
+        },
+        "fit_and_evaluation_seconds": 14.423628800024744
+      },
+      "macaroni1": {
+        "category": "macaroni1",
+        "available": true,
+        "model_id": "dinov3-normal-bank-macaroni1-v1",
+        "method": "Frozen DINOv3 ViT-S/16 + cosine nearest-normal patch bank",
+        "encoder_sha256": "4610ad75edef83e75afdebf162d148dc628045ea6cbb83d67d4708c709c4f91d",
+        "bank_sha256": "80671fc63c363971235dfcfed56f4b7bc26a6cc729f8742b9cc245e3c32a6740",
+        "threshold": 0.04998299479484558,
+        "uncertainty_margin": 0.002499149739742279,
+        "uncertainty_policy": "Fixed \u00b15% of validated threshold. Operational review band, not calibrated confidence.",
+        "heatmap_scale": 0.04887811839580536,
+        "bank_size_bytes": 5838076,
+        "encoder_size_bytes": 86406384,
+        "calibration": {
+          "method": "Max F1 on separate validation identities",
+          "normal": 32,
+          "anomalous": 20,
+          "seed": 42
+        },
+        "train_normal_count": 64,
+        "metrics": {
+          "image_auroc": 0.8305,
+          "average_precision": 0.7713832272795041,
+          "precision": 0.8103448275862069,
+          "recall": 0.5875,
+          "f1": 0.6811594202898551,
+          "confusion_matrix": [
+            [
+              89,
+              11
+            ],
+            [
+              33,
+              47
+            ]
+          ],
+          "n_images": 180,
+          "pixel_auroc_64": 0.694555712193444,
+          "pixel_average_precision_64": 0.001018167117284116,
+          "pixel_f1_64": 0.004832509610104338,
+          "pixel_threshold": 0.04819351062178612,
+          "latency_median_ms": 38.921750005101785,
+          "latency_p95_ms": 43.64804000215372,
+          "peak_gpu_mb": 75.25634765625,
+          "uncertain_fraction": 0.13333333333333333
+        },
+        "fit_and_evaluation_seconds": 16.23608139998396
+      },
+      "macaroni2": {
+        "category": "macaroni2",
+        "available": true,
+        "model_id": "dinov3-normal-bank-macaroni2-v1",
+        "method": "Frozen DINOv3 ViT-S/16 + cosine nearest-normal patch bank",
+        "encoder_sha256": "4610ad75edef83e75afdebf162d148dc628045ea6cbb83d67d4708c709c4f91d",
+        "bank_sha256": "0645e4c3bfe1b829bc2b10c59f1ecf7e4b64bf85490182c9aeb188d2a31b1a68",
+        "threshold": 0.056429386138916016,
+        "uncertainty_margin": 0.002821469306945801,
+        "uncertainty_policy": "Fixed \u00b15% of validated threshold. Operational review band, not calibrated confidence.",
+        "heatmap_scale": 0.057037897408008575,
+        "bank_size_bytes": 5828662,
+        "encoder_size_bytes": 86406384,
+        "calibration": {
+          "method": "Max F1 on separate validation identities",
+          "normal": 32,
+          "anomalous": 20,
+          "seed": 42
+        },
+        "train_normal_count": 64,
+        "metrics": {
+          "image_auroc": 0.46825,
+          "average_precision": 0.4027863501702508,
+          "precision": 0.41414141414141414,
+          "recall": 0.5125,
+          "f1": 0.4581005586592179,
+          "confusion_matrix": [
+            [
+              42,
+              58
+            ],
+            [
+              39,
+              41
+            ]
+          ],
+          "n_images": 180,
+          "pixel_auroc_64": 0.806682222416908,
+          "pixel_average_precision_64": 0.0014684442001449403,
+          "pixel_f1_64": 0.006172839506172839,
+          "pixel_threshold": 0.06772572547197342,
+          "latency_median_ms": 36.53770001255907,
+          "latency_p95_ms": 41.75992001546546,
+          "peak_gpu_mb": 75.25634765625,
+          "uncertain_fraction": 0.35
+        },
+        "fit_and_evaluation_seconds": 15.40095150002162
+      },
+      "pcb2": {
+        "category": "pcb2",
+        "available": true,
+        "model_id": "dinov3-normal-bank-pcb2-v1",
+        "method": "Frozen DINOv3 ViT-S/16 + cosine nearest-normal patch bank",
+        "encoder_sha256": "4610ad75edef83e75afdebf162d148dc628045ea6cbb83d67d4708c709c4f91d",
+        "bank_sha256": "896d2526dbbe432a77d1085ec7c229848dfc99076d5544a76ad323d3e30ede30",
+        "threshold": 0.03412127494812012,
+        "uncertainty_margin": 0.0017060637474060059,
+        "uncertainty_policy": "Fixed \u00b15% of validated threshold. Operational review band, not calibrated confidence.",
+        "heatmap_scale": 0.05106712877750397,
+        "bank_size_bytes": 5830678,
+        "encoder_size_bytes": 86406384,
+        "calibration": {
+          "method": "Max F1 on separate validation identities",
+          "normal": 32,
+          "anomalous": 20,
+          "seed": 42
+        },
+        "train_normal_count": 64,
+        "metrics": {
+          "image_auroc": 0.7842500000000001,
+          "average_precision": 0.7352563715081358,
+          "precision": 0.5929203539823009,
+          "recall": 0.8375,
+          "f1": 0.694300518134715,
+          "confusion_matrix": [
+            [
+              54,
+              46
+            ],
+            [
+              13,
+              67
+            ]
+          ],
+          "n_images": 180,
+          "pixel_auroc_64": 0.914610843350704,
+          "pixel_average_precision_64": 0.036729612921036846,
+          "pixel_f1_64": 0.08551020408163265,
+          "pixel_threshold": 0.04263307899236679,
+          "latency_median_ms": 38.40279999712948,
+          "latency_p95_ms": 42.41142502578441,
+          "peak_gpu_mb": 75.25634765625,
+          "uncertain_fraction": 0.15555555555555556
+        },
+        "fit_and_evaluation_seconds": 15.296049700002186
+      },
+      "pcb3": {
+        "category": "pcb3",
+        "available": true,
+        "model_id": "dinov3-normal-bank-pcb3-v1",
+        "method": "Frozen DINOv3 ViT-S/16 + cosine nearest-normal patch bank",
+        "encoder_sha256": "4610ad75edef83e75afdebf162d148dc628045ea6cbb83d67d4708c709c4f91d",
+        "bank_sha256": "f291efa19669dbc601086ec5f5b7a8f5e8ae107d0476c65563e911958ed089e6",
+        "threshold": 0.04104718565940857,
+        "uncertainty_margin": 0.0020523592829704285,
+        "uncertainty_policy": "Fixed \u00b15% of validated threshold. Operational review band, not calibrated confidence.",
+        "heatmap_scale": 0.05669708549976349,
+        "bank_size_bytes": 5822961,
+        "encoder_size_bytes": 86406384,
+        "calibration": {
+          "method": "Max F1 on separate validation identities",
+          "normal": 32,
+          "anomalous": 20,
+          "seed": 42
+        },
+        "train_normal_count": 64,
+        "metrics": {
+          "image_auroc": 0.8034653465346534,
+          "average_precision": 0.7836195407829445,
+          "precision": 0.6931818181818182,
+          "recall": 0.7625,
+          "f1": 0.7261904761904762,
+          "confusion_matrix": [
+            [
+              74,
+              27
+            ],
+            [
+              19,
+              61
+            ]
+          ],
+          "n_images": 181,
+          "pixel_auroc_64": 0.9392880496970388,
+          "pixel_average_precision_64": 0.14389241178306048,
+          "pixel_f1_64": 0.1905079470934756,
+          "pixel_threshold": 0.054352011531591415,
+          "latency_median_ms": 41.84810002334416,
+          "latency_p95_ms": 45.29579999507405,
+          "peak_gpu_mb": 75.25634765625,
+          "uncertain_fraction": 0.11602209944751381
+        },
+        "fit_and_evaluation_seconds": 16.930150200001663
+      },
+      "pcb4": {
+        "category": "pcb4",
+        "available": true,
+        "model_id": "dinov3-normal-bank-pcb4-v1",
+        "method": "Frozen DINOv3 ViT-S/16 + cosine nearest-normal patch bank",
+        "encoder_sha256": "4610ad75edef83e75afdebf162d148dc628045ea6cbb83d67d4708c709c4f91d",
+        "bank_sha256": "b92668a5dd7740e5f966feaf6ee360655ecbeb0103943a2a9ba9c898a7ec439a",
+        "threshold": 0.043793290853500366,
+        "uncertainty_margin": 0.0021896645426750182,
+        "uncertainty_policy": "Fixed \u00b15% of validated threshold. Operational review band, not calibrated confidence.",
+        "heatmap_scale": 0.045600999146699905,
+        "bank_size_bytes": 5825074,
+        "encoder_size_bytes": 86406384,
+        "calibration": {
+          "method": "Max F1 on separate validation identities",
+          "normal": 32,
+          "anomalous": 20,
+          "seed": 42
+        },
+        "train_normal_count": 64,
+        "metrics": {
+          "image_auroc": 0.9326732673267326,
+          "average_precision": 0.907221287906644,
+          "precision": 0.8461538461538461,
+          "recall": 0.825,
+          "f1": 0.8354430379746836,
+          "confusion_matrix": [
+            [
+              89,
+              12
+            ],
+            [
+              14,
+              66
+            ]
+          ],
+          "n_images": 181,
+          "pixel_auroc_64": 0.9642022029108047,
+          "pixel_average_precision_64": 0.2560012959647235,
+          "pixel_f1_64": 0.3499251497005988,
+          "pixel_threshold": 0.042218707501888275,
+          "latency_median_ms": 42.51339999609627,
+          "latency_p95_ms": 46.933599980548024,
+          "peak_gpu_mb": 75.25634765625,
+          "uncertain_fraction": 0.09392265193370165
+        },
+        "fit_and_evaluation_seconds": 17.002736900001764
+      },
+      "pipe_fryum": {
+        "category": "pipe_fryum",
+        "available": true,
+        "model_id": "dinov3-normal-bank-pipe_fryum-v1",
+        "method": "Frozen DINOv3 ViT-S/16 + cosine nearest-normal patch bank",
+        "encoder_sha256": "4610ad75edef83e75afdebf162d148dc628045ea6cbb83d67d4708c709c4f91d",
+        "bank_sha256": "eed6f4f89764e14ca8811cc7d4aef3cf9266c9ae2d432595afc94bdfeca8156a",
+        "threshold": 0.05846443772315979,
+        "uncertainty_margin": 0.0029232218861579896,
+        "uncertainty_policy": "Fixed \u00b15% of validated threshold. Operational review band, not calibrated confidence.",
+        "heatmap_scale": 0.12200922518968582,
+        "bank_size_bytes": 5829726,
+        "encoder_size_bytes": 86406384,
+        "calibration": {
+          "method": "Max F1 on separate validation identities",
+          "normal": 32,
+          "anomalous": 20,
+          "seed": 42
+        },
+        "train_normal_count": 64,
+        "metrics": {
+          "image_auroc": 0.95425,
+          "average_precision": 0.9740168127563904,
+          "precision": 0.9577464788732394,
+          "recall": 0.85,
+          "f1": 0.9006622516556292,
+          "confusion_matrix": [
+            [
+              47,
+              3
+            ],
+            [
+              12,
+              68
+            ]
+          ],
+          "n_images": 130,
+          "pixel_auroc_64": 0.9918675784453588,
+          "pixel_average_precision_64": 0.575045773003843,
+          "pixel_f1_64": 0.5497345487328459,
+          "pixel_threshold": 0.10162080824375153,
+          "latency_median_ms": 39.761749998433515,
+          "latency_p95_ms": 43.10778999642935,
+          "peak_gpu_mb": 75.25634765625,
+          "uncertain_fraction": 0.06153846153846154
+        },
+        "fit_and_evaluation_seconds": 12.410172900010366
+      }
+    },
+    "serving_profile": {
+      "method": "Existing calibrated models; 6 original held-out images, 5 warm repetitions each; no training",
+      "categories": {
+        "pcb1": {
+          "samples": 10,
+          "core_median_ms": 54.59,
+          "core_p95_ms": 60.916999999999994,
+          "decoded_image_to_result_median_ms": 172.78114998771343,
+          "decoded_image_to_result_p95_ms": 182.06591499620117,
+          "category_load_ms": 1318.0554999853484,
+          "peak_torch_allocated_gpu_mb": 65.61,
+          "device": "cuda"
+        },
+        "capsules": {
+          "samples": 10,
+          "core_median_ms": 53.875,
+          "core_p95_ms": 57.915,
+          "decoded_image_to_result_median_ms": 158.5184499999741,
+          "decoded_image_to_result_p95_ms": 162.40958499111002,
+          "category_load_ms": 78.86780000990257,
+          "peak_torch_allocated_gpu_mb": 77.61,
+          "device": "cuda"
+        },
+        "cashew": {
+          "samples": 10,
+          "core_median_ms": 65.61500000000001,
+          "core_p95_ms": 89.65849999999999,
+          "decoded_image_to_result_median_ms": 229.5610500004841,
+          "decoded_image_to_result_p95_ms": 258.9202900038799,
+          "category_load_ms": 77.84360001096502,
+          "peak_torch_allocated_gpu_mb": 89.61,
+          "device": "cuda"
+        }
+      },
+      "python": "3.12.4",
+      "torch": "2.8.0+cu126",
+      "gpu": {
+        "name": "NVIDIA GeForce RTX 4060 Laptop GPU",
+        "free_mb_before": 7097.0,
+        "total_mb": 8187.5
+      },
+      "cpu_smoke": {
+        "verdict": "Good",
+        "score": 0.03067457675933838,
+        "reference_cuda_score": 0.030725598335266113,
+        "absolute_difference": 5.1021575927734375e-05,
+        "total_ms": 1110.6508999946527
+      }
+    }
+  },
+  "official_evaluation": {
+    "protocol": {
+      "schema": 1,
+      "dataset": "VisA official split_csv/1cls.csv",
+      "split_csv_sha256": "a48557e6033318cb90556f706196bc9d247a776a23ea51aecee5a80dd0332995",
+      "method": "Frozen DINOv3 ViT-S/16 + cosine nearest-normal patch memory; custom baseline, not Dinomaly",
+      "encoder_sha256": "4610ad75edef83e75afdebf162d148dc628045ea6cbb83d67d4708c709c4f91d",
+      "benchmark_seeds": [
+        42,
+        43,
+        44
+      ],
+      "bank_patch_limit": 8192,
+      "image_score": "mean of highest 1% patch distances",
+      "pixel_evaluation_resolution": 224,
+      "pixel_metrics": "VisA reference 200-threshold AUROC/AU-PR; normal images included; AP separately",
+      "preprocessing": "bundled DINOv3 image processor, default 224 input; no augmentation or GT masks in features",
+      "benchmark": "all official training normals; all official test images; threshold-free ranking metrics",
+      "deployment": "seed42; 10% official training normals held out; threshold=max held-out normal score; no test anomalies used",
+      "prior_test_exposure": "retrospective benchmark: test images/results were seen in earlier modified-split experiments; no new test-driven tuning",
+      "selection_policy": "fixed before execution; all three seeds reported; no best-seed selection",
+      "sources": [
+        "https://github.com/amazon-science/spot-diff",
+        "https://arxiv.org/html/2207.14315",
+        "https://raw.githubusercontent.com/amazon-science/spot-diff/main/utils/metrics.py"
+      ]
+    },
+    "python": "3.12.4",
+    "torch": "2.8.0+cu126",
+    "device": "cuda",
+    "categories": {
+      "pcb1": {
+        "official_train_normals": 904,
+        "official_test_images": 200,
+        "benchmark_runs": [
+          {
+            "seed": 42,
+            "auroc": 0.8823,
+            "au_pr": 0.8652156099418584,
+            "average_precision": 0.8662377386046971,
+            "pixel_auroc": 0.9843661984454277,
+            "pixel_au_pr": 0.7588138431092281,
+            "pixel_average_precision": 0.7588445707254726
+          },
+          {
+            "seed": 43,
+            "auroc": 0.8833,
+            "au_pr": 0.8478267819433369,
+            "average_precision": 0.8493502402186066,
+            "pixel_auroc": 0.9842690568703282,
+            "pixel_au_pr": 0.7560718748028801,
+            "pixel_average_precision": 0.7560583979602433
+          },
+          {
+            "seed": 44,
+            "auroc": 0.8729,
+            "au_pr": 0.8477510900503791,
+            "average_precision": 0.849157510741792,
+            "pixel_auroc": 0.9828381548165445,
+            "pixel_au_pr": 0.7602114521729626,
+            "pixel_average_precision": 0.7602556604913916
+          }
+        ],
+        "benchmark_mean": {
+          "auroc": 0.8795000000000001,
+          "au_pr": 0.8535978273118582,
+          "average_precision": 0.8549151631883652,
+          "pixel_auroc": 0.9838244700441002,
+          "pixel_au_pr": 0.7583657233616902,
+          "pixel_average_precision": 0.7583862097257025
+        },
+        "benchmark_std": {
+          "auroc": 0.0057375953151123996,
+          "au_pr": 0.01006136607246337,
+          "average_precision": 0.009806111446781554,
+          "pixel_auroc": 0.0008555538659163021,
+          "pixel_au_pr": 0.002105856994628281,
+          "pixel_average_precision": 0.002135842759527955
+        },
+        "deployment_holdout_profile": {
+          "seed": 42,
+          "threshold": 0.08778351545333862,
+          "fit_normals": 813,
+          "validation_normals": 91,
+          "auroc": 0.8823,
+          "au_pr": 0.8689523679102507,
+          "average_precision": 0.8701001531382211,
+          "pixel_auroc": 0.9829881707996662,
+          "pixel_au_pr": 0.761096603150961,
+          "pixel_average_precision": 0.7610949764155934
+        },
+        "seconds": 112.7122111999779
+      },
+      "capsules": {
+        "official_train_normals": 542,
+        "official_test_images": 160,
+        "benchmark_runs": [
+          {
+            "seed": 42,
+            "auroc": 0.8064999999999999,
+            "au_pr": 0.8883355238246444,
+            "average_precision": 0.8889946957168198,
+            "pixel_auroc": 0.9314791692599804,
+            "pixel_au_pr": 0.06111133849830806,
+            "pixel_average_precision": 0.06111931303510193
+          },
+          {
+            "seed": 43,
+            "auroc": 0.8116666666666668,
+            "au_pr": 0.892768815037886,
+            "average_precision": 0.8933734183457129,
+            "pixel_auroc": 0.9271496681356036,
+            "pixel_au_pr": 0.06392553683680963,
+            "pixel_average_precision": 0.06394387473959999
+          },
+          {
+            "seed": 44,
+            "auroc": 0.831,
+            "au_pr": 0.9045055504943371,
+            "average_precision": 0.905031503578954,
+            "pixel_auroc": 0.920030704594082,
+            "pixel_au_pr": 0.06036921760334449,
+            "pixel_average_precision": 0.060374057512393456
+          }
+        ],
+        "benchmark_mean": {
+          "auroc": 0.8163888888888889,
+          "au_pr": 0.8952032964522892,
+          "average_precision": 0.8957998725471622,
+          "pixel_auroc": 0.9262198473298886,
+          "pixel_au_pr": 0.061802030979487395,
+          "pixel_average_precision": 0.06181241509569846
+        },
+        "benchmark_std": {
+          "auroc": 0.012914605570323747,
+          "au_pr": 0.008355385415553805,
+          "average_precision": 0.008289183409453001,
+          "pixel_auroc": 0.0057805934686359466,
+          "pixel_au_pr": 0.0018760713473231134,
+          "pixel_average_precision": 0.001883133454834655
+        },
+        "deployment_holdout_profile": {
+          "seed": 42,
+          "threshold": 0.06207504868507385,
+          "fit_normals": 487,
+          "validation_normals": 55,
+          "auroc": 0.8285000000000001,
+          "au_pr": 0.9036303626323163,
+          "average_precision": 0.9041775948115949,
+          "pixel_auroc": 0.925380309579376,
+          "pixel_au_pr": 0.06219526908416476,
+          "pixel_average_precision": 0.06220455484733658
+        },
+        "seconds": 73.66336999999476
+      },
+      "cashew": {
+        "official_train_normals": 450,
+        "official_test_images": 150,
+        "benchmark_runs": [
+          {
+            "seed": 42,
+            "auroc": 0.9686,
+            "au_pr": 0.9855796182651859,
+            "average_precision": 0.9856470397867623,
+            "pixel_auroc": 0.9959214053889084,
+            "pixel_au_pr": 0.9063467359578445,
+            "pixel_average_precision": 0.906363611998445
+          },
+          {
+            "seed": 43,
+            "auroc": 0.9714,
+            "au_pr": 0.9864154003433409,
+            "average_precision": 0.9864809726384766,
+            "pixel_auroc": 0.9956851230701886,
+            "pixel_au_pr": 0.905553212306003,
+            "pixel_average_precision": 0.9055719630533584
+          },
+          {
+            "seed": 44,
+            "auroc": 0.9674,
+            "au_pr": 0.9847871536501108,
+            "average_precision": 0.9848592880970601,
+            "pixel_auroc": 0.9954262934889538,
+            "pixel_au_pr": 0.9028857900152283,
+            "pixel_average_precision": 0.9029448883372253
+          }
+        ],
+        "benchmark_mean": {
+          "auroc": 0.9691333333333333,
+          "au_pr": 0.9855940574195459,
+          "average_precision": 0.985662433507433,
+          "pixel_auroc": 0.9956776073160168,
+          "pixel_au_pr": 0.9049285794263587,
+          "pixel_average_precision": 0.9049601544630095
+        },
+        "benchmark_std": {
+          "auroc": 0.0020526405757787585,
+          "au_pr": 0.0008142193748539785,
+          "average_precision": 0.0008109518561199027,
+          "pixel_auroc": 0.0002476415015495735,
+          "pixel_au_pr": 0.0018130530549814719,
+          "pixel_average_precision": 0.0017895949769051811
+        },
+        "deployment_holdout_profile": {
+          "seed": 42,
+          "threshold": 0.07112658023834229,
+          "fit_normals": 405,
+          "validation_normals": 45,
+          "auroc": 0.9718,
+          "au_pr": 0.9869784872730237,
+          "average_precision": 0.9870395707487909,
+          "pixel_auroc": 0.995439448532811,
+          "pixel_au_pr": 0.9041546127455985,
+          "pixel_average_precision": 0.9041673447497144
+        },
+        "seconds": 67.18520740000531
+      },
+      "candle": {
+        "official_train_normals": 900,
+        "official_test_images": 200,
+        "benchmark_runs": [
+          {
+            "seed": 42,
+            "auroc": 0.9124,
+            "au_pr": 0.9067093867265235,
+            "average_precision": 0.907317577547275,
+            "pixel_auroc": 0.9791673272800795,
+            "pixel_au_pr": 0.19343705864597519,
+            "pixel_average_precision": 0.19350496168249026
+          },
+          {
+            "seed": 43,
+            "auroc": 0.9188,
+            "au_pr": 0.9183048196974375,
+            "average_precision": 0.9187591434503573,
+            "pixel_auroc": 0.979483321196079,
+            "pixel_au_pr": 0.18619068410380335,
+            "pixel_average_precision": 0.18625584865892192
+          },
+          {
+            "seed": 44,
+            "auroc": 0.9185,
+            "au_pr": 0.9149165895092746,
+            "average_precision": 0.9154818487384909,
+            "pixel_auroc": 0.9796341027948368,
+            "pixel_au_pr": 0.19655647956405858,
+            "pixel_average_precision": 0.1966224772020632
+          }
+        ],
+        "benchmark_mean": {
+          "auroc": 0.9165666666666666,
+          "au_pr": 0.9133102653110785,
+          "average_precision": 0.9138528565787077,
+          "pixel_auroc": 0.979428250423665,
+          "pixel_au_pr": 0.19206140743794572,
+          "pixel_average_precision": 0.1921277625144918
+        },
+        "benchmark_std": {
+          "auroc": 0.0036115555282084802,
+          "au_pr": 0.005962275112574286,
+          "average_precision": 0.005892161672181073,
+          "pixel_auroc": 0.00023821091027684724,
+          "pixel_au_pr": 0.005318058016379355,
+          "pixel_average_precision": 0.005318764424104492
+        },
+        "deployment_holdout_profile": {
+          "seed": 42,
+          "threshold": 0.06003263592720032,
+          "fit_normals": 810,
+          "validation_normals": 90,
+          "auroc": 0.9321,
+          "au_pr": 0.9351585676489977,
+          "average_precision": 0.9355012345374768,
+          "pixel_auroc": 0.9798686015733775,
+          "pixel_au_pr": 0.19301852070736908,
+          "pixel_average_precision": 0.1931484756578974
+        },
+        "seconds": 113.62054019997595
+      },
+      "chewinggum": {
+        "official_train_normals": 453,
+        "official_test_images": 150,
+        "benchmark_runs": [
+          {
+            "seed": 42,
+            "auroc": 0.9573999999999999,
+            "au_pr": 0.9830502868470744,
+            "average_precision": 0.9831192510451747,
+            "pixel_auroc": 0.9766855303849944,
+            "pixel_au_pr": 0.6299510587206012,
+            "pixel_average_precision": 0.629929382711634
+          },
+          {
+            "seed": 43,
+            "auroc": 0.9588,
+            "au_pr": 0.9845659784908927,
+            "average_precision": 0.9846248486924407,
+            "pixel_auroc": 0.9762049874185391,
+            "pixel_au_pr": 0.6251718689797755,
+            "pixel_average_precision": 0.6251574763557178
+          },
+          {
+            "seed": 44,
+            "auroc": 0.9668,
+            "au_pr": 0.9872811603159687,
+            "average_precision": 0.9873310764098553,
+            "pixel_auroc": 0.9754393718474601,
+            "pixel_au_pr": 0.628449413046543,
+            "pixel_average_precision": 0.6284537166295275
+          }
+        ],
+        "benchmark_mean": {
+          "auroc": 0.961,
+          "au_pr": 0.984965808551312,
+          "average_precision": 0.9850250587158236,
+          "pixel_auroc": 0.9761099632169978,
+          "pixel_au_pr": 0.6278574469156398,
+          "pixel_average_precision": 0.6278468585656265
+        },
+        "benchmark_std": {
+          "auroc": 0.005071488933242415,
+          "au_pr": 0.0021435882616210435,
+          "average_precision": 0.0021342432552906732,
+          "pixel_auroc": 0.0006284902340739392,
+          "pixel_au_pr": 0.002443968406057183,
+          "pixel_average_precision": 0.0024431496269568974
+        },
+        "deployment_holdout_profile": {
+          "seed": 42,
+          "threshold": 0.05347451567649841,
+          "fit_normals": 407,
+          "validation_normals": 46,
+          "auroc": 0.9625999999999999,
+          "au_pr": 0.9854792314128331,
+          "average_precision": 0.9855370573897992,
+          "pixel_auroc": 0.9759074141352108,
+          "pixel_au_pr": 0.6277173455397616,
+          "pixel_average_precision": 0.6277079537238726
+        },
+        "seconds": 66.73736349999672
+      },
+      "fryum": {
+        "official_train_normals": 450,
+        "official_test_images": 150,
+        "benchmark_runs": [
+          {
+            "seed": 42,
+            "auroc": 0.9116000000000001,
+            "au_pr": 0.9574765963875643,
+            "average_precision": 0.9576928507137918,
+            "pixel_auroc": 0.9604315182344441,
+            "pixel_au_pr": 0.3775780213581445,
+            "pixel_average_precision": 0.3776046761599081
+          },
+          {
+            "seed": 43,
+            "auroc": 0.8862000000000001,
+            "au_pr": 0.9432783477724793,
+            "average_precision": 0.9435869919550414,
+            "pixel_auroc": 0.9583562963953284,
+            "pixel_au_pr": 0.3747542024223356,
+            "pixel_average_precision": 0.3747849030743497
+          },
+          {
+            "seed": 44,
+            "auroc": 0.9004,
+            "au_pr": 0.9514351723489248,
+            "average_precision": 0.9516899329031522,
+            "pixel_auroc": 0.9586872744593278,
+            "pixel_au_pr": 0.37651978163909156,
+            "pixel_average_precision": 0.3765570093516509
+          }
+        ],
+        "benchmark_mean": {
+          "auroc": 0.8994,
+          "au_pr": 0.9507300388363228,
+          "average_precision": 0.9509899251906617,
+          "pixel_auroc": 0.9591583630297,
+          "pixel_au_pr": 0.3762840018065239,
+          "pixel_average_precision": 0.37631552952863623
+        },
+        "benchmark_std": {
+          "auroc": 0.012729493312775637,
+          "au_pr": 0.007125340404983236,
+          "average_precision": 0.007078935013730096,
+          "pixel_auroc": 0.0011149348641231144,
+          "pixel_au_pr": 0.0014265982064486373,
+          "pixel_average_precision": 0.0014253120508163468
+        },
+        "deployment_holdout_profile": {
+          "seed": 42,
+          "threshold": 0.053059279918670654,
+          "fit_normals": 405,
+          "validation_normals": 45,
+          "auroc": 0.8989999999999999,
+          "au_pr": 0.9499623450465442,
+          "average_precision": 0.9502271580371828,
+          "pixel_auroc": 0.95870290751976,
+          "pixel_au_pr": 0.3758081431639321,
+          "pixel_average_precision": 0.3758205269856516
+        },
+        "seconds": 45.03114439998171
+      },
+      "macaroni1": {
+        "official_train_normals": 900,
+        "official_test_images": 200,
+        "benchmark_runs": [
+          {
+            "seed": 42,
+            "auroc": 0.8164,
+            "au_pr": 0.7900379634618211,
+            "average_precision": 0.7926331212277926,
+            "pixel_auroc": 0.7283181171780677,
+            "pixel_au_pr": 0.0015780890385677598,
+            "pixel_average_precision": 0.0015822262566728654
+          },
+          {
+            "seed": 43,
+            "auroc": 0.8359,
+            "au_pr": 0.7956190395568308,
+            "average_precision": 0.7979488439753669,
+            "pixel_auroc": 0.7306853981697815,
+            "pixel_au_pr": 0.0014010765391638876,
+            "pixel_average_precision": 0.0014043048463368265
+          },
+          {
+            "seed": 44,
+            "auroc": 0.8099000000000001,
+            "au_pr": 0.8008593903199746,
+            "average_precision": 0.8025537360231381,
+            "pixel_auroc": 0.7277374329290651,
+            "pixel_au_pr": 0.0016472824117211124,
+            "pixel_average_precision": 0.0016523645125773884
+          }
+        ],
+        "benchmark_mean": {
+          "auroc": 0.8207333333333334,
+          "au_pr": 0.7955054644462088,
+          "average_precision": 0.7977119004087658,
+          "pixel_auroc": 0.7289136494256381,
+          "pixel_au_pr": 0.0015421493298175867,
+          "pixel_average_precision": 0.0015462985385290267
+        },
+        "benchmark_std": {
+          "auroc": 0.013530828996529822,
+          "au_pr": 0.005411607366661578,
+          "average_precision": 0.004964549946341761,
+          "pixel_auroc": 0.0015616077479764874,
+          "pixel_au_pr": 0.00012697669045616823,
+          "pixel_average_precision": 0.00012787298464535848
+        },
+        "deployment_holdout_profile": {
+          "seed": 42,
+          "threshold": 0.07591500878334045,
+          "fit_normals": 810,
+          "validation_normals": 90,
+          "auroc": 0.8335,
+          "au_pr": 0.8032695520542,
+          "average_precision": 0.8058774002646991,
+          "pixel_auroc": 0.7319699198048704,
+          "pixel_au_pr": 0.001820719918554894,
+          "pixel_average_precision": 0.0018246547691389576
+        },
+        "seconds": 113.06721189999371
+      },
+      "macaroni2": {
+        "official_train_normals": 900,
+        "official_test_images": 200,
+        "benchmark_runs": [
+          {
+            "seed": 42,
+            "auroc": 0.4955,
+            "au_pr": 0.4859157566747824,
+            "average_precision": 0.4902353735956684,
+            "pixel_auroc": 0.7944229143717352,
+            "pixel_au_pr": 0.0022004507218000534,
+            "pixel_average_precision": 0.002215863502953361
+          },
+          {
+            "seed": 43,
+            "auroc": 0.4796000000000001,
+            "au_pr": 0.4677863570673503,
+            "average_precision": 0.4739730801749749,
+            "pixel_auroc": 0.8020432743793243,
+            "pixel_au_pr": 0.0021332172565870665,
+            "pixel_average_precision": 0.0021419399589341134
+          },
+          {
+            "seed": 44,
+            "auroc": 0.47309999999999997,
+            "au_pr": 0.481108422817926,
+            "average_precision": 0.4866820080963612,
+            "pixel_auroc": 0.7959122719175098,
+            "pixel_au_pr": 0.002358628955417945,
+            "pixel_average_precision": 0.0023693502334905183
+          }
+        ],
+        "benchmark_mean": {
+          "auroc": 0.4827333333333333,
+          "au_pr": 0.47827017885335293,
+          "average_precision": 0.48363015395566816,
+          "pixel_auroc": 0.7974594868895232,
+          "pixel_au_pr": 0.0022307656446016884,
+          "pixel_average_precision": 0.0022423845651259977
+        },
+        "benchmark_std": {
+          "auroc": 0.011524032858914164,
+          "au_pr": 0.009392044725900559,
+          "average_precision": 0.008549906847283857,
+          "pixel_auroc": 0.0040389203122285795,
+          "pixel_au_pr": 0.00011572318004966633,
+          "pixel_average_precision": 0.00011600165213275413
+        },
+        "deployment_holdout_profile": {
+          "seed": 42,
+          "threshold": 0.0805380642414093,
+          "fit_normals": 810,
+          "validation_normals": 90,
+          "auroc": 0.5002,
+          "au_pr": 0.47564475009156426,
+          "average_precision": 0.48172379567632917,
+          "pixel_auroc": 0.7947031866442082,
+          "pixel_au_pr": 0.002174639270063553,
+          "pixel_average_precision": 0.0021925647141094167
+        },
+        "seconds": 67.62013350002235
+      },
+      "pcb2": {
+        "official_train_normals": 901,
+        "official_test_images": 200,
+        "benchmark_runs": [
+          {
+            "seed": 42,
+            "auroc": 0.7893,
+            "au_pr": 0.7838787634081932,
+            "average_precision": 0.7855971798280925,
+            "pixel_auroc": 0.91671033819846,
+            "pixel_au_pr": 0.041767499746959265,
+            "pixel_average_precision": 0.041784021345270844
+          },
+          {
+            "seed": 43,
+            "auroc": 0.7906,
+            "au_pr": 0.7724737077727798,
+            "average_precision": 0.7755020531727549,
+            "pixel_auroc": 0.9179732879227119,
+            "pixel_au_pr": 0.041524995711936755,
+            "pixel_average_precision": 0.04154041374898589
+          },
+          {
+            "seed": 44,
+            "auroc": 0.8055,
+            "au_pr": 0.8096355999130022,
+            "average_precision": 0.810914809807684,
+            "pixel_auroc": 0.9175574803045266,
+            "pixel_au_pr": 0.04068717301416601,
+            "pixel_average_precision": 0.04072086553805905
+          }
+        ],
+        "benchmark_mean": {
+          "auroc": 0.7951333333333332,
+          "au_pr": 0.7886626903646583,
+          "average_precision": 0.7906713476028439,
+          "pixel_auroc": 0.9174137021418994,
+          "pixel_au_pr": 0.04132655615768734,
+          "pixel_average_precision": 0.041348433544105265
+        },
+        "benchmark_std": {
+          "auroc": 0.009001296202955072,
+          "au_pr": 0.019037227337613424,
+          "average_precision": 0.018243525346706518,
+          "pixel_auroc": 0.0006436339188803603,
+          "pixel_au_pr": 0.0005668422663448508,
+          "pixel_average_precision": 0.0005569716033170332
+        },
+        "deployment_holdout_profile": {
+          "seed": 42,
+          "threshold": 0.0849224328994751,
+          "fit_normals": 810,
+          "validation_normals": 91,
+          "auroc": 0.7905000000000001,
+          "au_pr": 0.7880878748919639,
+          "average_precision": 0.7897732654897014,
+          "pixel_auroc": 0.9102355183098504,
+          "pixel_au_pr": 0.039144681417868435,
+          "pixel_average_precision": 0.039151291696416506
+        },
+        "seconds": 62.73766280000564
+      },
+      "pcb3": {
+        "official_train_normals": 905,
+        "official_test_images": 201,
+        "benchmark_runs": [
+          {
+            "seed": 42,
+            "auroc": 0.7870297029702971,
+            "au_pr": 0.8104200255489605,
+            "average_precision": 0.8114909738137448,
+            "pixel_auroc": 0.9329148327640948,
+            "pixel_au_pr": 0.1287764827542035,
+            "pixel_average_precision": 0.12875248706618522
+          },
+          {
+            "seed": 43,
+            "auroc": 0.8099999999999999,
+            "au_pr": 0.8178552814078315,
+            "average_precision": 0.8189577706195854,
+            "pixel_auroc": 0.9352837561495217,
+            "pixel_au_pr": 0.143581430436699,
+            "pixel_average_precision": 0.14364100585551115
+          },
+          {
+            "seed": 44,
+            "auroc": 0.798019801980198,
+            "au_pr": 0.805514000894815,
+            "average_precision": 0.806847271418301,
+            "pixel_auroc": 0.9337017802212624,
+            "pixel_au_pr": 0.13761258942453908,
+            "pixel_average_precision": 0.1376028370963068
+          }
+        ],
+        "benchmark_mean": {
+          "auroc": 0.7983498349834983,
+          "au_pr": 0.8112631026172022,
+          "average_precision": 0.812432005283877,
+          "pixel_auroc": 0.9339667897116263,
+          "pixel_au_pr": 0.1366568342051472,
+          "pixel_average_precision": 0.1366654433393344
+        },
+        "benchmark_std": {
+          "auroc": 0.011488704354523396,
+          "au_pr": 0.0062136853301794056,
+          "average_precision": 0.006109844752275779,
+          "pixel_auroc": 0.0012064916178709522,
+          "pixel_au_pr": 0.007448605238559986,
+          "pixel_average_precision": 0.007488392900131238
+        },
+        "deployment_holdout_profile": {
+          "seed": 42,
+          "threshold": 0.08122119307518005,
+          "fit_normals": 814,
+          "validation_normals": 91,
+          "auroc": 0.7747524752475247,
+          "au_pr": 0.8045196628588029,
+          "average_precision": 0.8056175108533596,
+          "pixel_auroc": 0.9294099327005999,
+          "pixel_au_pr": 0.13226256510452605,
+          "pixel_average_precision": 0.1322610245459947
+        },
+        "seconds": 86.13384480000241
+      },
+      "pcb4": {
+        "official_train_normals": 904,
+        "official_test_images": 201,
+        "benchmark_runs": [
+          {
+            "seed": 42,
+            "auroc": 0.9296039603960395,
+            "au_pr": 0.9264685581956622,
+            "average_precision": 0.9268962317340124,
+            "pixel_auroc": 0.9649612355233904,
+            "pixel_au_pr": 0.2848150662221529,
+            "pixel_average_precision": 0.28485386160082676
+          },
+          {
+            "seed": 43,
+            "auroc": 0.9455445544554456,
+            "au_pr": 0.9444126592665123,
+            "average_precision": 0.9447216067906145,
+            "pixel_auroc": 0.9659001073100977,
+            "pixel_au_pr": 0.2972460671551258,
+            "pixel_average_precision": 0.2972609273755548
+          },
+          {
+            "seed": 44,
+            "auroc": 0.9352475247524753,
+            "au_pr": 0.9277253482488393,
+            "average_precision": 0.9281977057451503,
+            "pixel_auroc": 0.9683930607520573,
+            "pixel_au_pr": 0.2917764048064103,
+            "pixel_average_precision": 0.29179388828957287
+          }
+        ],
+        "benchmark_mean": {
+          "auroc": 0.9367986798679868,
+          "au_pr": 0.9328688552370047,
+          "average_precision": 0.9332718480899257,
+          "pixel_auroc": 0.9664181345285151,
+          "pixel_au_pr": 0.291279179394563,
+          "pixel_average_precision": 0.2913028924219848
+        },
+        "benchmark_std": {
+          "auroc": 0.008082709718032446,
+          "au_pr": 0.010016957567704859,
+          "average_precision": 0.009937111722146195,
+          "pixel_auroc": 0.001773589650763301,
+          "pixel_au_pr": 0.006230398934380788,
+          "pixel_average_precision": 0.006218088773176086
+        },
+        "deployment_holdout_profile": {
+          "seed": 42,
+          "threshold": 0.05957549810409546,
+          "fit_normals": 813,
+          "validation_normals": 91,
+          "auroc": 0.936930693069307,
+          "au_pr": 0.935289428742797,
+          "average_precision": 0.9356652909858226,
+          "pixel_auroc": 0.9686479110465991,
+          "pixel_au_pr": 0.29322576468181716,
+          "pixel_average_precision": 0.29326625902921355
+        },
+        "seconds": 79.89875999998185
+      },
+      "pipe_fryum": {
+        "official_train_normals": 450,
+        "official_test_images": 150,
+        "benchmark_runs": [
+          {
+            "seed": 42,
+            "auroc": 0.9705999999999999,
+            "au_pr": 0.986018793690163,
+            "average_precision": 0.9860860317049225,
+            "pixel_auroc": 0.9909730291737511,
+            "pixel_au_pr": 0.6018618957896934,
+            "pixel_average_precision": 0.6018712895066785
+          },
+          {
+            "seed": 43,
+            "auroc": 0.9704,
+            "au_pr": 0.9865430967562028,
+            "average_precision": 0.9866053109369469,
+            "pixel_auroc": 0.9909667466666388,
+            "pixel_au_pr": 0.6029888315587789,
+            "pixel_average_precision": 0.6030140367863087
+          },
+          {
+            "seed": 44,
+            "auroc": 0.97,
+            "au_pr": 0.9858010839067707,
+            "average_precision": 0.9858702591168634,
+            "pixel_auroc": 0.9908645972891833,
+            "pixel_au_pr": 0.598149986807201,
+            "pixel_average_precision": 0.5981538458958431
+          }
+        ],
+        "benchmark_mean": {
+          "auroc": 0.9703333333333332,
+          "au_pr": 0.9861209914510455,
+          "average_precision": 0.9861872005862442,
+          "pixel_auroc": 0.990934791043191,
+          "pixel_au_pr": 0.6010002380518911,
+          "pixel_average_precision": 0.6010130573962768
+        },
+        "benchmark_std": {
+          "auroc": 0.0003055050463303678,
+          "au_pr": 0.00038141716522415526,
+          "average_precision": 0.0003778248952397656,
+          "pixel_auroc": 6.087068095707952e-05,
+          "pixel_au_pr": 0.00253188569554477,
+          "pixel_average_precision": 0.0025412173538354992
+        },
+        "deployment_holdout_profile": {
+          "seed": 42,
+          "threshold": 0.08634456992149353,
+          "fit_normals": 405,
+          "validation_normals": 45,
+          "auroc": 0.9686,
+          "au_pr": 0.9859739502798138,
+          "average_precision": 0.9860378036811346,
+          "pixel_auroc": 0.9907989950706518,
+          "pixel_au_pr": 0.603420526628673,
+          "pixel_average_precision": 0.6034129205109321
+        },
+        "seconds": 66.45045070000924
+      }
+    },
+    "macro_mean": {
+      "auroc": 0.8538392280894755,
+      "au_pr": 0.8646743814043232,
+      "average_precision": 0.8658458138046231,
+      "pixel_auroc": 0.9296270879250635,
+      "pixel_au_pr": 0.33294457605927946,
+      "pixel_average_precision": 0.33296395330821005
+    },
+    "macro_runs": [
+      {
+        "seed": 42,
+        "auroc": 0.8522694719471947,
+        "au_pr": 0.8640922402477029,
+        "average_precision": 0.865162338776563,
+        "pixel_auroc": 0.9296959680169444,
+        "pixel_au_pr": 0.3323531283802899,
+        "pixel_average_precision": 0.3323688554659699
+      },
+      {
+        "seed": 43,
+        "auroc": 0.8551842684268426,
+        "au_pr": 0.8631541904260733,
+        "average_precision": 0.8644903567475731,
+        "pixel_auroc": 0.9303334186403451,
+        "pixel_au_pr": 0.33337858317582486,
+        "pixel_average_precision": 0.3333979243678186
+      },
+      {
+        "seed": 44,
+        "auroc": 0.8540639438943894,
+        "au_pr": 0.8667767135391936,
+        "average_precision": 0.8678847458897335,
+        "pixel_auroc": 0.9288518771179008,
+        "pixel_au_pr": 0.3331020166217237,
+        "pixel_average_precision": 0.3331250800908418
+      }
+    ],
+    "macro_std": {
+      "auroc": 0.0014703341539172223,
+      "au_pr": 0.001880115600420924,
+      "average_precision": 0.0017974490250325652,
+      "pixel_auroc": 0.0007431686692634315,
+      "pixel_au_pr": 0.0005305469182348207,
+      "pixel_average_precision": 0.0005331201377259799
+    },
+    "candidate": {
+      "protocol": {
+        "schema": 1,
+        "method": "AnomalyDINO-inspired DINOv2 ViT-S/14; custom full-data adaptation",
+        "resolution": "short edge448; bicubic; retain aspect; crop trailing pixels to patch multiple14",
+        "encoder_sha256": "ae1e99fcefd534ed978cdeb8326f08030c96e28b7a81ffcbc98a857c84d14be1",
+        "split_csv_sha256": "a48557e6033318cb90556f706196bc9d247a776a23ea51aecee5a80dd0332995",
+        "seeds": [
+          42,
+          43,
+          44
+        ],
+        "bank_patches": 32768,
+        "memory_sampling": "per train normal: up to48 PCA foreground +16 other patches, seeded uniform cap",
+        "foreground": "PCA first component threshold10; center-sign rule; 2D3x3 dilation/closing; <1% mask falls back to all patches",
+        "score": "mean of top1% foreground cosine distances",
+        "fit": "all official training normals for benchmark",
+        "calibration": "separate deployment bank excludes every tenth content-hash-sorted training normal; maximum heldout normal score",
+        "evaluation": "full official test; masks only for pixel metrics at224x224; image AP and trapezoidal AU-PR separately",
+        "selection": "one fixed candidate; no test-based hyperparameter changes; seeds42/43/44 all reported; deployment seed42 fixed",
+        "exposure": "retrospective development comparison; official test identities and earlier results already seen; not an untouched external test",
+        "references": [
+          "https://arxiv.org/html/2405.14529v2",
+          "https://github.com/dammsi/AnomalyDINO"
+        ],
+        "differences_from_paper": "HF encoder; image-balanced limited full-data memory; masking train and test; 2D morphology; no rotation augmentation"
+      },
+      "python": "3.12.4",
+      "torch": "2.8.0+cu126",
+      "device": "cuda",
+      "categories": {
+        "macaroni2": {
+          "official_train_normals": 900,
+          "official_test_images": 200,
+          "benchmark_runs": [
+            {
+              "seed": 42,
+              "auroc": 0.8447,
+              "au_pr": 0.837609437596522,
+              "average_precision": 0.8387483523714999,
+              "pixel_auroc": 0.9939494150699683,
+              "pixel_au_pr": 0.15619858519387228,
+              "pixel_average_precision": 0.15653869576515458
+            },
+            {
+              "seed": 43,
+              "auroc": 0.8244,
+              "au_pr": 0.8342875038001054,
+              "average_precision": 0.835288930423173,
+              "pixel_auroc": 0.9941328078917665,
+              "pixel_au_pr": 0.15365590865968637,
+              "pixel_average_precision": 0.15385826448902645
+            },
+            {
+              "seed": 44,
+              "auroc": 0.8268000000000001,
+              "au_pr": 0.82322819785278,
+              "average_precision": 0.8244805378917035,
+              "pixel_auroc": 0.9932291868085448,
+              "pixel_au_pr": 0.1521970939306702,
+              "pixel_average_precision": 0.15240427679230106
+            }
+          ],
+          "benchmark_mean": {
+            "auroc": 0.8319666666666667,
+            "au_pr": 0.8317083797498025,
+            "average_precision": 0.8328392735621254,
+            "pixel_auroc": 0.9937704699234265,
+            "pixel_au_pr": 0.1540171959280763,
+            "pixel_average_precision": 0.15426707901549405
+          },
+          "benchmark_std": {
+            "auroc": 0.01109248995191489,
+            "au_pr": 0.007529536824525402,
+            "average_precision": 0.0074426639424422444,
+            "pixel_auroc": 0.0004776492328203173,
+            "pixel_au_pr": 0.002025062826209623,
+            "pixel_average_precision": 0.002097308286485555
+          },
+          "deployment_holdout_profile": {
+            "threshold": 0.15817631781101227,
+            "heatmap_scale": 0.11770220518112187,
+            "auroc": 0.845,
+            "au_pr": 0.8435705368551327,
+            "average_precision": 0.8446602099722114,
+            "pixel_auroc": 0.9942242061289198,
+            "pixel_au_pr": 0.15741764917137446,
+            "pixel_average_precision": 0.15769057747120718
+          },
+          "seconds": 135.40084509999724
+        },
+        "macaroni1": {
+          "official_train_normals": 900,
+          "official_test_images": 200,
+          "benchmark_runs": [
+            {
+              "seed": 42,
+              "auroc": 0.918,
+              "au_pr": 0.932786840237027,
+              "average_precision": 0.933081657808966,
+              "pixel_auroc": 0.9931323622243489,
+              "pixel_au_pr": 0.22549630696338402,
+              "pixel_average_precision": 0.22579868648536688
+            },
+            {
+              "seed": 43,
+              "auroc": 0.9107,
+              "au_pr": 0.9239509925163285,
+              "average_precision": 0.9243019415241156,
+              "pixel_auroc": 0.992904762589421,
+              "pixel_au_pr": 0.21863043402124735,
+              "pixel_average_precision": 0.2188116322733481
+            },
+            {
+              "seed": 44,
+              "auroc": 0.907,
+              "au_pr": 0.9199703014532423,
+              "average_precision": 0.920343639849281,
+              "pixel_auroc": 0.9928691842690383,
+              "pixel_au_pr": 0.21706041388603783,
+              "pixel_average_precision": 0.21738255135304616
+            }
+          ],
+          "benchmark_mean": {
+            "auroc": 0.9119,
+            "au_pr": 0.925569378068866,
+            "average_precision": 0.9259090797274542,
+            "pixel_auroc": 0.9929687696942694,
+            "pixel_au_pr": 0.22039571829022306,
+            "pixel_average_precision": 0.2206642900372537
+          },
+          "benchmark_std": {
+            "auroc": 0.005597320787662625,
+            "au_pr": 0.006559748123713314,
+            "average_precision": 0.006519313252850117,
+            "pixel_auroc": 0.00014278774857695058,
+            "pixel_au_pr": 0.00448645120510902,
+            "pixel_average_precision": 0.004503563948029452
+          },
+          "deployment_holdout_profile": {
+            "threshold": 0.21722275018692017,
+            "heatmap_scale": 0.09929629743099211,
+            "auroc": 0.909,
+            "au_pr": 0.9251309284382584,
+            "average_precision": 0.9254645749095916,
+            "pixel_auroc": 0.9932559185087934,
+            "pixel_au_pr": 0.22101242411741848,
+            "pixel_average_precision": 0.22125282869927704
+          },
+          "seconds": 138.32114929999807
+        },
+        "pcb1": {
+          "official_train_normals": 904,
+          "official_test_images": 200,
+          "benchmark_runs": [
+            {
+              "seed": 42,
+              "auroc": 0.9525,
+              "au_pr": 0.946087107136921,
+              "average_precision": 0.9464671661037876,
+              "pixel_auroc": 0.9944586387417026,
+              "pixel_au_pr": 0.8464118976709029,
+              "pixel_average_precision": 0.846427424617724
+            },
+            {
+              "seed": 43,
+              "auroc": 0.9479,
+              "au_pr": 0.9476376952747854,
+              "average_precision": 0.9479555666854507,
+              "pixel_auroc": 0.9944482838147902,
+              "pixel_au_pr": 0.8531528892315858,
+              "pixel_average_precision": 0.8531825227347262
+            },
+            {
+              "seed": 44,
+              "auroc": 0.9503,
+              "au_pr": 0.9512781827394374,
+              "average_precision": 0.9515451522688605,
+              "pixel_auroc": 0.994454625316606,
+              "pixel_au_pr": 0.8477368705549233,
+              "pixel_average_precision": 0.8477233530396995
+            }
+          ],
+          "benchmark_mean": {
+            "auroc": 0.9502333333333333,
+            "au_pr": 0.9483343283837146,
+            "average_precision": 0.948655961686033,
+            "pixel_auroc": 0.994453849291033,
+            "pixel_au_pr": 0.8491005524858041,
+            "pixel_average_precision": 0.8491111001307164
+          },
+          "benchmark_std": {
+            "auroc": 0.0023007245235650113,
+            "au_pr": 0.002664730707614299,
+            "average_precision": 0.0026104407177330187,
+            "pixel_auroc": 5.220899310240183e-06,
+            "pixel_au_pr": 0.0035714091213073927,
+            "pixel_average_precision": 0.003584999181875953
+          },
+          "deployment_holdout_profile": {
+            "threshold": 0.16181933879852295,
+            "heatmap_scale": 0.10316987216472613,
+            "auroc": 0.9597,
+            "au_pr": 0.9561930064621866,
+            "average_precision": 0.9564653221826244,
+            "pixel_auroc": 0.9946015614062951,
+            "pixel_au_pr": 0.856268349620392,
+            "pixel_average_precision": 0.8562862818777615
+          },
+          "seconds": 130.61381800001254
+        },
+        "capsules": {
+          "official_train_normals": 542,
+          "official_test_images": 160,
+          "benchmark_runs": [
+            {
+              "seed": 42,
+              "auroc": 0.968,
+              "au_pr": 0.9763334548720008,
+              "average_precision": 0.976495652745956,
+              "pixel_auroc": 0.9694939889285102,
+              "pixel_au_pr": 0.40129786284523034,
+              "pixel_average_precision": 0.4012847974451588
+            },
+            {
+              "seed": 43,
+              "auroc": 0.9686666666666668,
+              "au_pr": 0.9764671035244079,
+              "average_precision": 0.9766334139497022,
+              "pixel_auroc": 0.97044846089275,
+              "pixel_au_pr": 0.397617206547916,
+              "pixel_average_precision": 0.3976678565607239
+            },
+            {
+              "seed": 44,
+              "auroc": 0.9713333333333333,
+              "au_pr": 0.9787056543871668,
+              "average_precision": 0.9788507777162221,
+              "pixel_auroc": 0.9701251715230256,
+              "pixel_au_pr": 0.4041945944570431,
+              "pixel_average_precision": 0.40422112389698794
+            }
+          ],
+          "benchmark_mean": {
+            "auroc": 0.9693333333333333,
+            "au_pr": 0.9771687375945252,
+            "average_precision": 0.97732661480396,
+            "pixel_auroc": 0.9700225404480953,
+            "pixel_au_pr": 0.4010365546167298,
+            "pixel_average_precision": 0.4010579259676235
+          },
+          "benchmark_std": {
+            "auroc": 0.0017638342073763465,
+            "au_pr": 0.0013326854134417649,
+            "average_precision": 0.0013217598021768872,
+            "pixel_auroc": 0.00048544210343352004,
+            "pixel_au_pr": 0.003296470752106622,
+            "pixel_average_precision": 0.003282519032027932
+          },
+          "deployment_holdout_profile": {
+            "threshold": 0.19718621671199799,
+            "heatmap_scale": 0.1274158811569204,
+            "auroc": 0.9683333333333333,
+            "au_pr": 0.9797118272127361,
+            "average_precision": 0.9798232872953215,
+            "pixel_auroc": 0.9704973188279925,
+            "pixel_au_pr": 0.40366595976940756,
+            "pixel_average_precision": 0.403655563796705
+          },
+          "seconds": 94.91161680000369
+        },
+        "cashew": {
+          "official_train_normals": 450,
+          "official_test_images": 150,
+          "benchmark_runs": [
+            {
+              "seed": 42,
+              "auroc": 0.9555999999999999,
+              "au_pr": 0.9798344986141854,
+              "average_precision": 0.9799284257916656,
+              "pixel_auroc": 0.9960590367672582,
+              "pixel_au_pr": 0.6940909426916273,
+              "pixel_average_precision": 0.694126095923703
+            },
+            {
+              "seed": 43,
+              "auroc": 0.9578000000000001,
+              "au_pr": 0.9809117646282322,
+              "average_precision": 0.9809999318079211,
+              "pixel_auroc": 0.9961226559982549,
+              "pixel_au_pr": 0.697751529343841,
+              "pixel_average_precision": 0.6978133678203721
+            },
+            {
+              "seed": 44,
+              "auroc": 0.9688,
+              "au_pr": 0.9858445920160998,
+              "average_precision": 0.9859098832312743,
+              "pixel_auroc": 0.9961110128509749,
+              "pixel_au_pr": 0.6924916996495216,
+              "pixel_average_precision": 0.6925347276159604
+            }
+          ],
+          "benchmark_mean": {
+            "auroc": 0.9607333333333333,
+            "au_pr": 0.9821969517528392,
+            "average_precision": 0.982279413610287,
+            "pixel_auroc": 0.9960975685388292,
+            "pixel_au_pr": 0.69477805722833,
+            "pixel_average_precision": 0.6948247304533451
+          },
+          "benchmark_std": {
+            "auroc": 0.0070720105580615155,
+            "au_pr": 0.0032045413297187,
+            "average_precision": 0.0031893986168871256,
+            "pixel_auroc": 3.387349679255494e-05,
+            "pixel_au_pr": 0.0026963951663697317,
+            "pixel_average_precision": 0.0027077810576954238
+          },
+          "deployment_holdout_profile": {
+            "threshold": 0.13224798440933228,
+            "heatmap_scale": 0.10505769878625872,
+            "auroc": 0.9608000000000001,
+            "au_pr": 0.9816829641673432,
+            "average_precision": 0.9817707260519815,
+            "pixel_auroc": 0.9960830910862268,
+            "pixel_au_pr": 0.703436397078779,
+            "pixel_average_precision": 0.7034966403298871
+          },
+          "seconds": 72.7265475000022
+        },
+        "candle": {
+          "official_train_normals": 900,
+          "official_test_images": 200,
+          "benchmark_runs": [
+            {
+              "seed": 42,
+              "auroc": 0.9558,
+              "au_pr": 0.9621606881772008,
+              "average_precision": 0.9623367827893016,
+              "pixel_auroc": 0.9903982538707946,
+              "pixel_au_pr": 0.33895358283555577,
+              "pixel_average_precision": 0.3389159342327367
+            },
+            {
+              "seed": 43,
+              "auroc": 0.9536,
+              "au_pr": 0.9544234987148842,
+              "average_precision": 0.9546667684680096,
+              "pixel_auroc": 0.9908451687141144,
+              "pixel_au_pr": 0.3378197922542562,
+              "pixel_average_precision": 0.33783760689070347
+            },
+            {
+              "seed": 44,
+              "auroc": 0.9443,
+              "au_pr": 0.9489440077401582,
+              "average_precision": 0.9492007022384481,
+              "pixel_auroc": 0.990951012382223,
+              "pixel_au_pr": 0.32271350806250704,
+              "pixel_average_precision": 0.32276634541885246
+            }
+          ],
+          "benchmark_mean": {
+            "auroc": 0.9512333333333333,
+            "au_pr": 0.9551760648774144,
+            "average_precision": 0.9554014178319198,
+            "pixel_auroc": 0.9907314783223774,
+            "pixel_au_pr": 0.33316229438410633,
+            "pixel_average_precision": 0.3331732955140976
+          },
+          "benchmark_std": {
+            "auroc": 0.006104370019365886,
+            "au_pr": 0.00664040114115595,
+            "average_precision": 0.006598782866979933,
+            "pixel_auroc": 0.0002933932887254627,
+            "pixel_au_pr": 0.009066654397648078,
+            "pixel_average_precision": 0.009028795887483296
+          },
+          "deployment_holdout_profile": {
+            "threshold": 0.22504067420959473,
+            "heatmap_scale": 0.1193666505813595,
+            "auroc": 0.9410000000000001,
+            "au_pr": 0.9456741403322482,
+            "average_precision": 0.9459465742669609,
+            "pixel_auroc": 0.9911336061961822,
+            "pixel_au_pr": 0.3375717699673859,
+            "pixel_average_precision": 0.33767271945011856
+          },
+          "seconds": 129.0740725999931
+        },
+        "chewinggum": {
+          "official_train_normals": 453,
+          "official_test_images": 150,
+          "benchmark_runs": [
+            {
+              "seed": 42,
+              "auroc": 0.9932,
+              "au_pr": 0.9969466609199811,
+              "average_precision": 0.9969604682469676,
+              "pixel_auroc": 0.9954117320863656,
+              "pixel_au_pr": 0.6850700777255413,
+              "pixel_average_precision": 0.6850388759883876
+            },
+            {
+              "seed": 43,
+              "auroc": 0.9892000000000001,
+              "au_pr": 0.9952337041797067,
+              "average_precision": 0.9952549042275805,
+              "pixel_auroc": 0.9953773487370392,
+              "pixel_au_pr": 0.6846896840964964,
+              "pixel_average_precision": 0.684733727423744
+            },
+            {
+              "seed": 44,
+              "auroc": 0.9916,
+              "au_pr": 0.996171900969947,
+              "average_precision": 0.9961895142750861,
+              "pixel_auroc": 0.9952795650960506,
+              "pixel_au_pr": 0.6676922561430878,
+              "pixel_average_precision": 0.6676931239584004
+            }
+          ],
+          "benchmark_mean": {
+            "auroc": 0.9913333333333334,
+            "au_pr": 0.9961174220232115,
+            "average_precision": 0.996134962249878,
+            "pixel_auroc": 0.9953562153064851,
+            "pixel_au_pr": 0.6791506726550418,
+            "pixel_average_precision": 0.679155242456844
+          },
+          "benchmark_std": {
+            "auroc": 0.002013289182738814,
+            "au_pr": 0.0008577768738086334,
+            "average_precision": 0.0008540896315069846,
+            "pixel_auroc": 6.85710926518182e-05,
+            "pixel_au_pr": 0.00992510234452624,
+            "pixel_average_precision": 0.009927658297196707
+          },
+          "deployment_holdout_profile": {
+            "threshold": 0.1614319533109665,
+            "heatmap_scale": 0.11275605440139722,
+            "auroc": 0.9885999999999999,
+            "au_pr": 0.994444649292763,
+            "average_precision": 0.9944721280040146,
+            "pixel_auroc": 0.9952665200400623,
+            "pixel_au_pr": 0.6596933281197321,
+            "pixel_average_precision": 0.6597053568827396
+          },
+          "seconds": 77.3525510999898
+        },
+        "fryum": {
+          "official_train_normals": 450,
+          "official_test_images": 150,
+          "benchmark_runs": [
+            {
+              "seed": 42,
+              "auroc": 0.9891999999999999,
+              "au_pr": 0.9949168165129106,
+              "average_precision": 0.9949409420549524,
+              "pixel_auroc": 0.9738082020921681,
+              "pixel_au_pr": 0.4379800592981127,
+              "pixel_average_precision": 0.43799433572118596
+            },
+            {
+              "seed": 43,
+              "auroc": 0.9958,
+              "au_pr": 0.9978909116915007,
+              "average_precision": 0.997901515122974,
+              "pixel_auroc": 0.973882263507042,
+              "pixel_au_pr": 0.43803860398905753,
+              "pixel_average_precision": 0.4380513505278392
+            },
+            {
+              "seed": 44,
+              "auroc": 0.9892,
+              "au_pr": 0.9949145081810289,
+              "average_precision": 0.9949385524097363,
+              "pixel_auroc": 0.9739487459423446,
+              "pixel_au_pr": 0.43927674150289875,
+              "pixel_average_precision": 0.43931148808215037
+            }
+          ],
+          "benchmark_mean": {
+            "auroc": 0.9914,
+            "au_pr": 0.9959074121284801,
+            "average_precision": 0.9959270031958876,
+            "pixel_auroc": 0.9738797371805182,
+            "pixel_au_pr": 0.43843180159668965,
+            "pixel_average_precision": 0.4384523914437251
+          },
+          "benchmark_std": {
+            "auroc": 0.0038105117766515915,
+            "au_pr": 0.0017177613977139654,
+            "average_precision": 0.001709977906364863,
+            "pixel_auroc": 7.03059755631449e-05,
+            "pixel_au_pr": 0.0007323246916757177,
+            "pixel_average_precision": 0.000744545463796214
+          },
+          "deployment_holdout_profile": {
+            "threshold": 0.15253151953220367,
+            "heatmap_scale": 0.10057919770479187,
+            "auroc": 0.9924,
+            "au_pr": 0.9963414765677349,
+            "average_precision": 0.9963591766254614,
+            "pixel_auroc": 0.9735429349543053,
+            "pixel_au_pr": 0.4359936878538498,
+            "pixel_average_precision": 0.4360142987071739
+          },
+          "seconds": 75.21686919999775
+        },
+        "pcb2": {
+          "official_train_normals": 901,
+          "official_test_images": 200,
+          "benchmark_runs": [
+            {
+              "seed": 42,
+              "auroc": 0.9202,
+              "au_pr": 0.9322088542538738,
+              "average_precision": 0.932545698262865,
+              "pixel_auroc": 0.9712767185430914,
+              "pixel_au_pr": 0.26902216961670095,
+              "pixel_average_precision": 0.269116591248745
+            },
+            {
+              "seed": 43,
+              "auroc": 0.9289000000000001,
+              "au_pr": 0.9329793541058563,
+              "average_precision": 0.9333614467676451,
+              "pixel_auroc": 0.9717626924423868,
+              "pixel_au_pr": 0.2798493987176048,
+              "pixel_average_precision": 0.27991198670004014
+            },
+            {
+              "seed": 44,
+              "auroc": 0.9283,
+              "au_pr": 0.9280660798216491,
+              "average_precision": 0.9285879887356563,
+              "pixel_auroc": 0.9716170427305009,
+              "pixel_au_pr": 0.2697964905619438,
+              "pixel_average_precision": 0.2698079968958421
+            }
+          ],
+          "benchmark_mean": {
+            "auroc": 0.9258000000000001,
+            "au_pr": 0.9310847627271265,
+            "average_precision": 0.9314983779220555,
+            "pixel_auroc": 0.9715521512386598,
+            "pixel_au_pr": 0.27288935296541655,
+            "pixel_average_precision": 0.27294552494820906
+          },
+          "benchmark_std": {
+            "auroc": 0.004859012245302549,
+            "au_pr": 0.0026424898047753827,
+            "average_precision": 0.0025532597435425006,
+            "pixel_auroc": 0.0002494009562614438,
+            "pixel_au_pr": 0.006039997589898184,
+            "pixel_average_precision": 0.006043029244261792
+          },
+          "deployment_holdout_profile": {
+            "threshold": 0.341839998960495,
+            "heatmap_scale": 0.09851976394653338,
+            "auroc": 0.9062,
+            "au_pr": 0.9091607663548358,
+            "average_precision": 0.9098166487308751,
+            "pixel_auroc": 0.9714470671684394,
+            "pixel_au_pr": 0.2629794270140921,
+            "pixel_average_precision": 0.26303790724220233
+          },
+          "seconds": 134.38419250000152
+        },
+        "pcb3": {
+          "official_train_normals": 905,
+          "official_test_images": 201,
+          "benchmark_runs": [
+            {
+              "seed": 42,
+              "auroc": 0.9433663366336634,
+              "au_pr": 0.9573257944956892,
+              "average_precision": 0.9574934355764043,
+              "pixel_auroc": 0.9804594500562178,
+              "pixel_au_pr": 0.33440243549415977,
+              "pixel_average_precision": 0.33442549268444677
+            },
+            {
+              "seed": 43,
+              "auroc": 0.9477227722772278,
+              "au_pr": 0.959595644345721,
+              "average_precision": 0.9597596806082674,
+              "pixel_auroc": 0.9805071690010876,
+              "pixel_au_pr": 0.33373335990639547,
+              "pixel_average_precision": 0.333819556432083
+            },
+            {
+              "seed": 44,
+              "auroc": 0.9466336633663367,
+              "au_pr": 0.9577819308568531,
+              "average_precision": 0.9579591053290832,
+              "pixel_auroc": 0.9798799216744494,
+              "pixel_au_pr": 0.33973787538078626,
+              "pixel_average_precision": 0.3397522193939622
+            }
+          ],
+          "benchmark_mean": {
+            "auroc": 0.9459075907590759,
+            "au_pr": 0.9582344565660877,
+            "average_precision": 0.9584040738379184,
+            "pixel_auroc": 0.9802821802439183,
+            "pixel_au_pr": 0.3359578902604472,
+            "pixel_average_precision": 0.3359990895034973
+          },
+          "benchmark_std": {
+            "auroc": 0.0022671609895175723,
+            "au_pr": 0.0012006828155516466,
+            "average_precision": 0.0011968560341587735,
+            "pixel_auroc": 0.00034918224748437215,
+            "pixel_au_pr": 0.0032906125824873787,
+            "pixel_average_precision": 0.003264395451918764
+          },
+          "deployment_holdout_profile": {
+            "threshold": 0.16282716393470764,
+            "heatmap_scale": 0.1029075479507446,
+            "auroc": 0.9547524752475247,
+            "au_pr": 0.9643689895252089,
+            "average_precision": 0.9645187368797429,
+            "pixel_auroc": 0.9805302802001331,
+            "pixel_au_pr": 0.3377368540626885,
+            "pixel_average_precision": 0.33774957148695994
+          },
+          "seconds": 135.53616119999788
+        },
+        "pcb4": {
+          "official_train_normals": 904,
+          "official_test_images": 201,
+          "benchmark_runs": [
+            {
+              "seed": 42,
+              "auroc": 0.9888118811881188,
+              "au_pr": 0.9880168371253286,
+              "average_precision": 0.9880817605339174,
+              "pixel_auroc": 0.9797851572798281,
+              "pixel_au_pr": 0.2918409934178783,
+              "pixel_average_precision": 0.2918620534311465
+            },
+            {
+              "seed": 43,
+              "auroc": 0.9905940594059406,
+              "au_pr": 0.9904921945653063,
+              "average_precision": 0.9905403726682713,
+              "pixel_auroc": 0.9800535279608199,
+              "pixel_au_pr": 0.3113890405329925,
+              "pixel_average_precision": 0.3114066877489506
+            },
+            {
+              "seed": 44,
+              "auroc": 0.9902970297029704,
+              "au_pr": 0.9907507181331998,
+              "average_precision": 0.9907947926063193,
+              "pixel_auroc": 0.9811058153456667,
+              "pixel_au_pr": 0.3112462297344757,
+              "pixel_average_precision": 0.31127896730004057
+            }
+          ],
+          "benchmark_mean": {
+            "auroc": 0.9899009900990099,
+            "au_pr": 0.9897532499412782,
+            "average_precision": 0.9898056419361693,
+            "pixel_auroc": 0.9803148335287716,
+            "pixel_au_pr": 0.3048254212284488,
+            "pixel_average_precision": 0.3048492361600459
+          },
+          "benchmark_std": {
+            "auroc": 0.0009548169070290293,
+            "au_pr": 0.0015093229307655532,
+            "average_precision": 0.001498334973559554,
+            "pixel_auroc": 0.0006980292841980381,
+            "pixel_au_pr": 0.011245071049441238,
+            "pixel_average_precision": 0.011247411460137574
+          },
+          "deployment_holdout_profile": {
+            "threshold": 0.17516569793224335,
+            "heatmap_scale": 0.10422959923744202,
+            "auroc": 0.9865346534653465,
+            "au_pr": 0.9821331587999459,
+            "average_precision": 0.9822685098306626,
+            "pixel_auroc": 0.9806894408642699,
+            "pixel_au_pr": 0.3216559666615416,
+            "pixel_average_precision": 0.3216614985757051
+          },
+          "seconds": 133.8244237000181
+        },
+        "pipe_fryum": {
+          "official_train_normals": 450,
+          "official_test_images": 150,
+          "benchmark_runs": [
+            {
+              "seed": 42,
+              "auroc": 0.995,
+              "au_pr": 0.9977423374213756,
+              "average_precision": 0.9977526197670599,
+              "pixel_auroc": 0.9927515748074147,
+              "pixel_au_pr": 0.47981081512851037,
+              "pixel_average_precision": 0.4800110544187529
+            },
+            {
+              "seed": 43,
+              "auroc": 0.9964000000000001,
+              "au_pr": 0.9982273652036702,
+              "average_precision": 0.9982361328885846,
+              "pixel_auroc": 0.992764142075617,
+              "pixel_au_pr": 0.4830566976570724,
+              "pixel_average_precision": 0.48318326819265506
+            },
+            {
+              "seed": 44,
+              "auroc": 0.9962,
+              "au_pr": 0.9982256566034399,
+              "average_precision": 0.9982339839967207,
+              "pixel_auroc": 0.9927469763458546,
+              "pixel_au_pr": 0.481216205091409,
+              "pixel_average_precision": 0.48138223354046783
+            }
+          ],
+          "benchmark_mean": {
+            "auroc": 0.9958666666666667,
+            "au_pr": 0.9980651197428285,
+            "average_precision": 0.9980742455507885,
+            "pixel_auroc": 0.9927542310762955,
+            "pixel_au_pr": 0.4813612392923306,
+            "pixel_average_precision": 0.48152551871729193
+          },
+          "benchmark_std": {
+            "auroc": 0.0007571877794400558,
+            "au_pr": 0.0002795389956885984,
+            "average_precision": 0.0002785381715372213,
+            "pixel_auroc": 8.885797254273498e-06,
+            "pixel_au_pr": 0.0016277943779494204,
+            "pixel_average_precision": 0.0015909534997154244
+          },
+          "deployment_holdout_profile": {
+            "threshold": 0.18373285233974457,
+            "heatmap_scale": 0.1333938717842105,
+            "auroc": 0.9891999999999999,
+            "au_pr": 0.9951107263654106,
+            "average_precision": 0.9951337553868363,
+            "pixel_auroc": 0.9927315263511816,
+            "pixel_au_pr": 0.47978917789024056,
+            "pixel_average_precision": 0.47984772131593945
+          },
+          "seconds": 71.54133030000958
+        }
+      },
+      "macro_mean": {
+        "auroc": 0.9513007150715072,
+        "au_pr": 0.9574430219630145,
+        "average_precision": 0.9576880054928729,
+        "pixel_auroc": 0.98601533539939,
+        "pixel_au_pr": 0.430425562577637,
+        "pixel_average_precision": 0.4305021186956786
+      },
+      "macro_runs": [
+        {
+          "seed": 42,
+          "auroc": 0.9520315181518151,
+          "au_pr": 0.9584974439469179,
+          "average_precision": 0.958736080171112,
+          "pixel_auroc": 0.9859153775389724,
+          "pixel_au_pr": 0.43004797740678957,
+          "pixel_average_precision": 0.4301283364968757
+        },
+        {
+          "seed": 43,
+          "auroc": 0.9509736248624864,
+          "au_pr": 0.9576748110458753,
+          "average_precision": 0.9579083837618078,
+          "pixel_auroc": 0.9861041069687575,
+          "pixel_au_pr": 0.432448712079846,
+          "pixel_average_precision": 0.4325231523161844
+        },
+        {
+          "seed": 44,
+          "auroc": 0.95089700220022,
+          "au_pr": 0.9561568108962502,
+          "average_precision": 0.9564195525456993,
+          "pixel_auroc": 0.9860265216904399,
+          "pixel_au_pr": 0.4287799982462753,
+          "pixel_average_precision": 0.428854867273976
+        }
+      ],
+      "macro_std": {
+        "auroc": 0.0006340525331026325,
+        "au_pr": 0.001187407008430423,
+        "average_precision": 0.0011738824455153193,
+        "pixel_auroc": 9.486068335903378e-05,
+        "pixel_au_pr": 0.0018632748640743098,
+        "pixel_average_precision": 0.0018624885601874065
+      }
+    }
+  },
+  "attribution": "VisA \u00b7 Zou et al., ECCV 2022 \u00b7 CC BY 4.0 \u00b7 resized images and model overlays",
+  "source": "https://github.com/amazon-science/spot-diff"
+}
