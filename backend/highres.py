@@ -17,6 +17,7 @@ import torch.nn.functional as F
 from transformers import AutoModel
 from .vision import distances,ModelUnavailable,sha256,display_map
 from .config import CATEGORIES
+from .calibration import calibrated_card
 
 
 class HighResolutionEncoder:
@@ -84,11 +85,11 @@ class HighResolutionDetector:
         self.banks={};self.lock=threading.Lock()
 
     def cards(self):
-        return [json.loads((self.directory/f'{category}.json').read_text()) for category in CATEGORIES]
+        return [calibrated_card(self.settings.root,json.loads((self.directory/f'{category}.json').read_text())) for category in CATEGORIES]
 
     def load(self,category):
         if category not in CATEGORIES:raise ValueError('Unsupported product category')
-        card=json.loads((self.directory/f'{category}.json').read_text())
+        card=calibrated_card(self.settings.root,json.loads((self.directory/f'{category}.json').read_text()))
         encoder = self.encoder
         if encoder is None:
             source=self.settings.root/'models/encoder_dinov2'

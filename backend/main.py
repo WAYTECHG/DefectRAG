@@ -115,6 +115,9 @@ def create_app(settings=None, detector=None, workflow=None, repository=None):
         active=getattr(detector,'profile_name','legacy')=='dinov2_highres_v1'
         path=settings.root/'results'/('highres_deployment_evaluation.json' if active else 'evaluation.json')
         result=json.loads(path.read_text()) if path.exists() else {'status':'unverified'}
+        if active and 'categories' in result:
+            from .calibration import active_evaluation
+            result=active_evaluation(settings.root,result)
         profile=settings.root/'results'/'serving_profile.json'
         if profile.exists() and not active:result['serving_profile']=json.loads(profile.read_text())
         return {'data':result}

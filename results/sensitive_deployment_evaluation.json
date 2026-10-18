@@ -1,0 +1,710 @@
+{
+  "method": "AnomalyDINO-inspired DINOv2 ViT-S/14; custom full-data adaptation",
+  "profile": "dinov2_highres_v1",
+  "protocol": "Official VisA test assignments; same frozen DINOv2 operational banks. Threshold is the fixed linear 95th percentile of the existing content-grouped held-out training-normal scores. All categories use the same quantile; no test-label optimization. Retrospective development evaluation, not independent validation.",
+  "encoder_sha256": "ae1e99fcefd534ed978cdeb8326f08030c96e28b7a81ffcbc98a857c84d14be1",
+  "device": "cuda",
+  "categories": {
+    "pcb1": {
+      "category": "pcb1",
+      "available": true,
+      "model_id": "dinov2-highres-pcb1-v1-q95-v1",
+      "method": "AnomalyDINO-inspired DINOv2 ViT-S/14; custom full-data adaptation",
+      "profile": "dinov2_highres_v1",
+      "encoder_sha256": "ae1e99fcefd534ed978cdeb8326f08030c96e28b7a81ffcbc98a857c84d14be1",
+      "bank_sha256": "14e71cb6285f22e3d12d2b0d6357c552a26685a8f03a9b626a3e8999e8a89c65",
+      "threshold": 0.1414354294538498,
+      "uncertainty_margin": 0.00707177147269249,
+      "heatmap_scale": 0.10316987216472613,
+      "uncertainty_policy": "Fixed \u00b15% of threshold; operational heuristic, not calibrated confidence",
+      "bank_size_bytes": 23237446,
+      "encoder_size_bytes": 88249960,
+      "calibration": {
+        "method": "Fixed linear 95th percentile of heldout normal scores; no anomalous calibration",
+        "normal": 91,
+        "anomalous": 0,
+        "seed": 42,
+        "policy": "normal-q95-v1",
+        "quantile": 0.95,
+        "calibration_above_threshold": 5,
+        "future_false_positive_rate_guaranteed": false
+      },
+      "train_normal_count": 813,
+      "metrics": {
+        "image_auroc": 0.9597,
+        "average_precision": 0.9564653221826244,
+        "precision": 0.9148936170212766,
+        "recall": 0.86,
+        "f1": 0.8865979381443299,
+        "confusion_matrix": [
+          [
+            92,
+            8
+          ],
+          [
+            14,
+            86
+          ]
+        ],
+        "n_images": 200,
+        "pixel_auroc_224": 0.9946015614062951,
+        "pixel_average_precision_224": 0.8562862818777615,
+        "uncertain_fraction": 0.07,
+        "latency_median_ms": null,
+        "peak_gpu_mb": null,
+        "false_positive_rate": 0.08
+      },
+      "resolution_short_edge": 448,
+      "patch_size": 14,
+      "foreground": "Unsupervised PCA threshold/sign heuristic; can fail",
+      "baseline_threshold": 0.16181933879852295,
+      "decision_policy": "normal-q95-v1"
+    },
+    "capsules": {
+      "category": "capsules",
+      "available": true,
+      "model_id": "dinov2-highres-capsules-v1-q95-v1",
+      "method": "AnomalyDINO-inspired DINOv2 ViT-S/14; custom full-data adaptation",
+      "profile": "dinov2_highres_v1",
+      "encoder_sha256": "ae1e99fcefd534ed978cdeb8326f08030c96e28b7a81ffcbc98a857c84d14be1",
+      "bank_sha256": "fa34f8c1a203e609450e57156d5f75ca157140d88d07d0bf46947c3029675c55",
+      "threshold": 0.1439922600984573,
+      "uncertainty_margin": 0.007199613004922866,
+      "heatmap_scale": 0.1274158811569204,
+      "uncertainty_policy": "Fixed \u00b15% of threshold; operational heuristic, not calibrated confidence",
+      "bank_size_bytes": 22108790,
+      "encoder_size_bytes": 88249960,
+      "calibration": {
+        "method": "Fixed linear 95th percentile of heldout normal scores; no anomalous calibration",
+        "normal": 55,
+        "anomalous": 0,
+        "seed": 42,
+        "policy": "normal-q95-v1",
+        "quantile": 0.95,
+        "calibration_above_threshold": 3,
+        "future_false_positive_rate_guaranteed": false
+      },
+      "train_normal_count": 487,
+      "metrics": {
+        "image_auroc": 0.9683333333333333,
+        "average_precision": 0.9798232872953215,
+        "precision": 0.9425287356321839,
+        "recall": 0.82,
+        "f1": 0.877005347593583,
+        "confusion_matrix": [
+          [
+            55,
+            5
+          ],
+          [
+            18,
+            82
+          ]
+        ],
+        "n_images": 160,
+        "pixel_auroc_224": 0.9704973188279925,
+        "pixel_average_precision_224": 0.403655563796705,
+        "uncertain_fraction": 0.0875,
+        "latency_median_ms": null,
+        "peak_gpu_mb": null,
+        "false_positive_rate": 0.08333333333333333
+      },
+      "resolution_short_edge": 448,
+      "patch_size": 14,
+      "foreground": "Unsupervised PCA threshold/sign heuristic; can fail",
+      "baseline_threshold": 0.19718621671199799,
+      "decision_policy": "normal-q95-v1"
+    },
+    "cashew": {
+      "category": "cashew",
+      "available": true,
+      "model_id": "dinov2-highres-cashew-v1-q95-v1",
+      "method": "AnomalyDINO-inspired DINOv2 ViT-S/14; custom full-data adaptation",
+      "profile": "dinov2_highres_v1",
+      "encoder_sha256": "ae1e99fcefd534ed978cdeb8326f08030c96e28b7a81ffcbc98a857c84d14be1",
+      "bank_sha256": "4b908b22f79158fb46c0e591610d5c9470d588d4f0d017dd0bb493a58e64c693",
+      "threshold": 0.1289861112833023,
+      "uncertainty_margin": 0.006449305564165116,
+      "heatmap_scale": 0.10505769878625872,
+      "uncertainty_policy": "Fixed \u00b15% of threshold; operational heuristic, not calibrated confidence",
+      "bank_size_bytes": 18366576,
+      "encoder_size_bytes": 88249960,
+      "calibration": {
+        "method": "Fixed linear 95th percentile of heldout normal scores; no anomalous calibration",
+        "normal": 45,
+        "anomalous": 0,
+        "seed": 42,
+        "policy": "normal-q95-v1",
+        "quantile": 0.95,
+        "calibration_above_threshold": 3,
+        "future_false_positive_rate_guaranteed": false
+      },
+      "train_normal_count": 405,
+      "metrics": {
+        "image_auroc": 0.9608000000000001,
+        "average_precision": 0.9817707260519815,
+        "precision": 0.9090909090909091,
+        "recall": 0.9,
+        "f1": 0.9045226130653266,
+        "confusion_matrix": [
+          [
+            41,
+            9
+          ],
+          [
+            10,
+            90
+          ]
+        ],
+        "n_images": 150,
+        "pixel_auroc_224": 0.9960830910862268,
+        "pixel_average_precision_224": 0.7034966403298871,
+        "uncertain_fraction": 0.06,
+        "latency_median_ms": null,
+        "peak_gpu_mb": null,
+        "false_positive_rate": 0.18
+      },
+      "resolution_short_edge": 448,
+      "patch_size": 14,
+      "foreground": "Unsupervised PCA threshold/sign heuristic; can fail",
+      "baseline_threshold": 0.13224798440933228,
+      "decision_policy": "normal-q95-v1"
+    },
+    "candle": {
+      "category": "candle",
+      "available": true,
+      "model_id": "dinov2-highres-candle-v1-q95-v1",
+      "method": "AnomalyDINO-inspired DINOv2 ViT-S/14; custom full-data adaptation",
+      "profile": "dinov2_highres_v1",
+      "encoder_sha256": "ae1e99fcefd534ed978cdeb8326f08030c96e28b7a81ffcbc98a857c84d14be1",
+      "bank_sha256": "bb6767014719520899e8d2336ea2811ae8dadabb210a8855f7497f2ac48ab7ad",
+      "threshold": 0.15027016177773475,
+      "uncertainty_margin": 0.007513508088886738,
+      "heatmap_scale": 0.1193666505813595,
+      "uncertainty_policy": "Fixed \u00b15% of threshold; operational heuristic, not calibrated confidence",
+      "bank_size_bytes": 23244689,
+      "encoder_size_bytes": 88249960,
+      "calibration": {
+        "method": "Fixed linear 95th percentile of heldout normal scores; no anomalous calibration",
+        "normal": 90,
+        "anomalous": 0,
+        "seed": 42,
+        "policy": "normal-q95-v1",
+        "quantile": 0.95,
+        "calibration_above_threshold": 5,
+        "future_false_positive_rate_guaranteed": false
+      },
+      "train_normal_count": 810,
+      "metrics": {
+        "image_auroc": 0.9410000000000001,
+        "average_precision": 0.9459465742669609,
+        "precision": 0.8787878787878788,
+        "recall": 0.87,
+        "f1": 0.8743718592964824,
+        "confusion_matrix": [
+          [
+            88,
+            12
+          ],
+          [
+            13,
+            87
+          ]
+        ],
+        "n_images": 200,
+        "pixel_auroc_224": 0.9911336061961822,
+        "pixel_average_precision_224": 0.33767271945011856,
+        "uncertain_fraction": 0.055,
+        "latency_median_ms": null,
+        "peak_gpu_mb": null,
+        "false_positive_rate": 0.12
+      },
+      "resolution_short_edge": 448,
+      "patch_size": 14,
+      "foreground": "Unsupervised PCA threshold/sign heuristic; can fail",
+      "baseline_threshold": 0.22504067420959473,
+      "decision_policy": "normal-q95-v1"
+    },
+    "chewinggum": {
+      "category": "chewinggum",
+      "available": true,
+      "model_id": "dinov2-highres-chewinggum-v1-q95-v1",
+      "method": "AnomalyDINO-inspired DINOv2 ViT-S/14; custom full-data adaptation",
+      "profile": "dinov2_highres_v1",
+      "encoder_sha256": "ae1e99fcefd534ed978cdeb8326f08030c96e28b7a81ffcbc98a857c84d14be1",
+      "bank_sha256": "37165883dcc6304f60346c2052c7fa4151d4048b44fdb80a4f60ffc48477ed7d",
+      "threshold": 0.15658171474933624,
+      "uncertainty_margin": 0.007829085737466813,
+      "heatmap_scale": 0.11275605440139722,
+      "uncertainty_policy": "Fixed \u00b15% of threshold; operational heuristic, not calibrated confidence",
+      "bank_size_bytes": 18458527,
+      "encoder_size_bytes": 88249960,
+      "calibration": {
+        "method": "Fixed linear 95th percentile of heldout normal scores; no anomalous calibration",
+        "normal": 46,
+        "anomalous": 0,
+        "seed": 42,
+        "policy": "normal-q95-v1",
+        "quantile": 0.95,
+        "calibration_above_threshold": 3,
+        "future_false_positive_rate_guaranteed": false
+      },
+      "train_normal_count": 407,
+      "metrics": {
+        "image_auroc": 0.9885999999999999,
+        "average_precision": 0.9944721280040146,
+        "precision": 0.9795918367346939,
+        "recall": 0.96,
+        "f1": 0.9696969696969697,
+        "confusion_matrix": [
+          [
+            48,
+            2
+          ],
+          [
+            4,
+            96
+          ]
+        ],
+        "n_images": 150,
+        "pixel_auroc_224": 0.9952665200400623,
+        "pixel_average_precision_224": 0.6597053568827396,
+        "uncertain_fraction": 0.0,
+        "latency_median_ms": null,
+        "peak_gpu_mb": null,
+        "false_positive_rate": 0.04
+      },
+      "resolution_short_edge": 448,
+      "patch_size": 14,
+      "foreground": "Unsupervised PCA threshold/sign heuristic; can fail",
+      "baseline_threshold": 0.1614319533109665,
+      "decision_policy": "normal-q95-v1"
+    },
+    "fryum": {
+      "category": "fryum",
+      "available": true,
+      "model_id": "dinov2-highres-fryum-v1-q95-v1",
+      "method": "AnomalyDINO-inspired DINOv2 ViT-S/14; custom full-data adaptation",
+      "profile": "dinov2_highres_v1",
+      "encoder_sha256": "ae1e99fcefd534ed978cdeb8326f08030c96e28b7a81ffcbc98a857c84d14be1",
+      "bank_sha256": "ca73c0cd2b2e75d80874f7dd6270f09b13c55292fa93b1da1eeef361d8375ba4",
+      "threshold": 0.13227128088474271,
+      "uncertainty_margin": 0.006613564044237136,
+      "heatmap_scale": 0.10057919770479187,
+      "uncertainty_policy": "Fixed \u00b15% of threshold; operational heuristic, not calibrated confidence",
+      "bank_size_bytes": 18381371,
+      "encoder_size_bytes": 88249960,
+      "calibration": {
+        "method": "Fixed linear 95th percentile of heldout normal scores; no anomalous calibration",
+        "normal": 45,
+        "anomalous": 0,
+        "seed": 42,
+        "policy": "normal-q95-v1",
+        "quantile": 0.95,
+        "calibration_above_threshold": 3,
+        "future_false_positive_rate_guaranteed": false
+      },
+      "train_normal_count": 405,
+      "metrics": {
+        "image_auroc": 0.9924,
+        "average_precision": 0.9963591766254614,
+        "precision": 0.9894736842105263,
+        "recall": 0.94,
+        "f1": 0.964102564102564,
+        "confusion_matrix": [
+          [
+            49,
+            1
+          ],
+          [
+            6,
+            94
+          ]
+        ],
+        "n_images": 150,
+        "pixel_auroc_224": 0.9735429349543053,
+        "pixel_average_precision_224": 0.4360142987071739,
+        "uncertain_fraction": 0.03333333333333333,
+        "latency_median_ms": null,
+        "peak_gpu_mb": null,
+        "false_positive_rate": 0.02
+      },
+      "resolution_short_edge": 448,
+      "patch_size": 14,
+      "foreground": "Unsupervised PCA threshold/sign heuristic; can fail",
+      "baseline_threshold": 0.15253151953220367,
+      "decision_policy": "normal-q95-v1"
+    },
+    "macaroni1": {
+      "category": "macaroni1",
+      "available": true,
+      "model_id": "dinov2-highres-macaroni1-v1-q95-v1",
+      "method": "AnomalyDINO-inspired DINOv2 ViT-S/14; custom full-data adaptation",
+      "profile": "dinov2_highres_v1",
+      "encoder_sha256": "ae1e99fcefd534ed978cdeb8326f08030c96e28b7a81ffcbc98a857c84d14be1",
+      "bank_sha256": "28ebf491e124df62266c5c3b72ea5bfebb50ef93c189d5615d3ae866e8675432",
+      "threshold": 0.14440965577960013,
+      "uncertainty_margin": 0.007220482788980007,
+      "heatmap_scale": 0.09929629743099211,
+      "uncertainty_policy": "Fixed \u00b15% of threshold; operational heuristic, not calibrated confidence",
+      "bank_size_bytes": 23251984,
+      "encoder_size_bytes": 88249960,
+      "calibration": {
+        "method": "Fixed linear 95th percentile of heldout normal scores; no anomalous calibration",
+        "normal": 90,
+        "anomalous": 0,
+        "seed": 42,
+        "policy": "normal-q95-v1",
+        "quantile": 0.95,
+        "calibration_above_threshold": 5,
+        "future_false_positive_rate_guaranteed": false
+      },
+      "train_normal_count": 810,
+      "metrics": {
+        "image_auroc": 0.909,
+        "average_precision": 0.9254645749095916,
+        "precision": 0.9827586206896551,
+        "recall": 0.57,
+        "f1": 0.721518987341772,
+        "confusion_matrix": [
+          [
+            99,
+            1
+          ],
+          [
+            43,
+            57
+          ]
+        ],
+        "n_images": 200,
+        "pixel_auroc_224": 0.9932559185087934,
+        "pixel_average_precision_224": 0.22125282869927704,
+        "uncertain_fraction": 0.1,
+        "latency_median_ms": null,
+        "peak_gpu_mb": null,
+        "false_positive_rate": 0.01
+      },
+      "resolution_short_edge": 448,
+      "patch_size": 14,
+      "foreground": "Unsupervised PCA threshold/sign heuristic; can fail",
+      "baseline_threshold": 0.21722275018692017,
+      "decision_policy": "normal-q95-v1"
+    },
+    "macaroni2": {
+      "category": "macaroni2",
+      "available": true,
+      "model_id": "dinov2-highres-macaroni2-v1-q95-v1",
+      "method": "AnomalyDINO-inspired DINOv2 ViT-S/14; custom full-data adaptation",
+      "profile": "dinov2_highres_v1",
+      "encoder_sha256": "ae1e99fcefd534ed978cdeb8326f08030c96e28b7a81ffcbc98a857c84d14be1",
+      "bank_sha256": "8dfe4f82ece83668ea4a97c18ef134ab16bea8ab6d2913959eb810942537737a",
+      "threshold": 0.144144269824028,
+      "uncertainty_margin": 0.0072072134912014,
+      "heatmap_scale": 0.11770220518112187,
+      "uncertainty_policy": "Fixed \u00b15% of threshold; operational heuristic, not calibrated confidence",
+      "bank_size_bytes": 23243554,
+      "encoder_size_bytes": 88249960,
+      "calibration": {
+        "method": "Fixed linear 95th percentile of heldout normal scores; no anomalous calibration",
+        "normal": 90,
+        "anomalous": 0,
+        "seed": 42,
+        "policy": "normal-q95-v1",
+        "quantile": 0.95,
+        "calibration_above_threshold": 5,
+        "future_false_positive_rate_guaranteed": false
+      },
+      "train_normal_count": 810,
+      "metrics": {
+        "image_auroc": 0.845,
+        "average_precision": 0.8446602099722114,
+        "precision": 0.8727272727272727,
+        "recall": 0.48,
+        "f1": 0.6193548387096774,
+        "confusion_matrix": [
+          [
+            93,
+            7
+          ],
+          [
+            52,
+            48
+          ]
+        ],
+        "n_images": 200,
+        "pixel_auroc_224": 0.9942242061289198,
+        "pixel_average_precision_224": 0.15769057747120718,
+        "uncertain_fraction": 0.19,
+        "latency_median_ms": null,
+        "peak_gpu_mb": null,
+        "false_positive_rate": 0.07
+      },
+      "resolution_short_edge": 448,
+      "patch_size": 14,
+      "foreground": "Unsupervised PCA threshold/sign heuristic; can fail",
+      "baseline_threshold": 0.15817631781101227,
+      "decision_policy": "normal-q95-v1"
+    },
+    "pcb2": {
+      "category": "pcb2",
+      "available": true,
+      "model_id": "dinov2-highres-pcb2-v1-q95-v1",
+      "method": "AnomalyDINO-inspired DINOv2 ViT-S/14; custom full-data adaptation",
+      "profile": "dinov2_highres_v1",
+      "encoder_sha256": "ae1e99fcefd534ed978cdeb8326f08030c96e28b7a81ffcbc98a857c84d14be1",
+      "bank_sha256": "694689b6703e399ea4076343a40ddff6a920f67c0c344048f0b2ef6402f3abb8",
+      "threshold": 0.1252228133380413,
+      "uncertainty_margin": 0.006261140666902066,
+      "heatmap_scale": 0.09851976394653338,
+      "uncertainty_policy": "Fixed \u00b15% of threshold; operational heuristic, not calibrated confidence",
+      "bank_size_bytes": 23253151,
+      "encoder_size_bytes": 88249960,
+      "calibration": {
+        "method": "Fixed linear 95th percentile of heldout normal scores; no anomalous calibration",
+        "normal": 91,
+        "anomalous": 0,
+        "seed": 42,
+        "policy": "normal-q95-v1",
+        "quantile": 0.95,
+        "calibration_above_threshold": 5,
+        "future_false_positive_rate_guaranteed": false
+      },
+      "train_normal_count": 810,
+      "metrics": {
+        "image_auroc": 0.9062,
+        "average_precision": 0.9098166487308751,
+        "precision": 0.875,
+        "recall": 0.84,
+        "f1": 0.8571428571428572,
+        "confusion_matrix": [
+          [
+            88,
+            12
+          ],
+          [
+            16,
+            84
+          ]
+        ],
+        "n_images": 200,
+        "pixel_auroc_224": 0.9714470671684394,
+        "pixel_average_precision_224": 0.26303790724220233,
+        "uncertain_fraction": 0.09,
+        "latency_median_ms": null,
+        "peak_gpu_mb": null,
+        "false_positive_rate": 0.12
+      },
+      "resolution_short_edge": 448,
+      "patch_size": 14,
+      "foreground": "Unsupervised PCA threshold/sign heuristic; can fail",
+      "baseline_threshold": 0.341839998960495,
+      "decision_policy": "normal-q95-v1"
+    },
+    "pcb3": {
+      "category": "pcb3",
+      "available": true,
+      "model_id": "dinov2-highres-pcb3-v1-q95-v1",
+      "method": "AnomalyDINO-inspired DINOv2 ViT-S/14; custom full-data adaptation",
+      "profile": "dinov2_highres_v1",
+      "encoder_sha256": "ae1e99fcefd534ed978cdeb8326f08030c96e28b7a81ffcbc98a857c84d14be1",
+      "bank_sha256": "704ee7d0827ede2b0a795a0efae8eb524751d2d1cb054cf7278c22888550a44c",
+      "threshold": 0.1346755474805832,
+      "uncertainty_margin": 0.00673377737402916,
+      "heatmap_scale": 0.1029075479507446,
+      "uncertainty_policy": "Fixed \u00b15% of threshold; operational heuristic, not calibrated confidence",
+      "bank_size_bytes": 23242572,
+      "encoder_size_bytes": 88249960,
+      "calibration": {
+        "method": "Fixed linear 95th percentile of heldout normal scores; no anomalous calibration",
+        "normal": 91,
+        "anomalous": 0,
+        "seed": 42,
+        "policy": "normal-q95-v1",
+        "quantile": 0.95,
+        "calibration_above_threshold": 5,
+        "future_false_positive_rate_guaranteed": false
+      },
+      "train_normal_count": 814,
+      "metrics": {
+        "image_auroc": 0.9547524752475247,
+        "average_precision": 0.9645187368797429,
+        "precision": 0.90625,
+        "recall": 0.87,
+        "f1": 0.8877551020408163,
+        "confusion_matrix": [
+          [
+            92,
+            9
+          ],
+          [
+            13,
+            87
+          ]
+        ],
+        "n_images": 201,
+        "pixel_auroc_224": 0.9805302802001331,
+        "pixel_average_precision_224": 0.33774957148695994,
+        "uncertain_fraction": 0.08955223880597014,
+        "latency_median_ms": null,
+        "peak_gpu_mb": null,
+        "false_positive_rate": 0.0891089108910891
+      },
+      "resolution_short_edge": 448,
+      "patch_size": 14,
+      "foreground": "Unsupervised PCA threshold/sign heuristic; can fail",
+      "baseline_threshold": 0.16282716393470764,
+      "decision_policy": "normal-q95-v1"
+    },
+    "pcb4": {
+      "category": "pcb4",
+      "available": true,
+      "model_id": "dinov2-highres-pcb4-v1-q95-v1",
+      "method": "AnomalyDINO-inspired DINOv2 ViT-S/14; custom full-data adaptation",
+      "profile": "dinov2_highres_v1",
+      "encoder_sha256": "ae1e99fcefd534ed978cdeb8326f08030c96e28b7a81ffcbc98a857c84d14be1",
+      "bank_sha256": "8847deec2a0b8daab9139e7680d502352161e994bb5d2fe4bc313df6af4cc5d5",
+      "threshold": 0.1401524841785431,
+      "uncertainty_margin": 0.007007624208927155,
+      "heatmap_scale": 0.10422959923744202,
+      "uncertainty_policy": "Fixed \u00b15% of threshold; operational heuristic, not calibrated confidence",
+      "bank_size_bytes": 23248613,
+      "encoder_size_bytes": 88249960,
+      "calibration": {
+        "method": "Fixed linear 95th percentile of heldout normal scores; no anomalous calibration",
+        "normal": 91,
+        "anomalous": 0,
+        "seed": 42,
+        "policy": "normal-q95-v1",
+        "quantile": 0.95,
+        "calibration_above_threshold": 5,
+        "future_false_positive_rate_guaranteed": false
+      },
+      "train_normal_count": 813,
+      "metrics": {
+        "image_auroc": 0.9865346534653465,
+        "average_precision": 0.9822685098306626,
+        "precision": 0.96,
+        "recall": 0.96,
+        "f1": 0.96,
+        "confusion_matrix": [
+          [
+            97,
+            4
+          ],
+          [
+            4,
+            96
+          ]
+        ],
+        "n_images": 201,
+        "pixel_auroc_224": 0.9806894408642699,
+        "pixel_average_precision_224": 0.3216614985757051,
+        "uncertain_fraction": 0.04477611940298507,
+        "latency_median_ms": null,
+        "peak_gpu_mb": null,
+        "false_positive_rate": 0.039603960396039604
+      },
+      "resolution_short_edge": 448,
+      "patch_size": 14,
+      "foreground": "Unsupervised PCA threshold/sign heuristic; can fail",
+      "baseline_threshold": 0.17516569793224335,
+      "decision_policy": "normal-q95-v1"
+    },
+    "pipe_fryum": {
+      "category": "pipe_fryum",
+      "available": true,
+      "model_id": "dinov2-highres-pipe_fryum-v1-q95-v1",
+      "method": "AnomalyDINO-inspired DINOv2 ViT-S/14; custom full-data adaptation",
+      "profile": "dinov2_highres_v1",
+      "encoder_sha256": "ae1e99fcefd534ed978cdeb8326f08030c96e28b7a81ffcbc98a857c84d14be1",
+      "bank_sha256": "e28bf35ca2e553dd21821230f34682b94b11a5d203459f61049a774663c0d819",
+      "threshold": 0.17671903371810913,
+      "uncertainty_margin": 0.008835951685905457,
+      "heatmap_scale": 0.1333938717842105,
+      "uncertainty_policy": "Fixed \u00b15% of threshold; operational heuristic, not calibrated confidence",
+      "bank_size_bytes": 18401041,
+      "encoder_size_bytes": 88249960,
+      "calibration": {
+        "method": "Fixed linear 95th percentile of heldout normal scores; no anomalous calibration",
+        "normal": 45,
+        "anomalous": 0,
+        "seed": 42,
+        "policy": "normal-q95-v1",
+        "quantile": 0.95,
+        "calibration_above_threshold": 3,
+        "future_false_positive_rate_guaranteed": false
+      },
+      "train_normal_count": 405,
+      "metrics": {
+        "image_auroc": 0.9891999999999999,
+        "average_precision": 0.9951337553868363,
+        "precision": 0.9801980198019802,
+        "recall": 0.99,
+        "f1": 0.9850746268656716,
+        "confusion_matrix": [
+          [
+            48,
+            2
+          ],
+          [
+            1,
+            99
+          ]
+        ],
+        "n_images": 150,
+        "pixel_auroc_224": 0.9927315263511816,
+        "pixel_average_precision_224": 0.47984772131593945,
+        "uncertain_fraction": 0.013333333333333334,
+        "latency_median_ms": null,
+        "peak_gpu_mb": null,
+        "false_positive_rate": 0.04
+      },
+      "resolution_short_edge": 448,
+      "patch_size": 14,
+      "foreground": "Unsupervised PCA threshold/sign heuristic; can fail",
+      "baseline_threshold": 0.18373285233974457,
+      "decision_policy": "normal-q95-v1"
+    }
+  },
+  "macro_mean": {
+    "image_auroc": 0.950126705170517,
+    "average_precision": 0.956391637511357,
+    "precision": 0.932608381224698,
+    "recall": 0.8383333333333334,
+    "f1": 0.8755953086666709,
+    "pixel_auroc_224": 0.9861669559777334,
+    "pixel_average_precision_224": 0.4315059138196397,
+    "false_positive_rate": 0.07433718371837184
+  },
+  "decision_policy": "normal-q95-v1",
+  "baseline_evaluation_sha256": "4265f2fe45c49d3e71dacba9883e935b190829511fa42ecbc45c26e495984ec0",
+  "validation_scope": "Normal-only calibration and cached-score/software consistency checks; future recall and false-alarm rates are not guaranteed.",
+  "decision_policy_reason": "User requested prioritizing anomaly recall and accepts more false alarms.",
+  "policy_selection_context": "Policy adopted after viewing retrospective threshold-sensitivity results; not an independent or test-blind validation.",
+  "source_sha256": {
+    "experiments\\dinov2_highres_v1\\pcb1\\normal_calibration.json": "8224a5c38e21ae2b65497c109f45ce586e231525d43946779e0309225faf7010",
+    "experiments\\dinov2_highres_v1\\pcb1\\test_progress.json": "ba9bdde38b06df345c8f5a72ff1358a40d04287f609cac4bbac629cd652e6640",
+    "experiments\\dinov2_highres_v1\\capsules\\normal_calibration.json": "05a2f76ac29bb3d3e794155587f90e2ad3099b2df1bc14b0c8b6447aaab6f4f6",
+    "experiments\\dinov2_highres_v1\\capsules\\test_progress.json": "a214382658449bec9468a1d1103775cfa989b9f4d96c728ea756b1539c7a05e6",
+    "experiments\\dinov2_highres_v1\\cashew\\normal_calibration.json": "20b872ab18468386c96cee420ecddff58d4d9bb40ceb16edbb77a7965413dac2",
+    "experiments\\dinov2_highres_v1\\cashew\\test_progress.json": "dc236ba067baeac20b431da6b323abdcccadbfdd4fb58148f26dd0b2fd4733c1",
+    "experiments\\dinov2_highres_v1\\candle\\normal_calibration.json": "097689c7796940d5bcb30117fa22f454b906c519d7a4472bdd87e6434a3eb500",
+    "experiments\\dinov2_highres_v1\\candle\\test_progress.json": "2ec3a02bcc0c95d94242d4d31469b53126ddeae9ce5d777f0706dec984c362b2",
+    "experiments\\dinov2_highres_v1\\chewinggum\\normal_calibration.json": "012178e1e91e311e511a7f8b2ebabbff4fe1146a7d6a2227e374c264c763b995",
+    "experiments\\dinov2_highres_v1\\chewinggum\\test_progress.json": "ea5102f1d9e668ad8ff256dfcba10813b3f3723e0b09606b87745f71347b1a0f",
+    "experiments\\dinov2_highres_v1\\fryum\\normal_calibration.json": "6cd8984692afd2c20825b45a2c18d07550367510e376ce6c70d5bb2e44990432",
+    "experiments\\dinov2_highres_v1\\fryum\\test_progress.json": "52e7dababf991acdeda16907ae38cc9a2599a0164becbfcd7b3bbd96658c944f",
+    "experiments\\dinov2_highres_v1\\macaroni1\\normal_calibration.json": "6c83ed692639479b8b18914c7bea0c884eea7a1c0583106ea9bcd3d30c01dfde",
+    "experiments\\dinov2_highres_v1\\macaroni1\\test_progress.json": "d67ebfb2159c5dbe1cee314c300deb04123751caefd99288e99961dcfac1bb04",
+    "experiments\\dinov2_highres_v1\\macaroni2\\normal_calibration.json": "8c80102797cc6d81fd1862ec5c27465b3293e206ccb0b2af40973526a93a96a6",
+    "experiments\\dinov2_highres_v1\\macaroni2\\test_progress.json": "12bfe59625f5039623c341451c9e4ce0721271d98d7a8a815b2dc443465a88d8",
+    "experiments\\dinov2_highres_v1\\pcb2\\normal_calibration.json": "3b0713db8eebc9f7ea81ac1e758c42799e325aa0050a3c0c2ac1454e7457cd3a",
+    "experiments\\dinov2_highres_v1\\pcb2\\test_progress.json": "3b08920766efc75a65d1f7f4518adb086241b0ba71e2659a20edcf57a783afdb",
+    "experiments\\dinov2_highres_v1\\pcb3\\normal_calibration.json": "2c0e355bca9f8554fad3715d3a31acf733b30788c7b7e97a931cd24fb4d6ebd3",
+    "experiments\\dinov2_highres_v1\\pcb3\\test_progress.json": "e5e8d8d7adb1198b6cdca2f5bda7da0e71b4e30a672ae93714eb6efe7aefff0b",
+    "experiments\\dinov2_highres_v1\\pcb4\\normal_calibration.json": "2b364ef709f3ead9196871d7f0351ae38f477fbf98d6f94ca8607128a853b28a",
+    "experiments\\dinov2_highres_v1\\pcb4\\test_progress.json": "dd844a6415590d7effee5ba32eb7f2fbd737d7967efafebd845af506fd7685ae",
+    "experiments\\dinov2_highres_v1\\pipe_fryum\\normal_calibration.json": "21b3357ff4836e8b4d7fb7fee7e48fc7579a62d9c11dbf888f2de05397a88d56",
+    "experiments\\dinov2_highres_v1\\pipe_fryum\\test_progress.json": "0af8805dd69be9f39b2bedb13f8bd15e853f326e1ed9940b540d26ff01cf6dbf"
+  }
+}

@@ -23,6 +23,8 @@ def main():
         path=ROOT/relative
         if path.exists():
             files[relative]=path
+    for relative in ('results/sensitive_deployment_evaluation.json',):
+        files[relative]=ROOT/relative
     for directory in ('backend','deployment/space'):
         for path in (ROOT/directory).glob('*.py'):
             files[path.relative_to(ROOT).as_posix()] = path
@@ -52,7 +54,9 @@ def main():
     header = readme.split('---',2)[1].replace('DefectRAG - Phase 1 compatibility test','DefectRAG').replace('Existing React UI plus one genuine DINOv2 ZeroGPU inspection','Live React dashboard and DINOv2 inspection on ZeroGPU')
     body = f'''\n# DefectRAG — migration phase {args.phase}\n
 Existing React UI, real frozen DINOv2 inspection across all 12 VisA categories,
-original normal-reference banks, calibration and heatmaps. No training rerun.
+original normal-reference banks and heatmaps, with versioned normal-only decision
+calibration. No training rerun. The q95 sensitivity policy trades more false
+alarms for higher recall; historical inspection decisions are preserved.
 Anonymous browser history is isolated and temporary. Sign in to the configured
 staff workspace for durable shared records when available. Do not treat anomaly
 scores as probabilities or diagnoses. The operator selects the product category.

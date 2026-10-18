@@ -25,6 +25,7 @@ from fastapi import HTTPException
 from fastapi.responses import FileResponse, JSONResponse, RedirectResponse
 from fastapi.staticfiles import StaticFiles
 from backend.config import CATEGORIES, Settings
+from backend.calibration import calibrated_card
 from backend.highres import HighResolutionEncoder, foreground_mask, score_tokens, restore_map
 from backend.vision import sha256, display_map
 from backend.storage import now
@@ -32,7 +33,7 @@ from deployment.space.sessions import SessionRepository, identity, namespace, NA
 
 ZERO = os.getenv('SPACES_ZERO_GPU') == '1'
 DEVICE = 'cuda' if torch.cuda.is_available() else 'cpu'
-CARDS = {category: json.loads((ROOT/f'models/highres/{category}.json').read_text()) for category in CATEGORIES}
+CARDS = {category: calibrated_card(ROOT,json.loads((ROOT/f'models/highres/{category}.json').read_text())) for category in CATEGORIES}
 ENCODER = HighResolutionEncoder(ROOT/'models/encoder_dinov2', device='cpu')
 encoder_digest = sha256(ROOT/'models/encoder_dinov2/model.safetensors')
 assert all(card['encoder_sha256'] == encoder_digest for card in CARDS.values())

@@ -1,3 +1,35 @@
+# Recall-oriented calibration milestone — 18 October 2026
+
+User selected prioritizing anomaly recall with more false alarms. Audit reproduced
+all 12 existing confusion matrices/precision/recall/F1 from saved genuine scores;
+checked normal holdout content grouping, train/test nonoverlap and label polarity.
+No inference, retraining, asset download or database mutation was needed.
+New separate normal-q95-v1 manifest and guarded local/ZeroGPU adapter are ready.
+Original cards, banks, encoder, evaluation, history and static showcase preserved.
+Retrospective macro recall60.17% ->83.83%, precision97.59% ->93.26%, F1 68.63% ->
+87.56%, normal false-positive rate2.42% ->7.43%. AUROC and image scores unchanged.
+Policy chosen after viewing development diagnostics; NOT independent validation.
+Macaroni1/2 remain limited (recall57%/48%). No guaranteed future recall/FPR.
+56 focused calibration/highres/answer/API tests passed in9.66s,6 frontend tests
+passed,local and separate cloud UI builds passed. Personal Supabase public config
+copied into isolated cloud build and checked by hash (contents not logged).
+Initial sandbox API tests stalled and were terminated; rerun outside sandbox
+passed. No training/development server remains running from these checks.
+Deployment and Desktop synchronization are pending this checkpoint; complete
+those, verify public /api/models and /api/evaluation agree for all12 categories,
+verify the visible performance page and record the published revision. Do not
+repeat model experiments. New model IDs end -q95-v1; old records retain original
+thresholds. Rollback: DEFECTRAG_CALIBRATION=normal-max-v1 and restart backend.
+Details: docs/SENSITIVITY_CALIBRATION.md; audit results/recall_threshold_audit.json.
+Folder rename was discussed but NOT performed. The Desktop path is still
+C:\Users\User\Desktop\DefectRAG-v2. Source .venv/experiments junctions target that
+path and sync_code.ps1 hardcodes it. A coordinated rename must update those and
+verify the virtual environment. See docs/FOLDER_RENAME.md. Public Space unaffected.
+The existing prepared GitHub export predates this calibration; do not claim it is
+current until refreshed from the completed code checkpoint.
+
+---
+
 # Answer focus, brand and GitHub publication preparation — 18 October 2026
 
 COMPLETED: code checkpoint59b61d11a008c70cc9df9d68f557ee8c6f8b6739, synced to

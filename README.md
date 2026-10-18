@@ -109,11 +109,22 @@ or a reproduction of a published method.
 | Pixel AU-PR | 33.29% | 43.04% |
 | Supplementary image AP | 86.58% | 95.77% |
 
-The deployment bank has a separate normal-only calibration holdout. Its fixed
-maximum-normal threshold produces macro precision **97.59%**, recall **60.17%**
-and F1 **68.63%**. High AUROC does not establish healthy recall at that threshold.
-For example, displayed Capsule/Candle recall is 48%; PCB2 recall is 1%. These are
-material missed-anomaly limitations, not hidden or recalibrated test results.
+The deployment bank has a separate normal-only calibration holdout. Its
+recall-oriented `normal-q95-v1` policy uses the fixed 95th percentile of normal
+calibration scores, with no weight updates. The original policy remains available.
+
+| Retrospective operating metrics | Original maximum-normal | Normal q95 |
+|---|---:|---:|
+| Macro recall | 60.17% | **83.83%** |
+| Macro precision | **97.59%** | 93.26% |
+| Macro F1 | 68.63% | **87.56%** |
+| Macro normal false-alarm rate | **2.42%** | 7.43% |
+
+Higher sensitivity produces more false alarms. Policy selection followed the
+observed recall problem; these are development results, not independent validation
+or guaranteed future performance. AUROC is unchanged by threshold calibration.
+Macaroni1/2 recall remains limited at 57%/48%. Historical inspections retain their
+original decisions. [Calibration details and rollback](docs/SENSITIVITY_CALIBRATION.md).
 
 Ground-truth masks are used for pixel evaluation only. The PCA foreground rule
 is a heuristic, and interpolated heatmaps are not supervised segmentation. The

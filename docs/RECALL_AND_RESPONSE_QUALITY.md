@@ -1,5 +1,10 @@
 # Operating recall and question-focused evidence answers
 
+**18 October follow-up:** the original policy discussed below is preserved.
+The separately versioned normal-q95 sensitivity policy raises retrospective macro
+recall to83.83%, with precision93.26% and normal false-alarm rate7.43%.
+See [trade-offs, all12 categories and rollback](SENSITIVITY_CALIBRATION.md).
+
 ## Precision and recall describe different failures
 
 At the frozen operational threshold, precision is TP/(TP+FP); recall is
@@ -24,7 +29,8 @@ A future threshold study should reserve suitable labelled validation anomalies
 or use a declared normal-quantile operating policy, choose the target trade-off
 before evaluation, then report the frozen policy on held-out data. Choosing the
 best threshold from these same test labels would contaminate reported performance.
-No threshold, weights, bank, split or evaluation metric was changed in this update.
+No threshold, weights, bank, split or evaluation metric was changed in the earlier
+answer/UI update. The subsequent sensitivity policy is documented separately above.
 [Recall definition](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html).
 
 ## Actual RAG and the repeated answer bug
