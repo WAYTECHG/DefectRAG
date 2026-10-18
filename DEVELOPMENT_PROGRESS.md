@@ -8,7 +8,7 @@ including PCB2 recall0.840, capsules0.820, candle0.870. Screenshot saved at
 saved real inference scores and changes only decision calibration. No database
 write, retraining, dataset change or model download. 56 backend tests,6 frontend
 tests and both builds passed. Static showcase and original evaluation preserved.
-Desktop synchronized through72deb56 with local build and personal Supabase config/
+Desktop synchronized through9c44466 with local build and personal Supabase config/
 guide hashes unchanged. Restart an existing local backend to use new calibration.
 Normal-q95-v1 policy is active by default when its manifest is installed. Original
 policy rollback: DEFECTRAG_CALIBRATION=normal-max-v1 and backend/Space restart.
@@ -17,8 +17,11 @@ approved feature/model research for weak Macaroni1/2; prior staff-role/load-test
 gaps remain as documented. Do not rerun completed experiments. No local training,
 server or test process was left running by this task. Folder rename NOT performed;
 Desktop remains DefectRAG-v2; follow docs/FOLDER_RENAME.md for coordinated changes.
-Final steps: commit this verification note/image, synchronize the small checkpoint,
-refresh existing source-only GitHub export in place, then record its receipt.
+GitHub export refreshed IN PLACE from9c44466:284 source/public files,11.86MB,
+blank public config and credential-pattern scan passed. Receipt saved privately at
+development-support/space/github-export-refreshed.json. No duplicate model archive
+was created. Final documentation-only checkpoint should be synchronized; all
+implementation and hosted verification work for this calibration is complete.
 
 ---
 
