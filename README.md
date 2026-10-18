@@ -1,149 +1,224 @@
-# DefectRAG
+<div align="center">
+  <img src="docs/assets/hero.svg" alt="DefectRAG — visual evidence, grounded answers" width="100%" />
 
-The accuracy upgrade adds a separate high-resolution DINOv2 profile and overall
-image/pixel AUROC and AU-PR. See [accuracy comparison](docs/ACCURACY_RESULTS.md) and
-[settings and metric definitions](docs/ACCURACY_AND_METRICS.md). Original DINOv3
-models, results, records and releases remain preserved.
+  <p><strong>Industrial visual anomaly inspection with retrieval-augmented generation.</strong></p>
+  <p>Real image measurements, coarse heatmaps, cited explanations and shared review history.</p>
 
-Local visual anomaly screening with an inspection-linked evidence assistant.
-React/Vite dashboard, FastAPI, frozen DINOv2 / DINOv3, LangChain/LangGraph, SQLite and
-optional Qwen through Ollama. All **12 VisA product categories** are available.
-The existing directory name `DefectRAG-v2` is retained for command compatibility.
+  <a href="https://huggingface.co/spaces/Wizzas/DefectRAG"><img src="https://img.shields.io/badge/Live_demo-Hugging_Face-FFD21E?style=for-the-badge&amp;logo=huggingface&amp;logoColor=black" alt="Live Hugging Face demo" /></a>
+  <img src="https://img.shields.io/badge/Python-3.12-3776AB?style=for-the-badge&amp;logo=python&amp;logoColor=white" alt="Cloud Python 3.12" />
+  <img src="https://img.shields.io/badge/PyTorch-2.8.0-EE4C2C?style=for-the-badge&amp;logo=pytorch&amp;logoColor=white" alt="PyTorch 2.8.0" />
+  <img src="https://img.shields.io/badge/React-19.1.1-149ECA?style=for-the-badge&amp;logo=react&amp;logoColor=white" alt="React 19.1.1" />
+  <br/>
+  <img src="https://img.shields.io/badge/Gradio-6.30.0-F97316?style=flat-square&amp;logo=gradio&amp;logoColor=white" alt="Gradio 6.30.0" />
+  <img src="https://img.shields.io/badge/FastAPI-0.142.2-009688?style=flat-square&amp;logo=fastapi&amp;logoColor=white" alt="Cloud FastAPI 0.142.2" />
+  <img src="https://img.shields.io/badge/Vite-6.4.4-646CFF?style=flat-square&amp;logo=vite&amp;logoColor=white" alt="Vite 6.4.4" />
+  <img src="https://img.shields.io/badge/LangGraph-1.2.14-1C3C3C?style=flat-square" alt="Cloud LangGraph 1.2.14" />
+  <img src="https://img.shields.io/badge/Supabase-staff_workspace-3ECF8E?style=flat-square&amp;logo=supabase&amp;logoColor=white" alt="Supabase staff workspace" />
+  <img src="https://img.shields.io/badge/License-MIT-7963DF?style=flat-square" alt="MIT application license" />
 
-## Start on this computer
+  <p><a href="https://huggingface.co/spaces/Wizzas/DefectRAG">Live application</a> · <a href="#architecture">Architecture</a> · <a href="#measured-results">Results</a> · <a href="#quick-start">Quick start</a> · <a href="docs/PUBLIC_APPLICATION_GUIDE.md">Application guide</a></p>
+</div>
 
-Stop the previous server with Ctrl+C in its PowerShell window, then run:
+## Overview
+
+DefectRAG combines frozen visual encoders with a normal-reference memory bank and
+an inspection-linked RAG assistant. The existing React dashboard supports image
+inspection, visual comparison, batch history, evaluation, reports, staff notes,
+review alerts and recoverable archival. One Gradio Server-mode Hugging Face Space
+hosts the cloud UI, CPU services and queued ZeroGPU inference.
+
+| Visual inspection | Evidence-grounded RAG | Shared review |
+|---|---|---|
+| Frozen DINOv2 features across 12 VisA products | BGE retrieval over attributed documents | Supabase authentication and existing RLS |
+| Nearest-normal anomaly scores and calibrated thresholds | LangGraph routing, Qwen generation and citation checks | Private images, heatmaps, conversations and notes |
+| Interpolated patch-distance heatmaps | Saved measurements remain separate from document claims | Acknowledgments, CSV, printable reports and developer recovery |
+
+> **Operating scope:** benchmark appearance screening. Scores are distances, not
+> defect probabilities. The product category is operator-selected; the system
+> does not diagnose defect types, causes, manufacturing tolerances or repairs.
+
+<details>
+<summary><strong>Dashboard preview</strong></summary>
+<p><img src="docs/assets/dashboard.png" alt="Existing React dashboard with the new product-inspection logo and explicit RAG description" width="100%" /></p>
+</details>
+
+## Architecture
+
+```mermaid
+flowchart LR
+    UI["React + Vite dashboard"] --> API["Gradio Server / FastAPI"]
+    API --> Q["Shared queued GPU jobs"]
+    Q --> D["Frozen DINOv2 + normal bank"]
+    D --> R["Score / threshold / heatmap"]
+    R --> UI
+    UI --> C["Inspection-linked question"]
+    C --> M{"Saved measurement question?"}
+    M -->|Yes| F["Trusted saved facts"]
+    M -->|No| B["BGE embeddings · CPU child"]
+    K["Attributed source documents"] --> B
+    B --> E["Retrieved passages + quote IDs"]
+    E --> L["LangGraph evidence validation"]
+    L --> Q
+    Q --> G["Qwen3-4B · ZeroGPU"]
+    G --> V["Citation / quote / numeric checks"]
+    V --> UI
+    F --> UI
+    API --> S["Supabase Auth / RLS / private storage"]
+    S --> H["Inspections · conversations · notes · recovery"]
+    H --> UI
+    classDef vision fill:#ebe9ff,stroke:#7664ff,color:#242444
+    classDef rag fill:#e7f7f2,stroke:#2a9b7e,color:#193d35
+    classDef storage fill:#fff3df,stroke:#d5a34c,color:#4b371b
+    class D,R vision
+    class B,E,L,G,V rag
+    class S,H storage
+```
+
+**RAG is retrieval-augmented generation.** LangChain loads/chunks documents and
+retrieves BGE vectors; LangGraph coordinates scope checks, retrieval, generation
+and answer validation. Qwen generates explanations from retrieved evidence.
+Direct score/verdict answers use saved measurements without pretending to call an
+LLM. The assistant receives inspection facts and conversation, not image pixels.
+
+| Component | Cloud deployment | Preserved local application |
+|---|---|---|
+| UI | Existing React/Vite dashboard | Same dashboard |
+| Host | Gradio 6.30 Server mode + FastAPI | FastAPI / Uvicorn |
+| Active visual model | Frozen DINOv2 ViT-S/14, 448px short edge | DINOv2 high-resolution; original DINOv3 retained |
+| Retrieval | BGE-small-en-v1.5 in a CPU-only subprocess | Existing local BGE embeddings/index |
+| Generation | Qwen3-4B-Instruct-2507 on ZeroGPU | Ollama qwen2.5:3b |
+| Persistence | Supabase for approved staff; isolated temporary guest history | SQLite and local artifacts; optional staff sharing |
+| Transformers | 5.20.1, isolated cloud environment | 4.57.6 production requirements |
+
+Package badges describe the validated cloud/frontend versions. Local and cloud
+environments intentionally differ. No fine-tuning or epoch-based training is used:
+normal images populate memory banks while encoder weights remain frozen.
+
+## Measured results
+
+Retrospective development comparison on the official VisA train/test assignments:
+**12 products, 8,659 training normals, 2,162 test images, seeds 42/43/44**.
+Earlier test results informed development; this is not an untouched external test
+or a reproduction of a published method.
+
+| Macro mean over 12 products | Original DINOv3 | DINOv2 high resolution |
+|---|---:|---:|
+| **Image AUROC** | **85.38%** | **95.13%** |
+| Image AU-PR | 86.47% | 95.74% |
+| Pixel AUROC | 92.96% | 98.60% |
+| Pixel AU-PR | 33.29% | 43.04% |
+| Supplementary image AP | 86.58% | 95.77% |
+
+The deployment bank has a separate normal-only calibration holdout. Its fixed
+maximum-normal threshold produces macro precision **97.59%**, recall **60.17%**
+and F1 **68.63%**. High AUROC does not establish healthy recall at that threshold.
+For example, displayed Capsule/Candle recall is 48%; PCB2 recall is 1%. These are
+material missed-anomaly limitations, not hidden or recalibrated test results.
+
+Ground-truth masks are used for pixel evaluation only. The PCA foreground rule
+is a heuristic, and interpolated heatmaps are not supervised segmentation. The
+headline is mean image AUROC, with AU-PR and operating recall alongside it; this
+is not YOLO bounding-box mAP@IoU.
+
+[Full comparison](docs/ACCURACY_RESULTS.md) · [Metric definitions](docs/ACCURACY_AND_METRICS.md) · [Recall and answer-quality notes](docs/RECALL_AND_RESPONSE_QUALITY.md)
+
+## Quick start
+
+### Public application
+
+Open **[Wizzas/DefectRAG](https://huggingface.co/spaces/Wizzas/DefectRAG)**.
+HF sign-in supplies available GPU quota; Supabase staff sign-in separately
+authorizes persistent shared records. Embedded and direct app links can have
+separate browser sessions. Free quotas, cold starts and queue waits apply.
+
+### Existing Windows installation
 
 ```powershell
 cd C:\Users\User\Desktop\DefectRAG-v2
 .\Start-DefectRAG.cmd -Port 8767
 ```
 
-Open http://127.0.0.1:8767. No rebuilding or model fitting is needed. Leave this
-window running. The local interpreter is `.venv\Scripts\python.exe`; auxiliary
-dependencies are inside `.python-deps`. The old Verified/Unified folders are not
-required. See [folder and storage guide](docs/LOCAL_FOLDER_GUIDE.md).
-In another terminal, `ollama list` checks your installed models.
-The active detector profile is selected automatically from installed model assets.
-Set `DEFECTRAG_PROFILE=legacy` before launch to use the original DINOv3 profile.
-Only `qwen2.5:3b` is used by default; Ollama must run for generated document
-explanations. Verdict and score answers work without an LLM.
+Open http://127.0.0.1:8767. Existing models and evaluation results are reused;
+no fitting or download is needed. For local generated explanations, Ollama must
+be running with `qwen2.5:3b` installed.
 
-On another computer, install Python 3.11 or 3.12, extract the local ZIP and
-run `.\Start-DefectRAG.cmd -Setup` once, then `.\Start-DefectRAG.cmd`.
-Setup downloads dependencies into a new `.venv`; weights and dashboard are bundled.
-CPU works. NVIDIA acceleration needs compatible PyTorch CUDA wheels. Node is
-needed only for editing the frontend. A fresh dependency install was not tested.
+### Fresh source clone
 
-## Using the application
+The GitHub source export excludes model weights, reference banks, private records
+and environments. Node.js/npm and Python 3.11 are required for this setup:
 
-1. Select the correct product and upload a photograph, or choose a VisA sample.
-2. Run inspection. Compare original/heatmap with the slider, zoom or expanded view.
-3. Read the verdict, distance score, threshold and review band. A score of 0.09
-   is **not 9% accuracy**. Higher distances indicate less normal appearance.
-4. Ask “Is this image anomalous?” or “Does the score mean accuracy?” The answer
-   uses that saved inspection, rather than quoting a generic policy definition.
-5. Filter history, acknowledge alerts, export CSV or print a report.
-6. **Clear history archives records**. Recovery restores evidence and images.
-   Back up `runtime/` separately; archival is not an independent backup.
+```powershell
+git clone <repository-url>
+cd DefectRAG
+py -3.11 -m venv .venv
+.\.venv\Scripts\python.exe -m pip install -r requirements.txt
+.\.venv\Scripts\python.exe -m scripts.fetch_public_assets --list
+# Optional explicit download of pinned public model/sample/evaluation assets:
+.\.venv\Scripts\python.exe -m scripts.fetch_public_assets
+.\Start-DefectRAG.cmd -Port 8767
+```
 
-The assistant receives the saved inspection ID, category, verdict, score,
-threshold and conversation. It **does not see the photograph**. Measurement
-answers are separate from Qwen explanations backed by retrieved passages.
-Exact quotes/IDs are checked, but this does not guarantee semantic correctness.
-Unsupported causes, repairs and tolerances are not invented.
-See [assistant data flow](docs/EVIDENCE_ASSISTANT.md).
+The launcher builds missing frontend assets using `npm ci`. The asset downloader
+fetches the immutable published DINOv2 profile and verifies bank checksums; it
+does not retrain models. This fresh-clone recipe is documented but was not
+validated by another full dependency/model download. CPU inference is supported;
+NVIDIA acceleration requires compatible CUDA PyTorch wheels. Legacy DINOv3 assets
+are preserved in existing installations and are not included in that DINOv2 download.
 
-## Official-split benchmark — accuracy improvement
-
-The official VisA evaluation reports AUROC and AU-PR averaged across all 12
-products. Mean image AUROC is our headline anomaly-detection number; mean image
-AU-PR is reported alongside it. Pixel metrics assess localization separately.
-There is no single official score combining image detection and localization.
-See Section 4.2: https://arxiv.org/html/2207.14315 .
-
-Both experiments use all 8,659 official training normals and the same 2,162 official
-test images, with three fixed bank seeds 42/43/44. These are retrospective
-benchmarks: earlier results informed development. They are not an untouched
-external test or reproduction of a published method.
-
-| Overall metric | Original DINOv3 | DINOv2 high resolution |
-|---|---:|---:|
-| Mean image AUROC | 85.38% | 95.13% |
-| Mean image AU-PR | 86.47% | 95.74% |
-| Mean pixel AUROC | 92.96% | 98.60% |
-| Mean pixel AU-PR | 33.29% | 43.04% |
-| Supplementary mean image AP | 86.58% | 95.77% |
-
-Macaroni 2 image AUROC improved from 0.483 to 0.832. The candidate improves most
-categories; Cashew regresses slightly in image AUROC and also in pixel AP.
-All category results and regressions are in [the measured comparison](docs/ACCURACY_RESULTS.md).
-
-The new profile is inspired by AnomalyDINO: frozen DINOv2 Small/14, 448px short
-edge, retained aspect ratio, PCA foreground filtering and a larger normal memory.
-It does not fine-tune weights and is not Dinomaly. Ground-truth masks are used
-only for evaluation, never for fitting or foreground selection. Pixel evaluation
-uses 224×224 maps. PCA can miss foreground and localization remains imperfect.
-No factory diagnosis, wrong-product detection or product-safety guarantee is made.
-
-Operational deployment uses a separate fixed-seed bank, with a content-grouped
-10% normal training holdout excluded from fitting. Its threshold is the maximum
-holdout normal score. The Model performance page reports that deployment profile's
-actual precision/recall/F1; those depend on the threshold and review band.
-At the current conservative maximum-normal threshold, macro precision is 97.59%,
-recall 60.17% and F1 68.63%. Higher AUROC is not
-the same as 95% classification accuracy, and this operating point can miss defects.
-The three-seed benchmark uses every official training normal and reports ranking
-metrics. These two profiles are clearly separated in the results.
-
-Original DINOv3 banks, modified-split evaluations and historical inspection results
-remain unchanged. Set DEFECTRAG_PROFILE=legacy to return to that detector. Existing
-54–66 ms serving figures apply only to the original model, not the new profile.
-See [settings, resume commands and metric definitions](docs/ACCURACY_AND_METRICS.md).
-
-## Free public dashboard and shared staff history
-
-`DefectRAG-static-accuracy.zip` contains **25 measured examples**, heatmaps,
-recorded conversations, reports and both evaluation views. Serve the extracted
-folder over HTTP, or use Vercel, Render Static Site or Hugging Face Static Spaces.
-[Run/deploy commands](deployment/RUN_AND_DEPLOY.md).
-
-Optional Supabase staff sign-in, shared snapshots, notes and recoverable history
-are implemented. **No Supabase project has been created or connected. Hosted
-authentication, RLS and storage remain untested.** Follow
-[Supabase setup](deployment/SUPABASE_SETUP.md); the app shows setup instructions
-until configured. Only explicitly shared inspections leave the local app.
-Staff records require approved sign-in.
-
-Static hosting cannot execute Python models or local Ollama. Cloud sharing does
-not supply inference. The local API is single-user; do not expose it publicly
-as a multi-user service. No cloud resources or paid services were provisioned.
-
-## Development and preservation
+### Development checks
 
 ```powershell
 python -m pytest tests -q
-python -m scripts.check_environment
-cd frontend
-npm.cmd ci
-npm.cmd run build
-npm.cmd test
-npm.cmd run build:showcase
+node tests/test_space_batch.mjs
+npm.cmd test --prefix frontend
+npm.cmd run build --prefix frontend
 ```
 
-[Editor setup](docs/EDITOR_SETUP.md) explains yellow import underlines.
-Production builds are bundled. Official experiment receipts skip completed
-categories; do not repeat successful experiments. Datasets, private runtime
-records and secrets are excluded from ZIPs. A separate benchmark-assets ZIP
-preserves experimental banks. Earlier ZIPs, models and Git history are preserved.
-Docker execution is unverified because the daemon was unavailable. A previous
-mobile viewport override was ignored, leaving narrow-screen visual QA unverified.
-The legacy Anomalib prototype is not the deployed model.
+Cloud migration builds separately under `development-support/space/ui-dist`.
+Deployment instructions: [Space adapter](deployment/space/README.md).
+Supabase SQL changes require review; no public service-role key belongs in config.
 
-- [Development checkpoint](DEVELOPMENT_PROGRESS.md)
-- [Upgrade verification](docs/UPGRADE_VERIFICATION.md)
-- [Architecture](docs/ARCHITECTURE.md)
-- [Asset licenses and attribution](docs/THIRD_PARTY_NOTICES.md)
+## Validation and limits
 
-Application code: MIT. VisA: Zou et al., ECCV 2022, Amazon Science, CC BY 4.0.
-Model and dataset licenses are separate from application code.
+- Real local/cloud inspection parity across all 12 products; maximum observed
+  score difference 0.00053 in the saved 24-image integration comparison.
+- Genuine Qwen generation, cited document answers and saved measurement answers.
+- Approved developer RPC success, anonymous denial, notes, acknowledgment,
+  reports/CSV/private images and reversible recovery verified.
+- Staff records and conversations survived an actual Space deployment restart.
+- Authenticated non-staff/ordinary-staff role matrices, distinct-user collaboration,
+  successful combined multi-file submission and sustained load remain unverified.
+- Staff-submitted answers lack model-provenance attestation; acknowledgments lack
+  actor/time audit. These hardening limits remain documented, not silently changed.
+
+[Deployment evidence](docs/ZEROGPU_PHASE5_RESULTS.md) · [Staff integration results](docs/ZEROGPU_PHASE4_RESULTS.md)
+
+## Repository map
+
+```text
+backend/              Visual scoring, RAG workflow, API and SQLite persistence
+frontend/             React dashboard, SVG brand assets and public showcase
+knowledge/            Attributed RAG documents and source metadata
+deployment/space/     Gradio adapter, queued inference and Supabase repository
+scripts/              Explicit asset setup, evaluation and source export tools
+tests/                API, answer relevance, protocol and security checks
+docs/                 Architecture, measured results, guides and evidence
+results/              Selected public benchmark and deployment summaries
+```
+
+Upload source and public documentation, not the whole working application folder.
+[GitHub upload guide and description](docs/GITHUB_PUBLISHING.md) explains the
+prepared source-only export, exclusions and safe configuration template.
+
+## References and licensing
+
+- [VisA / SPot-the-Difference](https://github.com/amazon-science/spot-diff), Zou et al., ECCV 2022 — CC BY 4.0 dataset.
+- [DINOv2](https://github.com/facebookresearch/dinov2) — frozen visual encoder; Apache-2.0.
+- [AnomalyDINO](https://github.com/dammsi/AnomalyDINO) — inspiration for the custom high-resolution adaptation; no reproduction claim.
+- [BGE-small-en-v1.5](https://huggingface.co/BAAI/bge-small-en-v1.5) — retrieval embeddings.
+- [Qwen3-4B-Instruct-2507](https://huggingface.co/Qwen/Qwen3-4B-Instruct-2507) — cloud text generation.
+
+Application code: [MIT](LICENSE). Model/dataset licenses are separate.
+[Third-party notices](docs/THIRD_PARTY_NOTICES.md) preserve attribution. Included
+application screening guidance describes software scope; it is not an approved
+factory standard operating procedure or acceptance specification.

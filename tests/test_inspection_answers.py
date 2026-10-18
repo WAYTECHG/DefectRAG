@@ -37,10 +37,11 @@ def test_uncertainty_reports_band_instead_of_asserting_anomaly():
     assert answer['answer'].startswith('No—') and 'within the review band' in answer['answer']
 
 
-def test_unsupported_root_cause_still_abstains_but_keeps_measured_result():
+def test_unsupported_root_cause_abstains_without_unrelated_verdict_prefix():
     answer=EvidenceWorkflow(Settings(),None).run('What caused this defect?',record())
     assert answer['mode']=='abstained'
-    assert '0.09091' in answer['answer'] and 'do not establish' in answer['answer']
+    assert '0.09091' not in answer['answer'] and 'do not establish' in answer['answer']
+    assert answer['measurement_summary']['measurements']['score']==record()['score']
 
 
 def test_yes_no_cause_question_cannot_bypass_scope_checks():
@@ -52,3 +53,24 @@ def test_negated_question_reports_the_saved_verdict_without_an_ambiguous_yes():
     answer=EvidenceWorkflow(Settings(),None).run('Is this not anomalous?',record())
     assert answer['mode']=='measurement_only'
     assert answer['answer'].startswith('The model flagged') and 'Anomalous' in answer['answer']
+
+
+def test_score_meaning_does_not_repeat_an_unasked_verdict():
+    answer=EvidenceWorkflow(Settings(),None).run('Does the score mean accuracy?',record())
+    assert answer['answer'].startswith('The anomaly score measures')
+    assert 'flagged' not in answer['answer'] and 'Anomalous' not in answer['answer']
+
+
+def test_heatmap_and_followup_keep_measurements_separate_from_document_answer():
+    class Graph:
+        def invoke(self,state):
+            return {'mode':'llm','answer':'The heatmap compares patch features with normal references. [screening-4]'}
+    workflow=EvidenceWorkflow(Settings(),None)
+    workflow.graph=Graph()
+    for question in ('What does the heatmap show?','Why is that only coarse localization?'):
+        answer=workflow.run(question,record())
+        assert answer['answer'].startswith('The heatmap')
+        assert 'flagged' not in answer['answer'] and '0.09091' not in answer['answer']
+        assert answer['measurement_summary']['source']=='saved_inspection'
+    summary=workflow.run('Explain this result and its limits.',record())
+    assert summary['answer'].lower().count('the model flagged')==1

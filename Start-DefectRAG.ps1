@@ -15,7 +15,7 @@ if ($Setup) {
   & $pythonExe -m pip install -r requirements.txt
   if ($LASTEXITCODE -ne 0) { throw 'Dependency setup failed. Check your network and Python version.' }
 }
-if (-not (Test-Path -LiteralPath 'models\encoder\model.safetensors')) { throw 'Encoder asset missing. See README asset setup.' }
+if (-not (Test-Path -LiteralPath 'models\encoder\model.safetensors') -and -not (Test-Path -LiteralPath 'models\encoder_dinov2\model.safetensors')) { throw 'Encoder asset missing. See README asset setup.' }
 if (-not (Test-Path -LiteralPath 'frontend\dist\index.html')) {
   & npm.cmd ci --prefix frontend --no-audit --no-fund
   if ($LASTEXITCODE -ne 0) { throw 'Frontend dependency installation failed' }

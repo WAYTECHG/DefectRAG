@@ -1,4 +1,42 @@
-# Final public deployment checkpoint — 18 October 2026
+# Answer focus, brand and GitHub publication preparation — 18 October 2026
+
+LATEST: b715fbf7b7d6237e9677550bda8dce02ce54ccb4 RUNNING. Public About/new
+logo, explicit RAG copy and objective evaluation heading verified in browser.
+38 answer/API regressions and6 frontend tests passed; both builds passed, CSS
+unchanged. Details docs/UI_AND_ANSWER_POLISH.md. No active staff session in the
+new test browser; no fresh live Qwen response is claimed for this copy/assembly
+update. Previous genuine RAG and Supabase acceptance remains preserved. No new
+vision request, training, threshold study, model download or database change.
+README and GitHub preparation scripts ready; commit then sync -SyncFrontend and
+create Desktop source export. The export manifest will identify the source commit.
+Existing Desktop public config and custom guide must retain their original hashes.
+
+User requested question-focused RAG answers, objective interface text, clearer
+recall/RAG/SOP explanation, new product-inspection logo and polished GitHub README.
+Working from746a5bc; no models/thresholds/evaluations/database records changed.
+Found unconditional measurement-prefix assembly in backend/rag.py. Heatmap and
+documentation answers now omit unrelated verdict/score prefixes; score meaning
+answers are direct; explicit result summaries retain trusted facts once. Existing
+conversations preserved. Question-focused prompt added; source/citation guards stay.
+38 focused answer/API tests passed13.48s (initial sandbox run stalled and stopped;
+outside-sandbox run passed). Six frontend checks passed. Both cloud/local builds
+passed; original CSS SHA remains087e3c48084e6752afdd5667f4ad43b22bd240038b904dc746f51b90b0732661.
+
+Cloud update published b715fbf7b7d6237e9677550bda8dce02ce54ccb4 (8 files).
+Pending this checkpoint: verify updated live About/logo and one existing-record
+heatmap answer, then commit/sync updated local build with personal config preserved.
+No new inspection/retraining needed. Existing static showcase build is preserved.
+README redesigned with original SVG banner, real version badges, Mermaid architecture,
+honest benchmark/recall distinction, reproducible source setup and explicit limits.
+GitHub export script allowlists tracked source, resets public config, excludes Git
+history/private state/models and scans credential-like values. Optional pinned
+asset downloader added; only --list executed, NO model download. Source clone path
+now accepts DINOv2-only encoder assets in launcher. No GitHub repo/push authorized.
+After final code commit, sync Desktop with -SyncFrontend, then run export from
+Desktop to development-support/github-ready/DefectRAG. Review manifest/size/links;
+do not upload entire working folder or private migration/runtime evidence.
+
+## Previous deployment checkpoint (completed evidence retained)
 
 CORE PHASES2–5 MIGRATION DEPLOYED AND VERIFIED for the available developer account.
 Public: https://huggingface.co/spaces/Wizzas/DefectRAG
