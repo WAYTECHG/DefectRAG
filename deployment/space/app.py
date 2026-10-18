@@ -87,7 +87,8 @@ from backend.rag import KnowledgeIndex, EvidenceWorkflow
 if os.getenv('DEFECTRAG_LIVE_RAG')=='1':
     from deployment.space.generation import CpuBGE, generate_text
     INDEX=KnowledgeIndex(ROOT,RUNTIME/'index',embeddings_factory=CpuBGE)
-    INDEX.ensure()
+    # Retrieval initializes on its first CPU request, not during the ZeroGPU
+    # fork snapshot. Eager CPU attention avoids CUDA/SDPA capability probing.
     WORKFLOW=EvidenceWorkflow(Settings(),INDEX,generator=generate_text if ZERO else None)
 else:
     WORKFLOW=None

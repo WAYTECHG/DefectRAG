@@ -1,5 +1,47 @@
 # Phases 2–5 authorized — 18 October 2026 — IN PROGRESS
 
+LATEST MILESTONE: PHASE3 LIVE CLOUD RAG PASSED at a31f52b64c91b7d6dab34113bc17a5bfac37ff72.
+See docs/ZEROGPU_PHASE3_RESULTS.md and sanitized docs/zerogpu_phase3/rag-summary.json.
+Existing BGE CPU execution now isolated in one CPU-only child to avoid corrupting
+the ZeroGPU parent/fork runtime. Real Qwen3-4B generation passed (85 tokens2.465s,
+peak8601.55MB); contextual follow-up passed (90 tokens2.696s,peak8649.42MB). Same
+Blackwell48GB, same weights/revision; no laptop Qwen download. Ten conversation
+turns saved for real inspection527791824aea4124b9f60ec9d173b048. Measurement-only
+answers and scope refusal verified. Do not repeat these successful GPU checks.
+Phase3 private report development-support/space/phase3-cloud.json; verifier resumes
+passed cases and creates only ONE new integration inspection after an ephemeral
+rebuild if the old record is genuinely gone.
+
+Phase4 remains pending the user's MANUAL SQL success confirmation. No database
+modification/RPC call has been performed. Publisher phase>=4 refuses to enable
+staff persistence without development-support/space/migration-confirmed.json,
+which must only be created after explicit user confirmation. Preserve exact reviewed
+SQL. Continue UI/error/transport checks and other independent development now.
+
+LATEST CHECKPOINT: Phase2 code 60a9e49, security/sharing checkpoint b1f28af.
+Desktop fast-forwarded to60a9e49 with existing public config/guide hashes preserved.
+44 focused regressions and6 new security software tests passed. Evidence XML in
+development-support/space. Source changes after b1f28af are active Phase3 fixes.
+
+Phase3 cloud candidate startup loaded/packed8.65GB successfully (Qwen4B plusDINO).
+Initial cloud commit d09a296 failed CUDA worker initialization before any inference,
+twice. Targeted CPU embedding warmup deferral/eager attention commit cd9f54c restored
+vision: real new PCB1 request47ec26ea212841c7b83c47584e6aa10c and measurement answer
+passed. After first BGE retrieval, generation worker again reported No CUDA GPUs
+are available. This points to CPU embedding runtime contaminating parent GPU/fork
+state; exact internal probe is unconfirmed. New fix isolates BGE loading/inference
+in a bounded CPU-only subprocess; same model/CLS/L2 pooling, same Qwen and vision.
+That Phase3 fix is being uploaded; inspect latest publish-phase3 receipt/runtime
+and resume verify_rag without repeating completed all12 cases. Full cloud RAG is
+NOT yet verified. No Qwen weights were downloaded to the laptop.
+
+User explicitly says: approved migration is for MANUAL execution only; agent must
+not directly modify Supabase. Await their success confirmation before RPC tests.
+Do not run migrations or create test accounts. Staff login is available when ready.
+Documented hardening limits: no model provenance attestation for staff-submitted
+answers; acknowledgement boolean lacks user/timestamp. Exact reviewed SQL includes
+NULL checks and remains unchanged since their approval.
+
 LATEST MILESTONE: Phase 2 local/cloud PASSED; docs/ZEROGPU_PHASE2_RESULTS.md.
 Cloud commit 3784513453133497d4249a00f7daa32571a3bfef. All 24 per-environment
 real integration cases saved; all verdicts match, max score difference0.00052986.

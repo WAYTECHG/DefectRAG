@@ -15,6 +15,9 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--phase', type=int, choices=(2,3,4,5), required=True)
     args = parser.parse_args()
+    if args.phase>=4:
+        confirmation=OUT/'migration-confirmed.json'
+        assert confirmation.exists() and json.loads(confirmation.read_text()).get('user_confirmed_manual_execution'), 'Wait for the user to confirm manual SQL execution before enabling staff persistence.'
     files = {}
     for directory in ('backend','deployment/space'):
         for path in (ROOT/directory).glob('*.py'):

@@ -32,6 +32,11 @@ Qwen is an optional separately installed Ollama model and is not bundled. No raw
 user history, credentials, full dataset, training cache or dependency environment
 is included in the release ZIP.
 
+The optional live Hugging Face Space downloads Qwen/Qwen3-4B-Instruct-2507 directly
+from its official repository at revision cdbee75f17c01a7cc42f958dc650907174af0554.
+Qwen Team, Apache-2.0: https://huggingface.co/Qwen/Qwen3-4B-Instruct-2507 .
+These cloud-cached weights are not copied into the local release or checkpoint.
+
 DINOv2 Small/14: Meta, Apache2.0. Public tensors are fetched without remote-code
 execution from https://huggingface.co/facebook/dinov2-small . The pinned source
 revision and tensor checksum are saved beside the downloaded assets. The new

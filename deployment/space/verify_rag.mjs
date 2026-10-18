@@ -18,9 +18,10 @@ if((await fetch(target+'/api/inspections/'+record.id,{headers})).status===404){
  try{record=(await client.predict('/inspect',{image_b64:(await fs.readFile(path.join(root,'samples/pcb1_anomalous.jpg'))).toString('base64'),
    filename:'pcb1_anomalous.jpg',category:'pcb1',batch:'RAG-INTEGRATION',session:vision.session,token:''})).data[0]}
  finally{if(client.stream_instance)client.stream_instance.onerror=error=>{if(error?.name!=='AbortError')console.error(error)};client.close()}
- report.inspection_id=record.id;report.fresh_inspection=record;await fs.writeFile(out,JSON.stringify(report,null,2));
+ report.inspection_id=record.id;report.fresh_inspection=record;report.answers=[];await fs.writeFile(out,JSON.stringify(report,null,2));
 }
 const cases=[['measurement','Is this image anomalous?'],['generation','Explain what this heatmap shows and how I should read it.'],
+ ['contextual','Why is that only coarse localization rather than precise segmentation?'],
  ['followup','Does that show a specific defect type?'],['unsupported','What caused it and how do I repair it?']];
 for(const [name,question]of cases){
  if(report.answers.some(row=>row.name===name))continue;
@@ -30,7 +31,7 @@ for(const [name,question]of cases){
  finally{if(client.stream_instance)client.stream_instance.onerror=error=>{if(error?.name!=='AbortError')console.error(error)};client.close()}
  assert.equal(answer.observation.id,record.id);
  if(name==='measurement')assert.equal(answer.mode,'measurement_only');
- if(name==='generation'){
+ if(name==='generation'||name==='contextual'){
   assert.equal(answer.mode,'llm',JSON.stringify(answer));assert.ok(answer.claims.length>0);
   for(const claim of answer.claims){const source=answer.evidence.find(row=>row.chunk_id===claim.source_id);assert.ok(source?.text.includes(claim.quote));assert.ok(answer.answer.includes('['+claim.source_id+']'))}
   if(cloud){assert.equal(answer.generation.zero_gpu,true);assert.ok(answer.generation.generation_ms>0)}

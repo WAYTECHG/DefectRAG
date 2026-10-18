@@ -3,10 +3,14 @@ import os
 from pathlib import Path
 import json
 import time
+import atexit
+import queue
+import subprocess
+import sys
+import threading
 import spaces
 import torch
-import torch.nn.functional as F
-from transformers import AutoTokenizer, AutoModel, AutoModelForCausalLM
+from transformers import AutoTokenizer, AutoModelForCausalLM
 from langchain_core.embeddings import Embeddings
 
 
@@ -16,16 +20,35 @@ class CpuBGE(Embeddings):
         source=Path(source)
         pooling=json.loads((source/'1_Pooling/config.json').read_text())
         assert pooling['pooling_mode_cls_token'] and not pooling['pooling_mode_mean_tokens']
-        self.tokenizer=AutoTokenizer.from_pretrained(str(source),local_files_only=True)
-        self.model=AutoModel.from_pretrained(str(source),local_files_only=True).eval().to('cpu')
-    @torch.inference_mode()
+        environment=dict(os.environ)
+        environment.update(CUDA_VISIBLE_DEVICES='',SPACES_ZERO_GPU='0',USE_TF='0',TOKENIZERS_PARALLELISM='false',DEFECTRAG_LIVE_RAG='0')
+        self.process=subprocess.Popen([sys.executable,'-u','-m','deployment.space.embedding_worker','--source',str(source)],
+            stdin=subprocess.PIPE,stdout=subprocess.PIPE,stderr=subprocess.DEVNULL,text=True,encoding='utf8',env=environment)
+        self.responses=queue.Queue()
+        def read():
+            for line in self.process.stdout:
+                self.responses.put(line)
+            self.responses.put('{"error":"CPU embedding process stopped"}')
+        threading.Thread(target=read,daemon=True).start()
+        self.lock=threading.Lock()
+        atexit.register(self.close)
+
+    def close(self):
+        if self.process.poll() is None:
+            self.process.terminate()
+
     def embed_documents(self,texts):
-        batches=[]
-        for start in range(0,len(texts),16):
-            tokens=self.tokenizer(texts[start:start+16],padding=True,truncation=True,max_length=512,return_tensors='pt')
-            output=self.model(**tokens).last_hidden_state[:,0]
-            batches.extend(F.normalize(output.float(),dim=-1).cpu().tolist())
-        return batches
+        with self.lock:
+            try:
+                self.process.stdin.write(json.dumps({'texts':texts})+'\n')
+                self.process.stdin.flush()
+                response=json.loads(self.responses.get(timeout=45))
+            except (OSError,queue.Empty) as exc:
+                self.close()
+                raise RuntimeError('CPU embedding worker unavailable') from exc
+            if 'error' in response:
+                raise RuntimeError('CPU embedding worker: '+response['error'])
+            return response['vectors']
     def embed_query(self,text):
         return self.embed_documents(['Represent this sentence for searching relevant passages: '+text])[0]
 
