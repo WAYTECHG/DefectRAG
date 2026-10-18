@@ -14,8 +14,9 @@ training, GPU experiment, model download, paid service or database mutation.
 All original assets/results/history/static showcase preserved. This is threshold
 calibration with higher review load, not better AUROC or independent validation.
 No local training/test/development-server job remains running from this task.
-Final small documentation/proof checkpoint and existing GitHub source export
-should be synced/refreshed in place; private receipts record exact source commit.
+Final documentation/proof checkpoint synchronized. Existing GitHub source export
+refreshed IN PLACE fromfe912bd:290 files,11.93MB, blank public config, credential
+scan passed. No duplicate model archive. Private receipts record these checks.
 Future model research remains optional, not automatically started. Do not repeat
 completed inference or refit banks. Rollback DEFECTRAG_CALIBRATION=normal-q95-v1
 (previous policy) or normal-max-v1 (original), then restart backend/Space.
