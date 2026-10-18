@@ -22,11 +22,11 @@ from .rag import KnowledgeIndex, EvidenceWorkflow
 
 log=logging.getLogger('defectrag')
 
-def create_app(settings=None, detector=None, workflow=None):
+def create_app(settings=None, detector=None, workflow=None, repository=None):
     settings=settings or Settings()
     settings.data.mkdir(parents=True,exist_ok=True)
     artifacts=settings.data/'artifacts'; artifacts.mkdir(exist_ok=True)
-    repo=SQLiteRepository(settings.data/'inspection.sqlite3')
+    repo=repository if repository is not None else SQLiteRepository(settings.data/'inspection.sqlite3')
     detector=detector or create_detector(settings)
     if workflow is None:
         workflow=EvidenceWorkflow(settings,KnowledgeIndex(settings.root,settings.data/'index'))
@@ -237,4 +237,5 @@ def create_app(settings=None, detector=None, workflow=None):
     if dist.exists(): app.mount('/',StaticFiles(directory=dist,html=True),name='dashboard')
     return app
 
-app=create_app()
+import os
+app=create_app() if os.getenv('DEFECTRAG_FACTORY_ONLY')!='1' else None

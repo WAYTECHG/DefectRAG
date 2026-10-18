@@ -1,4 +1,67 @@
-# ZeroGPU Phase 1 — 18 October 2026 — core passed, issues recorded, STOPPED
+# Phases 2–5 authorized — 18 October 2026 — IN PROGRESS
+
+LATEST MILESTONE: Phase 2 local/cloud PASSED; docs/ZEROGPU_PHASE2_RESULTS.md.
+Cloud commit 3784513453133497d4249a00f7daa32571a3bfef. All 24 per-environment
+real integration cases saved; all verdicts match, max score difference0.00052986.
+No missing-session/response-started errors in the captured post-test cloud log.
+Hub1.31.0 cloud verified. Guest quota stopped after7 cases; resumed only unfinished
+cases with the verified regular free HF account. No paid operations. Anonymous
+history, artifacts and reports are session-isolated. Do not rerun passed cases.
+
+Migration review update: user approved the exact reviewed SQL for manual execution
+only, NOT direct database modification by the agent. Await confirmation of their
+successful execution before testing RPCs with staff/anonymous/nonstaff accounts.
+Record limitations: staff-submitted conversations lack model provenance attestation;
+alert acknowledgements lack actor/timestamp. Do not enlarge the reviewed migration.
+Phase4 repository scaffolding is not enabled in the cloud until its readiness gate.
+Cloud live RAG is next. Local RAG already passed against existing records.
+
+User explicitly approved continuous Phases 2–5 from 5fdff26. Earlier STOP/approval
+notes below are historical. Preserve React appearance, local app/static showcase,
+models/results/configuration. Do not train, pay, delete data or replace architecture.
+Additive database migrations must be reviewed before execution. User can sign in
+to an existing staff account when the test page is ready; do not request passwords.
+
+Phase 2 implementation is isolated under deployment/space. All 12 existing banks
+load eagerly with checksums; original highres encoder, PCA/scoring/thresholds and
+heatmaps are reused. Browser session namespaces isolate anonymous history; image
+and report links use expiring signed capabilities. Sequential batch transport
+preserves existing result/error contracts. Fresh per-job Gradio clients close
+deterministically; cloud stream lifecycle still requires verification.
+
+Local 24-request smoke PASSED (one normal/anomalous resized public sample per
+category), including real CUDA output, all heatmaps/reports, same-bank checks,
+cross-session isolation, unsigned-image rejection and invalid image rejection.
+Saved private report: development-support/space/phase2-local.json. Do not repeat
+these successful GPU requests; verifier resumes saved cases. This is integration
+evidence, not a rerun or revision of the model benchmark/AUROC.
+
+Phase 2 cloud update is in progress. First upload failed before committing because
+Windows default decoding corrupted the README emoji; explicit UTF-8 fixed it.
+Hub 1.31.0 is verified published and satisfies Transformers>=1.31 and the platform
+datasets<2 dependency, replacing the Phase1 Hub 2.2 cloud warning. Production local
+dependencies unchanged. Check publish-phase2 receipt and Space runtime before any
+next upload. Existing phase1 Space remains until a commit succeeds.
+
+Read-only Supabase probe: public auth settings HTTP200; staff_members,
+shared_inspections and staff_notes reject anonymous reads (401/42501). This is
+not yet authenticated RLS verification. Existing public config URL/key reused,
+no credentials printed, no database changes. User can sign in when ready.
+
+Phase 3 provider scaffolding: inject a generator into the existing EvidenceWorkflow,
+keep existing BGE CLS/L2 pooling on CPU and existing citation/measurement checks.
+Qwen3-4B-Instruct-2507 candidate pinned cdbee75f17c01a7cc42f958dc650907174af0554,
+8,044,982,000 weight bytes. Cloud-only loading planned; no laptop Qwen download.
+Must verify actual cloud RAM/GPU/time/quality before claiming live generation.
+
+Active local development server: isolated port 8784, exec session 28223 (PID17032).
+No training/benchmark jobs. Next: cloud all12/parity and stream checks; phase2 Git
+checkpoint; bounded live RAG local/cloud tests; additive persistence migration
+review then authenticated staff tests. Do not stop simply because a phase finishes.
+
+---
+
+# Historical ZeroGPU Phase 1 — 18 October 2026 — core passed, issues recorded, STOPPED
 
 User approved React + Gradio Server architecture and Phase 1 compatibility ONLY.
 Phase 1 passed locally and on the existing empty Wizzas/DefectRAG ZeroGPU Space.

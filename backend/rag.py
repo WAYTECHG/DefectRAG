@@ -34,11 +34,12 @@ class IndexRetriever(BaseRetriever):
         return self.engine.search(query)
 
 class KnowledgeIndex:
-    def __init__(self, root, directory):
+    def __init__(self, root, directory, embeddings_factory=None):
         self.root, self.directory = root, directory
         self.directory.mkdir(parents=True, exist_ok=True)
         self.source = os.getenv('DEFECTRAG_EMBEDDING', str(root/'models'/'embedding'))
         self.embeddings = None
+        self.embeddings_factory = embeddings_factory or LocalEmbeddings
         self.lock = threading.Lock()
         sources = json.loads((root/'knowledge'/'sources.json').read_text())
         docs=[]
@@ -81,7 +82,7 @@ class KnowledgeIndex:
 
     def ensure(self):
         if self.embeddings is None:
-            self.embeddings=LocalEmbeddings(self.source)
+            self.embeddings=self.embeddings_factory(self.source)
         if self.matrix is None:
             self.matrix=np.asarray(self.embeddings.embed_documents([d.page_content for d in self.documents]),dtype='float32')
             np.savez_compressed(self.directory/'index.npz',matrix=self.matrix,fingerprint=self.fingerprint)
@@ -110,6 +111,7 @@ class State(TypedDict,total=False):
     trace: list
     claims: list
     raw_claims: list
+    generation: dict
 
 class EvidenceClaim(BaseModel):
     model_config=ConfigDict(extra='forbid')
@@ -183,8 +185,9 @@ def inspection_facts(question, inspection):
             'measurements':{k:inspection.get(k) for k in ('category','verdict','score','threshold','uncertainty_margin','model_id')}}
 
 class EvidenceWorkflow:
-    def __init__(self, settings, index):
+    def __init__(self, settings, index, generator=None):
         self.settings,self.index=settings,index
+        self.generator=generator
         graph=StateGraph(State)
         for name in ('route','retrieve','validate_evidence','generate','validate_answer','abstain'):
             graph.add_node(name,getattr(self,name))
@@ -232,19 +235,25 @@ class EvidenceWorkflow:
         prompt=PROMPT.format(inspection=json.dumps(inspection),history=json.dumps(state.get('history',[])[-4:]),question=state['question'],evidence=json.dumps(list(quotes.values())))
         try:
             if not quotes:raise ValueError('No supporting sentences available')
-            with httpx.Client(timeout=httpx.Timeout(75,connect=3),trust_env=False) as client:
-                schema=SelectedAnswer.model_json_schema()
-                schema['$defs']['QuoteSelection']['properties']['quote_id']['enum']=list(quotes)
+            schema=SelectedAnswer.model_json_schema()
+            schema['$defs']['QuoteSelection']['properties']['quote_id']['enum']=list(quotes)
+            generation={}
+            if self.generator is not None:
+                output=self.generator(prompt,schema)
+                raw=SelectedAnswer.model_validate_json(output['json'])
+                generation=output.get('metadata',{})
+            else:
+              with httpx.Client(timeout=httpx.Timeout(75,connect=3),trust_env=False) as client:
                 response=client.post(self.settings.ollama_url+'/api/generate',json={'model':self.settings.ollama_model,'prompt':prompt,'stream':False,'format':schema,'keep_alive':'2m','options':{'temperature':0,'num_predict':600,'num_ctx':4096}})
                 response.raise_for_status()
                 raw=SelectedAnswer.model_validate_json(response.json()['response'])
-                claims=[]
-                for claim in raw.claims:
-                    quote=quotes[claim.quote_id]
-                    claims.append({'text':claim.text,'source_id':quote['source_id'],'quote':quote['quote']})
-                validated=GeneratedAnswer.model_validate({'claims':claims})
-            return {'raw_claims':[c.model_dump() for c in validated.claims],'mode':'llm','trace':state['trace']+['generate']}
-        except (httpx.HTTPError,ValueError,KeyError,TypeError,ValidationError):
+            claims=[]
+            for claim in raw.claims:
+                quote=quotes[claim.quote_id]
+                claims.append({'text':claim.text,'source_id':quote['source_id'],'quote':quote['quote']})
+            validated=GeneratedAnswer.model_validate({'claims':claims})
+            return {'raw_claims':[c.model_dump() for c in validated.claims],'mode':'llm','generation':generation,'trace':state['trace']+['generate']}
+        except (httpx.HTTPError,ValueError,KeyError,TypeError,RuntimeError,ValidationError):
             return {'raw_claims':[],'mode':'retrieval_only','error':'Local LLM unavailable or returned invalid JSON. Showing retrieved excerpts only.','trace':state['trace']+['generation_fallback']}
 
     def validate_answer(self,state):
@@ -289,5 +298,5 @@ class EvidenceWorkflow:
         result=self.graph.invoke({'question':question,'inspection':inspection,'history':history})
         if facts:
             result['answer']=facts['text']+'\n\n'+result.get('answer','')
-        return {**{k:result.get(k) for k in ('answer','mode','evidence','claims','trace','error')},
+        return {**{k:result.get(k) for k in ('answer','mode','evidence','claims','trace','error','generation')},
                 'measurement_summary':facts,'knowledge_fingerprint':fingerprint}
