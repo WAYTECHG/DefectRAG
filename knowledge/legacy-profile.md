@@ -1,0 +1,2 @@
+# Original DINOv3 profile
+A saved model ID beginning dinov3-normal-bank identifies the original compact detector. It uses frozen DINOv3 ViT-S/16, a 224 by 224 input and a 14 by 14 patch grid. It fits 64 normal images per product. Calibration uses 32 distinct normal images and 20 anomalies reassigned from the official test pool. The threshold maximizes validation F1. This modified split is not the full official benchmark. Original pixel metrics use 64 by 64 maps. Earlier scores, thresholds and heatmaps remain preserved when a new profile is installed.

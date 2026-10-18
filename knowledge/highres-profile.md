@@ -1,0 +1,8 @@
+# DINOv2 high-resolution profile
+A saved model ID beginning dinov2-highres identifies the AnomalyDINO-inspired profile. It uses frozen DINOv2 ViT-S/14, a 448-pixel short edge, retained aspect ratio and a rectangular grid of 14-pixel patches. A PCA-based foreground heuristic filters background patches; it is not an annotated segmentation model and can fail. The anomaly score averages the largest one percent of retained patch distances. This custom implementation is an adaptation rather than an exact reproduction of AnomalyDINO.
+
+# Normal-only operational calibration
+The operational normal memory excludes a content-grouped ten-percent holdout of official training normals. Its threshold is the maximum heldout normal score; no anomalous images or test masks choose that threshold. Evaluation uses all original official test images. A separate benchmark uses all official training normals and reports three fixed random-bank seeds. Benchmark and operational profiles are reported separately. Earlier official test exposure makes this retrospective development evaluation, not an untouched external test.
+
+# Overall metrics
+Image mAP is the arithmetic mean of image average precision over the twelve product categories. Mean image AUROC is the equal-weight mean of the twelve category AUROCs. Pixel mAP averages category-level pixel average precision and measures localization, including normal images. These are not bounding-box mAP at an intersection-over-union threshold: DefectRAG does not predict bounding boxes or named defect classes. Average precision and trapezoidal area under the precision-recall curve are reported separately.

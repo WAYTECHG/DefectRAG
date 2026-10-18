@@ -1,0 +1,44 @@
+[
+  {
+    "id": "visa",
+    "file": "visa.md",
+    "title": "VisA dataset and benchmark protocol",
+    "url": "https://github.com/amazon-science/spot-diff",
+    "license": "CC BY 4.0 (dataset); attributed summary",
+    "scope": "published benchmark"
+  },
+  {
+    "id": "dinomaly",
+    "file": "dinomaly.md",
+    "title": "Anomalib Dinomaly: reconstruction evidence",
+    "url": "https://anomalib.readthedocs.io/en/lib-v2.6.2/markdown/guides/reference/models/image/dinomaly.html",
+    "license": "Attributed technical summary; no copied passages",
+    "scope": "general model documentation"
+  },
+  {
+    "id": "screening",
+    "file": "screening.md",
+    "title": "DefectRAG screening and evidence policy",
+    "url": "project://docs/inspection-policy",
+    "license": "Project-authored, MIT",
+    "scope": "application policy; not a factory SOP"
+  },
+  {
+    "id": "legacy-profile",
+    "file": "legacy-profile.md",
+    "title": "Original compact DINOv3 model profile",
+    "url": "project://docs/legacy-model",
+    "license": "Project-authored, MIT",
+    "scope": "original profile only",
+    "model_family": "dinov3"
+  },
+  {
+    "id": "highres-profile",
+    "file": "highres-profile.md",
+    "title": "DINOv2 high-resolution profile and metrics",
+    "url": "https://github.com/dammsi/AnomalyDINO",
+    "license": "Project-authored summary, MIT; attributed method",
+    "scope": "custom high-resolution profile, not paper reproduction",
+    "model_family": "dinov2"
+  }
+]

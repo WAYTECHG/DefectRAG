@@ -1,0 +1,744 @@
+{
+  "scope": "Cached-score retrospective threshold sensitivity audit; no inference, training or activation",
+  "limitations": [
+    "Official test results were previously seen; candidate figures are descriptive, not independent validation.",
+    "Quantiles use only saved held-out normal scores; no anomalous labels choose thresholds.",
+    "A 95th-percentile calibration threshold does not guarantee a 5% future false-positive rate.",
+    "Binary metrics use score >= threshold; the dashboard review band is separate.",
+    "Changing a threshold does not improve AUROC or feature separation."
+  ],
+  "source_sha256": {
+    "results\\highres_deployment_evaluation.json": "4265f2fe45c49d3e71dacba9883e935b190829511fa42ecbc45c26e495984ec0",
+    "experiments\\dinov2_highres_v1\\pcb1\\normal_calibration.json": "8224a5c38e21ae2b65497c109f45ce586e231525d43946779e0309225faf7010",
+    "experiments\\dinov2_highres_v1\\pcb1\\test_progress.json": "ba9bdde38b06df345c8f5a72ff1358a40d04287f609cac4bbac629cd652e6640",
+    "experiments\\dinov2_highres_v1\\pcb1\\split.json": "670c905634b682aa22a43e16921c70dc3381f060a641a42c5900e45d42826951",
+    "experiments\\dinov2_highres_v1\\capsules\\normal_calibration.json": "05a2f76ac29bb3d3e794155587f90e2ad3099b2df1bc14b0c8b6447aaab6f4f6",
+    "experiments\\dinov2_highres_v1\\capsules\\test_progress.json": "a214382658449bec9468a1d1103775cfa989b9f4d96c728ea756b1539c7a05e6",
+    "experiments\\dinov2_highres_v1\\capsules\\split.json": "b04f86d9725fa3f4e928f0990c9c46a2998a455a87fda9af3c880fe1f9455026",
+    "experiments\\dinov2_highres_v1\\cashew\\normal_calibration.json": "20b872ab18468386c96cee420ecddff58d4d9bb40ceb16edbb77a7965413dac2",
+    "experiments\\dinov2_highres_v1\\cashew\\test_progress.json": "dc236ba067baeac20b431da6b323abdcccadbfdd4fb58148f26dd0b2fd4733c1",
+    "experiments\\dinov2_highres_v1\\cashew\\split.json": "1230b8934b17721d73c7bb42fbf0133215ab298cecc128db128a4a1f5882dbd9",
+    "experiments\\dinov2_highres_v1\\candle\\normal_calibration.json": "097689c7796940d5bcb30117fa22f454b906c519d7a4472bdd87e6434a3eb500",
+    "experiments\\dinov2_highres_v1\\candle\\test_progress.json": "2ec3a02bcc0c95d94242d4d31469b53126ddeae9ce5d777f0706dec984c362b2",
+    "experiments\\dinov2_highres_v1\\candle\\split.json": "3ca3e0ec7c4bcdd1c3f1dbf514f9738c54b64c43969c7eb63f2010fb11bef97c",
+    "experiments\\dinov2_highres_v1\\chewinggum\\normal_calibration.json": "012178e1e91e311e511a7f8b2ebabbff4fe1146a7d6a2227e374c264c763b995",
+    "experiments\\dinov2_highres_v1\\chewinggum\\test_progress.json": "ea5102f1d9e668ad8ff256dfcba10813b3f3723e0b09606b87745f71347b1a0f",
+    "experiments\\dinov2_highres_v1\\chewinggum\\split.json": "74140280cc04a1ff9e8601eebb3993e93660a2e08f502f20a77fa537ec5c9c5f",
+    "experiments\\dinov2_highres_v1\\fryum\\normal_calibration.json": "6cd8984692afd2c20825b45a2c18d07550367510e376ce6c70d5bb2e44990432",
+    "experiments\\dinov2_highres_v1\\fryum\\test_progress.json": "52e7dababf991acdeda16907ae38cc9a2599a0164becbfcd7b3bbd96658c944f",
+    "experiments\\dinov2_highres_v1\\fryum\\split.json": "d8299af1bde3b8ab33203b70a7bef23065d77e7ad79584c624cea0cdb798e64a",
+    "experiments\\dinov2_highres_v1\\macaroni1\\normal_calibration.json": "6c83ed692639479b8b18914c7bea0c884eea7a1c0583106ea9bcd3d30c01dfde",
+    "experiments\\dinov2_highres_v1\\macaroni1\\test_progress.json": "d67ebfb2159c5dbe1cee314c300deb04123751caefd99288e99961dcfac1bb04",
+    "experiments\\dinov2_highres_v1\\macaroni1\\split.json": "a3a574b24b07d280a885831cd9fec1f80f82de44253a379c2bc07bd5c9e907af",
+    "experiments\\dinov2_highres_v1\\macaroni2\\normal_calibration.json": "8c80102797cc6d81fd1862ec5c27465b3293e206ccb0b2af40973526a93a96a6",
+    "experiments\\dinov2_highres_v1\\macaroni2\\test_progress.json": "12bfe59625f5039623c341451c9e4ce0721271d98d7a8a815b2dc443465a88d8",
+    "experiments\\dinov2_highres_v1\\macaroni2\\split.json": "b41ba3494fde3fe899070535f714d93f32a6e5e203d3e8fc75fea750a09b0c7d",
+    "experiments\\dinov2_highres_v1\\pcb2\\normal_calibration.json": "3b0713db8eebc9f7ea81ac1e758c42799e325aa0050a3c0c2ac1454e7457cd3a",
+    "experiments\\dinov2_highres_v1\\pcb2\\test_progress.json": "3b08920766efc75a65d1f7f4518adb086241b0ba71e2659a20edcf57a783afdb",
+    "experiments\\dinov2_highres_v1\\pcb2\\split.json": "626c087bef490ffa06313a7bc34ad576fa542132a22d851bda1c94b491ded910",
+    "experiments\\dinov2_highres_v1\\pcb3\\normal_calibration.json": "2c0e355bca9f8554fad3715d3a31acf733b30788c7b7e97a931cd24fb4d6ebd3",
+    "experiments\\dinov2_highres_v1\\pcb3\\test_progress.json": "e5e8d8d7adb1198b6cdca2f5bda7da0e71b4e30a672ae93714eb6efe7aefff0b",
+    "experiments\\dinov2_highres_v1\\pcb3\\split.json": "7a3e10136f3b3fc8a685d7a0d4ea68cea75a2209c8830c5dda68fca49815d40e",
+    "experiments\\dinov2_highres_v1\\pcb4\\normal_calibration.json": "2b364ef709f3ead9196871d7f0351ae38f477fbf98d6f94ca8607128a853b28a",
+    "experiments\\dinov2_highres_v1\\pcb4\\test_progress.json": "dd844a6415590d7effee5ba32eb7f2fbd737d7967efafebd845af506fd7685ae",
+    "experiments\\dinov2_highres_v1\\pcb4\\split.json": "daf4d2ea383d1bef700437ba319af2951e422d7502ba99a95c3c7687a4a663f3",
+    "experiments\\dinov2_highres_v1\\pipe_fryum\\normal_calibration.json": "21b3357ff4836e8b4d7fb7fee7e48fc7579a62d9c11dbf888f2de05397a88d56",
+    "experiments\\dinov2_highres_v1\\pipe_fryum\\test_progress.json": "0af8805dd69be9f39b2bedb13f8bd15e853f326e1ed9940b540d26ff01cf6dbf",
+    "experiments\\dinov2_highres_v1\\pipe_fryum\\split.json": "977399dcd45b85490bafa95dc1a3244d604f26833509f69244f18a1bf035a855"
+  },
+  "categories": {
+    "pcb1": {
+      "calibration_normals": 91,
+      "policies": {
+        "current_maximum": {
+          "threshold": 0.16181933879852295,
+          "precision": 0.9512195121951219,
+          "recall": 0.78,
+          "f1": 0.8571428571428571,
+          "false_positive_rate": 0.04,
+          "confusion_matrix": [
+            [
+              96,
+              4
+            ],
+            [
+              22,
+              78
+            ]
+          ]
+        },
+        "diagnostic_normal_q99": {
+          "threshold": 0.1558048605918884,
+          "precision": 0.9425287356321839,
+          "recall": 0.82,
+          "f1": 0.877005347593583,
+          "false_positive_rate": 0.05,
+          "confusion_matrix": [
+            [
+              95,
+              5
+            ],
+            [
+              18,
+              82
+            ]
+          ]
+        },
+        "diagnostic_normal_q95": {
+          "threshold": 0.1414354294538498,
+          "precision": 0.9148936170212766,
+          "recall": 0.86,
+          "f1": 0.8865979381443299,
+          "false_positive_rate": 0.08,
+          "confusion_matrix": [
+            [
+              92,
+              8
+            ],
+            [
+              14,
+              86
+            ]
+          ]
+        }
+      }
+    },
+    "capsules": {
+      "calibration_normals": 55,
+      "policies": {
+        "current_maximum": {
+          "threshold": 0.19718621671199799,
+          "precision": 1.0,
+          "recall": 0.48,
+          "f1": 0.6486486486486487,
+          "false_positive_rate": 0.0,
+          "confusion_matrix": [
+            [
+              60,
+              0
+            ],
+            [
+              52,
+              48
+            ]
+          ]
+        },
+        "diagnostic_normal_q99": {
+          "threshold": 0.1879240581393242,
+          "precision": 1.0,
+          "recall": 0.56,
+          "f1": 0.717948717948718,
+          "false_positive_rate": 0.0,
+          "confusion_matrix": [
+            [
+              60,
+              0
+            ],
+            [
+              44,
+              56
+            ]
+          ]
+        },
+        "diagnostic_normal_q95": {
+          "threshold": 0.1439922600984573,
+          "precision": 0.9425287356321839,
+          "recall": 0.82,
+          "f1": 0.877005347593583,
+          "false_positive_rate": 0.08333333333333333,
+          "confusion_matrix": [
+            [
+              55,
+              5
+            ],
+            [
+              18,
+              82
+            ]
+          ]
+        }
+      }
+    },
+    "cashew": {
+      "calibration_normals": 45,
+      "policies": {
+        "current_maximum": {
+          "threshold": 0.13224798440933228,
+          "precision": 0.9263157894736842,
+          "recall": 0.88,
+          "f1": 0.9025641025641025,
+          "false_positive_rate": 0.14,
+          "confusion_matrix": [
+            [
+              43,
+              7
+            ],
+            [
+              12,
+              88
+            ]
+          ]
+        },
+        "diagnostic_normal_q99": {
+          "threshold": 0.13198935627937317,
+          "precision": 0.9081632653061225,
+          "recall": 0.89,
+          "f1": 0.8989898989898989,
+          "false_positive_rate": 0.18,
+          "confusion_matrix": [
+            [
+              41,
+              9
+            ],
+            [
+              11,
+              89
+            ]
+          ]
+        },
+        "diagnostic_normal_q95": {
+          "threshold": 0.1289861112833023,
+          "precision": 0.9090909090909091,
+          "recall": 0.9,
+          "f1": 0.9045226130653266,
+          "false_positive_rate": 0.18,
+          "confusion_matrix": [
+            [
+              41,
+              9
+            ],
+            [
+              10,
+              90
+            ]
+          ]
+        }
+      }
+    },
+    "candle": {
+      "calibration_normals": 90,
+      "policies": {
+        "current_maximum": {
+          "threshold": 0.22504067420959473,
+          "precision": 1.0,
+          "recall": 0.48,
+          "f1": 0.6486486486486487,
+          "false_positive_rate": 0.0,
+          "confusion_matrix": [
+            [
+              100,
+              0
+            ],
+            [
+              52,
+              48
+            ]
+          ]
+        },
+        "diagnostic_normal_q99": {
+          "threshold": 0.19200063869357106,
+          "precision": 0.9565217391304348,
+          "recall": 0.66,
+          "f1": 0.7810650887573966,
+          "false_positive_rate": 0.03,
+          "confusion_matrix": [
+            [
+              97,
+              3
+            ],
+            [
+              34,
+              66
+            ]
+          ]
+        },
+        "diagnostic_normal_q95": {
+          "threshold": 0.15027016177773475,
+          "precision": 0.8787878787878788,
+          "recall": 0.87,
+          "f1": 0.8743718592964824,
+          "false_positive_rate": 0.12,
+          "confusion_matrix": [
+            [
+              88,
+              12
+            ],
+            [
+              13,
+              87
+            ]
+          ]
+        }
+      }
+    },
+    "chewinggum": {
+      "calibration_normals": 46,
+      "policies": {
+        "current_maximum": {
+          "threshold": 0.1614319533109665,
+          "precision": 0.9795918367346939,
+          "recall": 0.96,
+          "f1": 0.9696969696969697,
+          "false_positive_rate": 0.04,
+          "confusion_matrix": [
+            [
+              48,
+              2
+            ],
+            [
+              4,
+              96
+            ]
+          ]
+        },
+        "diagnostic_normal_q99": {
+          "threshold": 0.160120440274477,
+          "precision": 0.9795918367346939,
+          "recall": 0.96,
+          "f1": 0.9696969696969697,
+          "false_positive_rate": 0.04,
+          "confusion_matrix": [
+            [
+              48,
+              2
+            ],
+            [
+              4,
+              96
+            ]
+          ]
+        },
+        "diagnostic_normal_q95": {
+          "threshold": 0.15658171474933624,
+          "precision": 0.9795918367346939,
+          "recall": 0.96,
+          "f1": 0.9696969696969697,
+          "false_positive_rate": 0.04,
+          "confusion_matrix": [
+            [
+              48,
+              2
+            ],
+            [
+              4,
+              96
+            ]
+          ]
+        }
+      }
+    },
+    "fryum": {
+      "calibration_normals": 45,
+      "policies": {
+        "current_maximum": {
+          "threshold": 0.15253151953220367,
+          "precision": 1.0,
+          "recall": 0.88,
+          "f1": 0.9361702127659575,
+          "false_positive_rate": 0.0,
+          "confusion_matrix": [
+            [
+              50,
+              0
+            ],
+            [
+              12,
+              88
+            ]
+          ]
+        },
+        "diagnostic_normal_q99": {
+          "threshold": 0.15148975551128388,
+          "precision": 0.9887640449438202,
+          "recall": 0.88,
+          "f1": 0.9312169312169312,
+          "false_positive_rate": 0.02,
+          "confusion_matrix": [
+            [
+              49,
+              1
+            ],
+            [
+              12,
+              88
+            ]
+          ]
+        },
+        "diagnostic_normal_q95": {
+          "threshold": 0.13227128088474271,
+          "precision": 0.9894736842105263,
+          "recall": 0.94,
+          "f1": 0.964102564102564,
+          "false_positive_rate": 0.02,
+          "confusion_matrix": [
+            [
+              49,
+              1
+            ],
+            [
+              6,
+              94
+            ]
+          ]
+        }
+      }
+    },
+    "macaroni1": {
+      "calibration_normals": 90,
+      "policies": {
+        "current_maximum": {
+          "threshold": 0.21722275018692017,
+          "precision": 1.0,
+          "recall": 0.15,
+          "f1": 0.2608695652173913,
+          "false_positive_rate": 0.0,
+          "confusion_matrix": [
+            [
+              100,
+              0
+            ],
+            [
+              85,
+              15
+            ]
+          ]
+        },
+        "diagnostic_normal_q99": {
+          "threshold": 0.17386433541774746,
+          "precision": 1.0,
+          "recall": 0.32,
+          "f1": 0.48484848484848486,
+          "false_positive_rate": 0.0,
+          "confusion_matrix": [
+            [
+              100,
+              0
+            ],
+            [
+              68,
+              32
+            ]
+          ]
+        },
+        "diagnostic_normal_q95": {
+          "threshold": 0.14440965577960013,
+          "precision": 0.9827586206896551,
+          "recall": 0.57,
+          "f1": 0.721518987341772,
+          "false_positive_rate": 0.01,
+          "confusion_matrix": [
+            [
+              99,
+              1
+            ],
+            [
+              43,
+              57
+            ]
+          ]
+        }
+      }
+    },
+    "macaroni2": {
+      "calibration_normals": 90,
+      "policies": {
+        "current_maximum": {
+          "threshold": 0.15817631781101227,
+          "precision": 0.8928571428571429,
+          "recall": 0.25,
+          "f1": 0.39062500000000006,
+          "false_positive_rate": 0.03,
+          "confusion_matrix": [
+            [
+              97,
+              3
+            ],
+            [
+              75,
+              25
+            ]
+          ]
+        },
+        "diagnostic_normal_q99": {
+          "threshold": 0.15010178178548814,
+          "precision": 0.8863636363636364,
+          "recall": 0.39,
+          "f1": 0.5416666666666667,
+          "false_positive_rate": 0.05,
+          "confusion_matrix": [
+            [
+              95,
+              5
+            ],
+            [
+              61,
+              39
+            ]
+          ]
+        },
+        "diagnostic_normal_q95": {
+          "threshold": 0.144144269824028,
+          "precision": 0.8727272727272727,
+          "recall": 0.48,
+          "f1": 0.6193548387096774,
+          "false_positive_rate": 0.07,
+          "confusion_matrix": [
+            [
+              93,
+              7
+            ],
+            [
+              52,
+              48
+            ]
+          ]
+        }
+      }
+    },
+    "pcb2": {
+      "calibration_normals": 91,
+      "policies": {
+        "current_maximum": {
+          "threshold": 0.341839998960495,
+          "precision": 1.0,
+          "recall": 0.01,
+          "f1": 0.019801980198019802,
+          "false_positive_rate": 0.0,
+          "confusion_matrix": [
+            [
+              100,
+              0
+            ],
+            [
+              99,
+              1
+            ]
+          ]
+        },
+        "diagnostic_normal_q99": {
+          "threshold": 0.19173807054757977,
+          "precision": 0.9574468085106383,
+          "recall": 0.45,
+          "f1": 0.6122448979591837,
+          "false_positive_rate": 0.02,
+          "confusion_matrix": [
+            [
+              98,
+              2
+            ],
+            [
+              55,
+              45
+            ]
+          ]
+        },
+        "diagnostic_normal_q95": {
+          "threshold": 0.1252228133380413,
+          "precision": 0.875,
+          "recall": 0.84,
+          "f1": 0.8571428571428572,
+          "false_positive_rate": 0.12,
+          "confusion_matrix": [
+            [
+              88,
+              12
+            ],
+            [
+              16,
+              84
+            ]
+          ]
+        }
+      }
+    },
+    "pcb3": {
+      "calibration_normals": 91,
+      "policies": {
+        "current_maximum": {
+          "threshold": 0.16282716393470764,
+          "precision": 0.9857142857142858,
+          "recall": 0.69,
+          "f1": 0.8117647058823529,
+          "false_positive_rate": 0.009900990099009901,
+          "confusion_matrix": [
+            [
+              100,
+              1
+            ],
+            [
+              31,
+              69
+            ]
+          ]
+        },
+        "diagnostic_normal_q99": {
+          "threshold": 0.15042599737644188,
+          "precision": 0.9736842105263158,
+          "recall": 0.74,
+          "f1": 0.8409090909090909,
+          "false_positive_rate": 0.019801980198019802,
+          "confusion_matrix": [
+            [
+              99,
+              2
+            ],
+            [
+              26,
+              74
+            ]
+          ]
+        },
+        "diagnostic_normal_q95": {
+          "threshold": 0.1346755474805832,
+          "precision": 0.90625,
+          "recall": 0.87,
+          "f1": 0.8877551020408163,
+          "false_positive_rate": 0.0891089108910891,
+          "confusion_matrix": [
+            [
+              92,
+              9
+            ],
+            [
+              13,
+              87
+            ]
+          ]
+        }
+      }
+    },
+    "pcb4": {
+      "calibration_normals": 91,
+      "policies": {
+        "current_maximum": {
+          "threshold": 0.17516569793224335,
+          "precision": 0.9855072463768116,
+          "recall": 0.68,
+          "f1": 0.804733727810651,
+          "false_positive_rate": 0.009900990099009901,
+          "confusion_matrix": [
+            [
+              100,
+              1
+            ],
+            [
+              32,
+              68
+            ]
+          ]
+        },
+        "diagnostic_normal_q99": {
+          "threshold": 0.17460284978151322,
+          "precision": 0.9857142857142858,
+          "recall": 0.69,
+          "f1": 0.8117647058823529,
+          "false_positive_rate": 0.009900990099009901,
+          "confusion_matrix": [
+            [
+              100,
+              1
+            ],
+            [
+              31,
+              69
+            ]
+          ]
+        },
+        "diagnostic_normal_q95": {
+          "threshold": 0.1401524841785431,
+          "precision": 0.96,
+          "recall": 0.96,
+          "f1": 0.96,
+          "false_positive_rate": 0.039603960396039604,
+          "confusion_matrix": [
+            [
+              97,
+              4
+            ],
+            [
+              4,
+              96
+            ]
+          ]
+        }
+      }
+    },
+    "pipe_fryum": {
+      "calibration_normals": 45,
+      "policies": {
+        "current_maximum": {
+          "threshold": 0.18373285233974457,
+          "precision": 0.98989898989899,
+          "recall": 0.98,
+          "f1": 0.9849246231155778,
+          "false_positive_rate": 0.02,
+          "confusion_matrix": [
+            [
+              49,
+              1
+            ],
+            [
+              2,
+              98
+            ]
+          ]
+        },
+        "diagnostic_normal_q99": {
+          "threshold": 0.18263802647590638,
+          "precision": 0.98,
+          "recall": 0.98,
+          "f1": 0.98,
+          "false_positive_rate": 0.04,
+          "confusion_matrix": [
+            [
+              48,
+              2
+            ],
+            [
+              2,
+              98
+            ]
+          ]
+        },
+        "diagnostic_normal_q95": {
+          "threshold": 0.17671903371810913,
+          "precision": 0.9801980198019802,
+          "recall": 0.99,
+          "f1": 0.9850746268656716,
+          "false_positive_rate": 0.04,
+          "confusion_matrix": [
+            [
+              48,
+              2
+            ],
+            [
+              1,
+              99
+            ]
+          ]
+        }
+      }
+    }
+  },
+  "checks": "All 12 saved confusion matrices and precision/recall/F1 reproduced; labels, counts and content splits checked.",
+  "macro_mean": {
+    "current_maximum": {
+      "precision": 0.9759254002708942,
+      "recall": 0.6016666666666667,
+      "f1": 0.6862992534742647,
+      "false_positive_rate": 0.024150165016501652
+    },
+    "diagnostic_normal_q99": {
+      "precision": 0.9632315469051776,
+      "recall": 0.695,
+      "f1": 0.7872797333724396,
+      "false_positive_rate": 0.03830858085808581
+    },
+    "diagnostic_normal_q95": {
+      "precision": 0.932608381224698,
+      "recall": 0.8383333333333334,
+      "f1": 0.8755953086666709,
+      "false_positive_rate": 0.07433718371837184
+    }
+  }
+}

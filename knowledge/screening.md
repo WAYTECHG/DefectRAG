@@ -1,0 +1,11 @@
+# Reading an inspection
+DefectRAG compares an uploaded image with normal VisA reference features for the selected product. A larger anomaly score indicates a larger feature distance; the score is not a defect probability. Good means the score lies below the decision threshold and outside the review band. Anomalous means it lies above the threshold and outside the review band. Uncertain means it lies within a fixed five-percent band around the threshold. This review band is an operational heuristic, not calibrated statistical confidence. A Good result is screening evidence, not proof of factory acceptance or product safety.
+
+# Saved model and measurements
+Every inspection saves its model ID, score, threshold, calibration policy and localization description. Historical inspections retain the model that originally produced them. A newer active model does not change a historical verdict or heatmap. Consult that saved record to identify its profile and dimensions. Binary precision, recall and F1 use a frozen threshold; the dashboard may defer some decisions within its review band.
+
+# Reading the heatmap
+The heatmap shows cosine distance between each image patch feature and its closest stored normal reference feature. Larger distances indicate a greater departure from normal reference appearance. The patch grid depends on the saved model profile and image shape; interpolation does not add measured detail. This is coarse localization, not a supervised defect segmentation or named defect diagnosis. These memory-bank detectors do not reconstruct image features with a trained decoder. General Dinomaly reconstruction documentation describes a different method.
+
+# Evidence limits and response
+The system does not predict specific defect types, component counts, root causes, process parameters, acceptance tolerances or repair instructions. Those require additional validated supervision or approved process records. Model failures create an error event, never a successful inspection. Anomaly and uncertain events create local review alerts. Review source images and heatmaps before acting. The operator selects the product category; arbitrary or wrong-product uploads are outside validated scope. Documentation is general context and must remain separate from saved image measurements.
