@@ -1,3 +1,20 @@
+# Decision calibration follow-up — 18 October 2026
+
+The existing architecture and React styling are preserved. The user approved a
+recall-oriented operating trade-off. Local/ZeroGPU inference now share the guarded
+normal-q95-v1 decision overlay; original normal banks, weights and records are
+unchanged. Retrospective macro recall83.83%, precision93.26%, normal FPR7.43%;
+AUROC unchanged. Public revision3e1bf17dcff9622b61b6f662af810348c8ab109e RUNNING,
+all12 public model/evaluation cards matched and the UI table was verified.
+56 focused backend tests and6 frontend tests passed; both builds succeeded.
+No new GPU experiment, training, paid operation or database change. These are
+retrospective policy results, not independent validation. See
+[Sensitivity calibration](SENSITIVITY_CALIBRATION.md) for limits and rollback.
+The current local folder was not renamed; its junction/sync dependencies are
+recorded in [Folder rename](FOLDER_RENAME.md).
+
+---
+
 # ZeroGPU migration assessment — updated 18 October 2026
 
 ## Current implementation status — supersedes historical Phase 1 restrictions

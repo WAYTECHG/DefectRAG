@@ -1,3 +1,27 @@
+# Recall calibration deployed and verified — 18 October 2026
+
+COMPLETED: Hugging Face revision3e1bf17dcff9622b61b6f662af810348c8ab109e
+RUNNING. Public /api/models and /api/evaluation exactly match the new manifest
+for all12 products. Browser verified new sensitivity text and full metrics table,
+including PCB2 recall0.840, capsules0.820, candle0.870. Screenshot saved at
+ docs/assets/recall-policy.png. No fresh GPU job was requested: this update reuses
+saved real inference scores and changes only decision calibration. No database
+write, retraining, dataset change or model download. 56 backend tests,6 frontend
+tests and both builds passed. Static showcase and original evaluation preserved.
+Desktop synchronized through72deb56 with local build and personal Supabase config/
+guide hashes unchanged. Restart an existing local backend to use new calibration.
+Normal-q95-v1 policy is active by default when its manifest is installed. Original
+policy rollback: DEFECTRAG_CALIBRATION=normal-max-v1 and backend/Space restart.
+Future work: independent validation before claiming guaranteed recall/FPR;
+approved feature/model research for weak Macaroni1/2; prior staff-role/load-test
+gaps remain as documented. Do not rerun completed experiments. No local training,
+server or test process was left running by this task. Folder rename NOT performed;
+Desktop remains DefectRAG-v2; follow docs/FOLDER_RENAME.md for coordinated changes.
+Final steps: commit this verification note/image, synchronize the small checkpoint,
+refresh existing source-only GitHub export in place, then record its receipt.
+
+---
+
 # Recall-oriented calibration milestone — 18 October 2026
 
 User selected prioritizing anomaly recall with more false alarms. Audit reproduced
