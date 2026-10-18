@@ -23,7 +23,7 @@ def main():
         path=ROOT/relative
         if path.exists():
             files[relative]=path
-    for relative in ('results/sensitive_deployment_evaluation.json',):
+    for relative in ('results/sensitive_deployment_evaluation.json','results/macaroni_recall_deployment_evaluation.json'):
         files[relative]=ROOT/relative
     for directory in ('backend','deployment/space'):
         for path in (ROOT/directory).glob('*.py'):
@@ -56,7 +56,8 @@ def main():
 Existing React UI, real frozen DINOv2 inspection across all 12 VisA categories,
 original normal-reference banks and heatmaps, with versioned normal-only decision
 calibration. No training rerun. The q95 sensitivity policy trades more false
-alarms for higher recall; historical inspection decisions are preserved.
+alarms for higher recall; Macaroni1/2 use the more sensitive q80 decision policy.
+Historical inspection decisions are preserved.
 Anonymous browser history is isolated and temporary. Sign in to the configured
 staff workspace for durable shared records when available. Do not treat anomaly
 scores as probabilities or diagnoses. The operator selects the product category.

@@ -6,13 +6,15 @@ import os
 
 POLICY = 'normal-q95-v1'
 FILENAME = 'sensitive_deployment_evaluation.json'
+MACARONI_POLICY = 'macaroni-recall-v1'
+MACARONI_FILENAME = 'macaroni_recall_deployment_evaluation.json'
 
 
 def active_evaluation(root, baseline):
-    policy = os.getenv('DEFECTRAG_CALIBRATION', POLICY)
+    policy = os.getenv('DEFECTRAG_CALIBRATION', MACARONI_POLICY)
     if policy == 'normal-max-v1':
         return baseline
-    if policy != POLICY:
+    if policy not in (POLICY, MACARONI_POLICY):
         raise ValueError('Unknown decision calibration policy')
     path = root / 'results' / FILENAME
     if not path.exists():
@@ -33,7 +35,35 @@ def active_evaluation(root, baseline):
                 not math.isfinite(card['threshold']) or not 0 < card['threshold'] <= original['threshold'] or
                 not math.isclose(card['uncertainty_margin'], card['threshold'] * .05, abs_tol=1e-12)):
             raise ValueError('Invalid calibrated threshold: ' + category)
-    return candidate
+    if policy == POLICY or not (root / 'results' / MACARONI_FILENAME).exists():
+        return candidate
+    targeted = json.loads((root / 'results' / MACARONI_FILENAME).read_text())
+    if targeted.get('decision_policy') != MACARONI_POLICY or set(targeted['categories']) != set(candidate['categories']):
+        raise ValueError('Invalid Macaroni calibration manifest')
+    for category, previous in candidate['categories'].items():
+        card = targeted['categories'][category]
+        if category not in ('macaroni1','macaroni2'):
+            if card != previous:
+                raise ValueError('Macaroni-only policy changed another category')
+            continue
+        mutable = {'threshold','uncertainty_margin','model_id','calibration','metrics','decision_policy','previous_threshold','previous_model_id'}
+        if ({k:v for k,v in card.items() if k not in mutable} !=
+                {k:v for k,v in previous.items() if k not in mutable} or
+                card['previous_threshold'] != previous['threshold'] or
+                card['previous_model_id'] != previous['model_id'] or
+                card['model_id'] != baseline['categories'][category]['model_id'] + '-q80-v1' or
+                card['decision_policy'] != 'normal-q80-v1' or
+                card['calibration'].get('policy') != 'normal-q80-v1' or
+                card['calibration'].get('quantile') != .8 or
+                card['calibration']['normal'] != previous['calibration']['normal'] or
+                card['calibration']['anomalous'] != 0 or
+                not math.isfinite(card['threshold']) or not 0 < card['threshold'] <= previous['threshold'] or
+                not math.isclose(card['uncertainty_margin'], card['threshold']*.05, abs_tol=1e-12)):
+            raise ValueError('Invalid Macaroni-only threshold: ' + category)
+        for key in ('image_auroc','average_precision','pixel_auroc_224','pixel_average_precision_224','n_images'):
+            if card['metrics'][key] != previous['metrics'][key]:
+                raise ValueError('Decision calibration changed ranking metrics')
+    return targeted
 
 
 def calibrated_card(root, original):

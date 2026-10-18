@@ -1,3 +1,27 @@
+# Macaroni-only recall improvement — 18 October 2026
+
+User authorized targeted Macaroni1/2 recall improvement with minimal compute.
+COMPLETED locally: separate macaroni-recall-v1 normal-q80 decision overlay,
+Macaroni1 recall57% ->85%, precision77.98%, normal FPR24%; Macaroni2 recall48%
+->80%, precision74.07%, normal FPR28%. Other10 category cards byte-for-value
+identical to earlier q95 manifest. Overall macro recall88.83%, precision90.47%,
+F1 89.57%, normal FPR11.10%. These are retrospective development-score results,
+not independent validation or improved AUROC. UI and README disclose false alarms.
+Encoder, banks, scores, heatmaps, official split/results, history and static
+showcase unchanged. Saved-map audit: all95 q95 Macaroni false negatives had full
+GT-mask nonzero support at224x224, so no evidence for wholesale foreground loss.
+No new inference, GPU job, rotation bank, downloads, training or database write.
+66 focused backend tests passed in13.37s;6 frontend tests and both builds passed.
+New model IDs for the two categories end -q80-v1; historical records unchanged.
+Default installed policy macaroni-recall-v1. Roll back to normal-q95-v1 or
+normal-max-v1 via DEFECTRAG_CALIBRATION and backend restart. Do not refit assets.
+Next: publish incremental policy/UI, verify hosted all12 cards and visible table,
+sync Desktop with configuration hashes preserved, refresh existing small GitHub
+source export in place. Do not create another model archive or repeat inference.
+Details: docs/MACARONI_RECALL_UPDATE.md. Folder name remains DefectRAG-v2.
+
+---
+
 # Macaroni follow-up diagnostic — 18 October 2026
 
 Read-only CPU check of saved real inference scores: Macaroni1/2 current q95 recall

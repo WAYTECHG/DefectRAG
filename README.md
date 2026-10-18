@@ -110,21 +110,24 @@ or a reproduction of a published method.
 | Supplementary image AP | 86.58% | 95.77% |
 
 The deployment bank has a separate normal-only calibration holdout. Its
-recall-oriented `normal-q95-v1` policy uses the fixed 95th percentile of normal
-calibration scores, with no weight updates. The original policy remains available.
+recall-oriented policy uses the fixed 80th percentile of normal calibration scores
+for Macaroni1/2 and the 95th percentile for the other ten products, with no weight
+updates. Both earlier policies remain available.
 
-| Retrospective operating metrics | Original maximum-normal | Normal q95 |
-|---|---:|---:|
-| Macro recall | 60.17% | **83.83%** |
-| Macro precision | **97.59%** | 93.26% |
-| Macro F1 | 68.63% | **87.56%** |
-| Macro normal false-alarm rate | **2.42%** | 7.43% |
+| Retrospective operating metrics | Original maximum-normal | All-product q95 | Targeted Macaroni q80 |
+|---|---:|---:|---:|
+| Macro recall | 60.17% | 83.83% | **88.83%** |
+| Macro precision | **97.59%** | 93.26% | 90.47% |
+| Macro F1 | 68.63% | 87.56% | **89.57%** |
+| Macro normal false-alarm rate | **2.42%** | 7.43% | 11.10% |
 
 Higher sensitivity produces more false alarms. Policy selection followed the
 observed recall problem; these are development results, not independent validation
 or guaranteed future performance. AUROC is unchanged by threshold calibration.
-Macaroni1/2 recall remains limited at 57%/48%. Historical inspections retain their
-original decisions. [Calibration details and rollback](docs/SENSITIVITY_CALIBRATION.md).
+Macaroni1/2 recall is now85%/80%, with substantial normal false-alarm rates of
+24%/28%; review workload is higher. Historical inspections retain their original
+decisions. [Targeted policy and rollback](docs/MACARONI_RECALL_UPDATE.md) ·
+[Earlier calibration](docs/SENSITIVITY_CALIBRATION.md).
 
 Ground-truth masks are used for pixel evaluation only. The PCA foreground rule
 is a heuristic, and interpolated heatmaps are not supervised segmentation. The

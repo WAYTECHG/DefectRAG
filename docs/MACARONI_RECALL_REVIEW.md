@@ -1,5 +1,8 @@
 # Remaining Macaroni recall limitations — 18 October 2026
 
+This review records the earlier q95 policy. The subsequently authorized targeted
+q80 update is documented in [Macaroni recall update](MACARONI_RECALL_UPDATE.md).
+
 The active normal-q95-v1 policy still misses43/100 annotated Macaroni1 anomalies
 and52/100 Macaroni2 anomalies in binary threshold evaluation. This is a material
 limitation, not healthy coverage or evidence of a metric calculation bug.

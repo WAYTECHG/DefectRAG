@@ -15,7 +15,8 @@ FILES={'README.md','LICENSE','.gitignore','.dockerignore','.env.example','requir
        'frontend/package-lock.json','frontend/index.html','frontend/vite.config.js',
        'results/evaluation.json','results/official_evaluation.json','results/highres_evaluation.json',
        'results/highres_deployment_evaluation.json','results/highres_comparison.json','results/highres_comparison.csv'}
-FILES.update({'results/sensitive_deployment_evaluation.json','results/recall_threshold_audit.json'})
+FILES.update({'results/sensitive_deployment_evaluation.json','results/recall_threshold_audit.json',
+              'results/macaroni_recall_deployment_evaluation.json'})
 EXCLUDED=('knowledge/index/','frontend/public/config.js','docs/README_LEGACY.md')
 
 def main():

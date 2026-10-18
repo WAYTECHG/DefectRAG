@@ -1,5 +1,9 @@
 # Recall-oriented decision calibration
 
+**Follow-up:** the current default `macaroni-recall-v1` changes only Macaroni1/2
+to normal-q80. The q95 policy described below remains selectable and preserved.
+See [targeted recall update](MACARONI_RECALL_UPDATE.md).
+
 ## What changed
 
 The original maximum-held-out-normal threshold was too conservative for the
