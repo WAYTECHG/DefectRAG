@@ -254,7 +254,8 @@ class EvidenceWorkflow:
             validated=GeneratedAnswer.model_validate({'claims':claims})
             return {'raw_claims':[c.model_dump() for c in validated.claims],'mode':'llm','generation':generation,'trace':state['trace']+['generate']}
         except (httpx.HTTPError,ValueError,KeyError,TypeError,RuntimeError,ValidationError):
-            return {'raw_claims':[],'mode':'retrieval_only','error':'Local LLM unavailable or returned invalid JSON. Showing retrieved excerpts only.','trace':state['trace']+['generation_fallback']}
+            provider='Cloud LLM' if self.generator is not None else 'Local LLM'
+            return {'raw_claims':[],'mode':'retrieval_only','error':provider+' unavailable or returned invalid JSON. Showing retrieved excerpts only.','trace':state['trace']+['generation_fallback']}
 
     def validate_answer(self,state):
         sources={d['chunk_id']:d for d in state['evidence']}

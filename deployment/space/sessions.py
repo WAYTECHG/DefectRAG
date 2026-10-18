@@ -92,10 +92,14 @@ class SessionRepository:
             return StaffRepository(self.cloud_config,STAFF_TOKEN.get(),self.artifacts)
         return SQLiteRepository(self.directory / owner / 'inspection.sqlite3')
 
+    def local(self):
+        return SQLiteRepository(self.directory / NAMESPACE.get() / 'inspection.sqlite3')
+
     def decorate(self, record):
         if record is None:
             return None
         result = dict(record)
+        result.setdefault('storage','browser_session')
         for kind in ('image', 'heatmap', 'report'):
             if kind!='report' and result.get('storage')=='supabase' and result.get(kind+'_url','').startswith('https://'):
                 continue
@@ -106,7 +110,25 @@ class SessionRepository:
         return self.decorate(self.current().save(record))
 
     def get(self, identifier):
-        return self.decorate(self.current().get(identifier))
+        current=self.current()
+        record=current.get(identifier)
+        # Signing in must not invalidate this browser's earlier anonymous upload
+        # before its explicit Share with staff operation has copied it durably.
+        if record is None and self.cloud_config and STAFF_TOKEN.get():
+            record=self.local().get(identifier)
+        return self.decorate(record)
+
+    def messages(self,identifier):
+        current=self.current()
+        if self.cloud_config and STAFF_TOKEN.get() and current.raw(identifier) is None:
+            return self.local().messages(identifier)
+        return current.messages(identifier)
+
+    def add_conversation(self,identifier,question,answer):
+        current=self.current()
+        if self.cloud_config and STAFF_TOKEN.get() and current.raw(identifier) is None:
+            return self.local().add_conversation(identifier,question,answer)
+        return current.add_conversation(identifier,question,answer)
 
     def list(self, *args, **kwargs):
         return [self.decorate(row) for row in self.current().list(*args, **kwargs)]

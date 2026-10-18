@@ -18,7 +18,14 @@ await build({root:path.join(root,'frontend'),configFile:false,base:'./',
    .replace('Private on this device','Private browser session')
    .replaceAll('LOCAL DEVELOPMENT','LIVE CLOUD')
    .replace('The first request also loads the local encoder.','GPU jobs may wait for shared capacity and your available quota.')
-   .replaceAll('Local LLM · cited','Live LLM · cited')
+   .replaceAll('LOCAL LLM','LIVE LLM')
+   .replaceAll('RUNS LOCALLY','LIVE INSPECTION')
+   .replace('Local generation','Evidence generation')
+   .replace('Qwen via Ollama; retrieval fallback','Qwen in this Space; explicit retrieval fallback')
+   .replace('Saved in your local log','Saved in your current workspace')
+   .replace('Local workspace online','Browser workspace online')
+   .replace('This build is a single-user local workspace. A separate free static showcase is included. Public live inference requires an isolated API and per-user storage.','This cloud build isolates anonymous browser sessions. Staff records use the configured Supabase workspace when its persistence adapter is enabled. A separate static showcase and the local application remain preserved.')
+   .replace('Ollama / Qwen 2.5 3B','ZeroGPU / Qwen3 4B (cloud)')
    .replace('Retrieving evidence and validating a local answer…','Retrieving evidence and validating the answer…');
  }}]});
 // Config is supplied separately from the existing installation, never from .env.

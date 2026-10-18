@@ -6,9 +6,20 @@ import {fileURLToPath} from 'node:url';
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'../..');
 const cloud=process.argv.includes('--cloud'),target=cloud?'https://wizzas-defectrag.hf.space':'http://127.0.0.1:8784';
 const vision=JSON.parse(await fs.readFile(path.join(root,`development-support/space/phase2-${cloud?'cloud':'local'}.json`),'utf8'));
-const record=vision.cases.find(row=>row.name==='pcb1_anomalous.jpg').result;
+let record=vision.cases.find(row=>row.name==='pcb1_anomalous.jpg').result;
 const out=path.join(root,`development-support/space/phase3-${cloud?'cloud':'local'}.json`);
 let report;try{report=JSON.parse(await fs.readFile(out,'utf8'))}catch{report={target,inspection_id:record.id,answers:[]}}
+if(report.fresh_inspection)record=report.fresh_inspection;
+const headers={'X-DefectRAG-Session':vision.session};
+if((await fetch(target+'/api/inspections/'+record.id,{headers})).status===404){
+ // Rebuilding an ephemeral Space removes anonymous Phase 2 records. Make ONE
+ // new end-to-end inspection for the new RAG integration, never rerun all12.
+ const client=await Client.connect(target,{record_history:false,...(process.env.SPACE_HF_TOKEN?{token:process.env.SPACE_HF_TOKEN}:{})});
+ try{record=(await client.predict('/inspect',{image_b64:(await fs.readFile(path.join(root,'samples/pcb1_anomalous.jpg'))).toString('base64'),
+   filename:'pcb1_anomalous.jpg',category:'pcb1',batch:'RAG-INTEGRATION',session:vision.session,token:''})).data[0]}
+ finally{if(client.stream_instance)client.stream_instance.onerror=error=>{if(error?.name!=='AbortError')console.error(error)};client.close()}
+ report.inspection_id=record.id;report.fresh_inspection=record;await fs.writeFile(out,JSON.stringify(report,null,2));
+}
 const cases=[['measurement','Is this image anomalous?'],['generation','Explain what this heatmap shows and how I should read it.'],
  ['followup','Does that show a specific defect type?'],['unsupported','What caused it and how do I repair it?']];
 for(const [name,question]of cases){
@@ -28,7 +39,6 @@ for(const [name,question]of cases){
  report.answers.push({name,question,answer});await fs.writeFile(out,JSON.stringify(report,null,2));
  console.log(JSON.stringify({name,mode:answer.mode,answer:answer.answer,generation:answer.generation}));
 }
-const headers={'X-DefectRAG-Session':vision.session};
 const history=(await(await fetch(target+`/api/inspections/${record.id}/messages`,{headers})).json()).data;
 assert.ok(history.length>=8);
 report.status='passed';report.saved_turns=history.length;
