@@ -2,6 +2,25 @@
 
 ## Current implementation status — supersedes historical Phase 1 restrictions
 
+LATEST: user manually executed the reviewed SQL, then signed in themselves with
+an existing approved developer account. Phase4 durable inspection/conversation,
+notes, acknowledgment, signed reports/CSV/images and reversible recovery passed.
+Final phase5 Space commit3717008401fcf9c85612ce6d4c0c77b629c39f53 is RUNNING,
+staff_persistence_enabled=true. The same staff record, conversation and note
+survived the real deployment restart; a new contextual Qwen answer also passed.
+See ZEROGPU_PHASE4_RESULTS.md and the final Phase5 evidence. Agent executed no SQL.
+Authenticated nonstaff denial remains untested because the user has no such
+account; distinct ordinary-staff/second-user acceptance also remains unverified.
+Batch acceptance is quota-limited; pending images stop after a quota rejection.
+The earlier pending-SQL/disabled-persistence text below is historical.
+
+Final HF identity check: verified regular free Wizzas account. After the user
+signed into HF and staff inside its iframe, both Capsule images processed under
+the same batch label in successive one-image runs; the other staff session's CSV
+confirmed both durable records. Successful combined two-file submission is still
+not claimed. This resolves the guest-versus-authenticated GPU identity question
+without paid quota or public owner-token injection.
+
 The user authorized continuous Phases2–5. Phases2/3 now passed in the existing
 Space at commit a31f52b64c91b7d6dab34113bc17a5bfac37ff72. The same React dashboard
 is retained with byte-identical CSS, Gradio-client model calls and reused FastAPI

@@ -2,9 +2,10 @@
 
 Public application: https://wizzas-defectrag.hf.space
 
-Phases2/3 verified; staff backend remains disabled pending the user's manual SQL
-success confirmation. Read DEVELOPMENT_PROGRESS.md and docs/ZEROGPU_PHASE4_READINESS.md
-before publishing. No full release claim yet. Original UI, local application,
+Phases2/3 verified; Phase4 staff persistence is now enabled and live-tested after
+the user's manual SQL success confirmation. Final Phase5 deployment is hosted;
+read DEVELOPMENT_PROGRESS.md for quota/account acceptance limitations.
+Original UI, local application,
 static showcase, environments, models and benchmark results remain preserved.
 
 ## Existing local application (PowerShell)
@@ -34,8 +35,9 @@ $env:PORT='8784'
 
 Open http://127.0.0.1:8784. Local generation retains the existing Ollama path;
 the actual Qwen3-4B/ZeroGPU execution was verified in the cloud. The adapter stores
-development history separately under runtime/space-development. Never enable the
-staff backend or publish phase4 before the migration gate. Do not put secrets in
+development history separately under runtime/space-development. The reviewed
+migration gate has been satisfied for this existing project; do not bypass it for
+a different project or execute SQL on the user's behalf. Do not put secrets in
 public config; only existing project URL and publishable key belong there.
 
 Latest build/software-only checks do not consume GPU or modify Supabase:

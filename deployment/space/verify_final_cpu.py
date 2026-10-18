@@ -26,6 +26,8 @@ def main():
             if endpoint=='health':
                 checks[-1]['categories']=len(response.json()['data']['models'])
                 checks[-1]['zero_gpu']=response.json()['data']['zero_gpu']
+                checks[-1]['staff_persistence_enabled']=response.json()['data'].get('staff_persistence_enabled')
+                checks[-1]['passed'] &= checks[-1]['categories']==12 and checks[-1]['zero_gpu'] is True and checks[-1]['staff_persistence_enabled'] is True
         for endpoint in ('stats','inspections','alerts','archives','export.csv'):
             response=client.get(TARGET+'/api/'+endpoint)
             checks.append({'name':'workspace_required_'+endpoint,'passed':response.status_code==401,

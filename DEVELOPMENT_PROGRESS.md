@@ -1,4 +1,88 @@
+# Final public deployment checkpoint — 18 October 2026
+
+CORE PHASES2–5 MIGRATION DEPLOYED AND VERIFIED for the available developer account.
+Public: https://huggingface.co/spaces/Wizzas/DefectRAG
+Cloud commit3717008401fcf9c85612ce6d4c0c77b629c39f53, RUNNING, ZeroGPU,
+staff_persistence_enabled=true. Core code checkpoint53c48ce; this final documentation
+checkpoint is identified by Git HEAD and the Desktop sync receipt. Do not redeploy
+or repeat finished tests simply to resume. Source working tree should be clean
+after checkpoint commit; Desktop retains the user's two config/guide modifications.
+
+Verified final outcomes:
+- Same original React CSS SHA256 preserved, navigation/appearance/static/local
+  backups intact. Existing all12 benchmark metrics/models/calibrations unchanged.
+- Existing all12 local/cloud DINOv2 parity and genuine cited Qwen tests preserved;
+  no retraining or benchmark rerun. Latest13 CPU boundary checks passed.
+- User manually executed reviewed SQL and signed into existing developer account.
+  No agent SQL, schema/policy/account changes or service credentials used.
+- Both RPCs: approved developer success and anonymous401/42501 verified. Invalid
+  JWT403; missing workspace401. No existing nonstaff account available.
+- Actual PCB1 a6351615259d42868b766a004f5dd303 saved to Supabase, six conversation
+  turns including real contextual Qwen answer, exact note and acknowledged alert.
+- Same record, conversation, note, images, acknowledgment survived browser reload,
+  archive/developer restore and an actual Space deployment restart. Signed report,
+  CSV and both private Supabase images200 after restart.
+- Guest batch quota failure safely stopped pending submissions; old successes
+  retained. User then signed into HF Wizzas (regular FREE verified) and staff in
+  the embedded Space. Both unfinished Capsule images processed in successive
+  one-image runs under PHASE5-STAFF-BATCH; latest run1 completed/0 failed. Separate
+  staff browser session's signed export verified both durable IDs:
+  88b2489b5759419a9caad724ade0ae53 (Uncertain0.20549749),
+  ee823f7db3ae4a8fb687bb7b4d50896c (Good0.13208820). No duplicate model retries.
+- Captured final logs: queue/session/response-started/CUDA-init/OOM counts0;
+  bounded observation only. No local development or training jobs started.
+
+Remaining limits/next work (do not mislabel these as passed):
+1. Authenticated nonstaff RPC denial, ordinary-staff ownership/restore denial and
+   distinct second-user collaboration need real existing accounts. User reports
+   no nonstaff account. Do not create accounts or change allowlists without scope.
+2. Single-click successful combined two-file batch remains unverified; both files
+   actually succeeded as separate one-image submissions. Multi-file rejection and
+   quota-stop behavior plus scheduler software checks passed. Do not re-infer the
+   saved images just to repeat a completed individual case.
+3. Free quotas/cold starts/shared capacity remain; long-duration concurrent load
+   and broad reconnect campaigns were not run. No paid operation is authorized.
+4. Staff-submitted answers lack verified model provenance. Acknowledgment lacks
+   actor/timestamp. Existing stats/list/archive/export bounds remain documented.
+5. Anonymous history is temporary. Staff records are durable. HF GPU identity and
+   Supabase staff login are separate; embedded/direct app sessions can differ.
+
+Read docs/PUBLIC_APPLICATION_GUIDE.md, ZEROGPU_PHASE4_RESULTS.md and
+ZEROGPU_PHASE5_RESULTS.md. Sanitized evidence: docs/zerogpu_phase4 and
+docs/zerogpu_phase5_final. Private reports/logs/capabilities/confirmation stay in
+Git-ignored development-support/space; never publish that directory wholesale.
+No new large ZIP/model/environment/dataset copy was created. The hosted app stays
+running; no new model tasks should be initiated after this checkpoint.
+
+---
+
+## Superseded continuation notes (final checkpoint above takes precedence)
+
 # Active Phase 4/5 continuation — 18 October 2026
+
+LATEST: final public Space3717008401fcf9c85612ce6d4c0c77b629c39f53 RUNNING.
+Core Phase4/5 developer flow VERIFIED, including actual restart preservation and
+new Qwen contextual generation. Final CPU boundaries13/13 passed, staff enabled,
+CSS unchanged. Post-restart signed report/CSV/images200, six saved turns and
+acknowledgment persisted. See docs/ZEROGPU_PHASE4_RESULTS.md,
+docs/ZEROGPU_PHASE5_RESULTS.md and docs/PUBLIC_APPLICATION_GUIDE.md.
+
+Remaining active check: direct-browser batch0 successes hit guest quota; scheduler
+submitted only first image and marked second not submitted, preserving old data.
+User has now signed into both HF (Wizzas regular FREE verified) and Supabase staff
+inside the hosted iframe. Browser file-chooser automation failed twice across that
+iframe; no GPU work was submitted by those failed upload attempts. User is manually
+uploading ONLY capsules_good.jpg/capsules_anomalous.jpg to PHASE5-STAFF-BATCH.
+Await their submission confirmation, read the actual outcome, and record it.
+Do not re-run passed inspection/Qwen cases. No nonstaff account exists; real
+authenticated nonstaff/ordinary-staff/second-user role acceptance remains limited.
+
+After batch outcome: capture bounded final runtime/error summary, copy sanitized
+evidence, update this header, commit and sync Desktop via sync_code.ps1. Preserve
+existing config/guide hashes. No additional release ZIP, model copies or retraining.
+No local development/training jobs were started; hosted app remains running.
+
+## Continuation milestone details
 
 User explicitly confirmed successful manual SQL execution in the existing project.
 Private migration-confirmed.json records that confirmation and reviewed SQL hash.
@@ -42,6 +126,11 @@ Exact measured score0.31300604343414307, threshold0.16181933879852295, inference
 are copied into public evidence. Next: final consolidated phase5 deployment,
 verify this same durable record after restart, one bounded real two-image staff
 batch and final logs. Do not repeat the passed inspection/Qwen conversation.
+Phase5 published3717008401fcf9c85612ce6d4c0c77b629c39f53, runtime RUNNING. The
+same inspection, prior four conversation turns and exact note survived the real
+Space deployment restart; no re-inference/recreation was needed. Checking a new
+contextual question against persisted history, then one bounded batch. Existing
+anonymous session history remains intentionally ephemeral; only staff data durable.
 
 ## Prior verified checkpoint (SQL gate below superseded by confirmation above)
 
