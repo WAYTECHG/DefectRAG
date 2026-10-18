@@ -1,3 +1,19 @@
+# Macaroni follow-up diagnostic — 18 October 2026
+
+Read-only CPU check of saved real inference scores: Macaroni1/2 current q95 recall
+57%/48%, normal FPR1%/7%. Fixed normal q90 diagnostic gives recall76%/66%,
+precision86.36%/80.49%, normal FPR12%/16%. This diagnostic was NOT activated;
+public revision3e1bf17 and normal-q95-v1 policy remain unchanged. No GPU request,
+new model, training, downloads or database mutation. Review and bounded next
+research design saved in docs/MACARONI_RECALL_REVIEW.md. Authors' preprocessing
+code confirms rotations supported/enabled in agnostic VisA, disabled in informed;
+our adaptation omits rotations. Benefit here is unproven. Next: false-negative
+mask/heatmap audit, then one preregistered isolated preprocessing candidate if
+approved. Do not repeat completed baseline experiments or claim independent
+validation from the existing development-exposed official test set.
+
+---
+
 # Recall calibration deployed and verified — 18 October 2026
 
 COMPLETED: Hugging Face revision3e1bf17dcff9622b61b6f662af810348c8ab109e
