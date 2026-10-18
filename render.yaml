@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: defectrag-showcase
+    runtime: static
+    rootDir: frontend
+    buildCommand: npm ci && npm run build:showcase
+    staticPublishPath: dist-static

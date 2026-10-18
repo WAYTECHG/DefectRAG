@@ -1,0 +1,6 @@
+{
+  "source_commit": "9c44466c0d8b79e6dd93b110a94b6acd6b5e2bc4",
+  "files": 284,
+  "public_config_blank": true,
+  "excluded": "Git history, models, datasets, private runtime, environments, local evidence, secrets, build outputs"
+}
