@@ -1,5 +1,6 @@
 import {Client,closeClient} from './client.js';
 import {cloudConfigured, cloudClient} from '../../frontend/src/cloud.js';
+import {runBatch} from './batch_jobs.mjs';
 let workspace;
 let exportUrl='/api/export.csv';
 export function sessionKey(){
@@ -37,13 +38,10 @@ export async function spaceFetch(path,options={}){
       const body=options.body,category=body.get('category'),batch=body.get('batch')||'';
       const files=endpoint==='/api/batch'?body.getAll('files'):[body.get('file')];
       if(!files.length||files.length>20||(endpoint==='/api/batch'&&!batch.trim()))throw new Error('Choose 1–20 images and a batch label.');
-      const records=[],errors=[];
-      for(const file of files){
-        try{
+      const {records,errors}=await runBatch(files,async file=>{
           if(file.size>10*1024*1024)throw new Error('Image limit is 10 MB');
-          records.push(await queued('/inspect',{image_b64:await encode(file),filename:file.name,category,batch},token));
-        }catch(error){errors.push({filename:file.name,message:error.message})}
-      }
+          return await queued('/inspect',{image_b64:await encode(file),filename:file.name,category,batch},token);
+      });
       if(endpoint==='/api/inspect'){
         if(errors.length)throw new Error(errors[0].message);
         data=records[0];

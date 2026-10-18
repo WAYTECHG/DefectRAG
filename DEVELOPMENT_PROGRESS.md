@@ -1,4 +1,49 @@
-# Latest resumable checkpoint — 18 October 2026
+# Active Phase 4/5 continuation — 18 October 2026
+
+User explicitly confirmed successful manual SQL execution in the existing project.
+Private migration-confirmed.json records that confirmation and reviewed SQL hash.
+Agent did not execute SQL. Phase4 incremental deployment published as
+ebbcf47cdd1f87dcd7f94219fecaf7d5bac35db4 (13 changed files); startup/live staff
+acceptance still requires verification. Resume only unfinished staff/RPC/persistence
+and final stability checks. Do not rerun all12 model smoke tests or benchmarks.
+Source baseline5dea41f. Preserve user config/guide and existing database records.
+
+Phase4 first live checks PASSED: both RPCs deny anonymous caller401/42501 (not
+missing functions); public CPU/API/assets checks13/13 passed, unchanged CSS,
+12 categories, ZeroGPU=true, missing workspace401 and invalid staff JWT403.
+Cloud startup RUNNING, captured missing-session errors0. No staff login yet;
+await user's sign-in at the existing #team page. Do not claim staff persistence,
+RPC success or nonstaff authenticated denial before actual account tests.
+Investigated official HF quota docs: guest2min/day, free account5min/day, resets
+24h after first GPU use. Supabase login and HF GPU identity are separate. Prepared
+small batch transport fix stops pending submissions after quota error and retains
+successful results; it does not increase quota or auto-retry. Tests use fixtures,
+not GPU. Keep these changes for the next consolidated deployment after staff tests.
+
+Phase4 staff milestone: approved existing developer signed in themselves. Genuine
+PCB1 inspection a6351615259d42868b766a004f5dd303, score0.3130/threshold0.1618,
+Anomalous, displayed666ms, saved directly to Supabase (visible in Staff workspace).
+Measurement answer and real LIVE LLM CITED heatmap answer succeeded, exercising
+the conversation append RPC. Continue notes, acknowledgement, reload/report,
+archive/recovery and post-deployment restart preservation on this same record.
+User confirms no existing nonstaff account: authenticated nonstaff denial remains
+unverified; no account is created. Avoid repeated GPU work on this passed case.
+Staff milestone2 PASSED: exact note saved through existing staff_notes RLS,
+acknowledgement RPC changed queue to0 pending/Acknowledged, full browser reload
+retained the shared inspection, both answers (four turns), images and exact note.
+Testing reversible archive/developer recovery only on the single owned fixture;
+no pre-existing staff records were present or modified.
+Staff milestone3 PASSED: owned fixture archived then restored through developer
+recovery; exact note, four conversation turns and both private images retained.
+Main dashboard history reopened the shared record. Signed CSV/report returned200,
+report storage=supabase and alert acknowledged=True; both signed Supabase images200.
+Exact measured score0.31300604343414307, threshold0.16181933879852295, inference
+666.43ms on CUDA. Private phase4-staff-artifacts.json/report/export saved. No tokens
+are copied into public evidence. Next: final consolidated phase5 deployment,
+verify this same durable record after restart, one bounded real two-image staff
+batch and final logs. Do not repeat the passed inspection/Qwen conversation.
+
+## Prior verified checkpoint (SQL gate below superseded by confirmation above)
 
 Phases 2 and 3 VERIFIED. Phase 4 prepared but disabled; Phase 5 partially verified.
 Latest user answer: **SQL not executed yet**. Do not execute SQL or perform staff

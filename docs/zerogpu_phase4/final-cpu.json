@@ -1,0 +1,72 @@
+{
+  "status": "passed",
+  "checks": [
+    {
+      "name": "css_preserved",
+      "passed": true,
+      "sha256": "087e3c48084e6752afdd5667f4ad43b22bd240038b904dc746f51b90b0732661"
+    },
+    {
+      "name": "health",
+      "passed": true,
+      "status": 200,
+      "categories": 12,
+      "zero_gpu": true
+    },
+    {
+      "name": "models",
+      "passed": true,
+      "status": 200
+    },
+    {
+      "name": "evaluation",
+      "passed": true,
+      "status": 200
+    },
+    {
+      "name": "benchmark/official",
+      "passed": true,
+      "status": 200
+    },
+    {
+      "name": "samples",
+      "passed": true,
+      "status": 200
+    },
+    {
+      "name": "workspace_required_stats",
+      "passed": true,
+      "status": 401
+    },
+    {
+      "name": "workspace_required_inspections",
+      "passed": true,
+      "status": 401
+    },
+    {
+      "name": "workspace_required_alerts",
+      "passed": true,
+      "status": 401
+    },
+    {
+      "name": "workspace_required_archives",
+      "passed": true,
+      "status": 401
+    },
+    {
+      "name": "workspace_required_export.csv",
+      "passed": true,
+      "status": 401
+    },
+    {
+      "name": "invalid_staff_token_stats",
+      "passed": true,
+      "status": 403
+    },
+    {
+      "name": "invalid_staff_token_inspections",
+      "passed": true,
+      "status": 403
+    }
+  ]
+}

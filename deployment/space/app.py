@@ -212,7 +212,8 @@ def assistant(inspection_id: str, question: str, session: str, token: str='') ->
 def health():
     return {'data':{'status':'ok','mode':'cloud_session_workspace','models':list(CARDS.values()),
         'encoder_configured':True,'llm_model':'Qwen3-4B-Instruct-2507' if WORKFLOW and ZERO else 'Qwen2.5:3b (local Ollama)' if WORKFLOW else 'generation migration in progress','zero_gpu':ZERO,
-        'history':'anonymous browser history is temporary; staff workspace uses Supabase'}}
+        'staff_persistence_enabled':CLOUD_CONFIG is not None,
+        'history':'anonymous browser history is temporary; signed-in approved staff use Supabase' if CLOUD_CONFIG else 'anonymous browser history is temporary; staff backend disabled'}}
 
 
 def artifact(identifier: str,kind: str):

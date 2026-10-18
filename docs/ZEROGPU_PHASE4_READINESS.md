@@ -1,5 +1,13 @@
 # Phase 4 readiness — 18 October 2026
 
+UPDATE: user confirmed successful manual SQL execution. Agent did not execute SQL.
+Phase4 deployed to ebbcf47cdd1f87dcd7f94219fecaf7d5bac35db4; runtime RUNNING.
+Both anonymous RPC calls denied401/42501, and13 CPU deployment boundary checks
+passed. User signed in with an existing approved developer account; live staff
+acceptance is in progress. User confirms no nonstaff account is available, so
+authenticated nonstaff RPC denial remains an explicit acceptance limitation.
+The historical pending-SQL notes below are superseded by this update.
+
 Status: prepared in source, **disabled in the deployed Space**. User confirmed the
 reviewed SQL has NOT been executed. No migration, staff RPC test, account creation,
 schema/policy/storage modification or authenticated database write was performed.
