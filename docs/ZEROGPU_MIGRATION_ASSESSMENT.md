@@ -1,3 +1,18 @@
+# Targeted Macaroni policy follow-up — 18 October 2026
+
+Existing architecture/UI preserved. User requested Macaroni1/2 recall improvement
+with minimal compute and accepts more false alarms. The separate normal-q80
+policy changes only these two products; other10 q95 cards remain identical.
+Public revision3b68268a582dce6ad731e5a362988eb6d1d9b99e verified via public
+model/evaluation endpoints and visible React table. Recall85%/80%, precision
+77.98%/74.07%, normal FPR24%/28% on previously seen official test scores.
+66 backend tests,6 frontend tests and both builds passed. No new GPU request,
+training, download, schema/data mutation or paid service. Original assets/results
+and all historical decisions preserved. The change improves operating recall,
+not AUROC. See [targeted policy, limitations and rollback](MACARONI_RECALL_UPDATE.md).
+
+---
+
 # Decision calibration follow-up — 18 October 2026
 
 The existing architecture and React styling are preserved. The user approved a

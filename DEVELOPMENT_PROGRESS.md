@@ -1,3 +1,27 @@
+# Targeted Macaroni update completed and hosted — 18 October 2026
+
+COMPLETED: public revision3b68268a582dce6ad731e5a362988eb6d1d9b99e serves
+macaroni-recall-v1. Public model/evaluation endpoints exactly match the new
+manifest for all12 products; the other10 cards match previous q95 without changes.
+Browser verified Macaroni1 recall0.850/precision0.780 and Macaroni2 recall0.800/
+precision0.741. Visible policy warns of normal false alarms24%/28%. Proof saved
+at docs/assets/macaroni-recall.png. UI design/CSS/navigation preserved.
+Desktop code/local frontend synchronized throughb74bc3b; selected policy checked
+with existing Desktop .env. Personal Supabase config and personal guide hashes
+preserved. Restart an existing local backend to apply the new policy.
+66 backend tests +6 frontend tests and both builds passed. No new inference,
+training, GPU experiment, model download, paid service or database mutation.
+All original assets/results/history/static showcase preserved. This is threshold
+calibration with higher review load, not better AUROC or independent validation.
+No local training/test/development-server job remains running from this task.
+Final small documentation/proof checkpoint and existing GitHub source export
+should be synced/refreshed in place; private receipts record exact source commit.
+Future model research remains optional, not automatically started. Do not repeat
+completed inference or refit banks. Rollback DEFECTRAG_CALIBRATION=normal-q95-v1
+(previous policy) or normal-max-v1 (original), then restart backend/Space.
+
+---
+
 # Macaroni-only recall improvement — 18 October 2026
 
 User authorized targeted Macaroni1/2 recall improvement with minimal compute.
