@@ -1,5 +1,24 @@
 # Answer focus, brand and GitHub publication preparation — 18 October 2026
 
+COMPLETED: code checkpoint59b61d11a008c70cc9df9d68f557ee8c6f8b6739, synced to
+Desktop with rebuilt LOCAL frontend and both personal config/guide hashes intact.
+Cloud b715fbf7b7d6237e9677550bda8dce02ce54ccb4 RUNNING; visible About/logo/RAG/
+objective metrics heading verified. Source-only GitHub export is prepared at
+C:\Users\User\Desktop\DefectRAG-v2\development-support\github-ready\DefectRAG.
+Manifest275 source/public files plus export receipt,11.76MB, blank public config,
+no Git history/models/datasets/private runtime/environments/build outputs. Known
+credential-pattern scan passed. No GitHub repository was created or pushed.
+README includes SVG hero/version badges/Mermaid diagram/actual dashboard preview.
+All original model/evaluation files and static showcase backup remain preserved.
+38 answer/API tests +6 frontend tests and both builds passed. No active local
+development/training process was initiated. Existing local server needs restart
+to load changed Python code; do not stop unrelated user processes automatically.
+Further work is optional validation-based recall calibration (no test tuning),
+previous role/load acceptance gaps, and a fresh live answer check when a staff
+session is available. Do not repeat completed model experiments or asset downloads.
+
+### Completion details and earlier preparation notes
+
 LATEST: b715fbf7b7d6237e9677550bda8dce02ce54ccb4 RUNNING. Public About/new
 logo, explicit RAG copy and objective evaluation heading verified in browser.
 38 answer/API regressions and6 frontend tests passed; both builds passed, CSS
