@@ -1,7 +1,8 @@
 # Live multi-user verification — 19 October 2026
 
-Deployment: `49463314b49e9a7407b80e4a18cbe3b5a85062d1`, source checkpoint
-`7d636ac`, Hugging Face `Wizzas/DefectRAG`, free `zero-a10g`.
+Final running deployment: `13af0e1cb002386ade5849739f4bd28c5736f341`, source
+checkpoint `e28f8c6`, Hugging Face `Wizzas/DefectRAG`, free `zero-a10g`.
+Initial compatible deployment was `49463314b49e9a7407b80e4a18cbe3b5a85062d1`.
 The owner manually executed the reviewed personal migration. No SQL was executed
 by the agent. No retraining, new model assets, UI redesign or dependency changes.
 
@@ -53,9 +54,15 @@ Verified live on the new QA record:
 | Duplicate share | Repeating Share returned Already shared; Team remained four records. |
 | Shared collaboration | A separate QA staff note and team review loaded in a second tab. The owner-only review remained separate. |
 | Personal archive/restore | A filter selecting only the QA batch archived one private record. Recovery showed one archived record; restore returned it with conversation/review intact. The team copy stayed active. |
+| Team alert | The QA team alert was independent of the already acknowledged personal alert. The migrated staff acknowledgement RPC changed only that QA team alert from pending to acknowledged. |
+| Separate totals | Personal overview showed one anomalous inspection. Team showed four inspections: one Good and three Anomalous. Neither included public-gallery counts. |
+| Personal-source gallery lifecycle | Publish required an unchecked consent control to be enabled. An independent guest read the new snapshot with matching real measurements and redacted JPEG previews. UI withdrawal hid only that QA publication; its public detail returned 404 and the original two gallery entries remained visible. |
+| Team archive/restore | The QA batch filter selected one team copy. Archive removed only that copy; developer recovery restored it. The personal original remained active, and the three older archived records were left archived and untouched. |
+| Final deployment restart | Both owner tabs reloaded the final frontend. Private measurements, conversation, review, acknowledgement and images survived. The final report/known-guest checks passed 16/16 again, and activated public checks passed 19/19. |
+| UI corrections | The final served entry was `index-DCyhJBD5.js`; the stylesheet remained `index-Bn4HF2vD.css`. Ordinary history clicks worked after reload. Staff context correctly identified Team, hid the unrelated selector, and the Team archive modal named the correct scope and recovery permissions. |
+| Final UI receipt | Eight final UI checks passed: personal archive/recovery wording, correct Staff scope, restored team count, retained team note/review, excluded private review and excluded default conversation. The personal dialog was cancelled without another archive. |
 
-The gallery personal-source publication/withdrawal check and final deployment
-regression are still being completed. Existing rows were not altered during
+Final deployment regression passed for these recorded flows. Existing rows were not altered during
 these tests. Only the newly labelled QA record and its explicit team copy were
 used for mutation checks.
 
@@ -71,17 +78,60 @@ Background polling also remounted Gallery, Filters and Table because they were
 declared as component functions inside App. This can discard a click/focus during
 refresh; the history row needed a keyboard action during testing. These three
 small components now have stable module-level identities with explicit props.
-Their markup and behavior are preserved. Final build/deployment verification is
-pending; these fixes do not change any backend model or database policy.
+Their markup and behavior are preserved. All 20 frontend tests and all three
+builds passed with unchanged CSS. The UI follow-up was published as Space commit
+`13af0e1cb002386ade5849739f4bd28c5736f341` from source checkpoint `e28f8c6`.
+It changed only three frontend files (346,848 bytes), retained the enabled flag
+and did not upload models or delete files. The final Space is RUNNING on the
+recorded revision, and live health confirms personal mode enabled.
 
 ## Coverage limits
 
-No second actual approved staff account or authenticated non-staff account has
-been supplied. Anonymous and invalid-token denials are verified; they do not
+Only the existing approved developer-role account was available. No second actual
+approved staff account or authenticated non-staff account has been supplied.
+Anonymous and invalid-token denials are verified; they do not
 prove authenticated cross-owner RLS. No project administrator impersonation,
 staff membership changes or direct database-policy tests were performed.
 Free ZeroGPU quotas and cold-start capacity remain platform constraints.
+Direct inspection of audit-table actor/time values, authenticated cross-owner
+storage reads, the conversation-inclusion opt-in branch and a fresh guest-to-personal
+import were not performed live in this run. They have source/software coverage
+where documented; no live pass is claimed. Owner CSV download was not exercised
+through the browser; the fresh guest CSV exclusion check passed.
+One vision job and one live Qwen answer succeeded in this run; quota exhaustion
+and peak concurrency were not deliberately provoked. Browser offline transitions
+and interrupted transfers have local software coverage, not a newly induced live
+network failure. Pending batch-file recovery remains browser/device-local.
+Some automated pointer actions in the narrow browser viewport did not dispatch
+and required keyboard fallback. Stable component identities address unnecessary
+polling remounts, but these observations do not prove every pointer issue was
+caused by remounting or fully resolved. Keyboard actions worked; an additional
+manual touch/pointer regression pass across viewports remains useful.
+
+The new QA inspection and its team copy are retained for traceability. The QA
+gallery snapshot is withdrawn rather than deleted; it still counts toward the
+configured lifetime gallery/publisher caps. Existing published entries were not
+withdrawn or moderated. No hard-delete or database-policy change was performed.
 
 Signed preview/report URLs are bearer capabilities until their bounded expiry;
 already downloaded copies cannot be recalled. Model provenance remains
 unattested, and this is benchmark screening rather than factory acceptance.
+
+## Operational result and resuming
+
+The application is deployed and active for the verified owner/guest demo flows.
+Remaining multi-account and failure-mode checks prevent claiming a complete
+production security certification. Keep the current SQL and setting; do not run
+the versioned migration again. No pending inference/training job remains.
+
+Resume optional acceptance work with a separately authorized regular staff and
+authenticated non-staff test account when available. Do not create memberships,
+weaken RLS or obtain credentials from browser storage to fill that coverage gap.
+Use only new labelled QA fixtures. No completed benchmark needs repeating.
+
+Private receipts: `personal-compatibility-published.json`,
+`personal-compatibility-public.json`, `personal-enabled-public.json`,
+`personal-owner-artifacts.json`, `personal-gallery-lifecycle.json`,
+`personal-ui-followup-published.json`, `personal-final-ui.json`, `personal-live-inspection.png` under
+`development-support/space`. Authorized report links remain in ignored private
+files and must never be committed or published.

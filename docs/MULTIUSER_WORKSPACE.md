@@ -117,12 +117,15 @@ been executed against the live project by the agent.
 **Current decision:** the user subsequently confirmed successful manual migration
 execution and authorized deployment/testing. The prior withheld approval is
 superseded. Compatible source checkpoint `7d636ac` is deployed as Space commit
-`49463314b49e9a7407b80e4a18cbe3b5a85062d1`; personal activation is still pending.
+`49463314b49e9a7407b80e4a18cbe3b5a85062d1`; personal activation is now complete.
 Legacy staff history (three existing records), both public gallery snapshots and
 the exact stylesheet survived deployment. All 18 initial public/anonymous checks
 passed, including denials on the three new personal tables and five tested RPCs.
-These are live checks, separate from earlier software tests; owner-account and
-new-scope E2E remain unfinished until activation. No agent SQL execution occurred.
+These are live checks, separate from earlier software tests. Live health confirms
+`DEFECTRAG_PERSONAL_WORKSPACE=1`. Owner inspection, Qwen conversation, reviews,
+alerts, explicit sharing, duplicate sharing, personal recovery and a personal-source
+gallery lifecycle passed. See [the live verification report](MULTIUSER_LIVE_VERIFICATION.md)
+for evidence and outstanding coverage. No agent SQL execution occurred.
 
 1. Owner manually executes the reviewed migration; confirm success here.
 2. Deploy the compatible application, verify legacy team/gallery access first.

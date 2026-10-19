@@ -1,3 +1,68 @@
+# Personal workspace LIVE; acceptance checkpoint — 19 October 2026
+
+Final public Space RUNNING at13af0e1cb002386ade5849739f4bd28c5736f341 on free
+zero-a10g; source code checkpoint e28f8c6. DEFECTRAG_PERSONAL_WORKSPACE=1 is
+confirmed by live health. User executed reviewed SQL manually. Agent executed
+no SQL, changed no policies, staff membership, secret or hardware.
+
+VERIFIED LIVE: compatible deployment preserved React CSS/design,12 model
+profiles, original3 active staff records,3 old archived records and2 gallery
+entries. One new genuine PCB1 owner inspection saved privately (DINOv2 score
+0.3130060434, threshold0.1414354295,747.28ms inference) with original/heatmap.
+One live cited Qwen heatmap answer, private review and alert acknowledgement
+persisted. Same-account second tab received updates; all evidence survived the
+final Space restart and browser reload. Owner report and signed private images
+loaded. Personal/team totals were1 and4, separate from public-gallery counts.
+
+Explicit sharing created exactly one team copy, excluded private conversation/
+review by default, and duplicate share returned Already shared without duplication.
+Separate team note/review and the new team alert acknowledgement worked. Both
+Personal and Team filtered QA archive/restore passed; each preserved the other
+scope and left all pre-existing active/archived records untouched.
+
+Gallery personal-source lifecycle passed: explicit unchecked-by-default consent,
+independent guest read with matching measurements/redacted JPEGs, UI withdrawal,
+404 public detail afterward, original2 entries still visible. New QA private and
+team records remain active for traceability. The withdrawn QA gallery row remains
+hidden and counts against lifetime publication caps; no deletion was performed.
+
+Final live public/anonymous19/19 and owner-report/known-record guest-denial16/16
+checks passed. Anonymous new tables/RPCs return permission denials, guests cannot
+enter Team or access known private records/artifacts/messages/reviews, invalid
+tokens do not become guests, guest CSV excludes private records.
+
+Live testing found and fixed misleading archive/scope copy and nested component
+remounts during polling. Stable Gallery/Filters/Table identities, corrected Staff
+context and scoped archive wording were deployed in a frontend-only follow-up
+(3 files,346848 bytes). Final frontend20/20 and local/cloud/static builds passed.
+Original CSS asset index-Bn4HF2vD.css stayed identical; final JS index-DCyhJBD5.js
+was verified in browser. Earlier backend51/51 focused result remains valid;
+no backend changes were made for this final UI-only follow-up.
+Eight final UI checks also passed, including both scoped archive wordings and
+restored Team notes/review. The last dialog was cancelled without another write.
+
+LIMITATIONS / NEXT OPTIONAL TESTS: only the approved developer-role account was
+available; no real second staff, regular staff-role or authenticated non-staff
+cross-owner E2E was run. No forced live outage, quota exhaustion, audit-table
+actor/time inspection, opt-in conversation team copy, new guest import or owner
+browser CSV download was performed. Local software/source coverage is recorded
+separately; do not label these live passes. Free GPU capacity/quotas and temporary
+guest history remain constraints. Pending batch files stay browser/device-local.
+Signed URLs are temporary bearer capabilities; model provenance is unattested.
+Some narrow-viewport automated pointer actions required keyboard fallback;
+not every pointer issue was proven resolved. Manual multi-viewport checking is
+still useful. The live app tab remains open; the extra test tab was closed.
+
+See docs/MULTIUSER_LIVE_VERIFICATION.md for the complete evidence matrix and
+private receipt filenames. No retraining, model/dataset changes, paid service,
+GitHub push, destructive database action or active inference/training job.
+DO NOT rerun SQL or completed experiments. Keep existing feature configuration.
+Resume unperformed account/failure checks only with appropriate accounts and
+authorization. This checkpoint supports the verified demo workflows; it is not
+a complete production-security certification.
+
+---
+
 # Personal workspace active; owner E2E in progress — 19 October 2026
 
 Compatible cloud commit49463314 is now active with
