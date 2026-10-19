@@ -36,10 +36,10 @@ setup notice. Desktop synchronized, key and generated SQL prepared privately.
 GitHub checkout was clean at940578e;29 allowlisted files prepared without staging
 or push. Targeted final gallery19/19 passed after UUID validation tightening.
 Final UI polish published as46e957e3b0ba022ef92bd40e3a261a37a8c7b8ab;
-HF reported RUNNING_APP_STARTING while old d49c762 remained responsive.
+Final HF runtime verified RUNNING on46e957e3 with free zero-a10g hardware.
 Source/Desktop checkpoint652889d,29 GitHub files prepared, no push.
 Temporary preview PID8372 stopped; agent-created test tabs closed.
-REMAINING: confirm final HF runtime, user manual SQL execution and two HF
+REMAINING: user manual SQL execution and two HF
 settings; then hosted write tests. Do not repeat completed model experiments. After manual
 SQL/settings confirmation, test real hosted anonymous publication, independent
 visitor reading, authorization denial and withdrawal; new SQL is not yet verified
