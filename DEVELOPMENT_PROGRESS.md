@@ -24,6 +24,12 @@ An initial test invocation selected a nonexistent test filename and collected no
 tests; corrected invocation above passed. No running jobs remain at checkpoint.
 Reviewed SQL hash below is unchanged. Application config, dataset, models,
 evaluation results, gallery and hosted application are preserved.
+Code/test checkpoint: f7e5272, synchronized to Desktop. GitHub-ready source copy
+refreshed safely; no staging, push or deployment. Windows Desktop migration has
+CRLF newlines and byte hash DFBF13A85CDEF3688D4854C1415DC3B732161152D1BE9EBE5A7A3A80A740B96D;
+the source LF hash remains63e561bd234294286c6fc65b075ea130e9c021d60cf164ebf13d74a7c1f13ca1.
+Full content equality after CRLF/LF normalization was verified. Neither SQL copy
+was modified. Preserve their existing line endings during review.
 
 ---
 

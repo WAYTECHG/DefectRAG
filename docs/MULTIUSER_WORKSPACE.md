@@ -190,3 +190,11 @@ The exact reviewed SQL and its SHA-256 above remain unchanged. Actual live RLS,
 same-account persistence across sessions, second-account isolation and hosted
 personal/team synchronization still require approved migration and later E2E
 verification. Current production does not yet provide the new personal history.
+
+Code/test checkpoint: `f7e5272`, synchronized to Desktop; prepared GitHub files
+were refreshed without staging or pushing. The source SQL hash above uses LF
+newlines. The existing Desktop CRLF copy has byte SHA-256
+`DFBF13A85CDEF3688D4854C1415DC3B732161152D1BE9EBE5A7A3A80A740B96D`.
+The complete contents compare equal after normalizing CRLF/LF; neither copy was
+edited. This distinction prevents a Windows newline conversion being mistaken
+for a changed migration. Keep the existing copies unmodified while awaiting review.
