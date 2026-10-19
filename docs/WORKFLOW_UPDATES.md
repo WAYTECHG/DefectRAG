@@ -1,3 +1,13 @@
+Personal/team upgrade is now live: see [MULTIUSER_WORKSPACE.md](MULTIUSER_WORKSPACE.md)
+and [the live verification report](MULTIUSER_LIVE_VERIFICATION.md). The owner
+manually executed the reviewed migration and the personal flag is enabled.
+Do not rerun that versioned SQL. The older workflow test results below are retained
+as historical evidence; the linked live report records the current deployment
+and distinguishes actual checks from unperformed multi-account tests.
+
+Community gallery follow-up: see [COMMUNITY_GALLERY.md](COMMUNITY_GALLERY.md).
+The allowlisted updater now also includes the opt-in gallery and manual SQL setup.
+
 # Inspection workflow update — 19 October 2026
 
 ## Changes
@@ -64,7 +74,7 @@ For a different existing clone:
 .\deployment\Update-GitHub.ps1 -RepositoryPath 'C:\path\to\DefectRAG'
 ```
 
-The script copies/stages exactly the22 paths in WORKFLOW_UPDATE_FILES.txt. It checks
+The script copies/stages exactly the39 paths in WORKFLOW_UPDATE_FILES.txt. It checks
 the existing origin is WAYTECHG/DefectRAG, preserves conflicting local edits, and
 never commits or pushes automatically. It also refuses an already staged change
 set so unrelated work cannot be included accidentally. Inspect the staged changes

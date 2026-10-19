@@ -1,8 +1,8 @@
 import {Client,closeClient} from './client.js';
 import {cloudConfigured, cloudClient} from '../../frontend/src/cloud.js';
 import {runBatch} from './batch_jobs.mjs';
+import {activeWorkspace} from '../../frontend/src/workspace.mjs';
 let workspace;
-let exportUrl='/api/export.csv';
 export function sessionKey(){
   if(workspace)return workspace;
   try{workspace=localStorage.getItem('defectrag-private-workspace')}catch{}
@@ -12,23 +12,21 @@ export function sessionKey(){
   }
   return workspace;
 }
-export const spaceUrl=path=>{
- const requested=new URL(path,location.origin);
- if(requested.pathname!=='/api/export.csv')return path;
- const target=new URL(exportUrl,location.origin);
- requested.searchParams.forEach((value,key)=>target.searchParams.set(key,value));
- return target.pathname+target.search;
-};
+// API downloads use the current authenticated scope, not an older CSV capability.
+export const spaceUrl=path=>path;
 async function credentials(){
   if(!cloudConfigured())return '';
   const client=await cloudClient();
-  return (await client.auth.getSession()).data.session?.access_token||'';
+  const {data,error}=await client.auth.getSession();
+  if(error)throw new Error('Account session could not refresh. Reconnect or sign in again.');
+  if(data.session?.expires_at&&data.session.expires_at*1000<Date.now())throw new Error('Account session expired. Sign in again.');
+  return data.session?.access_token||'';
 }
-export async function queued(endpoint,data,token=''){
+export async function queued(endpoint,data,token='',workspace=activeWorkspace()){
   // A fresh client belongs to one job. Close it deterministically; never retain
   // an idle result-stream session across subsequent jobs or page transitions.
   const client=await Client.connect(location.origin,{record_history:false});
-  try{return (await client.predict(endpoint,{...data,session:sessionKey(),token})).data[0]}
+  try{return (await client.predict(endpoint,{...data,session:sessionKey(),token,workspace})).data[0]}
   finally{closeClient(client)}
 }
 const encode=file=>new Promise((resolve,reject)=>{
@@ -36,9 +34,11 @@ const encode=file=>new Promise((resolve,reject)=>{
   reader.onerror=()=>reject(new Error('Image could not be read'));reader.readAsDataURL(file);
 });
 export async function spaceFetch(path,options={}){
+  const workspace=activeWorkspace();
   const endpoint=new URL(path,location.origin).pathname;
   try{
-    const token=await credentials();
+    const publicRead=(!options.method||options.method==='GET')&&(/^\/api\/(health|models|evaluation|samples|gallery)(\/|$)/.test(endpoint)||endpoint==='/api/benchmark/official');
+    const token=publicRead?'':await credentials();
     let data;
     if(options.method==='POST'&&['/api/inspect','/api/batch'].includes(endpoint)){
       const body=options.body,category=body.get('category'),batch=body.get('batch')||'';
@@ -46,20 +46,20 @@ export async function spaceFetch(path,options={}){
       if(!files.length||files.length>20||(endpoint==='/api/batch'&&!batch.trim()))throw new Error('Choose 1–20 images and a batch label.');
       const {records,errors}=await runBatch(files,async file=>{
           if(file.size>10*1024*1024)throw new Error('Image limit is 10 MB');
-          return await queued('/inspect',{image_b64:await encode(file),filename:file.name,category,batch,request_id:body.get('request_id')||''},token);
+          return await queued('/inspect',{image_b64:await encode(file),filename:file.name,category,batch,request_id:body.get('request_id')||''},token,workspace);
       });
       if(endpoint==='/api/inspect'){
         if(errors.length)throw new Error(errors[0].message);
         data=records[0];
       }else data={records,errors,batch};
     }else if(options.method==='POST'&&endpoint==='/api/assistant'){
-      data=await queued('/assistant',JSON.parse(options.body),token);
+      data=await queued('/assistant',JSON.parse(options.body),token,workspace);
     }else{
       const headers=new Headers(options.headers||{});
       headers.set('X-DefectRAG-Session',sessionKey());
+      headers.set('X-DefectRAG-Workspace',workspace);
       if(token)headers.set('Authorization','Bearer '+token);
       const response=await fetch(path,{...options,headers});
-      if(response.headers.get('X-DefectRAG-Export'))exportUrl=response.headers.get('X-DefectRAG-Export');
       return response;
     }
     return Response.json({data});
