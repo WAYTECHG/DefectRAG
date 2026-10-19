@@ -4,6 +4,14 @@ import {fileURLToPath,pathToFileURL} from 'node:url';
 const folder=path.dirname(fileURLToPath(import.meta.url)),root=path.resolve(folder,'../..');
 const {build}=await import(pathToFileURL(path.join(root,'frontend/node_modules/vite/dist/node/index.js')));
 const output=path.join(root,'development-support/space/ui-dist');
+// Vite copies public/config.js, which is deliberately blank in source control.
+// Preserve installed public settings before building; never read secrets from .env.
+const publicConfigFile=process.env.DEFECTRAG_PUBLIC_CONFIG_FILE;
+const preservedConfig=await fs.readFile(publicConfigFile||path.join(output,'config.js'),'utf8').catch(error=>{
+ if(publicConfigFile)throw error;
+ return 'window.DEFECTRAG_PUBLIC_CONFIG = {supabaseUrl:"",supabasePublishableKey:""};\n';
+});
+if(publicConfigFile&&!preservedConfig.includes('sb_publishable_'))throw new Error('Expected the existing Supabase public configuration.');
 await build({root:path.join(root,'frontend'),configFile:false,base:'./',
  resolve:{alias:{'@gradio/client':path.join(root,'deployment/zerogpu_phase1/client/node_modules/@gradio/client/dist/index.js')}},
  build:{outDir:output,emptyOutDir:false},plugins:[{name:'space-transport',enforce:'pre',transform(code,id){
@@ -38,6 +46,5 @@ await build({root:path.join(root,'frontend'),configFile:false,base:'./',
    .replace('Retrieving evidence and validating a local answer…','Retrieving evidence and validating the answer…');
  }}]});
 // Config is supplied separately from the existing installation, never from .env.
-const config=process.env.DEFECTRAG_PUBLIC_CONFIG_FILE;
-if(config)await fs.copyFile(config,path.join(output,'config.js'));
+await fs.writeFile(path.join(output,'config.js'),preservedConfig);
 console.log('Space build saved separately; original CSS and both existing builds preserved.');

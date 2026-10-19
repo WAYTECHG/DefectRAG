@@ -4,6 +4,7 @@ backend/reviews.py
 backend/inspection_requests.py
 deployment/space/app.py
 deployment/space/build_ui.mjs
+deployment/space/publish.py
 deployment/space/sessions.py
 deployment/space/supabase_repository.py
 deployment/space/transport.js

@@ -64,7 +64,7 @@ For a different existing clone:
 .\deployment\Update-GitHub.ps1 -RepositoryPath 'C:\path\to\DefectRAG'
 ```
 
-The script copies/stages exactly the21 paths in WORKFLOW_UPDATE_FILES.txt. It checks
+The script copies/stages exactly the22 paths in WORKFLOW_UPDATE_FILES.txt. It checks
 the existing origin is WAYTECHG/DefectRAG, preserves conflicting local edits, and
 never commits or pushes automatically. It also refuses an already staged change
 set so unrelated work cannot be included accidentally. Inspect the staged changes
@@ -82,5 +82,10 @@ Regression coverage includes delayed cross-inspection answers and record loads,
 quota interruption/resume, stable IDs, filtered exports, review validation/audit,
 report escaping and preserved model measurements. Real inference verification is
 reported separately from software fixtures. No model retraining is part of this update.
+
+The Space builder preserves its installed public Supabase configuration across
+Vite builds. For an initial build, set DEFECTRAG_PUBLIC_CONFIG_FILE to the existing
+public config.js. Publishing a staff-enabled build rejects blank example settings
+before uploading. No secret key or database password belongs in that file.
 
 ![Human review controls within the existing dashboard](assets/workflow-review.png)
