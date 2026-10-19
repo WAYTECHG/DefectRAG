@@ -1,3 +1,45 @@
+# Opt-in community gallery implemented; hosted activation pending — 19 October 2026
+
+User approved implementing the optional public demo gallery and preparing an
+additive SQL migration for manual execution. No Supabase SQL was executed by the
+agent. Existing staff tables, records, policies, models and calibration preserved.
+
+Implemented separate public snapshots: explicit strict consent; server-resolved
+saved measurements; fresh random public IDs; resized metadata-free original and
+heatmap previews; no filename, private ID, batch, owner, conversations or reviews.
+Anonymous paginated browsing, publisher withdrawal and approved staff moderation.
+Hidden entries remain private; cannot auto-republish. Atomic SQL caps: 100 total
+and 5 per publisher, including hidden entries. No GPU needed for publication.
+
+Backend104/104 tests passed including a two-browser isolation/publication test;
+frontend11/11 tests passed. Local/cloud/static builds passed; original stylesheet
+unchanged. Browser verified unchecked consent disables Publish; checked consent
+publishes an existing genuine PCB1 result; gallery shows matching measurements
+and both actual image/heatmap previews. No new inference, training or downloads.
+Temporary test-client sandbox loopback restriction diagnosed; final tests passed
+outside sandbox. No repeated model experiment was performed.
+
+Read docs/COMMUNITY_GALLERY.md and deployment/supabase_public_gallery.sql.
+Run deployment/Prepare-Gallery.ps1 from the Desktop application to generate a
+private runtime/gallery-setup/gallery-setup.sql and gallery-key.txt. User manually
+runs generated SQL in the existing Supabase SQL Editor; sets HF SECRET
+DEFECTRAG_GALLERY_KEY to that key, HF VARIABLE DEFECTRAG_GALLERY_ENABLED=1.
+Do not send the secret in chat or commit runtime. No service-role key needed.
+Cloud gallery remains disabled unless both settings exist. Never fall back to
+Space SQLite for supposedly durable public snapshots.
+
+Browser withdrawal passed: gallery became empty; private saved history preserved.
+REMAINING: publish disabled-by-default update,
+sync Desktop/GitHub source preparation, verify hosted setup notice. After manual
+SQL/settings confirmation, test real hosted anonymous publication, independent
+visitor reading, authorization denial and withdrawal; new SQL is not yet verified
+against the live database. Limits: free quota/bandwidth, no proactive image
+moderation/CAPTCHA, browser identity not a strong anti-abuse mechanism, no recall
+of downloaded/cached public copies. Guest withdrawal requires original workspace.
+Dedicated key rotation changes publisher hashes; preserve it on normal upgrades.
+
+---
+
 # Workflow fixes complete, hosted and Desktop synchronized — 19 October 2026
 
 COMPLETED: public Space RUNNING at41b9f9b1433942325cf73110476e0ae0e964a35e.

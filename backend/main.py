@@ -23,7 +23,7 @@ from .rag import KnowledgeIndex, EvidenceWorkflow
 
 log=logging.getLogger('defectrag')
 
-def create_app(settings=None, detector=None, workflow=None, repository=None):
+def create_app(settings=None, detector=None, workflow=None, repository=None, gallery=None):
     settings=settings or Settings()
     settings.data.mkdir(parents=True,exist_ok=True)
     artifacts=settings.data/'artifacts'; artifacts.mkdir(exist_ok=True)
@@ -34,6 +34,18 @@ def create_app(settings=None, detector=None, workflow=None, repository=None):
     app=FastAPI(title='DefectRAG',version='2.1.0',description='Industrial inspection and evidence workspace')
     app.state.repo=repo; app.state.detector=detector; app.state.workflow=workflow
     import os
+    from .gallery import LocalGallery, mount_gallery
+    if gallery is None and os.getenv('DEFECTRAG_GALLERY_ENABLED')=='1' and not hasattr(repo,'current'):
+        import secrets
+        key_path=settings.data/'gallery.key'
+        if not key_path.exists():key_path.write_text(secrets.token_hex(32))
+        gallery=LocalGallery(settings.data/'gallery.sqlite3',key_path.read_text().strip())
+    if hasattr(repo,'current'):
+        from deployment.space.sessions import NAMESPACE
+        gallery_owner=lambda:NAMESPACE.get() or ''
+    else:gallery_owner=lambda:'local-operator'
+    mount_gallery(app,repo,artifacts,gallery,owner=gallery_owner,
+                  cloud_origin=(getattr(repo,'cloud_config',None) or {}).get('url',''))
     origins=[o.strip() for o in os.getenv('DEFECTRAG_CORS','http://localhost:5173,http://127.0.0.1:5173').split(',')]
     app.add_middleware(CORSMiddleware,allow_origins=origins,allow_methods=['GET','POST'],allow_headers=['Content-Type'])
 

@@ -93,7 +93,13 @@ if os.getenv('DEFECTRAG_LIVE_RAG')=='1':
     WORKFLOW=EvidenceWorkflow(Settings(),INDEX,generator=generate_text if ZERO else None)
 else:
     WORKFLOW=None
-cpu_app = create_app(Settings(), detector=MetadataDetector(), repository=REPO,workflow=WORKFLOW)
+GALLERY=None
+if os.getenv('DEFECTRAG_GALLERY_ENABLED')=='1' and CLOUD_CONFIG:
+    from backend.gallery import SupabaseGallery
+    gallery_key=os.getenv('DEFECTRAG_GALLERY_KEY','')
+    if re.fullmatch('[a-f0-9]{64}',gallery_key):
+        GALLERY=SupabaseGallery(CLOUD_CONFIG,gallery_key)
+cpu_app = create_app(Settings(), detector=MetadataDetector(), repository=REPO,workflow=WORKFLOW,gallery=GALLERY)
 server = Server(title='DefectRAG')
 server.exception_handlers.update(cpu_app.exception_handlers)
 
@@ -112,6 +118,7 @@ async def cloud_storage_error(request,exc):
 async def workspace_access(request, call_next):
     path = request.url.path
     public = path in ('/api/health', '/api/models', '/api/evaluation', '/api/benchmark/official', '/api/samples') or path.startswith('/api/samples/')
+    public = public or (request.method=='GET' and (path=='/api/gallery' or re.fullmatch(r'/api/gallery/[a-f0-9-]{32,36}',path)))
     if not path.startswith('/api/') or public:
         return await call_next(request)
     try:
@@ -218,6 +225,7 @@ def health():
     return {'data':{'status':'ok','mode':'cloud_session_workspace','models':list(CARDS.values()),
         'encoder_configured':True,'llm_model':'Qwen3-4B-Instruct-2507' if WORKFLOW and ZERO else 'Qwen2.5:3b (local Ollama)' if WORKFLOW else 'generation migration in progress','zero_gpu':ZERO,
         'staff_persistence_enabled':CLOUD_CONFIG is not None,
+        'community_gallery_enabled':GALLERY is not None,
         'history':'anonymous browser history is temporary; signed-in approved staff use Supabase' if CLOUD_CONFIG else 'anonymous browser history is temporary; staff backend disabled'}}
 
 

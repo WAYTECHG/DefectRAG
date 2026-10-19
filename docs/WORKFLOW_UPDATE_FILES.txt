@@ -20,3 +20,10 @@ deployment/Update-GitHub.ps1
 docs/WORKFLOW_UPDATE_FILES.txt
 docs/WORKFLOW_UPDATES.md
 docs/assets/workflow-review.png
+backend/gallery.py
+frontend/src/CommunityGallery.jsx
+tests/test_gallery.py
+deployment/supabase_public_gallery.sql
+deployment/Prepare-Gallery.ps1
+docs/COMMUNITY_GALLERY.md
+docs/assets/community-gallery.png
