@@ -14,6 +14,12 @@ if($LASTEXITCODE -ne 0 -or $updateRemote -notmatch '(?i)github\.com[:/]WAYTECHG/
 $alreadyStaged=& git -C $updateRepository diff --cached --name-only
 if($LASTEXITCODE -ne 0 -or $alreadyStaged){throw 'Commit or unstage the existing staged changes before running this update. They were preserved.'}
 $updateFiles=@(Get-Content -LiteralPath (Join-Path $updateSource 'docs/WORKFLOW_UPDATE_FILES.txt') | Where-Object {$_ -and -not $_.StartsWith('#')})
+function Test-UpdateContent([string]$source,[string]$target){
+    if((Get-FileHash -LiteralPath $source).Hash -eq (Get-FileHash -LiteralPath $target).Hash){return $true}
+    if([IO.Path]::GetExtension($source) -eq '.png'){return $false}
+    # Git may check out CRLF on Windows; an EOL-only difference is not a user edit.
+    return ([IO.File]::ReadAllText($source).Replace("`r`n","`n") -ceq [IO.File]::ReadAllText($target).Replace("`r`n","`n"))
+}
 # Validate every path and local edit before copying any file.
 foreach($relative in $updateFiles){
     if([IO.Path]::IsPathRooted($relative) -or $relative -match '(^|[\\/])\.\.([\\/]|$)' -or $relative -match '(?i)(^|/)(\.env|models|runtime|experiments|node_modules|\.venv)(/|$)'){throw "Unexpected update path: $relative"}
@@ -24,7 +30,7 @@ foreach($relative in $updateFiles){
     if((Get-Item -LiteralPath $source).Length -gt 2097152){throw "Unexpected large source file: $relative"}
     $changes=& git -C $updateRepository status --porcelain -- $relative
     if($LASTEXITCODE -ne 0){throw 'Could not inspect existing edits.'}
-    if($changes -and (Test-Path -LiteralPath $target) -and (Get-FileHash -LiteralPath $source).Hash -ne (Get-FileHash -LiteralPath $target).Hash){throw "Existing edits preserved: $relative. Reconcile that file before updating."}
+    if($changes -and (Test-Path -LiteralPath $target) -and -not (Test-UpdateContent $source $target)){throw "Existing edits preserved: $relative. Reconcile that file before updating."}
 }
 foreach($relative in $updateFiles){
     $source=Join-Path $updateSource $relative;$target=Join-Path $updateRepository $relative
