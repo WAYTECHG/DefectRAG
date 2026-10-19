@@ -29,8 +29,13 @@ Cloud gallery remains disabled unless both settings exist. Never fall back to
 Space SQLite for supposedly durable public snapshots.
 
 Browser withdrawal passed: gallery became empty; private saved history preserved.
-REMAINING: publish disabled-by-default update,
-sync Desktop/GitHub source preparation, verify hosted setup notice. After manual
+Hosted update d49c762685a1abbb7a30a5586079caca0e1ab3a2 deployed successfully.
+Public API confirmed 12 models, staff persistence, gallery disabled, empty gallery,
+unscoped publication rejected401 and new frontend. Hosted browser shows the correct
+setup notice. Desktop synchronized, key and generated SQL prepared privately.
+GitHub checkout was clean at940578e;29 allowlisted files prepared without staging
+or push. Targeted final gallery19/19 passed after UUID validation tightening.
+REMAINING: user manual SQL execution and two HF settings; then hosted write tests. After manual
 SQL/settings confirmation, test real hosted anonymous publication, independent
 visitor reading, authorization denial and withdrawal; new SQL is not yet verified
 against the live database. Limits: free quota/bandwidth, no proactive image
