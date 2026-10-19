@@ -1,3 +1,32 @@
+# Independent multi-user hardening checkpoint; SQL NOT approved — 19 October 2026
+
+Latest user instruction: "Not approved yet; continue independent code and tests."
+Do not execute the migration, activate DEFECTRAG_PERSONAL_WORKSPACE or deploy the
+multi-user upgrade. No approval request needs repeating. Current hosted behavior
+is still legacy shared staff history; new owner-only privacy is not live yet.
+
+Independent work completed after checkpoint6142375:
+- Sharing controls discard late success/error callbacks after the view/account/
+  scope changes, preventing an old record from reopening or showing an old notice.
+- Polling preserves Offline when a pending request succeeds or fails after the
+  connection drops; it cannot falsely mark that completion Synced.
+- Personal-to-team image copying streams with a 10MiB bound, rejects empty/denied
+  content, and sanitizes network errors. Failed transfers never reach the share
+  RPC. Repeated sharing of an existing team copy does not download/upload again.
+- Added software checks for full conversation preservation at the 40,000-byte
+  import boundary and rejection before any upload when oversized.
+
+Latest focused tests: backend51/51 (personal workspace, Space security, gallery),
+frontend20/20, all local/cloud/static builds passed. Stylesheet remains
+index-Bn4HF2vD.css. Receipt: development-support/personal-independent.xml.
+These checks use software fixtures, no live SQL/authentication, GPU or retraining.
+An initial test invocation selected a nonexistent test filename and collected no
+tests; corrected invocation above passed. No running jobs remain at checkpoint.
+Reviewed SQL hash below is unchanged. Application config, dataset, models,
+evaluation results, gallery and hosted application are preserved.
+
+---
+
 # Multi-user upgrade implemented locally; SQL approval pending — 19 October 2026
 
 User request: secure owner-only personal history, explicit authorized team
@@ -9,8 +38,9 @@ files/checkpoints are browser IndexedDB. No new model work is required.
 
 Prepared manual migration deployment/supabase_personal_workspace.sql and review
 guide docs/MULTIUSER_WORKSPACE.md in checkpoint0fc4506; copied to Desktop.
-Requested review/approval with async question. No reply/approval or confirmed
-execution yet. Exact migration SHA256:
+Requested review/approval with async question. User subsequently replied
+"Not approved yet; continue independent code and tests." No execution confirmed.
+Exact migration SHA256:
 63e561bd234294286c6fc65b075ea130e9c021d60cf164ebf13d74a7c1f13ca1.
 DO NOT execute or alter this reviewed migration without user authorization.
 Optional rollback-only policy test SQL prepared separately, not executed.

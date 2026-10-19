@@ -1,5 +1,7 @@
 """Repository and scope software tests; not evidence that live RLS passed."""
 import base64
+import json
+import httpx
 from pathlib import Path
 import pytest
 from deployment.space.sessions import identity,SessionRepository,WORKSPACE,capability,authorize_artifact,artifact_workspace
@@ -164,3 +166,77 @@ def test_cloud_archive_cannot_resurface_through_old_guest_copy(tmp_path):
     with identity('a'*64,'valid-test-token'):
         repo.current=lambda:ArchivedPersonal()
         assert repo.get('1'*32) is None
+
+
+def test_guest_conversation_import_limit_preserves_content_and_precedes_uploads(tmp_path):
+    repo,calls,rows=repository(tmp_path)
+    messages=[{'question':'a'*39982}]
+    assert len(json.dumps(messages).encode())==40000
+    repo.save(record(),messages)
+    assert rows['1'*32]['conversation']==messages
+    calls.clear()
+    with pytest.raises(ValueError,match='too large'):
+        repo.save(record(),[{'question':'a'*39983}])
+    assert calls==[]
+
+
+@pytest.mark.parametrize('failure',['denied','empty','oversize','network','interrupted'])
+def test_private_image_copy_failure_never_uploads_or_calls_share_rpc(monkeypatch,tmp_path,failure):
+    repo,calls,_=repository(tmp_path);repo.headers={'Authorization':'Bearer software-fixture'}
+    repo.raw=lambda identifier:{'image_path':'owner-A/source.jpg'}
+    class Reply:
+        is_success=failure!='denied'
+        def __enter__(self):return self
+        def __exit__(self,*args):pass
+        def iter_bytes(self,**kwargs):
+            if failure=='interrupted':
+                yield b'partial'
+                raise httpx.ReadError('sensitive upstream URL must not be returned')
+            if failure=='oversize':yield b'a'*(10*1024*1024+1)
+    class Client:
+        def __init__(self,**kwargs):assert kwargs['trust_env'] is False
+        def __enter__(self):return self
+        def __exit__(self,*args):pass
+        def stream(self,*args,**kwargs):
+            if failure=='network':raise httpx.ConnectError('sensitive upstream URL must not be returned')
+            return Reply()
+    monkeypatch.setattr('deployment.space.personal_repository.httpx.Client',Client)
+    with pytest.raises(RuntimeError) as error:repo.share('1'*32)
+    assert 'sensitive' not in str(error.value)
+    assert all(method=='GET' for method,_,_ in calls)
+
+
+def test_explicit_team_copy_sends_only_authorized_bytes_and_conversation_choice(monkeypatch,tmp_path):
+    repo,calls,_=repository(tmp_path);repo.headers={'Authorization':'Bearer software-fixture'}
+    repo.raw=lambda identifier:{'image_path':'owner-A/image.jpg','heatmap_path':'owner-A/heatmap.jpg'}
+    reads=[]
+    class Reply:
+        is_success=True
+        def __enter__(self):return self
+        def __exit__(self,*args):pass
+        def iter_bytes(self,**kwargs):yield b'image';yield b'-bytes'
+    class Client:
+        def __init__(self,**kwargs):pass
+        def __enter__(self):return self
+        def __exit__(self,*args):pass
+        def stream(self,method,url,**kwargs):
+            assert kwargs['headers']==repo.headers
+            reads.append(url);return Reply()
+    monkeypatch.setattr('deployment.space.personal_repository.httpx.Client',Client)
+    repo.share('1'*32,include_conversation=True)
+    assert len(reads)==2 and all('/authenticated/personal-inspections/owner-A/' in url for url in reads)
+    uploads=[c for c in calls if '/object/team-inspections/' in c[1]]
+    assert len(uploads)==2 and all(c[2]['content']==b'image-bytes' and c[2]['ignore_conflict'] for c in uploads)
+    assert calls[-1][1]=='/rest/v1/rpc/defectrag_share_personal'
+    assert calls[-1][2]['json']['p_include_conversation'] is True
+
+
+def test_already_shared_record_never_downloads_or_changes_team_copy(tmp_path):
+    repo,_,_=repository(tmp_path);repo.raw=lambda identifier:{'id':identifier}
+    calls=[]
+    def request(method,path,**kwargs):
+        calls.append((method,path));return [{'id':'1'*32,'owner_id':'owner-A'}]
+    repo.request=request
+    repo._read_private_image=lambda path:pytest.fail('A repeated share must not download images')
+    assert repo.share('1'*32)=={'alreadyShared':True}
+    assert calls==[('GET','/rest/v1/shared_inspections')]

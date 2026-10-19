@@ -114,6 +114,11 @@ been executed against the live project by the agent.
 
 ### Next steps after approval
 
+**Current decision:** the user explicitly said "Not approved yet; continue
+independent code and tests." Keep the migration unexecuted, the feature flag
+disabled and this upgrade undeployed. Continue from the saved source checkpoint;
+do not repeat successful experiments or the approval request.
+
 1. Owner manually executes the reviewed migration; confirm success here.
 2. Deploy the compatible application, verify legacy team/gallery access first.
 3. Enable `DEFECTRAG_PERSONAL_WORKSPACE=1` in HF Settings and restart once.
@@ -156,3 +161,32 @@ ready; end-to-end acceptance is unfinished.
 Supabase upload retries account for both HTTP 400 duplicate-object errors and
 409 database conflicts, without swallowing permission/validation failures.
 See [official standard-upload behavior](https://supabase.com/docs/guides/storage/uploads/standard-uploads).
+
+### Independent hardening while approval is withheld
+
+After checkpoint `6142375`, sharing controls now invalidate old completion
+callbacks when their view/record changes or unmounts. Actual handler tests check
+that a late success cannot reopen the previous inspection and a late failure
+cannot display an error in the new context. A successful server mutation still
+emits a data-free refresh event. Polling retains Offline if connectivity drops
+during either a successful or failed request; it no longer reports false Synced.
+
+Private-image team copies now stream at most 10 MiB per image, reject empty and
+denied responses, and sanitize interrupted/network-transfer errors. Failed reads
+do not reach the team-sharing RPC. Existing copies return without downloads or
+uploads. Partial earlier uploads may remain as immutable orphan objects, as
+documented above; retry uses their hashes and never deletes originals.
+
+Focused backend tests **51/51** and frontend tests **20/20** passed. This includes
+the exact 40,000-byte conversation import boundary, no truncation, oversized
+rejection before upload, failed transfers, duplicate shares and context changes.
+Local/cloud/showcase builds passed with the unchanged `index-Bn4HF2vD.css` asset.
+The full backend suite was not rerun after these focused changes; its earlier
+117-case result remains the previous checkpoint's result. The first focused
+invocation used a nonexistent test filename and collected no tests; the corrected
+51-case run passed. No new dependencies, GPU inference or live database writes.
+
+The exact reviewed SQL and its SHA-256 above remain unchanged. Actual live RLS,
+same-account persistence across sessions, second-account isolation and hosted
+personal/team synchronization still require approved migration and later E2E
+verification. Current production does not yet provide the new personal history.

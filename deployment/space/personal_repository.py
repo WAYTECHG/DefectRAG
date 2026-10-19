@@ -82,6 +82,25 @@ class PersonalRepository(StaffRepository):
     def restore(self,identifiers):
         return {'restored':self.request('POST','/rest/v1/rpc/defectrag_personal_archive',json={'p_ids':identifiers,'p_restore':True})}
 
+    def _read_private_image(self,path):
+        # Bound the actual streamed bytes, including responses without a length
+        # header. A failed read must never advance to the team-copy RPC.
+        try:
+            with httpx.Client(timeout=25,trust_env=False) as client:
+                with client.stream('GET',self.config['url']+'/storage/v1/object/authenticated/'+self.bucket+'/'+quote(path,safe='/'),headers=self.headers) as response:
+                    if not response.is_success:
+                        raise RuntimeError('Private image could not be copied. No team success was reported.')
+                    content=bytearray()
+                    for chunk in response.iter_bytes(chunk_size=64*1024):
+                        if len(content)+len(chunk)>10*1024*1024:
+                            raise RuntimeError('Private image exceeds the copy limit. No team success was reported.')
+                        content.extend(chunk)
+                    if not content:
+                        raise RuntimeError('Private image is empty. No team success was reported.')
+                    return bytes(content)
+        except httpx.HTTPError:
+            raise RuntimeError('Private image transfer failed. Retry sharing when the connection is available.') from None
+
     def share(self,identifier,include_conversation=False):
         row=self.raw(identifier)
         if not row:raise ValueError('An active owned personal inspection is required to share.')
@@ -94,13 +113,10 @@ class PersonalRepository(StaffRepository):
             # Copy immutable bytes with the same user JWT. Personal object reads
             # remain owner-only; other staff get only the explicit team copy.
             path=row[kind+'_path']
-            with httpx.Client(timeout=25,trust_env=False) as client:
-                response=client.get(self.config['url']+'/storage/v1/object/authenticated/'+self.bucket+'/'+quote(path,safe='/'),headers=self.headers)
-            if not response.is_success or len(response.content)>10*1024*1024:
-                raise RuntimeError('Private image could not be copied. No team success was reported.')
-            digest=hashlib.sha256(response.content).hexdigest()
+            content=self._read_private_image(path)
+            digest=hashlib.sha256(content).hexdigest()
             target=f"{self.user['id']}/{identifier}/{kind}-{digest}.jpg"
-            self.request('POST','/storage/v1/object/team-inspections/'+target,content=response.content,
+            self.request('POST','/storage/v1/object/team-inspections/'+target,content=content,
                 headers={'Content-Type':'image/jpeg','x-upsert':'false'},ignore_conflict=True)
             paths[kind]=target
         inserted=self.request('POST','/rest/v1/rpc/defectrag_share_personal',json={

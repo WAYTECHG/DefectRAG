@@ -8,6 +8,12 @@ export function setWorkspace(value){
  selected=value;
 }
 
+// Discard UI completions from a previous record, account or mounted view.
+export function createOperationGuard(){
+ let generation=0;
+ return {begin(){const current=++generation;return ()=>current===generation},invalidate(){generation++}};
+}
+
 export function startPolling(load,{interval=15000,onState=()=>{},target=window,documentTarget=document}={}){
  let stopped=false,inFlight=false,again=false;
  async function refresh(){
@@ -15,8 +21,8 @@ export function startPolling(load,{interval=15000,onState=()=>{},target=window,d
   if(inFlight){again=true;return}
   if(target.navigator?.onLine===false){onState({state:'offline'});return}
   inFlight=true;onState({state:'refreshing'});
-  try{const applied=await load();if(!stopped&&applied!==false)onState({state:'synced',at:Date.now()})}
-  catch(error){if(!stopped)onState({state:'stale',error:error.message})}
+  try{const applied=await load();if(!stopped){if(target.navigator?.onLine===false)onState({state:'offline'});else if(applied!==false)onState({state:'synced',at:Date.now()})}}
+  catch(error){if(!stopped)onState(target.navigator?.onLine===false?{state:'offline'}:{state:'stale',error:error.message})}
   finally{inFlight=false;if(again&&!stopped){again=false;refresh()}}
  }
  const visible=()=>{if(!documentTarget.hidden)refresh()};
