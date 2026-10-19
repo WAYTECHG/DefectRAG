@@ -1,5 +1,9 @@
 # Public DefectRAG exploratory QA — 19 October 2026
 
+Follow-up: the user authorized the summarized fixes. Implementation and exact
+GitHub update paths are documented in WORKFLOW_UPDATES.md and the latest progress
+checkpoint. The findings below preserve the original pre-fix audit evidence.
+
 ## Assessment
 
 The application performs genuine visual inspection, source-grounded generation and

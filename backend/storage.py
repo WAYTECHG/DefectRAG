@@ -95,3 +95,19 @@ class SQLiteRepository:
     def failure(self,category,error):
         with self.connect() as db:
             db.execute('INSERT INTO failures VALUES(?,?,?,?)',(uuid.uuid4().hex,now(),category,error))
+
+    def add_review(self,identifier,status,decision,note=''):
+        from .reviews import validate_review
+        review={**validate_review(status,decision,note),'inspection_id':identifier,
+                'reviewer':'Local operator (single-user workspace)','created_at':now()}
+        with self.connect() as db:
+            db.execute('INSERT INTO audit_events VALUES(?,?,?,?)',
+                       (uuid.uuid4().hex,review['created_at'],'human_review',json.dumps(review)))
+        return review
+
+    def review_history(self,identifier):
+        with self.connect() as db:
+            rows=db.execute("SELECT payload FROM audit_events WHERE action='human_review' AND json_extract(payload,'$.inspection_id')=? ORDER BY created_at",(identifier,)).fetchall()
+        return [json.loads(row['payload']) for row in rows]
+
+    def review_notes(self,identifier):return []

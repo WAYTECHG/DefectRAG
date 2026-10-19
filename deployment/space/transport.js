@@ -12,7 +12,13 @@ export function sessionKey(){
   }
   return workspace;
 }
-export const spaceUrl=path=>path==='/api/export.csv'?exportUrl:path;
+export const spaceUrl=path=>{
+ const requested=new URL(path,location.origin);
+ if(requested.pathname!=='/api/export.csv')return path;
+ const target=new URL(exportUrl,location.origin);
+ requested.searchParams.forEach((value,key)=>target.searchParams.set(key,value));
+ return target.pathname+target.search;
+};
 async function credentials(){
   if(!cloudConfigured())return '';
   const client=await cloudClient();
@@ -40,7 +46,7 @@ export async function spaceFetch(path,options={}){
       if(!files.length||files.length>20||(endpoint==='/api/batch'&&!batch.trim()))throw new Error('Choose 1–20 images and a batch label.');
       const {records,errors}=await runBatch(files,async file=>{
           if(file.size>10*1024*1024)throw new Error('Image limit is 10 MB');
-          return await queued('/inspect',{image_b64:await encode(file),filename:file.name,category,batch},token);
+          return await queued('/inspect',{image_b64:await encode(file),filename:file.name,category,batch,request_id:body.get('request_id')||''},token);
       });
       if(endpoint==='/api/inspect'){
         if(errors.length)throw new Error(errors[0].message);
@@ -57,5 +63,9 @@ export async function spaceFetch(path,options={}){
       return response;
     }
     return Response.json({data});
-  }catch(error){return Response.json({error:{message:error.message||'Model request failed'}},{status:503})}
+  }catch(error){
+    const message=error.message||'Model request failed';
+    const invalid=/image limit|invalid image|choose 1|supported category|batch label|32px|25 MP|aspect ratio/i.test(message);
+    return Response.json({error:{message}},{status:invalid?422:503});
+  }
 }

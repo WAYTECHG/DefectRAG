@@ -13,7 +13,12 @@ export function cloudConfigured() {
 export async function cloudClient() {
   if(!cloudConfigured())throw new Error('Team workspace is not connected. Complete the Supabase setup first.');
   clientPromise ||= import('@supabase/supabase-js').then(({createClient})=>{
-    const {url,key}=cloudConfig();return createClient(url,key);
+    const {url,key}=cloudConfig();const client=createClient(url,key);
+    client.auth.onAuthStateChange((event,session)=>{
+      if(['SIGNED_IN','SIGNED_OUT','TOKEN_REFRESHED'].includes(event))
+        setTimeout(()=>window.dispatchEvent(new CustomEvent('defectrag-auth-change',{detail:{event,userId:session?.user?.id||null}})),0);
+    });
+    return client;
   });
   return clientPromise;
 }
@@ -40,8 +45,11 @@ export async function shareInspection(record,messages,url) {
     if(error&&String(error.statusCode)!=='409')throw error;
     paths.push(path);
   }
-  const {image_url,heatmap_url,...payload}=record;
+  const {image_url,heatmap_url,report_url,owner_id,...payload}=record;
   const {error}=await client.from('shared_inspections').insert({id:record.id,owner_id:user.id,payload,conversation:messages,image_path:paths[0],heatmap_path:paths[1]});
   if(error)throw error;
+  workspaceChanged();
   return {alreadyShared:false};
 }
+
+export function workspaceChanged(){window.dispatchEvent(new Event('defectrag-workspace-change'))}

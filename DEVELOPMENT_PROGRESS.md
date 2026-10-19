@@ -1,3 +1,43 @@
+# Workflow fixes implemented locally — 19 October 2026
+
+User authorized all seven summarized workflow fixes/additions and GitHub update
+commands. Implemented scoped asynchronous inspection/chat/history responses,
+saved-record form synchronization, shared-data refresh/events and section errors,
+filtered/all CSV, report field allowlist, readable upload errors/cloud labels,
+browser IndexedDB batch recovery with failed-only retry, stable per-item request
+IDs/content fingerprints, and append-only human reviews with reviewer/time/decision.
+Existing CSS/layout preserved byte-for-byte. Models, data, metrics and policies
+unchanged. Human reviews use existing staff_notes RLS or SQLite audit_events;
+no Supabase SQL or schema modification is needed or executed.
+
+Local genuine verification: PCB1 anomaly and normal sample succeeded, one invalid
+batch image rejected. Batch restored after browser reload; retry skipped completed
+image; same-ID replay returned original saved result with record count unchanged.
+Human Reviewed/Hold decision survived reopening and appeared in the cleaned report.
+Category/batch synchronization and filtered CSV verified. Separate QA runtime is
+runtime/workflow-qa; original runtime and staff history preserved. No retraining,
+new models, GPU benchmark experiment, dataset copy or dependency installation.
+
+Tests: full Python run84/84 passed; after the stable-ID addition, final focused
+application/security/workflow tests44/44 passed. 85 distinct Python cases covered
+across these runs. Frontend11/11 plus existing batch harness passed. Local, cloud
+and static builds compile with original CSS hash; final Team token-refresh change
+requires the last rebuild before publication. Public deployment is still old
+revision3b68268 at this checkpoint. Local preview PID27704 / port8786 is temporary.
+
+GitHub update manifest and safe copy/stage script prepared:21 exact source/docs
+paths, no automatic commit/push, no private config or assets. Existing GitHub
+checkout is clean at88d58f1. Desktop personal config and deployment guide edits,
+and untracked VisA dataset folder, must remain unchanged during synchronization.
+
+Next: finish final builds, commit; incrementally publish existing HF Space and
+verify CPU boundaries + signed-in review flow without repeating GPU requests.
+Then fast-forward Desktop with configuration hashes preserved, prepare the existing
+GitHub export in place, and provide the PowerShell commands. Keep browser-only
+batch recovery, quota and independent-account/mobile testing limits explicit.
+
+---
+
 # Public application QA checkpoint — 19 October 2026
 
 Exploratory review completed against hosted3b68268a582dce6ad731e5a362988eb6d1d9b99e
