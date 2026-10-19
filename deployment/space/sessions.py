@@ -133,5 +133,20 @@ class SessionRepository:
     def list(self, *args, **kwargs):
         return [self.decorate(row) for row in self.current().list(*args, **kwargs)]
 
+    def review_repository(self,identifier):
+        current=self.current()
+        if self.cloud_config and STAFF_TOKEN.get() and current.raw(identifier) is None:
+            return self.local()
+        return current
+
+    def add_review(self,identifier,*args,**kwargs):
+        return self.review_repository(identifier).add_review(identifier,*args,**kwargs)
+
+    def review_history(self,identifier):
+        return self.review_repository(identifier).review_history(identifier)
+
+    def review_notes(self,identifier):
+        return self.review_repository(identifier).review_notes(identifier)
+
     def __getattr__(self, name):
         return getattr(self.current(), name)

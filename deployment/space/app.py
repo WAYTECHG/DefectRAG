@@ -146,13 +146,16 @@ def ready(message: str) -> dict:
              for name in ('gradio','spaces','torch','transformers','huggingface-hub')}}
 
 
-def inspect_one(image_b64, filename, category, batch):
+def inspect_one(image_b64, filename, category, batch, request_id=''):
     if category not in CARDS or len(batch)>80 or len(image_b64)>14*1024*1024:
         raise ValueError('Choose a supported category, image up to 10 MB and batch label up to 80 characters.')
     try:
         content = base64.b64decode(image_b64, validate=True)
         if len(content)>10*1024*1024:
             raise ValueError('Image limit is 10 MB')
+        from backend.inspection_requests import existing_request,fingerprint
+        existing=existing_request(REPO,request_id,content,category,batch)
+        if existing:return existing
         with warnings.catch_warnings():
             warnings.simplefilter('error', Image.DecompressionBombWarning)
             with Image.open(BytesIO(content)) as opened:
@@ -160,13 +163,13 @@ def inspect_one(image_b64, filename, category, batch):
                     raise ValueError('Use JPEG, PNG or WebP, 32px minimum, up to 25 MP and 4:1 aspect ratio.')
                 image = ImageOps.exif_transpose(opened).convert('RGB')
     except (ValueError, OSError, UnidentifiedImageError, Image.DecompressionBombWarning, Image.DecompressionBombError) as exc:
-        raise ValueError(f'Invalid image: {exc}') from None
+        raise ValueError('Invalid image. Use a readable JPEG, PNG or WebP: at least 32 pixels per side, up to 25 MP, 10 MB and 4:1 aspect ratio.') from None
     start = time.perf_counter()
     output = compute(np.asarray(image), category)
     card = CARDS[category]
     threshold, margin, score = card['threshold'], card['uncertainty_margin'], output['score']
     verdict = 'Uncertain' if abs(score-threshold)<=margin else 'Anomalous' if score>=threshold else 'Good'
-    identifier = uuid.uuid4().hex
+    identifier = request_id or uuid.uuid4().hex
     preview = image.copy()
     preview.thumbnail((1000,1000))
     heatmap = display_map(restore_map(output['raw'],output['geometry'],preview.size),preview,card['heatmap_scale'])
@@ -176,6 +179,7 @@ def inspect_one(image_b64, filename, category, batch):
     record = {key:output[key] for key in ('inference_ms','device','gpu_name','peak_gpu_mb','foreground_fraction')}
     record.update(id=identifier,created_at=now(),category=category,batch=batch.strip(),filename=Path(filename).name[:160],
         verdict=verdict,score=score,threshold=threshold,uncertainty_margin=margin,defect_category=None,
+        request_fingerprint=fingerprint(content,category,batch),
         model_id=card['model_id'],model_sha256=card['bank_sha256'],profile='dinov2_highres_v1',calibration=card['calibration'],
         total_model_ms=round((time.perf_counter()-start)*1000,2),
         localization=f"{output['geometry']['grid'][0]} x {output['geometry']['grid'][1]} DINOv2 patch distances with PCA foreground heuristic; interpolated, not supervised segmentation",
@@ -186,10 +190,10 @@ def inspect_one(image_b64, filename, category, batch):
 
 
 @server.api(name='inspect',concurrency_limit=1,concurrency_id='model-work')
-def inspect(image_b64: str, filename: str, category: str, batch: str, session: str, token: str='') -> dict:
+def inspect(image_b64: str, filename: str, category: str, batch: str, session: str, token: str='', request_id: str='') -> dict:
     with identity(session,token):
         REPO.current()  # Validate signed-in staff membership before consuming GPU.
-        return inspect_one(image_b64,filename,category,batch)
+        return inspect_one(image_b64,filename,category,batch,request_id)
 
 
 @server.api(name='assistant',concurrency_limit=1,concurrency_id='model-work')
@@ -245,6 +249,10 @@ for route in cpu_app.routes:
 @server.post('/api/{operation}')
 def queued_only(operation: str):
     raise HTTPException(409,'Use the dashboard Gradio queue for model execution.')
+
+@server.get('/api/{unknown:path}')
+def unknown_api(unknown: str):
+    raise HTTPException(404,'API route not found')
 
 
 @server.get('/')

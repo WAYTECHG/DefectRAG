@@ -8,6 +8,7 @@ import logging
 import re
 import uuid
 import warnings
+import threading
 from fastapi import FastAPI, UploadFile, File, Form, HTTPException, Query, Request
 from fastapi.responses import JSONResponse, FileResponse, HTMLResponse, Response
 from fastapi.exceptions import RequestValidationError
@@ -68,10 +69,18 @@ def create_app(settings=None, detector=None, workflow=None, repository=None):
         if not record: raise HTTPException(404,'Inspection not found')
         return record
 
-    def inspect_bytes(content,category,batch,filename):
+    inspection_lock=threading.RLock()
+    def inspect_bytes(*args,**kwargs):
+        with inspection_lock:return _inspect_bytes(*args,**kwargs)
+
+    def _inspect_bytes(content,category,batch,filename,request_id=''):
         if category not in CATEGORIES: raise HTTPException(422,'Choose a supported VisA product category')
         if len(batch)>80: raise HTTPException(422,'Batch label is limited to 80 characters')
         if len(content)>settings.max_upload: raise HTTPException(413,'Image limit is 10 MB')
+        from .inspection_requests import existing_request,fingerprint
+        try:existing=existing_request(repo,request_id,content,category,batch)
+        except ValueError as exc:raise HTTPException(409,str(exc))
+        if existing:return existing
         try:
             with warnings.catch_warnings():
                 warnings.simplefilter('error',Image.DecompressionBombWarning)
@@ -82,7 +91,7 @@ def create_app(settings=None, detector=None, workflow=None, repository=None):
                     image=ImageOps.exif_transpose(opened).convert('RGB')
                     image.load()
         except (ValueError,UnidentifiedImageError,OSError,Image.DecompressionBombError,Image.DecompressionBombWarning) as exc:
-            raise HTTPException(422,'Invalid image: '+str(exc))
+            raise HTTPException(422,'This file could not be read as a supported image. Use a valid JPEG, PNG or WebP within the stated size limits.')
         try:
             result,heatmap=detector.predict(image,category)
         except ModelUnavailable as exc:
@@ -92,13 +101,14 @@ def create_app(settings=None, detector=None, workflow=None, repository=None):
             log.exception('Model inference failed')
             repo.failure(category,'inference_failed')
             raise HTTPException(503,'Model execution failed. No inspection was saved.')
-        identifier=uuid.uuid4().hex
+        identifier=request_id or uuid.uuid4().hex
         image_path=artifacts/f'{identifier}.jpg'; heatmap_path=artifacts/f'{identifier}_heatmap.jpg'
         try:
             image.thumbnail((1600,1600)); image.save(image_path,quality=92)
             heatmap.save(heatmap_path,quality=92)
             record={**result,'id':identifier,'created_at':now(),'batch':batch.strip(),'filename':Path(filename).name[:160],
-                    'image_url':f'/api/inspections/{identifier}/image','heatmap_url':f'/api/inspections/{identifier}/heatmap'}
+                    'image_url':f'/api/inspections/{identifier}/image','heatmap_url':f'/api/inspections/{identifier}/heatmap',
+                    'request_fingerprint':fingerprint(content,category,batch)}
             return repo.save(record)
         except Exception:
             image_path.unlink(missing_ok=True); heatmap_path.unlink(missing_ok=True)
@@ -134,10 +144,10 @@ def create_app(settings=None, detector=None, workflow=None, repository=None):
         if not path.exists(): raise HTTPException(404,'Sample not available')
         return FileResponse(path)
     @app.post('/api/inspect')
-    def inspect(category:str=Form(...),batch:str=Form(''),file:UploadFile=File(...)):
+    def inspect(category:str=Form(...),batch:str=Form(''),file:UploadFile=File(...),request_id:str=Form('',max_length=32)):
         try:
             content=file.file.read(settings.max_upload+1)
-            return {'data':inspect_bytes(content,category,batch,file.filename or 'upload')}
+            return {'data':inspect_bytes(content,category,batch,file.filename or 'upload',request_id)}
         finally: file.file.close()
     @app.post('/api/batch')
     def inspect_batch(category:str=Form(...),batch:str=Form(...),files:list[UploadFile]=File(...)):
@@ -194,12 +204,34 @@ def create_app(settings=None, detector=None, workflow=None, repository=None):
     def report(identifier:str):
         record=require(identifier)
         esc=lambda v:html.escape(str(v))
-        rows=''.join(f'<tr><th>{esc(k.replace("_"," "))}</th><td>{esc(v)}</td></tr>' for k,v in record.items() if not isinstance(v,(dict,list)))
+        fields=('id','created_at','category','batch','filename','verdict','score','threshold',
+                'uncertainty_margin','model_id','profile','model_sha256','inference_ms',
+                'total_model_ms','localization','scope','alert_acknowledged')
+        rows=''.join(f'<tr><th>{esc(k.replace("_"," "))}</th><td>{esc(record[k])}</td></tr>' for k in fields if k in record)
+        reviews=repo.review_history(identifier)
+        review_html=''.join('<article><strong>'+esc(r['status'])+' · '+esc(r['decision'])+'</strong><p>'+esc(r['reviewer'])+' · '+esc(r['created_at'])+'</p><p>'+esc(r['note'])+'</p></article>' for r in reviews) or '<p>No human review decision has been recorded.</p>'
+        from .reviews import parse_review
+        review_html+=''.join('<article><strong>'+esc(n['reviewer'])+' · '+esc(n['created_at'])+'</strong><p>'+esc(n['body'])+'</p></article>' for n in repo.review_notes(identifier) if not parse_review(n['body']))
         messages=repo.messages(identifier)
         evidence=''.join(f'<p>{esc(m.get("answer",m.get("question","")))}</p>' for m in messages) or '<p>No saved conversation yet. Ask the Evidence Assistant a question for this inspection, then refresh this report.</p>'
         sources={s['chunk_id']:s for m in messages for s in m.get('evidence',[])}
         source_html=''.join('<article><h3>'+esc(k)+' · '+esc(s['title'])+'</h3><p>'+esc(s['text'])+'</p><p>'+esc(s['url'])+' · '+esc(s['scope'])+'</p></article>' for k,s in sources.items()) or '<p>No document passages saved. Measurement-only answers come directly from the saved inspection and do not require a document citation.</p>'
-        return HTMLResponse('<!doctype html><html lang="en"><meta charset="utf-8"><title>DefectRAG inspection report</title><style>body{font:15px system-ui;max-width:900px;margin:40px auto;color:#17292c}table{width:100%;border-collapse:collapse}th,td{text-align:left;border-bottom:1px solid #ddd;padding:8px}img{width:46%}article{border-top:1px solid #ddd}@media print{button{display:none}}</style><h1>DefectRAG inspection report</h1><p>Benchmark screening evidence · model score is not a probability</p><button onclick="window.print()">Print / save PDF</button><table>'+rows+'</table><h2>Image and localization</h2><img src="'+record['image_url']+'"><img src="'+record['heatmap_url']+'"><h2>Evidence conversation</h2>'+evidence+'<h2>Retrieved documentation</h2>'+source_html+'</html>')
+        return HTMLResponse('<!doctype html><html lang="en"><meta charset="utf-8"><title>DefectRAG inspection report</title><style>body{font:15px system-ui;max-width:900px;margin:40px auto;color:#17292c}table{width:100%;border-collapse:collapse}th,td{text-align:left;border-bottom:1px solid #ddd;padding:8px}img{width:46%}article{border-top:1px solid #ddd}@media print{button{display:none}}</style><h1>DefectRAG inspection report</h1><p>Benchmark screening evidence · model score is not a probability</p><button onclick="window.print()">Print / save PDF</button><table>'+rows+'</table><h2>Human review</h2>'+review_html+'<h2>Image and localization</h2><img src="'+esc(record['image_url'])+'"><img src="'+esc(record['heatmap_url'])+'"><h2>Evidence conversation</h2>'+evidence+'<h2>Retrieved documentation</h2>'+source_html+'</html>')
+    class HumanReview(BaseModel):
+        status:str=Field(pattern='^(Needs review|In review|Reviewed)$')
+        decision:str=Field(pattern='^(Pending|Hold|Accept|Reject)$')
+        note:str=Field(default='',max_length=1000)
+    @app.get('/api/inspections/{identifier}/reviews')
+    def review_history(identifier:str):
+        require(identifier)
+        return {'data':repo.review_history(identifier)}
+    @app.post('/api/inspections/{identifier}/review')
+    def save_review(identifier:str,payload:HumanReview):
+        require(identifier)
+        from .reviews import validate_review
+        try:validate_review(payload.status,payload.decision,payload.note)
+        except ValueError as exc:raise HTTPException(422,str(exc))
+        return {'data':repo.add_review(identifier,payload.status,payload.decision,payload.note)}
     class Question(BaseModel):
         inspection_id:str=Field(min_length=32,max_length=32,pattern='^[0-9a-f]{32}$')
         question:str=Field(min_length=3,max_length=1200)
@@ -229,10 +261,10 @@ def create_app(settings=None, detector=None, workflow=None, repository=None):
         if not repo.acknowledge(identifier): raise HTTPException(404,'Alert not found')
         return {'data':{'acknowledged':True}}
     @app.get('/api/export.csv')
-    def export():
+    def export(category:str='',verdict:str='',batch:str=''):
         output=StringIO(); fields=['id','created_at','category','batch','verdict','score','threshold','inference_ms','model_id']
         writer=csv.DictWriter(output,fieldnames=fields,extrasaction='ignore'); writer.writeheader()
-        for record in repo.list(limit=10000):
+        for record in repo.list(category=category,verdict=verdict,batch=batch,limit=10000):
             safe={k:("'"+v if isinstance(v,str) and v.startswith(('=','+','-','@','\t','\r')) else v) for k,v in record.items()}
             writer.writerow(safe)
         return Response(output.getvalue(),media_type='text/csv',headers={'Content-Disposition':'attachment; filename="defectrag-inspections.csv"'})

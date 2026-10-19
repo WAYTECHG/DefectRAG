@@ -18,6 +18,8 @@ def main():
     if args.phase>=4:
         confirmation=OUT/'migration-confirmed.json'
         assert confirmation.exists() and json.loads(confirmation.read_text()).get('user_confirmed_manual_execution'), 'Wait for the user to confirm manual SQL execution before enabling staff persistence.'
+        from deployment.space.supabase_repository import read_public_config
+        read_public_config(OUT/'ui-dist/config.js')  # Refuse a blank example before changing a working Space.
     files = {}
     for relative in ('docs/THIRD_PARTY_NOTICES.md','docs/FRONTEND_LICENSES.txt','models/BGE-LICENSE.txt'):
         path=ROOT/relative

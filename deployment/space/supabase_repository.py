@@ -154,3 +154,24 @@ class StaffRepository:
 
     def failure(self,category,error):
         log.warning('Model failure in authenticated workspace: category=%s error=%s',category,error)
+
+    def add_review(self,identifier,status,decision,note=''):
+        from backend.reviews import review_body,validate_review
+        body=review_body(status,decision,note)
+        rows=self.request('POST','/rest/v1/staff_notes',json={
+            'inspection_id':identifier,'author_id':self.user['id'],'body':body},
+            headers={'Prefer':'return=representation'})
+        return {**validate_review(status,decision,note),'reviewer':self.staff['display_name'],
+                'reviewer_id':self.user['id'],'created_at':rows[0]['created_at']}
+
+    def review_notes(self,identifier):
+        rows=self.request('GET','/rest/v1/staff_notes',params={
+            'inspection_id':'eq.'+identifier,'select':'body,author_id,created_at','order':'created_at.asc'})
+        people=self.request('GET','/rest/v1/staff_members',params={'select':'user_id,display_name'})
+        directory={row['user_id']:row['display_name'] for row in people}
+        return [{**row,'reviewer':directory.get(row['author_id'],'Staff member')} for row in rows]
+
+    def review_history(self,identifier):
+        from backend.reviews import parse_review
+        return [{**value,'reviewer':row['reviewer'],'reviewer_id':row['author_id'],'created_at':row['created_at']}
+                for row in self.review_notes(identifier) if (value:=parse_review(row['body']))]
