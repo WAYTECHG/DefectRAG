@@ -25,6 +25,12 @@ def read_public_config(path):
 
 
 class StaffRepository:
+    table='shared_inspections'
+    bucket='team-inspections'
+    notes_table='staff_notes'
+    storage_type='supabase'
+    workspace='team'
+    workspace_stats_enabled=False
     def __init__(self,config,token,artifacts):
         self.config,self.token,self.artifacts=config,token,Path(artifacts)
         self.headers={'apikey':config['key'],'Authorization':'Bearer '+token}
@@ -46,15 +52,21 @@ class StaffRepository:
                 _staff_cache[token]=(time.time()+45,self.user,self.staff)
 
     def request(self,method,path,**kwargs):
+        ignore_conflict=kwargs.pop('ignore_conflict',False)
         headers={**self.headers,**kwargs.pop('headers',{})}
-        with httpx.Client(timeout=30,trust_env=False) as client:
-            response=client.request(method,self.config['url']+path,headers=headers,**kwargs)
+        try:
+            with httpx.Client(timeout=30,trust_env=False) as client:
+                response=client.request(method,self.config['url']+path,headers=headers,**kwargs)
+        except httpx.HTTPError:
+            raise RuntimeError('Cloud request did not complete. Retry the same submission to verify whether it was saved.') from None
         if not response.is_success:
             try:
                 detail=response.json()
                 code=detail.get('code',detail.get('error','unknown'))
             except (ValueError,AttributeError):
                 code='unexpected_response'
+            if ignore_conflict and response.status_code in (400,409) and code in ('23505','Duplicate','ResourceAlreadyExists','KeyAlreadyExists'):
+                return None
             if response.status_code in (401,403):
                 raise ValueError('Staff session expired or access denied. Sign in again.')
             if code in ('PGRST202','PGRST205'):
@@ -66,16 +78,17 @@ class StaffRepository:
         if not row:
             return None
         record=dict(row['payload'])
-        record['storage']='supabase'
+        record['storage']=self.storage_type
+        record['workspace']=self.workspace
         record['owner_id']=row['owner_id']
         for kind in ('image','heatmap'):
-            result=self.request('POST','/storage/v1/object/sign/team-inspections/'+quote(row[kind+'_path'],safe='/'),json={'expiresIn':600})
+            result=self.request('POST','/storage/v1/object/sign/'+self.bucket+'/'+quote(row[kind+'_path'],safe='/'),json={'expiresIn':600})
             signed=result.get('signedURL',result.get('signedUrl'))
             record[kind+'_url']=signed if signed.startswith('https://') else self.config['url']+'/storage/v1'+signed
         return record
 
     def raw(self,identifier,archived=False):
-        rows=self.request('GET','/rest/v1/shared_inspections',params={'id':'eq.'+identifier,'select':'*','limit':'1',
+        rows=self.request('GET','/rest/v1/'+self.table,params={'id':'eq.'+identifier,'select':'*','limit':'1',
             'archived_at':'not.is.null' if archived else 'is.null'})
         return rows[0] if rows else None
 
@@ -102,7 +115,7 @@ class StaffRepository:
         for key,value in (('category',category),('verdict',verdict),('batch',batch)):
             if value:
                 params['payload->>'+key]='eq.'+value
-        return self.request('GET','/rest/v1/shared_inspections',params=params)
+        return self.request('GET','/rest/v1/'+self.table,params=params)
 
     def list(self,category='',verdict='',batch='',limit=100,offset=0,archived=False):
         # Lists need no images until a record is opened. Avoid two storage API
@@ -114,9 +127,11 @@ class StaffRepository:
             rows.extend(page)
             if len(page)<count:
                 break
-        return [{**row['payload'],'storage':'supabase','owner_id':row['owner_id']} for row in rows]
+        return [{**row['payload'],'storage':self.storage_type,'workspace':self.workspace,'owner_id':row['owner_id']} for row in rows]
 
     def stats(self):
+        if self.workspace_stats_enabled:
+            return self.request('POST','/rest/v1/rpc/defectrag_workspace_stats',json={'p_scope':self.workspace})
         rows=self.list(limit=1000)
         counts={kind:sum(row['verdict']==kind for row in rows) for kind in ('Good','Anomalous','Uncertain')}
         batches={}
@@ -158,14 +173,14 @@ class StaffRepository:
     def add_review(self,identifier,status,decision,note=''):
         from backend.reviews import review_body,validate_review
         body=review_body(status,decision,note)
-        rows=self.request('POST','/rest/v1/staff_notes',json={
+        rows=self.request('POST','/rest/v1/'+self.notes_table,json={
             'inspection_id':identifier,'author_id':self.user['id'],'body':body},
             headers={'Prefer':'return=representation'})
         return {**validate_review(status,decision,note),'reviewer':self.staff['display_name'],
                 'reviewer_id':self.user['id'],'created_at':rows[0]['created_at']}
 
     def review_notes(self,identifier):
-        rows=self.request('GET','/rest/v1/staff_notes',params={
+        rows=self.request('GET','/rest/v1/'+self.notes_table,params={
             'inspection_id':'eq.'+identifier,'select':'body,author_id,created_at','order':'created_at.asc'})
         people=self.request('GET','/rest/v1/staff_members',params={'select':'user_id,display_name'})
         directory={row['user_id']:row['display_name'] for row in people}

@@ -1,3 +1,61 @@
+# Multi-user upgrade implemented locally; SQL approval pending — 19 October 2026
+
+User request: secure owner-only personal history, explicit authorized team
+sharing, near-real-time dashboard/alerts, separate public gallery; preserve UI
+and AI. Inspected checkpoint99bfb72 and the actual repository/auth flows. Found
+all current signed-in saves go to shared_inspections/team-inspections; personal
+cloud privacy did NOT exist. Guest history is isolated temporary SQLite; batch
+files/checkpoints are browser IndexedDB. No new model work is required.
+
+Prepared manual migration deployment/supabase_personal_workspace.sql and review
+guide docs/MULTIUSER_WORKSPACE.md in checkpoint0fc4506; copied to Desktop.
+Requested review/approval with async question. No reply/approval or confirmed
+execution yet. Exact migration SHA256:
+63e561bd234294286c6fc65b075ea130e9c021d60cf164ebf13d74a7c1f13ca1.
+DO NOT execute or alter this reviewed migration without user authorization.
+Optional rollback-only policy test SQL prepared separately, not executed.
+
+Implemented: owner-only PersonalRepository with immutable hash-named images,
+verified/idempotent writes and bounded explicit guest imports; team copy via
+owner-checked RPC; private conversations/reviews; separate scope statistics;
+request and artifact scope binding; owner personal recovery; approved staff/developer
+team permissions retained. New inference is personal-only when activated.
+Frontend retains exact CSS/design; minimal storage labels/scope selector/share
+conversation opt-in; correct workspace counts; serialized polling/focus/online
+refresh/cross-tab mutation invalidation; stale/error/offline state; selected
+reviews/messages and expiring artifact links refresh. Guest reviews import as
+provenance-labeled notes, never falsely attributed authenticated decisions.
+Stable single submission IDs and known duplicate HTTP400/409 handling allow retry
+without duplicate saves. Public gallery state refreshes; protections preserved.
+
+Validation: full Python117/117 passed; final privacy/session/gallery43/43 passed,
+including2 additional cases (119 distinct covered across runs, not one full119
+run). Frontend15/15; local/cloud/static builds passed with unchanged CSS hash
+index-Bn4HF2vD.css. No retraining, dataset/model edits, new dependencies or GPU
+requests. Actual new-schema RLS, second-account and hosted personal/team E2E
+checks have NOT run. Software fixtures do not establish live database security.
+Private receipts: development-support/multiuser-tests.xml,personal-final.xml.
+
+Feature is gated by DEFECTRAG_PERSONAL_WORKSPACE=1; default remains legacy team
+mode. Current HF production has NOT been changed for this upgrade; existing
+team and gallery records remain as previously verified. Prepared source builds
+are isolated. SQL, tables/policies, staff membership and service secrets unchanged.
+
+NEXT: await user approval AND successful manual SQL execution. Then deploy
+compatible source, verify legacy access, activate the variable once, and run
+real owner inspection across sessions, independent guest denials, explicit team
+share, note/review/ack propagation, archive/restore, duplicate/failure handling
+and gallery regression. Invite a real second staff/non-staff test account only
+if authorized; otherwise document that gap and use the optional rollback SQL
+owner/non-staff/anon policy checks. Do not claim completion until E2E passes.
+Exact source upload list now37 paths in docs/WORKFLOW_UPDATE_FILES.txt. Never
+upload runtime/gallery-setup, supabase.txt, configuration secrets, datasets or models.
+No new GitHub push or paid service. Preserve completed experiments and published
+gallery items. Legacy pending batch checkpoints remain stored under old keys;
+do not blindly replay them into Personal scope. See review guide for other limits.
+
+---
+
 # Community gallery activated and live-verified — 19 October 2026
 
 COMPLETED: user confirmed executing the generated SQL manually and configuring

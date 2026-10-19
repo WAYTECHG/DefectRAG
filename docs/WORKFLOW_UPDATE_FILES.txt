@@ -27,3 +27,11 @@ deployment/supabase_public_gallery.sql
 deployment/Prepare-Gallery.ps1
 docs/COMMUNITY_GALLERY.md
 docs/assets/community-gallery.png
+deployment/space/personal_repository.py
+frontend/src/WorkspaceShare.jsx
+frontend/src/workspace.mjs
+frontend/tests/workspace.test.mjs
+tests/test_personal_workspace.py
+deployment/supabase_personal_workspace.sql
+deployment/supabase_personal_policy_checks.sql
+docs/MULTIUSER_WORKSPACE.md

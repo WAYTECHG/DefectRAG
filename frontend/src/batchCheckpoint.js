@@ -1,9 +1,10 @@
 import {cloudConfigured,cloudClient} from './cloud.js';
+import {personalEnabled} from './workspace.mjs';
 
 export async function batchOwner(){
  if(cloudConfigured()){
   const {data}=await (await cloudClient()).auth.getSession();
-  if(data.session?.user)return 'staff:'+data.session.user.id;
+  if(data.session?.user)return 'staff:'+data.session.user.id+(personalEnabled()?':personal':'');
  }
  // No user identity, token, or signed artifact URL is stored in the checkpoint.
  return 'browser';

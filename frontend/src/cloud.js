@@ -42,7 +42,7 @@ export async function shareInspection(record,messages,url) {
     const hash=Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256',await blob.arrayBuffer()))).map(b=>b.toString(16).padStart(2,'0')).join('');
     const path=`${user.id}/${record.id}/${kind}-${hash}.jpg`;
     const {error}=await client.storage.from('team-inspections').upload(path,blob,{contentType:blob.type||'image/jpeg',upsert:false});
-    if(error&&String(error.statusCode)!=='409')throw error;
+    if(error&&!(String(error.statusCode)==='409'||(['Duplicate','ResourceAlreadyExists','KeyAlreadyExists'].includes(error.code))||(/already exists/i.test(error.message||'')&&String(error.statusCode)==='400')))throw error;
     paths.push(path);
   }
   const {image_url,heatmap_url,report_url,owner_id,...payload}=record;
@@ -52,4 +52,10 @@ export async function shareInspection(record,messages,url) {
   return {alreadyShared:false};
 }
 
-export function workspaceChanged(){window.dispatchEvent(new Event('defectrag-workspace-change'))}
+export function workspaceChanged(){
+ window.dispatchEvent(new Event('defectrag-workspace-change'));
+ try{localStorage.setItem('defectrag-workspace-event',String(Date.now())+Math.random())}catch{}
+}
+if(typeof window!=='undefined'&&typeof window.addEventListener==='function')window.addEventListener('storage',event=>{
+ if(event.key==='defectrag-workspace-event')window.dispatchEvent(new Event('defectrag-workspace-change'));
+});

@@ -80,3 +80,79 @@ complete until migration confirmation and hosted end-to-end tests are finished.
 Keep source-based policy review, mocked/software tests and actual live checks
 reported separately. A second real staff/non-staff account may be unavailable;
 record that coverage gap rather than claiming it passed.
+
+## Local implementation checkpoint — 19 October 2026
+
+Implemented the separate personal repository, workspace-bound request/artifact
+authorization, explicit guest saving/team sharing, separate personal/team
+statistics, owner recovery, idempotent immutable uploads and stable single-image
+submission IDs. Team and personal reviews/conversations are polled while open;
+private image links refresh periodically. Polling coalesces overlapping events,
+refreshes on focus/reconnect and signals offline/stale data. Mutations notify
+other tabs without broadcasting any token or record payload. Staff workspace
+refreshes selected notes/conversations, with stale-account/selection guards.
+Gallery publication state also refreshes without auto-publishing anything.
+
+The existing stylesheet is byte-for-byte unchanged. The additions are storage
+labels, a Personal/Team selector and explicit sharing/saving controls. All twelve
+model profiles, evaluation results, encoder/banks and Qwen generation are unchanged.
+
+Software validation: full backend suite **117/117**, then final focused privacy,
+session and gallery suite **43/43** including two additional cases; this covers
+119 distinct cases across runs, not one full 119-case run. Frontend **15/15**.
+Local, cloud and static builds passed. These do not prove live RLS, account
+privacy or hosted team synchronization; those remain gated by migration approval.
+
+The reviewed migration SHA-256 is
+`63e561bd234294286c6fc65b075ea130e9c021d60cf164ebf13d74a7c1f13ca1`.
+No change was made to this SQL after requesting approval. The optional
+[rollback-only policy checks](../deployment/supabase_personal_policy_checks.sql)
+can be reviewed and executed manually AFTER that migration. They use synthetic
+rows and roll back all changes, test an existing approved owner, a non-staff UUID
+and anonymous role; they do not prove a second real account login. They have not
+been executed against the live project by the agent.
+
+### Next steps after approval
+
+1. Owner manually executes the reviewed migration; confirm success here.
+2. Deploy the compatible application, verify legacy team/gallery access first.
+3. Enable `DEFECTRAG_PERSONAL_WORKSPACE=1` in HF Settings and restart once.
+4. Verify one real personal inspection, same-account second browser, guest denial,
+   explicit sharing, review/note and acknowledgement propagation, archive/restore,
+   duplicate replay and failures. Use labeled QA fixtures; preserve existing data.
+5. Verify public gallery publication/status/withdrawal regression. Reuse a prior
+   sample where possible; do not retrain or repeat benchmark experiments.
+6. Record real results and remaining multi-account coverage gaps before claiming
+   production readiness. Optional policy-check SQL results supplement these checks.
+
+Current hosted app remains on the previously verified version while approval is
+pending. No activation, new SQL execution, public deployment or paid action has
+been performed for this upgrade yet. Source changes and manual review files are
+ready; end-to-end acceptance is unfinished.
+
+### Operational bounds
+
+- Dashboard aggregates query the full chosen workspace. History displays the
+  latest 500, staff table the latest 200, alert lists up to 1,000 active records;
+  CSV supports 10,000. No gallery rows enter these aggregates.
+- New personal batch recovery uses a separate per-account browser key. Legacy
+  batch checkpoints are preserved under their original keys and are not silently
+  replayed into a new storage scope. A pending legacy batch needs review before
+  resuming; completed experiments must not be repeated.
+- Explicit guest saving imports its saved conversation up to a bounded 40 KB;
+  oversized imports fail before uploading. Guest review provenance is retained
+  as clearly labeled, unverified imported notes, not a newly authenticated review.
+  Those notes are not automatically team-shared. Original guest records remain.
+- Failed partial uploads can leave immutable orphan objects; retry reuses their
+  hash paths. No automatic deletion is performed. Capacity/quotas still apply.
+- Signed image URLs are bearer capabilities with bounded expiry. Revocation of
+  staff membership does not recall already downloaded or cached image copies.
+- Team storage/recovery policies remain the existing reviewed policies. Existing
+  historical shared records do not become private through this upgrade.
+- Model provenance is still not cryptographically attested; approved users can
+  submit data through their authorized APIs. This task adds privacy and auditing,
+  not validated factory acceptance or prediction attestation.
+
+Supabase upload retries account for both HTTP 400 duplicate-object errors and
+409 database conflicts, without swallowing permission/validation failures.
+See [official standard-upload behavior](https://supabase.com/docs/guides/storage/uploads/standard-uploads).

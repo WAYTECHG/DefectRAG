@@ -29,7 +29,7 @@ from backend.calibration import calibrated_card
 from backend.highres import HighResolutionEncoder, foreground_mask, score_tokens, restore_map
 from backend.vision import sha256, display_map
 from backend.storage import now
-from deployment.space.sessions import SessionRepository, identity, namespace, NAMESPACE, STAFF_TOKEN, authorize_artifact, capability, remember_staff, stored_staff
+from deployment.space.sessions import SessionRepository, identity, namespace, NAMESPACE, STAFF_TOKEN, WORKSPACE, artifact_workspace, authorize_artifact, capability, remember_staff, stored_staff
 
 ZERO = os.getenv('SPACES_ZERO_GPU') == '1'
 DEVICE = 'cuda' if torch.cuda.is_available() else 'cpu'
@@ -82,7 +82,8 @@ CLOUD_CONFIG=None
 if os.getenv('DEFECTRAG_STAFF_BACKEND')=='1':
     from deployment.space.supabase_repository import read_public_config
     CLOUD_CONFIG=read_public_config(UI/'config.js')
-REPO = SessionRepository(RUNTIME/'sessions',cloud_config=CLOUD_CONFIG,artifacts=ARTIFACTS)
+PERSONAL_ENABLED=os.getenv('DEFECTRAG_PERSONAL_WORKSPACE')=='1' and CLOUD_CONFIG is not None
+REPO = SessionRepository(RUNTIME/'sessions',cloud_config=CLOUD_CONFIG,artifacts=ARTIFACTS,personal_enabled=PERSONAL_ENABLED)
 from backend.main import create_app
 from backend.rag import KnowledgeIndex, EvidenceWorkflow
 if os.getenv('DEFECTRAG_LIVE_RAG')=='1':
@@ -122,17 +123,22 @@ async def workspace_access(request, call_next):
     if not path.startswith('/api/') or public:
         return await call_next(request)
     try:
+        requested_scope=request.headers.get('X-DefectRAG-Workspace','personal')
+        if requested_scope not in ('personal','team'):raise ValueError('Invalid workspace')
         match = re.fullmatch(r'/api/inspections/([a-f0-9]{32})/(image|heatmap|report)', path)
         if match and 'access' in request.query_params:
             owner = authorize_artifact(request.query_params['access'], *match.groups())
+            requested_scope=artifact_workspace(request.query_params['access'])
         elif path == '/api/export.csv' and 'access' in request.query_params:
             owner = authorize_artifact(request.query_params['access'],'workspace','csv')
+            requested_scope=artifact_workspace(request.query_params['access'])
         else:
             owner = namespace(request.headers.get('X-DefectRAG-Session',''))
-        context = NAMESPACE.set(owner)
         bearer=request.headers.get('authorization','').removeprefix('Bearer ')
         if request.headers.get('X-DefectRAG-Session'):
             remember_staff(owner,bearer)
+        context = NAMESPACE.set(owner)
+        scope_context=WORKSPACE.set(requested_scope)
         token = STAFF_TOKEN.set(bearer or stored_staff(owner))
     except ValueError as exc:
         return JSONResponse({'error': {'message': str(exc)}}, status_code=401)
@@ -142,6 +148,7 @@ async def workspace_access(request, call_next):
         response.headers['Cache-Control'] = 'private, no-store'
         return response
     finally:
+        WORKSPACE.reset(scope_context)
         STAFF_TOKEN.reset(token)
         NAMESPACE.reset(context)
 
@@ -197,19 +204,20 @@ def inspect_one(image_b64, filename, category, batch, request_id=''):
 
 
 @server.api(name='inspect',concurrency_limit=1,concurrency_id='model-work')
-def inspect(image_b64: str, filename: str, category: str, batch: str, session: str, token: str='', request_id: str='') -> dict:
-    with identity(session,token):
+def inspect(image_b64: str, filename: str, category: str, batch: str, session: str, token: str='', request_id: str='', workspace: str='personal') -> dict:
+    if PERSONAL_ENABLED and workspace!='personal':raise ValueError('New inspections must run in Personal workspace; sharing is a separate action.')
+    with identity(session,token,workspace):
         REPO.current()  # Validate signed-in staff membership before consuming GPU.
         return inspect_one(image_b64,filename,category,batch,request_id)
 
 
 @server.api(name='assistant',concurrency_limit=1,concurrency_id='model-work')
-def assistant(inspection_id: str, question: str, session: str, token: str='') -> dict:
+def assistant(inspection_id: str, question: str, session: str, token: str='', workspace: str='personal') -> dict:
     if not 3<=len(question)<=1200 or not re.fullmatch('[a-f0-9]{32}',inspection_id):
         raise ValueError('Use a saved inspection and a question of 3–1200 characters.')
     if WORKFLOW is None:
         raise ValueError('Live evidence generation is not enabled in this deployment yet.')
-    with identity(session,token):
+    with identity(session,token,workspace):
         record=REPO.get(inspection_id)
         if record is None:
             raise ValueError('Inspection is unavailable in your workspace')
@@ -226,6 +234,7 @@ def health():
         'encoder_configured':True,'llm_model':'Qwen3-4B-Instruct-2507' if WORKFLOW and ZERO else 'Qwen2.5:3b (local Ollama)' if WORKFLOW else 'generation migration in progress','zero_gpu':ZERO,
         'staff_persistence_enabled':CLOUD_CONFIG is not None,
         'community_gallery_enabled':GALLERY is not None,
+        'personal_workspace_enabled':PERSONAL_ENABLED,
         'history':'anonymous browser history is temporary; signed-in approved staff use Supabase' if CLOUD_CONFIG else 'anonymous browser history is temporary; staff backend disabled'}}
 
 
@@ -233,7 +242,7 @@ def artifact(identifier: str,kind: str):
     record=REPO.get(identifier)
     if record is None:
         raise HTTPException(404,'Inspection not found')
-    if record.get('storage')=='supabase':
+    if record.get('storage','').startswith('supabase'):
         return RedirectResponse(record[kind+'_url'],status_code=307)
     return FileResponse(ARTIFACTS/f"{identifier}{'_heatmap' if kind=='heatmap' else ''}.jpg")
 

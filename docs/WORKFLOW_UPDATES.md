@@ -1,3 +1,6 @@
+Personal/team upgrade follow-up: see [MULTIUSER_WORKSPACE.md](MULTIUSER_WORKSPACE.md).
+This adds migration-gated private history and synchronization; activation requires approval.
+
 Community gallery follow-up: see [COMMUNITY_GALLERY.md](COMMUNITY_GALLERY.md).
 The allowlisted updater now also includes the opt-in gallery and manual SQL setup.
 
@@ -67,7 +70,7 @@ For a different existing clone:
 .\deployment\Update-GitHub.ps1 -RepositoryPath 'C:\path\to\DefectRAG'
 ```
 
-The script copies/stages exactly the29 paths in WORKFLOW_UPDATE_FILES.txt. It checks
+The script copies/stages exactly the37 paths in WORKFLOW_UPDATE_FILES.txt. It checks
 the existing origin is WAYTECHG/DefectRAG, preserves conflicting local edits, and
 never commits or pushes automatically. It also refuses an already staged change
 set so unrelated work cannot be included accidentally. Inspect the staged changes

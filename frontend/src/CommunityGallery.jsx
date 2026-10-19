@@ -1,18 +1,20 @@
-import React,{useEffect,useState} from 'react';
+import React,{useEffect,useState,useRef} from 'react';
+import {startPolling} from './workspace.mjs';
 
 const preview=value=>'data:image/jpeg;base64,'+value;
 const score=value=>typeof value==='number'?value.toFixed(5):'—';
 
 export function PublishGalleryPanel({record,api}){
  const [state,setState]=useState(null),[consent,setConsent]=useState(false),[busy,setBusy]=useState(false),[error,setError]=useState('');
- useEffect(()=>{let active=true;api(`/api/inspections/${record.id}/publication`).then(value=>{if(active)setState(value)}).catch(err=>{if(active)setError(err.message)});return()=>{active=false}},[record.id,api]);
+ const publishing=useRef(false),version=useRef(0);
+ useEffect(()=>{let active=true;const poll=startPolling(async()=>{if(publishing.current)return;const generation=version.current;try{const value=await api(`/api/inspections/${record.id}/publication`);if(active&&generation===version.current){setState(value);setError('')}}catch(err){if(active&&generation===version.current)setError(err.message);throw err}});return()=>{active=false;poll.stop()}},[record.id,api]);
  const publication=state?.publication;
  async function submit(){
-  setBusy(true);setError('');
+  publishing.current=true;version.current++;setBusy(true);setError('');
   try{
    if(publication?.visible){await api(`/api/gallery/${publication.id}/withdraw`,{method:'POST'});setState({...state,publication:{...publication,visible:false}})}
    else {const value=await api(`/api/inspections/${record.id}/publication`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({consent})});setState({...state,publication:value});setConsent(false)}
-  }catch(err){setError(err.message)}finally{setBusy(false)}
+  }catch(err){setError(err.message)}finally{publishing.current=false;setBusy(false)}
  }
  return <section className="card"><div className="section-title"><h2>Publish to community gallery</h2><span className="subtle-tag">OPTIONAL · PUBLIC</span></div>
   <p>Private inspection history stays in this workspace. Publishing creates a separate public copy of the image, heatmap, product category and model measurements.</p>

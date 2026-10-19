@@ -174,7 +174,7 @@ def mount_gallery(app,repo,artifacts,gallery=None,owner=lambda:'local-operator',
         ready()
         if body.consent is not True:raise HTTPException(422,'Explicit public publication consent is required.')
         record=saved(identifier);actor,source,_=keys(identifier)
-        if record.get('storage')=='supabase':
+        if record.get('storage','').startswith('supabase'):
             current=repo.current()
             if record.get('owner_id')!=current.user['id']:
                 raise HTTPException(403,'Only the original staff uploader can publish this inspection.')
@@ -182,7 +182,7 @@ def mount_gallery(app,repo,artifacts,gallery=None,owner=lambda:'local-operator',
         previews=[]
         for kind,suffix in (('image',''),('heatmap','_heatmap')):
             path=Path(artifacts)/f'{identifier}{suffix}.jpg'
-            if record.get('storage')!='supabase':
+            if not record.get('storage','').startswith('supabase'):
                 if not path.is_file():raise HTTPException(409,'Saved image is unavailable. Nothing was published.')
                 content=path.read_bytes()
             else:
