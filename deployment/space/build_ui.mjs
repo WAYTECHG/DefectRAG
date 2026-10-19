@@ -15,11 +15,6 @@ if(publicConfigFile&&!preservedConfig.includes('sb_publishable_'))throw new Erro
 await build({root:path.join(root,'frontend'),configFile:false,base:'./',
  resolve:{alias:{'@gradio/client':path.join(root,'deployment/zerogpu_phase1/client/node_modules/@gradio/client/dist/index.js')}},
  build:{outDir:output,emptyOutDir:false},plugins:[{name:'space-transport',enforce:'pre',transform(code,id){
-  if(id.replaceAll('\\','/')===path.join(root,'frontend/src/ArchiveDialog.jsx').replaceAll('\\','/')){
-   return code.replace('All local inspections matching your current history filters will be archived, including matches beyond the first 500 displayed rows. They will disappear from the active history and review queue.',
-    'Matching browser records will leave active history. For signed-in staff, this archives up to 500 matching visible records that you own, or records authorized for a developer.')
-    .replace('This action does not change cloud records.','Signed-in staff archives affect their shared Supabase records; developer recovery follows workspace permissions.');
-  }
   if(id.replaceAll('\\','/')!==path.join(root,'frontend/src/main.jsx').replaceAll('\\','/'))return;
   if(!code.includes('return fetch(url(path),options)'))throw new Error('Review changed API boundary');
   return `import {spaceFetch,spaceUrl} from ${JSON.stringify(path.join(folder,'transport.js').replaceAll('\\','/'))};\n`+code

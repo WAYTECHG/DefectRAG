@@ -1,3 +1,35 @@
+# Personal workspace active; owner E2E in progress — 19 October 2026
+
+Compatible cloud commit49463314 is now active with
+DEFECTRAG_PERSONAL_WORKSPACE=1. User initially reported activation, but the exact
+variable was absent and health still false. Agent applied the requested public
+variable through the existing deployment connection and restarted once; live
+health confirmed true. No secrets, schema or existing records were modified.
+
+All19 activated public/anonymous checks passed. Three existing staff records and
+both gallery snapshots remain intact. One real owner PCB1 inspection saved
+privately, with actual DINOv2 score0.3130, threshold0.1414,747ms inference and
+heatmap. A second tab automatically received personal history and an alert.
+Only the new QA-PERSONAL-20261019 test record is used for mutation tests.
+
+OWNER E2E PASSED: Qwen cited heatmap answer, private review, personal ack1->0,
+report with private signed images,16 known-record artifact/guest-denial checks,
+explicit team copy3->4, duplicate share without duplication, separate team note/
+review, same-account cross-tab updates, personal filtered archive1->0 and restore
+with original evidence intact. Team copy stayed active during personal archive.
+Original3 shared records and2 public gallery entries preserved.
+
+Live testing found misleading archive/scope copy and polled controls remounting
+on parent refresh. Minimal source fixes are ready: scoped copy, Staff context,
+and stable module-level Gallery/Filters/Table identities. No CSS/design change.
+NEXT: final frontend builds/tests, personal-source gallery lifecycle, deploy
+these small UI fixes while retaining activation, verify reload/durable state.
+No real second staff/non-staff account exists for cross-owner tests;
+anonymous/invalid-token boundaries are covered but not a substitute. See
+docs/MULTIUSER_LIVE_VERIFICATION.md for exact evidence and remaining gaps.
+
+---
+
 # Compatible multi-user build deployed; activation pending — 19 October 2026
 
 User now reports successful MANUAL execution of the reviewed personal-workspace

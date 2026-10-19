@@ -35,3 +35,5 @@ tests/test_personal_workspace.py
 deployment/supabase_personal_workspace.sql
 deployment/supabase_personal_policy_checks.sql
 docs/MULTIUSER_WORKSPACE.md
+frontend/src/ArchiveDialog.jsx
+docs/MULTIUSER_LIVE_VERIFICATION.md
