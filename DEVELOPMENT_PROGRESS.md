@@ -1,3 +1,52 @@
+# Workflow fixes complete, hosted and Desktop synchronized — 19 October 2026
+
+COMPLETED: public Space RUNNING at41b9f9b1433942325cf73110476e0ae0e964a35e.
+All seven requested fixes/additions are active: scoped asynchronous responses,
+consistent refresh, saved-record category/batch synchronization, filtered/all CSV,
+clean report metadata, failed-only batch recovery/replay, human review status,
+decision/reviewer/time and clearer errors/cloud labels. Existing design/CSS retained.
+Implementation626f42e; Windows update-command safeguardad1a140; build/publish
+configuration safeguard8fba13d. No models, dataset, metrics or schema changed.
+
+Final verification:85 distinct Python regression cases covered across full84/84
+and final focused44/44 runs; frontend11/11 plus batch harness; all three builds.
+Two genuine local DINOv2 inspections passed, along with invalid-image rejection,
+reload recovery, failed-only retry and same-ID replay returning the original result.
+Record count remained2. Local Reviewed/Hold decision and filtered export passed.
+Hosted CPU checks10/10 passed, current UI and exact CSS confirmed, all12 models and
+staff persistence available, unauthorized requests denied, unknown API now404.
+Signed-in hosted review saved to the existing QA record, reopened through the new
+Staff→inspection link, and appeared with actor/time plus the original note in the
+cleaned report. Both640×488 report images loaded. No new hosted GPU request.
+
+Publishing initially exposed a blank example Supabase config copied by Vite. This
+was corrected using the preserved Desktop public settings. The Space builder now
+preserves installed config byte-for-byte; publisher preflight rejects a blank staff
+config. Default rebuild preservation check passed. Existing DB/RLS records untouched
+apart from the explicitly labeled QA review note; no SQL executed or access expanded.
+
+Desktop code/local build synchronized; personal config and guide hashes preserved,
+untracked VisA folder untouched. Existing GitHub checkout at88d58f1 now contains
+the22 prepared source/docs files, unstaged and unpushed. Exact Desktop PrepareOnly
+command passed, and full staging command passed in an isolated temporary checkout.
+User can run deployment/Update-GitHub.ps1, inspect staged changes, commit and push
+origin HEAD. Exact file list:docs/WORKFLOW_UPDATE_FILES.txt. No duplicate archive.
+
+Temporary local preview PID27704/session28611 stopped, test tab closed. No training,
+new model download, new paid service or local background job remains from this work.
+Final private receipts:development-support/workflow-local-verification.json,
+workflow-cloud-verification.json, workflow-fixes-tests.xml, workflow-fixes-final.xml,
+workflow-hosted-review.png. Public screenshot:docs/assets/workflow-review.png.
+
+Limits retained: ZeroGPU quotas; pending batch files recover only in the same
+browser/account/site context (not a shared cloud queue); acknowledgements still mean
+seen while human review is separate; conversation model provenance not attested.
+Mobile emulation, actual second/non-staff account and sustained-load tests remain
+unverified. No further development is required for the seven requested changes.
+Do not rerun completed training/benchmark experiments or auto-push GitHub.
+
+---
+
 # Workflow fixes implemented locally — 19 October 2026
 
 User authorized all seven summarized workflow fixes/additions and GitHub update

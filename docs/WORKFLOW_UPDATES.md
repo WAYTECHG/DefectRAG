@@ -83,6 +83,21 @@ quota interruption/resume, stable IDs, filtered exports, review validation/audit
 report escaping and preserved model measurements. Real inference verification is
 reported separately from software fixtures. No model retraining is part of this update.
 
+| Check | Result |
+|---|---|
+| Backend regression | Full84/84; final focused44/44 after retry IDs;85 distinct cases covered across runs |
+| Frontend regression | 11/11, including actual late-answer and out-of-order-open handlers |
+| Local real inference | Two public PCB1 samples; anomaly and normal results with heatmaps |
+| Batch recovery | Partial failure survived reload; retry skipped completed item; same-ID replay reused result |
+| Hosted application | RUNNING revision41b9f9b1433942325cf73110476e0ae0e964a35e;10/10 CPU boundaries passed |
+| Staff review/report | Saved reviewer/time/decision, original note and images verified on the hosted app |
+| Design preservation | Deployed CSS exactly matches existing dashboard CSS |
+| GitHub command | Desktop prepare-only and isolated22-file staging checks passed; no push performed |
+
+Free GPU quota limits remain. No fresh hosted GPU run was repeated for this workflow
+update; the genuine inference checks were local. Mobile and independent-account
+permission testing remain outstanding as recorded in the audit.
+
 The Space builder preserves its installed public Supabase configuration across
 Vite builds. For an initial build, set DEFECTRAG_PUBLIC_CONFIG_FILE to the existing
 public config.js. Publishing a staff-enabled build rejects blank example settings
