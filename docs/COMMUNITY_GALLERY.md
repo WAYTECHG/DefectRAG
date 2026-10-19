@@ -131,3 +131,26 @@ public Space. Do not publish the SQLite file or key to GitHub.
 See the latest `DEVELOPMENT_PROGRESS.md` checkpoint for actual test/build/deploy
 results. The live Supabase migration and secret configuration are manual steps;
 local software checks do not prove the new SQL has executed in the hosted project.
+
+
+## Live activation verified — 19 October 2026
+
+The owner confirmed manual SQL execution and both HF settings. The public
+Space gallery is active. Live checks passed:
+
+| Check | Result |
+| --- | --- |
+| Anonymous public browsing and valid image/heatmap previews | Passed |
+| New independent guest cannot read private staff history/record | Passed |
+| Existing genuine staff QA inspection published after consent | Passed |
+| Independent guest sees matching saved score and public snapshot | Passed |
+| Owner withdrawal removes public detail and listing | Passed |
+| Original two public items and three private staff records preserved | Passed |
+| Foreign withdrawal and guest moderation denied | Passed |
+| Direct anonymous table access and invalid gallery keys denied | Passed |
+
+The temporary QA publication was withdrawn. It remains hidden and counts toward
+lifetime capacity. No additional GPU inference or model experiment was needed.
+A successful staff hide of a visible item and a fresh hosted guest publication
+were not separately exercised; guest publication/isolation passed local software
+tests. The existing free-hosting and anti-abuse limits above still apply.

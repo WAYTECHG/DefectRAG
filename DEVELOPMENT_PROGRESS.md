@@ -1,3 +1,47 @@
+# Community gallery activated and live-verified — 19 October 2026
+
+COMPLETED: user confirmed executing the generated SQL manually and configuring
+both HF settings. Live /api/gallery now enabled; existing12 models and Supabase
+staff persistence remain available on Space46e957e3b0ba022ef92bd40e3a261a37a8c7b8ab.
+No direct SQL, secret reading, service-role key, retraining or new GPU inference
+was used by the agent during activation verification.
+
+Verified live: existing2 public snapshots readable without login; actual JPEG
+original/heatmap previews <=512px with no EXIF; public payload excludes private
+IDs, account/filename/batch, conversations, notes/reviews and signed URLs.
+An independent cookie-free guest workspace has empty private history; cannot
+read the known existing staff QA record or publish it (both404), withdraw a
+foreign publication (409), or moderate (403). Direct anon reads of all3 gallery
+tables denied. Anonymous key configuration and empty/wrong gallery capability
+calls denied. These requests did not alter records or keys.
+
+Signed-in staff browser explicitly published the existing genuine PCB1 public
+VisA QA sample through the unchecked-by-default consent control. A separate
+guest client saw the new public snapshot and matching real saved score .31301,
+threshold .14144, original and heatmap. Gallery increased2->3. Browser withdrawal
+succeeded; public detail now404; original2 items remain unchanged (count2).
+Staff history still shows all3 pre-existing inspections including the QA source.
+No staff notes, conversations, archive state or inspection measurements modified.
+The withdrawn gallery snapshot remains hidden for moderation and counts against
+the configured lifetime gallery/publisher limits, as documented.
+
+Receipts (private, ignored): development-support/gallery-activation-checks.json,
+gallery-live-lifecycle.json, gallery-cloud-check.json and
+ gallery-hosted-verification.png. Existing software suites104/104 and frontend11/11
+remain valid; no application source change was needed after manual activation.
+The additional targeted gallery suite19/19 previously passed.
+
+No remaining activation blocker. Actual non-staff account, successful staff hide
+of a visible publication and fresh hosted guest publication were not repeated;
+negative authorization and local guest publishing/isolation tests cover those
+boundaries partially. Free hosting/API limits, lack of proactive moderation and
+CAPTCHA, guest browser identity, public-copy caching and the100/5 lifetime caps
+remain documented. Guest withdrawal needs the original browser workspace.
+
+Resume only for a new user request. Do not repeat model training or benchmarks.
+
+---
+
 # Opt-in community gallery implemented; hosted activation pending — 19 October 2026
 
 User approved implementing the optional public demo gallery and preparing an
