@@ -1,3 +1,48 @@
+# Public application QA checkpoint — 19 October 2026
+
+Exploratory review completed against hosted3b68268a582dce6ad731e5a362988eb6d1d9b99e
+(RUNNING), source baseline0554152. Findings and reproduction steps are saved in
+docs/PUBLIC_QA_REVIEW_20261019.md. No working app code, UI design, models, datasets,
+SQL policies, old records or deployment were changed during the review.
+
+Fresh results: genuine PCB1 anomaly score0.313006 vs threshold0.141435, heatmap and
+viewer passed; relevant live Qwen heatmap answer cited sources; direct score/verdict
+answers and unsupported-repair abstention passed. Guest-to-staff share, saved
+conversation append, staff note, alert acknowledgement, report/images, navigation
+and benchmark switching passed. Two-image capsule batch: normal completed (Good,
+~0.132 vs0.144); anomalous file blocked by actual ZeroGPU quota. Do not resubmit
+the completed file. Supabase login is separate from Hugging Face GPU allowance.
+
+30/31 public boundary expectations passed (unknown route405 rather than404).
+Both anonymous RPC calls correctly denied401/42501. Python suite78/79 initially;
+one Windows long-temp-path SQLite failure passed in the targeted shorter-path
+security rerun (9/9). All79 distinct cases successfully covered across those runs.
+6 frontend tests and existing batch harness passed. No new training/downloads.
+
+Open priorities: source-handler harness reproduced late-answer context mix-up;
+main views stay stale after sharing until reload; opening PCB1 can retain Candle
+in input; export ignores active filters; report table exposes signed URLs/internal
+fields; misleading filtered-empty and raw image-validation errors. Detailed report
+separates live findings, isolated software reproductions and source-only risks.
+
+Two labeled QA records remain in Supabase (batches QA-20261019 and
+QA-20261019-BATCH), including one QA review note and four saved conversation turns.
+Existing three archived records were viewed but not restored or changed. No archive,
+delete, schema change or paid service. Private receipts/screen captures are ignored
+under development-support/public-qa-20261019. Do not publish private capabilities.
+
+Remaining verification: mobile override ignored (actual1280px, reset), no actual
+non-staff/second staff account test, no fresh live archive/restore round trip or
+sustained load/cold restart/PDF output. Quota stops further GPU tests. No local
+training/server job was started; test commands completed or were stopped.
+
+Resume: read the QA review first. Fix request-context guards and refresh consistency
+before adding features; keep existing UI. Then form/export/report corrections,
+followed by separately reviewed durable batch/review schema enhancements. Do not
+retrain or repeat completed benchmark experiments. No fixes deployed by this review.
+
+---
+
 # Targeted Macaroni update completed and hosted — 18 October 2026
 
 COMPLETED: public revision3b68268a582dce6ad731e5a362988eb6d1d9b99e serves
