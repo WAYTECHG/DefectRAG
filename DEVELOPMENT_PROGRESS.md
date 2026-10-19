@@ -1,3 +1,36 @@
+# Compatible multi-user build deployed; activation pending — 19 October 2026
+
+User now reports successful MANUAL execution of the reviewed personal-workspace
+migration and authorizes compatible deployment and E2E testing. This supersedes
+the previous withheld approval below. Agent executed no SQL and changed no
+schema, records, staff allowlist or secrets.
+
+Source checkpoint7d636ac deployed incrementally to HF commit
+49463314b49e9a7407b80e4a18cbe3b5a85062d1 (parent46e957e). Space RUNNING on
+free zero-a10g. Changed9 application/frontend files,418365 bytes; no model assets,
+static showcase files or dependencies uploaded, no file deletions. Existing
+Supabase public config compared equal; personal flag remains absent/disabled.
+
+LIVE compatibility checks18/18 passed: flag off,12 models and staff backend healthy,
+exact original CSS, gallery enabled with both existing redacted JPEG snapshots,
+independent guest empty private lists, all3 new personal tables denied to anon,
+all5 tested personal/team RPCs denied to anon with42501 (not missing-function404),
+invalid-token workspace API denial. Browser retained approved staff session and
+all3 existing team records after reload. These prove legacy compatibility and
+anonymous boundaries, not yet owner E2E or second-account isolation.
+Receipts (private): development-support/space/personal-migration-confirmed.json,
+personal-compatibility-published.json,personal-compatibility-public.json.
+
+NEXT: finish browser staff/gallery checks; guide user to HF Settings -> Variables
+and secrets -> New variable: DEFECTRAG_PERSONAL_WORKSPACE, value1 (not a secret).
+Wait for user activation confirmation and verify health flag true. Then real
+personal save, multi-tab history/conversation/review/ack, explicit team sharing,
+scope counts, archive/restore, guest and gallery regression. Use only new labeled
+QA records; preserve all existing rows. Do not claim a real second staff/non-staff
+account test if no such account is available. No retraining/benchmark repeats.
+
+---
+
 # Independent multi-user hardening checkpoint; SQL NOT approved — 19 October 2026
 
 Latest user instruction: "Not approved yet; continue independent code and tests."
