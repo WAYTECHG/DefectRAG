@@ -1,3 +1,104 @@
+# Inactive authentication / automation milestone — 20 October 2026
+
+User approved implementation, reviewable additive SQL and local automated tests
+ONLY. Work is isolated on branch feature/auth-mfa-inactive from baseline d0ff630.
+No migration executed, no permission/account changes, no production settings or
+secrets modified, no emails/invitations, no deployment, no feature activation.
+Desktop installation and existing working build outputs were not replaced.
+
+IMPLEMENTED INACTIVE: AccountSecurity.jsx and authSecurity.mjs integrate native
+Supabase signup/email confirmation, own access requests/status, native TOTP setup
+and verification, unfinished-enrollment cancellation, developer approve/reject/
+revoke and notification status/manual retry. Existing styles/navigation remain.
+Registration never inserts staff membership; privileged decisions require AAL2.
+
+New REVIEW-ONLY deployment/supabase_auth_mfa.sql preserves prior SQL and records.
+It adds off-by-default registration/MFA switches, request/audit/outbox tables,
+versioned transactional decisions, soft revocation, last-developer/self-decision
+guards and restrictive private table/Storage policies. Existing privileged RPCs
+inherit active-membership/MFA helper checks. Own posture remains available at
+AAL1 for enrollment; pending/revoked users gain no protected data access.
+The activation function is SQL-owner-only and refuses mandatory MFA without an
+active developer's verified TOTP factor. No activation call was executed.
+
+Enabled backend path performs fresh Supabase-validated posture checks, bypassing
+the old 45-second membership cache. Protected images use user-JWT reads instead
+of new signed links. Staff-page image blobs are released on replacement/unmount.
+Gallery publication was adapted to the authenticated byte path, with explicit
+owner and size checks, preserving opt-in public snapshots. Earlier app-issued
+signed URLs remain valid up to10/15 minutes; downloaded data cannot be recalled.
+
+Notification implementation: dependency-free inactive Supabase Edge worker,
+purpose-secret invocation auth, separate n8n Header Auth, minimal event payloads,
+leased claims, bounded retry/backoff and dead letters. Inactive n8n SMTP workflow
+verifies provider acceptance before acknowledging. No OTP/approval authority or
+Supabase privileged credential in n8n/React. No scheduler/resource provisioned.
+Local n8n cannot send while the laptop is offline; Supabase retains events,
+with manual UI retry after exhaustion. Always-on delivery needs an approved
+reachable always-on n8n host. SMTP delivery is at least once, not exactly once.
+
+LOCAL EVIDENCE: 55 backend auth/privacy tests,56 application regressions and22
+Gallery checks (19 repeat existing Gallery cases +3 new authenticated-path cases)
+passed. All49 frontend/UI/helper/worker tests and9 assistant-behavior regressions
+passed:123 distinct Python cases total (repeated Gallery cases counted once).
+Summary: results/auth-mfa-milestone.json; compact JUnit reports are alongside it.
+SQL tests are
+structural checks, not SQL execution or proof of live RLS. Local/static/cloud
+frontend builds passed in runtime/auth-build, preserving deployed/local outputs.
+CSS stays index-Bn4HF2vD.css, SHA256
+087e3c48084e6752afdd5667f4ad43b22bd240038b904dc746f51b90b0732661.
+Original model/RAG implementation, old SQL, public config and styles are unchanged.
+No training, inference, model download or performance experiments were repeated.
+
+TEST ENVIRONMENT: initial source .venv lacked langchain_community; reused the
+existing complete development-support/zerogpu-phase1/.venv, installing nothing.
+Sandbox Windows socketpair blocked the in-process HTTP test client; diagnostic
+stack confirmed that cause, and approved unrestricted fixture-only API tests
+passed. A test's oversized auto-generated parameter ID was corrected before the
+successful final run. Initial diagnostic artifacts remain under ignored runtime/;
+only compact passing reports are release evidence. The two stalled child/launcher
+processes matching this milestone's unique test marker were stopped after the
+successful replacement run. No new test server/training/inference job remains.
+
+REVIEW/NEXT: docs/AUTH_MFA_ACTIVATION.md contains full permissions/configuration,
+SMTP requirements, offline delivery, activation and recovery procedure. Review
+new migration before MANUAL execution. No previous migrations should be rerun.
+Await separate permission for SQL, inactive-compatible deployment, real MFA/account
+tests, emails, secrets, notification scheduling and mandatory enforcement. Bootstrap
+the existing developer before enabling MFA, then test real regular-staff/non-staff
+accounts and direct REST/RLS/Storage/Gradio/export boundaries. Deno Edge/n8n runtime,
+native Supabase MFA and live policy execution remain UNVERIFIED, not live passes.
+
+---
+
+# MFA / n8n architecture assessment — 20 October 2026
+
+User selected baseline d0ff630. Read-only application audit confirms invited-account
+Supabase login and authoritative staff allowlist, but no registration, access-request,
+developer approval/rejection, native MFA or n8n implementation in this checkpoint.
+Do not assume another branch supplies those features.
+
+Assessment saved in docs/AUTH_MFA_N8N_ASSESSMENT.md. Recommended: native Supabase
+TOTP; developer-only transactional approval RPCs; active membership + AAL2 enforced
+in backend, applicable RLS/Storage and security-definer RPCs; transactional outbox
+and scheduled trusted worker calling authenticated n8n for notifications only.
+Public Demo/Gallery remain accessible. Existing developer must enroll before any
+mandatory enforcement. Review cached staff checks and 600-second private signed
+URLs when implementing revocation; frontend-only MFA is insufficient.
+
+No application/SQL/settings changes, installs, model runs, deployment, database
+writes or emails. Only this progress entry and the assessment document changed.
+Existing live evidence below remains historical; NO new MFA/approval/n8n tests
+have run. n8n hosting and actual project SMTP/MFA settings are unconfirmed.
+
+NEXT: present architecture for approval; confirm n8n hosting/SMTP. Only then prepare
+inactive code, separate reviewable additive SQL and mocked security/delivery tests.
+Do not execute migrations, activate auth, deploy or send real mail without explicit
+approval. Real staff/non-staff test accounts remain needed for complete live tests.
+Preserve all existing models, UI, RAG, records, gallery, SQL and Git checkpoints.
+
+---
+
 # Personal workspace LIVE; acceptance checkpoint — 19 October 2026
 
 Final public Space RUNNING at13af0e1cb002386ade5849739f4bd28c5736f341 on free

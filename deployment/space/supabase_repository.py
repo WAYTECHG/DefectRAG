@@ -34,6 +34,20 @@ class StaffRepository:
     def __init__(self,config,token,artifacts):
         self.config,self.token,self.artifacts=config,token,Path(artifacts)
         self.headers={'apikey':config['key'],'Authorization':'Bearer '+token}
+        if config.get('auth_workflow_enabled'):
+            # Supabase verifies the JWT. No decoded/browser AAL or role is trusted.
+            # Deliberately fresh for each protected operation: revocation must
+            # not reuse the legacy 45-second membership cache before GPU work.
+            posture=self.request('POST','/rest/v1/rpc/defectrag_auth_status',json={})
+            if (not isinstance(posture,dict) or posture.get('approved') is not True
+                    or posture.get('revoked') is not False or posture.get('authorized') is not True
+                    or type(posture.get('mfa_required')) is not bool
+                    or (posture['mfa_required'] and posture.get('aal2') is not True)
+                    or posture.get('role') not in ('staff','developer') or not posture.get('user_id')):
+                raise ValueError('Approved staff and required authenticator verification are needed. Open Staff workspace.')
+            self.user={'id':posture['user_id']}
+            self.staff={'user_id':posture['user_id'],'role':posture['role'],'display_name':posture.get('display_name') or 'Staff member'}
+            return
         # Do not trust decoded JWT claims. Supabase validates the token, and the
         # staff allowlist is read through its existing authenticated policies.
         with _cache_lock:
@@ -82,10 +96,32 @@ class StaffRepository:
         record['workspace']=self.workspace
         record['owner_id']=row['owner_id']
         for kind in ('image','heatmap'):
+            if self.config.get('auth_workflow_enabled'):
+                # SessionRepository replaces these with scoped artifact URLs;
+                # the backend fetches private bytes under the current user JWT.
+                record[kind+'_url']=f"/api/inspections/{record['id']}/{kind}"
+                continue
             result=self.request('POST','/storage/v1/object/sign/'+self.bucket+'/'+quote(row[kind+'_path'],safe='/'),json={'expiresIn':600})
             signed=result.get('signedURL',result.get('signedUrl'))
             record[kind+'_url']=signed if signed.startswith('https://') else self.config['url']+'/storage/v1'+signed
         return record
+
+    def private_artifact(self,identifier,kind):
+        if kind not in ('image','heatmap'):raise ValueError('Invalid private artifact')
+        row=self.raw(identifier)
+        if row is None:raise ValueError('Private inspection is unavailable')
+        try:
+            with httpx.Client(timeout=25,trust_env=False) as client:
+                with client.stream('GET',self.config['url']+'/storage/v1/object/authenticated/'+self.bucket+'/'+quote(row[kind+'_path'],safe='/'),headers=self.headers) as response:
+                    if not response.is_success:raise ValueError('Private artifact access denied')
+                    content=bytearray()
+                    for chunk in response.iter_bytes(chunk_size=65536):
+                        if len(content)+len(chunk)>10*1024*1024:raise ValueError('Private artifact exceeds the size limit')
+                        content.extend(chunk)
+                    if not content:raise ValueError('Private artifact is empty')
+                    return bytes(content)
+        except httpx.HTTPError:
+            raise RuntimeError('Private artifact could not be loaded. Retry later.') from None
 
     def raw(self,identifier,archived=False):
         rows=self.request('GET','/rest/v1/'+self.table,params={'id':'eq.'+identifier,'select':'*','limit':'1',

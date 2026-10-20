@@ -4,6 +4,8 @@ import {cloudConfigured,cloudClient,currentStaff,workspaceChanged} from './cloud
 import ReviewForm from './ReviewForm.jsx';
 import {parseReview,reviewBody} from './workflow.mjs';
 import {startPolling} from './workspace.mjs';
+import AccountSecurity from './AccountSecurity.jsx';
+import {authWorkflowEnabled,privateTeamImages} from './authSecurity.mjs';
 
 export default function TeamWorkspace({onOpenInspection}){
  const selection=useRef(0),selectionUser=useRef(null),loads=useRef(0),selectedRef=useRef(null),imageTime=useRef(0);
@@ -12,6 +14,9 @@ export default function TeamWorkspace({onOpenInspection}){
  const [email,setEmail]=useState(''),[password,setPassword]=useState(''),[busy,setBusy]=useState(false),[error,setError]=useState('');
  const [archived,setArchived]=useState(false),[selected,setSelected]=useState(null),[images,setImages]=useState([]),[notes,setNotes]=useState([]),[note,setNote]=useState('');
  const [recovery,setRecovery]=useState(false),[newPassword,setNewPassword]=useState(''),[confirm,setConfirm]=useState(false);
+ const [securityClient,setSecurityClient]=useState(null);
+ const authEnabled=authWorkflowEnabled();
+ useEffect(()=>()=>{images.filter(src=>src.startsWith('blob:')).forEach(src=>URL.revokeObjectURL(src))},[images]);
  useEffect(()=>{selectedRef.current=selected},[selected]);
  const configured=cloudConfigured();
  async function task(action){setBusy(true);setError('');try{await action()}catch(e){setError(e.message||'Team request failed.')}finally{setBusy(false)}}
@@ -30,20 +35,27 @@ export default function TeamWorkspace({onOpenInspection}){
     else{
      setSelected(fresh);setNotes(noteResult.data||[]);
      if(Date.now()-imageTime.current>8*60*1000){
+      if(authEnabled){
+       const urls=await privateTeamImages(client,fresh);
+       if(generation===loads.current&&selectionGeneration===selection.current){setImages(urls);imageTime.current=Date.now()}
+       else urls.forEach(src=>URL.revokeObjectURL(src));
+      }else{
       const urls=await Promise.all([fresh.image_path,fresh.heatmap_path].map(path=>client.storage.from('team-inspections').createSignedUrl(path,900)));
       if(generation===loads.current&&selectionGeneration===selection.current){if(urls.some(value=>value.error))throw new Error('Shared image links could not refresh.');setImages(urls.map(value=>value.data.signedUrl));imageTime.current=Date.now()}
+      }
      }
     }
    }
  }
  useEffect(()=>{if(!configured)return;let cancelled=false,subscription;
   cloudClient().then(async client=>{
+   if(!cancelled&&authEnabled)setSecurityClient(client);
    subscription=client.auth.onAuthStateChange((event,session)=>{if(!cancelled){const next=session?.user?.id||null;if(selectionUser.current!==next){selection.current++;loads.current++;setSelected(null);setRows([]);setImages([]);setNotes([]);setStaff(null);selectionUser.current=next}setUser(session?.user||null);if(event==='PASSWORD_RECOVERY')setRecovery(true)}}).data.subscription;
    const {data}=await client.auth.getUser();if(!cancelled)setUser(data.user);
   }).catch(e=>{if(!cancelled)setError(e.message)});
   return()=>{cancelled=true;selection.current++;subscription?.unsubscribe()};
  },[configured]);
- useEffect(()=>{if(!user)return;const poll=startPolling(refresh,{onState:value=>{setSync(value);if(value.error)setError(value.error)}});
+ useEffect(()=>{if(!user)return;const poll=startPolling(refresh,{onState:value=>{setSync(value);if(value.error){setError(value.error);if(authEnabled){selection.current++;setRows([]);setDirectory({});setSelected(null);setImages([]);setNotes([]);setStaff(null)}}}});
   return()=>{poll.stop();loads.current++};
  },[user?.id,archived]);
  async function open(row){
@@ -54,9 +66,10 @@ export default function TeamWorkspace({onOpenInspection}){
     client.from('shared_inspections').select('*').eq('id',row.id).single(),
     client.from('staff_notes').select('*').eq('inspection_id',row.id).order('created_at')]);
    if(recordError)throw recordError;if(error)throw error;
-   const urls=await Promise.all([fresh.image_path,fresh.heatmap_path].map(path=>bucket.createSignedUrl(path,900)));
+   const privateUrls=authEnabled?await privateTeamImages(client,fresh):null;
+   const urls=privateUrls?privateUrls.map(src=>({data:{signedUrl:src}})):await Promise.all([fresh.image_path,fresh.heatmap_path].map(path=>bucket.createSignedUrl(path,900)));
    if(urls.some(r=>r.error))throw new Error('Private images could not be loaded. Check staff/storage policies.');
-   if(generation!==selection.current)return;
+   if(generation!==selection.current){privateUrls?.forEach(src=>URL.revokeObjectURL(src));return}
    selectedRef.current=fresh;imageTime.current=Date.now();setSelected(fresh);setImages(urls.map(r=>r.data.signedUrl));setNotes(data||[]);
   });
  }
@@ -68,7 +81,8 @@ export default function TeamWorkspace({onOpenInspection}){
  if(!configured)return <section className="card cloud-setup"><div className="setup-icon"><Cloud size={32}/></div><span className="eyebrow">TEAM WORKSPACE</span><h2>One shared view of inspection.</h2><p>The staff workspace is ready to connect to your own Supabase project. No cloud project or account has been created for you.</p><div className="setup-grid">{[['01','Create a free project','Use your Supabase account and select an eligible Free plan.'],['02','Set up staff access','Run the supplied schema, add your developer account and invite colleagues.'],['03','Connect this dashboard','Add the project URL and publishable key to config.js, then reload.']].map(([n,t,d])=><div key={n}><b>{n}</b><h3>{t}</h3><p>{d}</p></div>)}</div><a className="primary" href="https://supabase.com/dashboard" target="_blank" rel="noreferrer">Open Supabase <ExternalLink size={16}/></a><p className="caption">Setup files: deployment/SUPABASE_SETUP.md and deployment/supabase.sql. Never place a service-role key in the browser. Local inspection works without cloud setup.</p></section>;
  return <><section className="card"><div className="section-title"><div><h2><Users size={21}/> Staff workspace</h2><p>Signed-in staff share saved inspections and review notes. Live AI runs on the connected inspection backend.</p></div><span className="subtle-tag"><Cloud size={13}/> SUPABASE</span></div>
  {error&&<div className="error" role="alert">{error}</div>}
- {!user?<form className="login-form" onSubmit={e=>{e.preventDefault();task(async()=>{const client=await cloudClient();const {error}=await client.auth.signInWithPassword({email,password});if(error)throw error;setPassword('')})}}><label className="field">Work email<input type="email" autoComplete="username" value={email} onChange={e=>setEmail(e.target.value)} required/></label><label className="field">Password<input type="password" autoComplete="current-password" value={password} onChange={e=>setPassword(e.target.value)} required/></label><button className="primary" disabled={busy}>{busy?<LoaderCircle className="spin" size={17}/>:<LogIn size={17}/>} Sign in</button><button type="button" className="text-button" disabled={!email||busy} onClick={()=>task(async()=>{const client=await cloudClient();const {error}=await client.auth.resetPasswordForEmail(email,{redirectTo:location.origin+location.pathname});if(error)throw error;setError('Password reset requested. Check your email.')})}>Reset password</button><p className="caption">Accounts must be invited and approved by your workspace developer. Signing up alone does not grant staff access.</p></form>:<>
+ {authEnabled&&securityClient&&<AccountSecurity key={user?.id||'anonymous'} client={securityClient} user={user} onChange={()=>{workspaceChanged();if(user)task(refresh)}}/>}
+ {!user?<form className="login-form" onSubmit={e=>{e.preventDefault();task(async()=>{const client=await cloudClient();const {error}=await client.auth.signInWithPassword({email,password});if(error)throw error;setPassword('')})}}><label className="field">Work email<input type="email" autoComplete="username" value={email} onChange={e=>setEmail(e.target.value)} required/></label><label className="field">Password<input type="password" autoComplete="current-password" value={password} onChange={e=>setPassword(e.target.value)} required/></label><button className="primary" disabled={busy}>{busy?<LoaderCircle className="spin" size={17}/>:<LogIn size={17}/>} Sign in</button><button type="button" className="text-button" disabled={!email||busy} onClick={()=>task(async()=>{const client=await cloudClient();const {error}=await client.auth.resetPasswordForEmail(email,{redirectTo:location.origin+location.pathname});if(error)throw error;setError('Password reset requested. Check your email.')})}>Reset password</button><p className="caption">{authEnabled?'Registration alone does not grant staff access. Approved staff complete any required authenticator verification.':'Accounts must be invited and approved by your workspace developer. Signing up alone does not grant staff access.'}</p></form>:<>
  <div className="team-toolbar"><div><ShieldCheck size={18}/><strong>{staff?.display_name||user.email}</strong><span className="subtle-tag">{staff?.role||'CHECKING MEMBERSHIP'}</span></div><button className="secondary" disabled={busy} onClick={()=>task(refresh)}><RefreshCw size={16}/> Refresh</button><button className="secondary" onClick={()=>task(async()=>{const client=await cloudClient();await client.auth.signOut();setRows([]);setSelected(null);setStaff(null)})}><LogOut size={16}/> Sign out</button></div>
  {recovery&&<form className="login-form" onSubmit={e=>{e.preventDefault();task(async()=>{const client=await cloudClient();const {error}=await client.auth.updateUser({password:newPassword});if(error)throw error;setNewPassword('');setRecovery(false)})}}><label className="field">Set a new password<input type="password" minLength={12} autoComplete="new-password" value={newPassword} onChange={e=>setNewPassword(e.target.value)} required/></label><button className="primary" disabled={busy}>Save password</button></form>}
  <div className="team-toolbar"><span role="status">Team Workspace · latest {rows.length} shared records · {sync.state==='synced'?'synchronized at '+new Date(sync.at).toLocaleTimeString():sync.state==='offline'?'offline; data may be stale':sync.state==='stale'?'synchronization failed; data may be stale':'refreshing…'} · polls every 15 seconds</span>{staff?.role==='developer'&&<button className="secondary" onClick={()=>{setArchived(!archived);setSelected(null)}}><ArchiveRestore size={16}/>{archived?'Active history':'Developer recovery'}</button>}{!archived&&<button className="secondary danger" disabled={busy||!rows.some(r=>r.owner_id===user.id)} onClick={()=>setConfirm(true)}><Archive size={16}/> Archive my visible history</button>}</div>

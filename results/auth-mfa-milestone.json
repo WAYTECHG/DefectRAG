@@ -1,0 +1,55 @@
+{
+  "date": "2026-10-20",
+  "baseline": "d0ff630",
+  "branch": "feature/auth-mfa-inactive",
+  "status": "inactive_implementation_locally_verified",
+  "reports": {
+    "auth-mfa-boundary-tests.xml": {
+      "tests": 55,
+      "failures": 0,
+      "errors": 0
+    },
+    "auth-regression-tests.xml": {
+      "tests": 56,
+      "failures": 0,
+      "errors": 0
+    },
+    "auth-gallery-tests.xml": {
+      "tests": 22,
+      "failures": 0,
+      "errors": 0
+    },
+    "auth-rag-regression-tests.xml": {
+      "tests": 9,
+      "failures": 0,
+      "errors": 0
+    },
+    "auth-frontend-tests.xml": {
+      "tests": 49,
+      "failures": 0,
+      "errors": 0
+    }
+  },
+  "unique_python_tests": 123,
+  "frontend_tests": 49,
+  "builds": [
+    "local",
+    "static_showcase",
+    "cloud_transport"
+  ],
+  "css_sha256": "087e3c48084e6752afdd5667f4ad43b22bd240038b904dc746f51b90b0732661",
+  "migration_sha256_lf": "cea1e451073fad9f47aca26292cb83a5d337854eef437d97f8c80b79c121e983",
+  "live_tests_run": false,
+  "migration_executed": false,
+  "features_activated": false,
+  "emails_sent": false,
+  "deployed": false,
+  "unverified": [
+    "native Supabase MFA",
+    "SQL execution and live RLS",
+    "Deno Edge runtime",
+    "n8n runtime import/execution",
+    "SMTP delivery",
+    "real staff/non-staff role and revocation tests"
+  ]
+}

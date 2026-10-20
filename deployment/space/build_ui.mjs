@@ -3,7 +3,7 @@ import fs from 'node:fs/promises';
 import {fileURLToPath,pathToFileURL} from 'node:url';
 const folder=path.dirname(fileURLToPath(import.meta.url)),root=path.resolve(folder,'../..');
 const {build}=await import(pathToFileURL(path.join(root,'frontend/node_modules/vite/dist/node/index.js')));
-const output=path.join(root,'development-support/space/ui-dist');
+const output=process.env.DEFECTRAG_SPACE_BUILD_OUT?path.resolve(process.env.DEFECTRAG_SPACE_BUILD_OUT):path.join(root,'development-support/space/ui-dist');
 // Vite copies public/config.js, which is deliberately blank in source control.
 // Preserve installed public settings before building; never read secrets from .env.
 const publicConfigFile=process.env.DEFECTRAG_PUBLIC_CONFIG_FILE;

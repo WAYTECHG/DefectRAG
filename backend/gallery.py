@@ -186,6 +186,14 @@ def mount_gallery(app,repo,artifacts,gallery=None,owner=lambda:'local-operator',
                 if not path.is_file():raise HTTPException(409,'Saved image is unavailable. Nothing was published.')
                 content=path.read_bytes()
             else:
+                if getattr(current,'config',{}).get('auth_workflow_enabled'):
+                    # The MFA-enabled repository deliberately returns scoped API
+                    # URLs, not signed Storage links. Read under the user's JWT
+                    # so owner/RLS/MFA checks still apply to public publication.
+                    content=current.private_artifact(identifier,kind)
+                    if len(content)>5*1024*1024:raise HTTPException(413,'Saved image exceeds gallery limit.')
+                    previews.append(thumbnail(content))
+                    continue
                 url=record.get(kind+'_url','')
                 if not cloud_origin or urlparse(url).netloc!=urlparse(cloud_origin).netloc or not url.startswith('https://'):
                     raise HTTPException(403,'Saved image origin is not authorized.')
