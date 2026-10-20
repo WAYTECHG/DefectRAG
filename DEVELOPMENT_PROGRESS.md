@@ -1,3 +1,67 @@
+# Step 5 deployed and verified; stop before Step 6 — 20 October 2026
+
+HF Space RUNNING: https://huggingface.co/spaces/Wizzas/DefectRAG
+Application: https://wizzas-defectrag.hf.space/
+HF release: b9b5fd90e38f421007912f56663db26e9208bd6d
+Deployed source:1dfb01e8f15e26839964b58f9a7e1d1307701891,
+feature/auth-mfa-inactive. Final documentation/results checkpoint follows that
+application source; inspect the latest commit named "Record controlled HF rollout
+and live bootstrap verification". No further application deployment is implied.
+
+USER CONFIRMED manually executed auth migration and passing postchecks; DB
+registration_enabled=false and mfa_required=false. Exact migration LF SHA256
+cea1e451073fad9f47aca26292cb83a5d337854eef437d97f8c80b79c121e983.
+No migration/SQL was executed by the agent. Public authWorkflowEnabled=true,
+registrationEnabled=false; HF DEFECTRAG_AUTH_WORKFLOW=1 and
+DEFECTRAG_NOTIFICATIONS_ENABLED=0. All unrelated HF variables and secrets preserved.
+No enrollment, MFA enforcement, registration, notification service, membership
+decision, real email, GitHub push, training or multimodal upgrade activated.
+
+FRESH VERIFIED:62 frontend tests,87-file verified build and offline release guard;
+149 committed files checked against remote Git/LFS hashes; HF image build/startup;
+live asset hashes including index-C51GOc1V.js, TeamWorkspace-DVtFB4ub.js,
+authSecurity-C13nsxqA.js; identical original index-Bn4HF2vD.css. Public health,
+models/evaluation/samples/Gallery HTTP200;12 categories;3 Gallery entries preserved;
+unsigned private history and anonymous auth-status RPC401. Old container served
+old assets briefly during startup; final served hashes match the new release.
+
+User signed in to existing Developer account: approved non-AAL2 access retained;
+5 active Team records,2 Personal records, private originals/heatmaps, old Team
+notes/review and Personal alerts accessible. Authenticated Blob image downloads
+and fresh backend private image paths both work.3 existing Team archives visible
+in Developer recovery; Personal recovery empty. No private record mutations.
+Account Security and Set up authenticator visible. Real new guest Capsules DINOv2
+CUDA inference801.65ms, score0.2054974884 vs threshold0.1439922601; actual heatmap,
+image/report200; foreign guest isolated. Real cited Qwen3-4B answer2532.49ms,
+matching source quotes,2 saved conversation turns. Only temporary guest history
+created; no new durable inspections or public publications. No experiment repeated.
+
+Desktop and Work source started at the same1dfb01e. Latest verified cloud release
+staged to Desktop's isolated development-support/space/ui-dist and checked there.
+Original Desktop public/local config, run guide and local/static build indexes
+retain exact hashes. Old release config backed up privately. No datasets, models,
+secrets or inspection records copied. Guarded Git fast-forward is used for the
+final documentation/results checkpoint; preserve both intentional Desktop edits.
+
+Reports: docs/CONTROLLED_DEPLOYMENT_20261020.md and
+results/controlled-deployment-20261020.json. Detailed private baseline/rollback,
+logs, guest result and release receipts:development-support/space/step5-20261020;
+never upload this ignored folder to GitHub. Rollback target13af0e1cb002386ade5849739f4bd28c5736f341
+saved; no rollback needed. No local jobs remain; HF app continues running.
+
+NEXT: STOP before Step6. Manual Developer TOTP enrollment/second-session test is
+documented in the deployment report; never enable mandatory MFA to troubleshoot.
+Separate ordinary Staff, non-staff/pending/cross-owner accounts, native successful/
+failed MFA/recovery, AAL2 approvals/revocation, fresh multi-image batch and real
+Edge/n8n/SMTP integrations remain unverified live. Earlier automated tests are not
+native integration passes. HF notification flag0 is verified, but external Edge
+settings were not changed/inspected; no worker/workflow deployed or invoked.
+ZeroGPU cold starts/quotas still apply. Current RAG is vision-assisted text RAG.
+Any enforcement, registration, permissions, notifications or database-switch
+activation requires a new user decision. Do not rerun SQL or benchmarks on resume.
+
+---
+
 # Desktop synchronized and verified; inactive release ready for approvals — 20 October 2026
 
 Completed the requested corrections and guarded Desktop synchronization from

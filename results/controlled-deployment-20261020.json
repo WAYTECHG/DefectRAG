@@ -1,0 +1,135 @@
+{
+  "live_asset_hashes": {
+    "assets/TeamWorkspace-DVtFB4ub.js": "16f80c12b38faf5e1d0caeb64f9e78be6fcc55f9391dbb9d2cc8c2169270bda6",
+    "assets/authSecurity-C13nsxqA.js": "8c2563ff19eaca696dd41d00f48af13da97bc62c19c27923e368d45c5970031c",
+    "assets/index-Bn4HF2vD.css": "087e3c48084e6752afdd5667f4ad43b22bd240038b904dc746f51b90b0732661",
+    "assets/index-C51GOc1V.js": "156b30cb704873f239df1291a0cad17d94f2656f7aaff35a1c324aeab0d7b57f",
+    "config.js": "ea6c9e25752a4b9697d7dc362123f5852b3d309135013777170948c7e828c859",
+    "index.html": "c25ceb8dd4f7ec59b35f2c5a961b1381e2bbd0b240a51012f5c4e393aad2cdb7"
+  },
+  "public_flags": {
+    "authWorkflowEnabled": true,
+    "registrationEnabled": false
+  },
+  "backend_flags": {
+    "DEFECTRAG_AUTH_WORKFLOW": "1",
+    "DEFECTRAG_NOTIFICATIONS_ENABLED": "0"
+  },
+  "public_statuses": {
+    "health": 200,
+    "gallery": 200,
+    "models": 200,
+    "evaluation": 200,
+    "samples": 200,
+    "private_unsigned": 401
+  },
+  "categories": 12,
+  "gallery_ids_unchanged": true,
+  "unrelated_variables_preserved": true,
+  "source_commit": "1dfb01e8f15e26839964b58f9a7e1d1307701891",
+  "deployed_commit": "b9b5fd90e38f421007912f56663db26e9208bd6d",
+  "native_authenticated_tests": {
+    "existing_developer_password_signin": "passed; user performed sign-in in browser",
+    "approved_aal1_workspace_access": "passed; existing approved developer, session not AAL2",
+    "team_history": "passed; five existing active records displayed",
+    "personal_history": "passed; two existing owner records displayed",
+    "team_private_storage_download": "passed; two authenticated Blob images loaded",
+    "backend_team_private_images": "passed; protected API images loaded",
+    "personal_private_images": "passed; original and heatmap loaded",
+    "existing_team_notes_and_review": "passed; read without modification",
+    "existing_personal_alerts": "passed; one existing pending and one acknowledged",
+    "personal_recovery_read": "passed; zero archived; no archive/restore performed",
+    "developer_team_recovery_read": "passed; three pre-existing archived records; no restore performed",
+    "account_security_ui": "passed; approved developer; Set up authenticator available",
+    "regular_staff_separate_account": "not tested; no separate approved staff account used",
+    "totp_enrollment_challenge_and_recovery": "not tested; next manual milestone",
+    "aal2_management_and_revocation": "not tested live; requires separately approved accounts/actions",
+    "cross_owner_privacy": "not tested live; no second approved account",
+    "n8n_or_edge_delivery": "not deployed, configured, invoked or tested live"
+  },
+  "database_switches": "false/false per user-confirmed post-migration checks; no SQL executed",
+  "remote_integrity": {
+    "revision": "b9b5fd90e38f421007912f56663db26e9208bd6d",
+    "files_checked": 149,
+    "mismatched_files": [],
+    "method": "HF committed Git blobs / LFS SHA256 against allowlisted local manifest"
+  },
+  "anonymous_auth_rpc": {
+    "anonymous_security_status": 401,
+    "error_code": "42501",
+    "denied": true,
+    "sql_executed": false
+  },
+  "local_verification": {
+    "frontend_tests": 62,
+    "passed": 62,
+    "release_files": 87,
+    "source_fingerprint": "d5686550fdef9e3ad4015741429eb1da012b4624c432e84c5376dfd514f4fb73",
+    "css_unchanged": true,
+    "prior_python_tests_not_repeated": true
+  },
+  "guest_live_smoke": {
+    "status": "passed",
+    "versions": {
+      "gradio": "6.30.0",
+      "spaces": "0.51.3",
+      "torch": "2.8.0",
+      "transformers": "5.20.1",
+      "huggingface-hub": "1.31.0"
+    },
+    "category": "capsules",
+    "score": 0.20549748837947845,
+    "threshold": 0.1439922600984573,
+    "verdict": "Anomalous",
+    "device": "cuda",
+    "inference_ms": 801.65,
+    "artifacts": {
+      "image": 200,
+      "heatmap": 200,
+      "report": 200
+    },
+    "isolation": "passed",
+    "rag_mode": "llm",
+    "generation": {
+      "provider": "in_space_transformers",
+      "model": "Qwen/Qwen3-4B-Instruct-2507",
+      "revision": "cdbee75f17c01a7cc42f958dc650907174af0554",
+      "device": "NVIDIA RTX PRO 6000 Blackwell Server Edition MIG 2g.48gb",
+      "zero_gpu": true,
+      "generation_ms": 2532.49,
+      "input_tokens": 1262,
+      "output_tokens": 84,
+      "peak_gpu_mb": 8591.25
+    },
+    "citation_checks": "claim quotes match retrieved passages",
+    "saved_turns": 2
+  },
+  "database_migration": {
+    "source": "user-confirmed successful manual execution and postchecks; no SQL executed by agent",
+    "lf_sha256": "cea1e451073fad9f47aca26292cb83a5d337854eef437d97f8c80b79c121e983",
+    "registration_enabled": false,
+    "mfa_required": false,
+    "mfa_off_runtime_corroboration": "approved AAL1 developer retained protected workspace access"
+  },
+  "gallery_items_preserved": 3,
+  "previous_hf_commit": "13af0e1cb002386ade5849739f4bd28c5736f341",
+  "hf_status": "RUNNING",
+  "rollback_used": false,
+  "new_durable_inspections_created": false,
+  "private_runtime_receipts": "development-support/space/step5-20261020 (not for GitHub upload)",
+  "date": "2026-10-20",
+  "desktop_release_sync": {
+    "status": "passed",
+    "release_files": 87,
+    "latest_cloud_release_staged": true,
+    "Desktop_manifest_check": "passed",
+    "protected_files_unchanged": {
+      "frontend/public/config.js": true,
+      "deployment/RUN_AND_DEPLOY.md": true,
+      "frontend/dist/index.html": true,
+      "frontend/dist-static/index.html": true
+    },
+    "local_and_static_builds_replaced": false,
+    "models_datasets_secrets_records_copied": false
+  }
+}

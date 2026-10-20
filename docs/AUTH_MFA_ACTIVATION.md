@@ -1,5 +1,15 @@
 # Staff registration, native TOTP and notification automation
 
+**Step5 status,20 October2026:** user-confirmed migration/postchecks are complete;
+compatible HF application deployed and RUNNING at release
+`b9b5fd90e38f421007912f56663db26e9208bd6d` from source `1dfb01e`.
+Account Security is visible, existing approved Developer AAL1 access is verified.
+Public/backend workflow flags are on; registration, DB mandatory MFA and HF
+notification flag remain off. No factor enrolled or Step6 activation performed.
+See `CONTROLLED_DEPLOYMENT_20261020.md` for fresh evidence, precise limits, manual
+enrollment instructions and rollback. Earlier inactive/local milestone statements
+below describe the state when that implementation was originally prepared.
+
 Read `DEPLOYMENT_READINESS_20261020.md` before using this runbook. The final audit
 adds live-schema, developer-login and release-assembly gates and identifies an
 Edge worker runtime-budget correction required before notification activation.
@@ -10,9 +20,10 @@ just-in-time notification worker and verified frontend staging/publisher guard.
 These source fixes close the two code-release blockers; native/live integration
 and all activation permissions remain separate gates.
 
-Implementation milestone: 20 October 2026. **Inactive; not deployed or activated.**
+Original local implementation milestone: 20 October 2026. **Prepared inactive.**
 The existing React design, password login, allowlist, private workspaces, public
-Gallery, guest Demo, models and RAG remain the baseline. No SQL has been executed.
+Gallery, guest Demo, models and RAG remain the baseline. The agent has executed no
+SQL; the user subsequently confirmed manual migration execution before Step5.
 
 ## What the prepared implementation does
 

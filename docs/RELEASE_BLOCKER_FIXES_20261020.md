@@ -1,5 +1,12 @@
 # Release blockers corrected; inactive implementation
 
+**Subsequent Step5 rollout completed:** compatible source `1dfb01e` deployed to
+HF commit `b9b5fd90e38f421007912f56663db26e9208bd6d`. Current live/browser results
+are in `CONTROLLED_DEPLOYMENT_20261020.md`. Account Security bootstrap is on;
+registration, mandatory MFA and notification delivery remain inactive. The user
+confirmed manual migration/postchecks; no SQL was executed by the agent. The
+original pre-deployment evidence below is retained for audit/resume.
+
 COMPLETED: code checkpoint `2c92849` is synchronized to the Desktop feature branch.
 Both copies pass62 frontend tests, verified cloud staging/offline checks (87 files),
 with identical source fingerprints and original CSS. Desktop local build also
