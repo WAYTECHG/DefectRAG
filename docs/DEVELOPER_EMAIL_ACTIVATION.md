@@ -1,5 +1,22 @@
 # Developer email activation — controlled preflight, 20 October 2026
 
+## Latest checkpoint
+
+User manually executed the reviewed direct-notifications migration and reported
+`Success. No rows returned`. This is expected for its DDL + transaction COMMIT.
+Record it as user-reported applied; DO NOT rerun. New live RPC definitions/grants
+have not yet been independently probed. Existing worker claim/finish screenshot
+confirmed anon=false,authenticated=false,service_role=true for both. Earlier
+flags/object/privacy checks were confirmed by the user. Resend email match was
+also user-confirmed. No secret, deployment, activation or email action by agent.
+
+Next: request separate approval for disabled server configuration, then separate
+approval to deploy only staff-notifications with delivery0. QA event ID can stay
+unset while disabled; determine it before an explicitly authorized send. Native
+Auth SMTP/MFA, HF/React and all membership/data remain unchanged. Milestone1
+is NOT complete: actual cloud/SQL negative checks, provider delivery, off-laptop
+proof, retry and duplicate evidence still pending.
+
 Status: CONDITIONAL readiness, not authorization to migrate/deploy/send.
 Starting checkpoint68b7a1e, branch feature/auth-mfa-inactive. Priority2 remains
 deferred until Priority1 has real cloud/mailbox evidence. No frontend redesign,

@@ -1,3 +1,28 @@
+# Notification migration manually applied by user; email activation pending — 20 October 2026
+
+User reports execution of reviewed deployment/supabase_direct_notifications.sql:
+Success. No rows returned. Expected for transactional DDL ending COMMIT; record
+as USER-REPORTED APPLIED. DO NOT rerun the migration or original Auth SQL.
+Existing worker privilege screenshot independently shows anon/authenticated false
+and service_role true for original claim/finish functions. User confirmed earlier
+flags true, absent new objects before execution and private outbox checks. Resend
+verified account email matches Developer recipient by user confirmation.
+
+No new direct RPC/schema definition/grant or service configuration independently
+verified live yet. No agent SQL execution, secret change, Edge/HF deployment,
+email, approval/revocation, native MFA/SMTP change or GitHub push. No source-code
+changes since3f94d18; tests retained, not unnecessarily repeated.
+
+NEXT APPROVAL: disabled server configuration only, keeping notifications0;
+then separate approval for staff-notifications deployment. User enters provider
+key/dedicated worker bearer privately in Supabase Edge Secrets, never chat/HF/
+React/n8n. QA event selection remains pending and may be omitted while disabled.
+After disabled deployment, batch live permission/configuration checks. Actual
+mailbox, retry/dedup and laptop-off acceptance remain NOT VERIFIED. Priority2
+remains deferred. See docs/DEVELOPER_EMAIL_ACTIVATION.md latest checkpoint.
+
+---
+
 # Developer email activation preflight; production still OFF — 20 October 2026
 
 Continues68b7a1e on feature/auth-mfa-inactive. Read AUTOMATION_MILESTONES,
