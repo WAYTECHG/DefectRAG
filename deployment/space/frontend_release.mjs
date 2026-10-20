@@ -7,7 +7,7 @@ import {spawnSync} from 'node:child_process';
 const ROOT=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'../..');
 const digest=bytes=>createHash('sha256').update(bytes).digest('hex');
 const receiptFile=output=>output+'.build.json';
-const textExtensions=new Set(['.js','.jsx','.mjs','.json','.html','.css','.svg','.md','.txt']);
+const textExtensions=new Set(['.js','.jsx','.mjs','.json','.html','.css','.svg','.md','.txt','.sql']);
 function relativeFile(value){
  if(typeof value!=='string'||!value||value.includes('\\')||path.posix.isAbsolute(value)||value.split('/').some(p=>!p||p==='.'||p==='..')||value.includes(':'))throw new Error('Unsafe manifest path');
  return value;

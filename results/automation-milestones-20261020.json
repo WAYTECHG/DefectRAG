@@ -15,7 +15,7 @@
     "cloud": "passed",
     "cloud_verified": true,
     "manifest_files": 86,
-    "source_fingerprint": "10c593e2f81782806592bc5dccaadb4fa27659e072ac2adb9a66622b7d9fd874",
+    "source_fingerprint": "a3cb620e8a1f58baa4b07112490eb205dd5546ccc227a57a0b5b5af6c0879dd8",
     "cloud_main": "assets/index-BBEwERpA.js",
     "cloud_team_chunk": "assets/TeamWorkspace-BSL2byAA.js",
     "css_sha256_unchanged": "087e3c48084e6752afdd5667f4ad43b22bd240038b904dc746f51b90b0732661",
@@ -46,5 +46,6 @@
     "Approve always-on HTTPS n8n hosting before activating CA",
     "Optional ticket connector not implemented"
   ],
-  "processes": "Disposable test container removed; existing user-started n8n and ollama containers left running"
+  "processes": "Disposable test container removed; existing user-started n8n and ollama containers left running",
+  "release_normalization": "SQL CRLF/LF equivalence tested; app asset hashes unchanged"
 }

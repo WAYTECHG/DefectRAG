@@ -1,4 +1,4 @@
-# Two automation milestones prepared and locally tested; NOT activated — 20 October 2026
+# Two automation milestones prepared and locally tested; NOT activated â€” 20 October 2026
 
 Continues d7f10c2 on feature/auth-mfa-inactive. Milestone1 code checkpoint712a832
 saved before independent Milestone2 development. Latest final checkpoint is the
@@ -42,7 +42,7 @@ disposable container auto-removed. Existing user-started containers left running
 
 Local/static/cloud builds PASS in runtime/automation-20261020 (working dist and
 showcase preserved). Cloud verification/stage and OFFLINE publisher guard PASS,
-86 files; source fingerprint10c593e2f81782806592bc5dccaadb4fa27659e072ac2adb9a66622b7d9fd874.
+86 files; source fingerprinta3cb620e8a1f58baa4b07112490eb205dd5546ccc227a57a0b5b5af6c0879dd8.
 Cloud main:index-BBEwERpA.js; Team chunk:TeamWorkspace-BSL2byAA.js.
 CSS index-Bn4HF2vD.css hash087e3c48084e6752afdd5667f4ad43b22bd240038b904dc746f51b90b0732661
 UNCHANGED. Applied auth SQL LF hash cea1e451073fad9f47aca26292cb83a5d337854eef437d97f8c80b79c121e983
@@ -63,6 +63,12 @@ Read-only metadata preflight:deployment/automation_preflight.sql. Local rollback
 test:deployment/tests/corrective_actions_local.sql. n8n templates and isolated
 fixture runner:deployment/n8n/corrective-actions*.json,test-local.mjs.
 
+M2 code checkpoint2c79b10 synchronized24 source/doc/result files to Desktop,
+preserving both intentional local edits and untracked data. Final release check
+then detected SQL CRLF-only fingerprint drift; .sql normalization and a focused
+regression were added. The rebuilt cloud assets are unchanged;119 tests and
+offline publisher guard passed again. Final guarded sync carries this fix too.
+
 RESUME: inspect Git HEAD and guarded Desktop sync receipt; do not rerun successful
 model experiments, native MFA enrollment or original auth migration. First review
 new SQL and execute isolated LOCAL PostgreSQL tests; then request separate
@@ -77,7 +83,7 @@ records, emails/invitations, model assets or GitHub changes authorized/performed
 
 ---
 
-# Milestone 1 direct email adapter — local tests only; NOT activated — 20 October 2026
+# Milestone 1 direct email adapter â€” local tests only; NOT activated â€” 20 October 2026
 
 Continues d7f10c2 on feature/auth-mfa-inactive. Audited existing request/decision
 RPCs, outbox/lease/retry, Edge worker and inactive n8n SMTP template. Auth Gmail
@@ -106,7 +112,7 @@ because notification test inputs changed; rebuild/verify before any later releas
 
 ---
 
-# Team inspection UX implemented and tested locally; NOT deployed — 20 October 2026
+# Team inspection UX implemented and tested locally; NOT deployed â€” 20 October 2026
 
 Continuing7e6d92e on feature/auth-mfa-inactive. Team Run Inspection restriction is
 INTENTIONAL in both React and cloud backend. Kept Personal -> private save ->
@@ -168,7 +174,7 @@ findings remain recorded; this change adds clear Run-button reasons only.
 
 ---
 
-# Registration confirmed; pending-account protection verified — 20 October 2026
+# Registration confirmed; pending-account protection verified â€” 20 October 2026
 
 Continuing a7ddcff. Live HF remains8df12b1010e8b3184544628bd0b64988910c7e39,
 RUNNING; workflow1, notifications0,12 categories and public health200 confirmed.
@@ -232,7 +238,7 @@ rerun unchanged software tests, rebuild frontend, redeploy or push to GitHub.
 
 ---
 
-# Registration interface active; controlled signup test pending — 20 October 2026
+# Registration interface active; controlled signup test pending â€” 20 October 2026
 
 Latest live HF commit:8df12b1010e8b3184544628bd0b64988910c7e39, RUNNING.
 Parent:b9b5fd90e38f421007912f56663db26e9208bd6d. Application source remains
@@ -301,7 +307,7 @@ SQL migration, Multimodal RAG upgrade or permission activation is authorized her
 
 ---
 
-# Step 5 deployed and verified; stop before Step 6 — 20 October 2026
+# Step 5 deployed and verified; stop before Step 6 â€” 20 October 2026
 
 HF Space RUNNING: https://huggingface.co/spaces/Wizzas/DefectRAG
 Application: https://wizzas-defectrag.hf.space/
@@ -365,7 +371,7 @@ activation requires a new user decision. Do not rerun SQL or benchmarks on resum
 
 ---
 
-# Desktop synchronized and verified; inactive release ready for approvals — 20 October 2026
+# Desktop synchronized and verified; inactive release ready for approvals â€” 20 October 2026
 
 Completed the requested corrections and guarded Desktop synchronization from
 91da4df. Final CODE checkpoint2c92849, branch feature/auth-mfa-inactive; subsequent
@@ -408,7 +414,7 @@ text RAG, not a new Multimodal RAG implementation. Preserve all existing feature
 
 ---
 
-# Worker/runtime and frontend release blockers corrected — 20 October 2026
+# Worker/runtime and frontend release blockers corrected â€” 20 October 2026
 
 Desktop fast-forward to a3e399e completed on feature/auth-mfa-inactive;40 tracked
 code/security/doc/result files synchronized. Its main stays d0ff630. Original public
@@ -453,7 +459,7 @@ preservation behavior and remaining activation/configuration approvals.
 
 ---
 
-# Final pre-activation assessment — 20 October 2026
+# Final pre-activation assessment â€” 20 October 2026
 
 Audited unchanged application checkpoint fa5e499 on feature/auth-mfa-inactive.
 No migrations, live SQL/catalog queries, deployment, native MFA activation,
@@ -488,7 +494,7 @@ change. Do not enable MFA/registration/notifications or execute any SQL implicit
 
 ---
 
-# Inactive authentication / automation milestone — 20 October 2026
+# Inactive authentication / automation milestone â€” 20 October 2026
 
 User approved implementation, reviewable additive SQL and local automated tests
 ONLY. Work is isolated on branch feature/auth-mfa-inactive from baseline d0ff630.
@@ -563,7 +569,7 @@ native Supabase MFA and live policy execution remain UNVERIFIED, not live passes
 
 ---
 
-# MFA / n8n architecture assessment — 20 October 2026
+# MFA / n8n architecture assessment â€” 20 October 2026
 
 User selected baseline d0ff630. Read-only application audit confirms invited-account
 Supabase login and authoritative staff allowlist, but no registration, access-request,
@@ -591,7 +597,7 @@ Preserve all existing models, UI, RAG, records, gallery, SQL and Git checkpoints
 
 ---
 
-# Personal workspace LIVE; acceptance checkpoint — 19 October 2026
+# Personal workspace LIVE; acceptance checkpoint â€” 19 October 2026
 
 Final public Space RUNNING at13af0e1cb002386ade5849739f4bd28c5736f341 on free
 zero-a10g; source code checkpoint e28f8c6. DEFECTRAG_PERSONAL_WORKSPACE=1 is
@@ -656,7 +662,7 @@ a complete production-security certification.
 
 ---
 
-# Personal workspace active; owner E2E in progress — 19 October 2026
+# Personal workspace active; owner E2E in progress â€” 19 October 2026
 
 Compatible cloud commit49463314 is now active with
 DEFECTRAG_PERSONAL_WORKSPACE=1. User initially reported activation, but the exact
@@ -688,7 +694,7 @@ docs/MULTIUSER_LIVE_VERIFICATION.md for exact evidence and remaining gaps.
 
 ---
 
-# Compatible multi-user build deployed; activation pending — 19 October 2026
+# Compatible multi-user build deployed; activation pending â€” 19 October 2026
 
 User now reports successful MANUAL execution of the reviewed personal-workspace
 migration and authorizes compatible deployment and E2E testing. This supersedes
@@ -721,7 +727,7 @@ account test if no such account is available. No retraining/benchmark repeats.
 
 ---
 
-# Independent multi-user hardening checkpoint; SQL NOT approved — 19 October 2026
+# Independent multi-user hardening checkpoint; SQL NOT approved â€” 19 October 2026
 
 Latest user instruction: "Not approved yet; continue independent code and tests."
 Do not execute the migration, activate DEFECTRAG_PERSONAL_WORKSPACE or deploy the
@@ -756,7 +762,7 @@ was modified. Preserve their existing line endings during review.
 
 ---
 
-# Multi-user upgrade implemented locally; SQL approval pending — 19 October 2026
+# Multi-user upgrade implemented locally; SQL approval pending â€” 19 October 2026
 
 User request: secure owner-only personal history, explicit authorized team
 sharing, near-real-time dashboard/alerts, separate public gallery; preserve UI
@@ -815,7 +821,7 @@ do not blindly replay them into Personal scope. See review guide for other limit
 
 ---
 
-# Community gallery activated and live-verified — 19 October 2026
+# Community gallery activated and live-verified â€” 19 October 2026
 
 COMPLETED: user confirmed executing the generated SQL manually and configuring
 both HF settings. Live /api/gallery now enabled; existing12 models and Supabase
@@ -859,7 +865,7 @@ Resume only for a new user request. Do not repeat model training or benchmarks.
 
 ---
 
-# Opt-in community gallery implemented; hosted activation pending — 19 October 2026
+# Opt-in community gallery implemented; hosted activation pending â€” 19 October 2026
 
 User approved implementing the optional public demo gallery and preparing an
 additive SQL migration for manual execution. No Supabase SQL was executed by the
@@ -911,7 +917,7 @@ Dedicated key rotation changes publisher hashes; preserve it on normal upgrades.
 
 ---
 
-# Workflow fixes complete, hosted and Desktop synchronized — 19 October 2026
+# Workflow fixes complete, hosted and Desktop synchronized â€” 19 October 2026
 
 COMPLETED: public Space RUNNING at41b9f9b1433942325cf73110476e0ae0e964a35e.
 All seven requested fixes/additions are active: scoped asynchronous responses,
@@ -929,8 +935,8 @@ Record count remained2. Local Reviewed/Hold decision and filtered export passed.
 Hosted CPU checks10/10 passed, current UI and exact CSS confirmed, all12 models and
 staff persistence available, unauthorized requests denied, unknown API now404.
 Signed-in hosted review saved to the existing QA record, reopened through the new
-Staff→inspection link, and appeared with actor/time plus the original note in the
-cleaned report. Both640×488 report images loaded. No new hosted GPU request.
+Staffâ†’inspection link, and appeared with actor/time plus the original note in the
+cleaned report. Both640Ã—488 report images loaded. No new hosted GPU request.
 
 Publishing initially exposed a blank example Supabase config copied by Vite. This
 was corrected using the preserved Desktop public settings. The Space builder now
@@ -960,7 +966,7 @@ Do not rerun completed training/benchmark experiments or auto-push GitHub.
 
 ---
 
-# Workflow fixes implemented locally — 19 October 2026
+# Workflow fixes implemented locally â€” 19 October 2026
 
 User authorized all seven summarized workflow fixes/additions and GitHub update
 commands. Implemented scoped asynchronous inspection/chat/history responses,
@@ -1000,7 +1006,7 @@ batch recovery, quota and independent-account/mobile testing limits explicit.
 
 ---
 
-# Public application QA checkpoint — 19 October 2026
+# Public application QA checkpoint â€” 19 October 2026
 
 Exploratory review completed against hosted3b68268a582dce6ad731e5a362988eb6d1d9b99e
 (RUNNING), source baseline0554152. Findings and reproduction steps are saved in
@@ -1045,7 +1051,7 @@ retrain or repeat completed benchmark experiments. No fixes deployed by this rev
 
 ---
 
-# Targeted Macaroni update completed and hosted — 18 October 2026
+# Targeted Macaroni update completed and hosted â€” 18 October 2026
 
 COMPLETED: public revision3b68268a582dce6ad731e5a362988eb6d1d9b99e serves
 macaroni-recall-v1. Public model/evaluation endpoints exactly match the new
@@ -1070,7 +1076,7 @@ completed inference or refit banks. Rollback DEFECTRAG_CALIBRATION=normal-q95-v1
 
 ---
 
-# Macaroni-only recall improvement — 18 October 2026
+# Macaroni-only recall improvement â€” 18 October 2026
 
 User authorized targeted Macaroni1/2 recall improvement with minimal compute.
 COMPLETED locally: separate macaroni-recall-v1 normal-q80 decision overlay,
@@ -1094,7 +1100,7 @@ Details: docs/MACARONI_RECALL_UPDATE.md. Folder name remains DefectRAG-v2.
 
 ---
 
-# Macaroni follow-up diagnostic — 18 October 2026
+# Macaroni follow-up diagnostic â€” 18 October 2026
 
 Read-only CPU check of saved real inference scores: Macaroni1/2 current q95 recall
 57%/48%, normal FPR1%/7%. Fixed normal q90 diagnostic gives recall76%/66%,
@@ -1110,7 +1116,7 @@ validation from the existing development-exposed official test set.
 
 ---
 
-# Recall calibration deployed and verified — 18 October 2026
+# Recall calibration deployed and verified â€” 18 October 2026
 
 COMPLETED: Hugging Face revision3e1bf17dcff9622b61b6f662af810348c8ab109e
 RUNNING. Public /api/models and /api/evaluation exactly match the new manifest
@@ -1137,7 +1143,7 @@ implementation and hosted verification work for this calibration is complete.
 
 ---
 
-# Recall-oriented calibration milestone — 18 October 2026
+# Recall-oriented calibration milestone â€” 18 October 2026
 
 User selected prioritizing anomaly recall with more false alarms. Audit reproduced
 all 12 existing confusion matrices/precision/recall/F1 from saved genuine scores;
@@ -1169,7 +1175,7 @@ current until refreshed from the completed code checkpoint.
 
 ---
 
-# Answer focus, brand and GitHub publication preparation — 18 October 2026
+# Answer focus, brand and GitHub publication preparation â€” 18 October 2026
 
 COMPLETED: code checkpoint59b61d11a008c70cc9df9d68f557ee8c6f8b6739, synced to
 Desktop with rebuilt LOCAL frontend and both personal config/guide hashes intact.
@@ -1228,7 +1234,7 @@ do not upload entire working folder or private migration/runtime evidence.
 
 ## Previous deployment checkpoint (completed evidence retained)
 
-CORE PHASES2–5 MIGRATION DEPLOYED AND VERIFIED for the available developer account.
+CORE PHASES2â€“5 MIGRATION DEPLOYED AND VERIFIED for the available developer account.
 Public: https://huggingface.co/spaces/Wizzas/DefectRAG
 Cloud commit3717008401fcf9c85612ce6d4c0c77b629c39f53, RUNNING, ZeroGPU,
 staff_persistence_enabled=true. Core code checkpoint53c48ce; this final documentation
@@ -1286,7 +1292,7 @@ running; no new model tasks should be initiated after this checkpoint.
 
 ## Superseded continuation notes (final checkpoint above takes precedence)
 
-# Active Phase 4/5 continuation — 18 October 2026
+# Active Phase 4/5 continuation â€” 18 October 2026
 
 LATEST: final public Space3717008401fcf9c85612ce6d4c0c77b629c39f53 RUNNING.
 Core Phase4/5 developer flow VERIFIED, including actual restart preservation and
@@ -1428,7 +1434,7 @@ Reviewed SQL SHA256: 025ef75f224fbefda7d24b9a291b4532ec43b014d8f7659209cd8de4578
 
 ## Superseded chronological notes (latest checkpoint above takes precedence)
 
-# Phases 2–5 authorized — 18 October 2026 — IN PROGRESS
+# Phases 2â€“5 authorized â€” 18 October 2026 â€” IN PROGRESS
 
 LATEST MILESTONE: PHASE3 LIVE CLOUD RAG PASSED at a31f52b64c91b7d6dab34113bc17a5bfac37ff72.
 See docs/ZEROGPU_PHASE3_RESULTS.md and sanitized docs/zerogpu_phase3/rag-summary.json.
@@ -1488,7 +1494,7 @@ alert acknowledgements lack actor/timestamp. Do not enlarge the reviewed migrati
 Phase4 repository scaffolding is not enabled in the cloud until its readiness gate.
 Cloud live RAG is next. Local RAG already passed against existing records.
 
-User explicitly approved continuous Phases 2–5 from 5fdff26. Earlier STOP/approval
+User explicitly approved continuous Phases 2â€“5 from 5fdff26. Earlier STOP/approval
 notes below are historical. Preserve React appearance, local app/static showcase,
 models/results/configuration. Do not train, pay, delete data or replace architecture.
 Additive database migrations must be reviewed before execution. User can sign in
@@ -1533,7 +1539,7 @@ review then authenticated staff tests. Do not stop simply because a phase finish
 
 ---
 
-# Historical ZeroGPU Phase 1 — 18 October 2026 — core passed, issues recorded, STOPPED
+# Historical ZeroGPU Phase 1 â€” 18 October 2026 â€” core passed, issues recorded, STOPPED
 
 User approved React + Gradio Server architecture and Phase 1 compatibility ONLY.
 Phase 1 passed locally and on the existing empty Wizzas/DefectRAG ZeroGPU Space.
@@ -1582,7 +1588,7 @@ publish_minimal (it intentionally refuses to overwrite the existing test).
 
 ---
 
-# Historical ZeroGPU assessment — 17 October 2026
+# Historical ZeroGPU assessment â€” 17 October 2026
 
 User requested feasibility/architecture review ONLY before major implementation.
 Assessment complete in docs/ZEROGPU_MIGRATION_ASSESSMENT.md. STOP here for approval.
@@ -1619,7 +1625,7 @@ are in the assessment. Do not rerun old experiments or start implementation now.
 
 ---
 
-# Local folder consolidation — 16 October 2026
+# Local folder consolidation â€” 16 October 2026
 
 Follow-up editor fix: backend/highres.py explicitly types the optional encoder
 and checks it before .device/.encode access, addressing possible-None diagnostics.
@@ -1676,7 +1682,7 @@ Resume any incomplete move by inspecting the receipt before touching directories
 
 ---
 
-# Completed accuracy upgrade — 16 October 2026
+# Completed accuracy upgrade â€” 16 October 2026
 
 This is the latest checkpoint; older sections below are historical. Preserve
 every earlier model, experiment, dataset, history and release. Previous upgrade
@@ -1755,7 +1761,7 @@ are authoritative in receipts, not inferred from the historical text below.
 
 ---
 
-# DefectRAG development checkpoint — upgrade, 16 October 2026
+# DefectRAG development checkpoint â€” upgrade, 16 October 2026
 
 This section supersedes the historical checkpoints below. Preserve original
 assets and earlier archives. Visible branding is DefectRAG; directory stays
@@ -1830,9 +1836,9 @@ results/software-tests-upgrade.xml. Do not call setup-ready Supabase fully teste
 
 ---
 
-# DefectRAG v2 — development checkpoint
+# DefectRAG v2 â€” development checkpoint
 
-## Active upgrade — official protocol, assistant quality, UI and staff sharing
+## Active upgrade â€” official protocol, assistant quality, UI and staff sharing
 
 User authorized the official VisA-split experiment, inspection-grounded conversational answers, DefectRAG branding/logo, larger type, richer colors/interactions, recoverable history and free Supabase staff sharing. No Supabase project has been created; user confirmed they do not have a known project. Setup/schema/client are being implemented, but hosted auth/RLS/storage checks remain blocked on project creation/public config. Do not claim cloud is active.
 
@@ -1866,7 +1872,7 @@ Processes at pause: training session 77130 and API/tests session 38315 completed
 
 User requested saving around 3-5% remaining; account reported 5% at this checkpoint. Stop after checkpoint/archive synchronization and wait for a credit reset or further instruction.
 
-## Earlier milestone — free static showcase (16 October 2026)
+## Earlier milestone â€” free static showcase (16 October 2026)
 
 User requested a free static public version while preserving the full local app.
 Implemented a separate read-only build using **seven allowlisted, real saved VisA
@@ -1914,7 +1920,7 @@ server; safe to stop/restart, no training state). The original local preview may
 remain on localhost:8766 and shared Ollama on localhost:11434. No training,
 benchmark or dependency-installation job was started in this milestone.
 Usage checks reported 26%, 21%, then 15% five-hour allowance remaining. If usage reaches
-3–5%, stop new work after updating this file and a recoverable Git checkpoint.
+3â€“5%, stop new work after updating this file and a recoverable Git checkpoint.
 
 ---
 
@@ -1995,7 +2001,7 @@ Other authoritative results:
 64 normal fit images/category; 32 distinct normal + 20 reassigned official test
 anomalies calibrate max-F1 thresholds; remaining official test identities are
 held out. This is a modified VisA protocol, not the full official benchmark.
-±5% review band is heuristic, not calibrated confidence. Capsule localization
+Â±5% review band is heuristic, not calibrated confidence. Capsule localization
 remains weak (pixel AP ~0.045). No named defects, counts, root causes, factory
 tolerances or product-safety/acceptance guarantees are inferred.
 

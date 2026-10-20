@@ -41,6 +41,8 @@ test('source changes, asset tampering and public configuration drift block publi
 test('CRLF checkout changes do not invalidate the source fingerprint',async t=>{
  const {root}=await fixture(t);const name=path.join(root,'frontend/src/main.jsx');await fs.writeFile(name,'one\ntwo\n');const before=await sourceFingerprint(root);
  await fs.writeFile(name,'one\r\ntwo\r\n');assert.equal(await sourceFingerprint(root),before);
+ const sql=path.join(root,'deployment/supabase_corrective_actions.sql');await fs.writeFile(sql,'-- one\n-- two\n');
+ const sqlBefore=await sourceFingerprint(root);await fs.writeFile(sql,'-- one\r\n-- two\r\n');assert.equal(await sourceFingerprint(root),sqlBefore);
 });
 test('changing the separately pinned Gradio client lock blocks a stale cloud build',async t=>{
  const {root,output}=await fixture(t);
