@@ -1,0 +1,61 @@
+{
+  "starting_checkpoint": "68b7a1e",
+  "branch": "feature/auth-mfa-inactive",
+  "stage": "Milestone 1 activation preflight; awaiting live read-only SQL results",
+  "provider": "Resend restricted test sender",
+  "provider_identity": "User confirmed Resend ready; verified account email matches Developer recipient",
+  "provider_secret_configured_by_agent": false,
+  "source_change": "Two housekeeping updates now honor selected QA event UUID in unapplied direct-notifications migration",
+  "direct_migration_lf_sha256": "53952cc212e67ca03773a791d18b55f5a74233de96b843c087a26bb610180ce5",
+  "tests": {
+    "frontend_regressions_passed": 119,
+    "cloud_build_verify_stage_offline_guard": "passed",
+    "local_sql_integration": "prepared; not executed",
+    "backend_regressions": "prior55 retained; not rerun because backend unchanged"
+  },
+  "live_checks": {
+    "public_read_only_checks": [
+      {
+        "path": "/",
+        "http_status": 200,
+        "script_assets": [
+          "./config.js",
+          "./assets/index-C51GOc1V.js"
+        ]
+      },
+      {
+        "path": "/api/health",
+        "http_status": 200,
+        "health": {
+          "status": "ok",
+          "mode": "cloud_session_workspace",
+          "auth_workflow_enabled": true,
+          "personal_workspace_enabled": true,
+          "community_gallery_enabled": true,
+          "encoder_configured": true
+        },
+        "category_count": 12
+      },
+      {
+        "path": "/api/gallery",
+        "http_status": 200,
+        "json_shape": "dict"
+      }
+    ]
+  },
+  "not_verified": [
+    "Live database schema/RLS/grants/auth flags",
+    "Existing cloud worker and scheduler configuration",
+    "Provider API credentials",
+    "Real inbox delivery, laptop-off proof, actual cloud failure retry and deduplication"
+  ],
+  "production_actions_by_agent": {
+    "migrations": false,
+    "secret_changes": false,
+    "deployment": false,
+    "emails": false,
+    "permission_changes": false
+  },
+  "next_action": "User runs deployment/email_activation_preflight.sql SELECT-only file and returns metadata/counts",
+  "priority2": "Deferred until Priority1 passes"
+}

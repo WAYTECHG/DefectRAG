@@ -1,3 +1,52 @@
+# Developer email activation preflight; production still OFF — 20 October 2026
+
+Continues68b7a1e on feature/auth-mfa-inactive. Read AUTOMATION_MILESTONES,
+direct-email/worker/entrypoint, current outbox/request/finish RPCs and proposed
+migration. User confirmed: Resend account ready, verified email matches existing
+Developer recipient. No address or secret received; no provider key created/read.
+
+Current official Resend docs confirm test sender restriction to account owner,
+24h provider idempotency and Free100/day/3000-month limits. Prepared secure manual
+key/configuration guide docs/DEVELOPER_EMAIL_ACTIVATION.md with SEPARATE approval
+gates for migration, secrets with delivery0, disabled function deployment, QA
+activation and Vault/cloud scheduling. Supabase Edge secrets are independent of
+HF variables. Gmail Auth SMTP, mandatory MFA and manual approvals preserved.
+
+Audit found QA-filtered claims still did global housekeeping. Scoped BOTH updates
+in UNAPPLIED deployment/supabase_direct_notifications.sql to selected p_event;
+no unrelated notification status maintenance during QA. Updated migration LF
+SHA256:53952cc212e67ca03773a791d18b55f5a74233de96b843c087a26bb610180ce5. This exact updated version requires review; NOT executed.
+Prepared LOCAL rollback-only integration test deployment/tests/direct_notifications_local.sql
+for role denial, selected-event isolation, rate clock, immutable snapshot, lease
+checks and23h ambiguity. Local SQL environment unavailable; test NOT executed.
+New deployment/email_activation_preflight.sql is SELECT-ONLY metadata/counts.
+
+Fresh public GETs: dashboard200 (index-C51GOc1V.js), health200/statusok, all12
+models configured, auth workflow/Personal/Gallery enabled; Gallery GET200.
+No native login, model job, private record or cloud email test performed. Does
+NOT verify live DB MFA flags, notification deployment/secrets or exact HF commit.
+119 frontend regressions, cloud build/verify/stage and OFFLINE publisher guard
+PASS after scoped SQL change. Existing CSS/app bundles unchanged. Prior55 backend
+regressions retained, not repeated; no backend source changed. No source model,
+RAG, React, Auth SMTP, staff permission, Gallery or existing record changes.
+
+NEXT REQUIRED USER ACTION: run SELECT-only email_activation_preflight.sql in
+existing Supabase SQL Editor and return metadata/counts, no secrets/PII/payloads.
+Require registration_enabled=true/mfa_required=true and expected service-only
+worker grants. Check absent/new schema objects before migration approval; stop
+if partial/already-applied or incompatible. Obtain private recoverable backup.
+Do not execute migration or set secrets until separate exact approval. Existing
+pending QA request is idempotent: resubmitting does NOT create a new mail event.
+Choose one explicitly authorized queued event later, never reset sent rows.
+
+Actual mailbox, retries/dedup and laptop/Docker-off evidence remain pending.
+Priority2 CA verification/hosting/Trello remains deferred until Priority1 passes.
+No production SQL, deployment, secrets, permission changes, email or GitHub push.
+See results/developer-email-activation-preflight-20261020.json and
+results/email-activation-public-preflight-20261020.json for exact scope.
+
+---
+
 # Two automation milestones prepared and locally tested; NOT activated â€” 20 October 2026
 
 Continues d7f10c2 on feature/auth-mfa-inactive. Milestone1 code checkpoint712a832

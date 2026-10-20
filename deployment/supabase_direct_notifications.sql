@@ -20,10 +20,10 @@ begin
  perform 1 from public.notification_dispatch_clock where singleton for update;
  if exists(select 1 from public.notification_dispatch_clock where next_claim_at>now()) then return '[]'::jsonb; end if;
  update public.staff_notification_outbox o set status='superseded',lease_token=null,lease_until=null
- where o.status in ('queued','sending','dead') and (not exists(select 1 from public.staff_access_requests r where r.user_id=o.subject_id and r.version=o.version)
+ where (p_event is null or o.id=p_event) and o.status in ('queued','sending','dead') and (not exists(select 1 from public.staff_access_requests r where r.user_id=o.subject_id and r.version=o.version)
  or (o.kind='requested' and not exists(select 1 from public.staff_members where user_id=o.recipient_id and role='developer' and revoked_at is null)));
  update public.staff_notification_outbox set status='dead',lease_token=null,lease_until=null
- where attempts>=8 and (status='queued' or status='sending' and lease_until<now());
+ where (p_event is null or id=p_event) and attempts>=8 and (status='queued' or status='sending' and lease_until<now());
  with selected as (select o.id from public.staff_notification_outbox o
   where (p_event is null or o.id=p_event) and o.attempts<8 and
   (o.status='queued' and o.next_attempt_at<=now() or o.status='sending' and o.lease_until<now())
