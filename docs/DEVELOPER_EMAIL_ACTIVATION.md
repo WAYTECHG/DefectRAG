@@ -2,8 +2,29 @@
 
 ## Latest checkpoint
 
+User reports `Disabled configuration saved` for the seven approved Edge secrets.
+Recorded as USER-CONFIRMED, not independent secret inspection. No secret value
+was provided/read. QA event ID remains deferred. Deployment is NOT approved yet.
+
+To avoid CLI installation/multi-file paste, offline packager
+deployment/supabase/build_email_function.mjs bundles the three reviewed sources
+into runtime/email-function-release/index.ts. No new dependencies, secrets or
+behavior changes. Four packaged-code checks passed: import-free bundle,
+disabled POST503, unauthorized enabled POST401, GET405; no network calls.
+Bundle SHA256:a70e89e05d66918ed00a78bfdc769c2afd761fb10e376be0e12903147cd82017.
+
+NEXT SEPARATE APPROVAL: deploy ONLY staff-notifications from that single file,
+retain DEFECTRAG_NOTIFICATIONS_ENABLED=0, use reviewed function-level
+verify_jwt=false with the handler's dedicated bearer check, then check disabled
+POST503 without providing a worker secret. No cron, QA send, provider request,
+CA/HF deployment or auth/security-policy change is included. Supabase management
+connector/CLI access is unavailable; Dashboard deployment is the prepared route.
+After approval, create/open the exact staff-notifications function in the
+existing project, paste the complete bundle into index.ts and deploy. If an
+existing function contains unrelated code, stop rather than overwrite it.
+
 User has now APPROVED DISABLED CONFIGURATION ONLY. Manual entry of seven
-Supabase Edge secrets is pending user confirmation. Keep delivery0; omit QA
+Supabase Edge secrets has now been confirmed saved by the user. Keep delivery0; omit QA
 event ID until its authorized selection. No secret values are requested in chat.
 Deployment, worker invocation, scheduling and sending remain unapproved.
 
@@ -15,8 +36,7 @@ confirmed anon=false,authenticated=false,service_role=true for both. Earlier
 flags/object/privacy checks were confirmed by the user. Resend email match was
 also user-confirmed. No secret, deployment, activation or email action by agent.
 
-Next: request separate approval for disabled server configuration, then separate
-approval to deploy only staff-notifications with delivery0. QA event ID can stay
+Next: request separate approval to deploy only staff-notifications with delivery0. QA event ID can stay
 unset while disabled; determine it before an explicitly authorized send. Native
 Auth SMTP/MFA, HF/React and all membership/data remain unchanged. Milestone1
 is NOT complete: actual cloud/SQL negative checks, provider delivery, off-laptop

@@ -1,3 +1,30 @@
+# Disabled email configuration saved by user; deployment approval pending — 20 October 2026
+
+User reports Disabled configuration saved. Seven Edge secret entries recorded
+as USER-CONFIRMED; agent did not read/enter values or independently verify them.
+Delivery remains intended0, transportresend, sandbox1; QA event ID deferred.
+No worker deployment, invocation, provider send or cron approval yet.
+
+Prepared one paste-ready Dashboard function package to avoid installing CLI or
+copying three files separately. New deployment/supabase/build_email_function.mjs
+uses existing esbuild, bundles exactly reviewed index/worker/direct-email and
+hashes inputs/config. No dependencies installed or implementation behavior
+changed. Four real bundled-code offline checks passed: no local imports,
+disabled POST503, enabled unauthorized POST401, GET405, all without network.
+Output runtime/email-function-release/index.ts + manifest; bundle SHA256
+a70e89e05d66918ed00a78bfdc769c2afd761fb10e376be0e12903147cd82017.
+
+NEXT: request separate approval for ONLY staff-notifications deployment with
+delivery0 and function-level verify_jwt=false/dedicated handler bearer intact.
+Use one-file Dashboard route (no connected Supabase management API/installed CLI).
+After approved deployment, public POST without secret should return503 disabled;
+if401 gateway or other result, investigate without enabling delivery. Native Auth
+SMTP/MFA/roles/React/HF/Gallery/models/RAG untouched. No tests repeated except
+the four new packaging checks; no SQL or GitHub changes. Sending, cloud scheduling
+and Priority2 remain pending. See docs/DEVELOPER_EMAIL_ACTIVATION.md latest.
+
+---
+
 # Disabled email configuration approved; manual secret entry pending — 20 October 2026
 
 User approved disabled configuration. Authorized scope: dedicated Resend Sending

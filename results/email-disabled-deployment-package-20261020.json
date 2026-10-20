@@ -1,0 +1,19 @@
+{
+  "function": "staff-notifications",
+  "inputs": {
+    "deployment/supabase/functions/staff-notifications/index.ts": "a63ebf5da07e3e85c50ba68383c461aee2e9c64d75f33f25b718b1daafacc9e2",
+    "deployment/supabase/functions/staff-notifications/worker.mjs": "8a2088b1cf41b009f97703e429bcb7fa7cff713decc47066189154818ccbb3a3",
+    "deployment/supabase/functions/staff-notifications/direct-email.mjs": "149279de3d28078837bde9207e04942de6bfdfffb4f4c93ad0e6deb408d3939f",
+    "deployment/supabase/config.toml": "52027cbab9bbe2421bc2250b71eba534fcd069e62708dbbc5efead19e836395c"
+  },
+  "bundle_sha256": "a70e89e05d66918ed00a78bfdc769c2afd761fb10e376be0e12903147cd82017",
+  "offline_checks": [
+    "bundled source has no local imports",
+    "disabled POST503 without network",
+    "enabled unauthorized POST401 without network",
+    "GET405"
+  ],
+  "production_deployed": false,
+  "secrets_read": false,
+  "scope": "single function; preserve delivery0; deployment needs approval"
+}
