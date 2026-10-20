@@ -45,9 +45,14 @@ SQL, staff permission/secret change, email, n8n dispatch, training or GitHub pus
 Last verified live HF remains8df12b1010e8b3184544628bd0b64988910c7e39; user must
 approve any deployment. Keep mandatory MFA and notifications0; applicant pending.
 
-NEXT: save local Git checkpoint and guarded Desktop synchronization, preserving
-Desktop config/run guide/datasets/models/secrets/working builds. On explicit HF
-approval only, publish the verified bundle and perform the small manual draft
+CODE CHECKPOINT:b859d67; seven changed source/test/document/result files synchronized
+to Desktop by guarded fast-forward. Desktop cloud artifact source/hash check passed;
+its local config, run guide and local/static indexes retain exact protected hashes.
+Final checkpoint also restores original unchanged-line formatting in main.jsx so
+the final review against7e6d92e contains only23 added/5 removed UI lines there.
+Verified normalized source fingerprint and runtime behavior remain unchanged.
+
+NEXT: on explicit HF approval only, publish the verified bundle and perform the small manual draft
 preservation + private inspection + separately authorized share checks described
 in docs/TEAM_INSPECTION_UX.md. Do not repeat SMTP, signup/MFA enrollment, SQL or
 benchmarks. Older generic authorization-sync messaging and guest SQLite lock

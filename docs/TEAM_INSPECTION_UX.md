@@ -46,8 +46,9 @@ Demo Mode and offline local inference remain available in their original scopes.
 Client validation checks MIME/extension, file size/count, category and batch input.
 The existing backend still validates actual image bytes/dimensions and permissions.
 GPU quota/capacity cannot be predicted by a health check; request-time errors retain
-the existing error/retry behavior. Browser tests are mocked/rendered handler tests,
-not a new live Supabase, HF or model-inference acceptance claim.
+the existing error/retry behavior. UI tests render real JSX and exercise production
+handlers with fixtures. No browser end-to-end or new live Supabase/HF/model-inference
+acceptance pass is claimed for this undeployed change.
 
 ## Files and validation
 
@@ -76,7 +77,10 @@ auth-helper imports also produce a harmless chunk-optimization warning.
 The new UI is ready for deployment review, with verified artifacts in
 `runtime/team-inspection-ui/cloud` and local publisher input
 `development-support/space/ui-dist`. These are ignored generated files, not GitHub
-uploads. Pending local source must be committed/synchronized before publishing.
+uploads. Code checkpoint `b859d67` was synchronized to Desktop; its staged cloud
+artifact/source checks passed and working config/local/static hashes were preserved.
+The final documentation/formatting checkpoint follows, with the same verified
+normalized source fingerprint. Nothing has been uploaded to HF.
 **Do not deploy or push without explicit approval.**
 
 After approval, use the verified existing HF publisher. Then manually verify a

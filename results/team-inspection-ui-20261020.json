@@ -35,5 +35,19 @@
   "sql_executed": false,
   "github_push": false,
   "dependencies_installed": false,
-  "working_local_static_builds_replaced": false
+  "working_local_static_builds_replaced": false,
+  "desktop_release_sync": {
+    "status": "passed",
+    "release_files": 86,
+    "latest_cloud_release_staged": true,
+    "Desktop_manifest_check": "passed",
+    "protected_files_unchanged": {
+      "frontend/public/config.js": true,
+      "deployment/RUN_AND_DEPLOY.md": true,
+      "frontend/dist/index.html": true,
+      "frontend/dist-static/index.html": true
+    },
+    "local_and_static_builds_replaced": false,
+    "models_datasets_secrets_records_copied": false
+  }
 }
