@@ -58,10 +58,19 @@
     "project_limit_values_independently_verified": false
   },
   "manual_tests": {
-    "registration_email_confirmation": "pending user test",
-    "pending_request": "pending user test",
-    "developer_aal2_directory": "not yet tested in this rollout",
-    "password_recovery": "user reported working before rollout; fresh test pending"
+    "registration_email_confirmation": "passed by user: signup, received confirmation, verified email; production .hf.space redirect",
+    "pending_request": "passed: user submitted request; browser independently observed pending status and persistence",
+    "developer_aal2_directory": "passed live after user-entered native TOTP: verified session, access-management directory and recovery visible; test row pending/applicant; approve/reject controls inspected only",
+    "developer_aal2_team_storage": "passed live: five existing Team records and authenticated original/heatmap Blob downloads",
+    "developer_aal2_backend_and_personal": "passed live: existing protected backend original/heatmap images loaded; two owner Personal records accessible",
+    "notification_outbox": "read live at Developer AAL2: requested event queued, attempts zero; no retry or dispatch triggered",
+    "password_recovery": "user reported working before rollout; fresh test pending",
+    "pending_team_access": "denied live: zero staff records, no developer recovery or access-management controls",
+    "pending_personal_and_team_history": "denied live: no protected records displayed in either scope",
+    "pending_model_endpoint": "denied live: submitted public sample; queued server returned approved-staff/authenticator-required error; no result/report",
+    "developer_aal1": "passed live: approved Developer at password-only AAL1; workspace and management unavailable; native TOTP challenge available",
+    "developer_aal1_model_endpoint": "denied live: queued server rejected a public sample with staff/authenticator-required error; no result/report",
+    "direct_native_rls_rpc_storage_negative_tests": "not directly exercised with pending/AAL1 JWT; UI/backend denial does not substitute for every native policy test"
   },
   "startup_guest_lock": {
     "observed": true,
@@ -85,5 +94,14 @@
     },
     "local_and_static_builds_replaced": false,
     "models_datasets_secrets_records_copied": false
-  }
+  },
+  "current_test_account_state": "pending; no approval/rejection/revocation performed",
+  "verification_stage_changes": {
+    "source_or_ui_changes": false,
+    "new_deployment": false,
+    "database_settings_or_permissions_changed": false,
+    "agent_email_or_invitation": false,
+    "new_model_experiment": false
+  },
+  "authorization_ux_finding": "Pending denial is secure but also renders generic synchronization failed/CHECKING MEMBERSHIP messaging; focused clarity improvement recommended, not implemented."
 }

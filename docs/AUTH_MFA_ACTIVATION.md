@@ -1,13 +1,23 @@
 # Staff registration, native TOTP and notification automation
 
+**Latest verification:** controlled signup/email confirmation/production redirect
+completed by the user. Browser independently confirmed pending request persistence,
+no staff grant, protected-history denial and queued inspection rejection. Existing
+Developer password-only AAL1 was also denied protected data/model access; after
+native TOTP, AAL2 management, existing history and private images worked. Test row
+remains pending/applicant; no approve/reject/revoke action taken. Notification event
+is queued with zero attempts; delivery remains off. Source/UI and live HF release
+unchanged. See the follow-up evidence in `REGISTRATION_ACTIVATION_20261020.md`.
+
 **Latest state,20 October2026:** registration interface enabled in HF release
 `8df12b1010e8b3184544628bd0b64988910c7e39`. User-provided read-only DB query
 confirmed both registration and mandatory MFAtrue before activation. Existing
 Developer MFA/SMTP/recovery setup was performed and reported by the user.
 Workflow1 and notifications0 remain unchanged. CAPTCHA is deferred by explicit
-user choice; native rate limits retained. Controlled test signup/confirmation/
-pending-request outcome is awaiting user participation; do not claim approval
-or full native authorization tests passed. See `REGISTRATION_ACTIVATION_20261020.md`.
+user choice; native rate limits retained. Controlled signup/confirmation/pending
+and Developer AAL1/AAL2 checks passed as detailed above. No approval, revocation,
+ordinary-Staff post-approval or full direct native policy test is claimed.
+See `REGISTRATION_ACTIVATION_20261020.md`.
 After mandatory MFA activation, use the compatible b9b5fd90 parent for an interface
 rollback; never revert to pre-MFA code or disable DB MFA merely to hide signup.
 

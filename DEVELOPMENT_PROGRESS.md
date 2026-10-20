@@ -1,3 +1,67 @@
+# Registration confirmed; pending-account protection verified — 20 October 2026
+
+Continuing a7ddcff. Live HF remains8df12b1010e8b3184544628bd0b64988910c7e39,
+RUNNING; workflow1, notifications0,12 categories and public health200 confirmed.
+No new application deployment, source/UI modification, SQL, production permission,
+secret change, email/invitation, account decision or model experiment in this stage.
+Mandatory MFA remains enabled as previously configured by the user. The agent did
+not change either database switch. No test account was approved/rejected/revoked.
+
+USER-COMPLETED LIVE TEST: separate controlled test identity registered; Supabase
+confirmation mail received and verified; confirmation returned to production
+https://wizzas-defectrag.hf.space/; signed in and submitted Request Staff Access;
+status Pending. Email delivery and redirect are user-observed, not inbox inspection
+by the agent. User explicitly instructed that account remain pending.
+
+INDEPENDENT BROWSER PASSES: user signed the pending account into this conversation's
+browser; Access:pending, session not verified. No Team data, Developer recovery or
+access-management controls. Personal and Team history disclosed no protected
+records. Returning to Staff workspace reloaded Pending (request persistence).
+Submitted ONE public Capsules sample through the real inspection UI: queued server
+rejected with "Approved staff and required authenticator verification are needed.
+Open Staff workspace." No result/report produced. Membership guard precedes GPU
+compute in unchanged source; no successful inference experiment was repeated.
+Then signed out only that test browser session for the Developer assurance test.
+
+LIMITS: UI/backend denial is real, but direct pending/AAL1 JWT REST/RPC/Storage
+policy probes were not performed. No credential/JWT/QR/code was requested or stored.
+Password recovery success remains the user's earlier report; no fresh reset email
+was sent. Pending denial also shows generic synchronization failed and CHECKING
+MEMBERSHIP messaging; focused status-copy improvement recommended, not implemented.
+Earlier temporary guest SQLite initialization-lock finding remains unmodified.
+
+DEVELOPER AAL1 PASSED: user signed in with existing Developer password only. Browser
+showed approved membership, session not verified, mandatory-authenticator message,
+no protected Team records or Developer management/recovery. Second single public
+Capsules sample was rejected by queued server before a result/report was produced.
+Native authenticator challenge was available. No successful GPU inference was run.
+
+DEVELOPER AAL2 PASSED: user completed native authenticator verification privately.
+Browser showed verified session, Developer management and recovery. Native access
+directory contained QA Registration as pending/applicant with approve/reject actions;
+actions were INSPECTED ONLY. Five existing Team records, authenticated original/
+heatmap Storage Blobs, protected backend image paths and two Personal owner records
+were accessible. This demonstrates mandatory-MFA AAL1 denial -> AAL2 access without
+any membership change. Delivery-status RPC showed requested event queued,0 attempts.
+No notification dispatch/retry, approval/rejection/revocation or new inspection result.
+
+CURRENT HANDOFF: #team live tab remains signed in as verified Developer. Test
+identity remains pending. Do NOT approve/reject/revoke, retry delivery or change
+production permissions without separate explicit confirmation. No permission for
+Staff post-approval access testing has been given. Next optional native tests need
+that explicit decision, additional authorized identities and/or direct RLS/Storage
+test setup. Wrong-code/native lost-factor/revocation tests and fresh recovery mail
+remain unperformed. Do not repeat signup, MFA enrollment, mail or model experiments.
+
+Updated docs/REGISTRATION_ACTIVATION_20261020.md and
+results/registration-activation-20261020.json distinguish user-observed email/redirect
+from agent-observed pending/denial. Preserve all identities, pending/outbox/audit rows,
+Personal/Team history, Gallery and models; CAPTCHA remains deferred by user choice.
+Save final documentation checkpoint and guarded Desktop fast-forward. No need to
+rerun unchanged software tests, rebuild frontend, redeploy or push to GitHub.
+
+---
+
 # Registration interface active; controlled signup test pending — 20 October 2026
 
 Latest live HF commit:8df12b1010e8b3184544628bd0b64988910c7e39, RUNNING.

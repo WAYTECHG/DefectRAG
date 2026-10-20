@@ -128,10 +128,52 @@ password/email steps. The live form is open in this conversation's browser.
    single reset and verify its live application landing; any password entry/change
    is performed only by the user. Keep production Developer credentials untouched.
 
-**At preparation of this report:** email confirmation, pending-request persistence,
-fresh Developer AAL2 directory access and password-recovery regression are awaiting
-manual participation. Update this section/results once outcomes are observed.
-Existing local tests passed; they do not substitute for native identity tests.
+**Follow-up verification:** the user completed signup, received and confirmed the
+Supabase email, landed on the production HF application, signed in and submitted
+the request. No approval was performed. This email/landing evidence is user-observed.
+
+The agent independently observed the test account in this conversation's browser:
+**Access: pending**, session not AAL2, no staff rows, no management controls and no
+Developer recovery. Neither Personal nor Team history disclosed protected records.
+Returning to Staff workspace loaded the same pending request, demonstrating its
+persistence. A single public Capsules sample was submitted through the normal
+inspection UI; the queued server rejected it with **Approved staff and required
+authenticator verification are needed. Open Staff workspace.** No result/report
+was produced. Source preflight places that membership check before GPU compute.
+The test account was then signed out for the Developer assurance-level check.
+
+Expected pending-account denial is also presented as generic synchronization-failed
+and CHECKING MEMBERSHIP messages. This is a clarity issue, not evidence of a data
+leak; a focused pending/MFA-specific status improvement is recommended separately.
+No UI change or redeployment was performed during this verification stage.
+
+The user then signed in with the existing Developer password without entering a
+TOTP code. The agent observed **Access: approved**, **session not verified**, no
+protected Team history, no Developer recovery and no access-management controls.
+A second single public-sample inspection attempt was rejected by the queued server
+with the same staff/authenticator-required message, with no result/report. This
+checks the server guard for an approved AAL1 identity as well as a pending identity;
+it is not merely a hidden-page test. Existing native TOTP challenge remains usable.
+
+After the user privately entered a native TOTP code, the agent observed
+**Authenticator: verified session**, Developer access management and recovery.
+The controlled test request was present in the native directory as **pending /
+applicant** with approve/reject actions. No action was clicked. Five existing Team
+records were accessible; saved original/heatmap images downloaded as authenticated
+Storage Blobs. Existing protected backend image paths then loaded successfully,
+and Personal history showed the two existing owner records. This verifies the
+AAL1-to-AAL2 access transition without granting any account new permissions.
+
+The Developer-only delivery-status read showed the request event **queued** with
+**zero attempts**. No delivery, retry, approval, rejection or revocation was
+triggered. The account remains pending, and notification delivery remains off.
+
+Fresh password-recovery regression remains unperformed (earlier success is
+user-reported). Direct negative native REST/RPC/
+Storage policy calls under pending/AAL1 credentials were not exercised; UI and
+backend denial are not a substitute for every policy test. No test-account approval,
+rejection/revocation or approved-Staff post-approval test is authorized or claimed.
+Existing local tests were not repeated; application code is unchanged.
 
 ## Recovery and resume
 
