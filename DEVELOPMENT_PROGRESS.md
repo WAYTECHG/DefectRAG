@@ -1,3 +1,22 @@
+# Disabled notification deployment approved; awaiting Dashboard deployment — 20 October 2026
+
+User approved disabled deployment. Exact scope: ONLY staff-notifications, existing
+Supabase project, prepared single-file index.ts, function-level verify_jwt=false
+and delivery0. Existing handler's dedicated worker bearer stays mandatory when
+enabled. Safe disabled POST check is included; no provider call, cron, SQL,
+CA/HF deployment, staff permission, native Auth SMTP/MFA or secret change.
+
+Supabase management connector/CLI unavailable, so one Dashboard procedure is
+provided using the verified Desktop bundle (no install or 3-file manual merge).
+No remote deployment performed/confirmed by agent yet. Expected POST503 with
+notifications_disabled is INTENTIONAL and proves delivery gate closed, not
+provider validity or completed live SQL tests. User returns public function URL
+and status/body only, never request headers/keys. Do not set delivery1 or submit
+QA event before separate activation approval. Previous tests remain valid; no
+source/bundle change or unnecessary rerun. Latest guide records exact steps.
+
+---
+
 # Disabled email configuration saved by user; deployment approval pending — 20 October 2026
 
 User reports Disabled configuration saved. Seven Edge secret entries recorded

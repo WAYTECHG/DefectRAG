@@ -2,9 +2,24 @@
 
 ## Latest checkpoint
 
+User APPROVED DISABLED DEPLOYMENT of staff-notifications. Authorized: exact
+single-file bundle below, function-scoped verify_jwt=false, delivery0 and safe
+disabled POST check. No secrets read/changed, outbound delivery, cron, CA/HF
+deployment or new SQL is included. Dashboard steps supplied; deployment is
+PENDING USER EXECUTION/CONFIRMATION, not yet reported successful.
+
+Single procedure: existing project -> Edge Functions -> Deploy a new function ->
+Via Editor (or open existing staff-notifications only). Name staff-notifications;
+replace entire index.ts with Desktop runtime/email-function-release/index.ts;
+deploy. Set function-only JWT verification off per reviewed config. Preserve
+notification delivery0 and all other settings. Test POST with body{}; expected
+HTTP503 and {"error":"notifications_disabled"}, an intentional disabled response.
+Do not add worker secrets to shared test output. User returns status/body and
+public function URL only; actual provider/DB behavior is not proven by this test.
+
 User reports `Disabled configuration saved` for the seven approved Edge secrets.
 Recorded as USER-CONFIRMED, not independent secret inspection. No secret value
-was provided/read. QA event ID remains deferred. Deployment is NOT approved yet.
+was provided/read. QA event ID remains deferred. Disabled deployment is now approved above.
 
 To avoid CLI installation/multi-file paste, offline packager
 deployment/supabase/build_email_function.mjs bundles the three reviewed sources
@@ -13,7 +28,7 @@ behavior changes. Four packaged-code checks passed: import-free bundle,
 disabled POST503, unauthorized enabled POST401, GET405; no network calls.
 Bundle SHA256:a70e89e05d66918ed00a78bfdc769c2afd761fb10e376be0e12903147cd82017.
 
-NEXT SEPARATE APPROVAL: deploy ONLY staff-notifications from that single file,
+APPROVED SCOPE: deploy ONLY staff-notifications from that single file,
 retain DEFECTRAG_NOTIFICATIONS_ENABLED=0, use reviewed function-level
 verify_jwt=false with the handler's dedicated bearer check, then check disabled
 POST503 without providing a worker secret. No cron, QA send, provider request,
