@@ -2,6 +2,16 @@
 
 ## Latest checkpoint
 
+DIAGNOSIS RECEIVED: user-supplied live SELECT shows worker_permissions_ok=true,
+one active verified Developer and no pending requests. The known QA applicant
+is approved; its requested event a75e25fa-c41b-4529-8c3b-44dbe93d9683 is superseded,
+not current-version and attempts0. Its exact name matched; status/version caused
+the zero selection. Never revive/send that stale event or revoke an approved
+account for an email test. Request approval for a fresh user-controlled pending
+QA request, leaving existing permissions unchanged and delivery disabled. Native
+confirmation mail for a new controlled signup is separate from Developer email
+delivery activation, which still requires the exact-event approval below.
+
 UPDATE: previous QA SELECT returned zero rows (user screenshot). Cause not yet
 established. Updated deployment/email_qa_selection.sql is ONE read-only SELECT
 that always returns a diagnostic row, independently checks RPC permissions and

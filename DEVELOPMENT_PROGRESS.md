@@ -1,3 +1,30 @@
+# QA event diagnosed: already approved; fresh pending test required — 20 October 2026
+
+User supplied live read-only diagnostic result: worker_permissions_ok=true;
+pending_requests=0; known_qa_requests=1; active_verified_developers=1;
+total_outbox_events=2; requested_events=1; original_query_matches=0;
+ready_pending_events_any_name=0. Existing event
+a75e25fa-c41b-4529-8c3b-44dbe93d9683 has attempts0, requested account approved,
+current_version=false, delivery_status=superseded, exact/normalized QA name=true,
+active_verified_developer=true. This explains the earlier empty selection:
+the known QA request has already been decided; its pending notification is stale.
+New worker RPC grants pass the metadata check (USER-SUPPLIED SQL output, not
+agent-authenticated RPC invocation). No mail delivery/retry/provider validity
+or cloud scheduler proof yet. Other outbox event details were not returned.
+
+Do NOT send/revive the superseded event, revoke/reject the approved test account,
+or reset versions/attempts. Next approval: a fresh user-controlled QA account and
+new pending Staff Access Request through existing registration UI, kept pending.
+This may send native Supabase confirmation mail to that controlled account only;
+Developer notification delivery stays0 and n8n remains off. After user creates
+the authorized request, inspect its event once, then obtain exact controlled
+delivery/configuration approval. No migrations or permissions changes needed to
+resolve this diagnostic. Existing approved account and all records preserved.
+No source/runtime changes or repeated tests; docs-only checkpoint. Priority2
+remains deferred until actual Priority1 email/cloud evidence passes.
+
+---
+
 # QA selection returned zero rows; read-only diagnosis pending — 20 October 2026
 
 User screenshot confirms the previous email_qa_selection.sql SELECT succeeded
