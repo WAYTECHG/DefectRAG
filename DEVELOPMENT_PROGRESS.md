@@ -1,3 +1,19 @@
+# Disabled email configuration approved; manual secret entry pending — 20 October 2026
+
+User approved disabled configuration. Authorized scope: dedicated Resend Sending
+key + required Supabase Edge secrets with DEFECTRAG_NOTIFICATIONS_ENABLED=0.
+User must enter secret values privately; agent has not read/generated/entered
+them. Seven entries in one batch; QA event ID intentionally deferred while off.
+Do not overwrite platform SUPABASE_* keys or Auth Gmail SMTP configuration.
+Existing implementation/source tests unchanged; no repeated model/test jobs.
+
+WAIT FOR: user reports disabled configuration saved. Then request separate
+approval to deploy ONLY staff-notifications with delivery0 and verify disabled
+behavior. No function deployment, provider API call, invocation, scheduler,
+staff decision, sending, HF/GitHub or SQL change performed/authorized at this step.
+
+---
+
 # Notification migration manually applied by user; email activation pending — 20 October 2026
 
 User reports execution of reviewed deployment/supabase_direct_notifications.sql:

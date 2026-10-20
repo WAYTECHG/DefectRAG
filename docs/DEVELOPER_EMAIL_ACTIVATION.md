@@ -2,6 +2,11 @@
 
 ## Latest checkpoint
 
+User has now APPROVED DISABLED CONFIGURATION ONLY. Manual entry of seven
+Supabase Edge secrets is pending user confirmation. Keep delivery0; omit QA
+event ID until its authorized selection. No secret values are requested in chat.
+Deployment, worker invocation, scheduling and sending remain unapproved.
+
 User manually executed the reviewed direct-notifications migration and reported
 `Success. No rows returned`. This is expected for its DDL + transaction COMMIT.
 Record it as user-reported applied; DO NOT rerun. New live RPC definitions/grants
