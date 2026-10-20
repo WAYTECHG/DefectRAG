@@ -3,3 +3,7 @@
 # it is NOT a Supabase user JWT. Never remove the handler's secret validation.
 [functions.staff-notifications]
 verify_jwt = false
+
+# Dedicated worker/callback secrets + event lease checked in handler and SQL.
+[functions.corrective-actions]
+verify_jwt = false

@@ -13,6 +13,10 @@ async function fixture(t){
   'frontend/src/main.jsx':'export default 1;','frontend/public/config.js':'public-placeholder','frontend/public/logo.svg':'<svg/>',
   'frontend/tests/unit.test.mjs':'//fixture','deployment/space/transport.js':'//transport','deployment/space/build_ui.mjs':'//builder',
   'deployment/supabase/functions/staff-notifications/worker.mjs':'//worker','deployment/n8n/staff-notifications.json':'{}',
+  'deployment/supabase/functions/staff-notifications/direct-email.mjs':'//direct-email',
+  'deployment/supabase/functions/corrective-actions/worker.mjs':'//ca-worker','deployment/n8n/corrective-actions.json':'{}',
+  'deployment/supabase_corrective_actions.sql':'--fixture','deployment/supabase_direct_notifications.sql':'--fixture',
+  'deployment/n8n/corrective-actions-scheduler.json':'{}',
   'deployment/zerogpu_phase1/client/package.json':'{}','deployment/zerogpu_phase1/client/package-lock.json':'{}'};
  for(const [name,text] of Object.entries(contents)){await fs.mkdir(path.dirname(path.join(root,name)),{recursive:true});await fs.writeFile(path.join(root,name),text)}
  const output=path.join(root,'runtime/cloud');await fs.mkdir(path.join(output,'assets'),{recursive:true});

@@ -1,0 +1,57 @@
+{
+  "mode": "actual isolated n8n + SMTP sink; simulated Supabase callbacks",
+  "externalNetworking": "none",
+  "realEmailsSent": 0,
+  "acceptedByLocalSink": 2,
+  "callbackCalls": 8,
+  "results": [
+    {
+      "scenario": "confirmed case sends one notification",
+      "passed": true,
+      "acceptedByLocalSink": 1
+    },
+    {
+      "scenario": "duplicate event does not send again",
+      "passed": true,
+      "acceptedByLocalSink": 1
+    },
+    {
+      "scenario": "unconfirmed backend event denied",
+      "passed": true,
+      "acceptedByLocalSink": 1
+    },
+    {
+      "scenario": "raw prediction event rejected",
+      "passed": true,
+      "acceptedByLocalSink": 1
+    },
+    {
+      "scenario": "SMTP failure is not completion",
+      "passed": true,
+      "acceptedByLocalSink": 1
+    },
+    {
+      "scenario": "ambiguous effect cannot automatically replay",
+      "passed": true,
+      "acceptedByLocalSink": 1
+    },
+    {
+      "scenario": "accepted email with lost receipt remains ambiguous",
+      "passed": true,
+      "acceptedByLocalSink": 2
+    },
+    {
+      "scenario": "lost-receipt retry does not duplicate email",
+      "passed": true,
+      "acceptedByLocalSink": 2
+    }
+  ],
+  "limitations": [
+    "Production webhook trigger replaced with manual fixture trigger",
+    "Final webhook response replaced with no-op",
+    "Supabase SQL/RLS not executed",
+    "No external ticket connector configured"
+  ],
+  "n8n_version": "2.43.7",
+  "image_sha256": "3db21366be1d3c77c1708963129c051948573019659e8873e0294be035ffc1b2"
+}

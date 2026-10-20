@@ -14,4 +14,5 @@ Deno.serve((request: Request) => handleRequest(request, {env: {
   DEFECTRAG_EMAIL_FROM: Deno.env.get('DEFECTRAG_EMAIL_FROM'),
   DEFECTRAG_EMAIL_SANDBOX: Deno.env.get('DEFECTRAG_EMAIL_SANDBOX'),
   DEFECTRAG_EMAIL_QA_RECIPIENT: Deno.env.get('DEFECTRAG_EMAIL_QA_RECIPIENT'),
+  DEFECTRAG_EMAIL_QA_EVENT_ID: Deno.env.get('DEFECTRAG_EMAIL_QA_EVENT_ID'),
 }}));

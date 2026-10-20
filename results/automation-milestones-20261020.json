@@ -1,0 +1,50 @@
+{
+  "status": "inactive implementation; production integration pending",
+  "date": "2026-10-20",
+  "milestone1_checkpoint": "712a832",
+  "tests": {
+    "frontend_passed": 119,
+    "backend_regressions_passed": 55,
+    "actual_isolated_n8n_scenarios_passed": 8,
+    "direct_notification_tests_in_frontend_total": 8,
+    "existing_notification_tests_in_frontend_total": 21
+  },
+  "builds": {
+    "local": "passed",
+    "static": "passed",
+    "cloud": "passed",
+    "cloud_verified": true,
+    "manifest_files": 86,
+    "source_fingerprint": "10c593e2f81782806592bc5dccaadb4fa27659e072ac2adb9a66622b7d9fd874",
+    "cloud_main": "assets/index-BBEwERpA.js",
+    "cloud_team_chunk": "assets/TeamWorkspace-BSL2byAA.js",
+    "css_sha256_unchanged": "087e3c48084e6752afdd5667f4ad43b22bd240038b904dc746f51b90b0732661",
+    "publisher_check": "passed; offline only"
+  },
+  "preserved": {
+    "applied_auth_sql_lf_sha256": "cea1e451073fad9f47aca26292cb83a5d337854eef437d97f8c80b79c121e983",
+    "frontend_css": "unchanged",
+    "public_corrective_actions_flag": "absent/off",
+    "production_secrets": "not read or changed",
+    "existing_n8n": "not modified"
+  },
+  "production_actions": {
+    "sql_executed": false,
+    "deployment": false,
+    "real_email_sent": false,
+    "staff_decisions": false,
+    "github_push": false,
+    "model_runs_or_training": false
+  },
+  "remaining": [
+    "Review and execute isolated local PostgreSQL authorization tests",
+    "Review additive migrations; no production SQL authorized",
+    "Select/configure provider and one approved QA event manually",
+    "Separately approve Edge and scheduler deployment",
+    "Verify one real QA message with laptop/Docker off",
+    "Verify real-user CA lifecycle, reminders, revocation, RLS and recovery",
+    "Approve always-on HTTPS n8n hosting before activating CA",
+    "Optional ticket connector not implemented"
+  ],
+  "processes": "Disposable test container removed; existing user-started n8n and ollama containers left running"
+}

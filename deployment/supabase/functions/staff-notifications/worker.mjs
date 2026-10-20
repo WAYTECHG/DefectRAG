@@ -46,7 +46,8 @@ export async function dispatchNotifications({env,fetcher=fetch,now=()=>performan
   // Reserve claim + send + finish + overhead BEFORE claiming. Unstarted rows
   // remain queued, without a consumed attempt or five-minute lease delay.
   if(deadline-now()<LIMITS.reserveMs+(direct?LIMITS.rpcMs:0)){result.budgetLimited=true;break}
-  const jobs=await rpc(direct?'defectrag_claim_direct_notifications':'defectrag_claim_notifications',{p_limit:1});
+  const jobs=await rpc(direct?'defectrag_claim_direct_notifications':'defectrag_claim_notifications',
+   {p_limit:1,...(direct?{p_event:env.DEFECTRAG_EMAIL_SANDBOX==='1'?env.DEFECTRAG_EMAIL_QA_EVENT_ID:null}:{})});
   if(!Array.isArray(jobs)||jobs.length>1)throw new Error('invalid_outbox_response');
   if(!jobs.length)break;
   const job=jobs[0];result.claimed++;

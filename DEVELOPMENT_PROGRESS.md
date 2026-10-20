@@ -1,3 +1,82 @@
+# Two automation milestones prepared and locally tested; NOT activated — 20 October 2026
+
+Continues d7f10c2 on feature/auth-mfa-inactive. Milestone1 code checkpoint712a832
+saved before independent Milestone2 development. Latest final checkpoint is the
+Git HEAD containing this entry; no remote push or deployment. Source reference:
+C:\Users\User\.codex\.chatgpt-projects\g-p-6abf9c3f00a4819198b9ff56b5456844\DefectRAG-v2.
+
+M1: optional direct Resend cloud adapter, no n8n/laptop dependency. Reuses unique
+outbox/leases/retries/status; server-only credentials, fixed #team link, masked
+applicant email, database timestamp. Additive REVIEW-ONLY direct-notifications
+SQL persists immutable provider payload, rate-limits claims, rechecks membership/
+recipient and quarantines ambiguity after23h. Sandbox requires exact recipient
+AND one approved QA outbox event ID, so unrelated requests stay untouched.
+Provider24h idempotency supported; accepted is NOT verified inbox delivery.
+No-domain test sender only reaches Resend account owner; applicant templates
+require verified-domain operation. Provider selection/configuration still pending.
+
+M2: inactive Corrective Actions card inside Team Workspace, existing CSS/classes.
+Only active Team inspection + latest completed human Reject review + separate
+explicit confirmation can create a case. New REVIEW-ONLY SQL requires current
+Staff + native TOTP AAL2 on reads/RPC writes, even if frontend flag manipulated.
+Cases preserve review/confirming actors, private evidence reference, owner,
+supervisor, priority, due date, versioned state/audit snapshots. Progress,
+resolution, reopen, close/cancel; deduplicated reminder/escalation events.
+Metrics use actual timestamps from up to500 accessible cases; no fabricated data.
+No automatic Personal sharing or case creation from model verdicts.
+
+Server-only bridge + inactive n8n templates use purpose secrets, short event
+capabilities and durable effect ledger; no privileged DB key in n8n/React.
+Completed duplicate effects skip SMTP. Ambiguous SMTP effect becomes manual
+review/dead rather than auto-replaying. Optional Trello connector NOT implemented;
+ticket effects are rejected. Production automation/frontend gates remain OFF.
+
+VERIFIED:119 frontend tests (includes29 notification and15 CA cases),55 offline
+backend auth/MFA/Personal/security regressions. Real JSX renders and compiles.
+After user started Docker, actual n8n2.43.7 ran in disposable --network none
+container with loopback SMTP sink + simulated Supabase callbacks. Eight scenarios
+passed: send, duplicate, unconfirmed denial, raw prediction rejection, SMTP
+failure, ambiguity quarantine, lost completion receipt, retry without duplicate.
+Zero external emails/DB calls. Existing n8n/ollama containers and volumes untouched;
+disposable container auto-removed. Existing user-started containers left running.
+
+Local/static/cloud builds PASS in runtime/automation-20261020 (working dist and
+showcase preserved). Cloud verification/stage and OFFLINE publisher guard PASS,
+86 files; source fingerprint10c593e2f81782806592bc5dccaadb4fa27659e072ac2adb9a66622b7d9fd874.
+Cloud main:index-BBEwERpA.js; Team chunk:TeamWorkspace-BSL2byAA.js.
+CSS index-Bn4HF2vD.css hash087e3c48084e6752afdd5667f4ad43b22bd240038b904dc746f51b90b0732661
+UNCHANGED. Applied auth SQL LF hash cea1e451073fad9f47aca26292cb83a5d337854eef437d97f8c80b79c121e983
+UNCHANGED. Existing non-fatal Vite config/Gradio browser and mixed-import warnings
+remain. Last recorded live HF remains8df12b1010e8b3184544628bd0b64988910c7e39.
+
+NOT VERIFIED: local PostgreSQL/RLS execution (rollback-only test script prepared,
+not executed; no PostgreSQL/Supabase image installed), live Edge/cron/provider,
+real mailbox/laptop-off acceptance, native CA user lifecycle/revocation/recovery,
+production webhook trigger authentication/connectivity, live due/overdue schedule.
+n8n local fixture substitutes manual trigger + response; backend callback authority
+is simulated, not proof of deployed SQL security. No multimodal RAG/model runs.
+
+FILES/DETAILS:docs/AUTOMATION_MILESTONES.md; results/automation-milestones-20261020.json;
+results/automation-n8n-local-20261020.json. New reviewable migrations:
+deployment/supabase_direct_notifications.sql and deployment/supabase_corrective_actions.sql.
+Read-only metadata preflight:deployment/automation_preflight.sql. Local rollback
+test:deployment/tests/corrective_actions_local.sql. n8n templates and isolated
+fixture runner:deployment/n8n/corrective-actions*.json,test-local.mjs.
+
+RESUME: inspect Git HEAD and guarded Desktop sync receipt; do not rerun successful
+model experiments, native MFA enrollment or original auth migration. First review
+new SQL and execute isolated LOCAL PostgreSQL tests; then request separate
+production SQL/configuration/deployment approval. Configure restricted Developer
+QA provider/event, deploy Edge + Vault/Cron only after authorization, then verify
+one real mailbox message with laptop/Docker off. Real CA integration requires
+approved schema and authorized Staff-AAL2/privacy/recovery tests. Keep CA
+automation0/DBfalse/public correctiveActionsEnabled absent until those pass.
+Local n8n stops when laptop sleeps; production needs separately approved
+always-on HTTPS hosting. No paid service, tunnel, secrets, permissions, existing
+records, emails/invitations, model assets or GitHub changes authorized/performed.
+
+---
+
 # Milestone 1 direct email adapter — local tests only; NOT activated — 20 October 2026
 
 Continues d7f10c2 on feature/auth-mfa-inactive. Audited existing request/decision
