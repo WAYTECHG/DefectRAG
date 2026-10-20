@@ -1,3 +1,32 @@
+# Milestone 1 direct email adapter — local tests only; NOT activated — 20 October 2026
+
+Continues d7f10c2 on feature/auth-mfa-inactive. Audited existing request/decision
+RPCs, outbox/lease/retry, Edge worker and inactive n8n SMTP template. Auth Gmail
+SMTP preserved; private credentials/configuration never read. Existing live
+mandatory MFA/registration and permissions unchanged. No account decision/mail.
+
+Opt-in direct Resend adapter reuses outbox, avoids n8n/laptop, masks applicant
+email and includes database request time, Pending status and fixed #team link.
+New REVIEW-ONLY deployment/supabase_direct_notifications.sql adds globally
+rate-limited claim and persistent provider-body snapshot. Stable idempotency key;
+23h ambiguity quarantine prevents replay beyond provider's24h dedup window.
+Legacy consumer retained inactive. Original applied auth SQL unchanged.
+
+28 notification tests passed (7 direct,21 existing). No new dependencies.
+Live mailbox/SQL/cron/laptop-off acceptance NOT performed; needs separate approval,
+provider and server configuration. No-domain Resend test sender can notify only
+the account-owner Developer address. Applicant templates implemented but require
+verified domain for real recipients; sandbox blocks them. See
+docs/AUTOMATION_MILESTONES.md for provider restrictions and exact activation gates.
+Docker CLI present but Linux engine stopped; no Docker changes made.
+
+NEXT: save this code checkpoint, then independent inactive Corrective Actions
+development/local tests. Keep notifications disabled. Do not deploy, migrate,
+configure secrets, send email or push GitHub. Current cloud UI manifest is stale
+because notification test inputs changed; rebuild/verify before any later release.
+
+---
+
 # Team inspection UX implemented and tested locally; NOT deployed — 20 October 2026
 
 Continuing7e6d92e on feature/auth-mfa-inactive. Team Run Inspection restriction is

@@ -31,6 +31,7 @@ export async function sourceFingerprint(root=ROOT){
   if(!name.includes('/')&&/\.(js|mjs)$/.test(name))names.push('deployment/space/'+name);
  // Worker tests import this module; bind their tested dependency, too.
  names.push('deployment/supabase/functions/staff-notifications/worker.mjs','deployment/n8n/staff-notifications.json');
+ names.push('deployment/supabase/functions/staff-notifications/direct-email.mjs');
  const hash=createHash('sha256');
  for(const name of names.sort()){
   let bytes=await fs.readFile(path.join(root,name));

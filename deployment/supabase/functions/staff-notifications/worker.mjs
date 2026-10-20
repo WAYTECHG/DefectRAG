@@ -1,4 +1,5 @@
 // Dependency-free Edge worker. Tests inject fetch/env; nothing starts on import.
+import {emailConfiguration,emailMessage} from './direct-email.mjs';
 const UUID=/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
 const KINDS=new Set(['requested','approved','rejected','revoked']);
 export const LIMITS=Object.freeze({events:2,budgetMs:100000,rpcMs:15000,webhookMs:20000,reserveMs:52000});
@@ -29,8 +30,11 @@ export async function dispatchNotifications({env,fetcher=fetch,now=()=>performan
   })(),timeout])}finally{clearTimeout(timer)}
  }
  const base=httpsUrl(env.SUPABASE_URL).origin;
- const hook=httpsUrl(env.DEFECTRAG_N8N_WEBHOOK_URL).href;
- if(!env.SUPABASE_SERVICE_ROLE_KEY||!env.DEFECTRAG_N8N_WEBHOOK_SECRET||env.DEFECTRAG_N8N_WEBHOOK_SECRET.length<32)throw new Error('missing_configuration');
+ const direct=env.DEFECTRAG_NOTIFICATION_TRANSPORT==='resend';
+ if(env.DEFECTRAG_NOTIFICATION_TRANSPORT&&!['resend','n8n'].includes(env.DEFECTRAG_NOTIFICATION_TRANSPORT))throw new Error('invalid_transport');
+ const hook=direct?'https://api.resend.com/emails':httpsUrl(env.DEFECTRAG_N8N_WEBHOOK_URL).href;
+ if(direct)emailConfiguration(env);
+ if(!env.SUPABASE_SERVICE_ROLE_KEY||(!direct&&(!env.DEFECTRAG_N8N_WEBHOOK_SECRET||env.DEFECTRAG_N8N_WEBHOOK_SECRET.length<32)))throw new Error('missing_configuration');
  const headers={'apikey':env.SUPABASE_SERVICE_ROLE_KEY,'Authorization':'Bearer '+env.SUPABASE_SERVICE_ROLE_KEY,'Content-Type':'application/json'};
  async function rpc(name,payload){
   const response=await boundedJson(base+'/rest/v1/rpc/'+name,{method:'POST',headers,body:JSON.stringify(payload),redirect:'error'},LIMITS.rpcMs);
@@ -41,8 +45,8 @@ export async function dispatchNotifications({env,fetcher=fetch,now=()=>performan
  for(let index=0;index<LIMITS.events;index++){
   // Reserve claim + send + finish + overhead BEFORE claiming. Unstarted rows
   // remain queued, without a consumed attempt or five-minute lease delay.
-  if(deadline-now()<LIMITS.reserveMs){result.budgetLimited=true;break}
-  const jobs=await rpc('defectrag_claim_notifications',{p_limit:1});
+  if(deadline-now()<LIMITS.reserveMs+(direct?LIMITS.rpcMs:0)){result.budgetLimited=true;break}
+  const jobs=await rpc(direct?'defectrag_claim_direct_notifications':'defectrag_claim_notifications',{p_limit:1});
   if(!Array.isArray(jobs)||jobs.length>1)throw new Error('invalid_outbox_response');
   if(!jobs.length)break;
   const job=jobs[0];result.claimed++;
@@ -55,6 +59,18 @@ export async function dispatchNotifications({env,fetcher=fetch,now=()=>performan
    error='invalid_notification';
   }else{
    try{
+    if(direct){
+     // Persist the exact provider body BEFORE dispatch. Retries reuse the same
+     // body/key; SQL quarantines ambiguity after 23h, within provider's 24h TTL.
+     const proposed=emailMessage(job,env);
+     const prepared=await rpc('defectrag_prepare_email',{p_id:job.event_id,p_lease:job.lease_token,p_payload:proposed});
+     if(!prepared||typeof prepared.payload!=='object'||prepared.payload===null)throw new Error('email_quarantined');
+     const response=await boundedJson(hook,{method:'POST',headers:{'Content-Type':'application/json',
+      Authorization:'Bearer '+env.DEFECTRAG_RESEND_API_KEY,'Idempotency-Key':'defectrag/'+job.event_id},
+      body:JSON.stringify(prepared.payload),redirect:'error'},LIMITS.webhookMs);
+     accepted=response.ok&&typeof response.body?.id==='string'&&response.body.id.length>0;
+     error=response.ok?'invalid_receipt':'notification_http_'+response.status;
+    }else{
     // Explicit allowlist: never forward the lease, keys, JWT, images or records.
     const payload={event_id:job.event_id,request_id:job.request_id,version:job.version,kind:job.kind,
      recipient_email:job.recipient_email,display_name:job.display_name,
@@ -64,6 +80,7 @@ export async function dispatchNotifications({env,fetcher=fetch,now=()=>performan
      'Idempotency-Key':job.event_id},body:JSON.stringify(payload),redirect:'error'},LIMITS.webhookMs);
     if(response.ok){const receipt=response.body;accepted=receipt.delivered===true&&receipt.event_id===job.event_id;error='invalid_receipt'}
     else error='notification_http_'+response.status;
+    }
    }catch{error='notification_unavailable'}
   }
   const finished=await rpc('defectrag_finish_notification',{p_id:job.event_id,p_lease:job.lease_token,p_delivered:accepted,p_error:accepted?'':error});
