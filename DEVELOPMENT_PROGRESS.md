@@ -2,6 +2,8 @@
 
 User approved implementation, reviewable additive SQL and local automated tests
 ONLY. Work is isolated on branch feature/auth-mfa-inactive from baseline d0ff630.
+Implementation checkpoint: bae2b41. Resume on this branch; inspect Git status
+before any future edits. Do not sync/deploy/activate this milestone implicitly.
 No migration executed, no permission/account changes, no production settings or
 secrets modified, no emails/invitations, no deployment, no feature activation.
 Desktop installation and existing working build outputs were not replaced.
