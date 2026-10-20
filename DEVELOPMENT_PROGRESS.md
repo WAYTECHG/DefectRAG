@@ -1,3 +1,60 @@
+# Team inspection UX implemented and tested locally; NOT deployed — 20 October 2026
+
+Continuing7e6d92e on feature/auth-mfa-inactive. Team Run Inspection restriction is
+INTENTIONAL in both React and cloud backend. Kept Personal -> private save ->
+explicit Team sharing -> review. No automatic sharing or authorization changes.
+
+New existing-style InspectionAction shows the exact requested Team explanation,
+an accessible disabled-button reason, and Switch to Personal Workspace. The safe
+Team-to-Personal handler changes client scope without reload and preserves exact
+File objects, category and batch label; it clears results/conversations/reviews/
+workspace lists and invalidates old requests. Auth changes/signout still clear
+files. Reverse Personal-to-Team draft images are cleared; no upload/write/share
+occurs during switching. Busy/evidence/record loading prevents the shortcut.
+
+Readiness explains missing/invalid/oversized inputs, batch limits, processing,
+connection/service/provider failure, permission checking, pending/rejected/revoked
+access and native MFA. Existing native own-status RPC supplies signed-in posture;
+failure/denial never becomes guest fallback. Identity changes/unmount/offline
+invalidate late checks; refresh uses auth/focus/reconnect and15s polling. UI is
+advisory; existing backend/RLS/MFA/scope checks remain unchanged. Guest Demo and
+offline local inference retained. Byte/dimension validation stays authoritative
+on the backend; GPU quota cannot be predicted before a request.
+
+MODIFIED:frontend/src/main.jsx. NEW:frontend/src/InspectionAction.jsx,
+frontend/src/inspectionReadiness.mjs,frontend/tests/inspectionReadiness.test.mjs,
+docs/TEAM_INSPECTION_UX.md and results/team-inspection-ui-20261020.json.
+No CSS/theme/auth/MFA/approval/SQL/n8n/model/RAG/gallery source modified.
+
+TESTS PASSED:96 frontend (34 new focused cases),55 offline backend auth/MFA,
+Personal Workspace and cloud security regressions. Real JSX render and actual
+handler tests cover draft File identity/category/batch, safe scope changes,
+no upload/share, private context invalidation, submit guards, native posture,
+late auth responses/outages, disabled explanations and batch recovery boundaries.
+Local, showcase and cloud production builds passed in runtime/team-inspection-ui.
+Cloud verify/stage and OFFLINE publisher guard passed (86 selected files).
+Fingerprint:7dbc25a489ae55e47e8ee804d42142eb7bcd3c19892a15bee0259df7c71006a1.
+Cloud main:index-BLZHWupW.js. CSS index-Bn4HF2vD.css EXACT original hash unchanged.
+Original frontend/dist and dist-static builds preserved; no new dependencies.
+No live browser/native/model acceptance claim for this undeployed UI.
+
+Local release input development-support/space/ui-dist now holds the tested pending
+cloud build with existing public configuration preserved. published-hashes/remote
+release receipts still describe the last live release; no HF API/publisher commit,
+SQL, staff permission/secret change, email, n8n dispatch, training or GitHub push.
+Last verified live HF remains8df12b1010e8b3184544628bd0b64988910c7e39; user must
+approve any deployment. Keep mandatory MFA and notifications0; applicant pending.
+
+NEXT: save local Git checkpoint and guarded Desktop synchronization, preserving
+Desktop config/run guide/datasets/models/secrets/working builds. On explicit HF
+approval only, publish the verified bundle and perform the small manual draft
+preservation + private inspection + separately authorized share checks described
+in docs/TEAM_INSPECTION_UX.md. Do not repeat SMTP, signup/MFA enrollment, SQL or
+benchmarks. Older generic authorization-sync messaging and guest SQLite lock
+findings remain recorded; this change adds clear Run-button reasons only.
+
+---
+
 # Registration confirmed; pending-account protection verified — 20 October 2026
 
 Continuing a7ddcff. Live HF remains8df12b1010e8b3184544628bd0b64988910c7e39,

@@ -1,0 +1,39 @@
+{
+  "date": "2026-10-20",
+  "base_commit": "7e6d92e3a1311a427b99bd103aa60f32ac5d9f0d",
+  "frontend_tests": {
+    "passed": 96,
+    "new_focused_cases": 34
+  },
+  "backend_offline_regression": {
+    "passed": 55,
+    "suites": [
+      "test_auth_mfa.py",
+      "test_personal_workspace.py",
+      "test_space_security.py"
+    ]
+  },
+  "builds": {
+    "local": "passed; runtime/team-inspection-ui/local",
+    "showcase": "passed; runtime/team-inspection-ui/static",
+    "cloud": "passed; runtime/team-inspection-ui/cloud"
+  },
+  "release_verified": true,
+  "source_fingerprint": "7dbc25a489ae55e47e8ee804d42142eb7bcd3c19892a15bee0259df7c71006a1",
+  "release_files": 86,
+  "main_asset": [
+    "assets/index-BLZHWupW.js",
+    "assets/index-DGhDXxpu.js"
+  ],
+  "stylesheet": {
+    "assets/index-Bn4HF2vD.css": "087e3c48084e6752afdd5667f4ad43b22bd240038b904dc746f51b90b0732661"
+  },
+  "offline_publisher_check": "passed",
+  "privacy": "Personal creation and explicit sharing retained; draft transfer makes no write; server and RLS unchanged",
+  "new_native_or_inference_test": false,
+  "deployment_performed": false,
+  "sql_executed": false,
+  "github_push": false,
+  "dependencies_installed": false,
+  "working_local_static_builds_replaced": false
+}
