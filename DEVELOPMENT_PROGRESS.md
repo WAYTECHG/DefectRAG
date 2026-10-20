@@ -1,3 +1,37 @@
+# Worker/runtime and frontend release blockers corrected — 20 October 2026
+
+Continuing 91da4df on feature/auth-mfa-inactive. Worker now claims one event at a
+time, max2/invocation, reserves52s before claiming, and enforces100s overall with
+fetch/body timeouts. Unstarted work remains queued; completion failures rely on
+existing durable leases. Stable event IDs and duplicate guards preserved. SMTP
+crash-after-send ambiguity remains documented; no false exactly-once claim.
+
+Frontend build receipts bind current source/tests, generated assets and public
+configuration. verify -> stage -> publisher check now reject untested/stale or
+modified artifacts and publish only the current manifest, excluding old disk
+chunks. Publisher --check-frontend is OFFLINE ONLY and contacts no HF service.
+Source cloud build/verification/staging passed:61 frontend tests,87 release files,
+unchanged CSS index-Bn4HF2vD.css. Working local/static builds remain preserved.
+26 focused worker/build-guard checks and5 offline publisher/preflight tests passed;
+two temporary-Git synchronization tests exercise preserved config and conflict
+refusal (unrestricted run needed for sandbox-blocked local Git clone).
+
+Read-only preflight finalized with expanded function ACLs and native Auth helpers.
+It was NOT executed. Reviewed auth migration hash unchanged:
+cea1e451073fad9f47aca26292cb83a5d337854eef437d97f8c80b79c121e983 (LF SHA256).
+No migration, database permission/secret change, activation, real mail, model work,
+HF deployment or GitHub push. Existing native/live integration gates still apply.
+
+DESKTOP PRE-CHECK: main at d0ff630; only tracked local edits are public config and
+RUN_AND_DEPLOY guide. They do not overlap synchronized changes and will be retained
+byte-for-byte. Dataset/supabase.txt and ignored models/runtime remain untouched.
+NEXT within this milestone: commit source, run guarded branch fast-forward to
+Desktop, verify Desktop cloud/local builds and record final preservation receipt.
+See docs/RELEASE_BLOCKER_FIXES_20261020.md for exact offline build/stage commands,
+preservation behavior and remaining activation/configuration approvals.
+
+---
+
 # Final pre-activation assessment — 20 October 2026
 
 Audited unchanged application checkpoint fa5e499 on feature/auth-mfa-inactive.

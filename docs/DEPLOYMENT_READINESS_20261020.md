@@ -1,5 +1,9 @@
 # Authentication deployment-readiness assessment
 
+FOLLOW-UP: `RELEASE_BLOCKER_FIXES_20261020.md` documents the implemented worker
+deadline and verified frontend staging fixes. The findings below preserve the
+original assessment of fa5e499; live schema/MFA/n8n gates still apply.
+
 Audit date: 20 October 2026 (Asia/Kuala_Lumpur). Application baseline: `fa5e499`,
 branch `feature/auth-mfa-inactive`. This assessment changes documentation and adds
 a read-only catalog checklist only. Application code and migration remain unchanged.

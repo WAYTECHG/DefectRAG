@@ -3,18 +3,33 @@ import argparse
 import hashlib
 import json
 import os
+import subprocess
 from pathlib import Path
-from huggingface_hub import HfApi, CommitOperationAdd
 
 ROOT = Path(__file__).resolve().parents[2]
 REPO = 'Wizzas/DefectRAG'
 OUT = ROOT/'development-support/space'
 
 
+def checked_frontend():
+    checked=subprocess.run(['node',str(ROOT/'deployment/space/frontend_release.mjs'),'check',str(OUT/'ui-dist')],
+        cwd=ROOT,capture_output=True,text=True,check=False,timeout=60)
+    if checked.returncode:
+        raise SystemExit('Frontend release blocked: '+checked.stderr.strip())
+    return json.loads(checked.stdout)
+
+
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--phase', type=int, choices=(2,3,4,5), required=True)
+    parser.add_argument('--phase', type=int, choices=(2,3,4,5))
+    parser.add_argument('--check-frontend',action='store_true',help='Offline readiness check only; never contacts Hugging Face')
     args = parser.parse_args()
+    frontend=checked_frontend()
+    if args.check_frontend:
+        print(json.dumps({'verified':True,'files':len(frontend['files']),'source_fingerprint':frontend['source_fingerprint']}))
+        return
+    if args.phase is None:parser.error('--phase is required for an authorized deployment')
+    from huggingface_hub import HfApi, CommitOperationAdd
     if args.phase>=4:
         confirmation=OUT/'migration-confirmed.json'
         assert confirmation.exists() and json.loads(confirmation.read_text()).get('user_confirmed_manual_execution'), 'Wait for the user to confirm manual SQL execution before enabling staff persistence.'
@@ -30,9 +45,11 @@ def main():
     for directory in ('backend','deployment/space'):
         for path in (ROOT/directory).glob('*.py'):
             files[path.relative_to(ROOT).as_posix()] = path
-    for path in (ROOT/'development-support/space/ui-dist').rglob('*'):
-        if path.is_file():
-            files['frontend/dist/'+path.relative_to(ROOT/'development-support/space/ui-dist').as_posix()] = path
+    for name in frontend['files']:
+        files['frontend/dist/'+name] = OUT/'ui-dist'/name
+    frontend_bytes={name:files['frontend/dist/'+name].read_bytes() for name in frontend['files']}
+    if any(hashlib.sha256(content).hexdigest()!=frontend['files'][name] for name,content in frontend_bytes.items()):
+        raise SystemExit('Frontend changed while assembling release')
     for path in (ROOT/'models/highres').glob('*.npz'):
         files[path.relative_to(ROOT).as_posix()] = path
     if args.phase>=3:
@@ -81,10 +98,12 @@ DINOv2: Meta, Apache-2.0. See docs/THIRD_PARTY_NOTICES.md.
     previous = json.loads(state_file.read_text()) if state_file.exists() else {}
     hashes = {name:hashlib.sha256(path.read_bytes()).hexdigest() for name,path in files.items()}
     hashes.update({name:hashlib.sha256(value).hexdigest() for name,value in raw.items()})
-    operations = [CommitOperationAdd(path_in_repo=name,path_or_fileobj=path.read_bytes() if path.suffix in ('.py','.js','.json','.md','.html','.css','.svg') else path)
+    operations = [CommitOperationAdd(path_in_repo=name,path_or_fileobj=frontend_bytes[name.removeprefix('frontend/dist/')] if name.startswith('frontend/dist/')
+                  else path.read_bytes() if path.suffix in ('.py','.js','.json','.md','.html','.css','.svg') else path)
                   for name,path in files.items() if previous.get(name)!=hashes[name]]
     operations += [CommitOperationAdd(path_in_repo=name,path_or_fileobj=value)
                    for name,value in raw.items() if previous.get(name)!=hashes[name]]
+    if checked_frontend()!=frontend:raise SystemExit('Frontend inputs changed before publication; rebuild and verify')
     commit = api.create_commit(repo_id=REPO,repo_type='space',operations=operations,
         parent_commit=before.sha,commit_message=f'DefectRAG phase {args.phase}: incremental real-model application migration')
     state_file.write_text(json.dumps(hashes,indent=2))

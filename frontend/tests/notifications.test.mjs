@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFile} from 'node:fs/promises';
-import {handleRequest} from '../../deployment/supabase/functions/staff-notifications/worker.mjs';
+import {handleRequest,LIMITS} from '../../deployment/supabase/functions/staff-notifications/worker.mjs';
 const event={event_id:'11111111-1111-4111-8111-111111111111',request_id:'22222222-2222-4222-8222-222222222222',
  lease_token:'33333333-3333-4333-8333-333333333333',kind:'requested',version:1,
  recipient_email:'developer@example.invalid',applicant_email:'applicant@example.invalid',display_name:'Applicant'};
@@ -10,10 +10,10 @@ const env={DEFECTRAG_NOTIFICATIONS_ENABLED:'1',DEFECTRAG_NOTIFICATION_WORKER_SEC
  SUPABASE_URL:'https://db.example.invalid',SUPABASE_SERVICE_ROLE_KEY:'server-only-fixture'};
 function request(secret=env.DEFECTRAG_NOTIFICATION_WORKER_SECRET){return new Request('https://edge.example.invalid',{method:'POST',headers:{Authorization:'Bearer '+secret}})}
 function fixture(handler){
- const calls=[];
+ const calls=[];let claimed=false;
  return {calls,fetcher:async(url,options)=>{
   const body=JSON.parse(options.body);calls.push({url,options,body});
-  if(url.endsWith('/defectrag_claim_notifications'))return Response.json([event]);
+  if(url.endsWith('/defectrag_claim_notifications')){const jobs=claimed?[]:[event];claimed=true;return Response.json(jobs)}
   if(url.endsWith('/defectrag_finish_notification'))return Response.json(true);
   return handler?handler({url,options,body}):Response.json({event_id:event.event_id,delivered:true});
  }};
@@ -81,4 +81,71 @@ test('inactive n8n template validates events and never acknowledges before SMTP 
  const accept=new Function('$input','$',workflow.nodes.find(n=>n.name==='Verify SMTP acceptance').parameters.jsCode);
  const selector=()=>({first:()=>good[0]});assert.equal(accept({first:()=>({json:{accepted:[event.recipient_email],rejected:[]}})},selector)[0].json.delivered,true);
  assert.throws(()=>accept({first:()=>({json:{accepted:[],rejected:[event.recipient_email]}})},selector));
+});
+
+test('maximum invocation budget stays below Free Edge limit and claims just in time',async()=>{
+ assert.equal(LIMITS.events,2);assert.equal(LIMITS.budgetMs,100000);assert.ok(LIMITS.reserveMs>2*LIMITS.rpcMs+LIMITS.webhookMs);
+ const events=[event,{...event,event_id:'44444444-4444-4444-8444-444444444444'}];let claims=0,hooks=0;
+ const fetcher=async(url,options)=>{
+  if(url.endsWith('/defectrag_claim_notifications')){assert.equal(JSON.parse(options.body).p_limit,1);return Response.json([events[claims++]])}
+  if(url.endsWith('/defectrag_finish_notification'))return Response.json(true);
+  assert.equal(options.headers['Idempotency-Key'],events[hooks].event_id);hooks++;return Response.json({event_id:events[hooks-1].event_id,delivered:true});
+ };
+ assert.equal((await (await handleRequest(request(),{env,fetcher})).json()).accepted,2);assert.equal(claims,2);assert.equal(hooks,2);
+});
+test('partial batch stops before leasing another event when reserved time is exhausted',async()=>{
+ let clock=0,claims=0,hooks=0;
+ const fetcher=async(url)=>{
+  if(url.endsWith('/defectrag_claim_notifications')){claims++;clock+=14000;return Response.json([event])}
+  if(url.endsWith('/defectrag_finish_notification')){clock+=15000;return Response.json(true)}
+  clock+=20000;hooks++;return Response.json({event_id:event.event_id,delivered:true});
+ };
+ const response=await handleRequest(request(),{env,fetcher,now:()=>clock});
+ assert.deepEqual(await response.json(),{claimed:1,accepted:1,retried:0,leaseLost:0,budgetLimited:true});
+ assert.equal(claims,1);assert.equal(hooks,1);
+});
+test('insufficient overall budget makes no claim and leaves queued work untouched',async()=>{
+ const response=await handleRequest(request(),{env,budgetMs:LIMITS.reserveMs-1,fetcher:()=>assert.fail('Must not lease unstarted work')});
+ assert.equal((await response.json()).budgetLimited,true);
+});
+test('overall deadline aborts stalled response bodies without a false delivery acknowledgment',async()=>{
+ let clock=0,aborted=false,finishes=0;
+ const fetcher=async(url,options)=>{
+  if(url.endsWith('/defectrag_claim_notifications')){clock=LIMITS.budgetMs-10;return Response.json([event])}
+  if(url.endsWith('/defectrag_finish_notification')){finishes++;return Response.json(true)}
+  options.signal.addEventListener('abort',()=>{aborted=true;clock=LIMITS.budgetMs});
+  return {ok:true,status:200,json:()=>new Promise(()=>{})};
+ };
+ const result=await handleRequest(request(),{env,fetcher,now:()=>clock});
+ assert.equal(result.status,503);assert.equal(aborted,true);assert.equal(finishes,0); // Lease expires for durable recovery.
+});
+test('failed first webhook does not prevent another event and retries reuse the event ID',async()=>{
+ const later={...event,event_id:'44444444-4444-4444-8444-444444444444'};let claims=0,hookIds=[],finishes=[];
+ const fetcher=async(url,options)=>{
+  if(url.endsWith('/defectrag_claim_notifications'))return Response.json([claims++%2===0?event:later]);
+  if(url.endsWith('/defectrag_finish_notification')){finishes.push(JSON.parse(options.body));return Response.json(true)}
+  hookIds.push(options.headers['Idempotency-Key']);return hookIds.length===1?new Response('',{status:503}):Response.json({event_id:JSON.parse(options.body).event_id,delivered:true});
+ };
+ const result=await (await handleRequest(request(),{env,fetcher})).json();assert.equal(result.retried,1);assert.equal(result.accepted,1);
+ assert.equal(finishes[0].p_delivered,false);
+ await handleRequest(request(),{env,fetcher});assert.equal(hookIds[0],hookIds[2]);
+});
+test('a repeated outbox event in the same invocation cannot send a second notification',async()=>{
+ let hooks=0;
+ const fetcher=async(url)=>{
+  if(url.endsWith('/defectrag_claim_notifications'))return Response.json([event]);
+  if(url.endsWith('/defectrag_finish_notification'))return Response.json(true);
+  hooks++;return Response.json({event_id:event.event_id,delivered:true});
+ };
+ assert.equal((await handleRequest(request(),{env,fetcher})).status,503);assert.equal(hooks,1);
+});
+test('lost post-send acknowledgment is not retried within the invocation',async()=>{
+ let hooks=0;
+ const fetcher=async(url)=>{
+  if(url.endsWith('/defectrag_claim_notifications'))return Response.json([event]);
+  if(url.endsWith('/defectrag_finish_notification'))throw new Error('acknowledgment unavailable');
+  hooks++;return Response.json({event_id:event.event_id,delivered:true});
+ };
+ assert.equal((await handleRequest(request(),{env,fetcher})).status,503);assert.equal(hooks,1);
+ // SMTP can still duplicate after an ambiguous crash/lease recovery; no exactly-once claim.
 });

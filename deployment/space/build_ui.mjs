@@ -1,6 +1,7 @@
 import path from 'node:path';
 import fs from 'node:fs/promises';
 import {fileURLToPath,pathToFileURL} from 'node:url';
+import {sourceFingerprint,recordBuild} from './frontend_release.mjs';
 const folder=path.dirname(fileURLToPath(import.meta.url)),root=path.resolve(folder,'../..');
 const {build}=await import(pathToFileURL(path.join(root,'frontend/node_modules/vite/dist/node/index.js')));
 const output=process.env.DEFECTRAG_SPACE_BUILD_OUT?path.resolve(process.env.DEFECTRAG_SPACE_BUILD_OUT):path.join(root,'development-support/space/ui-dist');
@@ -12,7 +13,8 @@ const preservedConfig=await fs.readFile(publicConfigFile||path.join(output,'conf
  return 'window.DEFECTRAG_PUBLIC_CONFIG = {supabaseUrl:"",supabasePublishableKey:""};\n';
 });
 if(publicConfigFile&&!preservedConfig.includes('sb_publishable_'))throw new Error('Expected the existing Supabase public configuration.');
-await build({root:path.join(root,'frontend'),configFile:false,base:'./',
+const fingerprint=await sourceFingerprint(root);
+const result=await build({root:path.join(root,'frontend'),configFile:false,base:'./',
  resolve:{alias:{'@gradio/client':path.join(root,'deployment/zerogpu_phase1/client/node_modules/@gradio/client/dist/index.js')}},
  build:{outDir:output,emptyOutDir:false},plugins:[{name:'space-transport',enforce:'pre',transform(code,id){
   if(id.replaceAll('\\','/')!==path.join(root,'frontend/src/main.jsx').replaceAll('\\','/'))return;
@@ -42,4 +44,5 @@ await build({root:path.join(root,'frontend'),configFile:false,base:'./',
  }}]});
 // Config is supplied separately from the existing installation, never from .env.
 await fs.writeFile(path.join(output,'config.js'),preservedConfig);
-console.log('Space build saved separately; original CSS and both existing builds preserved.');
+await recordBuild(root,output,Array.isArray(result)?result.flatMap(value=>value.output):result.output,fingerprint);
+console.log('Separate cloud build recorded. Verify and stage it before publishing; existing builds remain preserved.');

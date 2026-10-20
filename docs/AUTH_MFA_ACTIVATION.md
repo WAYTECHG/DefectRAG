@@ -5,6 +5,11 @@ adds live-schema, developer-login and release-assembly gates and identifies an
 Edge worker runtime-budget correction required before notification activation.
 This checklist does not authorize any activation or deployment.
 
+Follow-up: `RELEASE_BLOCKER_FIXES_20261020.md` records the corrected 100-second,
+just-in-time notification worker and verified frontend staging/publisher guard.
+These source fixes close the two code-release blockers; native/live integration
+and all activation permissions remain separate gates.
+
 Implementation milestone: 20 October 2026. **Inactive; not deployed or activated.**
 The existing React design, password login, allowlist, private workspaces, public
 Gallery, guest Demo, models and RAG remain the baseline. No SQL has been executed.

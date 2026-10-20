@@ -1,0 +1,50 @@
+{
+  "baseline": "91da4df",
+  "branch": "feature/auth-mfa-inactive",
+  "worker": {
+    "max_events": 2,
+    "claim_limit": 1,
+    "overall_deadline_ms": 100000,
+    "claim_reserve_ms": 52000,
+    "smtp_exactly_once": false
+  },
+  "source_frontend": {
+    "verified": true,
+    "tests": 61,
+    "files": 87,
+    "source_fingerprint": "627ae4a08ab488def81a339f3041c5f9bca2e1b48a7919b23aa0f724e5ecfd74",
+    "css_sha256": "087e3c48084e6752afdd5667f4ad43b22bd240038b904dc746f51b90b0732661"
+  },
+  "python_reports": {
+    "release-preflight-tests.xml": [
+      {
+        "name": "pytest",
+        "errors": "0",
+        "failures": "0",
+        "skipped": "0",
+        "tests": "5",
+        "time": "0.057",
+        "timestamp": "2026-10-20T14:46:41.560599+08:00",
+        "hostname": "DESKTOP-0S0P042"
+      }
+    ],
+    "desktop-sync-tests.xml": [
+      {
+        "name": "pytest",
+        "errors": "0",
+        "failures": "0",
+        "skipped": "0",
+        "tests": "2",
+        "time": "2.977",
+        "timestamp": "2026-10-20T14:53:08.523687+08:00",
+        "hostname": "DESKTOP-0S0P042"
+      }
+    ]
+  },
+  "migration_sha256_lf": "cea1e451073fad9f47aca26292cb83a5d337854eef437d97f8c80b79c121e983",
+  "sql_executed": false,
+  "deployed": false,
+  "notifications_sent": false,
+  "features_activated": false,
+  "desktop_sync": "pending guarded fast-forward"
+}

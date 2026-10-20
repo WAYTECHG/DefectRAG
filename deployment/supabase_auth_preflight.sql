@@ -5,6 +5,9 @@
 -- Resolve missing objects/collisions/unknown policies BEFORE running migration.
 begin read only;
 
+-- Read-only server metadata and migration operator context (no account rows).
+select current_user as migration_operator,current_setting('server_version') as postgres_version;
+
 -- 1. Required relations and existing RLS configuration.
 with expected(schema_name,table_name) as (values
   ('public','staff_members'),('public','shared_inspections'),('public','staff_notes'),
@@ -64,11 +67,25 @@ with expected(signature) as (values
   ('public.defectrag_personal_action(text,text,text,jsonb)'),('public.defectrag_personal_archive(text[],boolean)'),
   ('public.defectrag_share_personal(text,text,text,boolean)'),('public.defectrag_workspace_stats(text)'),
   ('public.defectrag_gallery_read(uuid,integer)'),
-  ('public.defectrag_gallery_write(text,text,text,text,jsonb,text,text,uuid,boolean)'))
+  ('public.defectrag_gallery_write(text,text,text,text,jsonb,text,text,uuid,boolean)'),
+  ('auth.uid()'),('auth.jwt()'),('auth.role()'))
 select e.signature,p.oid is not null as present,p.prosecdef as security_definer,
   pg_get_userbyid(p.proowner) as owner,p.proconfig,p.proacl
 from expected e left join pg_proc p on p.oid=to_regprocedure(e.signature)
 order by e.signature;
+
+-- Expand function ACLs, including implicit PUBLIC EXECUTE when proacl is NULL.
+-- A null ACL does NOT mean no execution privilege. Review unexpected roles and
+-- overloaded RPCs in addition to the exact-signature presence checks above.
+select n.nspname as schema_name,p.proname,pg_get_function_identity_arguments(p.oid) as arguments,
+  case when a.grantee=0 then 'PUBLIC' else pg_get_userbyid(a.grantee) end as grantee,
+  a.privilege_type,p.prosecdef as security_definer,p.proconfig,
+  pg_get_userbyid(p.proowner) as function_owner
+from pg_proc p join pg_namespace n on n.oid=p.pronamespace
+cross join lateral aclexplode(coalesce(p.proacl,acldefault('f',p.proowner))) a
+where n.nspname='public' and (p.proname like 'defectrag\_%' escape '\'
+  or p.proname in ('archive_team_inspections','restore_team_inspections'))
+order by schema_name,p.proname,arguments,grantee;
 
 -- Inspect every applicable policy; unexpected permissive/anon policies need review.
 select schemaname,tablename,policyname,permissive,roles,cmd,qual,with_check
