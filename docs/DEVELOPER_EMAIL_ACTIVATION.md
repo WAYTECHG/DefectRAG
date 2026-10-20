@@ -2,6 +2,16 @@
 
 ## Latest checkpoint
 
+UPDATE: previous QA SELECT returned zero rows (user screenshot). Cause not yet
+established. Updated deployment/email_qa_selection.sql is ONE read-only SELECT
+that always returns a diagnostic row, independently checks RPC permissions and
+shows counts plus latest20 requested-event status metadata without personal
+details. Run this updated file once; do not repeat the migration or activate
+delivery. Previous expected-row instructions below are historical. No event has
+been selected/authorized. Resubmitting an already-pending request is idempotent
+and will not create another notification. Any new QA event or data repair needs
+separate review/approval; never reset sent events to obtain a test email.
+
 DISABLED DEPLOYMENT PASSED. Actual Dashboard function slug is hyper-worker
 (default name retained), not staff-notifications. It hosts the prepared logical
 staff-notification component; no need to recreate/rename it or deploy a duplicate.

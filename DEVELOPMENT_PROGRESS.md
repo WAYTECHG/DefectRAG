@@ -1,3 +1,29 @@
+# QA selection returned zero rows; read-only diagnosis pending — 20 October 2026
+
+User screenshot confirms the previous email_qa_selection.sql SELECT succeeded
+but returned zero rows. No eligible event was established; new RPC grants were
+also hidden by that query's outer joins. Cause remains UNKNOWN: exact QA name,
+event/request status/version, recipient eligibility or absent event may explain it.
+Do not infer successful email readiness from this result or rerun migrations.
+
+Replaced that file with ONE aggregate SELECT which always returns one row:
+independent worker grant check, request/developer/outbox counts, original-filter
+match count, ready pending count regardless of name, and bounded latest20
+requested-event metadata. No emails, display names, user IDs, payloads, secrets
+or lease tokens are output. Event identifiers do not authorize delivery. Locally
+reviewed read-only SQL; not executed against PostgreSQL/cloud. No application,
+worker, migration or frontend changes; existing successful tests/builds retained.
+
+NEXT: user runs the updated Desktop deployment/email_qa_selection.sql once and
+returns its one diagnostic row. Identify the controlled QA event only after
+reviewing results. An already-pending request is idempotent and resubmitting it
+does not emit a new event. Do NOT create/reset/requeue events or enable delivery
+to work around an empty queue without explicit authorization. Delivery remains
+disabled; no provider call, database mutation, secret or permission change.
+Priority2 remains deferred. Disabled hyper-worker live check below still valid.
+
+---
+
 # Disabled cloud notification deployment VERIFIED; QA selection next — 20 October 2026
 
 User deployed prepared code under default slug hyper-worker. User screenshot
