@@ -1,3 +1,72 @@
+# Registration interface active; controlled signup test pending — 20 October 2026
+
+Latest live HF commit:8df12b1010e8b3184544628bd0b64988910c7e39, RUNNING.
+Parent:b9b5fd90e38f421007912f56663db26e9208bd6d. Application source remains
+689554cc32880be925d14cda15e4d4972ffdaff9 on feature/auth-mfa-inactive; final
+documentation checkpoint follows. Exactly ONE remote file changed:
+frontend/dist/config.js. Public authWorkflowEnabled=true and registrationEnabled=true.
+Backend DEFECTRAG_AUTH_WORKFLOW=1, notifications0 and every unrelated HF variable
+preserved. No backend/model/React/CSS/SQL/membership/secret changes.
+
+PREREQUISITE PASSED: user ran the requested read-only SELECT on
+public.defectrag_auth_settings and returned registration_enabled=true,
+mfa_required=true BEFORE the frontend flag changed. The agent did not directly
+authenticate to SQL, execute a migration or change either switch. User reports
+Developer native MFA verified/enforced, Gmail SMTP/reset mail working and the
+recovery redirect corrected to the production HF app. Those native results are
+user-reported until independently observed in a controlled test.
+
+FRESH PASSES:62 frontend/auth/security/build tests,87 verified release files,
+offline publisher guard; remote before/after comparison of149 allowlisted paths
+confirms all except config unchanged. Main JS index-C51GOc1V.js and original CSS
+index-Bn4HF2vD.css match exact prior/live hashes. HF RUNNING; registration and
+existing sign-in forms visible together; public health/models/evaluation/samples/
+Gallery200;12 model categories;3 Gallery IDs preserved; unsigned private history401.
+Supabase disable_signup=false, mailer_autoconfirm=false (email confirmation on).
+No model inference or benchmark repeated. Fresh guest history/stats/alerts200.
+
+OBSERVED LIMITATION: startup log contained sqlite3.OperationalError: database is
+locked in unchanged temporary guest-history initialization. Later fresh guest
+requests passed; no persistent startup error observed. Not claimed fixed or
+concurrency-load-tested. Preserve this finding for later focused hardening.
+
+ABUSE: user explicitly confirmed CAPTCHA not configured and chose native Supabase
+rate limits for this rollout. Retain those server limits; no production exhaustion
+test or admin limit/secret changes. CAPTCHA remains a documented hardening task
+requiring approved provider configuration and client-token integration across
+signup/login/recovery. Do not silently enable it and break current authentication.
+n8n/Edge not deployed/invoked; no agent email/invitation/account approval sent.
+Requests may queue outbox events without notification delivery.
+
+DESKTOP: started at same689554c, local config/run guide edits preserved; current
+cloud release/receipts staged into isolated development-support/space/ui-dist and
+validated there. Hashes of working local/static indexes and local config/run guide
+unchanged. No models/datasets/secrets/records copied. Use guarded fast-forward for
+the documentation/results checkpoint; never overwrite the two Desktop local edits.
+
+MANUAL TEST PENDING: user agreed to use a separate self-controlled test email and
+enter password/email steps privately. Live #team page is open. User was asked to
+register, confirm email (production .hf.space hostname), sign in and submit Request
+staff access, then report outcome. Expected Access:pending and protected-data denial.
+Do NOT approve/reject/revoke the test account without separate explicit permission.
+Actual confirmation delivery/landing, request persistence, fresh Developer AAL2
+directory read and fresh recovery email remain pending; no live pass assumed.
+Existing source/tests enforce verified email, no automatic staff grant, pending
+denial regardless of MFA, approved Staff AAL2, Developer-only AAL2 decisions and
+idempotent requests. No new registration/developer account was created by agent.
+
+Reports:docs/REGISTRATION_ACTIVATION_20261020.md and
+results/registration-activation-20261020.json. Private ignored operator receipts:
+development-support/space/registration-20261020 (not for GitHub).
+NEXT: incorporate the pending manual test outcome, inspect authorized pending UI/
+denial and Developer AAL2 read only. Preserve existing identities/history and keep
+notifications off. For a registration UI rollback restore ONLY the compatible
+parent config/application; KEEP DB MFAtrue and workflow1. Never use the pre-MFA
+13af0e1 rollback from the older Step5 report after enforcement. No GitHub push,
+SQL migration, Multimodal RAG upgrade or permission activation is authorized here.
+
+---
+
 # Step 5 deployed and verified; stop before Step 6 — 20 October 2026
 
 HF Space RUNNING: https://huggingface.co/spaces/Wizzas/DefectRAG

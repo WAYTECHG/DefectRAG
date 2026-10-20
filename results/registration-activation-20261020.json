@@ -1,0 +1,89 @@
+{
+  "date": "2026-10-20",
+  "deployed_commit": "8df12b1010e8b3184544628bd0b64988910c7e39",
+  "parent_commit": "b9b5fd90e38f421007912f56663db26e9208bd6d",
+  "source_commit": "689554cc32880be925d14cda15e4d4972ffdaff9",
+  "stage": "RUNNING",
+  "changed_remote_files": [
+    "frontend/dist/config.js"
+  ],
+  "all_other_allowlisted_files_preserved": true,
+  "live_asset_hashes": {
+    "index.html": "c25ceb8dd4f7ec59b35f2c5a961b1381e2bbd0b240a51012f5c4e393aad2cdb7",
+    "config.js": "dc3301072b627ccf2d1175de3622e0671f635a4e5a84805504a813a1216e80c4",
+    "assets/index-C51GOc1V.js": "156b30cb704873f239df1291a0cad17d94f2656f7aaff35a1c324aeab0d7b57f",
+    "assets/index-Bn4HF2vD.css": "087e3c48084e6752afdd5667f4ad43b22bd240038b904dc746f51b90b0732661"
+  },
+  "public_flags": {
+    "authWorkflowEnabled": true,
+    "registrationEnabled": true
+  },
+  "backend_flags": {
+    "DEFECTRAG_AUTH_WORKFLOW": "1",
+    "DEFECTRAG_NOTIFICATIONS_ENABLED": "0"
+  },
+  "database_gate": {
+    "registration_enabled": true,
+    "mfa_required": true,
+    "evidence": "User executed requested read-only SELECT on public.defectrag_auth_settings and pasted both true in this conversation",
+    "agent_sql_executed": false,
+    "recorded_at": "2026-10-20T09:38:29.254604+00:00"
+  },
+  "signup_enabled_in_supabase": true,
+  "email_confirmation_required": true,
+  "gallery_entries_preserved": 3,
+  "categories": 12,
+  "public_services": {
+    "health": 200,
+    "gallery": 200,
+    "models": 200,
+    "evaluation": 200,
+    "samples": 200,
+    "private_unsigned": 401
+  },
+  "registration_redirect_source": "production location.origin + location.pathname; no login/recovery code changed",
+  "database_writes_by_agent": false,
+  "emails_sent_by_agent": false,
+  "accounts_approved_by_agent": false,
+  "models_run_or_retrained": false,
+  "local_build": {
+    "tests": 62,
+    "passed": 62,
+    "release_files": 87
+  },
+  "captcha": {
+    "configured": false,
+    "evidence": "user confirmed not configured; retain native rate limits for this rollout",
+    "native_rate_limits_preserved": true,
+    "project_limit_values_independently_verified": false
+  },
+  "manual_tests": {
+    "registration_email_confirmation": "pending user test",
+    "pending_request": "pending user test",
+    "developer_aal2_directory": "not yet tested in this rollout",
+    "password_recovery": "user reported working before rollout; fresh test pending"
+  },
+  "startup_guest_lock": {
+    "observed": true,
+    "fixed": false,
+    "subsequent_fresh_guest_api_statuses": {
+      "/api/inspections": 200,
+      "/api/stats": 200,
+      "/api/alerts": 200
+    }
+  },
+  "desktop_release_sync": {
+    "status": "passed",
+    "release_files": 87,
+    "latest_cloud_release_staged": true,
+    "Desktop_manifest_check": "passed",
+    "protected_files_unchanged": {
+      "frontend/public/config.js": true,
+      "deployment/RUN_AND_DEPLOY.md": true,
+      "frontend/dist/index.html": true,
+      "frontend/dist-static/index.html": true
+    },
+    "local_and_static_builds_replaced": false,
+    "models_datasets_secrets_records_copied": false
+  }
+}

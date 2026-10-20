@@ -1,5 +1,16 @@
 # Staff registration, native TOTP and notification automation
 
+**Latest state,20 October2026:** registration interface enabled in HF release
+`8df12b1010e8b3184544628bd0b64988910c7e39`. User-provided read-only DB query
+confirmed both registration and mandatory MFAtrue before activation. Existing
+Developer MFA/SMTP/recovery setup was performed and reported by the user.
+Workflow1 and notifications0 remain unchanged. CAPTCHA is deferred by explicit
+user choice; native rate limits retained. Controlled test signup/confirmation/
+pending-request outcome is awaiting user participation; do not claim approval
+or full native authorization tests passed. See `REGISTRATION_ACTIVATION_20261020.md`.
+After mandatory MFA activation, use the compatible b9b5fd90 parent for an interface
+rollback; never revert to pre-MFA code or disable DB MFA merely to hide signup.
+
 **Step5 status,20 October2026:** user-confirmed migration/postchecks are complete;
 compatible HF application deployed and RUNNING at release
 `b9b5fd90e38f421007912f56663db26e9208bd6d` from source `1dfb01e`.
