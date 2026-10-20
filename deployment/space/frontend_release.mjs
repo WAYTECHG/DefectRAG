@@ -23,7 +23,8 @@ async function walk(directory,prefix=''){
  return files.sort();
 }
 export async function sourceFingerprint(root=ROOT){
- const names=['frontend/index.html','frontend/package.json','frontend/package-lock.json','frontend/vite.config.js'];
+ const names=['frontend/index.html','frontend/package.json','frontend/package-lock.json','frontend/vite.config.js',
+  'deployment/zerogpu_phase1/client/package.json','deployment/zerogpu_phase1/client/package-lock.json'];
  for(const folder of ['frontend/src','frontend/public','frontend/tests'])for(const name of await walk(path.join(root,folder)))
   if(folder+'/'+name!=='frontend/public/config.js')names.push(folder+'/'+name);
  for(const name of await walk(path.join(root,'deployment/space')))

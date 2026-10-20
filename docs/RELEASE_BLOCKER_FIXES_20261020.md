@@ -54,6 +54,14 @@ they had no enforced connection. Now:
    Old chunks can remain on disk for recovery but are not selected for upload.
    Source fingerprints normalize text CRLF/LF for portable Desktop checkouts.
 
+The separate Gradio client `deployment/zerogpu_phase1/client/package-lock.json`
+is included in this fingerprint. Its existing exact version is 2.7.1. On this
+Desktop copy the two locked client packages were initially missing; offline
+`npm ci --ignore-scripts --no-audit --no-fund` installed only those two packages,
+with no network request or manifest/version change. For the first Desktop cloud
+build, use its preserved `frontend/public/config.js` because there is no previous
+release config to preserve at the release-directory path.
+
 The publisher has an **offline-only** `--check-frontend` option that returns before
 importing/using Hugging Face APIs. Passing it is not authorization to deploy.
 Manifests are local operator integrity receipts, not signed supply-chain attestations.

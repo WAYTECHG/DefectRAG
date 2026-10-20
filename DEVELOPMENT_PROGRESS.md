@@ -1,5 +1,16 @@
 # Worker/runtime and frontend release blockers corrected — 20 October 2026
 
+Desktop fast-forward to a3e399e completed on feature/auth-mfa-inactive;40 tracked
+code/security/doc/result files synchronized. Its main stays d0ff630. Original public
+config/run guide hashes and untracked dataset/supabase.txt remain preserved. Desktop
+local build passed. Missing cloud-only client dependencies were installed using
+the EXISTING pinned lock via offline npm ci --ignore-scripts (only2 packages).
+Cloud setup now uses Desktop's preserved frontend/public/config.js because no old
+Desktop cloud-release directory existed. No installed configuration was replaced.
+Follow-up source guard now also fingerprints the separate Gradio client lockfile;
+source cloud build/verification/staging passed62 tests and87 allowlisted files.
+Next: sync that guard refinement, finish Desktop cloud verification and receipt.
+
 Continuing 91da4df on feature/auth-mfa-inactive. Worker now claims one event at a
 time, max2/invocation, reserves52s before claiming, and enforces100s overall with
 fetch/body timeouts. Unstarted work remains queued; completion failures rely on

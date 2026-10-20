@@ -12,7 +12,8 @@ async function fixture(t){
  const contents={'frontend/index.html':'<div id="root"/>','frontend/package.json':'{}','frontend/package-lock.json':'{}','frontend/vite.config.js':'export default {};',
   'frontend/src/main.jsx':'export default 1;','frontend/public/config.js':'public-placeholder','frontend/public/logo.svg':'<svg/>',
   'frontend/tests/unit.test.mjs':'//fixture','deployment/space/transport.js':'//transport','deployment/space/build_ui.mjs':'//builder',
-  'deployment/supabase/functions/staff-notifications/worker.mjs':'//worker','deployment/n8n/staff-notifications.json':'{}'};
+  'deployment/supabase/functions/staff-notifications/worker.mjs':'//worker','deployment/n8n/staff-notifications.json':'{}',
+  'deployment/zerogpu_phase1/client/package.json':'{}','deployment/zerogpu_phase1/client/package-lock.json':'{}'};
  for(const [name,text] of Object.entries(contents)){await fs.mkdir(path.dirname(path.join(root,name)),{recursive:true});await fs.writeFile(path.join(root,name),text)}
  const output=path.join(root,'runtime/cloud');await fs.mkdir(path.join(output,'assets'),{recursive:true});
  for(const [name,text] of Object.entries({'index.html':'<script src="assets/current.js"></script>','assets/current.js':'new react','assets/stale.js':'old react','config.js':'installed-public-config','logo.svg':'<svg/>'}))await fs.writeFile(path.join(output,name),text);
@@ -36,6 +37,11 @@ test('source changes, asset tampering and public configuration drift block publi
 test('CRLF checkout changes do not invalidate the source fingerprint',async t=>{
  const {root}=await fixture(t);const name=path.join(root,'frontend/src/main.jsx');await fs.writeFile(name,'one\ntwo\n');const before=await sourceFingerprint(root);
  await fs.writeFile(name,'one\r\ntwo\r\n');assert.equal(await sourceFingerprint(root),before);
+});
+test('changing the separately pinned Gradio client lock blocks a stale cloud build',async t=>{
+ const {root,output}=await fixture(t);
+ await fs.writeFile(path.join(root,'deployment/zerogpu_phase1/client/package-lock.json'),'{"changed":true}');
+ await assert.rejects(validateBuild(root,output,{requireVerified:false}),/inputs changed/);
 });
 test('staging preserves conflicting installed public configuration and copies verified files only',async t=>{
  const {root,output}=await fixture(t);const receipt=JSON.parse(await fs.readFile(output+'.build.json','utf8'));receipt.verified=true;await fs.writeFile(output+'.build.json',JSON.stringify(receipt));
