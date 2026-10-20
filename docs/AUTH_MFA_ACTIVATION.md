@@ -1,5 +1,10 @@
 # Staff registration, native TOTP and notification automation
 
+Read `DEPLOYMENT_READINESS_20261020.md` before using this runbook. The final audit
+adds live-schema, developer-login and release-assembly gates and identifies an
+Edge worker runtime-budget correction required before notification activation.
+This checklist does not authorize any activation or deployment.
+
 Implementation milestone: 20 October 2026. **Inactive; not deployed or activated.**
 The existing React design, password login, allowlist, private workspaces, public
 Gallery, guest Demo, models and RAG remain the baseline. No SQL has been executed.

@@ -1,3 +1,38 @@
+# Final pre-activation assessment — 20 October 2026
+
+Audited unchanged application checkpoint fa5e499 on feature/auth-mfa-inactive.
+No migrations, live SQL/catalog queries, deployment, native MFA activation,
+permissions/secrets changes, emails or model work. No completed test suites rerun.
+Only assessment/runbook/progress documentation and a READ-ONLY preflight SQL file
+were added/updated. Earlier 123 distinct Python /49 frontend passes are historical
+local evidence, not new native Supabase/n8n integration passes.
+
+See docs/DEPLOYMENT_READINESS_20261020.md for schema compatibility, authorization,
+exact n8n/Edge configuration, implementation matrix and deployment/test/rollback
+checklists. Source schema is compatible, conditional on live catalog drift review;
+deployment/supabase_auth_preflight.sql was prepared but NOT executed. Existing
+developer MFA/recovery must pass a fresh second-session login before enforcement.
+
+NEW RELEASE GATE: worker.mjs claims5 jobs with sequential20s webhook/15s completion
+timeouts, plus15s claim: nominal190s envelope exceeds hosted Free Edge150s limit.
+Before notification activation, approve a smaller batch and whole-invocation
+budget plus focused slow-response/lease tests. No worker code changed in this audit.
+Notifications can stay disabled independently of staged staff integration.
+Also ensure the actual publisher input development-support/space/ui-dist contains
+the approved new cloud build/config; verification output runtime/auth-build/cloud
+does not update that release directory. Do not run publish.py as a readiness check.
+
+PUBLIC DEMO: existing isolated anonymous browser workspace and static showcase
+implemented; no separate recruiter-tour/toggle UI found. MULTIMODAL RAG: not
+implemented in this checkpoint. Existing BGE text retrieval/LangGraph plus textual
+inspection context and text-only Qwen is vision-assisted text RAG. Preserve it;
+genuine joint image/text retrieval/reasoning remains a separate milestone.
+
+NEXT: review assessment and gates before requesting any separately authorized
+change. Do not enable MFA/registration/notifications or execute any SQL implicitly.
+
+---
+
 # Inactive authentication / automation milestone — 20 October 2026
 
 User approved implementation, reviewable additive SQL and local automated tests
