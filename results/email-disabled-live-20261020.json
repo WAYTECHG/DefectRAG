@@ -1,0 +1,11 @@
+{
+  "function_url": "https://zrzqpbcomlorfzszolrs.supabase.co/functions/v1/hyper-worker",
+  "method": "POST",
+  "authorization_header_sent": false,
+  "http_status": 503,
+  "response": {
+    "error": "notifications_disabled"
+  },
+  "disabled_gate_verified": true,
+  "scope": "No worker credential, provider call, SQL claim or activation requested"
+}

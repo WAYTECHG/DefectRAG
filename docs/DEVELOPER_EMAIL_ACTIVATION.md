@@ -2,11 +2,34 @@
 
 ## Latest checkpoint
 
+DISABLED DEPLOYMENT PASSED. Actual Dashboard function slug is hyper-worker
+(default name retained), not staff-notifications. It hosts the prepared logical
+staff-notification component; no need to recreate/rename it or deploy a duplicate.
+Live URL:https://zrzqpbcomlorfzszolrs.supabase.co/functions/v1/hyper-worker.
+User screenshot shows POST{} ->503 notifications_disabled. Agent independently
+confirmed the same public POST result WITHOUT Authorization or any credential.
+Evidence:results/email-disabled-live-20261020.json. This verifies the live gate,
+not exact remote bundle hash, provider key validity or new database RPC behavior.
+No email/claim was requested. Keep delivery0 and legacy n8n notifications off.
+
+NEXT: run deployment/email_qa_selection.sql (ONE SELECT, no mutation). It returns
+only eligible controlled QA event ID/status/attempts/request status and checks
+the two new direct RPCs' service-only grants in the SAME result. Expected one
+queued/pending row, attempts0,worker_permissions_ok=true. If0/multiple/mismatch,
+stop and inspect; no resetting sent rows or autoapproval. QA event ID is an
+identifier, not a credential; no email/payload/token is returned. After reviewing
+that result, seek exact approval for QA event configuration and controlled send/
+scheduling; no delivery1, invocation with worker secret, cron or provider send yet.
+
+Future cloud scheduler MUST target /functions/v1/hyper-worker. Existing CLI source
+folder/config remains staff-notifications; do not blanket-deploy functions or
+create a second consumer. Review any future CLI name mapping separately.
+
 User APPROVED DISABLED DEPLOYMENT of staff-notifications. Authorized: exact
 single-file bundle below, function-scoped verify_jwt=false, delivery0 and safe
 disabled POST check. No secrets read/changed, outbound delivery, cron, CA/HF
 deployment or new SQL is included. Dashboard steps supplied; deployment is
-PENDING USER EXECUTION/CONFIRMATION, not yet reported successful.
+COMPLETE for the actual hyper-worker slug as verified above.
 
 Single procedure: existing project -> Edge Functions -> Deploy a new function ->
 Via Editor (or open existing staff-notifications only). Name staff-notifications;

@@ -1,3 +1,29 @@
+# Disabled cloud notification deployment VERIFIED; QA selection next — 20 October 2026
+
+User deployed prepared code under default slug hyper-worker. User screenshot
+shows POST{} -> HTTP503 notifications_disabled. Agent independently verified
+same actual cloud response with NO Authorization/credential header. Function:
+https://zrzqpbcomlorfzszolrs.supabase.co/functions/v1/hyper-worker.
+Evidence:results/email-disabled-live-20261020.json. Deployment gate works and is
+closed. Exact remote bundle hash/provider key/new SQL behavior NOT proven by
+this test. No email, authorized dispatch, outbox claim, cron, secret or role
+change performed by agent. Prior local source/package tests retained.
+
+KEEP actual hyper-worker name; no rename/redeploy/duplicate staff-notifications
+needed. User authorized keeping this function when naming mismatch was clarified.
+Future scheduler targets hyper-worker; existing CLI source path/config logical
+staff-notifications must not be blanket-deployed to create a second consumer.
+
+NEXT USER ACTION: deployment/email_qa_selection.sql is ONE SELECT combining
+controlled QA event selection and new service-only RPC-grant checks. Expected
+one queued/pending row,attempts0,worker_permissions_ok=true. Return row only,
+no secrets/headers/email payloads. If0/multiple/error, do not reset/recreate
+records. After result review, request separate exact QA configuration/send/cron
+approval. Do NOT enable notifications1 or pass worker secret yet. Actual mailbox,
+cloud retries/dedup and laptop-off proof remain pending; Priority2 deferred.
+
+---
+
 # Disabled notification deployment approved; awaiting Dashboard deployment — 20 October 2026
 
 User approved disabled deployment. Exact scope: ONLY staff-notifications, existing
