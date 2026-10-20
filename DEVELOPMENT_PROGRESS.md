@@ -1,3 +1,46 @@
+# Desktop synchronized and verified; inactive release ready for approvals — 20 October 2026
+
+Completed the requested corrections and guarded Desktop synchronization from
+91da4df. Final CODE checkpoint2c92849, branch feature/auth-mfa-inactive; subsequent
+checkpoint changes only record this evidence. Source and Desktop feature branches
+are synchronized. Desktop main remains d0ff630, with history intact.
+
+VERIFIED: notification deadline/partial/retry/duplicate tests, stale-build/config/
+tamper/Gradio-lock guards, offline publisher/preflight checks and temporary Git
+preservation/conflict tests.62 frontend tests passed in BOTH source and Desktop.
+Five offline publisher/preflight +two synchronization tests passed. Source and
+Desktop cloud builds, verification/staging of87 manifest files and offline
+publisher checks passed. Desktop LOCAL build passed in runtime/auth-build/local.
+Source/Desktop frontend fingerprint:
+d5686550fdef9e3ad4015741429eb1da012b4624c432e84c5376dfd514f4fb73.
+CSS remains index-Bn4HF2vD.css (same hash as working Desktop frontend/dist).
+
+Desktop contains latest frontend/backend, inactive security SQL, n8n/Edge worker,
+preflight, tests/results and activation/progress documentation. Original public
+config and RUN_AND_DEPLOY guide passed EXACT first-sync pre/post hash checks.
+They intentionally remain local Git modifications. Dataset and supabase.txt remain
+untracked/untouched. No secrets/models/datasets/inspection records were copied,
+read or deleted by sync. Working frontend/dist and dist-static were not replaced.
+The only necessary dependency setup was2 already pinned Gradio client packages
+installed OFFLINE with scripts disabled; package manifests/versions unchanged.
+
+Reports: results/release-blocker-source.json and results/desktop-sync-verification.json;
+timestamped Desktop preservation receipts under development-support/space.
+No new processes/jobs remain. No SQL/preflight execution, migration, permissions/
+secret modification, MFA/registration/notification activation, real email,
+HF deployment, GitHub push, training or inference experiment.
+
+NEXT REQUIRES SEPARATE APPROVAL: review actual read-only Supabase preflight results,
+then manually execute exact reviewed auth migration; approve inactive HF rollout;
+prove real Developer TOTP/recovery and staff/non-staff authorization; configure
+native Auth SMTP/redirects and n8n hosting/Header Auth/SMTP/Edge secrets; test a
+mail sink and separately activate worker/Cron/registration/MFA. Native/live
+integration remains unverified. SMTP ambiguity after send-before-ack is retained
+as a limitation; there is no exactly-once promise. Current RAG remains vision-assisted
+text RAG, not a new Multimodal RAG implementation. Preserve all existing features.
+
+---
+
 # Worker/runtime and frontend release blockers corrected — 20 October 2026
 
 Desktop fast-forward to a3e399e completed on feature/auth-mfa-inactive;40 tracked

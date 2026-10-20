@@ -46,5 +46,5 @@
   "deployed": false,
   "notifications_sent": false,
   "features_activated": false,
-  "desktop_sync": "a3e399e synchronized; local build passed; final guard/cloud check pending"
+  "desktop_sync": "passed; see desktop-sync-verification.json"
 }

@@ -1,5 +1,12 @@
 # Release blockers corrected; inactive implementation
 
+COMPLETED: code checkpoint `2c92849` is synchronized to the Desktop feature branch.
+Both copies pass62 frontend tests, verified cloud staging/offline checks (87 files),
+with identical source fingerprints and original CSS. Desktop local build also
+passed. Five offline publisher/preflight and two guarded-sync tests passed.
+See `results/desktop-sync-verification.json` for preserved file checks and the
+complete synchronized file list. No activation, migration or deployment occurred.
+
 Baseline: `91da4df`, branch `feature/auth-mfa-inactive`, 20 October 2026.
 No database migration, MFA activation, cloud deployment, real notification,
 production secret modification or GitHub push is part of this milestone.
