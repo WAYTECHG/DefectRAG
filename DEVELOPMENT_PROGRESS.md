@@ -1,3 +1,37 @@
+# User reports POST503 lifecycle logs; send outcome UNKNOWN; do NOT retry — 21 October 2026
+
+After one-send approval, user could not recover saved worker secret. Explained
+digest != secret, instructed delivery0 (user said done), private rotation/storage
+in Edge (user later said done; value never observed). No agent-managed change.
+User now reports hyper-worker3POST503 occurrences, last execution2497ms, logs
+shutdown3 and booted22/24ms. No response JSON, matched execution metadata, SQL
+after row or Resend result provided. Actual send/acceptance/disable state UNKNOWN;
+do not infer that three503s are three sends or authorizations for more calls.
+
+Source rechecked: worker.mjs94 explicitly503notifications_disabled before auth/
+DB/provider. line97 catches dispatch exceptions ->503dispatch_unavailable with
+no error-stage logging; missing worker bearer would401, not either handler503.
+Configuration/direct claim or finish RPC failure may triggerdispatch503, including
+an ambiguous case where provider accepted but DB finish failed. Provider request
+failure alone is usually handled as queued/retried result, not necessarily503.
+
+Official Supabase docs checked:503 may be application-returned, BOOT_ERROR or
+platform issue; boot/shutdown are lifecycle events, generic shutdown alone doesn't
+prove crash. Need reason+execution_id+cpu/memory for the same invocation.2497ms
+elapsed time is not CPU-time evidence or proof of quota failure. No new deployment,
+SQL mutation, provider call, worker invocation or tests performed by agent.
+
+NEXT: keep delivery0; inspect existing response body if retained. Otherwise use
+existing read-only deployment/email_single_qa_verification.sql and Resend logs;
+do not enable or resend to recover response. Request raw shutdown reason/execution
+ID (no headers/keys).notifications_disabled => expected no-dispatch gate.
+dispatch_unavailable => configuration/RPC-stage investigation; evidence required
+before code/deploy changes. Explicit BOOT_ERROR => import/startup path. Do not
+claim provider/membership/duplicate verification until before/after metadata and
+actual provider/mailbox evidence. No new send/automatic retries authorized.
+
+---
+
 # ONE QA send approved; manual Dashboard attempt and mandatory shutdown pending — 21 October 2026
 
 User explicitly approved one authenticated Resend worker attempt for exact event
