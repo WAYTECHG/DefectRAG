@@ -1,3 +1,32 @@
+# New QA request user-reported Pending; deletion route superseded — 21 October 2026
+
+User created another user-controlled account (wilbertandrewyonathan@gmail.com),
+reports request is Pending and not approved. Preserve it Pending. No need to
+delete/reset either earlier approved QA account; their cleanup proposal below
+is superseded/unapproved and MUST NOT be executed for this email test.
+
+Prepared deployment/email_pending_qa_verification.sql: ONE SELECT scoped to the
+new exact email, always one result. Checks confirmed account, request Pending,
+no Staff membership, worker RPC service-only grants, current unattempted queued
+requested event due now, active verified Developer recipient, no lease/prepared
+payload. Returns event UUID only when one target and exactly one eligible event
+with matching grants; no email/private payload/account or recipient UUID/secret
+output. SQL is source-reviewed only, not executed remotely; metadata findings
+pending user's result. Provider recipient must separately match configured
+Resend owner; database eligibility alone does not verify provider configuration.
+
+Next: user runs that SELECT and shares its one metadata row. Do not approve the
+account. Keep delivery0, sandbox1 and n8n off; do not set QA event ID or invoke
+authenticated worker until exact event/configuration/send approval after review.
+Existing direct worker source already restricts sandbox claim to configured exact
+QA UUID (p_event) and enforces requested kind + configured owner recipient. Thus
+the planned controlled test must retain sandbox1 and must not claim unrelated
+queued events. No live gate/secret was read or changed; no email sent, deletion,
+staff decision, schema, Auth SMTP, model, UI or deployment change. Existing tests
+retained because only operational query/docs changed. Priority2 still deferred.
+
+---
+
 # Exact QA deletion preflight reviewed; six-row cleanup AWAITING APPROVAL — 21 October 2026
 
 User attachment5cccac36 contains live preflight: one matching Auth account,

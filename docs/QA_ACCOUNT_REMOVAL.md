@@ -1,5 +1,9 @@
 # Exact disposable QA account removal — review pending, 21 October 2026
 
+SUPERSEDED: user has now created a different Pending QA account for email testing.
+Do NOT run cleanup or delete the previously approved QA accounts for this test.
+The files below remain unapproved review material only, not an active instruction.
+
 Target ONLY: saputangan1404@gmail.com. Never select another email in the Auth
 Dashboard; a previous screenshot showed a different account selected.
 

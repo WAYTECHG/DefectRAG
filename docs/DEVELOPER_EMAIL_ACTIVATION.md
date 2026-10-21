@@ -2,6 +2,17 @@
 
 ## Latest checkpoint
 
+21 October: user reports a NEW user-controlled account Pending and unapproved.
+Use deployment/email_pending_qa_verification.sql, one read-only SELECT scoped
+to that new email. Expected matching_auth_accounts1/email_confirmedtrue,
+request_statuspending/staff_memberships0/worker_permissions_oktrue,
+eligible_event_count1 and qa_event_id populated. Read event_checks on mismatch;
+do not mutate records to fix it. Metadata verification still pending user result.
+No need to execute the separate QA deletion/cleanup proposal; it is superseded.
+Next gate remains exact event/recipient/configuration/send approval. Retain
+delivery0 until that approval; sandbox1 with exact QA UUID prevents claiming
+unrelated outbox rows. Provider account-owner recipient match must remain intact.
+
 DIAGNOSIS RECEIVED: user-supplied live SELECT shows worker_permissions_ok=true,
 one active verified Developer and no pending requests. The known QA applicant
 is approved; its requested event a75e25fa-c41b-4529-8c3b-44dbe93d9683 is superseded,
