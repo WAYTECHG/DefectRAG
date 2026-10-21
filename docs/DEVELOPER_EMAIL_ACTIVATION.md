@@ -2,6 +2,16 @@
 
 ## Latest checkpoint
 
+ONE SEND NOW APPROVED by user for exact QA event below, with unconditional
+immediate return to delivery0 after outcome/error. Follow ONLY the current
+docs/SINGLE_QA_EMAIL_ATTEMPT.md, including one credentialed invocation and no
+retries. No connected Supabase management API exists here; owner performs the
+Dashboard secret switches and enters saved worker bearer privately. Agent has
+not performed any activation or send. Before/after SELECT file:
+deployment/email_single_qa_verification.sql. No second live dispatch is authorized
+for duplicate testing; sent exclusion and Resend log evidence only. Provider
+acceptance != inbox receipt. Keep pending account unapproved and n8n/cron off.
+
 Pending QA metadata PASSED (user-returned SQL, 21 October): event
 3d25e7b3-04c4-43c8-a49e-e473be3bcbdc; one confirmed account, Pending request,
 no membership, worker grants pass, exactly one current queued unattempted event

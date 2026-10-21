@@ -1,3 +1,44 @@
+# ONE QA send approved; manual Dashboard attempt and mandatory shutdown pending — 21 October 2026
+
+User explicitly approved one authenticated Resend worker attempt for exact event
+3d25e7b3-04c4-43c8-a49e-e473be3bcbdc, with immediate delivery0 afterward regardless
+of outcome. Applicant must stayPending/no membership; no additional emails or
+automatic retries approved. Scope includes exact-event sandbox configuration,
+temporary1 and return0; NOT cron, n8n, permission decisions, deletion, migration,
+HF deployment or new provider secret. Existing saved keys entered privately only.
+
+Tool discovery confirms no Supabase/Resend management connector; no management
+credential available to agent. Agent has NOT enabled/sent/disabled anything.
+Prepared docs/SINGLE_QA_EMAIL_ATTEMPT.md for owner-operated Dashboard steps,
+including two-tab shutdown-first procedure. Manual access cannot guarantee
+automatic off during connectivity loss; restore0 first on reconnect. Do not
+claim execution from approval. Private worker bearer never requested in chat.
+
+Prepared deployment/email_single_qa_verification.sql, one read-only query for
+before/after metadata: exactevent/applicantcurrentPending/no membership,
+status/attempts/provider-accept timestamp/snapshot fingerprint/key, unrelated
+outbox count+metadata fingerprint. It cannot reveal private payloads/keys and
+does not claim/send. Expected after ONE successful acceptance: sent/attempts1,
+claimablefalse, Pendingtrue, unchanged unrelated fingerprints. Queries not run
+by agent; await actual before/after rows, response and Resend log/mailbox evidence.
+
+Existing worker only returns aggregate accepted; it doesn't persist/return raw
+Resend emailID/response. User must inspect Resend log for actual provider result.
+accepted1 is 2xx+nonempty providerID+successful SQLfinish; sent != mailbox delivery.
+No second authorized invocation to test replay: assess sent exclusion, stablekey,
+one provider record/mailbox message; explicit live replay/retry test remains
+UNTESTED without separate approval. Subsequent no-bearer POST when delivery0 is
+only a disabled-gate probe, not another send attempt. No new focused tests needed
+for docs/query-only change; prior mock idempotency tests retained and not called
+live evidence. Laptop-off cloud scheduling remains unverified; Priority2 deferred.
+
+NEXT: user executes the bounded manual procedure, turns0 immediately, returns
+response+disabled-gate probe+before/after metadata+redacted Resend result. Any
+failure/timeout -> keep0 and inspect, NEVER retry or reset outbox. No production
+change or email send performed yet. Previous QA cleanup remains superseded.
+
+---
+
 # Pending QA event verified by user SQL; controlled send approval REQUIRED — 21 October 2026
 
 User returned the exact email_pending_qa_verification.sql row: account1,
