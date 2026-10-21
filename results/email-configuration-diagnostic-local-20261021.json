@@ -1,0 +1,24 @@
+{
+  "production_deployed": false,
+  "live_email_attempts_by_agent": 0,
+  "tests": {
+    "command": "node --test tests/notificationDiagnostics.test.mjs tests/directEmail.test.mjs tests/notifications.test.mjs",
+    "working_directory": "frontend",
+    "passed": 48,
+    "failed": 0,
+    "new_diagnostic_tests": 19,
+    "existing_regression_tests": 29,
+    "network": "Injected fixtures; diagnostic fetch fails test if called"
+  },
+  "package": {
+    "path": "runtime/email-diagnostics-release/index.ts",
+    "sha256": "31db630590f852fc56eb5660b72a7f45fb4b577fd14352378e4be3632b31f453",
+    "offline_smoke_checks_passed": 7,
+    "previous_release_package_preserved": true
+  },
+  "limitations": [
+    "Only configuration format/presence; no credential validity or RPC runtime test",
+    "Deployment approval and manual owner deployment still required",
+    "No new send or automatic retry authorized"
+  ]
+}

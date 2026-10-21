@@ -1,3 +1,44 @@
+# User confirms enabled before POST; local NO-SEND diagnostic ready for review — 21 October 2026
+
+User clarified delivery1 was saved before the failed test, then delivery0 after.
+Do not dismiss the503 as merely intentional gate0. Original body remains lost;
+config/first-RPC/startup failure not distinguished. Existing eventattempts0 means
+no recorded claim, pending/membership boundaries remain as prior user SQL result.
+No second real send is authorized. Do NOT ask user to enable/retry to diagnose.
+
+Implemented LOCAL ONLY safe configuration diagnostic in existing worker.mjs:
+explicit X-DefectRAG-Check-Event header routes ONLY to no-network checks; dedicated
+bearer required, delivery must be exactly0, malformed headers cannot dispatch.
+Returns booleans only for exact QA UUID match and required config shape/presence;
+no env values/keys/addresses/private payload. Ordinary delivery-disabled POST503
+and send path retained. No SQL/provider/auth/schema/UI modification in diagnostic.
+
+19 new focused security/no-network tests +29 worker/direct-email regressions
+passed (48/48). Existing esbuild packager extended with three compiled diagnostic
+checks (7 total). New --diagnostics output preserves previous release package.
+Bundle runtime/email-diagnostics-release/index.ts SHA256
+31db630590f852fc56eb5660b72a7f45fb4b577fd14352378e4be3632b31f453.
+Evidence:results/email-configuration-diagnostic-local-20261021.json; scope/steps/
+rollback in docs/EMAIL_CONFIGURATION_DIAGNOSTIC.md. No new dependency or model
+experiment. Only relevant notification tests repeated because code changed.
+
+NEXT APPROVAL: deploy ONLY updated existing hyper-worker with delivery0 and
+existing secrets preserved, then ONE no-send authenticated diagnostic request.
+No connected management API; owner must paste new compiled bundle after approval
+and privately enter headers. No new secret/key, migration, permission decision,
+HF deployment, Resend send, cron or n8n. All live function behavior unchanged
+so far. Configready does NOT verify key validity/provider-owner match/DB RPCs;
+if true, pursue read-only RPC/log inspection, no speculative email reattempt.
+
+Source/Desktop sync must include tracked files and new ignored diagnostic bundle
+in separate folder, preserving old bundle and local Desktop config. React release
+fingerprint is now stale because worker inputs changed; UI itself unchanged.
+No HF publish authorized; refresh established build/verify/stage before any future
+HF deployment. Deletion route still superseded; preserve all accounts/records.
+Priority1 send/replay/cloud scheduling not passed; Priority2 remains deferred.
+
+---
+
 # Post-attempt metadata: QA event untouched; no sent Resend email shown — 21 October 2026
 
 User supplied email_single_qa_verification result: exact event

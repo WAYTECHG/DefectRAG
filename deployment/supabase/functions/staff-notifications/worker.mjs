@@ -9,6 +9,27 @@ function sameSecret(a,b){
  let different=0;for(let i=0;i<a.length;i++)different|=a.charCodeAt(i)^b.charCodeAt(i);return different===0;
 }
 function httpsUrl(value){const url=new URL(value);if(url.protocol!=='https:'||url.username||url.password||url.hash)throw new Error('invalid_endpoint');return url}
+function configurationCheck(env,expectedEvent){
+ const present=value=>typeof value==='string'&&value.trim().length>0;
+ let urlValid=false,emailValid=false;
+ try{httpsUrl(env.SUPABASE_URL);urlValid=true}catch{}
+ try{emailConfiguration(env);emailValid=true}catch{}
+ const checks={
+  transport_resend:env.DEFECTRAG_NOTIFICATION_TRANSPORT==='resend',
+  sandbox_enabled:env.DEFECTRAG_EMAIL_SANDBOX==='1',
+  supabase_url_https:urlValid,
+  service_role_key_present:present(env.SUPABASE_SERVICE_ROLE_KEY),
+  resend_key_present:present(env.DEFECTRAG_RESEND_API_KEY),
+  test_sender:env.DEFECTRAG_EMAIL_FROM==='onboarding@resend.dev',
+  developer_recipient_format:typeof env.DEFECTRAG_EMAIL_QA_RECIPIENT==='string'
+   &&env.DEFECTRAG_EMAIL_QA_RECIPIENT.length<=254
+   &&/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(env.DEFECTRAG_EMAIL_QA_RECIPIENT),
+  qa_event_matches:env.DEFECTRAG_EMAIL_QA_EVENT_ID===expectedEvent,
+  email_configuration_valid:emailValid
+ };
+ return {diagnostic:'configuration_only_no_network',delivery_disabled:true,
+  ready_for_qa:Object.values(checks).every(Boolean),checks};
+}
 function safeJob(job){
  return UUID.test(job.event_id)&&UUID.test(job.lease_token)&&UUID.test(job.request_id)&&KINDS.has(job.kind)
   &&Number.isInteger(job.version)&&job.version>0&&typeof job.recipient_email==='string'
@@ -91,6 +112,16 @@ export async function dispatchNotifications({env,fetcher=fetch,now=()=>performan
 }
 export async function handleRequest(request,{env,fetcher=fetch,...timing}){
  if(request.method!=='POST')return json({error:'method_not_allowed'},405);
+ // Explicit diagnostic mode can NEVER fall through to dispatch, even if malformed.
+ // Require the dedicated bearer and delivery0; expose booleans, never env values.
+ const expectedEvent=request.headers.get('X-DefectRAG-Check-Event');
+ if(expectedEvent!==null){
+  if(!env.DEFECTRAG_NOTIFICATION_WORKER_SECRET||env.DEFECTRAG_NOTIFICATION_WORKER_SECRET.length<32
+   ||!sameSecret(request.headers.get('Authorization'),'Bearer '+env.DEFECTRAG_NOTIFICATION_WORKER_SECRET))return json({error:'unauthorized'},401);
+  if(env.DEFECTRAG_NOTIFICATIONS_ENABLED!=='0')return json({error:'diagnostics_require_delivery_disabled'},409);
+  if(!UUID.test(expectedEvent))return json({error:'invalid_diagnostic_event'},400);
+  return json(configurationCheck(env,expectedEvent));
+ }
  if(env.DEFECTRAG_NOTIFICATIONS_ENABLED!=='1')return json({error:'notifications_disabled'},503);
  if(!env.DEFECTRAG_NOTIFICATION_WORKER_SECRET||env.DEFECTRAG_NOTIFICATION_WORKER_SECRET.length<32
   ||!sameSecret(request.headers.get('Authorization'),'Bearer '+env.DEFECTRAG_NOTIFICATION_WORKER_SECRET))return json({error:'unauthorized'},401);

@@ -29,9 +29,16 @@ let response=await handler(post());assert.equal(response.status,503);assert.deep
 env.DEFECTRAG_NOTIFICATIONS_ENABLED='1';env.DEFECTRAG_NOTIFICATION_WORKER_SECRET='fixture-secret-only-32-characters-minimum';
 response=await handler(post());assert.equal(response.status,401);assert.deepEqual(await response.json(),{error:'unauthorized'});
 response=await handler(new Request('https://fixture.invalid'));assert.equal(response.status,405);
-const output=path.join(root,'runtime/email-function-release');await fs.mkdir(output,{recursive:true});
+const checkHeaders={'X-DefectRAG-Check-Event':'11111111-1111-4111-8111-111111111111'};
+response=await handler(new Request('https://fixture.invalid',{method:'POST',headers:checkHeaders}));assert.equal(response.status,401);
+checkHeaders.Authorization='Bearer '+env.DEFECTRAG_NOTIFICATION_WORKER_SECRET;
+response=await handler(new Request('https://fixture.invalid',{method:'POST',headers:checkHeaders}));assert.equal(response.status,409);
+env.DEFECTRAG_NOTIFICATIONS_ENABLED='0';
+response=await handler(new Request('https://fixture.invalid',{method:'POST',headers:checkHeaders}));assert.equal(response.status,200);assert.equal((await response.json()).ready_for_qa,false);
+const output=path.join(root,process.argv.includes('--diagnostics')?'runtime/email-diagnostics-release':'runtime/email-function-release');await fs.mkdir(output,{recursive:true});
 await fs.writeFile(path.join(output,'index.ts'),code);
 await fs.writeFile(path.join(output,'manifest.json'),JSON.stringify({function:'staff-notifications',inputs:before,bundle_sha256:digest(code),
- offline_checks:['bundled source has no local imports','disabled POST503 without network','enabled unauthorized POST401 without network','GET405'],
+ offline_checks:['bundled source has no local imports','disabled POST503 without network','enabled unauthorized POST401 without network','GET405',
+ 'unauthorized diagnostic401 without network','enabled diagnostic409 without network','disabled diagnostic200 without network'],
  production_deployed:false,secrets_read:false,scope:'single function; preserve delivery0; deployment needs approval'},null,2)+'\n');
-console.log(JSON.stringify({paste_ready_file:path.join(output,'index.ts'),bundle_sha256:digest(code),offline_checks_passed:4,production_deployed:false}));
+console.log(JSON.stringify({paste_ready_file:path.join(output,'index.ts'),bundle_sha256:digest(code),offline_checks_passed:7,production_deployed:false}));
