@@ -1,3 +1,39 @@
+# Exact QA deletion preflight reviewed; six-row cleanup AWAITING APPROVAL — 21 October 2026
+
+User attachment5cccac36 contains live preflight: one matching Auth account,
+role Staff; staff_members1/access_requests1/access_audit2/notification_events2.
+All returned inspection/note/workspace-audit/path/archiver/other-account decision
+counts0; active_notification_leases0. Live FK list matches existing workspace,
+staff requests/audit/outbox references; no corrective-action FK shown. User raw
+attachment/logs NOT copied into Git. No exact Auth UUID or private payload stored.
+
+Prepared deployment/qa_account_cleanup_REVIEW_ONLY.sql (NOT EXECUTED): transaction
+deleting exactly those SIX target QA metadata rows, no auth.users deletion.
+Target exact requested email; checks activeStaff/approved, counts, no attempted/
+prepared/delivered/leased notification, no other-account actions, unknown incoming
+FKs/triggers, live Auth FK references to optional tables, Storage ownership/path.
+Stops on changed state, never auto-deletes workspace data or Developer account.
+Row locks and bounded timeouts; no schema/RLS/secret changes. Later Auth deletion
+must be separate manual Dashboard operation after exact target review.
+
+Prepared deployment/qa_account_backup_PRIVATE.sql: single SELECT exporting only
+the six target metadata rows, for user to retain privately outside repo/chat.
+It is not an Auth/credentials backup; Auth deletion is irreversible and the new
+signup gets a newUUID. docs/QA_ACCOUNT_REMOVAL.md records steps/rollback limits,
+the explicit exception of removing targetQA access-audit2, and guard behavior.
+No PostgreSQL available; SQL locally reviewed only, not runtime/live tested.
+Diff whitespace check passed; existing tests/builds retained (no runtime edits).
+
+NEXT: user reviews exact cleanup and confirms explicit approval + private backup
+before destructive execution. Do NOT run cleanup on attachment receipt alone.
+No account deletion/reset, production SQL, permission change or email performed.
+Keep delivery0/n8n off, preserve all other accounts/records. After approved cleanup
+and manual Auth deletion, user may re-register target and STOP at Pending; inspect
+new current event then obtain separate exact-email-send approval. Priority2 paused
+behind unfinished Priority1. No live notification delivered or verified yet.
+
+---
+
 # QA deletion question: confirmed FK failure; read-only preflight prepared — 21 October 2026
 
 Read user-provided Downloads/supabase_logs.csv (not copied into repository).
