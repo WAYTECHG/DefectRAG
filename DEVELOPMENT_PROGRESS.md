@@ -1,3 +1,35 @@
+# QA deletion question: confirmed FK failure; read-only preflight prepared — 21 October 2026
+
+Read user-provided Downloads/supabase_logs.csv (not copied into repository).
+Actual PostgreSQL error23503 at2026-10-21T01:20:11.671Z names
+staff_members_user_id_fkey on staff_members; corresponding AuthDELETE returned500.
+Exact target email is NOT present in that error; previous user screenshot's
+confirmation dialog named another account. User separately reports same failure
+for the newly approved QA account. Do not infer any successful deletion.
+
+User now asks HOW to delete that QA account. Prepared only
+deployment/qa_account_deletion_preflight.sql: one read-only SELECT scoped to
+their requested exact QA email. Outputs matching-account count, roles, linked
+record counts and incoming FK metadata; no account UUID/email/private payload
+output. This is not a cleanup/migration/deletion script. No production changes.
+PostgreSQL live execution not available; reviewed against local schema only.
+Existing tests/builds retained because no runtime code changed.
+
+NEXT: user runs preflight once and returns result. Before any cleanup, verify
+exact target exists once, is NOT Developer, dependency counts/constraints,
+optional live tables/triggers/storage ownership and recoverable private backup.
+Prepare exact reviewed transaction only after results; fail closed on unknown
+dependencies or real inspection data; obtain separate scope approval before any
+deletion. Do not delete other accounts, disable constraints, cascade tables or
+truncate audit history. Preserve approved existing QA/Developer accounts other
+than specifically reviewed target. Re-registration would create a new user ID.
+Notification delivery remains intended0; no resend, gate change, new QA creation
+or secret change. Earlier user approved the new QA account, so pending-event
+verification for it is no longer applicable. Priority1 send remains unverified;
+Priority2 deferred. No account has been deleted/reset by agent.
+
+---
+
 # QA event diagnosed: already approved; fresh pending test required — 20 October 2026
 
 User supplied live read-only diagnostic result: worker_permissions_ok=true;
