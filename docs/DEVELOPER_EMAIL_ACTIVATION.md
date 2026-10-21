@@ -2,6 +2,20 @@
 
 ## Latest checkpoint
 
+Pending QA metadata PASSED (user-returned SQL, 21 October): event
+3d25e7b3-04c4-43c8-a49e-e473be3bcbdc; one confirmed account, Pending request,
+no membership, worker grants pass, exactly one current queued unattempted event
+to an active verified Developer. Sanitized evidence is in
+results/email-pending-qa-verification-20261021.json. No send authorized yet.
+
+REQUEST NEXT explicit approval for ONLY that UUID, setting QA_EVENT_ID and
+delivery1 with sandbox1/transportresend preserved, ONE authenticated hyper-worker
+POST and returning delivery0 afterward. Email recipient remains the configured
+Resend-owner Developer, not the pending applicant. Do not approve the applicant,
+send unrelated notifications, configure cron or enable n8n. User enters credentials
+privately; do not request the worker bearer/provider key in chat. Ambiguous first
+call requires evidence review, no automatic repeated sends or outbox resets.
+
 21 October: user reports a NEW user-controlled account Pending and unapproved.
 Use deployment/email_pending_qa_verification.sql, one read-only SELECT scoped
 to that new email. Expected matching_auth_accounts1/email_confirmedtrue,

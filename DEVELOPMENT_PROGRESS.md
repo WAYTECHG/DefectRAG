@@ -1,3 +1,34 @@
+# Pending QA event verified by user SQL; controlled send approval REQUIRED — 21 October 2026
+
+User returned the exact email_pending_qa_verification.sql row: account1,
+confirmedtrue, requestPending, membership0, worker_permissions_oktrue, eligible1.
+Event3d25e7b3-04c4-43c8-a49e-e473be3bcbdc queued/attempts0/currentversiontrue/
+databaseeligibletrue/activeverifiedDevelopertrue. Recorded sanitized metadata in
+results/email-pending-qa-verification-20261021.json. This is USER-SUPPLIED live
+SQL evidence, not direct agent cloud-auth execution. Provider key, saved recipient
+match and exact deployed bundle still not independently verified by these counts.
+No email acceptance/mailbox/scheduler/retry/dedup/laptop-off proof yet.
+
+Next approval proposal (NOT granted): configure only that exact QA UUID, retain
+sandbox1/transportresend/onboarding sender/previously confirmed Resend-owner
+Developer recipient, set notifications1 for ONE authenticated hyper-worker POST,
+then return delivery0 afterward. No cron, automatic repeats, n8n, account decision,
+other recipient/event, HF deploy or SQL migration. User enters worker bearer and
+provider secrets privately; no credential/headers in chat. If first call outcome
+is ambiguous, inspect cloud/provider evidence before retrying; never reset outbox
+or clear provider snapshot/key. Applicant remains Pending regardless of send.
+
+Source reinspection confirms sandbox passes exact p_event to direct claim RPC
+and email template checks same event + requested kind + configured recipient.
+The previously applied direct SQL scopes housekeeping to p_event. These existing
+guards restrict the intended test to this row when configured; do not disable
+sandbox or use legacy n8n consumer. Gate remains intended0; no live values read
+or changed, no invocation or send performed. Existing tests retained, no runtime
+code changed. Superseded cleanup remains unapproved/inactive; preserve all QA
+and Developer records. Priority2 still deferred pending Priority1 live evidence.
+
+---
+
 # New QA request user-reported Pending; deletion route superseded — 21 October 2026
 
 User created another user-controlled account (wilbertandrewyonathan@gmail.com),

@@ -1,0 +1,24 @@
+{
+  "evidence_source": "User-supplied live Supabase SELECT output; not agent-authenticated RPC execution",
+  "matching_auth_accounts": 1,
+  "email_confirmed": true,
+  "request_status": "pending",
+  "staff_memberships": 0,
+  "worker_permissions_ok": true,
+  "eligible_event_count": 1,
+  "qa_event_id": "3d25e7b3-04c4-43c8-a49e-e473be3bcbdc",
+  "event_checks": [
+    {
+      "status": "queued",
+      "attempts": 0,
+      "event_id": "3d25e7b3-04c4-43c8-a49e-e473be3bcbdc",
+      "request_status": "pending",
+      "current_version": true,
+      "database_eligible": true,
+      "active_verified_developer": true
+    }
+  ],
+  "delivery_authorized": false,
+  "provider_acceptance_verified": false,
+  "mailbox_delivery_verified": false
+}
