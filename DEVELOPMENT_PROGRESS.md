@@ -1,3 +1,33 @@
+# Post-attempt metadata: QA event untouched; no sent Resend email shown — 21 October 2026
+
+User supplied email_single_qa_verification result: exact event
+3d25e7b3-04c4-43c8-a49e-e473be3bcbdc remains queued/attempts0/last_errornull/
+deliverednull/firstattemptnull/nosnapshot/claimablenowtrue. Applicant stillPending
+without membership and current verifiedDeveloper requestevent true. Unrelated
+events4/fingerprint286c46fd4ddb33cf8aa5fbb50b42aff9; no BEFORE fingerprint supplied,
+so do NOT claim unchanged unrelated queue from this one result. Sanitized evidence
+in results/email-qa-post-attempt-20261021.json. Screenshot shows Resend Emails
+view No sent emails yet (last15days/allstatuses/allAPIkeys), not raw API Logs.
+
+In reviewed worker pipeline, email preparation/provider call follows a persistent
+claim, so this evidence indicates it stopped before claiming the selected event.
+No recorded dispatch/provider acceptance/delivery for this event; exact503 cause
+still unknown. Disabled gate is likely if tested after0; config/claim-stage or
+startup failure possible if it was actually enabled. Do NOT change provider keys,
+redeploy or create more QA accounts based on lifecycle-only logs. Original JSON
+lost; no second credentialed call is authorized to reconstruct it.
+
+NEXT clarification: was delivery1 saved before the credentialed POST, or were the
+reported503s only after disabling? Keep0; request no secret/header screenshots.
+If genuinely enabled, inspect existing invocation's error code/associated runtime
+execution reason and Resend API Logs (not just Emails); stage-safe logging can be
+proposed if needed but is not deployed/implemented now. No more sends or automatic
+retries without approval. Account remains Pending; no permission change observed
+for it. Provider replay/dedup/laptopoff proof remains untested; Priority2 deferred.
+No production mutation, invocation, secret change or new tests performed by agent.
+
+---
+
 # User reports POST503 lifecycle logs; send outcome UNKNOWN; do NOT retry — 21 October 2026
 
 After one-send approval, user could not recover saved worker secret. Explained
