@@ -1,3 +1,39 @@
+# Single QA email accepted; delivery disabled again — 22 October 2026
+
+User separately approved ONE selected-event Resend attempt after the clock fix.
+Fresh SELECT baseline confirmed event 3d25e7b3-04c4-43c8-a49e-e473be3bcbdc queued,
+attempts 0, Pending applicant/no membership; four unrelated outbox events recorded.
+User privately entered the saved worker bearer in the Dashboard Test panel.
+Enabled ONLY DEFECTRAG_NOTIFICATIONS_ENABLED, preserving sandbox/exact-event
+selection/resend configuration. Clicked Send Request exactly ONCE at
+2026-10-22 05:46:19 UTC. Live response HTTP 200:
+claimed=1, accepted=1, retried=0, leaseLost=0. The UI wait reported an error;
+the unconditional shutdown still saved delivery0 and cleared the header before
+the successful response was inspected. No second credentialed invocation occurred.
+An earlier flag-save confirmation was cancelled before activation or any request.
+
+Independent SELECT: status sent, attempts 1, last_error null, snapshot present,
+delivered_at 05:46:22.823459 UTC, claimable_now false; applicant still Pending,
+no membership. Four unrelated events retain the exact metadata fingerprint
+286c46fd4ddb33cf8aa5fbb50b42aff9. Provider idempotency key remains
+defectrag/3d25e7b3-04c4-43c8-a49e-e473be3bcbdc; no event reset/retry performed.
+Independent credential-free POST at 05:47:31 UTC confirms HTTP 503
+notifications_disabled. No schedules, n8n delivery, permissions, Auth SMTP,
+React/model/RAG changes or deployment occurred. Single-send authorization consumed.
+
+Evidence: results/email-single-send-live-20261022/ before/after metadata JSON,
+worker response, disabled-gate response and credential-free screenshots.
+Provider acceptance is verified through the deployed worker (2xx + nonempty
+provider ID + successful outbox finish). Raw Resend response ID/delivery status
+and mailbox arrival are NOT yet independently verified: Resend login is required.
+User asked to sign in privately and confirm receipt. No additional send authorized.
+Duplicate protection checked via one attempt, sent exclusion and unchanged unrelated
+state; real provider replay/failure retry and laptop-off scheduling remain untested.
+Priority 2 remains deferred until remaining mail evidence is verified.
+Previous local tests retained; no runtime source changed in this milestone.
+
+---
+
 # Approved clock SQL correction applied and verified — 22 October 2026
 
 User explicitly approved the guarded SQL correction. Applied exactly

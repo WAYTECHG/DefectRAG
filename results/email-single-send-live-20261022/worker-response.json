@@ -1,0 +1,21 @@
+{
+  "started_at": "2026-10-22T05:46:19.033Z",
+  "observed_at": "2026-10-22T05:46:45.572Z",
+  "http_status": 200,
+  "body": {
+    "claimed": 1,
+    "accepted": 1,
+    "retried": 0,
+    "leaseLost": 0
+  },
+  "delivery_disabled_saved": true,
+  "credential_cleared": true,
+  "ui_wait_interrupted": true,
+  "comparison": {
+    "unrelated_metadata_unchanged": true,
+    "applicant_pending_no_staff": true,
+    "current_event": true,
+    "sent_once": true,
+    "not_claimable": true
+  }
+}

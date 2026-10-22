@@ -1,5 +1,25 @@
 # One approved QA email attempt — 21 October 2026
 
+## Latest outcome — 22 October 2026
+
+After the separately approved guarded clock correction, the user authorized one
+new attempt. Agent temporarily enabled delivery, clicked the credentialed request
+once, then saved delivery0 and cleared the credential input. HTTP200 returned
+claimed1/accepted1/retried0/leaseLost0. Outbox confirms sent/attempts1,
+05:46:22.823459 UTC, snapshot present, no error and claimable_nowfalse. Applicant
+remains Pending/no membership. All four unrelated event metadata fingerprints
+are unchanged. Public POST independently confirms503notifications_disabled.
+
+The request's UI wait reported an error, but shutdown completed; successful live
+response and database state were then inspected without another send. A preceding
+flag replacement confirmation was cancelled before activation/request. Evidence:
+results/email-single-send-live-20261022/. No retry/scheduler/replay was activated.
+The selected event is consumed; do NOT repeat the historical procedure below.
+Raw Resend response ID, delivery status and mailbox arrival await authenticated
+provider inspection/user confirmation. Acceptance does not establish inbox receipt.
+No laptop-off test or provider replay test is claimed. Any further email requires
+separate authorization and must never reset this sent event.
+
 User approved exactly ONE authenticated worker invocation for event
 3d25e7b3-04c4-43c8-a49e-e473be3bcbdc and immediate delivery0 afterward regardless
 of success/failure. No further invocation/retry/cron/n8n/other event or recipient

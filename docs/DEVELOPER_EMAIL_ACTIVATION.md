@@ -2,6 +2,16 @@
 
 ## Latest checkpoint
 
+22 October: single-event attempt after the approved clock fix PASSED provider
+acceptance and durable acknowledgment: HTTP200 claimed1/accepted1/retried0/
+leaseLost0; selected event sent/attempts1/not claimable, applicantPending/noStaff,
+all four unrelated events unchanged. Delivery immediately disabled again and
+independently verified503notifications_disabled. Authorization is consumed; no
+further send/retry/scheduling permitted. Resend raw response/delivery status and
+mailbox receipt still await provider login/user confirmation. See
+results/email-single-send-live-20261022/ and latest DEVELOPMENT_PROGRESS.md.
+The dated approval/instruction history below is not permission to resend.
+
 ONE SEND NOW APPROVED by user for exact QA event below, with unconditional
 immediate return to delivery0 after outcome/error. Follow ONLY the current
 docs/SINGLE_QA_EMAIL_ATTEMPT.md, including one credentialed invocation and no

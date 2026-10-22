@@ -1,0 +1,8 @@
+{
+  "checked_at": "2026-10-22T05:47:31.613686+00:00",
+  "http_status": 503,
+  "body": {
+    "error": "notifications_disabled"
+  },
+  "authorization_sent": false
+}

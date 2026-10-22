@@ -1,0 +1,22 @@
+{
+  "matching_events": 1,
+  "applicant_still_pending_without_staff": true,
+  "current_developer_request_event": true,
+  "event_checks": [
+    {
+      "status": "queued",
+      "attempts": 0,
+      "event_id": "3d25e7b3-04c4-43c8-a49e-e473be3bcbdc",
+      "last_error": null,
+      "delivered_at": null,
+      "claimable_now": true,
+      "request_status": "pending",
+      "first_attempt_at": null,
+      "snapshot_fingerprint": null,
+      "email_snapshot_present": false,
+      "provider_idempotency_key": "defectrag/3d25e7b3-04c4-43c8-a49e-e473be3bcbdc"
+    }
+  ],
+  "unrelated_event_count": 4,
+  "unrelated_metadata_fingerprint": "286c46fd4ddb33cf8aa5fbb50b42aff9"
+}

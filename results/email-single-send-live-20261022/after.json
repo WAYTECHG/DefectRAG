@@ -1,0 +1,22 @@
+{
+  "matching_events": 1,
+  "applicant_still_pending_without_staff": true,
+  "current_developer_request_event": true,
+  "event_checks": [
+    {
+      "status": "sent",
+      "attempts": 1,
+      "event_id": "3d25e7b3-04c4-43c8-a49e-e473be3bcbdc",
+      "last_error": null,
+      "delivered_at": "2026-10-22T05:46:22.823459+00:00",
+      "claimable_now": false,
+      "request_status": "pending",
+      "first_attempt_at": "2026-10-22T05:46:22.366736+00:00",
+      "snapshot_fingerprint": "8895512d1ed56fe6046215ea70bce1d9",
+      "email_snapshot_present": true,
+      "provider_idempotency_key": "defectrag/3d25e7b3-04c4-43c8-a49e-e473be3bcbdc"
+    }
+  ],
+  "unrelated_event_count": 4,
+  "unrelated_metadata_fingerprint": "286c46fd4ddb33cf8aa5fbb50b42aff9"
+}
