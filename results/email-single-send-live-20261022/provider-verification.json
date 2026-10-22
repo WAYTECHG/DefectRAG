@@ -1,0 +1,23 @@
+{
+  "verified_at": "2026-10-22T05:53:46.266Z",
+  "provider": "Resend",
+  "http_status": 200,
+  "message_id": "01a16225-6de2-7542-97dc-3b5bffaa5c75",
+  "log_id": "2bad97c9-b0b7-49fe-8501-4ddb932c67bc",
+  "provider_email_status": "Delivered",
+  "sent_display": "Oct 22, 1:46 PM",
+  "delivered_display": "Oct 22, 1:46 PM",
+  "event_id": "3d25e7b3-04c4-43c8-a49e-e473be3bcbdc",
+  "idempotency": {
+    "expected_event_key_present": true,
+    "idempotency_header_present": true
+  },
+  "message_checks": {
+    "pending_context": true,
+    "applicant_masked": true,
+    "manual_developer_mfa": true,
+    "production_workspace_link": true
+  },
+  "mailbox_receipt_user_confirmed": false,
+  "additional_send_performed": false
+}

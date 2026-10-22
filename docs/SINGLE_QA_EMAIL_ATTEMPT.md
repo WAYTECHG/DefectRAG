@@ -2,6 +2,16 @@
 
 ## Latest outcome — 22 October 2026
 
+Provider inspection now confirms HTTP200 with response message ID
+01a16225-6de2-7542-97dc-3b5bffaa5c75, log2bad97c9-b0b7-49fe-8501-4ddb932c67bc,
+and Delivered at displayed Oct22 1:46PM. The provider request's idempotency key
+matches the selected QA event exactly. Only one message appeared in the current
+15-day Sending list. Pending context, masked applicant, manual Developer MFA
+approval and production #team link verified in Preview. Sanitized provider
+evidence saved in results/email-single-send-live-20261022/provider-verification.json.
+Recipient server acceptance is verified; mailbox Inbox/Spam placement still
+requires user confirmation. No second dispatch or live replay occurred.
+
 After the separately approved guarded clock correction, the user authorized one
 new attempt. Agent temporarily enabled delivery, clicked the credentialed request
 once, then saved delivery0 and cleared the credential input. HTTP200 returned
@@ -15,8 +25,8 @@ response and database state were then inspected without another send. A precedin
 flag replacement confirmation was cancelled before activation/request. Evidence:
 results/email-single-send-live-20261022/. No retry/scheduler/replay was activated.
 The selected event is consumed; do NOT repeat the historical procedure below.
-Raw Resend response ID, delivery status and mailbox arrival await authenticated
-provider inspection/user confirmation. Acceptance does not establish inbox receipt.
+The earlier raw-response/delivery verification gap is resolved above; mailbox
+arrival still awaits user confirmation. Acceptance does not establish inbox receipt.
 No laptop-off test or provider replay test is claimed. Any further email requires
 separate authorization and must never reset this sent event.
 

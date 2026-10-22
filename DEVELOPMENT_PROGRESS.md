@@ -1,3 +1,31 @@
+# Resend delivery and response independently verified — 22 October 2026
+
+User signed into Resend privately. Read-only provider dashboard shows ONE message
+in the current 15-day Sending list: DefectRAG Staff access requested, Delivered.
+Message ID 01a16225-6de2-7542-97dc-3b5bffaa5c75; associated request log
+2bad97c9-b0b7-49fe-8501-4ddb932c67bc confirms POST /emails HTTP200 and response
+body with that same ID. Sent and Delivered both display Oct22 1:46PM, consistent
+with the durable outbox timestamp. Provider request headers were checked with
+DOM booleans only: idempotency-key present and exact defectrag/3d25e7b3-04c4-
+43c8-a49e-e473be3bcbdc matches. No credential header values copied/saved.
+
+Preview verifies Pending context, masked applicant address, manual Developer MFA
+approval requirement, and https://wizzas-defectrag.hf.space/#team. Dedicated
+provider key is displayed as Sending access. Sanitized evidence:
+results/email-single-send-live-20261022/provider-verification.json. Screenshots
+containing the private Developer recipient remain in ignored runtime/
+email-single-send-provider/ and are not committed or copied to the public repo.
+
+No send, retry, outbox mutation, flag/secret/account/permission/deployment change
+occurred during this provider inspection. Delivery remains disabled from the
+prior independently verified shutdown. Provider Delivered means recipient server
+acceptance, not proven Inbox placement; user has confirmed provider sign-in only,
+not mailbox receipt. Actual failure retry, live replay and laptop-off scheduling
+remain untested and unauthorized. Priority2 stays deferred pending remaining
+Milestone1 evidence/approvals. No runtime source changed; no local tests repeated.
+
+---
+
 # Single QA email accepted; delivery disabled again — 22 October 2026
 
 User separately approved ONE selected-event Resend attempt after the clock fix.

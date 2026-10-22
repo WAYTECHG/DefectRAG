@@ -2,6 +2,14 @@
 
 ## Latest checkpoint
 
+22 October provider verification: Resend POST /emails HTTP200, response ID
+01a16225-6de2-7542-97dc-3b5bffaa5c75 and Delivered status independently observed.
+Exact-event idempotency key matches; Preview has Pending/manual MFA/production
+workspace link and masked applicant. One message in current 15-day Sending list.
+No new send/configuration change. Inbox placement awaits user confirmation;
+off-laptop scheduling and actual replay/failure retry remain untested. Details:
+results/email-single-send-live-20261022/provider-verification.json.
+
 22 October: single-event attempt after the approved clock fix PASSED provider
 acceptance and durable acknowledgment: HTTP200 claimed1/accepted1/retried0/
 leaseLost0; selected event sent/attempts1/not claimable, applicantPending/noStaff,
