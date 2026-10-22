@@ -1,3 +1,32 @@
+# Approved refresh UI deployment staged; awaiting publisher sign-in - 22 October 2026
+
+User approved deploying the tested frontend-only refresh fix from 0a98169.
+Validated its source/artifact/config fingerprints and existing 171-test receipt;
+no source changes or repeated model/tests were necessary. Backed up the prior
+86-file release under runtime/refresh-ux/prior-release and staged the verified
+runtime/refresh-ux/cloud output through frontend_release.mjs. Offline publisher
+check passed. Live HF config hash exactly matches preserved release config;
+authWorkflowEnabled and registrationEnabled remain true.
+
+Existing verified publisher was guarded to permit Add operations ONLY under
+frontend/dist. Its exact plan was index.html plus TeamWorkspace-Dcbl6qUO.js and
+index-J0gQheIb.js. No backend/model/settings/secret operations or deletions.
+Previous live HF commit 8df12b1010e8b3184544628bd0b64988910c7e39, stage RUNNING.
+Upload failed at HF preupload with HTTP401 before any commit. The live app is
+unchanged and no rollback is required. Receipts are recorded under
+results/workspace-refresh-deployment-20261022/; no private payloads or credentials.
+
+A private interactive hf auth login window was opened after the user's copied
+command omitted the auth login arguments. Await user confirmation of successful
+CLI sign-in; do not read/capture the token or use a browser session as CLI auth.
+Then retry runtime/refresh-ux/deploy_refresh.py with the same frontend-only guard,
+check Space runtime and served frontend hashes, verify fresh guest startup and
+request private authenticated participation where required. Keep notification
+configuration/delivery inactive; no SQL, account permission changes, emails,
+GitHub push or activation of other milestones is authorized by this UI approval.
+
+---
+
 # Workspace refresh startup and Retry UX corrected locally - 22 October 2026
 
 User reported the live five-section red refresh warning on opening the Space and
