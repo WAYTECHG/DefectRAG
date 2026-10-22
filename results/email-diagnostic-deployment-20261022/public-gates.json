@@ -1,0 +1,18 @@
+[
+  {
+    "diagnostic": false,
+    "authorization_sent": false,
+    "status": 503,
+    "body": {
+      "error": "notifications_disabled"
+    }
+  },
+  {
+    "diagnostic": true,
+    "authorization_sent": false,
+    "status": 401,
+    "body": {
+      "error": "unauthorized"
+    }
+  }
+]

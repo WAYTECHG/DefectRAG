@@ -1,0 +1,28 @@
+{
+  "event": {
+    "status": "queued",
+    "attempts": 0,
+    "last_error": null,
+    "delivered_at": null,
+    "has_membership": false,
+    "request_status": "pending",
+    "current_version": true,
+    "snapshot_present": false
+  },
+  "claim_rpc": {
+    "owner": "postgres",
+    "config": [
+      "search_path=\"\""
+    ],
+    "security_definer": true,
+    "anonymous_execute": false,
+    "signed_in_execute": false,
+    "service_role_execute": true
+  },
+  "auth_flags": {
+    "mfa_required": true,
+    "registration_enabled": true
+  },
+  "clock_rows": 1,
+  "clock_ready": true
+}

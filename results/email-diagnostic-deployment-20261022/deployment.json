@@ -1,0 +1,22 @@
+{
+  "verified_on_client_date": "2026-10-22",
+  "function": "hyper-worker",
+  "deployed_file": "staff-notifications.ts",
+  "source_checkpoint": "eb9c267",
+  "production_deployed": true,
+  "function_url": "https://zrzqpbcomlorfzszolrs.supabase.co/functions/v1/hyper-worker",
+  "previous_normalized_sha256": "a70e89e05d66918ed00a78bfdc769c2afd761fb10e376be0e12903147cd82017",
+  "deployed_normalized_sha256": "31db630590f852fc56eb5660b72a7f45fb4b577fd14352378e4be3632b31f453",
+  "persisted_source_verified_after_reload": true,
+  "disabled_gate_verified": true,
+  "unauthenticated_diagnostic_denied": true,
+  "authenticated_no_send_diagnostic_http_status": 200,
+  "all_configuration_checks_passed": true,
+  "private_worker_bearer_read_copied_or_saved_by_agent": false,
+  "authorization_input_cleared": true,
+  "notification_dispatches_by_agent": 0,
+  "production_sql_mutations_by_agent": 0,
+  "root_cause_confirmed": true,
+  "clock_sql_fix_applied": false,
+  "clock_sql_fix_requires_approval": true
+}

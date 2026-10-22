@@ -1,0 +1,21 @@
+{
+  "http_status": 200,
+  "response": {
+    "diagnostic": "configuration_only_no_network",
+    "delivery_disabled": true,
+    "ready_for_qa": true,
+    "checks": {
+      "transport_resend": true,
+      "sandbox_enabled": true,
+      "supabase_url_https": true,
+      "service_role_key_present": true,
+      "resend_key_present": true,
+      "test_sender": true,
+      "developer_recipient_format": true,
+      "qa_event_matches": true,
+      "email_configuration_valid": true
+    }
+  },
+  "credential_read_or_saved_by_agent": false,
+  "authorization_field_cleared": true
+}

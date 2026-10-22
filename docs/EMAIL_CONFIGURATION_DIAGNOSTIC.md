@@ -1,5 +1,10 @@
 # No-send configuration diagnostic — deployment approval pending
 
+UPDATE22October: approved diagnostic now deployed and verified with HTTP200,
+all checks true, delivery0. Source persisted hash verified after reload. A separate
+read-only log investigation found the original503's exact clockSQL error; see
+docs/EMAIL_503_ROOT_CAUSE.md. SQL correction still requires separate approval.
+
 User reports delivery1 was saved before the failed POST, then0 afterward. Current
 QA event remains queued/attempts0/no snapshot; generic503 still has no preserved
 body. Configuration or first claim failures remain hypotheses, not confirmed.

@@ -1,0 +1,11 @@
+{
+  "source": "Live Supabase PostgreSQL log inspected through authenticated Dashboard",
+  "log_id": "a0e3292a-89e5-4407-845c-53ffdabc957c",
+  "timestamp": "2026-10-21 05:52:38.949 UTC",
+  "sql_state": "21000",
+  "message": "UPDATE requires a WHERE clause",
+  "context": "SQL statement \"update public.notification_dispatch_clock set next_claim_at=now()+interval '30 seconds'\"\nPL/pgSQL function public.defectrag_claim_direct_notifications(integer,uuid) line 26 at SQL statement",
+  "related_rpc_http_status": 400,
+  "worker_http_status": 503,
+  "selected_event_attempts_after_rollback": 0
+}

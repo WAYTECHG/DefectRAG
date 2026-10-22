@@ -2,7 +2,22 @@
 -- Requires base Auth/MFA + proposed direct-notifications migration in local DB.
 -- Run as local administrator with psql ON_ERROR_STOP=1. No HTTP/email calls.
 -- Synthetic JWT claims test SQL permissions, not actual Auth sign-in. ROLLBACK.
+-- Requires the pg-safeupdate library already loaded in this ISOLATED local DB.
+-- Probe below fails closed if its protection is not actually active.
 begin;
+set local safeupdate.enabled='on';
+create temporary table qa_notification_clock_guard (singleton boolean primary key,value integer);
+insert into qa_notification_clock_guard values(true,0);
+do $safeupdate_probe$ begin
+ begin
+  update pg_temp.qa_notification_clock_guard set value=1;
+  raise exception 'safeupdate is not active; regression test would be invalid';
+ exception when sqlstate '21000' then null;
+ end;
+ update pg_temp.qa_notification_clock_guard set value=1 where singleton;
+ if (select value from pg_temp.qa_notification_clock_guard where singleton)<>1 then
+  raise exception 'Scoped update failed'; end if;
+end; $safeupdate_probe$;
 insert into auth.users(id,aud,role,email,email_confirmed_at,raw_app_meta_data,raw_user_meta_data) values
  ('eaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaa1','authenticated','authenticated','email-dev@example.invalid',now(),'{}','{}'),
  ('eaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaa2','authenticated','authenticated','email-qa@example.invalid',now(),'{}','{}'),
@@ -26,7 +41,7 @@ do $$ begin
  begin perform 1 from public.staff_notification_outbox;raise exception 'Applicant outbox read allowed';exception when insufficient_privilege then null;end;
 end $$;
 reset role;
-update public.notification_dispatch_clock set next_claim_at='-infinity';
+update public.notification_dispatch_clock set next_claim_at='-infinity' where singleton;
 select set_config('request.jwt.claims','{"role":"service_role"}',true);
 set local role service_role;
 select set_config('test.email_jobs',public.defectrag_claim_direct_notifications(1,'ebbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbb1')::text,true);

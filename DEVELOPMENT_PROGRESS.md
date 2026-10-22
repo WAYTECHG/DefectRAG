@@ -1,3 +1,54 @@
+# ROOT CAUSE CONFIRMED; diagnostic deployed; clock SQL correction awaits approval — 22 October 2026
+
+User asked agent to take over proposed no-send diagnosis. Browser authenticated
+after user privately logged in. Existing hyper-worker before source copied through
+UI editor; matched old normalized bundle SHAa70e89e05d66918ed00a78bfdc769c2afd761fb10e376be0e12903147cd82017.
+Saved ignored runtime/email-diagnostic-backup-20261022/hyper-worker-before.ts.
+Deployed ONLY tested diagnostic code from eb9c267 to existing staff-notifications.ts
+file in existing hyper-worker. Reloaded UI and verified entire persisted source
+SHA31db630590f852fc56eb5660b72a7f45fb4b577fd14352378e4be3632b31f453.
+No secret/flag/schema/key/permission/account/HF changes. Delivery0 independently
+verified before/after with unauthenticated POST503notifications_disabled.
+
+User privately entered saved bearer into prepared Test header; agent did NOT
+read/copy/save value and cleared input immediately after no-send POST. HTTP200:
+delivery_disabledtrue/ready_for_qatrue/all9configcheckstrue. Unauthorized diagnostic
+401 confirmed with no credential. No SQL/provider calls inside diagnostic mode.
+Read-only SELECT independently confirms Pending/noStaff, queuedattempts0/nosnapshot,
+registration/MFAtrue, correct claim RPC owner/SECURITYDEFINER/grants and readyclock.
+Reading pg_get_functiondef was inspection only, not a claim. Direct preflight file
+deployment/email_no_send_live_preflight.sql saved. No live send or retries occurred.
+
+Historical Logs Explorer independently CONFIRMS exact cause: PostgreSQL21000
+UPDATE requires a WHERE clause at2026-10-21 05:52:38.949UTC (13:52:38.949MYT),
+loga0e3292a-89e5-4407-845c-53ffdabc957c. Rawcontext: direct claim functionline26,
+update public.notification_dispatch_clock set next_claim_at=now()+interval '30 seconds'.
+Gateway400 to that RPC at13:52:37 becomes worker503. Database safety rejection
+rolls back whole claim, explains unchangedattempts0 and no provider preparation.
+Not a quota/Resend diagnosis. Keep safety guard enabled, no further secret resets.
+
+Prepared NOT EXECUTED deployment/supabase_notification_clock_where_fix.sql:
+patch exactly one known statement in live definition to add WHERE singleton,
+preserve+verify owner/ACL/security/search_path transactionally; no data statements
+or function invocation. Original fresh-install source same one-line fix; do NOT
+rerun original migration on this project. Local SQL fixture now demands real
+safeupdate protection; fixture NOT EXECUTED because Docker engine is stopped.
+No container/dependency installed/started. Existing48JS/7bundle checks retained;
+only SQLfixture/source/docs changed since those tests. gitdiff whitespace passes.
+
+Evidence results/email-diagnostic-deployment-20261022/; detailed findings and exact
+approval scope docs/EMAIL_503_ROOT_CAUSE.md. SQL-only correction pending approval;
+source inspection and confirmed log establish cause, but no correction runtime
+success is claimed yet. NEXT ask permission to apply ONLY correctiveSQL with
+delivery0, then run deployment/email_clock_where_fix_verification.sql SELECT.
+No actual resend/auto-retry included; separate approval required for any real
+send. Keep applicant Pending and no deletions/decisions. Priority2 still deferred.
+Public prior sameUI untouched; canonical React fingerprint stale until authorized
+future build/verify/stage. Do not publish HF/GitHub. Preserve Desktop local config,
+datasets/models and all accounts. Leave safe log/result tabs for user review.
+
+---
+
 # User confirms enabled before POST; local NO-SEND diagnostic ready for review — 21 October 2026
 
 User clarified delivery1 was saved before the failed test, then delivery0 after.

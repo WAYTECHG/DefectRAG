@@ -37,7 +37,7 @@ begin
  into result from claimed c join public.staff_access_requests r on r.user_id=c.subject_id
  join auth.users u on u.id=c.recipient_id and u.email_confirmed_at is not null join auth.users a on a.id=c.subject_id;
  if jsonb_array_length(result)>0 then
-  update public.notification_dispatch_clock set next_claim_at=now()+interval '30 seconds';
+  update public.notification_dispatch_clock set next_claim_at=now()+interval '30 seconds' where singleton;
  end if;
  return result;
 end; $$;
