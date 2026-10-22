@@ -1,4 +1,33 @@
-# ROOT CAUSE CONFIRMED; diagnostic deployed; clock SQL correction awaits approval — 22 October 2026
+# Approved clock SQL correction applied and verified — 22 October 2026
+
+User explicitly approved the guarded SQL correction. Applied exactly
+deployment/supabase_notification_clock_where_fix.sql through the authenticated
+Supabase SQL Editor, after SELECT-only preflight confirmed the known unsafe
+statement. Dashboard returned Success. No rows returned. The transaction replaced
+only the one clock UPDATE with WHERE singleton and verified owner/ACL/security/
+configuration preservation internally. No claim, prepare-email or dispatch RPC
+was invoked. The original migration was not repeated; database safety remains on.
+
+Post-commit SELECT: unsafe statement false, scoped statement true;
+SECURITY DEFINER true, owner postgres; anon/authenticated EXECUTE false,
+service_role EXECUTE true. Registration and mandatory MFA remain enabled.
+Selected QA event 3d25e7b3-04c4-43c8-a49e-e473be3bcbdc remains queued,
+attempts 0, applicant Pending, no staff membership. Independent credential-free
+worker POST returned HTTP 503 notifications_disabled at 05:32:08 UTC.
+No email, retry, account decision, secret/flag change or HF/GitHub deployment.
+
+Evidence: results/email-clock-fix-live-20261022/ includes before/after JSON,
+exact SQL hash, successful execution/verification screenshots and disabled-gate
+response. No new worker code changed; previous 48 JS and 7 bundle checks retained.
+The local PostgreSQL safety fixture remains unrun (Docker stopped). Live definition
+and permissions are verified; real claim/provider delivery after repair is NOT
+yet tested. Require separate approval for one selected-event QA send, followed by
+immediate delivery disable regardless of outcome. No automatic retry authorized.
+Priority 2 remains deferred. Preserve all current UI, data, auth and model behavior.
+
+---
+
+# Historical checkpoint: root cause confirmed; correction pending — 22 October 2026
 
 User asked agent to take over proposed no-send diagnosis. Browser authenticated
 after user privately logged in. Existing hyper-worker before source copied through

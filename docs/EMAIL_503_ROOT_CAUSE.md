@@ -1,5 +1,24 @@
 # Confirmed email-worker 503 cause — 22 October 2026
 
+## Current status: approved correction applied
+
+Following explicit user approval, the exact guarded correction below was applied
+once through the signed-in Supabase SQL Editor. Its transaction succeeded and
+verified unchanged function owner, grants, security and configuration. Independent
+post-commit SELECT confirms the unsafe statement is absent and WHERE singleton is
+present; anonymous/authenticated execution remains denied and service-role
+execution remains allowed. Registration and mandatory MFA remain enabled.
+
+The selected QA event remains queued with zero attempts, applicant Pending and no
+staff membership. Credential-free worker POST at 2026-10-22 05:32:08 UTC returned
+503 notifications_disabled. No claim, provider request, email, automatic retry,
+account change or secret change occurred. Evidence is saved in
+results/email-clock-fix-live-20261022/. Actual claim/provider execution after the
+repair remains untested and requires separate single-event-send approval.
+
+The sections below retain the original diagnosis and reviewed repair procedure;
+their pending-approval wording describes the earlier checkpoint, not current state.
+
 ## What was verified live
 
 After the user authorized agent-managed no-send diagnosis and signed into the
