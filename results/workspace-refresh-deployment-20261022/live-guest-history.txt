@@ -1,0 +1,74 @@
+- complementary:
+  - link "DefectRAG INSPECTION INTELLIGENCE":
+    - /url: "#overview"
+    - text: DefectRAG
+    - generic: INSPECTION INTELLIGENCE
+  - navigation:
+    - button "Overview":
+      - text: Overview
+    - button "Image inspection":
+      - text: Image inspection
+    - button "Batch monitoring":
+      - text: Batch monitoring
+    - button "Inspection history" [active]:
+      - text: Inspection history
+    - button "Review alerts":
+      - text: Review alerts
+    - button "Model performance":
+      - text: Model performance
+    - button "Official benchmark":
+      - text: Official benchmark
+    - button "Community gallery":
+      - text: Community gallery
+    - button "Staff workspace":
+      - text: Staff workspace
+    - button "History recovery":
+      - text: History recovery
+    - button "About & evidence":
+      - text: About & evidence
+- main:
+  - text: Workspace
+  - text: Inspection history
+  - generic: LIVE CLOUD
+  - img "Quality control workspace":
+  - paragraph: INSPECTION LOG
+  - heading "Traceable inspection history." [level=1]
+  - paragraph: Review saved measurements, localization and linked conversations.
+  - button "New inspection":
+    - text: New inspection
+  - status:
+    - strong: Guest Workspace · isolated temporary history
+    - paragraph: Synchronized at 7:46:53 PM · Public gallery counts are separate.
+  - heading "Saved inspections" [level=2]
+  - button "Clear history"
+  - button "Export filtered CSV":
+    - text: Export filtered CSV
+  - button "Export all CSV"
+  - combobox "Filter category":
+    - option "All products" [selected]
+    - option "PCB 1"
+    - option "Capsules"
+    - option "Cashew"
+    - option "Candle"
+    - option "Chewing gum"
+    - option "Fryum"
+    - option "Macaroni 1"
+    - option "Macaroni 2"
+    - option "PCB 2"
+    - option "PCB 3"
+    - option "PCB 4"
+    - option "Pipe fryum"
+  - combobox "Filter result":
+    - option "All results" [selected]
+    - option "Good"
+    - option "Anomalous"
+    - option "Uncertain"
+  - combobox "Filter batch":
+    - option "All batches" [selected]
+  - button "Clear filters"
+  - generic: 0 records shown
+  - paragraph: No inspections yet. Add an image to start your inspection log.
+  - paragraph: Showing up to the latest 500 records. The API supports pagination; CSV exports up to 10,000.
+  - text: DefectRAG
+  - generic: Inspection & evidence workspace
+  - generic: Benchmark screening · human review where needed

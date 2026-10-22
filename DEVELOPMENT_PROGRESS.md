@@ -1,3 +1,45 @@
+# Approved refresh UI fix deployed and verified publicly - 22 October 2026
+
+User approved the UI deployment and completed private HF CLI sign-in. Read-only
+identity/permission metadata confirmed Wizzas but initial fine-grained token had
+repo.content.read only (403); user then saved write permission. No token value was
+read, logged or placed in source. Retried the exact guarded, verified publisher.
+HF commit 7f3a556ae40d14c318e3e6004cd96a040b850692, parent
+8df12b1010e8b3184544628bd0b64988910c7e39. Exactly THREE frontend Add operations:
+index.html, assets/index-J0gQheIb.js, assets/TeamWorkspace-Dcbl6qUO.js.
+Guard refused non-frontend operations/deletions. Source implementation 0a98169;
+publisher checkpoint 50502b6; verified fingerprint
+6ad3d52cf738f7d2679043e8e3900a98f30788f23f75c616dca57d803a8c23c7.
+
+Space restarted successfully and reached RUNNING on the expected HF commit.
+Live index, both changed JS bundles, unchanged CSS and unchanged config.js match
+verified SHA256 hashes. Public health200/statusok/cloud_session_workspace,
+auth_workflow_enabled=true, personal_workspace_enabled=true. Anonymous Gallery
+endpoint200. Public configuration matches before/after byte-for-byte, retaining
+registrationEnabled=true/authWorkflowEnabled=true. No HF variables, secrets,
+Supabase objects/accounts/permissions, notification settings or n8n were changed.
+No emails, GPU requests, model training, schema work or GitHub push.
+
+Fresh browser reload AFTER restart confirmed the new index-J0gQheIb.js in DOM,
+Guest Workspace synchronization and no generic refresh alert. Guest History
+navigation synchronized and returning to Batch worked. Responsive existing design
+is preserved (CSS hash unchanged). Screenshot/DOM evidence and final release
+receipt are in results/workspace-refresh-deployment-20261022/. Prior verified
+171 frontend tests and successful cloud build were reused; no code changed.
+Before/rollback release retained in runtime/refresh-ux/prior-release. No rollback
+was required. Initial401/403 receipts are historical and resolved by user login
+and the corrected token permission; final release.json records successful state.
+
+Remaining LIVE check requires user's private sign-in: log in with an approved
+account, confirm Batch gives specific authenticator guidance at AAL1, complete
+TOTP privately in Staff workspace, then confirm private history synchronizes at
+AAL2 without the red generic banner. These auth boundaries/retry failures passed
+local tests, but were NOT claimed tested live. No deliberate production outage
+or new DINO/Qwen run was performed. Notification activation remains paused and
+requires its separate outstanding configuration/activation authorization.
+
+---
+
 # Approved refresh UI deployment staged; awaiting publisher sign-in - 22 October 2026
 
 User approved deploying the tested frontend-only refresh fix from 0a98169.

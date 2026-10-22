@@ -1,0 +1,37 @@
+{
+  "stage": "RUNNING",
+  "hf_commit": "7f3a556ae40d14c318e3e6004cd96a040b850692",
+  "expected_commit": "7f3a556ae40d14c318e3e6004cd96a040b850692",
+  "root_http_status": 200,
+  "index_hash_matches": true,
+  "assets": {
+    "config.js": {
+      "http_status": 200,
+      "sha256_matches": true
+    },
+    "assets/TeamWorkspace-Dcbl6qUO.js": {
+      "http_status": 200,
+      "sha256_matches": true
+    },
+    "assets/index-Bn4HF2vD.css": {
+      "http_status": 200,
+      "sha256_matches": true
+    },
+    "assets/index-J0gQheIb.js": {
+      "http_status": 200,
+      "sha256_matches": true
+    }
+  },
+  "health_http_status": 200,
+  "health": {
+    "status": "ok",
+    "mode": "cloud_session_workspace",
+    "auth_workflow_enabled": true,
+    "personal_workspace_enabled": true,
+    "gallery_enabled": null
+  },
+  "anonymous_gallery_http_status": 200,
+  "no_model_execution": true,
+  "no_database_or_account_changes": true,
+  "passed": true
+}

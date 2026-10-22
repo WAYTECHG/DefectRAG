@@ -1,0 +1,36 @@
+{
+  "status": "deployed_and_public_checks_passed",
+  "implementation_commit": "0a981698cae5881fd6698b35c2c31aa2fbe33d9c",
+  "publisher_checkpoint": "50502b687889c4a7ac3016629e62903c7f329d27",
+  "hf_commit": "7f3a556ae40d14c318e3e6004cd96a040b850692",
+  "parent_hf_commit": "8df12b1010e8b3184544628bd0b64988910c7e39",
+  "changed_files": [
+    "frontend/dist/assets/TeamWorkspace-Dcbl6qUO.js",
+    "frontend/dist/assets/index-J0gQheIb.js",
+    "frontend/dist/index.html"
+  ],
+  "source_fingerprint": "6ad3d52cf738f7d2679043e8e3900a98f30788f23f75c616dca57d803a8c23c7",
+  "frontend_verification": {
+    "runner": "node --test",
+    "node": "v24.20.0",
+    "tests": 171,
+    "passed": 171
+  },
+  "live_checks_passed": true,
+  "guest_browser": {
+    "fresh_startup_synchronized": true,
+    "refresh_alert_absent": true,
+    "new_bundle_confirmed_in_dom": "assets/index-J0gQheIb.js",
+    "history_navigation_synchronized": true,
+    "responsive_layout_observed": true
+  },
+  "unperformed_live_checks": [
+    "Signed-in Developer AAL1/MFA guidance and AAL2 history recovery",
+    "Forced production outage/retry (tested locally only)",
+    "DINO/Qwen inference (unchanged; no GPU request)"
+  ],
+  "notification_activation": false,
+  "database_changes": false,
+  "production_configuration_changes": false,
+  "github_push": false
+}

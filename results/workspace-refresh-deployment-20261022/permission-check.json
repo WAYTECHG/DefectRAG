@@ -1,0 +1,15 @@
+{
+  "status": "write_permission_required",
+  "http_status": 403,
+  "authenticated_account": "Wizzas",
+  "credential_role": "fineGrained",
+  "observed_permissions": [
+    "repo.content.read"
+  ],
+  "required_access": "write repository contents for Wizzas/DefectRAG",
+  "live_space_commit": "8df12b1010e8b3184544628bd0b64988910c7e39",
+  "live_space_stage": "RUNNING",
+  "commit_created": false,
+  "settings_changes": false,
+  "notification_changes": false
+}
