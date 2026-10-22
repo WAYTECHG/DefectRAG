@@ -1,0 +1,382 @@
+TAP version 13
+# Subtest: automatic developer mode handles new event IDs without unlocking arbitrary recipients
+ok 1 - automatic developer mode handles new event IDs without unlocking arbitrary recipients
+  ---
+  duration_ms: 2.0784
+  type: 'test'
+  ...
+# Subtest: invalid automatic mode fails closed before any claim ["DEFECTRAG_EMAIL_SANDBOX"]
+ok 2 - invalid automatic mode fails closed before any claim ["DEFECTRAG_EMAIL_SANDBOX"]
+  ---
+  duration_ms: 22.2716
+  type: 'test'
+  ...
+# Subtest: invalid automatic mode fails closed before any claim ["DEFECTRAG_EMAIL_QA_RECIPIENT"]
+ok 3 - invalid automatic mode fails closed before any claim ["DEFECTRAG_EMAIL_QA_RECIPIENT"]
+  ---
+  duration_ms: 0.4027
+  type: 'test'
+  ...
+# Subtest: invalid automatic mode fails closed before any claim ["DEFECTRAG_EMAIL_FROM"]
+ok 4 - invalid automatic mode fails closed before any claim ["DEFECTRAG_EMAIL_FROM"]
+  ---
+  duration_ms: 0.3504
+  type: 'test'
+  ...
+# Subtest: invalid automatic mode fails closed before any claim ["DEFECTRAG_EMAIL_DEVELOPER_ONLY"]
+ok 5 - invalid automatic mode fails closed before any claim ["DEFECTRAG_EMAIL_DEVELOPER_ONLY"]
+  ---
+  duration_ms: 0.3125
+  type: 'test'
+  ...
+# Subtest: invalid automatic mode fails closed before any claim ["DEFECTRAG_NOTIFICATION_TRANSPORT"]
+ok 6 - invalid automatic mode fails closed before any claim ["DEFECTRAG_NOTIFICATION_TRANSPORT"]
+  ---
+  duration_ms: 0.4405
+  type: 'test'
+  ...
+# Subtest: disabled and unauthorized automatic workers never contact database/provider
+ok 7 - disabled and unauthorized automatic workers never contact database/provider
+  ---
+  duration_ms: 0.4186
+  type: 'test'
+  ...
+# Subtest: automatic worker uses filtered RPC and immutable snapshot, not unrestricted outbox claim
+ok 8 - automatic worker uses filtered RPC and immutable snapshot, not unrestricted outbox claim
+  ---
+  duration_ms: 4.917
+  type: 'test'
+  ...
+# Subtest: unexpected database job cannot reach email provider
+ok 9 - unexpected database job cannot reach email provider
+  ---
+  duration_ms: 0.9882
+  type: 'test'
+  ...
+# Subtest: unexpected database job cannot reach email provider
+ok 10 - unexpected database job cannot reach email provider
+  ---
+  duration_ms: 0.6481
+  type: 'test'
+  ...
+# Subtest: provider 429 records retry; disabled gate blocks its next invocation
+ok 11 - provider 429 records retry; disabled gate blocks its next invocation
+  ---
+  duration_ms: 0.7109
+  type: 'test'
+  ...
+# Subtest: lost acknowledgment stops invocation without repeating provider send
+ok 12 - lost acknowledgment stops invocation without repeating provider send
+  ---
+  duration_ms: 0.5839
+  type: 'test'
+  ...
+# Subtest: disabled/capped/no-due-row RPC result never prepares or sends
+ok 13 - disabled/capped/no-due-row RPC result never prepares or sends
+  ---
+  duration_ms: 0.3453
+  type: 'test'
+  ...
+# Subtest: developer configuration diagnostic verifies restricted mode without network or secret output
+ok 14 - developer configuration diagnostic verifies restricted mode without network or secret output
+  ---
+  duration_ms: 0.4099
+  type: 'test'
+  ...
+# Subtest: developer body is plain text, redacted, dated and contains only fixed authenticated link
+ok 15 - developer body is plain text, redacted, dated and contains only fixed authenticated link
+  ---
+  duration_ms: 1.9719
+  type: 'test'
+  ...
+# Subtest: no-domain mode blocks all applicant mail and unapproved destinations
+ok 16 - no-domain mode blocks all applicant mail and unapproved destinations
+  ---
+  duration_ms: 0.3957
+  type: 'test'
+  ...
+# Subtest: direct cloud path needs no n8n, persists exact snapshot and sends stable provider key
+ok 17 - direct cloud path needs no n8n, persists exact snapshot and sends stable provider key
+  ---
+  duration_ms: 23.4269
+  type: 'test'
+  ...
+# Subtest: direct delivery timeout never reports success
+ok 18 - direct delivery timeout never reports success
+  ---
+  duration_ms: 1.4746
+  type: 'test'
+  ...
+# Subtest: direct delivery http never reports success
+ok 19 - direct delivery http never reports success
+  ---
+  duration_ms: 1.7832
+  type: 'test'
+  ...
+# Subtest: direct delivery receipt never reports success
+ok 20 - direct delivery receipt never reports success
+  ---
+  duration_ms: 0.7297
+  type: 'test'
+  ...
+# Subtest: direct delivery quarantine never reports success
+ok 21 - direct delivery quarantine never reports success
+  ---
+  duration_ms: 0.5778
+  type: 'test'
+  ...
+# Subtest: lost database acknowledgment retries the immutable body/key without a second provider acceptance
+ok 22 - lost database acknowledgment retries the immutable body/key without a second provider acceptance
+  ---
+  duration_ms: 1.1342
+  type: 'test'
+  ...
+# Subtest: authenticated disabled configuration check reports only booleans without network or secret values
+ok 23 - authenticated disabled configuration check reports only booleans without network or secret values
+  ---
+  duration_ms: 22.7459
+  type: 'test'
+  ...
+# Subtest: diagnostic denies wrong bearer 0
+ok 24 - diagnostic denies wrong bearer 0
+  ---
+  duration_ms: 1.3774
+  type: 'test'
+  ...
+# Subtest: diagnostic denies wrong bearer 12
+ok 25 - diagnostic denies wrong bearer 12
+  ---
+  duration_ms: 0.4821
+  type: 'test'
+  ...
+# Subtest: diagnostic denies wrong bearer 26
+ok 26 - diagnostic denies wrong bearer 26
+  ---
+  duration_ms: 0.3604
+  type: 'test'
+  ...
+# Subtest: diagnostic requires configured worker secret
+ok 27 - diagnostic requires configured worker secret
+  ---
+  duration_ms: 0.3798
+  type: 'test'
+  ...
+# Subtest: diagnostic refuses nonzero or unknown gate 1
+ok 28 - diagnostic refuses nonzero or unknown gate 1
+  ---
+  duration_ms: 0.3252
+  type: 'test'
+  ...
+# Subtest: diagnostic refuses nonzero or unknown gate undefined
+ok 29 - diagnostic refuses nonzero or unknown gate undefined
+  ---
+  duration_ms: 0.2333
+  type: 'test'
+  ...
+# Subtest: diagnostic refuses nonzero or unknown gate false
+ok 30 - diagnostic refuses nonzero or unknown gate false
+  ---
+  duration_ms: 0.2358
+  type: 'test'
+  ...
+# Subtest: malformed explicit diagnostic cannot dispatch 
+ok 31 - malformed explicit diagnostic cannot dispatch 
+  ---
+  duration_ms: 0.3139
+  type: 'test'
+  ...
+# Subtest: malformed explicit diagnostic cannot dispatch not-a-uuid
+ok 32 - malformed explicit diagnostic cannot dispatch not-a-uuid
+  ---
+  duration_ms: 1.1883
+  type: 'test'
+  ...
+# Subtest: diagnostic identifies misconfiguration without sending: DEFECTRAG_NOTIFICATION_TRANSPORT
+ok 33 - diagnostic identifies misconfiguration without sending: DEFECTRAG_NOTIFICATION_TRANSPORT
+  ---
+  duration_ms: 0.3667
+  type: 'test'
+  ...
+# Subtest: diagnostic identifies misconfiguration without sending: DEFECTRAG_EMAIL_SANDBOX
+ok 34 - diagnostic identifies misconfiguration without sending: DEFECTRAG_EMAIL_SANDBOX
+  ---
+  duration_ms: 0.2985
+  type: 'test'
+  ...
+# Subtest: diagnostic identifies misconfiguration without sending: SUPABASE_URL
+ok 35 - diagnostic identifies misconfiguration without sending: SUPABASE_URL
+  ---
+  duration_ms: 0.2956
+  type: 'test'
+  ...
+# Subtest: diagnostic identifies misconfiguration without sending: SUPABASE_SERVICE_ROLE_KEY
+ok 36 - diagnostic identifies misconfiguration without sending: SUPABASE_SERVICE_ROLE_KEY
+  ---
+  duration_ms: 0.177
+  type: 'test'
+  ...
+# Subtest: diagnostic identifies misconfiguration without sending: DEFECTRAG_RESEND_API_KEY
+ok 37 - diagnostic identifies misconfiguration without sending: DEFECTRAG_RESEND_API_KEY
+  ---
+  duration_ms: 0.151
+  type: 'test'
+  ...
+# Subtest: diagnostic identifies misconfiguration without sending: DEFECTRAG_EMAIL_FROM
+ok 38 - diagnostic identifies misconfiguration without sending: DEFECTRAG_EMAIL_FROM
+  ---
+  duration_ms: 0.1481
+  type: 'test'
+  ...
+# Subtest: diagnostic identifies misconfiguration without sending: DEFECTRAG_EMAIL_QA_RECIPIENT
+ok 39 - diagnostic identifies misconfiguration without sending: DEFECTRAG_EMAIL_QA_RECIPIENT
+  ---
+  duration_ms: 0.1495
+  type: 'test'
+  ...
+# Subtest: diagnostic identifies misconfiguration without sending: DEFECTRAG_EMAIL_QA_EVENT_ID
+ok 40 - diagnostic identifies misconfiguration without sending: DEFECTRAG_EMAIL_QA_EVENT_ID
+  ---
+  duration_ms: 0.2493
+  type: 'test'
+  ...
+# Subtest: ordinary disabled POST remains503 and has no configuration output
+ok 41 - ordinary disabled POST remains503 and has no configuration output
+  ---
+  duration_ms: 0.2304
+  type: 'test'
+  ...
+# Subtest: disabled and unauthorized workers do not touch database or n8n
+ok 42 - disabled and unauthorized workers do not touch database or n8n
+  ---
+  duration_ms: 23.9361
+  type: 'test'
+  ...
+# Subtest: successful delivery keeps privileged credentials out of webhook payload and returns only counts
+ok 43 - successful delivery keeps privileged credentials out of webhook payload and returns only counts
+  ---
+  duration_ms: 3.0239
+  type: 'test'
+  ...
+# Subtest: n8n HTTP 401 schedules retry without reporting delivery
+ok 44 - n8n HTTP 401 schedules retry without reporting delivery
+  ---
+  duration_ms: 1.1587
+  type: 'test'
+  ...
+# Subtest: n8n HTTP 429 schedules retry without reporting delivery
+ok 45 - n8n HTTP 429 schedules retry without reporting delivery
+  ---
+  duration_ms: 1.6246
+  type: 'test'
+  ...
+# Subtest: n8n HTTP 500 schedules retry without reporting delivery
+ok 46 - n8n HTTP 500 schedules retry without reporting delivery
+  ---
+  duration_ms: 0.4704
+  type: 'test'
+  ...
+# Subtest: n8n HTTP 503 schedules retry without reporting delivery
+ok 47 - n8n HTTP 503 schedules retry without reporting delivery
+  ---
+  duration_ms: 0.5541
+  type: 'test'
+  ...
+# Subtest: offline n8n retains durable retry and never exposes error secrets
+ok 48 - offline n8n retains durable retry and never exposes error secrets
+  ---
+  duration_ms: 0.5693
+  type: 'test'
+  ...
+# Subtest: only matching provider-acceptance receipts count as delivered
+ok 49 - only matching provider-acceptance receipts count as delivered
+  ---
+  duration_ms: 0.5821
+  type: 'test'
+  ...
+# Subtest: only matching provider-acceptance receipts count as delivered
+ok 50 - only matching provider-acceptance receipts count as delivered
+  ---
+  duration_ms: 0.3951
+  type: 'test'
+  ...
+# Subtest: only matching provider-acceptance receipts count as delivered
+ok 51 - only matching provider-acceptance receipts count as delivered
+  ---
+  duration_ms: 0.5106
+  type: 'test'
+  ...
+# Subtest: database outage is safe and sanitized; stale leases cannot report delivery
+ok 52 - database outage is safe and sanitized; stale leases cannot report delivery
+  ---
+  duration_ms: 0.7679
+  type: 'test'
+  ...
+# Subtest: leased outbox avoids resending acknowledged events on subsequent invocation
+ok 53 - leased outbox avoids resending acknowledged events on subsequent invocation
+  ---
+  duration_ms: 0.5772
+  type: 'test'
+  ...
+# Subtest: applicant notifications exclude applicant email and no HTTPS downgrade is allowed
+ok 54 - applicant notifications exclude applicant email and no HTTPS downgrade is allowed
+  ---
+  duration_ms: 0.7024
+  type: 'test'
+  ...
+# Subtest: inactive n8n template validates events and never acknowledges before SMTP acceptance
+ok 55 - inactive n8n template validates events and never acknowledges before SMTP acceptance
+  ---
+  duration_ms: 8.925
+  type: 'test'
+  ...
+# Subtest: maximum invocation budget stays below Free Edge limit and claims just in time
+ok 56 - maximum invocation budget stays below Free Edge limit and claims just in time
+  ---
+  duration_ms: 0.7895
+  type: 'test'
+  ...
+# Subtest: partial batch stops before leasing another event when reserved time is exhausted
+ok 57 - partial batch stops before leasing another event when reserved time is exhausted
+  ---
+  duration_ms: 0.4894
+  type: 'test'
+  ...
+# Subtest: insufficient overall budget makes no claim and leaves queued work untouched
+ok 58 - insufficient overall budget makes no claim and leaves queued work untouched
+  ---
+  duration_ms: 0.1914
+  type: 'test'
+  ...
+# Subtest: overall deadline aborts stalled response bodies without a false delivery acknowledgment
+ok 59 - overall deadline aborts stalled response bodies without a false delivery acknowledgment
+  ---
+  duration_ms: 17.2211
+  type: 'test'
+  ...
+# Subtest: failed first webhook does not prevent another event and retries reuse the event ID
+ok 60 - failed first webhook does not prevent another event and retries reuse the event ID
+  ---
+  duration_ms: 1.2048
+  type: 'test'
+  ...
+# Subtest: a repeated outbox event in the same invocation cannot send a second notification
+ok 61 - a repeated outbox event in the same invocation cannot send a second notification
+  ---
+  duration_ms: 0.4924
+  type: 'test'
+  ...
+# Subtest: lost post-send acknowledgment is not retried within the invocation
+ok 62 - lost post-send acknowledgment is not retried within the invocation
+  ---
+  duration_ms: 0.3136
+  type: 'test'
+  ...
+1..62
+# tests 62
+# suites 0
+# pass 62
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 201.1465

@@ -1,0 +1,24 @@
+{
+  "function": "staff-notifications",
+  "inputs": {
+    "deployment/supabase/functions/staff-notifications/index.ts": "23e985ef6ee5995ea5c969f5dd13b6e68bd584f63b5fe5629f28ee2bd50d7aeb",
+    "deployment/supabase/functions/staff-notifications/worker.mjs": "7372b3302ab722e175202fb55e802ba20812b4ae6ee46971f1df45a1d61fffe4",
+    "deployment/supabase/functions/staff-notifications/direct-email.mjs": "95c433b53d6ad730a09fdcbe0e323bd76d97e3069ad78c808161b78beae37863",
+    "deployment/supabase/config.toml": "52027cbab9bbe2421bc2250b71eba534fcd069e62708dbbc5efead19e836395c"
+  },
+  "bundle_sha256": "0357e1db56ca942f8cdad8b86eda8a200fe43642c35d1ad4b549d2f84eafea3c",
+  "offline_checks": [
+    "bundled source has no local imports",
+    "disabled POST503 without network",
+    "enabled unauthorized POST401 without network",
+    "GET405",
+    "unauthorized diagnostic401 without network",
+    "enabled diagnostic409 without network",
+    "disabled diagnostic200 without network",
+    "disabled developer-only diagnostic200 without network",
+    "compiled developer-only filtered RPC with injected transport"
+  ],
+  "production_deployed": false,
+  "secrets_read": false,
+  "scope": "single function; preserve delivery0; deployment needs approval"
+}

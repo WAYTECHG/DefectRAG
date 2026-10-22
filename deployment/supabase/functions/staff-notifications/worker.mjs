@@ -27,8 +27,14 @@ function configurationCheck(env,expectedEvent){
   qa_event_matches:env.DEFECTRAG_EMAIL_QA_EVENT_ID===expectedEvent,
   email_configuration_valid:emailValid
  };
+ const developerChecks={developer_only:env.DEFECTRAG_EMAIL_DEVELOPER_ONLY==='1',
+  sandbox_off:env.DEFECTRAG_EMAIL_SANDBOX==='0',transport_resend:checks.transport_resend,
+  supabase_url_https:checks.supabase_url_https,service_role_key_present:checks.service_role_key_present,
+  resend_key_present:checks.resend_key_present,test_sender:checks.test_sender,
+  developer_recipient_format:checks.developer_recipient_format,email_configuration_valid:emailValid};
  return {diagnostic:'configuration_only_no_network',delivery_disabled:true,
-  ready_for_qa:Object.values(checks).every(Boolean),checks};
+  ready_for_qa:env.DEFECTRAG_EMAIL_DEVELOPER_ONLY!=='1'&&Object.values(checks).every(Boolean),checks,
+  ready_for_developer_only:Object.values(developerChecks).every(Boolean),developer_checks:developerChecks};
 }
 function safeJob(job){
  return UUID.test(job.event_id)&&UUID.test(job.lease_token)&&UUID.test(job.request_id)&&KINDS.has(job.kind)
@@ -54,7 +60,8 @@ export async function dispatchNotifications({env,fetcher=fetch,now=()=>performan
  const direct=env.DEFECTRAG_NOTIFICATION_TRANSPORT==='resend';
  if(env.DEFECTRAG_NOTIFICATION_TRANSPORT&&!['resend','n8n'].includes(env.DEFECTRAG_NOTIFICATION_TRANSPORT))throw new Error('invalid_transport');
  const hook=direct?'https://api.resend.com/emails':httpsUrl(env.DEFECTRAG_N8N_WEBHOOK_URL).href;
- if(direct)emailConfiguration(env);
+ const mailConfig=direct?emailConfiguration(env):null;
+ if(!direct&&env.DEFECTRAG_EMAIL_DEVELOPER_ONLY==='1')throw new Error('developer_mode_requires_resend');
  if(!env.SUPABASE_SERVICE_ROLE_KEY||(!direct&&(!env.DEFECTRAG_N8N_WEBHOOK_SECRET||env.DEFECTRAG_N8N_WEBHOOK_SECRET.length<32)))throw new Error('missing_configuration');
  const headers={'apikey':env.SUPABASE_SERVICE_ROLE_KEY,'Authorization':'Bearer '+env.SUPABASE_SERVICE_ROLE_KEY,'Content-Type':'application/json'};
  async function rpc(name,payload){
@@ -67,8 +74,9 @@ export async function dispatchNotifications({env,fetcher=fetch,now=()=>performan
   // Reserve claim + send + finish + overhead BEFORE claiming. Unstarted rows
   // remain queued, without a consumed attempt or five-minute lease delay.
   if(deadline-now()<LIMITS.reserveMs+(direct?LIMITS.rpcMs:0)){result.budgetLimited=true;break}
-  const jobs=await rpc(direct?'defectrag_claim_direct_notifications':'defectrag_claim_notifications',
-   {p_limit:1,...(direct?{p_event:env.DEFECTRAG_EMAIL_SANDBOX==='1'?env.DEFECTRAG_EMAIL_QA_EVENT_ID:null}:{})});
+  const jobs=await rpc(mailConfig?.developerOnly?'defectrag_claim_developer_notifications':direct?'defectrag_claim_direct_notifications':'defectrag_claim_notifications',
+   mailConfig?.developerOnly?{p_recipient:env.DEFECTRAG_EMAIL_QA_RECIPIENT}:
+    {p_limit:1,...(direct?{p_event:env.DEFECTRAG_EMAIL_SANDBOX==='1'?env.DEFECTRAG_EMAIL_QA_EVENT_ID:null}:{})});
   if(!Array.isArray(jobs)||jobs.length>1)throw new Error('invalid_outbox_response');
   if(!jobs.length)break;
   const job=jobs[0];result.claimed++;

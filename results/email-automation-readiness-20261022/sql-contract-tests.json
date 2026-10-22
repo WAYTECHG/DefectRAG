@@ -1,0 +1,21 @@
+{
+  "passed": true,
+  "image": "postgres:17-alpine",
+  "container_network": "none",
+  "production_access": false,
+  "native_cron_net_vault_tested": false,
+  "scripts": [
+    {
+      "script": "developer_notifications_local.sql",
+      "exit_code": 0,
+      "stdout": "CREATE ROLE\nCREATE ROLE\nCREATE ROLE\nCREATE SCHEMA\nCREATE FUNCTION\nGRANT\nCREATE TABLE\nCREATE TABLE\nCREATE TABLE\nCREATE TABLE\nBEGIN\nALTER TABLE\nALTER TABLE\nCREATE TABLE\nINSERT 0 1\nALTER TABLE\nREVOKE\nCREATE FUNCTION\nCREATE FUNCTION\nREVOKE\nGRANT\nCOMMIT\nBEGIN\nSET\nSET\nDO\nCREATE TABLE\nINSERT 0 1\nALTER TABLE\nREVOKE\nCREATE FUNCTION\nREVOKE\nGRANT\nCOMMIT\nBEGIN\nINSERT 0 3\nINSERT 0 1\nINSERT 0 1\nINSERT 0 5\nDO\nSET\nDO\nRESET\n        set_config        \n--------------------------\n {\"role\":\"authenticated\"}\n(1 row)\n\nSET\nDO\nRESET\n       set_config        \n-------------------------\n {\"role\":\"service_role\"}\n(1 row)\n\nSET\nDO\nRESET\nUPDATE 1\nSET\nDO\nRESET\nUPDATE 1\nSET\n                                                                                                                                                                                      set_config                                                                                                                                                                                      \n--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n [{\"kind\": \"requested\", \"version\": 2, \"event_id\": \"20000000-0000-4000-8000-000000000001\", \"request_id\": \"10000000-0000-4000-8000-000000000002\", \"lease_token\": \"aaf9089d-e86e-43b3-839b-36fbc84f8fd5\", \"display_name\": \"Fixture\", \"requested_at\": \"2026-10-22T06:25:17.30974+00:00\", \"applicant_email\": \"applicant@example.invalid\", \"recipient_email\": \"developer@example.invalid\"}]\n(1 row)\n\nDO\nRESET\nDO\nUPDATE 1\nUPDATE 1\nSET\nDO\nRESET\nUPDATE 1\nSET\nDO\nRESET\nDO\nUPDATE 1\nUPDATE 1\nSET\nDO\nRESET\nUPDATE 1\nUPDATE 1\nSET\nDO\nRESET\nUPDATE 1\nUPDATE 1\nSET\nDO\nRESET\nROLLBACK\n                      result                      \n--------------------------------------------------\n developer notification SQL contract tests passed\n(1 row)\n\n",
+      "stderr": ""
+    },
+    {
+      "script": "developer_schedule_local.sql",
+      "exit_code": 0,
+      "stdout": "CREATE SCHEMA\nCREATE SCHEMA\nCREATE SCHEMA\nCREATE TABLE\nCREATE FUNCTION\nCREATE FUNCTION\nCREATE TABLE\nCREATE VIEW\nCREATE TABLE\nCREATE FUNCTION\nBEGIN\nSET\nSET\nDO\nCREATE TABLE\nALTER TABLE\nREVOKE\nCREATE FUNCTION\nREVOKE\nDO\nCOMMIT\nDO\nINSERT 0 2\nINSERT 0 1\nINSERT 0 1\nINSERT 0 1\nUPDATE 1\nDO\nINSERT 0 1\nDO\nUPDATE 1\nDO\nUPDATE 1\nUPDATE 1\nDO\n                                result                                \n----------------------------------------------------------------------\n scheduler SQL contracts passed; native extensions/network NOT tested\n(1 row)\n\nUPDATE 1\nBEGIN\nSET\nDO\nCOMMIT\nDO\nBEGIN\nUPDATE 1\nDO\nCOMMIT\nDO\n                            result                             \n---------------------------------------------------------------\n guarded activation and non-destructive pause contracts passed\n(1 row)\n\n",
+      "stderr": ""
+    }
+  ]
+}

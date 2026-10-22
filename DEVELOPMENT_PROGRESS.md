@@ -1,3 +1,61 @@
+# Automatic Developer delivery prepared; inactive production install needs review — 22 October 2026
+
+User requested automatic Developer notifications next. Audited the proven worker:
+existing sandbox intentionally pins ONE sent QA UUID; scheduling it alone cannot
+notify new applicants' requests. Implemented LOCAL/INACTIVE Developer-only mode:
+new strict DEVELOPER_ONLY=1 with SANDBOX=0, same configured Resend-owner Developer
+recipient and onboarding sender, requested events only. No arbitrary/applicant
+recipient mail; existing QA/general/legacy n8n behavior preserved with flag absent.
+No React/HF/model/RAG/auth changes. New no-network diagnostic checks this mode.
+
+Prepared review-only additive SQL files: supabase_developer_notifications.sql
+(disabled private settings + service-role-only filtered wrapper around proven
+direct claim), supabase_developer_notification_extensions.sql (missing pg_cron/
+pg_net installation), supabase_developer_notification_schedule.sql (private log,
+owner-only Vault-backed helper and five-minute job INACTIVE transactionally),
+email_automation_enable.sql (separate activation), email_automation_pause.sql
+(non-destructive rollback), plus read-only preflight/status queries.
+First activation timestamp excludes old backlog without changing old records;
+new private80-attempt UTC-day cap includes retries. Existing immutable snapshots,
+23h ambiguity quarantine, leases/globalclock/backoff/attempt limits retained.
+Cron command contains only a fixed function call, no key/address. Vault private
+credential entry and all production mutations still require explicit approval.
+
+LIVE SELECT-ONLY preflight verified: Vault0.3.1 present; pg_cron/pg_net absent;
+MFA/registration true, WHERE fix present, one active verified Developer. Queue
+unchanged: requested sent1/superseded2; approved queued2. Automation objects absent.
+No migration, extension, secret/flag/account/permission change, email, scheduler
+activation, worker or HF/GitHub deployment occurred. Delivery remains disabled.
+
+Verification: 62 focused JS tests passed; 9 compiled package checks passed.
+Real PostgreSQL17 local contracts passed for roles/grants, strict selection,
+budget/reset, retry due times/counts, revocation/current status, old backlog,
+duplicate lease/sent exclusion, inactive schedule, missing Vault, throttle,
+guarded activation and pause. Transport/cron/Vault were local SQL stubs, not real
+Supabase extensions: native cloud execution and laptop-off delivery unverified.
+User started Docker; no cached database image existed. User-approved official
+postgres:17-alpine downloaded, digest1bcc18d81671b02906296aad470ec9778a6b71016ce953092024b680bad007b0.
+Only unique disposable test containers used, networknone/no ports/no project
+mounts; removed afterward. Existing n8n/Ollama containers/volumes not modified.
+
+Package runtime/email-developer-release/index.ts, normalized SHA256
+0357e1db56ca942f8cdad8b86eda8a200fe43642c35d1ad4b549d2f84eafea3c.
+Old deployed diagnostic package/backup preserved. New package output switch avoids
+overwriting them. Evidence results/email-automation-readiness-20261022/ includes
+TAP, SQL reports, live metadata, package manifest and screenshot. Full review,
+configuration, staged activation/testing and reversible pause:
+docs/AUTOMATIC_DEVELOPER_NOTIFICATIONS.md. No unnecessary frontend build/tests.
+
+NEXT request approval for named extensions + disabled additive components and
+updated worker deployment with delivery0 (per original per-production-change gate).
+Then verify native objects/job inactive/private grants and unchanged auth/data.
+Afterward owner privately enters saved bearer in Vault; configure strict mode0-gate
+and verify no-send diagnostic. Only later approve enableSQL+delivery1+recurring
+bounded retries and a genuinely NEW QA event for off-laptop test. Never reset or
+resend the delivered QA event. Corrective Actions/n8n activation remains deferred.
+
+---
+
 # Developer mailbox receipt confirmed — 22 October 2026
 
 User replied yes to receipt of the single QA Staff access requested email in the
