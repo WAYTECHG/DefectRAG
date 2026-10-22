@@ -1,0 +1,102 @@
+{
+  "checked_at": "2026-10-22T06:35:59.280Z",
+  "checks": {
+    "outbox_unchanged": true,
+    "staff_unchanged": true,
+    "gates_closed": true,
+    "job_inactive": true,
+    "claim_private": true,
+    "scheduler_private": true,
+    "tables_private": true,
+    "no_http": true
+  },
+  "live": {
+    "status": {
+      "job": {
+        "count": 1,
+        "active": false,
+        "expected_command": true,
+        "five_minute_schedule": true
+      },
+      "settings": {
+        "enabled": false,
+        "budget_day": "2026-10-22",
+        "enabled_at": null,
+        "claims_today": 0,
+        "last_enqueued_at": null
+      },
+      "auth_flags": {
+        "mfa_required": true,
+        "registration_enabled": true
+      },
+      "recent_http": [],
+      "scheduler_permissions": {
+        "worker": false,
+        "anonymous": false,
+        "signed_in": false
+      },
+      "worker_rpc_permissions": {
+        "worker": true,
+        "anonymous": false,
+        "signed_in": false,
+        "security_definer": true
+      },
+      "vault_worker_secret_present": false
+    },
+    "baseline": {
+      "preflight": {
+        "auth_flags": {
+          "mfa_required": true,
+          "registration_enabled": true
+        },
+        "extensions": {
+          "pg_net": "0.20.4",
+          "pg_cron": "1.6.4",
+          "supabase_vault": "0.3.1"
+        },
+        "queue_counts": [
+          {
+            "kind": "approved",
+            "count": 2,
+            "status": "queued"
+          },
+          {
+            "kind": "requested",
+            "count": 1,
+            "status": "sent"
+          },
+          {
+            "kind": "requested",
+            "count": 2,
+            "status": "superseded"
+          }
+        ],
+        "vault_available": true,
+        "clock_fix_present": true,
+        "net_post_available": true,
+        "cron_jobs_available": true,
+        "developer_claim_exists": true,
+        "automation_settings_exist": true,
+        "active_verified_developers": 1
+      },
+      "staff_fingerprint": "6072863457d2aabed9448a373aae5f46",
+      "outbox_fingerprint": "626604db95c7928dfd359fd245a152fc"
+    },
+    "private_tables": [
+      {
+        "rls": true,
+        "name": "notification_automation_settings",
+        "anon_select": false,
+        "worker_select": false,
+        "authenticated_select": false
+      },
+      {
+        "rls": true,
+        "name": "notification_automation_http_log",
+        "anon_select": false,
+        "worker_select": false,
+        "authenticated_select": false
+      }
+    ]
+  }
+}

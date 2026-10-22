@@ -1,0 +1,32 @@
+{
+  "job": {
+    "count": 1,
+    "active": false,
+    "expected_command": true,
+    "five_minute_schedule": true
+  },
+  "settings": {
+    "enabled": false,
+    "budget_day": "2026-10-22",
+    "enabled_at": null,
+    "claims_today": 0,
+    "last_enqueued_at": null
+  },
+  "auth_flags": {
+    "mfa_required": true,
+    "registration_enabled": true
+  },
+  "recent_http": [],
+  "scheduler_permissions": {
+    "worker": false,
+    "anonymous": false,
+    "signed_in": false
+  },
+  "worker_rpc_permissions": {
+    "worker": true,
+    "anonymous": false,
+    "signed_in": false,
+    "security_definer": true
+  },
+  "vault_worker_secret_present": false
+}

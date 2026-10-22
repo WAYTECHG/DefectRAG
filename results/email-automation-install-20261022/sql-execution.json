@@ -1,0 +1,15 @@
+{
+  "recorded_at": "2026-10-22T06:40:05.575Z",
+  "source_checkpoint": "e792830",
+  "approved_files": {
+    "supabase_developer_notification_extensions.sql": "5f30d9f2814a64e171e2d18a6df02b7dd0d8dc900103859d1e667c1d73435eba",
+    "supabase_developer_notifications.sql": "1855a8e1337376821072076432778d9e6208160ec50b3928b4e2a125c4af4e28",
+    "supabase_developer_notification_schedule.sql": "d0f9040c80e8f3a35bd41e15d2a938d32abaf49b3ad69264eab19b06215e2f46"
+  },
+  "all_transactions_succeeded": true,
+  "activation_sql_executed": false,
+  "vault_secret_written": false,
+  "configuration_changed": false,
+  "cron_active": false,
+  "notifications_sent": false
+}

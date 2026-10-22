@@ -1,5 +1,26 @@
 # Automatic Developer notifications — controlled rollout, 22 October 2026
 
+## Latest live checkpoint: inactive installation complete
+
+After explicit approval, all three installation files below succeeded once.
+pg_cron1.6.4 and pg_net0.20.4 are installed; Vault0.3.1 retained. Exactly one
+expected five-minute job is INACTIVE, database gate false, activation timestamp
+null and zero claims/queued HTTP requests. Private table RLS/grants and RPC
+execution boundaries verified through live metadata. Outbox/staff fingerprints
+are identical before and after; MFA/registration remain enabled.
+
+Only existing hyper-worker/staff-notifications.ts was deployed. Its persisted
+source after reload exactly matches packageSHA256
+0357e1db56ca942f8cdad8b86eda8a200fe43642c35d1ad4b549d2f84eafea3c.
+Public POST still503notifications_disabled; diagnostic without bearer401.
+No secret/configuration change, Vault entry, real email, activation or HF release.
+Evidence: results/email-automation-install-20261022/.
+
+Next disabled-mode configuration/Vault credential entry needs separate approval;
+activation remains a later gate. The prepared/untested wording below describes
+the development checkpoint; native object installation/ACL checks above now pass.
+Actual scheduled execution and laptop-off delivery are still not verified.
+
 ## Scope and current status
 
 The one-email QA path is verified through the real worker, outbox, Resend HTTP200,

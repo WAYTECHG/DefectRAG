@@ -1,0 +1,37 @@
+{
+  "preflight": {
+    "auth_flags": {
+      "mfa_required": true,
+      "registration_enabled": true
+    },
+    "extensions": {
+      "supabase_vault": "0.3.1"
+    },
+    "queue_counts": [
+      {
+        "kind": "approved",
+        "count": 2,
+        "status": "queued"
+      },
+      {
+        "kind": "requested",
+        "count": 1,
+        "status": "sent"
+      },
+      {
+        "kind": "requested",
+        "count": 2,
+        "status": "superseded"
+      }
+    ],
+    "vault_available": true,
+    "clock_fix_present": true,
+    "net_post_available": false,
+    "cron_jobs_available": false,
+    "developer_claim_exists": false,
+    "automation_settings_exist": false,
+    "active_verified_developers": 1
+  },
+  "staff_fingerprint": "6072863457d2aabed9448a373aae5f46",
+  "outbox_fingerprint": "626604db95c7928dfd359fd245a152fc"
+}

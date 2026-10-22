@@ -1,0 +1,9 @@
+{
+  "checked_at": "2026-10-22T06:36:49.187207+00:00",
+  "http_status": 503,
+  "body": {
+    "error": "notifications_disabled"
+  },
+  "authorization_sent": false,
+  "source_and_package_hashes_match": true
+}

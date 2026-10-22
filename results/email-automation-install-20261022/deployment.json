@@ -1,0 +1,13 @@
+{
+  "verified_at": "2026-10-22T06:38:08.968Z",
+  "source_checkpoint": "e792830",
+  "function": "hyper-worker",
+  "existing_filename": "staff-notifications.ts",
+  "previous_sha256": "31db630590f852fc56eb5660b72a7f45fb4b577fd14352378e4be3632b31f453",
+  "deployed_sha256": "0357e1db56ca942f8cdad8b86eda8a200fe43642c35d1ad4b549d2f84eafea3c",
+  "persisted_source_hash_verified": true,
+  "delivery_enabled": false,
+  "database_enabled": false,
+  "cron_active": false,
+  "emails_sent": false
+}

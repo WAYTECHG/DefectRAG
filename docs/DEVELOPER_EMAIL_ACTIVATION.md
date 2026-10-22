@@ -2,6 +2,14 @@
 
 ## Latest checkpoint
 
+22 October: reviewed automatic Developer infrastructure installed INACTIVE and
+updated existing hyper-worker deployed after explicit approval. Native extension/
+private ACL/job checks pass; outbox/staff fingerprints unchanged. Delivery remains0,
+database gate false, cron inactive, no Vault bearer yet/no scheduled HTTP/no mail.
+See docs/AUTOMATIC_DEVELOPER_NOTIFICATIONS.md and latest DEVELOPMENT_PROGRESS.md.
+Do not repeat installation SQL. Disabled-mode configuration/Vault and activation
+are separate remaining steps, not authorization supplied by this history.
+
 22 October: user confirmed receipt of the single QA email. Controlled delivery
 and mailbox receipt have passed; Inbox versus Spam was not specified. Delivery
 remains disabled and no further send is approved. Laptop-off scheduling, real

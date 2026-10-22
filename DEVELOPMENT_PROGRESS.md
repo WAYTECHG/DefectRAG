@@ -1,3 +1,51 @@
+# Approved inactive cloud installation and worker deployment verified — 22 October 2026
+
+User approved the three exact reviewed SQL files and updated hyper-worker with
+delivery disabled/schedule inactive. Fresh read-only baseline checked original
+clock fix, true MFA/registration, absent new objects, full outbox/staff metadata
+fingerprints. Applied once in order through authenticated SQL Editor:
+supabase_developer_notification_extensions.sql,
+supabase_developer_notifications.sql,
+supabase_developer_notification_schedule.sql.
+All returned Success. No rows returned. Actual extensions now pg_cron1.6.4,
+pg_net0.20.4, existing Vault0.3.1. No original migrations or activation SQL rerun.
+
+Native metadata confirms exactly one expected five-minute cron job, activefalse;
+database enabledfalse/enabled_atnull/claims_today0/last_enqueued_atnull, zero
+recorded scheduler HTTP requests. New private tables have RLS and no SELECT for
+anon/authenticated/service_role. New claim RPC SECURITYDEFINER with EXECUTE only
+service_role; owner-only scheduler helper denies all three roles. Original full
+outbox/staff fingerprints identical before/after; auth flags remain true.
+Vault worker secret absent as expected; no Vault entry/Edge config/credential
+change was authorized or performed. All existing application accounts preserved.
+
+Existing deployed worker matched previous31db630590f852fc56eb5660b72a7f45fb4b577fd14352378e4be3632b31f453;
+backed up its source privately in runtime/email-automation-before-deploy/.
+Verified current package source/input hashes before deploying ONLY the existing
+hyper-worker staff-notifications.ts. Dashboard confirmed success; after reload,
+copied persisted full editor source matches tested normalizedSHA256
+0357e1db56ca942f8cdad8b86eda8a200fe43642c35d1ad4b549d2f84eafea3c.
+No new function, JWT setting, HF app/UI or n8n deployment. Delivery0 independently
+verified before and after: public POST503notifications_disabled; unauthenticated
+diagnostic401unauthorized. No credentialed dispatch or real email occurred.
+
+Evidence results/email-automation-install-20261022/: exact SQL hashes, transaction
+screenshots, baseline/permission/fingerprint checks, deployed code hash, public
+gate results and final inactive status. Previous62worker/9bundle/localPostgreSQL
+tests retained; source unchanged, so no repeated tests/model work. Actual native
+objects and ACLs now verified; scheduler wakeup, Vault transport, authenticated
+Developer-mode diagnostic, retries and off-laptop delivery remain UNTESTED.
+
+NEXT obtain approval for disabled strict-mode configuration (DEVELOPER_ONLY1,
+SANDBOX0 with delivery0) and owner-private saved bearer entry in Vault under
+defectrag_notification_worker_bearer. Do not inspect/read the bearer. Then perform
+no-network config check and metadata checks. Separate activation approval still
+required for email_automation_enable.sql, delivery1, recurring bounded retries,
+and a NEW QA/off-laptop test. Do not resend/reset the delivered QA event. Existing
+applicant notifications, automatic approvals and n8n remain off. No GitHub push.
+
+---
+
 # Automatic Developer delivery prepared; inactive production install needs review — 22 October 2026
 
 User requested automatic Developer notifications next. Audited the proven worker:

@@ -1,0 +1,21 @@
+{
+  "checked_at": "2026-10-22T06:38:36.845603+00:00",
+  "checks": [
+    {
+      "diagnostic_header": false,
+      "http_status": 503,
+      "body": {
+        "error": "notifications_disabled"
+      },
+      "authorization_sent": false
+    },
+    {
+      "diagnostic_header": true,
+      "http_status": 401,
+      "body": {
+        "error": "unauthorized"
+      },
+      "authorization_sent": false
+    }
+  ]
+}
