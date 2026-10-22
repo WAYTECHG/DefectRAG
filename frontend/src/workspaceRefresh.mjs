@@ -1,6 +1,6 @@
 // Display guidance only. Backend JWT, MFA and RLS checks remain authoritative.
 export function workspaceRefreshGate(health,access,workspace){
- if(health?.mode!=='cloud_session_workspace')return null;
+ if(health?.mode!=='cloud_session_workspace'&&!health?.local_sync_enabled)return null;
  if(health.auth_workflow_enabled){
   const reasons={
    checking:'Checking account permissions before loading workspace records.',

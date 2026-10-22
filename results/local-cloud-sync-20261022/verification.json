@@ -1,0 +1,41 @@
+{
+  "start_checkpoint": "4390e82",
+  "status": "implemented_inactive_pending_manual_migration_and_live_integration",
+  "python_regressions": {
+    "tests": 72,
+    "failures": 0,
+    "errors": 0
+  },
+  "additional_gallery_check": {
+    "tests": 1,
+    "failures": 0,
+    "errors": 0
+  },
+  "frontend": {
+    "runner": "node --test",
+    "node": "v24.20.0",
+    "tests": 178,
+    "passed": 178
+  },
+  "source_fingerprint": "a676a38a658f4a16c2d7bcbd99dadbeb49feeefda59195264e585d2cd8c9b892",
+  "builds": [
+    "runtime/local-cloud-sync-build/local",
+    "runtime/local-cloud-sync-build/showcase",
+    "runtime/local-cloud-sync-build/cloud"
+  ],
+  "css_unchanged": true,
+  "sql_contracts_passed": true,
+  "production_sql_executed": false,
+  "hf_deployed": false,
+  "notifications_activated": false,
+  "real_model_executed": false,
+  "github_pushed": false,
+  "ui_visual_test": "empty local read-only fixture",
+  "user_reported_email_warning": "disappears after hard reload and Developer MFA",
+  "unverified": [
+    "Actual Supabase sync migration and native Storage/JWT integration",
+    "Real authenticated Desktop to cloud and cloud to Desktop operations",
+    "Production cache-control headers; separate deployment approval needed"
+  ],
+  "migration_sha256": "74f7cb26afa54305b31239ffaa3b88708d01d8b76a5c2023eb04c24369368e29"
+}

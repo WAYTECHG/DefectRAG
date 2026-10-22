@@ -181,7 +181,7 @@ def mount_gallery(app,repo,artifacts,gallery=None,owner=lambda:'local-operator',
         measurement=public_measurement(record)
         previews=[]
         for kind,suffix in (('image',''),('heatmap','_heatmap')):
-            path=Path(artifacts)/f'{identifier}{suffix}.jpg'
+            path=Path(artifacts() if callable(artifacts) else artifacts)/f'{identifier}{suffix}.jpg'
             if not record.get('storage','').startswith('supabase'):
                 if not path.is_file():raise HTTPException(409,'Saved image is unavailable. Nothing was published.')
                 content=path.read_bytes()

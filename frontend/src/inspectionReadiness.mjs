@@ -41,7 +41,7 @@ export function inspectionReadiness({health,workspace,access={state:'checking'},
  if(!health)return blocked('connecting','Connecting to the inspection service. Wait for the connection or use Retry refresh.');
  if(connectionFailed||health.status!=='ok'||health.encoder_configured===false)return blocked('service','The inspection service is temporarily unavailable. Reconnect or use Retry refresh.');
  if(offline&&health.mode==='cloud_session_workspace')return blocked('offline','The cloud inspection service is offline. Reconnect before running an inspection.');
- if(health.mode==='cloud_session_workspace'&&health.auth_workflow_enabled){
+ if((health.mode==='cloud_session_workspace'||health.local_sync_enabled)&&health.auth_workflow_enabled){
   const reasons={checking:'Checking account permissions before inspection.',pending:'Staff access is pending approval. Open Staff workspace to view the request. Sign out to use public Demo Mode.',
    rejected:'Staff access was rejected. Protected inspections are unavailable. Sign out to use public Demo Mode.',revoked:'Staff access was revoked. Protected inspections are unavailable.',
    mfa:'Verify the authenticator in Staff workspace before running an inspection.',denied:'This account does not have permission to run protected inspections.',

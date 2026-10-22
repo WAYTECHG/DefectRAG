@@ -278,10 +278,10 @@ def unknown_api(unknown: str):
 
 @server.get('/')
 def dashboard():
-    return FileResponse(UI/'index.html')
+    return FileResponse(UI/'index.html',headers={'Cache-Control':'no-store'})
 @server.get('/config.js')
 def public_config():
-    return FileResponse(UI/'config.js')
+    return FileResponse(UI/'config.js',headers={'Cache-Control':'no-store'})
 @server.get('/logo.svg')
 def logo():
     return FileResponse(UI/'logo.svg')

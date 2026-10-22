@@ -22,7 +22,7 @@ function harness(options={}){
  const env={
   refreshContext:{current:scope},health:options.health===undefined?health:options.health,
   SHOWCASE:options.showcase??false,metadataLoaded:{current:!options.full},
-  readRefreshSections,workspaceRefreshGate,personalEnabled:()=>configured,configureWorkspace:v=>{configured=v},
+  readRefreshSections,workspaceRefreshGate,configureLocalSync(){},setLocalSyncStatus(){},personalEnabled:()=>configured,configureWorkspace:v=>{configured=v},
   activeWorkspace:()=>configured?(options.workspace||'personal'):'team',setWorkspaceState(){},
   setSectionErrors:value=>{state.errors=typeof value==='function'?value(state.errors):value},
   clearWorkspace(){scope.invalidate();state.records=[];state.alerts=[];state.stats={total:0};state.workspace=null;state.errors=state.errors.filter(n=>['Connection','Samples','Performance','Benchmark'].includes(n))},

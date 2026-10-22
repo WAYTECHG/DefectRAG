@@ -1,3 +1,73 @@
+# Private local/cloud synchronization implemented INACTIVE - 22 October 2026
+
+User authorized implementing private synchronization in both directions and asked
+whether automatic Developer notifications were complete. Clarified: the one Resend
+QA delivery succeeded, but the recurring job/delivery remain disabled at the last
+verified checkpoint; Vault/configuration/activation approvals are still pending.
+No notification changes were made in this milestone.
+
+Continued from4390e82. Implemented optional DEFECTRAG_LOCAL_SYNC=1 (default0),
+verified-account SQLite/artifact namespaces, native Supabase staff/MFA checks on
+protected local requests, scoped artifact capabilities, current browser JWT
+transport with no tokens on disk, atomic local writes/operation queues, durable
+backoff, idempotent receipt replay, revision conflicts with explicit resolution
+and downloadable local backups. Uploads target personal storage only; Team sharing
+and gallery publication remain explicit. Cloud snapshots download with bounded
+hash-verified artifacts, complete conversation/note storage, paginated record/note
+scans and retained archive/restore state. No guest fallback into private history.
+
+Existing unassigned history is preserved separately and imports only after an
+explicit authenticated private-import confirmation. Duplicate imports skip existing
+IDs; old human decisions become clearly marked unverified-origin notes. Pending,
+revoked, missing-MFA and unavailable-account checks fail closed. Local mirror is
+loopback-only with strict origins and one-worker operation. Offline queues remain
+saved; protected account actions still require native authorization. Plaintext
+local copies cannot be remotely recalled after revocation; OS/disk protection is
+required. Sync runs while the local dashboard is open, not on a switched-off laptop.
+
+Prepared REVIEW-ONLY deployment/supabase_personal_sync.sql: revision column/index,
+private receipt ledger, version triggers (including existing cloud note inserts),
+owner/MFA-checked compare-and-set RPC with operation/body hash replay validation.
+No team/schema permission broadening or inspection deletion. Prepared ONE-result
+read-only deployment/personal_sync_preflight.sql. Neither executed in Supabase.
+Activation/rollback/live two-account steps documented in docs/LOCAL_CLOUD_SYNC.md.
+No HF deployment is required for the existing cloud app to observe newly synced
+Supabase personal rows; no new HF variable is needed for synchronization.
+
+Additional reported issue: email-link browser still showed the old refresh banner.
+User confirmed it disappears after Ctrl+Shift+R and Developer MFA. Added no-store
+headers to cloud entry HTML/config to avoid stale entry/config reuse on future
+visits. This cache-control fix is LOCAL CODE ONLY; no new HF deployment was made.
+Do not claim authenticated live retest or cache headers verified in production.
+
+Verification:73 Python checks passed (72 focused API/personal/auth/gallery
+regressions plus one targeted enabled-local-Gallery preservation test).178 frontend
+tests passed. Separate local, showcase and cloud React builds succeeded without
+replacing working dist/static/release inputs. CSS unchanged. Actual original
+personal workspace SQL plus additive sync SQL passed PostgreSQL17 owner/MFA/RLS,
+CAS/replay, notes, archive/recovery contracts in a temporary network-disabled
+container with no project mounts; only that container was removed. New tests cover
+lost acknowledgments, duplicates, retry persistence, fairness, ownership/account
+switch, artifacts, explicit legacy import and cloud factory startup compatibility.
+Windows long-path failures and schema-check retry backoff found/fixed in tests.
+Windows sandbox blocked test-client socketpair; tests passed outside sandbox.
+Two missing already-declared cached Python packages (community0.4.1, splitters1.1.2)
+were installed with no transitive upgrades; no new dependency added to requirements.
+
+Local read-only empty-workspace browser preview retained the design and correctly
+showed the private-sync guidance; screenshot/DOM, SQL and test receipts saved in
+results/local-cloud-sync-20261022/. No real model run/retraining, SQL migration,
+permission/secrets change, email, new HF deployment or GitHub push. Native Supabase
+Auth/Storage and real two-device synchronization remain unverified activation gates.
+
+NEXT: review the exact additive migration, obtain approval and let the user manually
+execute it after the single-result preflight. Then enable only the LOCAL flag and
+complete private sign-in/MFA/device-to-cloud live checks. Existing cloud code remains
+compatible. Cache-header HF publication requires separate approval. Notifications
+remain a separate inactive milestone; do not activate or resend the prior QA email.
+
+---
+
 # Approved refresh UI fix deployed and verified publicly - 22 October 2026
 
 User approved the UI deployment and completed private HF CLI sign-in. Read-only
