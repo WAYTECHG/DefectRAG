@@ -11,7 +11,9 @@ import ArchiveDialog from './ArchiveDialog.jsx';
 import BenchmarkReport from './BenchmarkReport.jsx';
 import {workspaceChanged,cloudClient} from './cloud.js';
 import InspectionAction from './InspectionAction.jsx';
-import {inspectionReadiness,loadInspectionAccess,watchInspectionAccess} from './inspectionReadiness.mjs';
+import {inspectionReadiness,loadInspectionAccess} from './inspectionReadiness.mjs';
+import {workspaceRefreshGate,readRefreshSections} from './workspaceRefresh.mjs';
+import RefreshNotice from './RefreshNotice.jsx';
 import ReviewForm from './ReviewForm.jsx';
 import WorkspaceShare from './WorkspaceShare.jsx';
 import {activeWorkspace,configureWorkspace,personalEnabled,setWorkspace,startPolling} from './workspace.mjs';
@@ -53,7 +55,7 @@ async function api(path,options={}) {
 
   const body=await response.json();
 
-  if(!response.ok) throw new Error(body.error?.message||'Request failed');
+  if(!response.ok) throw Object.assign(new Error(body.error?.message||'Request failed'),{status:response.status});
 
   return body.data;
 
@@ -80,12 +82,12 @@ function App(){
 
  const [category,setCategory]=useState('pcb1'),[batch,setBatch]=useState(''),[files,setFiles]=useState([]),[preview,setPreview]=useState(''),[filter,setFilter]=useState({category:'',verdict:'',batch:''}),[question,setQuestion]=useState(''),[heatmap,setHeatmap]=useState(true),[batchResult,setBatchResult]=useState(null);
 
- const context=useRef(createRequestScope()),refreshContext=useRef(createRequestScope());
+ const context=useRef(createRequestScope()),refreshContext=useRef(createRequestScope()),refreshPoll=useRef(null);
  const singleSubmission=useRef(null),artifactRefresh=useRef(0);
  const batchIdentity=useRef(null),batchLoad=useRef(0),metadataLoaded=useRef(false),batchSelection=useRef(null);
  const [signedIn,setSignedIn]=useState(false);
  const [workspace,setWorkspaceState]=useState('personal'),[workspaceStatus,setWorkspaceStatus]=useState(null),[sync,setSync]=useState({state:'refreshing'});
- function clearWorkspace(){refreshContext.current.invalidate();setRecords([]);setAlerts([]);setArchived([]);setStats({total:0,counts:{},batches:[]});setWorkspaceStatus(null)}
+ function clearWorkspace(){refreshContext.current.invalidate();setRecords([]);setAlerts([]);setArchived([]);setStats({total:0,counts:{},batches:[]});setWorkspaceStatus(null);setSectionErrors(previous=>previous.filter(name=>['Connection','Samples','Performance','Benchmark'].includes(name)))}
  function changeWorkspace(value){
   const keepDraft=workspace==='team'&&value==='personal'&&!busy&&!ragBusy&&!recordLoading;
   setWorkspace(value);setWorkspaceState(value);clearWorkspace();resetInspection();
@@ -96,12 +98,7 @@ function App(){
  function openTeamRecord(row){if(health?.personal_workspace_enabled)changeWorkspace('team');openRecord({...row.payload,id:row.id,storage:'supabase',workspace:'team'})}
  const [batchJob,setBatchJob]=useState(null),[batchWarning,setBatchWarning]=useState('');
  const [sectionErrors,setSectionErrors]=useState([]),[review,setReview]=useState(null),[recordLoading,setRecordLoading]=useState(false);
- const [inspectionAccess,setInspectionAccess]=useState({state:'checking'});
- useEffect(()=>{
-  if(health?.mode!=='cloud_session_workspace'||!health.auth_workflow_enabled){setInspectionAccess({state:'not_required'});return}
-  setInspectionAccess({state:'checking'});
-  return watchInspectionAccess(async()=>loadInspectionAccess(await cloudClient()),setInspectionAccess);
- },[health?.mode,health?.auth_workflow_enabled]);
+ const [inspectionAccess,setInspectionAccess]=useState({state:'checking'}),[workspaceBlock,setWorkspaceBlock]=useState(null);
  function currentReadiness(multiple=false,retry=false){
   return inspectionReadiness({health,workspace,access:inspectionAccess,files,categoryValid:Boolean(labels[category]),batch,multiple,retry,busy,ragBusy,recordLoading,offline:sync.state==='offline',connectionFailed:sectionErrors.includes('Connection')});
  }
@@ -113,20 +110,52 @@ function App(){
  }
  async function refresh(full=false){
   refreshContext.current.invalidate();const current=refreshContext.current.capture();
+  let settings=health;
+  // Resolve the public routing configuration before any private request.
+  // On first load activeWorkspace otherwise defaults to the legacy Team route.
+  if(full||!settings){
+   const metadata=[['Connection','/api/health',value=>{settings=value;setHealth(value)}],['Samples','/api/samples',setSamples],['Performance','/api/evaluation',setEvaluation],['Benchmark','/api/benchmark/official',setOfficial]];
+   const read=await readRefreshSections(metadata,api,current);if(!read)return false;
+   read.apply();
+   const failed=read.failures.map(row=>row.name);
+   setSectionErrors(previous=>[...previous.filter(name=>!metadata.some(row=>row[0]===name)),...failed]);
+   metadataLoaded.current=!failed.length;
+   if(failed.includes('Connection'))throw new Error('The inspection service could not be reached.');
+   const changed=Boolean(settings.personal_workspace_enabled)!==personalEnabled();
+   configureWorkspace(settings.personal_workspace_enabled);setWorkspaceState(activeWorkspace());
+   if(changed){clearWorkspace();setSectionErrors(failed);return false}
+  }
+  let access={state:'not_required'};
+  if(!SHOWCASE&&settings?.mode==='cloud_session_workspace'&&settings.auth_workflow_enabled){
+   try{access=await loadInspectionAccess(await cloudClient())}catch{access={state:'unavailable'}}
+   if(!current())return false;
+  }
+  setInspectionAccess(access);
+  const block=SHOWCASE?null:workspaceRefreshGate(settings,access,activeWorkspace());
+  setWorkspaceBlock(block);
+  if(block){
+   clearWorkspace();resetInspection();
+   return {state:'blocked',reason:block.reason};
+  }
   const requests=[['Overview','/api/stats',setStats],['History','/api/inspections?limit=500',setRecords],['Alerts','/api/alerts',setAlerts],['Recovery','/api/archives',setArchived]];
-  if(!SHOWCASE&&health?.mode==='cloud_session_workspace')requests.push(['Workspace','/api/workspace',setWorkspaceStatus]);
+  if(!SHOWCASE&&settings?.mode==='cloud_session_workspace')requests.push(['Workspace','/api/workspace',setWorkspaceStatus]);
   if(page==='inspect'&&result&&!SHOWCASE&&!busy&&!ragBusy){
    requests.push(['Selected conversation','/api/inspections/'+result.id+'/messages',setMessages],['Selected review','/api/inspections/'+result.id+'/reviews',value=>setReview(value.at(-1)||null)]);
    if(Date.now()-artifactRefresh.current>8*60*1000)requests.push(['Selected images','/api/inspections/'+result.id,value=>{artifactRefresh.current=Date.now();setResult(value)}]);
   }
-  if(full)requests.push(['Connection','/api/health',value=>{const changed=Boolean(value.personal_workspace_enabled)!==personalEnabled();configureWorkspace(value.personal_workspace_enabled);if(changed)clearWorkspace();setHealth(value);setWorkspaceState(activeWorkspace())}],['Samples','/api/samples',setSamples],['Performance','/api/evaluation',setEvaluation],['Benchmark','/api/benchmark/official',setOfficial]);
-  const settled=await Promise.allSettled(requests.map(([,path])=>api(path)));
-  if(!current())return false;
-  requests.forEach(([, ,setter],i)=>{if(settled[i].status==='fulfilled')setter(settled[i].value)});
-  setSectionErrors(previous=>[...previous.filter(name=>!requests.some(row=>row[0]===name)),...requests.filter((_,i)=>settled[i].status==='rejected').map(([name])=>name)]);
-  if(full)metadataLoaded.current=requests.every(([name],i)=>!['Connection','Samples','Performance','Benchmark'].includes(name)||settled[i].status==='fulfilled');
-  if(settled.some(r=>r.status==='rejected'))throw new Error('Some workspace data could not synchronize.');
+  const read=await readRefreshSections(requests,api,current);if(!read)return false;
+  if(read.failures.some(row=>[401,403].includes(row.status))){
+   // Permission may have changed since the posture check. Never retain private
+   // records or silently retry under an anonymous identity after a denial.
+   clearWorkspace();resetInspection();setInspectionAccess({state:'denied'});
+   const denied={reason:'Workspace access was denied or the session expired. Open Staff workspace to check sign-in and authenticator verification.',action:'account'};
+   setWorkspaceBlock(denied);return {state:'blocked',reason:denied.reason};
+  }
+  read.apply();
+  setSectionErrors(previous=>[...previous.filter(name=>!requests.some(row=>row[0]===name)),...read.failures.map(row=>row.name)]);
+  if(read.failures.length||!metadataLoaded.current)throw new Error('Some workspace data could not synchronize.');
  }
+ function retryRefresh(){metadataLoaded.current=false;refreshPoll.current?.refresh()}
  async function loadBatch(){
   if(SHOWCASE)return;
   const generation=++batchLoad.current,current=context.current.capture();
@@ -137,13 +166,14 @@ function App(){
    if(job&&current()&&location.hash==='#batch'){setCategory(job.category);setBatch(job.batch)}
   }catch{if(generation===batchLoad.current)setBatchWarning('Browser batch recovery is unavailable. Keep this page open to retain pending files.')}
  }
- useEffect(()=>{const poll=startPolling(()=>refresh(!metadataLoaded.current),{onState:setSync});return()=>{poll.stop();refreshContext.current.invalidate()}},[page,workspace,health?.personal_workspace_enabled,result?.id,busy,ragBusy]);
+ useEffect(()=>{const poll=startPolling(()=>refresh(!metadataLoaded.current),{onState:setSync});refreshPoll.current=poll;return()=>{poll.stop();refreshContext.current.invalidate();if(refreshPoll.current===poll)refreshPoll.current=null}},[page,workspace,health?.mode,health?.personal_workspace_enabled,health?.auth_workflow_enabled,result?.id,busy,ragBusy]);
  useEffect(()=>{if(health?.personal_workspace_enabled)loadBatch()},[health?.personal_workspace_enabled]);
  useEffect(()=>{
   loadBatch();
   const navigate=()=>setPage(current=>pageFromLocation(current));
   const update=async event=>{
    if(event.type==='defectrag-auth-change'&&event.detail.event!=='TOKEN_REFRESHED'){
+    refreshContext.current.invalidate();setInspectionAccess({state:'checking'});setWorkspaceBlock(null);
     const previous=batchIdentity.current,next=event.detail.userId?'staff:'+event.detail.userId:'browser';
     if(previous?.replace(/:personal$/,'')!==next){
      clearWorkspace();setWorkspace('personal');setWorkspaceState('personal');
@@ -152,7 +182,7 @@ function App(){
      setSignedIn(next.startsWith('staff:'));setFiles([]);setBatchJob(null);setBatchResult(null);batchIdentity.current=next;loadBatch();
     }
    }
-   refresh(!metadataLoaded.current).catch(()=>{});
+   refreshPoll.current?.refresh();
   };
 
   window.addEventListener('hashchange',navigate);window.addEventListener('defectrag-auth-change',update);
@@ -231,9 +261,9 @@ function App(){
 
  return <div className="app"><aside className="sidebar"><a className="brand" href="#overview" onClick={()=>go('overview')}><span className="brand-mark"><img src="./logo.svg" alt=""/></span><div>DefectRAG<span>INSPECTION INTELLIGENCE</span></div></a><div className="workspace-label">WORKSPACE</div><nav>{nav.map(([id,label,Icon])=><button key={id} className={page===id?'active':''} aria-current={page===id?'page':undefined} onClick={()=>go(id)}><Icon size={18}/>{label}{id==='alerts'&&alerts.some(a=>!a.acknowledged)&&<span className="nav-count">{alerts.filter(a=>!a.acknowledged).length}</span>}</button>)}</nav><div className="sidebar-bottom"><div className="local-card"><span className={'status-dot '+(!health||['offline','stale'].includes(sync.state)?'offline':'')}/><strong>{SHOWCASE?'Saved example showcase':health?(sync.state==='offline'?'Workspace offline':sync.state==='stale'?'Workspace data stale':'Workspace online'):'Connecting to workspace'}</strong><p>{SHOWCASE?'Read-only public showcase':(signedIn?(health?.personal_workspace_enabled?(page==='team'||workspace==='team'?'Team · shared Supabase':'Personal · private Supabase'):'Team · shared Supabase'):health?.mode==='cloud_session_workspace'?'Temporary browser workspace':'Private local workspace')}<br/>DINOv2 / DINOv3 · VisA</p></div><div className="sidebar-foot"><ShieldCheck size={15}/> Evidence before action.</div></div></aside>
 
- <main><div className="topbar"><span>Workspace <ChevronRight size={13}/> {nav.find(n=>n[0]===page)?.[1]}</span><div><span className="environment"><span className="status-dot"/> {SHOWCASE?'SAVED EXAMPLES':'LOCAL DEVELOPMENT'}</span><span className="avatar" role="img" aria-label="Quality control workspace" title="Quality control workspace"><ScanLine size={16} aria-hidden="true"/></span></div></div><div className="content" key={page}>{sectionErrors.length>0&&<div className="error" role="alert">Could not refresh: {sectionErrors.join(', ')}. Last loaded data may be outdated. <button className="text-button" onClick={()=>refresh(true).catch(()=>{})}>Retry refresh</button></div>}<header className="page-heading"><div><p className="eyebrow">{heading[0]}</p><h1>{heading[1]}</h1><p>{heading[2]}</p></div>{page!=='inspect'&&<button className="primary" onClick={()=>{if(health?.personal_workspace_enabled)changeWorkspace('personal');resetInspection();setFiles([]);go('inspect')}}><ScanLine size={17}/> {SHOWCASE?'Browse examples':'New inspection'}</button>}</header>
+ <main><div className="topbar"><span>Workspace <ChevronRight size={13}/> {nav.find(n=>n[0]===page)?.[1]}</span><div><span className="environment"><span className="status-dot"/> {SHOWCASE?'SAVED EXAMPLES':'LOCAL DEVELOPMENT'}</span><span className="avatar" role="img" aria-label="Quality control workspace" title="Quality control workspace"><ScanLine size={16} aria-hidden="true"/></span></div></div><div className="content" key={page}><RefreshNotice errors={sectionErrors} block={workspaceBlock} refreshing={sync.state==='refreshing'} onRetry={retryRefresh} onAccount={()=>go('team')} onPersonal={switchToPersonalWorkspace} showAccess={['overview','inspect','batch','history','alerts','recovery'].includes(page)}/><header className="page-heading"><div><p className="eyebrow">{heading[0]}</p><h1>{heading[1]}</h1><p>{heading[2]}</p></div>{page!=='inspect'&&<button className="primary" onClick={()=>{if(health?.personal_workspace_enabled)changeWorkspace('personal');resetInspection();setFiles([]);go('inspect')}}><ScanLine size={17}/> {SHOWCASE?'Browse examples':'New inspection'}</button>}</header>
 
- {!SHOWCASE&&health?.mode==='cloud_session_workspace'&&<section className="note" role="status"><div><strong>{page==='team'?'Team Workspace · explicitly shared staff records':signedIn&&!workspaceStatus?'Account access not verified · cloud synchronization unavailable':signedIn?(health.personal_workspace_enabled?(workspace==='personal'?'Personal Workspace · owner-only cloud history':'Team Workspace · explicitly shared staff records'):'Team Workspace · shared cloud history'):'Guest Workspace · isolated temporary history'}</strong><p>{sync.state==='synced'?'Synchronized at '+new Date(sync.at).toLocaleTimeString():sync.state==='offline'?'Offline · displayed data may be stale':sync.state==='stale'?'Synchronization failed · displayed data may be stale':'Refreshing workspace…'} · Public gallery counts are separate.</p>{signedIn&&health.personal_workspace_enabled&&page!=='team'&&<label>Data source <select aria-label="Inspection data source" value={workspace} disabled={busy||ragBusy||recordLoading} onChange={e=>changeWorkspace(e.target.value)}><option value="personal">Personal Workspace</option><option value="team">Team Workspace</option></select></label>}{health.personal_workspace_enabled&&workspace==='team'&&<p>New inspections belong in Personal Workspace. Share with staff only after reviewing the result.</p>}</div></section>}
+ {!SHOWCASE&&health?.mode==='cloud_session_workspace'&&<section className="note" role="status"><div><strong>{page==='team'?'Team Workspace · explicitly shared staff records':signedIn&&!workspaceStatus?'Account access not verified · cloud synchronization unavailable':signedIn?(health.personal_workspace_enabled?(workspace==='personal'?'Personal Workspace · owner-only cloud history':'Team Workspace · explicitly shared staff records'):'Team Workspace · shared cloud history'):'Guest Workspace · isolated temporary history'}</strong><p>{sync.state==='synced'?'Synchronized at '+new Date(sync.at).toLocaleTimeString():sync.state==='offline'?'Offline · displayed data may be stale':sync.state==='stale'?'Synchronization failed · displayed data may be stale':sync.state==='blocked'?'Workspace records paused · account action required':'Refreshing workspace…'} · Public gallery counts are separate.</p>{signedIn&&health.personal_workspace_enabled&&page!=='team'&&<label>Data source <select aria-label="Inspection data source" value={workspace} disabled={busy||ragBusy||recordLoading} onChange={e=>changeWorkspace(e.target.value)}><option value="personal">Personal Workspace</option><option value="team">Team Workspace</option></select></label>}{health.personal_workspace_enabled&&workspace==='team'&&<p>New inspections belong in Personal Workspace. Share with staff only after reviewing the result.</p>}</div></section>}
 
  {SHOWCASE&&<div className="showcase-banner" role="note"><BookOpen size={21}/><div><strong>Public showcase · saved real results</strong><p>These saved examples retain their original DINOv3 measurements. The Benchmark page compares the newer DINOv2 profile. No live model or chat runs on this static site; run the local app for new inspections.</p></div></div>}
 

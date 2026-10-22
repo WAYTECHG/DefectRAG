@@ -1,3 +1,46 @@
+# Workspace refresh startup and Retry UX corrected locally - 22 October 2026
+
+User reported the live five-section red refresh warning on opening the Space and
+an apparently inactive Retry action. Continued from f3e70b8. Notification activation
+is paused: no further notification configuration/activation was approved.
+
+Code audit found protected section requests racing public health/routing setup:
+activeWorkspace initially selects the legacy Team route before personal storage is
+configured. The old poll also treated pending/MFA/authorization denials as generic
+service failures, stripped HTTP status, silently caught manual Retry errors and
+used a mount-time refresh closure on account events. The current independent live
+guest session synchronized normally; the screenshot's exact signed-in HTTP cause
+was NOT reproduced or claimed verified.
+
+Implemented smallest frontend-only correction: public routing loads first; the
+existing native Supabase account posture check gates private refreshes. Expected
+MFA/pending/revoked states show specific neutral guidance and an account action.
+Signed-in authorization failures never fall back to guest requests. SDK failures
+remain visible and fail closed. Server 401/403 after the posture check clears
+private view state; genuine service failures retain the error banner. Retry now
+uses the current coalesced poll, forces metadata/account revalidation and visibly
+displays a disabled Refreshing button. Account/workspace generations still discard
+late responses. Removed the duplicate main-page account poll; backend JWT/RLS/MFA
+checks are unchanged. Existing classes/CSS/design, draft category/files/batch,
+static showcase, model/RAG code and all cloud records are preserved.
+
+Verification: 62 focused tests passed; separate cloud Vite build succeeded under
+runtime/refresh-ux/cloud and its receipt verifies ALL171 frontend tests passed.
+Existing non-blocking Vite script/external-module/chunk warnings remain. Browser
+verification used an explicitly local, empty read-only HTTP fixture: healthy page
+has no alert; forced History503 remains visible; Retry shows Refreshing; recovery
+clears alert and reports synchronized state. Screenshots/DOM notes/manifest summary
+saved in results/workspace-refresh-20261022/. No model runs, real account actions,
+SQL, emails, HF deployment, live auth changes or GitHub push. Existing live private
+sessions and real signed-in MFA recovery still need post-deployment verification.
+
+NEXT: obtain separate approval to stage/publish this tested UI fix to the existing
+HF Space, preserving current public config. Then verify guest startup and the
+existing approved user's AAL1-to-AAL2 refresh path privately. Do not activate email
+or resume notification setup without its separate disabled-configuration approval.
+
+---
+
 # Approved inactive cloud installation and worker deployment verified — 22 October 2026
 
 User approved the three exact reviewed SQL files and updated hyper-worker with

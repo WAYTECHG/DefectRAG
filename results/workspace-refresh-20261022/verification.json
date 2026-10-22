@@ -1,0 +1,50 @@
+{
+  "base_checkpoint": "f3e70b8",
+  "date": "2026-10-22",
+  "deployment": "not performed",
+  "cloud_build": {
+    "path": "runtime/refresh-ux/cloud",
+    "verified": true,
+    "source_fingerprint": "6ad3d52cf738f7d2679043e8e3900a98f30788f23f75c616dca57d803a8c23c7",
+    "verification": {
+      "runner": "node --test",
+      "node": "v24.20.0",
+      "tests": 171,
+      "passed": 171
+    },
+    "javascript_assets": [
+      "assets/TeamWorkspace-Dcbl6qUO.js",
+      "assets/__vite-browser-external-BIHI7g3E.js",
+      "assets/index-DGhDXxpu.js",
+      "assets/index-J0gQheIb.js"
+    ]
+  },
+  "focused_tests": {
+    "tests": 62,
+    "passed": 62
+  },
+  "browser_local_fixture": {
+    "healthy_page_no_alert": true,
+    "forced_history_503_visible": true,
+    "retry_shows_disabled_refreshing_button": true,
+    "recovered_retry_clears_alert": true,
+    "data": "Empty read-only fixtures; no inference or real records"
+  },
+  "live_checks": {
+    "existing_public_guest_space": "Loaded and synchronized without persistent warning",
+    "authenticated_error_cause": "Not reproduced in this browser; no current signed-in test session",
+    "new_release": "Not deployed or verified live"
+  },
+  "preserved": {
+    "css_files_unchanged": true,
+    "backend_unchanged": true,
+    "no_sql_or_permission_changes": true,
+    "no_email_sent": true,
+    "notification_delivery_remains_disabled": true
+  },
+  "screenshots": [
+    "healthy-local.png",
+    "retry-busy-local.png",
+    "recovered-local.png"
+  ]
+}

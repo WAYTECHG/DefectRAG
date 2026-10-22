@@ -21,7 +21,7 @@ export function startPolling(load,{interval=15000,onState=()=>{},target=window,d
   if(inFlight){again=true;return}
   if(target.navigator?.onLine===false){onState({state:'offline'});return}
   inFlight=true;onState({state:'refreshing'});
-  try{const applied=await load();if(!stopped){if(target.navigator?.onLine===false)onState({state:'offline'});else if(applied!==false)onState({state:'synced',at:Date.now()})}}
+  try{const applied=await load();if(!stopped){if(target.navigator?.onLine===false)onState({state:'offline'});else if(applied?.state==='blocked')onState(applied);else if(applied!==false)onState({state:'synced',at:Date.now()})}}
   catch(error){if(!stopped)onState(target.navigator?.onLine===false?{state:'offline'}:{state:'stale',error:error.message})}
   finally{inFlight=false;if(again&&!stopped){again=false;refresh()}}
  }

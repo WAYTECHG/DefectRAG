@@ -1,0 +1,109 @@
+- complementary:
+  - link "DefectRAG INSPECTION INTELLIGENCE":
+    - /url: "#overview"
+    - text: DefectRAG
+    - generic: INSPECTION INTELLIGENCE
+  - generic: WORKSPACE
+  - navigation:
+    - button "Overview":
+      - text: Overview
+    - button "Image inspection":
+      - text: Image inspection
+    - button "Batch monitoring":
+      - text: Batch monitoring
+    - button "Inspection history":
+      - text: Inspection history
+    - button "Review alerts":
+      - text: Review alerts
+    - button "Model performance":
+      - text: Model performance
+    - button "Official benchmark":
+      - text: Official benchmark
+    - button "Community gallery":
+      - text: Community gallery
+    - button "Staff workspace":
+      - text: Staff workspace
+    - button "History recovery":
+      - text: History recovery
+    - button "About & evidence":
+      - text: About & evidence
+  - strong: Workspace online
+  - paragraph:
+    - text: Temporary browser workspace
+    - text: DINOv2 / DINOv3 · VisA
+  - text: Evidence before action.
+- main:
+  - text: Workspace
+  - text: Batch monitoring
+  - generic: LIVE CLOUD
+  - img "Quality control workspace":
+  - alert:
+    - text: "Could not refresh: History. Last loaded data may be outdated."
+    - button "Refreshing…" [disabled]
+  - paragraph: OPERATIONS
+  - heading "Every batch, in view." [level=1]
+  - paragraph: Run a group of images and track results in one place.
+  - button "New inspection":
+    - text: New inspection
+  - status:
+    - strong: Guest Workspace · isolated temporary history
+    - paragraph: Refreshing workspace… · Public gallery counts are separate.
+  - heading "Create a batch" [level=2]
+  - generic: 01 / INPUT
+  - text: Product category
+  - combobox "Product category":
+    - option "PCB 1" [selected]
+    - option "Capsules"
+    - option "Cashew"
+    - option "Candle"
+    - option "Chewing gum"
+    - option "Fryum"
+    - option "Macaroni 1"
+    - option "Macaroni 2"
+    - option "PCB 2"
+    - option "PCB 3"
+    - option "PCB 4"
+    - option "Pipe fryum"
+  - text: Batch label required
+  - textbox "Batch label required":
+    - /placeholder: e.g. PCB-LINE-01
+  - strong: Choose an image group
+  - generic: JPEG, PNG or WebP · up to 10 MB each
+  - button "Upload inspection images"
+  - paragraph: Use images of the selected product. Arbitrary images are outside the validated model scope.
+  - button "Inspect batch" [disabled]:
+    - text: Inspect batch
+  - status: Choose an image before running an inspection.
+  - paragraph: Guest results are temporary and private to this browser workspace.
+  - heading "Batch run" [level=2]
+  - generic: 02 / EVIDENCE
+  - paragraph: Choose a product, label the batch and select up to 20 images.
+  - heading "Batch history" [level=2]
+  - generic: 0 named batches
+  - combobox "Filter category":
+    - option "All products" [selected]
+    - option "PCB 1"
+    - option "Capsules"
+    - option "Cashew"
+    - option "Candle"
+    - option "Chewing gum"
+    - option "Fryum"
+    - option "Macaroni 1"
+    - option "Macaroni 2"
+    - option "PCB 2"
+    - option "PCB 3"
+    - option "PCB 4"
+    - option "Pipe fryum"
+  - combobox "Filter result":
+    - option "All results" [selected]
+    - option "Good"
+    - option "Anomalous"
+    - option "Uncertain"
+  - combobox "Filter batch":
+    - option "All batches" [selected]
+  - button "Clear filters"
+  - generic: 0 records shown
+  - paragraph: No inspections yet. Add an image to start your inspection log.
+  - text: DefectRAG
+  - generic: Inspection & evidence workspace
+  - generic: Benchmark screening · human review where needed
