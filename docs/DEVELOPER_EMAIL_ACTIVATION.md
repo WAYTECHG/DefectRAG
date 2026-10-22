@@ -2,6 +2,12 @@
 
 ## Latest checkpoint
 
+22 October: user confirmed receipt of the single QA email. Controlled delivery
+and mailbox receipt have passed; Inbox versus Spam was not specified. Delivery
+remains disabled and no further send is approved. Laptop-off scheduling, real
+provider failure retries and replay remain untested; these are not implied by
+the successful one-email test. See latest DEVELOPMENT_PROGRESS.md.
+
 22 October provider verification: Resend POST /emails HTTP200, response ID
 01a16225-6de2-7542-97dc-3b5bffaa5c75 and Delivered status independently observed.
 Exact-event idempotency key matches; Preview has Pending/manual MFA/production

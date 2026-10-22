@@ -18,6 +18,8 @@
     "manual_developer_mfa": true,
     "production_workspace_link": true
   },
-  "mailbox_receipt_user_confirmed": false,
+  "mailbox_receipt_user_confirmed": true,
+  "mailbox_receipt_confirmation_date": "2026-10-22",
+  "mailbox_folder": "not specified",
   "additional_send_performed": false
 }

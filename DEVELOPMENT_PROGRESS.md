@@ -1,3 +1,21 @@
+# Developer mailbox receipt confirmed — 22 October 2026
+
+User replied yes to receipt of the single QA Staff access requested email in the
+Developer mailbox (Inbox versus Spam was not specified). This completes the
+controlled one-email path: provider HTTP200, Delivered, durable sent/attempts1,
+matching idempotency key, correct Pending/MFA/workspace content and user-confirmed
+receipt. Applicant remains Pending/noStaff as last verified; delivery remains0.
+No new send, retry, activation, account/permission/secret change or deployment.
+Provider evidence updated with user-confirmed receipt; no receipt time invented.
+
+Cloud scheduling with laptop/Docker off and actual provider failure/replay tests
+remain separate, untested and not authorized. No automatic notifications enabled.
+The original request still requires these limits to be reported before declaring
+all Priority1 production verification complete. Corrective Actions production
+SQL/activation remains unapproved. Preserve the working checkpoints and UI/data.
+
+---
+
 # Resend delivery and response independently verified — 22 October 2026
 
 User signed into Resend privately. Read-only provider dashboard shows ONE message
