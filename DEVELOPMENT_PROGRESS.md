@@ -5,6 +5,13 @@ deployment/supabase_personal_sync.sql successfully. It was NOT rerun. No SQL
 migrations, grants, production settings/secrets, account approvals, notifications,
 n8n changes, HF deployment or GitHub push were performed in this milestone.
 
+Live-verification checkpoint8034cfe saved and guarded Desktop fast-forward passed
+(24 files); public config, local history/models/dataset and existing Desktop edits
+were preserved. Final screenshots were recaptured after both original and heatmap
+finished decoding; evidence consistency assertions passed. Existing application
+source/builds were unchanged. Local services remain running for the next approved
+step; legacy import still requires explicit approval and a verified private backup.
+
 Milestone1 LIVE read-only checks passed in the intended Supabase project:
 sync_version bigint NOT NULL DEFAULT1; private RLS receipts with no browser grants;
 exact sync RPC signature/ACLs and empty search_path; both version triggers enabled;
