@@ -1,0 +1,195 @@
+{
+  "tables": [
+    {
+      "rls": true,
+      "name": "personal_inspections",
+      "anon_insert": false,
+      "anon_select": false,
+      "public_grants": 0,
+      "authenticated_delete": false,
+      "authenticated_insert": true,
+      "authenticated_select": true,
+      "authenticated_update": false
+    },
+    {
+      "rls": true,
+      "name": "personal_notes",
+      "anon_insert": false,
+      "anon_select": false,
+      "public_grants": 0,
+      "authenticated_delete": false,
+      "authenticated_insert": true,
+      "authenticated_select": true,
+      "authenticated_update": false
+    },
+    {
+      "rls": true,
+      "name": "personal_sync_receipts",
+      "anon_insert": false,
+      "anon_select": false,
+      "public_grants": 0,
+      "authenticated_delete": false,
+      "authenticated_insert": false,
+      "authenticated_select": false,
+      "authenticated_update": false
+    }
+  ],
+  "policies": [
+    {
+      "name": "personal_artifact_insert",
+      "check": "((bucket_id = 'personal-inspections'::text) AND defectrag_is_staff() AND ((storage.foldername(name))[1] = (auth.uid())::text))",
+      "roles": [
+        "authenticated"
+      ],
+      "table": "objects",
+      "using": null,
+      "schema": "storage",
+      "command": "INSERT"
+    },
+    {
+      "name": "personal_artifact_read",
+      "check": null,
+      "roles": [
+        "authenticated"
+      ],
+      "table": "objects",
+      "using": "((bucket_id = 'personal-inspections'::text) AND defectrag_is_staff() AND ((storage.foldername(name))[1] = (auth.uid())::text))",
+      "schema": "storage",
+      "command": "SELECT"
+    },
+    {
+      "name": "private_artifact_auth_guard",
+      "check": "((bucket_id <> ALL (ARRAY['team-inspections'::text, 'personal-inspections'::text])) OR defectrag_is_staff())",
+      "roles": [
+        "authenticated"
+      ],
+      "table": "objects",
+      "using": "((bucket_id <> ALL (ARRAY['team-inspections'::text, 'personal-inspections'::text])) OR defectrag_is_staff())",
+      "schema": "storage",
+      "command": "ALL"
+    },
+    {
+      "name": "personal_owner_insert",
+      "check": "(defectrag_is_staff() AND (owner_id = auth.uid()) AND (archived_at IS NULL) AND (archived_by IS NULL) AND ((payload ->> 'id'::text) = id) AND (image_path ~~ ((((auth.uid())::text || '/'::text) || id) || '/%'::text)) AND (heatmap_path ~~ ((((auth.uid())::text || '/'::text) || id) || '/%'::text)))",
+      "roles": [
+        "authenticated"
+      ],
+      "table": "personal_inspections",
+      "using": null,
+      "schema": "public",
+      "command": "INSERT"
+    },
+    {
+      "name": "personal_owner_read",
+      "check": null,
+      "roles": [
+        "authenticated"
+      ],
+      "table": "personal_inspections",
+      "using": "(defectrag_is_staff() AND (owner_id = auth.uid()))",
+      "schema": "public",
+      "command": "SELECT"
+    },
+    {
+      "name": "staff_auth_guard",
+      "check": "defectrag_is_staff()",
+      "roles": [
+        "authenticated"
+      ],
+      "table": "personal_inspections",
+      "using": "defectrag_is_staff()",
+      "schema": "public",
+      "command": "ALL"
+    },
+    {
+      "name": "personal_notes_owner_insert",
+      "check": "(defectrag_is_staff() AND (author_id = auth.uid()) AND (EXISTS ( SELECT 1\n FROM personal_inspections i\n WHERE ((i.id = personal_notes.inspection_id) AND (i.owner_id = auth.uid()) AND (i.archived_at IS NULL)))))",
+      "roles": [
+        "authenticated"
+      ],
+      "table": "personal_notes",
+      "using": null,
+      "schema": "public",
+      "command": "INSERT"
+    },
+    {
+      "name": "personal_notes_owner_read",
+      "check": null,
+      "roles": [
+        "authenticated"
+      ],
+      "table": "personal_notes",
+      "using": "(defectrag_is_staff() AND (author_id = auth.uid()) AND (EXISTS ( SELECT 1\n FROM personal_inspections i\n WHERE ((i.id = personal_notes.inspection_id) AND (i.owner_id = auth.uid())))))",
+      "schema": "public",
+      "command": "SELECT"
+    },
+    {
+      "name": "staff_auth_guard",
+      "check": "defectrag_is_staff()",
+      "roles": [
+        "authenticated"
+      ],
+      "table": "personal_notes",
+      "using": "defectrag_is_staff()",
+      "schema": "public",
+      "command": "ALL"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "personal_sync_version",
+      "enabled": "O",
+      "definition": "CREATE TRIGGER personal_sync_version BEFORE UPDATE ON public.personal_inspections FOR EACH ROW EXECUTE FUNCTION defectrag_personal_sync_version()"
+    },
+    {
+      "name": "personal_sync_note_version",
+      "enabled": "O",
+      "definition": "CREATE TRIGGER personal_sync_note_version AFTER INSERT ON public.personal_notes FOR EACH ROW EXECUTE FUNCTION defectrag_personal_sync_note_version()"
+    }
+  ],
+  "functions": [
+    {
+      "config": [
+        "search_path=\"\""
+      ],
+      "signature": "defectrag_personal_sync_apply(uuid,text,bigint,text,jsonb)",
+      "anon_execute": false,
+      "public_execute": false,
+      "security_definer": true,
+      "authenticated_execute": true
+    },
+    {
+      "config": [
+        "search_path=\"\""
+      ],
+      "signature": "defectrag_personal_sync_note_version()",
+      "anon_execute": false,
+      "public_execute": false,
+      "security_definer": true,
+      "authenticated_execute": false
+    },
+    {
+      "config": [
+        "search_path=\"\""
+      ],
+      "signature": "defectrag_personal_sync_version()",
+      "anon_execute": false,
+      "public_execute": false,
+      "security_definer": false,
+      "authenticated_execute": false
+    }
+  ],
+  "sync_column": {
+    "type": "bigint",
+    "default": "1",
+    "nullable": "NO"
+  },
+  "auth_settings": {
+    "mfa_required": true,
+    "registration_enabled": true
+  },
+  "private_bucket": true,
+  "owner_scan_index": true,
+  "sync_apply_definition": "CREATE OR REPLACE FUNCTION public.defectrag_personal_sync_apply(p_operation uuid, p_id text, p_base bigint, p_action text, p_data jsonb DEFAULT '{}'::jsonb)\n RETURNS jsonb\n LANGUAGE plpgsql\n SECURITY DEFINER\n SET search_path TO ''\nAS $function$\r\ndeclare r public.personal_inspections; receipt public.personal_sync_receipts;\r\n fingerprint text; result_version bigint;\r\nbegin\r\n if not public.defectrag_is_staff() or auth.uid() is null then\r\n raise insufficient_privilege using message='Approved account and required MFA needed'; end if;\r\n if p_operation is null or p_id is null or p_id!~'^[a-f0-9]{32}$' or p_base is null or p_base<0\r\n or p_action is null or p_action not in ('create','conversation','review','acknowledge','archive','restore')\r\n or p_data is null or jsonb_typeof(p_data)<>'object' or octet_length(p_data::text)>1000000 then\r\n raise exception 'Invalid bounded synchronization operation'; end if;\r\n fingerprint=encode(sha256(convert_to(jsonb_build_array(p_id,p_base,p_action,p_data)::text,'UTF8')),'hex');\r\n -- Serialize retries for one inspection, including concurrent first insertion.\r\n perform pg_catalog.pg_advisory_xact_lock(pg_catalog.hashtextextended(p_id,0));\r\n select * into receipt from public.personal_sync_receipts where owner_id=auth.uid() and operation_id=p_operation;\r\n if found then\r\n if receipt.request_hash<>fingerprint then raise exception 'Operation ID reused with different contents'; end if;\r\n return jsonb_build_object('version',receipt.version,'replayed',true);\r\n end if;\r\n select * into r from public.personal_inspections where id=p_id for update;\r\n if r.id is not null and r.owner_id<>auth.uid() then\r\n raise insufficient_privilege using message='Personal inspection unavailable'; end if;\r\n if p_action='create' then\r\n if r.id is not null or p_base<>0 then return jsonb_build_object('conflict',true); end if;\r\n if p_data->'record'->>'id' is distinct from p_id or\r\n coalesce(p_data->'record'->>'category','') not in ('pcb1','capsules','cashew','candle','chewinggum','fryum','macaroni1','macaroni2','pcb2','pcb3','pcb4','pipe_fryum') or\r\n coalesce(p_data->'record'->>'verdict','') not in ('Good','Anomalous','Uncertain') or\r\n (p_data->>'image_path') is null or (p_data->>'heatmap_path') is null or\r\n (p_data->>'image_path')!~('^'||auth.uid()::text||'/'||p_id||'/image-[a-f0-9]{64}\\.jpg$') or\r\n (p_data->>'heatmap_path')!~('^'||auth.uid()::text||'/'||p_id||'/heatmap-[a-f0-9]{64}\\.jpg$') or\r\n not exists(select 1 from storage.objects where bucket_id='personal-inspections' and name=p_data->>'image_path') or\r\n not exists(select 1 from storage.objects where bucket_id='personal-inspections' and name=p_data->>'heatmap_path') then\r\n raise exception 'Owned immutable inspection artifacts required'; end if;\r\n insert into public.personal_inspections(id,owner_id,created_at,payload,image_path,heatmap_path)\r\n values(p_id,auth.uid(),(p_data->'record'->>'created_at')::timestamptz,\r\n (p_data->'record')-'owner_id'-'workspace'-'storage'-'image_url'-'heatmap_url'-'report_url',p_data->>'image_path',p_data->>'heatmap_path');\r\n else\r\n if r.id is null then return jsonb_build_object('conflict',true); end if;\r\n if r.sync_version<>p_base or (r.archived_at is not null and p_action<>'restore') then\r\n return jsonb_build_object('conflict',true); end if;\r\n if p_action='conversation' then\r\n perform public.defectrag_personal_action(p_id,'conversation',p_data->>'question',p_data->'answer');\r\n elsif p_action='acknowledge' then\r\n perform public.defectrag_personal_action(p_id,'acknowledge');\r\n elsif p_action='review' then\r\n if coalesce(char_length(p_data->>'body'),0) not between 1 and 2000 then raise exception 'Invalid review'; end if;\r\n insert into public.personal_notes(id,inspection_id,author_id,body)\r\n values(p_operation,p_id,auth.uid(),p_data->>'body');\r\n else\r\n perform public.defectrag_personal_archive(array[p_id],p_action='restore');\r\n end if;\r\n end if;\r\n select sync_version into result_version from public.personal_inspections where id=p_id;\r\n insert into public.personal_sync_receipts(owner_id,operation_id,inspection_id,request_hash,version)\r\n values(auth.uid(),p_operation,p_id,fingerprint,result_version);\r\n return jsonb_build_object('version',result_version,'replayed',false);\r\nend; $function$\n",
+  "staff_guard_definition": "CREATE OR REPLACE FUNCTION public.defectrag_is_staff()\n RETURNS boolean\n LANGUAGE sql\n STABLE SECURITY DEFINER\n SET search_path TO ''\nAS $function$\r\n select exists(select 1 from public.staff_members s where s.user_id=auth.uid() and s.revoked_at is null)\r\n and exists(select 1 from public.defectrag_auth_settings c where c.singleton\r\n and (not c.mfa_required or public.defectrag_has_aal2()));\r\n$function$\n"
+}

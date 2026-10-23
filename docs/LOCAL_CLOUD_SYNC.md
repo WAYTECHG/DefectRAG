@@ -1,5 +1,134 @@
 # Private synchronization between the local app and Hugging Face
 
+## Live activation checkpoint — 23 October 2026
+
+The user manually applied `supabase_personal_sync.sql`. Do **not** rerun it.
+Read-only production catalog checks confirmed the column, private receipts,
+expected RPC signature/ACLs, enabled triggers, private bucket, owner-only RLS and
+restrictive native TOTP guards. Registration and mandatory MFA remain true.
+Anonymous history, receipt and exact-signature RPC probes returned 401/42501.
+
+Desktop and Work started at `73c3fc5`. Desktop's preserved public configuration
+matches the live Supabase project/publishable key. Its missing local auth UI flag
+was enabled by appending `window.DEFECTRAG_PUBLIC_CONFIG.authWorkflowEnabled=true`;
+the original is retained privately at
+`runtime/local-sync-activation-20261023/config.before.js`. No secrets were changed.
+The local backend runs with `DEFECTRAG_LOCAL_SYNC=1` in its process environment.
+The React development server uses the latest source without replacing working
+`frontend/dist` or the showcase. **No HF deployment or HF flag change occurred.**
+
+The user privately verified Developer MFA at both local and HF origins, and a
+different approved account with MFA at the separate `localhost` origin. One real
+DINOv2 Capsules sample produced QA inspection
+`c82bf820f305459988c6e94494514edf`, batch `QA-SYNC-20261023`, score
+0.20568740367889404, threshold 0.1439922600984573, inference 973 ms.
+Live evidence is in `results/local-cloud-sync-live-20261023/`:
+
+- Local creation, private image/heatmap upload, HF display and matching saved
+  measurements/conversation passed. Both HF images decoded at 640×427.
+- Cloud review returned to local; independent refresh retained the saved history.
+- Replayed the ORIGINAL create UUID/body/base from a backed-up QA-only queue to
+  simulate lost acknowledgment. Cloud revision/receipts stayed unchanged: no
+  duplicate row or conversation. No existing history was imported.
+- A temporary QA-ID-restricted harness interrupted only sync RPC dispatch. The
+  real local write/queue persisted across refresh, retried six times with backoff,
+  and saved once after transport was restored. This was **injected transport
+  failure**, not a physical internet outage. The normal backend was restored.
+- A concurrent real cloud/local QA review produced an explicit conflict. Choosing
+  cloud retained the unsent local edit in a downloadable recovery backup; backup
+  download passed and contained no authentication tokens.
+- A different approved AAL2 account could not read the private cloud row/image,
+  retrieve it through the local API (404), read receipts or replay its operation
+  (42501). No membership or approval changes occurred. The temporary diagnostic
+  page used normal SDK authorization and was removed afterwards.
+- QA alert acknowledgment, cloud archive → local recovery, and local restore →
+  cloud history passed. QA finishes active, acknowledged, revision 9, four saved
+  notes, two conversation entries, zero pending operations and zero conflicts.
+- HF reads/images and a new QA review worked while the local backend was stopped;
+  that review returned after normal backend restart. **Actual laptop power-off and
+  a separate physical device were not tested.**
+
+Team copying/publication remained explicit and were not invoked. The production
+QA metadata checks showed zero Team copies. Notifications/n8n were untouched.
+No migration, permission, model, deployment, or existing-record modifications
+were performed by this activation; only the disposable QA record was exercised.
+
+### Starting the verified local setup again
+
+Two terminals are needed for the currently verified development setup. Backend:
+
+```powershell
+Set-Location 'C:/Users/User/Desktop/DefectRAG-v2'
+$env:DEFECTRAG_LOCAL_SYNC='1'
+./.venv/Scripts/python.exe -m uvicorn backend.main:app --host 127.0.0.1 --port 8765 --workers 1
+```
+
+Frontend, in the other terminal:
+
+```powershell
+Set-Location 'C:/Users/User/Desktop/DefectRAG-v2/frontend'
+npm run dev -- --strictPort
+```
+
+Use `http://127.0.0.1:5173`, sign in with the same approved account as HF and
+complete required MFA. This session is separate from HF. Do not also start a
+second backend on port 8765. The opt-in environment flag must be set again after
+closing the terminal. The older one-server `frontend/dist` setup below needs a
+fresh local build; its existing build has deliberately not been replaced.
+
+### Existing-history audit and import gate
+
+Read-only audit: legacy SQLite has **20 records: 5 active, 15 archived**. This
+Developer's cloud history has **4 active, 0 archived**, including the new QA record
+(three pre-existing cloud records). The five active legacy candidates have no
+same-ID duplicates/conflicts or matching image hashes in this account's cloud
+history. All ten JPEG artifacts exist and are within upload bounds, totaling
+**1,615,152 bytes (about 1.54 MiB)**, plus row/conversation/note overhead. This is a
+point-in-time comparison and must be rechecked immediately before an import.
+
+Detailed private audit: Desktop
+`runtime/local-sync-activation-20261023/import-audit-private.json`. Only aggregate
+counts are saved in source results. **No import has been authorized or executed.**
+The existing importer lists active legacy records; it cannot import the 15 legacy
+archived records while preserving their archive state. They remain untouched in
+the original local database. Never restore them merely to force an import.
+An archive-preserving importer is a separate change if those records are wanted
+in the cloud. ID conflicts during any future import must stop for review.
+
+Before separately approving an import:
+
+1. Stop the local backend and copy the entire Desktop `runtime` directory to a
+   dated private backup **outside** the project/runtime directory. Preserve the
+   account mirrors, SQLite files and any WAL files, artifacts and queued work.
+   Do not overwrite an earlier backup or commit this backup to Git.
+2. Export the intended account's existing cloud rows (including personal notes,
+   conversations, audit and synchronization receipts) and download its private
+   Storage objects using authorized tooling. A table CSV alone does not back up
+   images/heatmaps. Keep the export private and check row/file counts.
+3. Re-run the read-only duplicate/artifact audit and review the five selected IDs.
+4. Obtain explicit approval for those records. Import through the authenticated
+   Personal UI, verify counts/metadata/hashes, and retain originals/backups. Never
+   reset the cloud to a backup over other users' newer work.
+
+### Remaining operational limits
+
+- Sync is polling (about 15 seconds plus request/pagination/backoff time), not an
+  instantaneous push service. Both local services and its dashboard must be open
+  to process the local queue. Cloud-confirmed data remains in Supabase when they
+  stop; pending local work does not exist in the cloud yet.
+- Protected new operations fail closed if native authorization is unavailable;
+  this does not provide offline authenticated editing.
+- A concurrent remote archive of the currently open inspection can show a
+  transient “Selected conversation / Selected review” refresh warning. Recovery
+  and restoration worked; a focused stale-selection UI improvement remains.
+- The result's “Storage: local device” caption describes its local cache. Use the
+  synchronization status/queue for cloud-confirmation state, not that caption.
+- Actual internet disconnection, physical laptop power-off and additional-device
+  testing remain manual checks. Pending/revoked/AAL1 regressions previously passed
+  local tests; this activation did not change accounts to rerun them live.
+
+## Original implementation and activation reference
+
 Implementation checkpoint starts at `4390e82`. This feature is **inactive** until
 the reviewed additive SQL is manually applied and the local feature flag is enabled.
 No production migration, activation or deployment was performed during development.

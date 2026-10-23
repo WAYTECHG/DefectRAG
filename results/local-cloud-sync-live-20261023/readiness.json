@@ -1,0 +1,46 @@
+{
+  "local_health": [
+    {
+      "port": 8765,
+      "http": 200,
+      "local_sync": true,
+      "native_auth": true,
+      "models_available": 12
+    },
+    {
+      "port": 5173,
+      "http": 200,
+      "local_sync": true,
+      "native_auth": true,
+      "models_available": 12
+    }
+  ],
+  "anonymous_production_checks": [
+    {
+      "resource": "/rest/v1/personal_inspections",
+      "status": 401,
+      "postgres_code": "42501",
+      "denied": true
+    },
+    {
+      "resource": "/rest/v1/personal_sync_receipts",
+      "status": 401,
+      "postgres_code": "42501",
+      "denied": true
+    },
+    {
+      "resource": "/rest/v1/rpc/defectrag_personal_sync_apply",
+      "status": 401,
+      "postgres_code": "42501",
+      "denied": true,
+      "exact_signature_arguments": true,
+      "database_write": false
+    }
+  ],
+  "local_flag_process_only": true,
+  "same_project_and_publishable_key_verified": true,
+  "existing_history_imported": false,
+  "hf_deployed": false,
+  "notifications_changed": false,
+  "initial_empty_arguments_probe": "PGRST202: did not resolve RPC signature; replaced by exact-argument authorization check"
+}

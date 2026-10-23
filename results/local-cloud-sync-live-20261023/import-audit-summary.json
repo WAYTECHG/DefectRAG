@@ -1,0 +1,17 @@
+{
+  "cloud_total": 4,
+  "cloud_active": 4,
+  "cloud_archived": 0,
+  "cloud_includes_one_new_qa": true,
+  "legacy_total": 20,
+  "legacy_active": 5,
+  "legacy_archived": 15,
+  "active_same_id_duplicates": 0,
+  "active_same_id_conflicts": 0,
+  "active_possible_same_image_matches": 0,
+  "active_missing_or_oversized_artifacts": 0,
+  "ready_new_active_records": 5,
+  "new_active_artifact_bytes": 1615152,
+  "archived_import_supported_by_current_ui": false,
+  "import_executed": false
+}

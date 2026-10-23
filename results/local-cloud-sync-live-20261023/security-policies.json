@@ -1,0 +1,126 @@
+{
+  "policies": [
+    {
+      "cmd": "INSERT",
+      "name": "personal_artifact_insert",
+      "check": "((bucket_id = 'personal-inspections'::text) AND defectrag_is_staff() AND ((storage.foldername(name))[1] = (auth.uid())::text))",
+      "roles": [
+        "authenticated"
+      ],
+      "table": "objects",
+      "using": null,
+      "permissive": "PERMISSIVE"
+    },
+    {
+      "cmd": "SELECT",
+      "name": "personal_artifact_read",
+      "check": null,
+      "roles": [
+        "authenticated"
+      ],
+      "table": "objects",
+      "using": "((bucket_id = 'personal-inspections'::text) AND defectrag_is_staff() AND ((storage.foldername(name))[1] = (auth.uid())::text))",
+      "permissive": "PERMISSIVE"
+    },
+    {
+      "cmd": "ALL",
+      "name": "private_artifact_auth_guard",
+      "check": "((bucket_id <> ALL (ARRAY['team-inspections'::text, 'personal-inspections'::text])) OR defectrag_is_staff())",
+      "roles": [
+        "authenticated"
+      ],
+      "table": "objects",
+      "using": "((bucket_id <> ALL (ARRAY['team-inspections'::text, 'personal-inspections'::text])) OR defectrag_is_staff())",
+      "permissive": "RESTRICTIVE"
+    },
+    {
+      "cmd": "INSERT",
+      "name": "team_artifacts_insert",
+      "check": "((bucket_id = 'team-inspections'::text) AND defectrag_is_staff() AND ((storage.foldername(name))[1] = (auth.uid())::text))",
+      "roles": [
+        "authenticated"
+      ],
+      "table": "objects",
+      "using": null,
+      "permissive": "PERMISSIVE"
+    },
+    {
+      "cmd": "SELECT",
+      "name": "team_artifacts_read",
+      "check": null,
+      "roles": [
+        "authenticated"
+      ],
+      "table": "objects",
+      "using": "((bucket_id = 'team-inspections'::text) AND defectrag_is_staff())",
+      "permissive": "PERMISSIVE"
+    },
+    {
+      "cmd": "INSERT",
+      "name": "personal_owner_insert",
+      "check": "(defectrag_is_staff() AND (owner_id = auth.uid()) AND (archived_at IS NULL) AND (archived_by IS NULL) AND ((payload ->> 'id'::text) = id) AND (image_path ~~ ((((auth.uid())::text || '/'::text) || id) || '/%'::text)) AND (heatmap_path ~~ ((((auth.uid())::text || '/'::text) || id) || '/%'::text)))",
+      "roles": [
+        "authenticated"
+      ],
+      "table": "personal_inspections",
+      "using": null,
+      "permissive": "PERMISSIVE"
+    },
+    {
+      "cmd": "SELECT",
+      "name": "personal_owner_read",
+      "check": null,
+      "roles": [
+        "authenticated"
+      ],
+      "table": "personal_inspections",
+      "using": "(defectrag_is_staff() AND (owner_id = auth.uid()))",
+      "permissive": "PERMISSIVE"
+    },
+    {
+      "cmd": "ALL",
+      "name": "staff_auth_guard",
+      "check": "defectrag_is_staff()",
+      "roles": [
+        "authenticated"
+      ],
+      "table": "personal_inspections",
+      "using": "defectrag_is_staff()",
+      "permissive": "RESTRICTIVE"
+    },
+    {
+      "cmd": "INSERT",
+      "name": "personal_notes_owner_insert",
+      "check": "(defectrag_is_staff() AND (author_id = auth.uid()) AND (EXISTS ( SELECT 1\n FROM personal_inspections i\n WHERE ((i.id = personal_notes.inspection_id) AND (i.owner_id = auth.uid()) AND (i.archived_at IS NULL)))))",
+      "roles": [
+        "authenticated"
+      ],
+      "table": "personal_notes",
+      "using": null,
+      "permissive": "PERMISSIVE"
+    },
+    {
+      "cmd": "SELECT",
+      "name": "personal_notes_owner_read",
+      "check": null,
+      "roles": [
+        "authenticated"
+      ],
+      "table": "personal_notes",
+      "using": "(defectrag_is_staff() AND (author_id = auth.uid()) AND (EXISTS ( SELECT 1\n FROM personal_inspections i\n WHERE ((i.id = personal_notes.inspection_id) AND (i.owner_id = auth.uid())))))",
+      "permissive": "PERMISSIVE"
+    },
+    {
+      "cmd": "ALL",
+      "name": "staff_auth_guard",
+      "check": "defectrag_is_staff()",
+      "roles": [
+        "authenticated"
+      ],
+      "table": "personal_notes",
+      "using": "defectrag_is_staff()",
+      "permissive": "RESTRICTIVE"
+    }
+  ],
+  "aal2_guard": "CREATE OR REPLACE FUNCTION public.defectrag_has_aal2()\n RETURNS boolean\n LANGUAGE sql\n STABLE SECURITY DEFINER\n SET search_path TO ''\nAS $function$\r\n select coalesce(auth.jwt()->>'aal'='aal2',false) and exists(\r\n select 1 from auth.mfa_factors f where f.user_id=auth.uid()\r\n and f.factor_type='totp' and f.status='verified');\r\n$function$\n"
+}

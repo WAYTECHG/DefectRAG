@@ -1,0 +1,35 @@
+{
+  "qa_id": "c82bf820f305459988c6e94494514edf",
+  "revision": 6,
+  "cloud_review_returned": true,
+  "shutdown_cloud_review_returned": true,
+  "pending": 0,
+  "conflicts": 0,
+  "backups": 1,
+  "queue": [
+    {
+      "action": "create",
+      "state": "sent",
+      "attempts": 0,
+      "error": null
+    },
+    {
+      "action": "conversation",
+      "state": "sent",
+      "attempts": 0,
+      "error": null
+    },
+    {
+      "action": "review",
+      "state": "sent",
+      "attempts": 6,
+      "error": null
+    },
+    {
+      "action": "review",
+      "state": "discarded",
+      "attempts": 1,
+      "error": "Cloud changed; review required"
+    }
+  ]
+}

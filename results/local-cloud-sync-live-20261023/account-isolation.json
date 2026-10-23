@@ -1,0 +1,14 @@
+{
+  "different_account": true,
+  "native_aal2": true,
+  "native_authorized": true,
+  "cloud_private_row_hidden": true,
+  "local_private_record_denied": true,
+  "cross_account_replay_denied": true,
+  "receipt_ledger_denied": true,
+  "private_image_denied": true,
+  "local_status": 404,
+  "rpc_error_code": "42501",
+  "storage_status": "404",
+  "account_permissions_changed": false
+}

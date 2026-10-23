@@ -1,3 +1,87 @@
+# Private local/cloud synchronization activated and verified - 23 October 2026
+
+Continued from73c3fc5 on feature/auth-mfa-inactive. User manually applied
+deployment/supabase_personal_sync.sql successfully. It was NOT rerun. No SQL
+migrations, grants, production settings/secrets, account approvals, notifications,
+n8n changes, HF deployment or GitHub push were performed in this milestone.
+
+Milestone1 LIVE read-only checks passed in the intended Supabase project:
+sync_version bigint NOT NULL DEFAULT1; private RLS receipts with no browser grants;
+exact sync RPC signature/ACLs and empty search_path; both version triggers enabled;
+owner-only personal/Storage policies with restrictive native MFA guards and verified
+TOTP factor check. registration_enabled=true and mfa_required=true unchanged.
+Real anonymous probes denied personal history, receipts and exact-signature RPC
+(401/42501). An initial empty-argument RPC probe could not resolve its signature
+(PGRST202); the corrected exact-argument authorization probe passed. Two catalog
+SELECTs were used; an editor replacement syntax error caused no database changes.
+Reusable postflight query is deployment/personal_sync_postflight.sql.
+
+Milestone2 Desktop/Work code both started at73c3fc5; existing Desktop edits/data
+preserved. Public Supabase project AND publishable key match the live HF config.
+Desktop's public authWorkflowEnabled flag was missing; appended true with original
+public config backed up in runtime/local-sync-activation-20261023/config.before.js.
+No secret values were read/output/changed. Backend activated with process-only
+DEFECTRAG_LOCAL_SYNC=1, loopback8765/single worker; latest React source served at
+127.0.0.1:5173 via Vite. Existing dist/showcase/model/dataset/history files preserved.
+Health/proxy checks200, all12 category assets available. No HF flag or deployment
+needed: existing cloud bundle reads the same personal tables and private bucket.
+User privately completed native Developer MFA at both origins; different approved
+QA/Staff account completed MFA at localhost:5173 for isolation tests.
+
+Milestone3 REAL QA test passed using one actual local DINOv2 Capsules inference:
+c82bf820f305459988c6e94494514edf / QA-SYNC-20261023, score0.20568740367889404,
+threshold0.1439922600984573,973ms. Original91561-byte JPEG +84525-byte heatmap
+uploaded privately; HF decoded both640x427, displayed matching metadata and saved
+Evidence Assistant exchange. That exchange used the existing saved-measurement
+answer path; no claim of a new Qwen generation/model experiment is made.
+Cloud review returned locally; page refresh retained history/conversation/queue.
+
+Native deduplication: backed up only the QA create operation, replayed its original
+UUID/body/base to model lost acknowledgment; remote revision/receipt count did not
+change and queue returned clean. Injected QA-ID-only transport interruption
+retained the local review, persisted six backed-off retries across refresh and
+eventually saved once after release. This is fault injection against the real
+authenticated pipeline, NOT a physical internet outage. Temporary harness was
+removed from the running path; normal backend restarted. The test HTML page used
+ordinary SDK auth, exposed no credentials, and was removed from Desktop afterwards.
+
+Concurrent local/cloud QA edits produced an explicit conflict without overwrite.
+Choosing cloud saved the local edit in a recovery snapshot; authenticated download
+passed and retained that edit without JWT/refresh tokens. Different approved AAL2
+account: cloud row hidden, local record404, private image404, receipts/replay42501.
+No account permissions changed. Team copy count remained0; no publication/sharing.
+Cloud alert acknowledgment, archive-to-local recovery and local restore-to-cloud
+passed. QA finishes active, acknowledged, revision9, four notes, two conversation
+entries, four receipts, zero pending operations/conflicts. Actual cloud reads,
+images and another QA review worked while local backend stopped; review arrived
+locally after restart. Actual laptop power-off/separate physical device NOT tested.
+
+Milestone4 AUDIT ONLY: legacy SQLite20 records (5 active/15 archived). Intended
+Developer cloud account4 active/0 archived (includes QA;3 pre-existing). Five active
+legacy candidates have no same-ID duplicate/conflict or matching image hash in
+this owner's cloud data. All10 JPEGs exist within bounds,1615152bytes (~1.54MiB)
+plus database/conversation overhead. Detailed private report is Desktop
+runtime/local-sync-activation-20261023/import-audit-private.json; source results
+contain aggregate counts only. No existing history imported. Current importer
+handles active legacy records only;15 archived originals remain untouched locally.
+Do not unarchive them merely to import. Archive-preserving import is separate work.
+Backup procedure and explicit five-record approval gate are in docs/LOCAL_CLOUD_SYNC.md.
+
+Milestone5 readiness: real bidirectional persistence/authorization/duplicate/
+conflict/restart checks passed. Existing local/frontend automated results from
+73c3fc5 remain applicable (73 Python/178 frontend); no application source changed
+here, so those suites/builds were not repeated. New live evidence and read-only
+assertions are results/local-cloud-sync-live-20261023/. No blanket claim of all
+failure modes passing: physical outage/power-off and native pending/revoked/AAL1
+retests require further participation (previous local regressions passed).
+A remote archive of a currently open result caused a transient selected-conversation/
+review refresh warning; actual recovery/restore worked. A focused stale-selection
+UI fix remains, with no redesign/deployment performed here. Local "Storage: local
+device" describes cache; sync status/queue determines actual cloud confirmation.
+Polling requires both local services/dashboard open; pending local data is not
+cloud-saved. Cloud-confirmed data persists independently. See guide for restart,
+rollback, native auth boundaries, backup/import approval and operational limits.
+
 # Private local/cloud synchronization implemented INACTIVE - 22 October 2026
 
 Implementation checkpoint2dbf872 saved on feature/auth-mfa-inactive and guarded

@@ -1,0 +1,25 @@
+{
+  "fault": "QA-ID-only injected transport failure before real RPC dispatch",
+  "queue": [
+    {
+      "action": "create",
+      "state": "sent",
+      "attempts": 0,
+      "error": null
+    },
+    {
+      "action": "conversation",
+      "state": "sent",
+      "attempts": 0,
+      "error": null
+    },
+    {
+      "action": "review",
+      "state": "pending",
+      "attempts": 6,
+      "error": "Cloud save unconfirmed; retry pending"
+    }
+  ],
+  "pending_survived_page_refresh": true,
+  "physical_network_outage_tested": false
+}

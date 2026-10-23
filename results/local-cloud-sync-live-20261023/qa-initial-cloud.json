@@ -1,0 +1,15 @@
+{
+  "batch": "QA-SYNC-20261023",
+  "qa_id": "c82bf820f305459988c6e94494514edf",
+  "score": 0.20568740367889404,
+  "verdict": "Anomalous",
+  "category": "capsules",
+  "model_id": "dinov2-highres-capsules-v1-q95-v1",
+  "note_count": 0,
+  "sync_version": 2,
+  "receipt_count": 2,
+  "team_copy_count": 0,
+  "conversation_entries": 2,
+  "image_private_present": true,
+  "heatmap_private_present": true
+}
