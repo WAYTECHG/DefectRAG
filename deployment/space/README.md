@@ -38,3 +38,20 @@ Keep rollback HTML and previous hashed assets until verification completes. Test
 the actual application URL, loaded asset versions, private-access boundaries and
 public demo/gallery separately. A successful upload is not proof of a working app.
 No inference benchmark or email send is needed for a documentation-only release.
+
+## Compatible batch validation and reports
+
+The cloud host mounts `backend.inspection_routes.mount_inspection_experience`
+explicitly before its copied CPU routes and catch-all. It retains the existing
+request identity/workspace middleware. The two read-only routes are batch-name
+availability and the printable inspection report; neither grants access or writes.
+Health advertises `batch-name-v1` and `inspection-report-v2`.
+
+For an audited release that requires these routes, use the verified publisher
+with `--frontend-only --inspection-compatibility --dry-run`, review its exact file
+list, then repeat without `--dry-run` after deployment authorization. This mode
+patches only known host statements and adds the three reviewed route/rendering
+modules. It refuses unrelated host drift, preserves configuration and stores
+previous server/HTML bytes for rollback. It does not upload `backend/main.py`,
+models, secrets or database state. Reverting the previous host and HTML makes the
+new modules unused; leave database records and migrations intact.

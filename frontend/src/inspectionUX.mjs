@@ -3,6 +3,11 @@ export function batchNameTaken(name,rows=[]){
  const key=normalizeBatchName(name);
  return Boolean(key&&rows.some(row=>normalizeBatchName(row.batch)===key));
 }
+export function filterInspectionRows(rows,filter,page='history'){
+ return rows.filter(row=>(page!=='batch'||Boolean(row.batch?.trim()))&&
+  (!filter.category||row.category===filter.category)&&(!filter.verdict||row.verdict===filter.verdict)&&
+  (!filter.batch||row.batch===filter.batch));
+}
 export function storageDescription(storage,local=false){
  if(local&&storage==='browser_session')return 'Saved only on this computer. To keep it in a private account across devices, sign in with approved Staff access and a security code, then use Copy older work into this account.';
  return ({supabase_personal:'Saved online in Personal Workspace. Only this account can see it. Sign in with the same account on another device to open it.',

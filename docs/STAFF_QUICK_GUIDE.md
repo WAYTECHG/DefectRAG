@@ -151,3 +151,16 @@ finish sign-in, enter a security code, wait for approval or retry the connection
 For continued problems, contact the workspace administrator. Do not send passwords
 or security codes. **Help & references** has the in-app guide; technical details
 are available there separately.
+
+## Small-screen navigation and saved results
+
+On a phone, swipe the menu sideways to find more pages, including Corrective Actions.
+Opening a saved inspection moves to its result. Opening a public gallery preview
+moves to that preview; **Close preview** returns to the same row. Tables can scroll
+sideways when all columns do not fit.
+
+**Batch history** shows inspections with a batch label. **Inspection history**
+shows individual and batch inspections. A demo review is a temporary practice
+decision in that browser, never an official Team review or corrective action.
+While a photo or answer is being prepared, finish that task before choosing a new
+photo or starting a new inspection. Browsing other pages does not cancel the work.

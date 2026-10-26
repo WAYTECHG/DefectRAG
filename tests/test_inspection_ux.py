@@ -56,3 +56,47 @@ def test_report_does_not_inject_script_urls_or_hide_saved_dialogue():
     assert '&lt;img src=x' in html and '<strong>Question</strong>' in html
     assert 'Saved answer' in html and 'Passage' in html and '&lt;script&gt;' in html
     assert 'https://example.test/image?a=1&amp;b=2' in html
+
+
+def test_space_uses_shared_routes_even_with_older_cpu_app(tmp_path):
+    """Execute the actual Space route-mount statements without loading models."""
+    import ast
+    from pathlib import Path
+    from fastapi import FastAPI, HTTPException
+    from fastapi.testclient import TestClient
+    from backend.inspection_routes import mount_inspection_experience, INSPECTION_UX_PATHS
+    from deployment.space.sessions import SessionRepository, identity
+    repo=SessionRepository(tmp_path)
+    identifier='1'*32
+    with identity('a'*64):
+        repo.save({'id':identifier,'created_at':'2026-10-27','category':'pcb1','verdict':'Good',
+                   'batch':'Private QA batch','image_url':'/api/inspections/'+identifier+'/image',
+                   'heatmap_url':'/api/inspections/'+identifier+'/heatmap'})
+    server=FastAPI();legacy=FastAPI()
+    @legacy.get('/api/inspections/{identifier}/report')
+    def old_report(identifier):return {'old_report_should_not_run':True}
+    @legacy.get('/api/stats')
+    def stats():return {'unchanged':True}
+    tree=ast.parse(Path('deployment/space/app.py').read_text())
+    nodes=[n for n in tree.body if
+           isinstance(n,ast.Expr) and isinstance(n.value,ast.Call) and getattr(n.value.func,'id','')=='mount_inspection_experience' or
+           isinstance(n,ast.For) and isinstance(n.target,ast.Name) and n.target.id=='route' or
+           isinstance(n,ast.FunctionDef) and n.name=='unknown_api']
+    assert len(nodes)==3
+    exec(compile(ast.Module(body=nodes,type_ignores=[]),'actual-space-routing','exec'),
+         {'server':server,'cpu_app':legacy,'REPO':repo,'mount_inspection_experience':mount_inspection_experience,
+          'INSPECTION_UX_PATHS':INSPECTION_UX_PATHS,'HTTPException':HTTPException})
+    assert sum(getattr(r,'path','')=='/api/inspections/{identifier}/report' for r in server.routes)==1
+    with TestClient(server) as client:
+        with identity('a'*64):
+            assert client.get('/api/batch-name?name=PRIVATE%20QA%20BATCH').json()['data']['available'] is False
+            response=client.get('/api/inspections/'+identifier+'/report')
+            assert response.status_code==200 and 'Inspection evidence report' in response.text
+            assert response.headers['referrer-policy']=='no-referrer'
+        with identity('b'*64):
+            assert client.get('/api/batch-name?name=Private%20QA%20batch').json()['data']['available'] is True
+            assert client.get('/api/inspections/'+identifier+'/report').status_code==404
+        assert client.get('/api/batch-name?name=%20%20').status_code==422
+        assert client.get('/api/batch-name?name='+'x'*81).status_code==422
+        assert client.get('/api/stats').json()=={'unchanged':True}
+        assert client.get('/api/not-real').status_code==404

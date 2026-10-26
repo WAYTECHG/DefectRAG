@@ -2,11 +2,12 @@ import {friendlyError,resultLabel} from './userLanguage.mjs';
 import React,{useState} from 'react';
 import {reviewBody,reviewStatuses,reviewDecisions} from './workflow.mjs';
 
-export default function ReviewForm({current,onSave,disabled=false}){
+export default function ReviewForm({current,onSave,disabled=false,demo=false}){
  const [status,setStatus]=useState(current?.status||'Needs review');
  const [decision,setDecision]=useState(current?.decision||'Pending');
  const [note,setNote]=useState(''),[busy,setBusy]=useState(false),[error,setError]=useState('');
- return <section className="review-form"><h3>Staff review</h3>
+ return <section className="review-form"><h3>{demo?'Demo review · this browser only':'Staff review'}</h3>
+  {demo&&<p className="note">Try recording a review here. It stays with this demo result and is not an official Staff review, Team decision or corrective action.</p>}
   {current&&<p className="caption"><strong>{current.status} · {current.decision}</strong> · {current.reviewer} · {new Date(current.created_at).toLocaleString()}{current.note&&<><br/>{current.note}</>}</p>}
   <p className="caption">Check the photo and result, then record the review. The inspection result stays unchanged. Follow the workplace quality rules when choosing Accept, Hold or Reject.</p>
   <form onSubmit={async e=>{e.preventDefault();setBusy(true);setError('');try{reviewBody(status,decision,note);await onSave({status,decision,note});setNote('')}catch(err){setError(err.message)}finally{setBusy(false)}}}>

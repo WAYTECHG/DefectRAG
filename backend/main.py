@@ -203,11 +203,6 @@ def create_app(settings=None, detector=None, workflow=None, repository=None, gal
                 errors.append({'filename':file.filename,'message':str(exc.detail),'status':exc.status_code})
             finally: file.file.close()
         return {'data':{'records':records,'errors':errors,'batch':batch}}
-    @app.get('/api/batch-name')
-    def check_batch_name(name:str=Query(...,min_length=1,max_length=80)):
-        from .batch_names import batch_name_available
-        if not name.strip():raise HTTPException(422,'Add a batch name')
-        return {'data':{'available':batch_name_available(repo,name)}}
     @app.get('/api/inspections')
     def inspections(category:str='',verdict:str='',batch:str='',limit:int=Query(100,ge=1,le=500),offset:int=Query(0,ge=0)):
         return {'data':repo.list(category,verdict,batch,limit,offset)}
@@ -251,12 +246,6 @@ def create_app(settings=None, detector=None, workflow=None, repository=None, gal
         if local_sync:
             require(identifier);return Response(repo.artifact_bytes(identifier,'heatmap'),media_type='image/jpeg',headers={'Cache-Control':'private, no-store'})
         require(identifier); return FileResponse(artifacts/f'{identifier}_heatmap.jpg')
-    @app.get('/api/inspections/{identifier}/report')
-    def report(identifier:str):
-        record=require(identifier)
-        from .inspection_report import render_report
-        return HTMLResponse(render_report(record,repo.review_history(identifier),repo.review_notes(identifier),repo.messages(identifier),local=local_sync or not hasattr(repo,'current')),
-                            headers={'Cache-Control':'private, no-store','Referrer-Policy':'no-referrer','X-Content-Type-Options':'nosniff'})
     class HumanReview(BaseModel):
         status:str=Field(pattern='^(Needs review|In review|Reviewed)$')
         decision:str=Field(pattern='^(Pending|Hold|Accept|Reject)$')
@@ -308,6 +297,8 @@ def create_app(settings=None, detector=None, workflow=None, repository=None, gal
             safe={k:("'"+v if isinstance(v,str) and v.startswith(('=','+','-','@','\t','\r')) else v) for k,v in record.items()}
             writer.writerow(safe)
         return Response(output.getvalue(),media_type='text/csv',headers={'Content-Disposition':'attachment; filename="defectrag-inspections.csv"'})
+    from .inspection_routes import mount_inspection_experience
+    mount_inspection_experience(app,repo,local=local_sync or not hasattr(repo,'current'))
     dist=settings.root/'frontend'/'dist'
     if local_sync:
         from .local_frontend import mount_local_frontend

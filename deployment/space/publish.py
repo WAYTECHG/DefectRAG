@@ -31,7 +31,26 @@ def entry_cache_headers(source):
     return text.encode('utf-8')
 
 
-def publish_frontend(frontend, dry_run=False, refresh_html_cache=False):
+INSPECTION_COMPATIBILITY_FILES=('backend/inspection_routes.py','backend/batch_names.py','backend/inspection_report.py')
+
+
+def inspection_host_compatibility(source):
+    """Only the reviewed read-only batch/report mount; no model/auth changes."""
+    text=source.decode('utf-8').replace('\r\n','\n')
+    changes=(
+        ('from backend.storage import now\n', 'from backend.storage import now\nfrom backend.inspection_routes import mount_inspection_experience, INSPECTION_UX_PATHS\n'),
+        ("        'history':'anonymous browser history", "        'api_features':['batch-name-v1','inspection-report-v2'],\n        'history':'anonymous browser history"),
+        ('for route in cpu_app.routes:\n', '# Mount the shared UX routes explicitly. A frontend-only release must not rely\n# on a newer, undeployed backend.main for batch validation or printable reports.\nmount_inspection_experience(server, REPO)\nfor route in cpu_app.routes:\n'),
+        ("path not in {'/api/health','/api/inspect','/api/batch','/api/assistant'}:", "path not in {'/api/health','/api/inspect','/api/batch','/api/assistant'} | INSPECTION_UX_PATHS:"))
+    for original,fixed in changes:
+        if text.count(fixed)==1:continue
+        if text.count(original)!=1:raise SystemExit('Live inspection host changed; review before patching')
+        text=text.replace(original,fixed)
+    compile(text,'deployment/space/app.py','exec')
+    return text.encode('utf-8')
+
+
+def publish_frontend(frontend, dry_run=False, refresh_html_cache=False, inspection_compatibility=False):
     """Publish verified browser assets only; preserve the installed server/settings."""
     from huggingface_hub import HfApi, CommitOperationAdd, hf_hub_download
     api=HfApi()
@@ -68,18 +87,40 @@ def publish_frontend(frontend, dry_run=False, refresh_html_cache=False):
                 saved=rollback/'server-entry-cache.py'
                 saved.parent.mkdir(parents=True,exist_ok=True)
                 saved.write_bytes(original)
+    if inspection_compatibility:
+        target='deployment/space/app.py'
+        original=Path(hf_hub_download(REPO,target,repo_type='space',revision=before.sha)).read_bytes()
+        patched=inspection_host_compatibility(original)
+        if patched.decode()!= (ROOT/target).read_text(encoding='utf-8'):
+            raise SystemExit('Local host has unrelated changes; compatible release blocked')
+        if patched!=original:
+            payloads[target]=patched
+            if not dry_run:
+                saved=rollback/'inspection-compatibility'/target;saved.parent.mkdir(parents=True,exist_ok=True);saved.write_bytes(original)
+        for target in INSPECTION_COMPATIBILITY_FILES:
+            payload=(ROOT/target).read_bytes();compile(payload,target,'exec')
+            if target in remote:
+                original=Path(hf_hub_download(REPO,target,repo_type='space',revision=before.sha)).read_bytes()
+                if original==payload:continue
+                if not dry_run:
+                    saved=rollback/'inspection-compatibility'/target;saved.parent.mkdir(parents=True,exist_ok=True);saved.write_bytes(original)
+            payloads[target]=payload
     summary={'source_git_commit':subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip(),
-             'parent':before.sha,'frontend_only':not refresh_html_cache,'entry_cache_headers_only_server_patch':refresh_html_cache,
+             'parent':before.sha,'frontend_only':not(refresh_html_cache or inspection_compatibility),'entry_cache_headers_only_server_patch':refresh_html_cache,
+             'inspection_compatibility':inspection_compatibility,
+             'payload_hashes':{name:hashlib.sha256(value).hexdigest() for name,value in payloads.items()},
              'changed_files':list(payloads),'dry_run':dry_run}
     if dry_run:
         print(json.dumps(summary));return
     if checked_frontend()!=frontend:raise SystemExit('Frontend inputs changed before publication')
+    if inspection_compatibility and any((ROOT/name).read_bytes()!=value for name,value in payloads.items() if name in INSPECTION_COMPATIBILITY_FILES):
+        raise SystemExit('Compatible server inputs changed before publication')
     if not payloads:
         print(json.dumps({**summary,'commit':before.sha,'already_current':True}));return
     commit=api.create_commit(repo_id=REPO,repo_type='space',parent_commit=before.sha,
         operations=[CommitOperationAdd(path_in_repo=name,path_or_fileobj=value) for name,value in payloads.items()],
-        commit_message=('Add optional dashboard tutorial and refresh entry cache headers'
-                        if refresh_html_cache else 'Update verified React dashboard'))
+        commit_message=('Fix batch API compatibility, reports and audited dashboard UX' if inspection_compatibility else
+                        'Add optional dashboard tutorial and refresh entry cache headers' if refresh_html_cache else 'Update verified React dashboard'))
     receipt={**summary,'commit':commit.oid,'rollback_directory':str(rollback),'manifest':frontend['files']}
     (OUT/'publish-frontend.json').write_text(json.dumps(receipt,indent=2))
     print(json.dumps({k:v for k,v in receipt.items() if k!='manifest'}))
@@ -92,15 +133,17 @@ def main():
     parser.add_argument('--frontend-only',action='store_true',help='Publish only verified frontend files; preserve server and settings')
     parser.add_argument('--dry-run',action='store_true',help='Read-only frontend release plan; no upload')
     parser.add_argument('--refresh-html-cache',action='store_true',help='With --frontend-only, patch only live HTML/config no-store headers')
+    parser.add_argument('--inspection-compatibility',action='store_true',help='With --frontend-only, co-publish the reviewed read-only batch/report routes')
     args = parser.parse_args()
     frontend=checked_frontend()
     if args.check_frontend:
         print(json.dumps({'verified':True,'files':len(frontend['files']),'source_fingerprint':frontend['source_fingerprint']}))
         return
     if args.frontend_only:
-        publish_frontend(frontend,args.dry_run,args.refresh_html_cache)
+        publish_frontend(frontend,args.dry_run,args.refresh_html_cache,args.inspection_compatibility)
         return
     if args.refresh_html_cache:parser.error('--refresh-html-cache requires --frontend-only')
+    if args.inspection_compatibility:parser.error('--inspection-compatibility requires --frontend-only')
     if args.dry_run:parser.error('--dry-run requires --frontend-only')
     if args.phase is None:parser.error('--phase is required for an authorized deployment')
     from huggingface_hub import HfApi, CommitOperationAdd

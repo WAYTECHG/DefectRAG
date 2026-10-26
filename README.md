@@ -292,11 +292,13 @@ Supabase SQL changes require review; no public service-role key belongs in confi
 
 ## Validation and limits
 
-- Latest frontend regression suite: **236 passed, zero failed**, including
+- Latest frontend regression suite (27 October 2026): **244 passed, zero failed**, including
   action sequencing, incomplete-input denial, Back/replay, draft preservation and
   teaching-image provenance/packaging. The full 17-step practice journey and
   original/heatmap/batch image loading were verified in the live application.
   These checks are not new model benchmarks. Mobile visual QA remains unverified.
+- **145 targeted backend/security/publisher tests passed**, using isolated software fixtures. Shared read-only routes now keep cloud batch-name validation and printable reports compatible with the dashboard.
+- Phone/tablet/desktop browser fixtures checked result/preview focus, form controls, service recovery and the case lifecycle. Demo reviews and recovery explicitly describe their temporary scope; Batch history excludes individual inspections. New-task controls preserve active inspections and answers.
 - **39 focused case/navigation tests** cover draft entry before review, Accept/Hold
   denial, assignment validation, duplicate prevention, authorization and concurrent
   edits. Native typing, actual Staff/supervisor selection, deadline retention and

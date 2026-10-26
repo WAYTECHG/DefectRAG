@@ -83,6 +83,28 @@ class FrontendPublisherTests(unittest.TestCase):
         self.assertEqual(server.path_or_fileobj,publish.entry_cache_headers(original))
         self.assertEqual((self.out/('frontend-rollback-'+'a'*12)/'server-entry-cache.py').read_bytes(),original)
 
+    def test_inspection_patch_is_bounded_idempotent_and_does_not_publish_local_main(self):
+        original=("from backend.storage import now\n"
+                  "def health():\n    return {\n        'history':'anonymous browser history'}\n"
+                  "for route in cpu_app.routes:\n    path=route.path\n"
+                  "    if path not in {'/api/health','/api/inspect','/api/batch','/api/assistant'}:\n        pass\n").encode()
+        fixed=publish.inspection_host_compatibility(original)
+        self.assertEqual(publish.inspection_host_compatibility(fixed),fixed)
+        self.assertIn(b'mount_inspection_experience(server, REPO)',fixed)
+        self.assertNotIn(b'mfa_required',fixed)
+        with self.assertRaisesRegex(SystemExit,'Live inspection host changed'):
+            publish.inspection_host_compatibility(b'unknown host implementation')
+        (self.remote/'app.py').write_bytes(original)
+        host=self.root/'deployment/space/app.py';host.parent.mkdir(parents=True);host.write_bytes(fixed)
+        for name in publish.INSPECTION_COMPATIBILITY_FILES:
+            p=self.root/name;p.parent.mkdir(parents=True,exist_ok=True);p.write_text('# reviewed read-only route module\n')
+        publish.publish_frontend(self.frontend,inspection_compatibility=True)
+        ops=self.api.create_commit.call_args.kwargs['operations']
+        self.assertEqual({o.path_in_repo for o in ops if not o.path_in_repo.startswith('frontend/')},
+                         {'deployment/space/app.py',*publish.INSPECTION_COMPATIBILITY_FILES})
+        self.assertNotIn('backend/main.py',{o.path_in_repo for o in ops})
+        self.assertEqual((self.out/('frontend-rollback-'+'a'*12)/'inspection-compatibility/deployment/space/app.py').read_bytes(),original)
+
 
 if __name__=='__main__':
     unittest.main()

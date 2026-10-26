@@ -29,6 +29,7 @@ from backend.calibration import calibrated_card
 from backend.highres import HighResolutionEncoder, foreground_mask, score_tokens, restore_map
 from backend.vision import sha256, display_map
 from backend.storage import now
+from backend.inspection_routes import mount_inspection_experience, INSPECTION_UX_PATHS
 from deployment.space.sessions import SessionRepository, identity, namespace, NAMESPACE, STAFF_TOKEN, WORKSPACE, artifact_workspace, authorize_artifact, capability, remember_staff, stored_staff
 
 ZERO = os.getenv('SPACES_ZERO_GPU') == '1'
@@ -237,6 +238,7 @@ def health():
         'community_gallery_enabled':GALLERY is not None,
         'personal_workspace_enabled':PERSONAL_ENABLED,
         'auth_workflow_enabled':bool(CLOUD_CONFIG and CLOUD_CONFIG.get('auth_workflow_enabled')),
+        'api_features':['batch-name-v1','inspection-report-v2'],
         'history':'anonymous browser history is temporary; signed-in approved staff use Supabase' if CLOUD_CONFIG else 'anonymous browser history is temporary; staff backend disabled'}}
 
 
@@ -261,9 +263,12 @@ def heatmap_image(identifier: str):
     return artifact(identifier,'heatmap')
 
 
+# Mount the shared UX routes explicitly. A frontend-only release must not rely
+# on a newer, undeployed backend.main for batch validation or printable reports.
+mount_inspection_experience(server, REPO)
 for route in cpu_app.routes:
     path = getattr(route,'path','')
-    if path.startswith('/api/') and path not in {'/api/health','/api/inspect','/api/batch','/api/assistant'}:
+    if path.startswith('/api/') and path not in {'/api/health','/api/inspect','/api/batch','/api/assistant'} | INSPECTION_UX_PATHS:
         server.router.routes.append(route)
 
 

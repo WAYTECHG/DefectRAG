@@ -18,6 +18,7 @@ export function PublishGalleryPanel({record,api}){
  useEffect(()=>{let active=true;const poll=startPolling(async()=>{if(publishing.current)return;const generation=version.current;try{const value=await api(`/api/inspections/${record.id}/publication`);if(active&&generation===version.current){setState(value);setError('')}}catch(err){if(active&&generation===version.current)setError(err.message);throw err}});return()=>{active=false;poll.stop()}},[record.id,api]);
  const publication=state?.publication;
  async function submit(){
+  if(publishing.current)return;
   publishing.current=true;version.current++;setBusy(true);setError('');
   try{
    if(publication?.visible){await api(`/api/gallery/${publication.id}/withdraw`,{method:'POST'});setState({...state,publication:{...publication,visible:false}})}
@@ -39,6 +40,9 @@ export function PublishGalleryPanel({record,api}){
 
 export default function CommunityGallery({api,staff=false,local=false}){
  const [offset,setOffset]=useState(0),[revision,setRevision]=useState(0),[data,setData]=useState(null),[selected,setSelected]=useState(''),[detail,setDetail]=useState(null),[error,setError]=useState(''),[busy,setBusy]=useState(false);
+ const previewHeading=useRef(null),previewTrigger=useRef(null);
+ useEffect(()=>{if(selected){previewHeading.current?.focus({preventScroll:true});previewHeading.current?.scrollIntoView({block:'start',behavior:'instant'})}},[selected]);
+ function closePreview(){setSelected('');previewTrigger.current?.focus()}
  useEffect(()=>{
   let active=true;setData(null);setError('');
   api(`/api/gallery?offset=${offset}`).then(value=>{if(active)setData(value)}).catch(err=>{if(active)setError(err.message)});
@@ -61,12 +65,13 @@ export default function CommunityGallery({api,staff=false,local=false}){
    {error&&<p className="error" role="alert">{friendlyError(error)}</p>}
    {!data&&!error&&<p role="status">Loading public gallery…</p>}
    {data?.enabled===false&&<GalleryUnavailableNotice local={local}/>}
-   {data?.enabled&&<><div className="table-wrap"><table><thead><tr><th>Product</th><th>Inspection result</th><th>Score</th><th>Published</th><th>Preview</th></tr></thead><tbody>{data.items.map(item=><tr key={item.id}><td>{item.measurement.category}</td><td>{resultLabel(item.measurement.verdict)}</td><td>{score(item.measurement.score)}</td><td>{new Date(item.created_at).toLocaleString()}</td><td><button className="text-button" disabled={busy} onClick={()=>{setError('');setSelected(item.id)}}>View image & heatmap</button></td></tr>)}</tbody></table></div>
+   {data?.enabled&&<><div className="table-wrap"><table><thead><tr><th>Product</th><th>Inspection result</th><th>Score</th><th>Published</th><th>Preview</th></tr></thead><tbody>{data.items.map(item=><tr key={item.id}><td>{item.measurement.category}</td><td>{resultLabel(item.measurement.verdict)}</td><td>{score(item.measurement.score)}</td><td>{new Date(item.created_at).toLocaleString()}</td><td><button className="text-button" disabled={busy} aria-expanded={selected===item.id} aria-controls="public-inspection-preview" onClick={event=>{previewTrigger.current=event.currentTarget;setError('');setSelected(item.id)}}>View image & heatmap</button></td></tr>)}</tbody></table></div>
     {!data.items.length&&<p className="empty">No published inspections on this page. Inspect an image, then choose Publish to community gallery.</p>}
     <div className="button-row"><button className="secondary" disabled={!offset||busy} onClick={()=>{setSelected('');setOffset(value=>Math.max(0,value-12))}}>Previous</button><span>Page {Math.floor(offset/12)+1}</span><button className="secondary" disabled={data.items.length<12||offset>=96||busy} onClick={()=>{setSelected('');setOffset(value=>value+12)}}>Next</button></div>
    </>}
   </section>
-  {selected&&<section className="card"><div className="section-title"><h2>Public inspection snapshot</h2><button className="text-button" disabled={busy} onClick={()=>setSelected('')}>Close preview</button></div>
+  {selected&&<section className="card" id="public-inspection-preview" aria-labelledby="public-inspection-preview-heading"><div className="section-title"><h2 ref={previewHeading} tabIndex={-1} id="public-inspection-preview-heading">Public inspection snapshot</h2><button className="text-button" disabled={busy} onClick={closePreview}>Close preview</button></div>
+   {error&&<p className="error" role="alert">{friendlyError(error)} <button className="text-button" onClick={()=>{setError('');setRevision(value=>value+1)}}>Retry preview</button></p>}
    {!detail&&!error&&<p role="status">Loading image and heatmap…</p>}
    {detail&&<><div className="inspection-grid" style={{gridTemplateColumns:"repeat(auto-fit,minmax(min(100%,260px),1fr))"}}><figure style={{margin:0}}><img style={{width:'100%'}} src={preview(detail.image)} alt="Publicly shared inspection image"/><figcaption>Published image preview</figcaption></figure><figure style={{margin:0}}><img style={{width:'100%'}} src={preview(detail.heatmap)} alt="Anomaly heatmap for the published inspection"/><figcaption>Highlighted unusual areas</figcaption></figure></div>
     <p><strong>{detail.measurement.category} · {resultLabel(detail.measurement.verdict)}</strong> · Score {score(detail.measurement.score)} · Threshold {score(detail.measurement.threshold)}</p><p className="caption">{detail.measurement.model_id} · {detail.measurement.localization}<br/>A higher score means a larger difference from normal examples. It is not an accuracy percentage or the chance of a defect.</p>
