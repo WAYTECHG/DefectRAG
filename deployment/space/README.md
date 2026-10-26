@@ -1,53 +1,40 @@
-# DefectRAG Space migration checkpoint
+# Hugging Face Space adapter
 
-Public application: https://wizzas-defectrag.hf.space
+The cloud adapter hosts the same React dashboard with Gradio Server/FastAPI and
+queued ZeroGPU inference. BGE retrieval runs in a CPU subprocess; Qwen generation
+uses the configured GPU queue. Model/package requirements and public asset pins
+are separate from frontend source. [Architecture](../../docs/ARCHITECTURE.md).
 
-Phases2/3 verified; Phase4 staff persistence is now enabled and live-tested after
-the user's manual SQL success confirmation. Final Phase5 deployment is hosted;
-read DEVELOPMENT_PROGRESS.md for quota/account acceptance limitations.
-Original UI, local application,
-static showcase, environments, models and benchmark results remain preserved.
+## Frontend builds
 
-## Existing local application (PowerShell)
-
-```powershell
-cd C:\Users\User\Desktop\DefectRAG-v2
-.\Start-DefectRAG.cmd -Port 8767
-```
-
-Open http://127.0.0.1:8767. Existing local generated answers use Ollama with
-qwen2.5:3b; cloud generation uses in-Space Qwen3-4B and needs no local Ollama.
-
-## Isolated migration developer server
-
-Use the existing isolated environment; do not reinstall dependencies or copy
-models. Run from the source checkout, not the Desktop production environment:
+Install the frontend and the transport client dependencies from their lockfiles.
+Prepare a separate public configuration file containing only the intended
+Supabase URL/publishable key and reviewed public feature switches. Preserve the
+installed configuration when updating an existing Space.
 
 ```powershell
-cd C:\Users\User\.codex\.chatgpt-projects\g-p-6abf9c3f00a4819198b9ff56b5456844\DefectRAG-v2
-$env:DEFECTRAG_PUBLIC_CONFIG_FILE='C:\Users\User\Desktop\DefectRAG-v2\frontend\public\config.js'
+$env:DEFECTRAG_SPACE_BUILD_OUT='C:/path/to/separate/cloud-build'
+$env:DEFECTRAG_PUBLIC_CONFIG_FILE='C:/path/to/public-config.js'
 node deployment/space/build_ui.mjs
-$env:DEFECTRAG_LIVE_RAG='1'
-$env:DEFECTRAG_STAFF_BACKEND='0'
-$env:PORT='8784'
-& '.\development-support\zerogpu-phase1\.venv\Scripts\python.exe' -m deployment.space.app
+node deployment/space/frontend_release.mjs verify 'C:/path/to/separate/cloud-build'
+node deployment/space/frontend_release.mjs stage 'C:/path/to/separate/cloud-build'
+python -m deployment.space.publish --frontend-only --dry-run
 ```
 
-Open http://127.0.0.1:8784. Local generation retains the existing Ollama path;
-the actual Qwen3-4B/ZeroGPU execution was verified in the cloud. The adapter stores
-development history separately under runtime/space-development. The reviewed
-migration gate has been satisfied for this existing project; do not bypass it for
-a different project or execute SQL on the user's behalf. Do not put secrets in
-public config; only existing project URL and publishable key belong there.
+Review the allowlisted changed-file plan and source/output receipt. Publication
+requires an authenticated write-capable Hugging Face account and explicit project
+approval; remove --dry-run only for an approved release. This frontend-only path
+preserves the existing backend, private records, configuration and models. A new
+Space also needs the separately reviewed backend/model bootstrap; uploading only
+React assets cannot create a complete inference service.
 
-Latest build/software-only checks do not consume GPU or modify Supabase:
+In the installed Space, root app.py sets DEFECTRAG_SPACE_UI to frontend/dist before
+importing deployment.space.app. That directory is the deployed dashboard, not the
+local staging folder. HTML/public configuration use no-store response headers;
+hashed JS/CSS/images are served under /assets. Import teaching assets through Vite;
+there is no cloud /showcase image route. Existing open tabs may need a reload.
 
-```powershell
-& '.\development-support\zerogpu-phase1\.venv\Scripts\python.exe' -m pytest tests/test_space_security.py -q
-```
-
-Do not repeat successful inference suites. Their private JSON reports resume
-unfinished cases but contain capabilities and must not be committed/published.
-Use sanitized docs evidence for sharing. Sync completed source checkpoints to
-Desktop with deployment/space/sync_code.ps1; ff-only Git and config/guide hashes
-preserve existing user edits. No datasets/models/large ZIPs are copied by it.
+Keep rollback HTML and previous hashed assets until verification completes. Test
+the actual application URL, loaded asset versions, private-access boundaries and
+public demo/gallery separately. A successful upload is not proof of a working app.
+No inference benchmark or email send is needed for a documentation-only release.

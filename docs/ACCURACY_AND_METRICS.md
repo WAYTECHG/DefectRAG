@@ -62,10 +62,10 @@ after all 12 categories finish. The dashboard compares them explicitly.
 
 ## Resume without repeating completed work
 
-Use the already installed interpreter and PYTHONPATH from the main README:
+From a configured source environment with the required assets:
 
 ```powershell
-python -u -m scripts.benchmark_highres --dataset "C:\Users\User\Downloads\VisA_20220922"
+python -u -m scripts.benchmark_highres --dataset 'C:/path/to/VisA_20220922'
 ```
 
 Per-image feature caches, per-image test predictions/maps and completed category

@@ -23,7 +23,7 @@ Suggested topics: `anomaly-detection`, `computer-vision`, `dinov2`, `rag`, `grad
 | deployment/ | Gradio adapter, pinned Space requirements and reviewed Supabase SQL templates |
 | scripts/, tests/ | Asset acquisition, evaluation tooling and meaningful software checks |
 | knowledge/ text and sources.json | Attributed RAG documents; exclude generated index |
-| docs/ | Architecture, honest metrics, public screenshots, setup and validation evidence |
+| Selected docs/ | Setup, security, architecture, user guides, scientific metric definitions and licensing |
 | Selected results/*.json and highres_comparison.csv | Public aggregate benchmark and deployment summaries; omit private/raw inspection traces |
 | Start-DefectRAG.cmd/.ps1, requirements*.txt | Existing local startup and dependency definitions |
 | Dockerfile, compose.yaml, render.yaml | Existing optional configuration; Docker execution remains unverified |
@@ -73,3 +73,14 @@ files. If the remote changes before pushing, Git's normal rejection protects it;
 resolve that update rather than adding `--force`. This task prepares files but
 does not run the public commit or push. Review screenshots/attribution before publishing.
 Actual model/dataset licenses remain separate from the application MIT license.
+
+## Public documentation policy
+
+Only the named PUBLIC_DOCS allowlist in scripts/prepare_github_export.py is
+exported. Progress journals, phase-by-phase rollout reports, internal QA pictures,
+raw traces and account troubleshooting notes remain in the private development
+archive. Runtime code, reusable tests, schema migrations, n8n templates and the
+aggregate metric files remain available. Export receipts are written beside the
+private export folder, not into the repository root. Old private workstation
+checkpoint/ZIP helpers and one-event result queries are not public application
+requirements. Update this allowlist deliberately when adding useful documentation.

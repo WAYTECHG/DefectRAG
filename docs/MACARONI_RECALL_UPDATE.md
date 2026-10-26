@@ -1,7 +1,7 @@
-# Targeted Macaroni recall update — 18 October 2026
+# Targeted Macaroni recall calibration
 
-User authorized improving only Macaroni1/2 recall while minimizing compute, having
-already selected higher sensitivity with more false alarms. The separate
+The operating policy prioritizes catching anomalies, accepting a higher false-alarm
+rate. The separate
 `macaroni-recall-v1` policy uses a linear normal-calibration quantile of0.80 for
 these two categories. The other ten cards remain exactly equal to the previous
 q95 policy, including thresholds, model IDs and every metric.
@@ -54,5 +54,4 @@ The static showcase is not rebuilt or reclassified. No Supabase schema/data chan
 Default policy when installed: `DEFECTRAG_CALIBRATION=macaroni-recall-v1`.
 Restore the previous version with `normal-q95-v1`, or the original conservative
 version with `normal-max-v1`; restart the backend or Space after changing it.
-No asset refitting is required. Deployment/software evidence and resume status
-are recorded in DEVELOPMENT_PROGRESS.md.
+No asset refitting is required. See [model process](TRAINING_AND_EVALUATION.md).

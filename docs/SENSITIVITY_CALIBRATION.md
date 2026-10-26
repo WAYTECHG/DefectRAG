@@ -14,7 +14,7 @@ polarity were checked. PCB2's largest normal calibration score was 0.34184;
 its normal 95th percentile was 0.12522. One extreme score therefore set a much
 higher operating threshold. This is not evidence that the image is mislabeled.
 
-The user selected **prioritize catching anomalies; accept more false alarms**.
+The operating objective is **prioritize catching anomalies; accept more false alarms**.
 The separate `normal-q95-v1` policy uses the linear 95th percentile of existing
 held-out training-normal scores for every product. No per-category quantile or
 test-optimal threshold is selected. Encoder, memory banks, image scores, masks,
@@ -72,7 +72,7 @@ policy. New model IDs end in `-q95-v1`; records store their actual threshold,
 margin and calibration. Historical records are never reclassified or rewritten.
 The static showcase is preserved with its original recorded results.
 
-The default is q95 when its manifest is installed. Restore original decisions
+This previous policy uses q95; the current targeted default is described above. Restore original decisions
 by setting `DEFECTRAG_CALIBRATION=normal-max-v1` and restarting the backend/Space.
 Set `normal-q95-v1` to restore sensitivity. Unknown policies or mismatched assets
 fail closed. A source installation without the overlay keeps original behavior.
@@ -87,6 +87,4 @@ python -m scripts.prepare_sensitive_calibration
 The audit saves source SHA-256 hashes and checks original inputs again before
 writing its separate report. No model download, new training run, GPU request,
 Supabase schema change or historical-record mutation is needed for calibration.
-Software verification: 56 focused calibration/API/answer/high-resolution tests
-passed; 6 frontend tests and both local/cloud builds passed. Deployment status
-and final hosted checks are recorded in DEVELOPMENT_PROGRESS.md.
+Current capabilities and limits are summarized in [the README](../README.md).

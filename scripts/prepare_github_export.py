@@ -8,7 +8,16 @@ import subprocess
 
 ROOT=Path(__file__).resolve().parents[1]
 DIRECTORIES=('backend/','scripts/','tests/','deployment/','knowledge/','frontend/src/',
-             'frontend/tests/','frontend/public/','docs/')
+             'frontend/tests/','frontend/public/')
+PUBLIC_DOCS={
+    'docs/SETUP.md','docs/SECURITY.md','docs/ARCHITECTURE.md','docs/STAFF_QUICK_GUIDE.md',
+    'docs/GUIDED_PRACTICE.md','docs/ACCURACY_AND_METRICS.md','docs/ACCURACY_RESULTS.md',
+    'docs/TRAINING_AND_EVALUATION.md','docs/MACARONI_RECALL_UPDATE.md',
+    'docs/SENSITIVITY_CALIBRATION.md','docs/THIRD_PARTY_NOTICES.md',
+    'docs/FRONTEND_LICENSES.txt','docs/GITHUB_PUBLISHING.md',
+    'docs/assets/hero.svg','docs/assets/dashboard.png','docs/assets/guided-practice.png',
+    'docs/assets/macaroni-recall.png','docs/assets/recall-policy.png',
+}
 FILES={'README.md','LICENSE','.gitignore','.dockerignore','.env.example','requirements.txt',
        'requirements-anomalib.txt','Dockerfile','compose.yaml','render.yaml',
        'Start-DefectRAG.cmd','Start-DefectRAG.ps1','frontend/package.json',
@@ -17,11 +26,22 @@ FILES={'README.md','LICENSE','.gitignore','.dockerignore','.env.example','requir
        'results/highres_deployment_evaluation.json','results/highres_comparison.json','results/highres_comparison.csv'}
 FILES.update({'results/sensitive_deployment_evaluation.json','results/recall_threshold_audit.json',
               'results/macaroni_recall_deployment_evaluation.json'})
+FILES.update(PUBLIC_DOCS)
 EXCLUDED=('knowledge/index/','frontend/public/config.js','docs/README_LEGACY.md',
           'docs/SUPABASE_QUERY_CATALOG.md','docs/QA_ACCOUNT_REMOVAL.md',
           'deployment/qa_account_backup_PRIVATE.sql','deployment/qa_account_cleanup_REVIEW_ONLY.sql',
           'deployment/qa_account_deletion_preflight.sql','deployment/email_pending_qa_verification.sql',
-          'deployment/email_single_qa_verification.sql')
+          'deployment/email_single_qa_verification.sql',
+          'deployment/Update-GitHub.ps1',
+          'deployment/corrective_actions_fresh_sink_result.sql',
+          'deployment/corrective_actions_replacement_sink_result.sql',
+          'deployment/corrective_actions_single_sink_metadata.sql',
+          'deployment/corrective_actions_single_sink_result.sql',
+          'deployment/email_qa_selection.sql','deployment/email_clock_where_fix_verification.sql',
+          'deployment/email_no_send_live_preflight.sql',
+          'scripts/checkpoint.py','scripts/package_release.py','scripts/sync_release.py',
+          'scripts/verify_packaged.py','scripts/verify_highres_preservation.py',
+          'scripts/verify_upgrade_preservation.py')
 
 def selected(name):
     return (name in FILES or name.startswith(DIRECTORIES)) and not name.startswith(EXCLUDED) and Path(name).suffix not in ('.sqlite','.npz','.safetensors','.pt','.zip','.log')
@@ -55,7 +75,10 @@ def main():
     manifest={'source_commit':subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT).decode().strip(),
               'files':len(copied)+1,'public_config_blank':True,
               'excluded':'Git history, models, datasets, private runtime, environments, local evidence, secrets, build outputs'}
-    (output/'GITHUB_EXPORT.json').write_text(json.dumps(manifest,indent=2))
+    # Export receipts belong to the private preparation folder, not the public tree.
+    receipt=output.parent/(output.name+'.export.json')
+    assert not receipt.exists(),'Earlier export receipt preserved.'
+    receipt.write_text(json.dumps(manifest,indent=2))
     print(json.dumps({'folder':str(output),**manifest}))
 
 if __name__=='__main__':

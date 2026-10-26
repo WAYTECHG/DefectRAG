@@ -1,6 +1,0 @@
-{
-  "source_commit": "638579dcd66b6ac2f83cba3aba568e47aab19ed1",
-  "files": 504,
-  "public_config_blank": true,
-  "excluded": "Git history, models, datasets, private runtime, environments, local evidence, secrets, build outputs"
-}

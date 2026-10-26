@@ -23,7 +23,7 @@
 
 ## Overview
 
-**Local operating edition:** use the [current local runbook](docs/LOCAL_OPERATION_20261026.md)
+**Run locally:** use the [setup guide](docs/SETUP.md)
 for the synchronized dashboard and verified local n8n demonstration. Developer
 registration emails use the existing independent cloud service. Corrective Action
 email automation remains disabled; always-on hosting and Multimodal RAG are deferred.
@@ -208,7 +208,7 @@ is a heuristic, and interpolated heatmaps are not supervised segmentation. The
 headline is mean image AUROC, with AU-PR and operating recall alongside it; this
 is not YOLO bounding-box mAP@IoU.
 
-[Full comparison](docs/ACCURACY_RESULTS.md) · [Metric definitions](docs/ACCURACY_AND_METRICS.md) · [Recall and answer-quality notes](docs/RECALL_AND_RESPONSE_QUALITY.md)
+[Full comparison](docs/ACCURACY_RESULTS.md) · [Metric definitions](docs/ACCURACY_AND_METRICS.md) · [Evidence Assistant architecture](docs/ARCHITECTURE.md#evidence-assistant)
 
 ## Quick start
 
@@ -225,7 +225,7 @@ shows an older menu, open the direct application in a new tab:
 ### Existing Windows installation
 
 ```powershell
-Set-Location 'C:/Users/User/Desktop/DefectRAG-v2'
+Set-Location 'C:/path/to/DefectRAG'
 & '.\deployment\run_local.ps1'
 ```
 
@@ -288,14 +288,14 @@ Supabase SQL changes require review; no public service-role key belongs in confi
   reports/CSV/private images and reversible recovery verified.
 - Staff records and conversations survived an actual Space deployment restart.
 - Later native Staff/Developer/pending/MFA and Corrective Action assignment tests
-  are recorded in [the current local status](docs/LOCAL_OPERATION_20261026.md).
+  are summarized with their access boundaries in [Security](docs/SECURITY.md).
   Sustained production load and unattended hosted Corrective Action delivery are
   not established by these tests.
 - Staff-submitted answers still lack model-provenance attestation. Alert actor/time
   tracking was added by the later personal-workspace migration; consult the dated
   security/activation reports rather than the historical Phase4 limitation alone.
 
-[Deployment evidence](docs/ZEROGPU_PHASE5_RESULTS.md) · [Staff integration results](docs/ZEROGPU_PHASE4_RESULTS.md)
+[Setup](docs/SETUP.md) · [Security](docs/SECURITY.md) · [Model process](docs/TRAINING_AND_EVALUATION.md)
 
 ## Repository map
 
@@ -306,7 +306,7 @@ knowledge/            Attributed RAG documents and source metadata
 deployment/space/     Gradio adapter, queued inference and Supabase repository
 scripts/              Explicit asset setup, evaluation and source export tools
 tests/                API, answer relevance, protocol and security checks
-docs/                 Architecture, measured results, guides and evidence
+docs/                 Setup, security, architecture, model results and user guides
 results/              Selected public benchmark and deployment summaries
 ```
 

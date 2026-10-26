@@ -1,1 +1,0 @@
-{"commit": "84df9af3f59b2fe43fdb6ad14a1820c930329abc", "previous_error": "CONFIG_ERROR: CUDA local-version suffix rejected", "change": "torch==2.8.0, torchvision==0.23.0 with cu128 extra index"}
