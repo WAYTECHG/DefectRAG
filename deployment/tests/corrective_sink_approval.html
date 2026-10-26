@@ -1,0 +1,20 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>DefectRAG · One-event QA approval</title>
+<style>body{font:16px system-ui;color:#242841;background:#f6f5ff;max-width:850px;margin:30px auto;padding:20px}section{background:white;padding:22px;border:1px solid #dfddf4;border-radius:12px;margin:16px 0}button,input{font:inherit;padding:10px;border:1px solid #c9c5e4;border-radius:7px}button{background:#6554db;color:white;margin:6px;cursor:pointer}input[type=text]{width:90%}label{display:block;margin:15px 0}pre{white-space:pre-wrap;overflow-wrap:anywhere}</style>
+<h1>One-event QA approval</h1><p>Temporary local tool. The deployed Staff Workspace is unchanged. No staff access decisions or real email are performed here.</p>
+<section><h2>1. Existing Developer MFA</h2><p>First sign in and verify the existing Developer authenticator on the <a href="/">account verification page</a>, then return here.</p><button id="status">Check Developer access</button><p id="posture">Not checked.</p></section>
+<section><h2>2. One disposable case</h2><p>Requires the already shared synthetic QA inspection. No new image upload or model inference.</p>
+<label>Synthetic QA inspection ID <input id="inspection" type="text" pattern="[0-9a-f]{32}" autocomplete="off"></label>
+<label><input id="confirm" type="checkbox"> Confirm this is a disposable synthetic QA inspection; authorize one new QA review/case and sink-only test.</label>
+<button id="prepare">Prepare one QA case/event</button></section>
+<section><h2>3. Separate approval</h2><p>Read the event ID below before approving. Approval expires after 15 minutes and permits one claim. Revocation affects only this QA run, never Staff membership.</p>
+<button id="approve">Approve this event for local sink QA</button><button id="revoke">Revoke this QA authorization</button><pre id="result">No action has run.</pre></section>
+<section><h2>Replacement only after separate approval</h2><p>A failed one-claim event cannot be reset. After its zero-effect failure is reconciled and callback authentication is verified, one separately approved versioned event can be prepared on this same disposable case. The original failure remains in the audit trail.</p>
+<label><input id="replacement-confirm" type="checkbox"> Separate owner approval has been given for ONE replacement sink-only attempt.</label>
+<button id="replacement">Prepare approved replacement event</button></section>
+<section><h2>4. Disposable-case lifecycle after the sink test</h2><p>Read status first. Only this new QA case can progress, one step at a time: Open → Assigned → In Progress → Resolved → Closed. Resolution is a synthetic test attestation. Updates create audited events but send no mail while automation is off.</p>
+<button id="lifecycle-status">Read QA lifecycle status</button>
+<label>Next state <select id="lifecycle-state"><option>Assigned</option><option>In Progress</option><option>Resolved</option><option>Closed</option></select></label>
+<button id="lifecycle-next">Apply one QA lifecycle step</button></section>
+<section><h2>Unused expired grant recovery</h2><p>Only for the separately approved, exact version2 QA event that expired with zero claims. Creates one new audited version on the same case; earlier grants and events stay unchanged. Does not grant access or send anything.</p><label><input id="expiry-confirm" type="checkbox"> Owner separately approved one fresh sink-only event after the unused grant expired.</label><button id="expiry-recovery">Prepare approved unused-grant recovery</button></section>
+<script src="/config.js"></script><script src="/sdk.js"></script><script type="module" src="/sink-approval.mjs"></script></html>

@@ -22,7 +22,7 @@ import torch
 import torch.nn.functional as F
 from gradio import Server
 from fastapi import HTTPException
-from fastapi.responses import FileResponse, JSONResponse, RedirectResponse
+from fastapi.responses import FileResponse, JSONResponse, RedirectResponse, Response
 from fastapi.staticfiles import StaticFiles
 from backend.config import CATEGORIES, Settings
 from backend.calibration import calibrated_card
@@ -82,6 +82,7 @@ CLOUD_CONFIG=None
 if os.getenv('DEFECTRAG_STAFF_BACKEND')=='1':
     from deployment.space.supabase_repository import read_public_config
     CLOUD_CONFIG=read_public_config(UI/'config.js')
+    CLOUD_CONFIG['auth_workflow_enabled']=os.getenv('DEFECTRAG_AUTH_WORKFLOW')=='1'
 PERSONAL_ENABLED=os.getenv('DEFECTRAG_PERSONAL_WORKSPACE')=='1' and CLOUD_CONFIG is not None
 REPO = SessionRepository(RUNTIME/'sessions',cloud_config=CLOUD_CONFIG,artifacts=ARTIFACTS,personal_enabled=PERSONAL_ENABLED)
 from backend.main import create_app
@@ -235,6 +236,7 @@ def health():
         'staff_persistence_enabled':CLOUD_CONFIG is not None,
         'community_gallery_enabled':GALLERY is not None,
         'personal_workspace_enabled':PERSONAL_ENABLED,
+        'auth_workflow_enabled':bool(CLOUD_CONFIG and CLOUD_CONFIG.get('auth_workflow_enabled')),
         'history':'anonymous browser history is temporary; signed-in approved staff use Supabase' if CLOUD_CONFIG else 'anonymous browser history is temporary; staff backend disabled'}}
 
 
@@ -243,6 +245,8 @@ def artifact(identifier: str,kind: str):
     if record is None:
         raise HTTPException(404,'Inspection not found')
     if record.get('storage','').startswith('supabase'):
+        if CLOUD_CONFIG and CLOUD_CONFIG.get('auth_workflow_enabled'):
+            return Response(REPO.current().private_artifact(identifier,kind),media_type='image/jpeg',headers={'Cache-Control':'private, no-store'})
         return RedirectResponse(record[kind+'_url'],status_code=307)
     return FileResponse(ARTIFACTS/f"{identifier}{'_heatmap' if kind=='heatmap' else ''}.jpg")
 
@@ -274,10 +278,10 @@ def unknown_api(unknown: str):
 
 @server.get('/')
 def dashboard():
-    return FileResponse(UI/'index.html')
+    return FileResponse(UI/'index.html',headers={'Cache-Control':'no-store'})
 @server.get('/config.js')
 def public_config():
-    return FileResponse(UI/'config.js')
+    return FileResponse(UI/'config.js',headers={'Cache-Control':'no-store'})
 @server.get('/logo.svg')
 def logo():
     return FileResponse(UI/'logo.svg')

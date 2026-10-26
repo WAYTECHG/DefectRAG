@@ -1,0 +1,34 @@
+{
+  "status": "passed",
+  "batch": "PHASE5-STAFF-BATCH",
+  "durable_records": [
+    {
+      "id": "88b2489b5759419a9caad724ade0ae53",
+      "created_at": "2026-10-18T07:01:59.256956+00:00",
+      "category": "capsules",
+      "batch": "PHASE5-STAFF-BATCH",
+      "verdict": "Uncertain",
+      "score": "0.20549748837947845",
+      "threshold": "0.19718621671199799",
+      "inference_ms": "687.53",
+      "model_id": "dinov2-highres-capsules-v1"
+    },
+    {
+      "id": "ee823f7db3ae4a8fb687bb7b4d50896c",
+      "created_at": "2026-10-18T07:01:33.981632+00:00",
+      "category": "capsules",
+      "batch": "PHASE5-STAFF-BATCH",
+      "verdict": "Good",
+      "score": "0.13208819925785065",
+      "threshold": "0.19718621671199799",
+      "inference_ms": "803.74",
+      "model_id": "dinov2-highres-capsules-v1"
+    }
+  ],
+  "read_from_other_staff_browser_session": true,
+  "same_staff_account": true,
+  "different_staff_user_tested": false,
+  "submission_pattern": "Two successive one-image runs; latest UI run 1 completed / 0 failed.",
+  "successful_single_click_two_file_run_verified": false,
+  "note": "Actual free-account HF iframe inference and durable Supabase storage. No repeated model calls."
+}

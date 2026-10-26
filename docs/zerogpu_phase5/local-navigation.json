@@ -1,0 +1,78 @@
+[
+  {
+    "page": "Image inspection",
+    "headings": [
+      "\t\t\t44 heading From image to evidence., Value: 1",
+      "\t\t\t47 heading Inspection input, Value: 2",
+      "\t\t\t78 heading Inspection result, Value: 2"
+    ],
+    "error": false
+  },
+  {
+    "page": "Batch monitoring",
+    "headings": [
+      "\t\t\t44 heading Every batch, in view., Value: 1",
+      "\t\t\t50 heading Create a batch, Value: 2",
+      "\t\t\t81 heading Batch run, Value: 2"
+    ],
+    "error": false
+  },
+  {
+    "page": "Inspection history",
+    "headings": [
+      "\t\t\t44 heading A record you can return to., Value: 1",
+      "\t\t\t50 heading Saved inspections, Value: 2"
+    ],
+    "error": false
+  },
+  {
+    "page": "Review alerts",
+    "headings": [
+      "\t\t\t44 heading Give uncertainty a second look., Value: 1",
+      "\t\t\t50 heading Local review queue, Value: 2"
+    ],
+    "error": false
+  },
+  {
+    "page": "Model performance",
+    "headings": [
+      "\t\t\t44 heading Measured, not assumed., Value: 1",
+      "\t\t\t52 heading Held-out image performance, Value: 2",
+      "\t\t\t252 heading PCB 1, Value: 2"
+    ],
+    "error": false
+  },
+  {
+    "page": "Official benchmark",
+    "headings": [
+      "\t\t\t44 heading Follow the evidence., Value: 1",
+      "\t\t\t51 heading Measure improvement across every product., Value: 2",
+      "\t\t\t55 heading Choose a benchmark profile, Value: 2"
+    ],
+    "error": false
+  },
+  {
+    "page": "Staff workspace",
+    "headings": [
+      "\t\t\t44 heading Better decisions, together., Value: 1"
+    ],
+    "error": false
+  },
+  {
+    "page": "History recovery",
+    "headings": [
+      "\t\t\t44 heading Nothing important gets lost., Value: 1",
+      "\t\t\t50 heading Archived local inspections, Value: 2"
+    ],
+    "error": false
+  },
+  {
+    "page": "About & evidence",
+    "headings": [
+      "\t\t\t44 heading Evidence behind the answer., Value: 1",
+      "\t\t\t50 heading DefectRAG, Value: 2",
+      "\t\t\t53 heading What the model measures, Value: 3"
+    ],
+    "error": false
+  }
+]

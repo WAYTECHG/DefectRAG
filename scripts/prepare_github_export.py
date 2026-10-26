@@ -12,12 +12,19 @@ DIRECTORIES=('backend/','scripts/','tests/','deployment/','knowledge/','frontend
 FILES={'README.md','LICENSE','.gitignore','.dockerignore','.env.example','requirements.txt',
        'requirements-anomalib.txt','Dockerfile','compose.yaml','render.yaml',
        'Start-DefectRAG.cmd','Start-DefectRAG.ps1','frontend/package.json',
-       'frontend/package-lock.json','frontend/index.html','frontend/vite.config.js',
+       'frontend/package-lock.json','frontend/index.html','frontend/vite.config.js','frontend/localBuild.mjs',
        'results/evaluation.json','results/official_evaluation.json','results/highres_evaluation.json',
        'results/highres_deployment_evaluation.json','results/highres_comparison.json','results/highres_comparison.csv'}
 FILES.update({'results/sensitive_deployment_evaluation.json','results/recall_threshold_audit.json',
               'results/macaroni_recall_deployment_evaluation.json'})
-EXCLUDED=('knowledge/index/','frontend/public/config.js','docs/README_LEGACY.md')
+EXCLUDED=('knowledge/index/','frontend/public/config.js','docs/README_LEGACY.md',
+          'docs/SUPABASE_QUERY_CATALOG.md','docs/QA_ACCOUNT_REMOVAL.md',
+          'deployment/qa_account_backup_PRIVATE.sql','deployment/qa_account_cleanup_REVIEW_ONLY.sql',
+          'deployment/qa_account_deletion_preflight.sql','deployment/email_pending_qa_verification.sql',
+          'deployment/email_single_qa_verification.sql')
+
+def selected(name):
+    return (name in FILES or name.startswith(DIRECTORIES)) and not name.startswith(EXCLUDED) and Path(name).suffix not in ('.sqlite','.npz','.safetensors','.pt','.zip','.log')
 
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
@@ -29,8 +36,7 @@ def main():
     paths=subprocess.check_output(['git','ls-files','-z'],cwd=ROOT).decode().split('\0')
     copied=[]
     for name in filter(None,paths):
-        if name not in FILES and not name.startswith(DIRECTORIES):continue
-        if name.startswith(EXCLUDED) or Path(name).suffix in ('.sqlite','.npz','.safetensors','.pt','.zip','.log'):continue
+        if not selected(name):continue
         path=ROOT/name
         if not path.is_file() or path.is_symlink():continue
         if path.stat().st_size>15*1024*1024:raise ValueError('Unexpected large tracked file: '+name)
@@ -43,7 +49,7 @@ def main():
     config.write_text('window.DEFECTRAG_PUBLIC_CONFIG = {supabaseUrl:"",supabasePublishableKey:""};\n')
     credential=re.compile(r'hf_[A-Za-z0-9]{25,}|sb_secret_[A-Za-z0-9_-]{20,}|eyJ[A-Za-z0-9_-]{20,}\.[A-Za-z0-9_-]{20,}\.[A-Za-z0-9_-]{20,}')
     for path in output.rglob('*'):
-        if path.is_file() and path.suffix in ('.py','.js','.jsx','.json','.md','.txt','.html'):
+        if path.is_file() and (path.suffix in ('.py','.js','.jsx','.mjs','.json','.md','.txt','.html','.sql','.ps1','.yaml','.yml','.toml') or path.name=='.env.example'):
             assert not credential.search(path.read_text(encoding='utf8',errors='replace')),'Credential-like value requires review: '+str(path.relative_to(output))
     assert not any((output/name).exists() for name in ('models','runtime','experiments','.venv','.git','.env','DEVELOPMENT_PROGRESS.md'))
     manifest={'source_commit':subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT).decode().strip(),

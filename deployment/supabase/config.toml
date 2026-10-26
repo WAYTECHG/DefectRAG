@@ -1,0 +1,13 @@
+# Inactive source configuration only. Deploying requires separate approval.
+# This worker uses a purpose-scoped Authorization bearer, checked in worker.mjs;
+# it is NOT a Supabase user JWT. Never remove the handler's secret validation.
+[functions.staff-notifications]
+verify_jwt = false
+
+# Dedicated worker/callback secrets + event lease checked in handler and SQL.
+[functions.corrective-actions]
+verify_jwt = false
+
+# Separate INACTIVE sink-only QA pull/callback bridge. Never blanket-deploy.
+[functions.corrective-actions-qa]
+verify_jwt = false

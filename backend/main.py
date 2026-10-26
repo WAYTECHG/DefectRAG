@@ -2,7 +2,6 @@ from contextlib import asynccontextmanager
 from io import BytesIO, StringIO
 from pathlib import Path
 import csv
-import html
 import json
 import logging
 import re
@@ -27,7 +26,18 @@ def create_app(settings=None, detector=None, workflow=None, repository=None, gal
     settings=settings or Settings()
     settings.data.mkdir(parents=True,exist_ok=True)
     artifacts=settings.data/'artifacts'; artifacts.mkdir(exist_ok=True)
+    import os
+    if repository is None and os.getenv('DEFECTRAG_LOCAL_SYNC')=='1':
+        from .local_sync import LocalSyncRepository
+        from deployment.space.supabase_repository import read_public_config
+        config=read_public_config(settings.root/'frontend/public/config.js')
+        config['auth_workflow_enabled']=True
+        repository=LocalSyncRepository(settings.data,config,artifacts)
     repo=repository if repository is not None else SQLiteRepository(settings.data/'inspection.sqlite3')
+    # SessionRepository delegates missing instance attributes to a live account;
+    # factory construction must never require an active cloud request context.
+    local_sync=bool(getattr(type(repo),'local_sync_enabled',False))
+    def artifact_directory():return repo.artifact_directory() if local_sync else artifacts
     detector=detector or create_detector(settings)
     if workflow is None:
         workflow=EvidenceWorkflow(settings,KnowledgeIndex(settings.root,settings.data/'index'))
@@ -35,7 +45,7 @@ def create_app(settings=None, detector=None, workflow=None, repository=None, gal
     app.state.repo=repo; app.state.detector=detector; app.state.workflow=workflow
     import os
     from .gallery import LocalGallery, mount_gallery
-    if gallery is None and os.getenv('DEFECTRAG_GALLERY_ENABLED')=='1' and not hasattr(repo,'current'):
+    if gallery is None and os.getenv('DEFECTRAG_GALLERY_ENABLED')=='1' and (not hasattr(repo,'current') or local_sync):
         import secrets
         key_path=settings.data/'gallery.key'
         if not key_path.exists():key_path.write_text(secrets.token_hex(32))
@@ -44,10 +54,14 @@ def create_app(settings=None, detector=None, workflow=None, repository=None, gal
         from deployment.space.sessions import NAMESPACE
         gallery_owner=lambda:NAMESPACE.get() or ''
     else:gallery_owner=lambda:'local-operator'
-    mount_gallery(app,repo,artifacts,gallery,owner=gallery_owner,
+    mount_gallery(app,repo,artifact_directory if local_sync else artifacts,gallery,owner=gallery_owner,
                   cloud_origin=(getattr(repo,'cloud_config',None) or {}).get('url',''))
     origins=[o.strip() for o in os.getenv('DEFECTRAG_CORS','http://localhost:5173,http://127.0.0.1:5173').split(',')]
-    app.add_middleware(CORSMiddleware,allow_origins=origins,allow_methods=['GET','POST'],allow_headers=['Content-Type'])
+    if local_sync:
+        origins=list(set(origins+['http://localhost:8765','http://127.0.0.1:8765']))
+        from .local_sync_api import mount_local_sync
+        mount_local_sync(app,repo,origins)
+    app.add_middleware(CORSMiddleware,allow_origins=origins,allow_methods=['GET','POST'],allow_headers=['Content-Type','Authorization','X-DefectRAG-Session','X-DefectRAG-Workspace'] if local_sync else ['Content-Type'],expose_headers=['X-DefectRAG-Export'] if local_sync else [])
 
     @app.middleware('http')
     async def body_limit(request:Request,call_next):
@@ -114,7 +128,7 @@ def create_app(settings=None, detector=None, workflow=None, repository=None, gal
             repo.failure(category,'inference_failed')
             raise HTTPException(503,'Model execution failed. No inspection was saved.')
         identifier=request_id or uuid.uuid4().hex
-        image_path=artifacts/f'{identifier}.jpg'; heatmap_path=artifacts/f'{identifier}_heatmap.jpg'
+        image_path=artifact_directory()/f'{identifier}.jpg'; heatmap_path=artifact_directory()/f'{identifier}_heatmap.jpg'
         try:
             image.thumbnail((1600,1600)); image.save(image_path,quality=92)
             heatmap.save(heatmap_path,quality=92)
@@ -129,7 +143,8 @@ def create_app(settings=None, detector=None, workflow=None, repository=None, gal
     @app.get('/api/health')
     def health():
         return {'data':{'status':'ok','version':'2.1.0','mode':'local_single_user','models':detector.cards(),
-                        'encoder_configured':Path(settings.encoder).exists(),'llm_model':settings.ollama_model}}
+                        'encoder_configured':Path(settings.encoder).exists(),'llm_model':settings.ollama_model,
+                        'local_sync_enabled':local_sync,'personal_workspace_enabled':local_sync,'auth_workflow_enabled':local_sync}}
     @app.get('/api/models')
     def models(): return {'data':detector.cards()}
     @app.get('/api/evaluation')
@@ -188,6 +203,11 @@ def create_app(settings=None, detector=None, workflow=None, repository=None, gal
                 errors.append({'filename':file.filename,'message':str(exc.detail),'status':exc.status_code})
             finally: file.file.close()
         return {'data':{'records':records,'errors':errors,'batch':batch}}
+    @app.get('/api/batch-name')
+    def check_batch_name(name:str=Query(...,min_length=1,max_length=80)):
+        from .batch_names import batch_name_available
+        if not name.strip():raise HTTPException(422,'Add a batch name')
+        return {'data':{'available':batch_name_available(repo,name)}}
     @app.get('/api/inspections')
     def inspections(category:str='',verdict:str='',batch:str='',limit:int=Query(100,ge=1,le=500),offset:int=Query(0,ge=0)):
         return {'data':repo.list(category,verdict,batch,limit,offset)}
@@ -223,27 +243,20 @@ def create_app(settings=None, detector=None, workflow=None, repository=None, gal
     def inspection(identifier:str): return {'data':require(identifier)}
     @app.get('/api/inspections/{identifier}/image')
     def inspection_image(identifier:str):
+        if local_sync:
+            require(identifier);return Response(repo.artifact_bytes(identifier,'image'),media_type='image/jpeg',headers={'Cache-Control':'private, no-store'})
         require(identifier); return FileResponse(artifacts/f'{identifier}.jpg')
     @app.get('/api/inspections/{identifier}/heatmap')
     def inspection_heatmap(identifier:str):
+        if local_sync:
+            require(identifier);return Response(repo.artifact_bytes(identifier,'heatmap'),media_type='image/jpeg',headers={'Cache-Control':'private, no-store'})
         require(identifier); return FileResponse(artifacts/f'{identifier}_heatmap.jpg')
     @app.get('/api/inspections/{identifier}/report')
     def report(identifier:str):
         record=require(identifier)
-        esc=lambda v:html.escape(str(v))
-        fields=('id','created_at','category','batch','filename','verdict','score','threshold',
-                'uncertainty_margin','model_id','profile','model_sha256','inference_ms',
-                'total_model_ms','localization','scope','alert_acknowledged')
-        rows=''.join(f'<tr><th>{esc(k.replace("_"," "))}</th><td>{esc(record[k])}</td></tr>' for k in fields if k in record)
-        reviews=repo.review_history(identifier)
-        review_html=''.join('<article><strong>'+esc(r['status'])+' · '+esc(r['decision'])+'</strong><p>'+esc(r['reviewer'])+' · '+esc(r['created_at'])+'</p><p>'+esc(r['note'])+'</p></article>' for r in reviews) or '<p>No human review decision has been recorded.</p>'
-        from .reviews import parse_review
-        review_html+=''.join('<article><strong>'+esc(n['reviewer'])+' · '+esc(n['created_at'])+'</strong><p>'+esc(n['body'])+'</p></article>' for n in repo.review_notes(identifier) if not parse_review(n['body']))
-        messages=repo.messages(identifier)
-        evidence=''.join(f'<p>{esc(m.get("answer",m.get("question","")))}</p>' for m in messages) or '<p>No saved conversation yet. Ask the Evidence Assistant a question for this inspection, then refresh this report.</p>'
-        sources={s['chunk_id']:s for m in messages for s in m.get('evidence',[])}
-        source_html=''.join('<article><h3>'+esc(k)+' · '+esc(s['title'])+'</h3><p>'+esc(s['text'])+'</p><p>'+esc(s['url'])+' · '+esc(s['scope'])+'</p></article>' for k,s in sources.items()) or '<p>No document passages saved. Measurement-only answers come directly from the saved inspection and do not require a document citation.</p>'
-        return HTMLResponse('<!doctype html><html lang="en"><meta charset="utf-8"><title>DefectRAG inspection report</title><style>body{font:15px system-ui;max-width:900px;margin:40px auto;color:#17292c}table{width:100%;border-collapse:collapse}th,td{text-align:left;border-bottom:1px solid #ddd;padding:8px}img{width:46%}article{border-top:1px solid #ddd}@media print{button{display:none}}</style><h1>DefectRAG inspection report</h1><p>Benchmark screening evidence · model score is not a probability</p><button onclick="window.print()">Print / save PDF</button><table>'+rows+'</table><h2>Human review</h2>'+review_html+'<h2>Image and localization</h2><img src="'+esc(record['image_url'])+'"><img src="'+esc(record['heatmap_url'])+'"><h2>Evidence conversation</h2>'+evidence+'<h2>Retrieved documentation</h2>'+source_html+'</html>')
+        from .inspection_report import render_report
+        return HTMLResponse(render_report(record,repo.review_history(identifier),repo.review_notes(identifier),repo.messages(identifier),local=local_sync or not hasattr(repo,'current')),
+                            headers={'Cache-Control':'private, no-store','Referrer-Policy':'no-referrer','X-Content-Type-Options':'nosniff'})
     class HumanReview(BaseModel):
         status:str=Field(pattern='^(Needs review|In review|Reviewed)$')
         decision:str=Field(pattern='^(Pending|Hold|Accept|Reject)$')
@@ -296,6 +309,9 @@ def create_app(settings=None, detector=None, workflow=None, repository=None, gal
             writer.writerow(safe)
         return Response(output.getvalue(),media_type='text/csv',headers={'Content-Disposition':'attachment; filename="defectrag-inspections.csv"'})
     dist=settings.root/'frontend'/'dist'
+    if local_sync:
+        from .local_frontend import mount_local_frontend
+        mount_local_frontend(app,settings.root,dist)
     if dist.exists(): app.mount('/',StaticFiles(directory=dist,html=True),name='dashboard')
     return app
 

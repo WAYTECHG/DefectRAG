@@ -64,9 +64,9 @@ for(const fails of [false,true])test(`actual sharing handler suppresses late ${f
  const declaration=source.slice(source.indexOf(' async function save('),source.indexOf('\n return <div>'));
  const guard=createOperationGuard();let resolve,reject,notices=0,opened=0,changed=0;const errors=[],busy=[];
  const pending=new Promise((a,b)=>{resolve=a;reject=b});
- const save=new Function('operations','api','enabled','record','messages','url','shareInspection','workspaceChanged','onNotice','onChanged','setBusy','setError','include',declaration+';return save')(
+ const save=new Function('operations','api','enabled','record','messages','url','shareInspection','workspaceChanged','onNotice','onChanged','setBusy','setError','include','permission',declaration+';return save')(
   {current:guard},()=>pending,true,{id:'old-record'},[],value=>value,()=>assert.fail('Legacy transport should not run'),
-  ()=>changed++,()=>notices++,()=>opened++,value=>busy.push(value),value=>errors.push(value),false);
+  ()=>changed++,()=>notices++,()=>opened++,value=>busy.push(value),value=>errors.push(value),false,{allowed:true});
  const work=save();guard.invalidate();
  if(fails)reject(new Error('Old account request failed'));else resolve({alreadyShared:false});
  await work;

@@ -1,0 +1,10 @@
+{
+ "name":"DefectRAG CA scheduler — INACTIVE; requires approved always-on hosting",
+ "active":false,
+ "settings":{"executionOrder":"v1","saveDataSuccessExecution":"none","saveDataErrorExecution":"none","saveManualExecutions":false},
+ "nodes":[
+  {"id":"schedule","name":"Check case deadlines","type":"n8n-nodes-base.scheduleTrigger","typeVersion":1.2,"position":[0,0],"parameters":{"rule":{"interval":[{"field":"minutes","minutesInterval":15}]}}},
+  {"id":"dispatch","name":"Dispatch one due case event","type":"n8n-nodes-base.httpRequest","typeVersion":4.2,"position":[240,0],"parameters":{"method":"POST","url":"https://PROJECT_REF.supabase.co/functions/v1/corrective-actions","authentication":"genericCredentialType","genericAuthType":"httpHeaderAuth","options":{"timeout":110000}},"credentials":{"httpHeaderAuth":{"id":"CONFIGURE_IN_N8N","name":"DefectRAG CA dispatcher bearer"}}}
+ ],
+ "connections":{"Check case deadlines":{"main":[[{"node":"Dispatch one due case event","type":"main","index":0}]]}}
+}

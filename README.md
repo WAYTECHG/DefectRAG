@@ -2,7 +2,7 @@
   <img src="docs/assets/hero.svg" alt="DefectRAG — visual evidence, grounded answers" width="100%" />
 
   <p><strong>Industrial visual anomaly inspection with retrieval-augmented generation.</strong></p>
-  <p>Real image measurements, coarse heatmaps, cited explanations and shared review history.</p>
+  <p>Visual evidence, cited explanations, private synchronized workspaces and accountable team review.</p>
 
   <a href="https://huggingface.co/spaces/Wizzas/DefectRAG"><img src="https://img.shields.io/badge/Live_demo-Hugging_Face-FFD21E?style=for-the-badge&amp;logo=huggingface&amp;logoColor=black" alt="Live Hugging Face demo" /></a>
   <img src="https://img.shields.io/badge/Python-3.12-3776AB?style=for-the-badge&amp;logo=python&amp;logoColor=white" alt="Cloud Python 3.12" />
@@ -13,13 +13,20 @@
   <img src="https://img.shields.io/badge/FastAPI-0.142.2-009688?style=flat-square&amp;logo=fastapi&amp;logoColor=white" alt="Cloud FastAPI 0.142.2" />
   <img src="https://img.shields.io/badge/Vite-6.4.4-646CFF?style=flat-square&amp;logo=vite&amp;logoColor=white" alt="Vite 6.4.4" />
   <img src="https://img.shields.io/badge/LangGraph-1.2.14-1C3C3C?style=flat-square" alt="Cloud LangGraph 1.2.14" />
-  <img src="https://img.shields.io/badge/Supabase-staff_workspace-3ECF8E?style=flat-square&amp;logo=supabase&amp;logoColor=white" alt="Supabase staff workspace" />
+  <img src="https://img.shields.io/badge/Supabase-Auth_%2B_RLS_%2B_Storage-3ECF8E?style=flat-square&amp;logo=supabase&amp;logoColor=white" alt="Supabase authentication, row-level security and storage" />
+  <img src="https://img.shields.io/badge/MFA-native_TOTP-635BFF?style=flat-square" alt="Native Supabase TOTP MFA" />
+  <img src="https://img.shields.io/badge/n8n-local_QA_verified-EA4B71?style=flat-square&amp;logo=n8n&amp;logoColor=white" alt="n8n local QA integration verified; unattended corrective-action delivery disabled" />
   <img src="https://img.shields.io/badge/License-MIT-7963DF?style=flat-square" alt="MIT application license" />
 
-  <p><a href="https://huggingface.co/spaces/Wizzas/DefectRAG">Live application</a> · <a href="#architecture">Architecture</a> · <a href="#measured-results">Results</a> · <a href="#quick-start">Quick start</a> · <a href="docs/PUBLIC_APPLICATION_GUIDE.md">Application guide</a></p>
+  <p><a href="https://huggingface.co/spaces/Wizzas/DefectRAG">Live application</a> · <a href="#current-capabilities">Features</a> · <a href="#architecture">Architecture</a> · <a href="#measured-results">Results</a> · <a href="#quick-start">Quick start</a> · <a href="docs/STAFF_QUICK_GUIDE.md">Staff guide</a></p>
 </div>
 
 ## Overview
+
+**Local operating edition:** use the [current local runbook](docs/LOCAL_OPERATION_20261026.md)
+for the synchronized dashboard and verified local n8n demonstration. Developer
+registration emails use the existing independent cloud service. Corrective Action
+email automation remains disabled; always-on hosting and Multimodal RAG are deferred.
 
 DefectRAG combines frozen visual encoders with a normal-reference memory bank and
 an inspection-linked RAG assistant. The existing React dashboard supports image
@@ -41,6 +48,43 @@ hosts the cloud UI, CPU services and queued ZeroGPU inference.
 <summary><strong>Dashboard preview</strong></summary>
 <p><img src="docs/assets/dashboard.png" alt="Existing React dashboard with the new product-inspection logo and explicit RAG description" width="100%" /></p>
 </details>
+
+## Current capabilities
+
+| Capability | What it does | Status |
+|---|---|---|
+| **Guided practice** | Opens the relevant dashboard page, highlights a control and advances after the required action. Covers 17 steps with Back, Skip and replay. | Verified locally and on Hugging Face |
+| **Public Demo Mode** | Visitors can explore inspection without becoming Staff. Private account and Team records remain separate. | Available; free inference quotas apply |
+| **Staff registration and approval** | Email-confirmed applicants submit Pending requests. Developers approve, reject or revoke access from the interface; signup grants no Staff membership. | Implemented and activated on the existing installation |
+| **Native TOTP MFA** | Approved Staff and Developers verify an authenticator code. Backend, database functions, RLS and protected storage enforce the required assurance. | Enforced on the existing installation |
+| **Personal local ↔ cloud synchronization** | The same approved account uses private history across local and hosted clients, including images, heatmaps, conversations and review state. Queued changes, duplicates and conflicts have explicit handling. | Real Supabase QA verified; unsynchronized local changes are not yet cloud-saved |
+| **Explicit Team collaboration** | Share a separate inspection copy, open evidence and save structured Staff reviews. Personal records are never automatically published to Team. | Implemented |
+| **Corrective Actions** | Human-confirmed, reviewed Team defects become assigned cases with due dates, progress, resolution, closure and audit history. Only the owner, supervisor or a Developer can edit. | Live security/lifecycle QA verified |
+| **Community Gallery** | Publish a separate public copy with explicit consent. Private notes, conversations and account history stay separate. | Hosted gallery available; local publishing needs separate configuration |
+| **Developer request emails** | A durable outbox, cloud scheduler, Supabase Edge worker and Resend notify the Developer independently of the Windows laptop. | Controlled cloud delivery verified; current restricted sender is for the verified Developer recipient |
+| **n8n corrective-action integration** | Secured event delivery, validation, a test mail sink and authenticated completion callbacks. | One-event real Supabase/local n8n QA verified; unattended production delivery and schedules **OFF** |
+| **Model results and recovery** | DINOv2/DINOv3 comparisons, all 12 categories, reports, CSV exports, review alerts and recoverable archival remain accessible. | Existing functionality preserved |
+
+These statuses describe the verified installation on **26 October 2026**. A fresh
+clone starts with blank public Supabase configuration and still needs its own
+reviewed database/authentication setup; cloning does not activate cloud services.
+
+### Learn by doing
+
+Open **Overview → Tutorial → Start guided practice**. The lesson moves through
+Image inspection, History, Staff review, Corrective Actions, Batch inspection,
+Review alerts and public-sharing consent. It waits for each action rather than
+advancing through text slides. Real signed-in inspections save to Personal
+Workspace automatically; the lesson teaches finding that private copy in history.
+
+Practice uses attributed, historical public examples and fictional assignments.
+It creates no real inspection, Staff review, case, Team share or email, grants no
+account access and uses no GPU allowance. Existing photo drafts remain separate.
+The prepared teaching answer is labelled and is not a live Qwen response.
+
+<p align="center"><img src="docs/assets/guided-practice.png" alt="Live guided practice navigating to Image inspection and highlighting Product category" width="820" /></p>
+
+[Staff quick guide](docs/STAFF_QUICK_GUIDE.md) · [Guided-practice design and verification](docs/GUIDED_PRACTICE.md)
 
 ## Architecture
 
@@ -79,6 +123,36 @@ retrieves BGE vectors; LangGraph coordinates scope checks, retrieval, generation
 and answer validation. Qwen generates explanations from retrieved evidence.
 Direct score/verdict answers use saved measurements without pretending to call an
 LLM. The assistant receives inspection facts and conversation, not image pixels.
+This is **vision-assisted text RAG**, not Multimodal RAG. Multimodal retrieval,
+vision-language reasoning and model fine-tuning remain separate future work.
+
+### Workspace, approval and automation flow
+
+```mermaid
+flowchart TD
+    Visitor["Visitor"] --> Demo["Isolated public demo / guided practice"]
+    Visitor --> Auth["Supabase Auth · email confirmation"]
+    Auth --> Pending["Pending Staff access request"]
+    Pending --> Approval["Developer approval · native TOTP AAL2"]
+    Approval --> Staff["Approved Staff · required TOTP"]
+    Staff --> Personal["Private Personal Workspace"]
+    Local["Local account cache + pending changes"] <--> Cloud["Supabase · owner-only history + storage"]
+    Personal --> Cloud
+    Cloud --> Hosted["Same account in the hosted app"]
+    Personal -->|Explicit share| Team["Team inspection + Staff review"]
+    Team -->|Human-confirmed defect| Case["Assigned Corrective Action · audited lifecycle"]
+    Personal -->|Separate public consent| Gallery["Community Gallery copy"]
+    Pending --> Outbox["Durable notification outbox"]
+    Outbox --> Worker["Cloud Cron + Edge worker"]
+    Worker --> Resend["Developer email · Resend"]
+    Case -. "Verified local QA; production OFF" .-> N8N["Authenticated n8n workflow"]
+    N8N -. "Test sink + authenticated receipt" .-> Case
+```
+
+Registration, MFA assurance, case ownership and revocation are enforced below the
+frontend. n8n does not generate OTPs or grant permissions. A case being saved does
+not mean a notification was delivered. Always-on n8n hosting and real unattended
+Corrective Action reminders/escalations have not been activated.
 
 | Component | Cloud deployment | Preserved local application |
 |---|---|---|
@@ -87,7 +161,7 @@ LLM. The assistant receives inspection facts and conversation, not image pixels.
 | Active visual model | Frozen DINOv2 ViT-S/14, 448px short edge | DINOv2 high-resolution; original DINOv3 retained |
 | Retrieval | BGE-small-en-v1.5 in a CPU-only subprocess | Existing local BGE embeddings/index |
 | Generation | Qwen3-4B-Instruct-2507 on ZeroGPU | Ollama qwen2.5:3b |
-| Persistence | Supabase for approved staff; isolated temporary guest history | SQLite and local artifacts; optional staff sharing |
+| Persistence | Private Personal / explicitly shared Team records in Supabase; isolated temporary guest history | Owner-scoped local cache/outbox and private Supabase synchronization; explicit Team sharing |
 | Transformers | 5.20.1, isolated cloud environment | 4.57.6 production requirements |
 
 Package badges describe the validated cloud/frontend versions. Local and cloud
@@ -144,17 +218,24 @@ Open **[Wizzas/DefectRAG](https://huggingface.co/spaces/Wizzas/DefectRAG)**.
 HF sign-in supplies available GPU quota; Supabase staff sign-in separately
 authorizes persistent shared records. Embedded and direct app links can have
 separate browser sessions. Free quotas, cold starts and queue waits apply.
+For onboarding, select **Overview → Tutorial**. If an already-open browser still
+shows an older menu, open the direct application in a new tab:
+[current hosted dashboard](https://wizzas-defectrag.hf.space/?release=ac4dd3e#overview).
 
 ### Existing Windows installation
 
 ```powershell
-cd C:\Users\User\Desktop\DefectRAG-v2
-.\Start-DefectRAG.cmd -Port 8767
+Set-Location 'C:/Users/User/Desktop/DefectRAG-v2'
+& '.\deployment\run_local.ps1'
 ```
 
-Open http://127.0.0.1:8767. Existing models and evaluation results are reused;
-no fitting or download is needed. For local generated explanations, Ollama must
-be running with `qwen2.5:3b` installed.
+Open http://127.0.0.1:8765. The launcher verifies/rebuilds the React dashboard
+when needed and enables private synchronization. Complete the existing Staff
+sign-in and TOTP MFA for protected Personal/Team operations. Existing models and
+evaluation results are reused. For local generated explanations, Ollama must be
+running with `qwen2.5:3b` installed. Guest demo history stays local; private data
+does not automatically become Team or Gallery data. The older
+`Start-DefectRAG.cmd -Port 8767` path remains available for the legacy local mode.
 
 ### Fresh source clone
 
@@ -162,7 +243,7 @@ The GitHub source export excludes model weights, reference banks, private record
 and environments. Node.js/npm and Python 3.11 are required for this setup:
 
 ```powershell
-git clone <repository-url>
+git clone https://github.com/WAYTECHG/DefectRAG.git
 cd DefectRAG
 py -3.11 -m venv .venv
 .\.venv\Scripts\python.exe -m pip install -r requirements.txt
@@ -188,22 +269,31 @@ npm.cmd test --prefix frontend
 npm.cmd run build --prefix frontend
 ```
 
-Cloud migration builds separately under `development-support/space/ui-dist`.
+Cloud publication uses the verified frontend release publisher and its source/output
+receipts; a loose `ui-dist` folder is not sufficient proof of a current build.
 Deployment instructions: [Space adapter](deployment/space/README.md).
 Supabase SQL changes require review; no public service-role key belongs in config.
 
 ## Validation and limits
 
+- Latest onboarding frontend suite: **224 passed, zero failed**, including
+  action sequencing, incomplete-input denial, Back/replay, draft preservation and
+  teaching-image provenance/packaging. The full 17-step practice journey and
+  original/heatmap/batch image loading were verified in the live application.
+  These checks are not new model benchmarks. Mobile visual QA remains unverified.
 - Real local/cloud inspection parity across all 12 products; maximum observed
   score difference 0.00053 in the saved 24-image integration comparison.
 - Genuine Qwen generation, cited document answers and saved measurement answers.
 - Approved developer RPC success, anonymous denial, notes, acknowledgment,
   reports/CSV/private images and reversible recovery verified.
 - Staff records and conversations survived an actual Space deployment restart.
-- Authenticated non-staff/ordinary-staff role matrices, distinct-user collaboration,
-  successful combined multi-file submission and sustained load remain unverified.
-- Staff-submitted answers lack model-provenance attestation; acknowledgments lack
-  actor/time audit. These hardening limits remain documented, not silently changed.
+- Later native Staff/Developer/pending/MFA and Corrective Action assignment tests
+  are recorded in [the current local status](docs/LOCAL_OPERATION_20261026.md).
+  Sustained production load and unattended hosted Corrective Action delivery are
+  not established by these tests.
+- Staff-submitted answers still lack model-provenance attestation. Alert actor/time
+  tracking was added by the later personal-workspace migration; consult the dated
+  security/activation reports rather than the historical Phase4 limitation alone.
 
 [Deployment evidence](docs/ZEROGPU_PHASE5_RESULTS.md) · [Staff integration results](docs/ZEROGPU_PHASE4_RESULTS.md)
 

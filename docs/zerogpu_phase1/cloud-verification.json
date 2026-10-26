@@ -1,0 +1,75 @@
+{
+  "status": "passed",
+  "target": "https://wizzas-defectrag.hf.space",
+  "ready": {
+    "message": "phase1-cloud-read-only",
+    "server_mode": true,
+    "zero_gpu_environment": true,
+    "python": "3.12.12",
+    "device": "cuda",
+    "versions": {
+      "gradio": "6.30.0",
+      "spaces": "0.51.3",
+      "torch": "2.8.0",
+      "transformers": "5.20.1",
+      "huggingface-hub": "2.2.0",
+      "fastapi": "0.142.2"
+    }
+  },
+  "one_browser_inspection": {
+    "inference_ms": 783.16,
+    "device": "cuda",
+    "gpu_name": "NVIDIA RTX PRO 6000 Blackwell Server Edition MIG 2g.48gb",
+    "peak_gpu_mb": 120.99,
+    "foreground_fraction": 0.4291158536585366,
+    "id": "a976ff7df0cf4da9beab53582d54c477",
+    "created_at": "2026-10-17T16:12:35.227018+00:00",
+    "category": "pcb1",
+    "batch": "",
+    "filename": "pcb1_anomalous.jpg",
+    "verdict": "Anomalous",
+    "score": 0.31300604343414307,
+    "threshold": 0.16181933879852295,
+    "uncertainty_margin": 0.008090966939926147,
+    "defect_category": null,
+    "model_id": "dinov2-highres-pcb1-v1",
+    "model_sha256": "14e71cb6285f22e3d12d2b0d6357c552a26685a8f03a9b626a3e8999e8a89c65",
+    "total_model_ms": 1606.69,
+    "localization": "32 x 41 DINOv2 patch distances with PCA foreground heuristic; interpolated, not supervised segmentation",
+    "scope": "Phase 1 compatibility request using a public VisA fixture; not a new accuracy evaluation.",
+    "profile": "dinov2_highres_v1",
+    "calibration": {
+      "method": "Maximum heldout normal score; no anomalous calibration",
+      "normal": 91,
+      "anomalous": 0,
+      "seed": 42
+    },
+    "phase1": {
+      "transport": "@gradio/client",
+      "zero_gpu_environment": true
+    },
+    "image_url": "/api/inspections/a976ff7df0cf4da9beab53582d54c477/image",
+    "heatmap_url": "/api/inspections/a976ff7df0cf4da9beab53582d54c477/heatmap"
+  },
+  "checks": {
+    "dashboard": "passed",
+    "heatmap": "passed",
+    "image": "passed",
+    "report": "passed",
+    "evaluation": "passed",
+    "benchmark": "passed",
+    "csv": "passed"
+  },
+  "local_score": 0.31308862566947937,
+  "absolute_score_difference": 0.00008258223533630371,
+  "fixture_tolerance": 0.001,
+  "css_sha256": "087e3c48084e6752afdd5667f4ad43b22bd240038b904dc746f51b90b0732661",
+  "production_css_identical": true,
+  "public_supabase_config": "blank",
+  "limitations": [
+    "one PCB1 fixture, no all12 accuracy re-evaluation",
+    "no RAG, batch, cloud staff migration",
+    "direct hf.space guest browser tested; authenticated HF iframe identity/quota forwarding not tested",
+    "ephemeral public test history, no production persistence or load certification"
+  ]
+}

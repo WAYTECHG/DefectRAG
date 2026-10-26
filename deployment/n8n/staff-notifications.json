@@ -1,0 +1,40 @@
+{
+  "name": "DefectRAG staff notifications - INACTIVE REVIEW TEMPLATE",
+  "active": false,
+  "settings": {"executionOrder": "v1", "saveDataSuccessExecution": "none", "saveDataErrorExecution": "none", "saveManualExecutions": false},
+  "nodes": [
+    {
+      "id": "authenticated-webhook", "name": "Authenticated notification", "type": "n8n-nodes-base.webhook", "typeVersion": 2,
+      "position": [0, 0],
+      "parameters": {"httpMethod": "POST", "path": "defectrag-staff-notifications", "authentication": "headerAuth", "responseMode": "responseNode", "options": {}},
+      "credentials": {"httpHeaderAuth": {"id": "CONFIGURE_IN_N8N", "name": "DefectRAG server webhook header"}}
+    },
+    {
+      "id": "validate-event", "name": "Validate notification", "type": "n8n-nodes-base.code", "typeVersion": 2,
+      "position": [240, 0],
+      "parameters": {"jsCode": "const b=$input.first().json.body; const uuid=/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i; const email=v=>typeof v==='string'&&v.length<=254&&!/[\\r\\n]/.test(v)&&/^[^@\\s]+@[^@\\s]+$/.test(v); if(!b||!uuid.test(b.event_id)||!uuid.test(b.request_id)||!['requested','approved','rejected','revoked'].includes(b.kind)||!Number.isInteger(b.version)||b.version<1||!email(b.recipient_email)||(b.kind==='requested'&&!email(b.applicant_email))||typeof b.display_name!=='string'||b.display_name.length>80) throw new Error('Invalid notification'); const name=b.display_name.replace(/[\\r\\n]/g,' '); const text=b.kind==='requested'?'A verified account requested DefectRAG staff access: '+name+' ('+b.applicant_email+'). Open the authenticated Staff workspace to review.':'DefectRAG staff access status: '+b.kind+'. Sign in to view the current account status. An email never grants access.'; return [{json:{event_id:b.event_id,recipient_email:b.recipient_email,subject:'DefectRAG staff access notification',text:text+'\\nEvent: '+b.event_id}}];"}
+    },
+    {
+      "id": "send-notification", "name": "Send notification", "type": "n8n-nodes-base.emailSend", "typeVersion": 2.1,
+      "position": [480, 0],
+      "parameters": {"fromEmail": "CONFIGURE_VERIFIED_SENDER@example.invalid", "toEmail": "={{ $json.recipient_email }}", "subject": "={{ $json.subject }}", "emailFormat": "text", "text": "={{ $json.text }}", "options": {"appendAttribution": false}},
+      "credentials": {"smtp": {"id": "CONFIGURE_IN_N8N", "name": "DefectRAG notification SMTP"}}
+    },
+    {
+      "id": "verify-acceptance", "name": "Verify SMTP acceptance", "type": "n8n-nodes-base.code", "typeVersion": 2,
+      "position": [660, 0],
+      "parameters": {"jsCode": "const event=$('Validate notification').first().json; const result=$input.first().json; if(!Array.isArray(result.accepted)||!result.accepted.some(email=>String(email).toLowerCase()===event.recipient_email.toLowerCase())||(result.rejected||[]).length) throw new Error('SMTP did not accept the recipient'); return [{json:{event_id:event.event_id,delivered:true}}];"}
+    },
+    {
+      "id": "provider-accepted", "name": "Provider accepted", "type": "n8n-nodes-base.respondToWebhook", "typeVersion": 1.4,
+      "position": [900, 0],
+      "parameters": {"respondWith": "json", "responseBody": "={{ $json }}", "options": {"responseCode": 200}}
+    }
+  ],
+  "connections": {
+    "Authenticated notification": {"main": [[{"node": "Validate notification", "type": "main", "index": 0}]]},
+    "Validate notification": {"main": [[{"node": "Send notification", "type": "main", "index": 0}]]},
+    "Send notification": {"main": [[{"node": "Verify SMTP acceptance", "type": "main", "index": 0}]]},
+    "Verify SMTP acceptance": {"main": [[{"node": "Provider accepted", "type": "main", "index": 0}]]}
+  }
+}

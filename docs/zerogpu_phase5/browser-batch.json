@@ -1,0 +1,13 @@
+{
+  "status": "partial_quota_limited",
+  "batch": "BROWSER-MIGRATION-CHECK",
+  "completed": 1,
+  "failed": 1,
+  "completed_record_prefix": "4d21b517",
+  "completed_category": "capsules",
+  "completed_verdict": "Good",
+  "completed_displayed_score": 0.132,
+  "failed_file": "capsules_anomalous.jpg",
+  "reason": "Hugging Face anonymous ZeroGPU runs limit exceeded",
+  "retried": false
+}

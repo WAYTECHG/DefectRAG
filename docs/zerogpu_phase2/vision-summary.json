@@ -1,0 +1,325 @@
+{
+  "status": "passed",
+  "cases": 24,
+  "privacy": "other workspace empty; unsigned image blocked; foreign inspection 404",
+  "invalid_image": "rejected",
+  "ready": {
+    "message": "bounded-all12-smoke",
+    "zero_gpu_environment": true,
+    "python": "3.12.12",
+    "device": "cuda",
+    "categories": [
+      "pcb1",
+      "capsules",
+      "cashew",
+      "candle",
+      "chewinggum",
+      "fryum",
+      "macaroni1",
+      "macaroni2",
+      "pcb2",
+      "pcb3",
+      "pcb4",
+      "pipe_fryum"
+    ],
+    "versions": {
+      "gradio": "6.30.0",
+      "spaces": "0.51.3",
+      "torch": "2.8.0",
+      "transformers": "5.20.1",
+      "huggingface-hub": "1.31.0"
+    }
+  },
+  "parity": [
+    {
+      "name": "pcb1_good.jpg",
+      "absolute_difference": 0.00023123621940612793,
+      "same_verdict": true
+    },
+    {
+      "name": "pcb1_anomalous.jpg",
+      "absolute_difference": 8.258223533630371e-05,
+      "same_verdict": true
+    },
+    {
+      "name": "capsules_good.jpg",
+      "absolute_difference": 5.02169132232666e-05,
+      "same_verdict": true
+    },
+    {
+      "name": "capsules_anomalous.jpg",
+      "absolute_difference": 0.00018987059593200684,
+      "same_verdict": true
+    },
+    {
+      "name": "cashew_good.jpg",
+      "absolute_difference": 1.0356307029724121e-05,
+      "same_verdict": true
+    },
+    {
+      "name": "cashew_anomalous.jpg",
+      "absolute_difference": 5.264580249786377e-05,
+      "same_verdict": true
+    },
+    {
+      "name": "candle_good.jpg",
+      "absolute_difference": 0.00012104213237762451,
+      "same_verdict": true
+    },
+    {
+      "name": "candle_anomalous.jpg",
+      "absolute_difference": 0.00015911459922790527,
+      "same_verdict": true
+    },
+    {
+      "name": "chewinggum_good.jpg",
+      "absolute_difference": 9.375810623168945e-05,
+      "same_verdict": true
+    },
+    {
+      "name": "chewinggum_anomalous.jpg",
+      "absolute_difference": 0.00014004111289978027,
+      "same_verdict": true
+    },
+    {
+      "name": "fryum_good.jpg",
+      "absolute_difference": 5.301088094711304e-05,
+      "same_verdict": true
+    },
+    {
+      "name": "fryum_anomalous.jpg",
+      "absolute_difference": 0.000529855489730835,
+      "same_verdict": true
+    },
+    {
+      "name": "macaroni1_good.jpg",
+      "absolute_difference": 0.00018665194511413574,
+      "same_verdict": true
+    },
+    {
+      "name": "macaroni1_anomalous.jpg",
+      "absolute_difference": 5.1915645599365234e-05,
+      "same_verdict": true
+    },
+    {
+      "name": "macaroni2_good.jpg",
+      "absolute_difference": 4.49642539024353e-05,
+      "same_verdict": true
+    },
+    {
+      "name": "macaroni2_anomalous.jpg",
+      "absolute_difference": 3.091990947723389e-05,
+      "same_verdict": true
+    },
+    {
+      "name": "pcb2_good.jpg",
+      "absolute_difference": 0.00012889504432678223,
+      "same_verdict": true
+    },
+    {
+      "name": "pcb2_anomalous.jpg",
+      "absolute_difference": 0.0001103430986404419,
+      "same_verdict": true
+    },
+    {
+      "name": "pcb3_good.jpg",
+      "absolute_difference": 7.352232933044434e-05,
+      "same_verdict": true
+    },
+    {
+      "name": "pcb3_anomalous.jpg",
+      "absolute_difference": 1.870095729827881e-05,
+      "same_verdict": true
+    },
+    {
+      "name": "pcb4_good.jpg",
+      "absolute_difference": 6.610900163650513e-05,
+      "same_verdict": true
+    },
+    {
+      "name": "pcb4_anomalous.jpg",
+      "absolute_difference": 0.0001678466796875,
+      "same_verdict": true
+    },
+    {
+      "name": "pipe_fryum_good.jpg",
+      "absolute_difference": 5.3942203521728516e-05,
+      "same_verdict": true
+    },
+    {
+      "name": "pipe_fryum_anomalous.jpg",
+      "absolute_difference": 6.645917892456055e-05,
+      "same_verdict": true
+    }
+  ],
+  "cloud_cases": [
+    {
+      "name": "pcb1_good.jpg",
+      "score": 0.11477838456630707,
+      "verdict": "Good",
+      "inference_ms": 797.87,
+      "peak_gpu_mb": 607.15
+    },
+    {
+      "name": "pcb1_anomalous.jpg",
+      "score": 0.31300604343414307,
+      "verdict": "Anomalous",
+      "inference_ms": 26.38,
+      "peak_gpu_mb": 607.15
+    },
+    {
+      "name": "capsules_good.jpg",
+      "score": 0.13208819925785065,
+      "verdict": "Good",
+      "inference_ms": 23.66,
+      "peak_gpu_mb": 612.47
+    },
+    {
+      "name": "capsules_anomalous.jpg",
+      "score": 0.20549748837947845,
+      "verdict": "Uncertain",
+      "inference_ms": 27.19,
+      "peak_gpu_mb": 612.47
+    },
+    {
+      "name": "cashew_good.jpg",
+      "score": 0.12767253816127777,
+      "verdict": "Uncertain",
+      "inference_ms": 22.48,
+      "peak_gpu_mb": 598.29
+    },
+    {
+      "name": "cashew_anomalous.jpg",
+      "score": 0.2414531409740448,
+      "verdict": "Anomalous",
+      "inference_ms": 21.68,
+      "peak_gpu_mb": 598.29
+    },
+    {
+      "name": "candle_good.jpg",
+      "score": 0.11155033856630325,
+      "verdict": "Good",
+      "inference_ms": 20.43,
+      "peak_gpu_mb": 598.67
+    },
+    {
+      "name": "candle_anomalous.jpg",
+      "score": 0.297967791557312,
+      "verdict": "Anomalous",
+      "inference_ms": 20.97,
+      "peak_gpu_mb": 598.67
+    },
+    {
+      "name": "chewinggum_good.jpg",
+      "score": 0.12651000916957855,
+      "verdict": "Good",
+      "inference_ms": 36.72,
+      "peak_gpu_mb": 599.81
+    },
+    {
+      "name": "chewinggum_anomalous.jpg",
+      "score": 0.3543674647808075,
+      "verdict": "Anomalous",
+      "inference_ms": 21.28,
+      "peak_gpu_mb": 599.81
+    },
+    {
+      "name": "fryum_good.jpg",
+      "score": 0.09192100912332535,
+      "verdict": "Good",
+      "inference_ms": 27.2,
+      "peak_gpu_mb": 612.47
+    },
+    {
+      "name": "fryum_anomalous.jpg",
+      "score": 0.24076490104198456,
+      "verdict": "Anomalous",
+      "inference_ms": 44.04,
+      "peak_gpu_mb": 612.47
+    },
+    {
+      "name": "macaroni1_good.jpg",
+      "score": 0.12345241010189056,
+      "verdict": "Good",
+      "inference_ms": 22.31,
+      "peak_gpu_mb": 612.47
+    },
+    {
+      "name": "macaroni1_anomalous.jpg",
+      "score": 0.12107161432504654,
+      "verdict": "Good",
+      "inference_ms": 22.45,
+      "peak_gpu_mb": 612.47
+    },
+    {
+      "name": "macaroni2_good.jpg",
+      "score": 0.11687516421079636,
+      "verdict": "Good",
+      "inference_ms": 23.53,
+      "peak_gpu_mb": 612.47
+    },
+    {
+      "name": "macaroni2_anomalous.jpg",
+      "score": 0.14627178013324738,
+      "verdict": "Good",
+      "inference_ms": 25.63,
+      "peak_gpu_mb": 612.47
+    },
+    {
+      "name": "pcb2_good.jpg",
+      "score": 0.22230109572410583,
+      "verdict": "Good",
+      "inference_ms": 21.77,
+      "peak_gpu_mb": 607.15
+    },
+    {
+      "name": "pcb2_anomalous.jpg",
+      "score": 0.11313076317310333,
+      "verdict": "Good",
+      "inference_ms": 24.17,
+      "peak_gpu_mb": 607.15
+    },
+    {
+      "name": "pcb3_good.jpg",
+      "score": 0.11805279552936554,
+      "verdict": "Good",
+      "inference_ms": 48.8,
+      "peak_gpu_mb": 605.54
+    },
+    {
+      "name": "pcb3_anomalous.jpg",
+      "score": 0.16632604598999023,
+      "verdict": "Uncertain",
+      "inference_ms": 25.76,
+      "peak_gpu_mb": 605.54
+    },
+    {
+      "name": "pcb4_good.jpg",
+      "score": 0.0997932180762291,
+      "verdict": "Good",
+      "inference_ms": 21.97,
+      "peak_gpu_mb": 600.19
+    },
+    {
+      "name": "pcb4_anomalous.jpg",
+      "score": 0.27092766761779785,
+      "verdict": "Anomalous",
+      "inference_ms": 22.9,
+      "peak_gpu_mb": 600.19
+    },
+    {
+      "name": "pipe_fryum_good.jpg",
+      "score": 0.13943877816200256,
+      "verdict": "Good",
+      "inference_ms": 20.51,
+      "peak_gpu_mb": 598.63
+    },
+    {
+      "name": "pipe_fryum_anomalous.jpg",
+      "score": 0.3804892301559448,
+      "verdict": "Anomalous",
+      "inference_ms": 762.56,
+      "peak_gpu_mb": 599
+    }
+  ]
+}

@@ -15,7 +15,7 @@ export async function cloudClient() {
   clientPromise ||= import('@supabase/supabase-js').then(({createClient})=>{
     const {url,key}=cloudConfig();const client=createClient(url,key);
     client.auth.onAuthStateChange((event,session)=>{
-      if(['SIGNED_IN','SIGNED_OUT','TOKEN_REFRESHED'].includes(event))
+      if(['SIGNED_IN','SIGNED_OUT','TOKEN_REFRESHED','MFA_CHALLENGE_VERIFIED','USER_UPDATED'].includes(event))
         setTimeout(()=>window.dispatchEvent(new CustomEvent('defectrag-auth-change',{detail:{event,userId:session?.user?.id||null}})),0);
     });
     return client;
@@ -26,6 +26,10 @@ export async function currentStaff() {
   const client=await cloudClient();
   const {data:{user},error}=await client.auth.getUser();
   if(error||!user)throw new Error('Sign in to the team workspace before sharing.');
+  if(window.DEFECTRAG_PUBLIC_CONFIG?.authWorkflowEnabled===true){
+    const {requireStaff}=await import('./authSecurity.mjs');
+    await requireStaff(client);
+  }
   const {data,error:staffError}=await client.from('staff_members').select('*').eq('user_id',user.id).single();
   if(staffError||!data)throw new Error('Your account is not on the staff allowlist. Ask the workspace developer to add it.');
   return {client,user,staff:data};

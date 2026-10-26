@@ -1,0 +1,319 @@
+{
+  "name": "DefectRAG CA - LIVE QA SINK ONLY - INACTIVE",
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "saveDataSuccessExecution": "none",
+    "saveDataErrorExecution": "none",
+    "saveManualExecutions": false
+  },
+  "nodes": [
+    {
+      "id": "webhook",
+      "name": "Authenticated case event",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        0,
+        0
+      ],
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "defectrag-ca-live-qa",
+        "authentication": "headerAuth",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "CONFIGURE_IN_N8N",
+          "name": "DefectRAG CA inbound key"
+        }
+      }
+    },
+    {
+      "id": "validate",
+      "name": "Validate case event",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        220,
+        0
+      ],
+      "parameters": {
+        "jsCode": "const b=$input.first().json.body;const u=/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;if(!b||!u.test(b.event_id)||!u.test(b.lease_token)||!u.test(b.case_id)||!['created','updated','reminder','overdue'].includes(b.kind)||!Number.isInteger(b.version)||b.version<1)throw Error('Invalid case event');return [{json:{event_id:b.event_id,lease_token:b.lease_token}}];"
+      }
+    },
+    {
+      "id": "begin",
+      "name": "Reserve notification effect",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        440,
+        0
+      ],
+      "parameters": {
+        "method": "POST",
+        "url": "https://zrzqpbcomlorfzszolrs.supabase.co/functions/v1/corrective-actions-qa",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "X-DefectRAG-Operation",
+              "value": "effect"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ {operation:'begin',event_id:$json.event_id,lease_token:$json.lease_token} }}",
+        "options": {
+          "timeout": 10000
+        }
+      },
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "CONFIGURE_PRIVATELY",
+          "name": "DefectRAG QA callback bearer - NOT service key"
+        }
+      }
+    },
+    {
+      "id": "decision",
+      "name": "Effect requires execution",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        660,
+        0
+      ],
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "leftValue": "={{ $json.execute }}",
+              "rightValue": true,
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      }
+    },
+    {
+      "id": "email",
+      "name": "Notify verified supervisor",
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2.1,
+      "position": [
+        880,
+        -100
+      ],
+      "parameters": {
+        "fromEmail": "fixture@example.invalid",
+        "toEmail": "={{ $json.recipient_email }}",
+        "subject": "DefectRAG corrective action notification",
+        "emailFormat": "text",
+        "text": "=Corrective action {{ $json.case_id }}\nEvent: {{ $json.kind }}\nState: {{ $json.state }}\nPriority: {{ $json.priority }}\nDue: {{ $json.due_at }}\nSign in with staff MFA to view private evidence: https://wizzas-defectrag.hf.space/#team",
+        "options": {
+          "appendAttribution": false
+        }
+      },
+      "credentials": {
+        "smtp": {
+          "id": "CONFIGURE_PRIVATELY",
+          "name": "DefectRAG LIVE QA sink - loopback12526 NO LOGIN"
+        }
+      }
+    },
+    {
+      "id": "accept",
+      "name": "Verify supervisor acceptance",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1100,
+        -100
+      ],
+      "parameters": {
+        "jsCode": "const r=$input.first().json;const target=$('Reserve notification effect').first().json.recipient_email;if(!Array.isArray(r.accepted)||!r.accepted.some(e=>String(e).toLowerCase()===String(target).toLowerCase())||(r.rejected||[]).length||typeof r.messageId!=='string'||!r.messageId||r.messageId.length>200)throw Error('SMTP acceptance not verified');const e=$('Validate case event').first().json;return [{json:{operation:'finish',event_id:e.event_id,lease_token:e.lease_token,receipt:r.messageId}}];"
+      }
+    },
+    {
+      "id": "finish",
+      "name": "Record notification receipt",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1320,
+        -100
+      ],
+      "parameters": {
+        "method": "POST",
+        "url": "https://zrzqpbcomlorfzszolrs.supabase.co/functions/v1/corrective-actions-qa",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "X-DefectRAG-Operation",
+              "value": "effect"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ $json }}",
+        "options": {
+          "timeout": 10000
+        }
+      },
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "CONFIGURE_PRIVATELY",
+          "name": "DefectRAG QA callback bearer - NOT service key"
+        }
+      }
+    },
+    {
+      "id": "done",
+      "name": "Require durable completion",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1540,
+        0
+      ],
+      "parameters": {
+        "jsCode": "if($input.first().json.done!==true)throw Error('Ambiguous notification requires manual reconciliation');return [{json:{event_id:$('Validate case event').first().json.event_id,completed:true}}];"
+      }
+    },
+    {
+      "id": "response",
+      "name": "Workflow completed",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.4,
+      "position": [
+        1760,
+        0
+      ],
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ $json }}",
+        "options": {
+          "responseCode": 200
+        }
+      }
+    }
+  ],
+  "connections": {
+    "Authenticated case event": {
+      "main": [
+        [
+          {
+            "node": "Validate case event",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Validate case event": {
+      "main": [
+        [
+          {
+            "node": "Reserve notification effect",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Reserve notification effect": {
+      "main": [
+        [
+          {
+            "node": "Effect requires execution",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Effect requires execution": {
+      "main": [
+        [
+          {
+            "node": "Notify verified supervisor",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Require durable completion",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Notify verified supervisor": {
+      "main": [
+        [
+          {
+            "node": "Verify supervisor acceptance",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Verify supervisor acceptance": {
+      "main": [
+        [
+          {
+            "node": "Record notification receipt",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Record notification receipt": {
+      "main": [
+        [
+          {
+            "node": "Require durable completion",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Require durable completion": {
+      "main": [
+        [
+          {
+            "node": "Workflow completed",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  }
+}

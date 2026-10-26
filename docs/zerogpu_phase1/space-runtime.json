@@ -1,0 +1,23 @@
+{
+  "runtime": {
+    "stage": "RUNNING",
+    "hardware": {
+      "current": "zero-a10g",
+      "requested": "zero-a10g"
+    },
+    "gcTimeout": 172800,
+    "replicas": {
+      "current": 1,
+      "requested": 1
+    },
+    "devMode": false,
+    "domains": [
+      {
+        "domain": "wizzas-defectrag.hf.space",
+        "stage": "READY"
+      }
+    ],
+    "sha": "84df9af3f59b2fe43fdb6ad14a1820c930329abc"
+  },
+  "commit": "84df9af3f59b2fe43fdb6ad14a1820c930329abc"
+}

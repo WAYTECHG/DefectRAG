@@ -165,7 +165,8 @@ def mount_gallery(app,repo,artifacts,gallery=None,owner=lambda:'local-operator',
 
     @app.get('/api/inspections/{identifier}/publication')
     def publication(identifier:str):
-        if gallery is None:return {'data':{'enabled':False,'publication':None}}
+        if gallery is None:return {'data':{'enabled':False,'publication':None,
+            'runtime':'local' if getattr(type(repo),'local_sync_enabled',False) or not hasattr(repo,'current') else 'cloud'}}
         saved(identifier);actor,source,_=keys(identifier)
         return {'data':{'enabled':True,'publication':gallery.write('status',actor,source)}}
 
@@ -181,11 +182,19 @@ def mount_gallery(app,repo,artifacts,gallery=None,owner=lambda:'local-operator',
         measurement=public_measurement(record)
         previews=[]
         for kind,suffix in (('image',''),('heatmap','_heatmap')):
-            path=Path(artifacts)/f'{identifier}{suffix}.jpg'
+            path=Path(artifacts() if callable(artifacts) else artifacts)/f'{identifier}{suffix}.jpg'
             if not record.get('storage','').startswith('supabase'):
                 if not path.is_file():raise HTTPException(409,'Saved image is unavailable. Nothing was published.')
                 content=path.read_bytes()
             else:
+                if getattr(current,'config',{}).get('auth_workflow_enabled'):
+                    # The MFA-enabled repository deliberately returns scoped API
+                    # URLs, not signed Storage links. Read under the user's JWT
+                    # so owner/RLS/MFA checks still apply to public publication.
+                    content=current.private_artifact(identifier,kind)
+                    if len(content)>5*1024*1024:raise HTTPException(413,'Saved image exceeds gallery limit.')
+                    previews.append(thumbnail(content))
+                    continue
                 url=record.get(kind+'_url','')
                 if not cloud_origin or urlparse(url).netloc!=urlparse(cloud_origin).netloc or not url.startswith('https://'):
                     raise HTTPException(403,'Saved image origin is not authorized.')

@@ -1,0 +1,15 @@
+[
+  {
+    "id": "DRCALocalSink20261025",
+    "name": "DefectRAG LOCAL SINK - NO LOGIN OR RELAY",
+    "type": "smtp",
+    "data": {
+      "host": "127.0.0.1",
+      "port": 12525,
+      "secure": false,
+      "disableStartTls": true,
+      "user": "",
+      "password": ""
+    }
+  }
+]
