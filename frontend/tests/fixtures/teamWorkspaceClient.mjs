@@ -43,7 +43,7 @@ export function teamFixture(role='developer'){
    if(name==='defectrag_create_corrective_action'){
     const reviewed=f.notes.at(-1)?.body===reviewBody('Reviewed','Reject')||f.notes.at(-1)?.body?.includes('"decision":"Reject"');
     if(!payload.p_confirmed||!reviewed)return {error:new Error('Explicit confirmation and latest reviewed Reject required')};
-    const row={id:'44444444-4444-4444-8444-444444444444',inspection_id:id,owner_id:payload.p_owner,supervisor_id:payload.p_supervisor,confirmed_by:actor.id,
+    const row={id:'44444444-4444-4444-8444-444444444444',inspection_id:id,review_id:payload.p_review,owner_id:payload.p_owner,supervisor_id:payload.p_supervisor,confirmed_by:actor.id,
      description:payload.p_description,priority:payload.p_priority,due_at:payload.p_due,state:'Open',version:1,created_at:new Date().toISOString()};
     f.cases.push(row);f.history.push({id:'history-1',case_id:row.id,version:1,state:'Open',actor_id:actor.id,created_at:row.created_at,note:'Synthetic case created'});return {data:row.id,error:null};
    }

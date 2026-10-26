@@ -59,7 +59,7 @@ hosts the cloud UI, CPU services and queued ZeroGPU inference.
 | **Native TOTP MFA** | Approved Staff and Developers verify an authenticator code. Backend, database functions, RLS and protected storage enforce the required assurance. | Enforced on the existing installation |
 | **Personal local ↔ cloud synchronization** | The same approved account uses private history across local and hosted clients, including images, heatmaps, conversations and review state. Queued changes, duplicates and conflicts have explicit handling. | Real Supabase QA verified; unsynchronized local changes are not yet cloud-saved |
 | **Explicit Team collaboration** | Share a separate inspection copy, open evidence and save structured Staff reviews. Personal records are never automatically published to Team. | Implemented |
-| **Corrective Actions** | Human-confirmed, reviewed Team defects become assigned cases with due dates, progress, resolution, closure and audit history. Only the owner, supervisor or a Developer can edit. | Live security/lifecycle QA verified |
+| **Corrective Actions** | Draft an assignment, choose Staff/supervisor and a deadline, then create a case from an eligible human-confirmed Team defect. Refresh preserves drafts; concurrent updates require explicit review. Only the owner, supervisor or a Developer can edit existing cases. | Live controls verified; lifecycle and security QA retained |
 | **Community Gallery** | Publish a separate public copy with explicit consent. Private notes, conversations and account history stay separate. | Hosted gallery available; local publishing needs separate configuration |
 | **Developer request emails** | A durable outbox, cloud scheduler, Supabase Edge worker and Resend notify the Developer independently of the Windows laptop. | Controlled cloud delivery verified; current restricted sender is for the verified Developer recipient |
 | **n8n corrective-action integration** | Secured event delivery, validation, a test mail sink and authenticated completion callbacks. | One-event real Supabase/local n8n QA verified; unattended production delivery and schedules **OFF** |
@@ -220,7 +220,23 @@ authorizes persistent shared records. Embedded and direct app links can have
 separate browser sessions. Free quotas, cold starts and queue waits apply.
 For onboarding, select **Overview → Tutorial**. If an already-open browser still
 shows an older menu, open the direct application in a new tab:
-[current hosted dashboard](https://wizzas-defectrag.hf.space/?release=ac4dd3e#overview).
+[current hosted dashboard](https://wizzas-defectrag.hf.space/?release=4738f34#overview).
+
+### Assign a confirmed defect
+
+1. Open **Corrective Actions** and choose a **Team inspection**. Personal work
+   must first be explicitly shared with the team.
+2. Enter a draft description, person responsible, supervisor, priority and deadline.
+   These fields are editable before review; a draft is not a saved case.
+3. Check the photo and its Staff review. Creation requires a valid **Reviewed /
+   Reject** decision and explicit human defect confirmation. Keep an appropriate
+   Accept/Hold decision unchanged. The message beside Create explains missing steps.
+4. Open **Details** to update permitted progress. Concurrent edits keep the draft
+   and require an explicit reload. Closed/cancelled cases retain read-only history.
+
+A deadline alone does not send an email. The current n8n workflow targets the
+supervisor; unattended Corrective Action delivery remains disabled pending secure
+hosting and activation. [Staff guide](docs/STAFF_QUICK_GUIDE.md).
 
 ### Existing Windows installation
 
@@ -276,11 +292,17 @@ Supabase SQL changes require review; no public service-role key belongs in confi
 
 ## Validation and limits
 
-- Latest onboarding frontend suite: **224 passed, zero failed**, including
+- Latest frontend regression suite: **236 passed, zero failed**, including
   action sequencing, incomplete-input denial, Back/replay, draft preservation and
   teaching-image provenance/packaging. The full 17-step practice journey and
   original/heatmap/batch image loading were verified in the live application.
   These checks are not new model benchmarks. Mobile visual QA remains unverified.
+- **39 focused case/navigation tests** cover draft entry before review, Accept/Hold
+  denial, assignment validation, duplicate prevention, authorization and concurrent
+  edits. Native typing, actual Staff/supervisor selection, deadline retention and
+  background refresh were verified on the deployed dashboard with Developer MFA.
+  The complete interaction/lifecycle regression used fictional records; no real
+  case or review was submitted during the latest deployment check.
 - Real local/cloud inspection parity across all 12 products; maximum observed
   score difference 0.00053 in the saved 24-image integration comparison.
 - Genuine Qwen generation, cited document answers and saved measurement answers.
@@ -292,8 +314,8 @@ Supabase SQL changes require review; no public service-role key belongs in confi
   Sustained production load and unattended hosted Corrective Action delivery are
   not established by these tests.
 - Staff-submitted answers still lack model-provenance attestation. Alert actor/time
-  tracking was added by the later personal-workspace migration; consult the dated
-  security/activation reports rather than the historical Phase4 limitation alone.
+  tracking is present in the later personal-workspace schema; see the current
+  [security guide](docs/SECURITY.md) and migration source.
 
 [Setup](docs/SETUP.md) · [Security](docs/SECURITY.md) · [Model process](docs/TRAINING_AND_EVALUATION.md)
 

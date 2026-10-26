@@ -106,8 +106,14 @@ the product, complete a Staff review or prove that an email was delivered.
 
 ## Follow up a confirmed defect
 
-1. First save a Staff review as **Reviewed** and **Reject** on a shared inspection.
-2. Choose **Create or view corrective actions**.
+1. Open **Corrective Actions** in the sidebar. Under **Create and assign a case**,
+   choose a **Team inspection** from the list. Personal inspections must first be
+   explicitly shared with the team.
+2. Choose **Open photo and Staff review**. Check the evidence and save a Staff
+   review as **Reviewed** and **Reject** when a defect is confirmed. Assignment
+   fields can be drafted beforehand; only case creation waits for a valid review.
+   Keep an appropriate **Accept** or **Hold** decision unchanged. Alternatively, open a shared
+   inspection from Team history and choose **Create or view corrective actions**.
 3. Describe what needs fixing, assign the person responsible and supervisor,
    choose the priority and due date, then confirm that a Staff review found a
    defect needing follow-up. Choose **Create corrective action**.
@@ -117,8 +123,21 @@ the product, complete a Staff review or prove that an email was delivered.
    case. Complete the security-code check when asked.
 
 An unusual automatic result alone cannot create a case. A saved case does not
-mean that an email has been sent. Email delivery is shown separately and depends
-on administrator settings and service availability.
+mean that an email has been sent. Deadlines use the device's time zone and must be
+within the next year. The existing n8n workflow targets the assigned supervisor,
+not automatically the person responsible. Corrective Action production delivery
+remains inactive pending hosting and activation; arrange the handover separately.
+Developer signup-request emails use a separate service. A review that already has
+a case offers **Open existing case**, preserving its assignment and history.
+
+Drafts are not saved records. They stay on this page until submission and are lost
+on reload, sign-out or loss of verified access. Normal background refresh keeps the draft. Selecting a
+different inspection clears that inspection's draft to avoid assigning the wrong
+product. A newly saved review keeps the assignment text but requires confirmation
+again. The message beside **Create corrective action** explains any missing step.
+If another person changes an open case while an update is being drafted, the draft
+is kept and saving is blocked. Copy any text needed, then choose **Load latest case
+and replace draft** before continuing. Closed and cancelled cases are read-only.
 
 ## Recover work or get help
 

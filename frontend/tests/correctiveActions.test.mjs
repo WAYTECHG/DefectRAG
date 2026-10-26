@@ -4,13 +4,24 @@ import {readFile} from 'node:fs/promises';
 import {build} from 'esbuild';
 import {createRequire} from 'node:module';
 import {fileURLToPath} from 'node:url';
-import {caseCanEdit,caseMetrics,latestDefectReview,nextCaseStates,caseRpc} from '../src/correctiveActions.mjs';
+import {caseCanEdit,caseDraftError,caseMetrics,latestDefectReview,nextCaseStates,caseRpc} from '../src/correctiveActions.mjs';
 import {reviewBody} from '../src/workflow.mjs';
 import {handleCA} from '../../deployment/supabase/functions/corrective-actions/worker.mjs';
 const uuid='11111111-1111-4111-8111-111111111111',lease='22222222-2222-4222-8222-222222222222';
 const event={event_id:uuid,lease_token:lease,case_id:'33333333-3333-4333-8333-333333333333',kind:'created',version:1,state:'Open',priority:'High',due_at:'2026-10-21T00:00:00Z'};
 const env={DEFECTRAG_CA_AUTOMATION_ENABLED:'1',DEFECTRAG_CA_WORKER_SECRET:'w'.repeat(32),DEFECTRAG_CA_CALLBACK_SECRET:'c'.repeat(32),DEFECTRAG_CA_N8N_SECRET:'h'.repeat(32),DEFECTRAG_CA_N8N_URL:'https://n8n.invalid/webhook/ca',SUPABASE_URL:'https://db.invalid',SUPABASE_SERVICE_ROLE_KEY:'service-fixture'};
 const request=(callback=false,b={})=>new Request('https://edge.invalid',{method:'POST',headers:{Authorization:'Bearer '+(callback?env.DEFECTRAG_CA_CALLBACK_SECRET:env.DEFECTRAG_CA_WORKER_SECRET),...(callback?{'X-DefectRAG-Operation':'effect'}:{})},body:JSON.stringify(b)});
+
+test('assignment validation checks exact deadline boundary and live active assignments',()=>{
+ const now=Date.parse('2026-10-26T00:00:00Z'),people=[{user_id:uuid},{user_id:lease}],draft={description:'Confirmed defect needs corrective work',owner:uuid,supervisor:lease,priority:'Normal',due:new Date(now+365*86400000).toISOString()};
+ assert.equal(caseDraftError(draft,people,now),'');
+ assert.match(caseDraftError({...draft,due:new Date(now+365*86400000+1).toISOString()},people,now),/next year/);
+ assert.match(caseDraftError({...draft,due:new Date(now).toISOString()},people,now),/future/);
+ assert.match(caseDraftError({...draft,due:'not-a-date'},people,now),/date and time/);
+ assert.match(caseDraftError(draft,[{user_id:uuid,revoked_at:'2026-10-26'},{user_id:lease}],now),/person responsible/);
+ assert.match(caseDraftError({...draft,supervisor:'unknown'},people,now),/supervisor/);
+ assert.match(caseDraftError({...draft,description:' '.repeat(20)},people,now),/10 to 2,000/);
+});
 
 test('case editor feedback uses current assignments or a verified directory Developer role',()=>{
  const row={owner_id:uuid,supervisor_id:lease,confirmed_by:'creator'};
@@ -100,7 +111,7 @@ test('SQL source contracts require explicit confirmation, live Staff/TOTP, restr
 test('new JSX compiles and retains existing-style labels, metrics and explicit confirmation',async()=>{
  const r=await build({entryPoints:[new URL('../src/CorrectiveActions.jsx',import.meta.url).pathname.replace(/^\/(.:)/,'$1')],bundle:true,write:false,platform:'browser',logLevel:'silent'});assert.ok(r.outputFiles[0].text.length>0);
  const source=await readFile(new URL('../src/CorrectiveActions.jsx',import.meta.url),'utf8');
- assert.ok(source.includes('disabled={busy||!confirmed}'));assert.ok(source.includes('defectrag_ca_staff'));assert.ok(source.includes('Open the linked photo and review'));
+ assert.ok(source.includes('disabled={busy||!!creationBlocked}'));assert.ok(source.includes('defectrag_ca_staff'));assert.ok(source.includes('Open the linked photo and review'));
  assert.ok(source.includes('nextCaseStates(current.state).length>0&&canEdit&&<form'));
  assert.ok(source.includes('can change this case after verifying their security code.'));
 });
@@ -111,7 +122,7 @@ test('real JSX renders existing card design but waits for native CA assurance be
  const React=require('react'),{renderToStaticMarkup}=require('react-dom/server');
  const props={user:{id:uuid},inspection:{id:'a'.repeat(32)},notes:[{id:uuid,created_at:'2026-10-20',body:reviewBody('Reviewed','Reject')}],onEvidence(){}};
  const html=renderToStaticMarkup(React.createElement(module.exports.default,props));
- for(const text of ['Corrective Actions','class="card"','Staff review confirms a defect','Checking Staff access and the security code']){
+ for(const text of ['Corrective Actions','class="card case-workspace"','Staff review confirms a defect','Checking Staff access and the security code']){
   assert.ok(html.includes(text),text);
  }
  assert.ok(!html.includes('Create corrective action'));assert.ok(!html.includes('Save case update'));
