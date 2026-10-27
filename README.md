@@ -220,7 +220,7 @@ authorizes persistent shared records. Embedded and direct app links can have
 separate browser sessions. Free quotas, cold starts and queue waits apply.
 For onboarding, select **Overview → Tutorial**. If an already-open browser still
 shows an older menu, open the direct application in a new tab:
-[current hosted dashboard](https://wizzas-defectrag.hf.space/?release=4738f34#overview).
+[current hosted dashboard](https://wizzas-defectrag.hf.space/?release=57a57f5#overview).
 
 ### Assign a confirmed defect
 
