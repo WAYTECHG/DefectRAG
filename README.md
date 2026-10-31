@@ -47,7 +47,8 @@ hosts the cloud UI, CPU services and queued ZeroGPU inference.
 
 <details>
 <summary><strong>Dashboard preview</strong></summary>
-<p><img src="docs/assets/dashboard.png" alt="Existing React dashboard with the new product-inspection logo and explicit RAG description" width="100%" /></p>
+<p><img src="docs/assets/dashboard.png" alt="DefectRAG overview in the light theme: grouped sidebar, result cards and inspections-over-time chart" width="100%" /></p>
+<p><img src="docs/assets/dashboard-dark.png" alt="The same overview in the dark theme" width="100%" /></p>
 </details>
 
 ## Current capabilities
@@ -55,6 +56,7 @@ hosts the cloud UI, CPU services and queued ZeroGPU inference.
 | Capability | What it does | Status |
 |---|---|---|
 | **Guided practice** | A coach card walks through 14 steps on the real screens, highlighting the actual control and advancing only when the action is done, with hints for wrong choices. Practice data stays in memory and makes no network request. | Live on Hugging Face |
+| **Light and dark themes** | A shadcn/ui-style dashboard with a theme switch in the header. It follows the device setting on first visit and remembers the choice; every colour is a design token defined for both themes. | Live on Hugging Face |
 | **Public Demo Mode** | Visitors can explore inspection without becoming Staff. Private account and Team records remain separate. | Available; free inference quotas apply |
 | **Staff registration and approval** | Email-confirmed applicants submit Pending requests. Developers approve, reject or revoke access from the interface; signup grants no Staff membership. | Implemented and activated on the existing installation |
 | **Native TOTP MFA** | Approved Staff and Developers verify an authenticator code. Backend, database functions, RLS and protected storage enforce the required assurance. | Enforced on the existing installation |
