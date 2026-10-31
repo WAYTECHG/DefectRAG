@@ -53,7 +53,7 @@ test('staff help explains the whole task path for both runtimes and keeps techni
 
 test('cloud publisher shares staff wording instead of injecting outdated engineering instructions',async()=>{
  const builder=await readFile(new URL('../../deployment/space/build_ui.mjs',import.meta.url),'utf8');assert.ok(builder.includes(".replace('return fetch(url(path),options)','return spaceFetch(url(path),options)')"));assert.doesNotMatch(builder,/Live ZeroGPU inference|explicit retrieval fallback|shared Supabase/);
- const main=await readFile(new URL('../src/main.jsx',import.meta.url),'utf8');assert.ok(main.includes('environmentLabel(health,SHOWCASE)'));assert.ok(main.includes('<StaffHelp health={health} showcase={SHOWCASE}/>'));assert.ok(main.includes('Results for the app’s inspection settings'));assert.ok(!main.includes('Show detailed measurements and technical test settings'));assert.ok(main.includes("Model: {result.model_id||'Not recorded'}"));
+ const main=await readFile(new URL('../src/main.jsx',import.meta.url),'utf8');assert.ok(!main.includes('className="environment"'),'header status label removed; the sidebar shows workspace status');assert.ok(main.includes('<StaffHelp health={health} showcase={SHOWCASE}/>'));assert.ok(main.includes('Results for the app’s inspection settings'));assert.ok(!main.includes('Show detailed measurements and technical test settings'));assert.ok(main.includes("Model: {result.model_id||'Not recorded'}"));
  // Native state/permission values remain in the source; these are display changes.
  assert.ok(main.includes("access.state==='authorized'&&activeWorkspace()==='personal'"));assert.ok(main.includes('value={v}>{resultLabel(v)}'));
 });
