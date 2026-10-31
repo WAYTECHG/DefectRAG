@@ -30,9 +30,9 @@ test('claim targets exactly one QA RPC and projects capability only',async()=>{
 test('QA effect can only return reserved sink recipient and safe metadata',async()=>{
  const r=await handleCAQA(request('effect',{event_id:event,lease_token:lease,operation:'begin'}),{env,fetcher:async(url,o)=>{
   assert.ok(url.endsWith('/defectrag_ca_qa_effect'));assert.equal(JSON.parse(o.body).p_finish,false);
-  return Response.json({execute:true,done:false,recipient_email:'private@private.invalid',case_id:caseId,kind:'created',state:'Open',priority:'High',due_at:'2030-01-01T00:00:00Z',image:'private'});
+  return Response.json({execute:true,done:false,recipient_email:'private@private.invalid',cc_email:'owner@private.invalid',case_id:caseId,kind:'created',state:'Open',priority:'High',due_at:'2030-01-01T00:00:00Z',image:'private'});
  }});
- const b=await r.json();assert.equal(b.recipient_email,'supervisor@example.invalid');assert.ok(!JSON.stringify(b).includes('private'));
+ const b=await r.json();assert.equal(b.recipient_email,'supervisor@example.invalid');assert.ok(!JSON.stringify(b).includes('private'));assert.ok(!('cc_email' in b),'QA never forwards a copy address');
 });
 test('finish and ambiguity are projected without new send; failures are sanitized',async()=>{
  const r=await handleCAQA(request('effect',{event_id:event,lease_token:lease,operation:'begin'}),{env,fetcher:async()=>Response.json({done:false,execute:false,manual_review:true,private:'secret'})});

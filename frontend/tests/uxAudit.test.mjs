@@ -55,18 +55,18 @@ test('failed gallery preview offers a nearby retry that preserves selection',asy
  assert.equal(m.slots[3],'public-fixture');assert.equal(m.slots[5],'');assert.equal(m.slots[1],1);
 });
 
-test('tutorial controls use scoped checkbox/text-area styles and both explicit consent labels',async()=>{
+test('case consent and tutorial coach use scoped compact styles on the real screens',async()=>{
  const css=await readFile(new URL('../src/theme.css',import.meta.url),'utf8');
- assert.match(css,/\.guided-practice input\[type="checkbox"\]\{width:auto;min-height:0/);
- assert.match(css,/\.guided-practice textarea\{display:block;width:100%/);
- assert.match(css,/\.guided-practice \.guided-consent\{display:flex/);
- const jsx=await readFile(new URL('../src/GuidedPractice.jsx',import.meta.url),'utf8');
- assert.equal((jsx.match(/className="guided-consent"/g)||[]).length,2);
+ assert.match(css,/\.case-workspace input\[type="checkbox"\]\{width:auto;min-height:0/);
+ assert.match(css,/\.case-workspace \.consent-check\{display:flex/);
+ assert.match(css,/\.tutorial-coach\{position:fixed/);assert.match(css,/@media \(prefers-reduced-motion:reduce\)\{\.tour-target\{animation:none\}\}/);
+ const jsx=await readFile(new URL('../src/CorrectiveActions.jsx',import.meta.url),'utf8');
+ assert.equal((jsx.match(/className=\{'consent-check'/g)||[]).length,1);
 });
 
 test('saved results move into view only after loading; demo recovery and reviews do not claim account storage',async()=>{
  const source=await readFile(new URL('../src/main.jsx',import.meta.url),'utf8');
- assert.match(source,/if\(!practiceRunning&&ready&&!busy&&!recordLoading\)/);
+ assert.match(source,/if\(ready&&!busy&&!recordLoading\)/);
  assert.match(source,/resultHeading\.current\?\.focus\(\{preventScroll:true\}\)/);
  assert.match(source,/resultHeading\.current\?\.scrollIntoView/);
  assert.match(source,/<h2 ref=\{resultHeading\} tabIndex=\{-1\}/);

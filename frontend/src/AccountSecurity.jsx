@@ -34,9 +34,9 @@ export default function AccountSecurity({client,user,onChange}){
   await refresh();onChange();setNotice('Security code verified. Staff access is available only after the account is approved.');
  }
  return <div className="section-gap">
-  <h3>Sign-in and account security</h3>
+  {user&&<h3>Sign-in and account security</h3>}
   {notice&&<p className="note" role="status">{friendlyError(notice)}</p>}
-  {!user?registrationEnabled?<form className="login-form" onSubmit={event=>{event.preventDefault();run(async()=>{
+  {!user?registrationEnabled?<details className="register-panel"><summary>New to Staff work? Create an account</summary><form className="login-form" onSubmit={event=>{event.preventDefault();run(async()=>{
    await registerAccount(client,{email,password,displayName:name,redirectTo:location.origin+location.pathname});
    setPassword('');setNotice('Check the inbox and Spam folder for a confirmation email. Open its link, sign in, then choose Request staff access. A Developer must approve the request before Staff work is available.');
   })}}><p>New to Staff work? Create an account, confirm the email, then request access. The public demo can be used without an account.</p>
@@ -44,7 +44,7 @@ export default function AccountSecurity({client,user,onChange}){
    <label className="field">Email<input type="email" value={email} onChange={e=>setEmail(e.target.value)} autoComplete="email" required/></label>
    <label className="field">New password<input type="password" minLength={12} value={password} onChange={e=>setPassword(e.target.value)} autoComplete="new-password" required/></label>
    <button className="secondary" disabled={busy||!client}>Register account</button>
-  </form>:<p className="caption">New account registration is currently closed. Existing Staff can sign in below. The public demo is still available.</p>:<>
+  </form></details>:<p className="caption">New account registration is currently closed. Existing Staff can sign in below. The public demo is still available.</p>:<>
    <p>Access: <strong>{status?.revoked?'revoked':status?.approved?'approved':status?.request_status||'not requested'}</strong> · Authenticator: <strong>{status?.aal2?'security code verified':'enter security code'}</strong></p>
    <button className="secondary" disabled={busy} onClick={()=>run(refresh)}>Refresh account status</button>
    {status&&!status.approved&&!status.revoked&&!status.request_status&&<form className="login-form" onSubmit={event=>{event.preventDefault();run(async()=>{await submitAccessRequest(client,name);await refresh();setNotice('Request sent. Check back here for Developer approval. Team and private Staff work are not available while the request is waiting.');onChange()})}}>
@@ -57,7 +57,8 @@ export default function AccountSecurity({client,user,onChange}){
    {enrollment&&<div className="note"><div><p>Open an authenticator app, scan this private QR code, then enter the six-digit code below to finish. Do not share the QR code or security codes.</p><img src={enrollment.totp.qr_code} width="200" height="200" alt="Private authenticator enrollment QR code"/><button className="text-button" disabled={busy} onClick={()=>run(async()=>{
     const {error}=await client.auth.mfa.unenroll({factorId:enrollment.id});if(error)throw error;setEnrollment(null);setCode('');
    })}>Cancel incomplete setup</button></div></div>}
-   {(enrollment||factors.length>0)&&<form className="login-form" onSubmit={event=>{event.preventDefault();run(verified)}}>
+   {!enrollment&&factors.length>0&&status?.aal2&&<p className="caption">The security code is verified for this sign-in.</p>}
+   {(enrollment||(factors.length>0&&!status?.aal2))&&<form className="login-form" onSubmit={event=>{event.preventDefault();run(verified)}}>
     {!enrollment&&<label className="field">Security code app<select value={factorId} onChange={e=>setFactorId(e.target.value)}>{factors.map(f=><option key={f.id} value={f.id}>{f.friendly_name||'Authenticator'}</option>)}</select></label>}
     <label className="field">Six-digit security code<input inputMode="numeric" autoComplete="one-time-code" pattern="[0-9]{6}" maxLength={6} value={code} onChange={e=>setCode(e.target.value)} required/></label>
     <button className="primary" disabled={busy}>Verify security code</button>

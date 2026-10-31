@@ -1,7 +1,8 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFile} from 'node:fs/promises';
-const source=(await readFile(new URL('../src/cloud.js',import.meta.url),'utf8')).replaceAll('import.meta.env','({})');
+const source=(await readFile(new URL('../src/cloud.js',import.meta.url),'utf8')).replaceAll('import.meta.env','({})')
+ .replace("from './practice.mjs'","from '"+new URL('../src/practice.mjs',import.meta.url).href+"'");
 globalThis.window={DEFECTRAG_PUBLIC_CONFIG:{}};
 const {cloudConfigured,cloudClient}=await import('data:text/javascript;base64,'+Buffer.from(source).toString('base64'));
 test('unconfigured cloud makes no request and rejects a client',async()=>{

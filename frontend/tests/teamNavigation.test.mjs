@@ -32,6 +32,7 @@ function nodes(tree,predicate){
 const text=node=>typeof node==='string'||typeof node==='number'?String(node):Array.isArray(node)?node.map(text).join(''):node&&typeof node==='object'?text(node.props?.children):'';
 const fieldControl=(m,label)=>nodes(m.find(n=>n.type==='label'&&text(n).startsWith(label))[0],n=>['select','textarea','input'].includes(n.type))[0];
 async function enter(m,label,value,event='onChange'){fieldControl(m,label).props[event]({target:{value}});await m.settle()}
+async function setDue(m,value){await enter(m,'Due date',value.slice(0,10));await enter(m,'Due time',value.slice(11,16))}
 const futureDate=()=>new Date(Date.now()+7*86400000).toISOString().slice(0,16);
 async function mount(name,props,f){
  globalThis.__teamFixture=f;
@@ -96,7 +97,7 @@ test('direct case visit shows assignment fields with guidance, without permittin
  const f=teamFixture(),chosen=[];
  const m=await mount('CorrectiveActions',{user:f.actor(),inspections:[f.inspection],onSelectInspection:id=>chosen.push(id)},f);
  assert.match(m.text(),/Create and assign a case/);assert.match(m.text(),/Choose a shared Team inspection/);
- for(const label of ['Person responsible','Supervisor','Due date and time']){
+ for(const label of ['Person responsible','Supervisor','Due date','Due time']){
   const node=m.find(n=>n.type==='label'&&text(n).startsWith(label))[0];assert.ok(node,label);
   assert.equal(nodes(node,n=>['select','input'].includes(n.type))[0].props.disabled,false,label);
  }
@@ -123,11 +124,12 @@ test('review prerequisites, archived records and in-flight selection keep assign
 
 test('authorized Staff can type a draft before selection and keep it when the first inspection/review arrives',async()=>{
  const f=teamFixture(),m=await mount('CorrectiveActions',{user:f.actor(),notes:[]},f),due=futureDate();
- for(const [label,value]of [['What needs fixing?','Draft handover before choosing a photo'],['Person responsible',f.actor().id],['Supervisor','22222222-2222-4222-8222-222222222222'],['Priority','High'],['Due date and time',due]])await enter(m,label,value,label==='What needs fixing?'||label==='Due date and time'?'onInput':'onChange');
+ for(const [label,value]of [['What needs fixing?','Draft handover before choosing a photo'],['Person responsible',f.actor().id],['Supervisor','22222222-2222-4222-8222-222222222222'],['Priority','High']])await enter(m,label,value,label==='What needs fixing?'?'onInput':'onChange');
+ await setDue(m,due);
  await m.rerender({inspection:f.inspection});
  assert.equal(fieldControl(m,'What needs fixing?').props.value,'Draft handover before choosing a photo');
  await m.rerender({notes:[{id:'review',created_at:'2026-10-26',body:reviewBody('Reviewed','Reject')}]});
- assert.equal(fieldControl(m,'Due date and time').props.value,due);assert.equal(fieldControl(m,'Priority').props.value,'High');
+ assert.equal(fieldControl(m,'Due date').props.value,due.slice(0,10));assert.equal(fieldControl(m,'Due time').props.value,due.slice(11,16));assert.equal(fieldControl(m,'Priority').props.value,'High');
  assert.equal(m.button('Create corrective action').props.disabled,true,'human confirmation still required');
  m.find(n=>n.type==='input'&&n.props.type==='checkbox')[0].props.onChange({target:{checked:true}});await m.settle();
  assert.equal(m.button('Create corrective action').props.disabled,false);m.close();
@@ -167,14 +169,15 @@ test('invalid assignment drafts explain missing values before the create RPC can
  assert.match(m.text(),/10 to 2,000/);await enter(m,'What needs fixing?','A valid description for testing');assert.match(m.text(),/Choose an active Staff member as the person responsible/);
  await enter(m,'Person responsible',f.actor().id);assert.match(m.text(),/Choose an active Staff member as the supervisor/);
  await enter(m,'Supervisor','22222222-2222-4222-8222-222222222222');assert.match(m.text(),/Choose a due date and time/);
- await enter(m,'Due date and time','2000-01-01T00:00','onInput');assert.match(m.text(),/Choose a future due date/);
- await enter(m,'Due date and time',new Date(Date.now()+366*86400000).toISOString().slice(0,16),'onInput');assert.match(m.text(),/within the next year/);
+ await setDue(m,'2000-01-01T00:00');assert.match(m.text(),/Choose a future due date/);
+ await setDue(m,new Date(Date.now()+366*86400000).toISOString().slice(0,16));assert.match(m.text(),/within the next year/);
  await m.find(n=>n.type==='form')[0].props.onSubmit({preventDefault(){}});await m.settle();assert.equal(f.cases.length,0);m.close();
 });
 
 test('double submission sends one create request; server failure keeps the draft and permits a deliberate retry',async()=>{
  const f=teamFixture(),m=await mount('CorrectiveActions',{user:f.actor(),inspection:f.inspection,notes:[{id:'review',created_at:'2026-10-26',body:reviewBody('Reviewed','Reject')}]},f);
- for(const [label,value]of [['What needs fixing?','Save this draft after a server rejection'],['Person responsible',f.actor().id],['Supervisor','22222222-2222-4222-8222-222222222222'],['Due date and time',futureDate()]])await enter(m,label,value);
+ for(const [label,value]of [['What needs fixing?','Save this draft after a server rejection'],['Person responsible',f.actor().id],['Supervisor','22222222-2222-4222-8222-222222222222']])await enter(m,label,value);
+ await setDue(m,futureDate());
  m.find(n=>n.type==='input'&&n.props.type==='checkbox')[0].props.onChange({target:{checked:true}});await m.settle();
  const original=f.client.rpc;let count=0,release;
  f.client.rpc=async(name,payload)=>{if(name==='defectrag_create_corrective_action'){count++;await new Promise(resolve=>release=resolve);return {error:new Error('Temporary service unavailable')}}return original(name,payload)};
@@ -197,12 +200,12 @@ test('switching inspections clears the prior assignment draft and requires a new
  const f=teamFixture(),review={body:reviewBody('Reviewed','Reject'),id:'review',created_at:'2026-10-26'};
  const m=await mount('CorrectiveActions',{user:f.actor(),inspection:f.inspection,notes:[review]},f);
  const inputFor=label=>nodes(m.find(n=>n.type==='label'&&text(n).startsWith(label))[0],n=>['select','textarea','input'].includes(n.type))[0];
- for(const [label,value]of [['What needs fixing?','Prior product draft'],['Person responsible',f.actor().id],['Supervisor','22222222-2222-4222-8222-222222222222'],['Due date and time','2027-01-01T12:00']]){
+ for(const [label,value]of [['What needs fixing?','Prior product draft'],['Person responsible',f.actor().id],['Supervisor','22222222-2222-4222-8222-222222222222'],['Due date','2027-01-01']]){
   inputFor(label).props.onChange({target:{value}});await m.settle();
  }
  m.find(n=>n.type==='input'&&n.props.type==='checkbox')[0].props.onChange({target:{checked:true}});await m.settle();
  await m.rerender({inspection:{...f.inspection,id:'b'.repeat(32)},notes:[{...review,id:'other-review'}]});
- for(const label of ['What needs fixing?','Person responsible','Supervisor','Due date and time'])assert.equal(inputFor(label).props.value,'',label);
+ for(const label of ['What needs fixing?','Person responsible','Supervisor','Due date'])assert.equal(inputFor(label).props.value,'',label);
  assert.equal(m.find(n=>n.type==='input'&&n.props.type==='checkbox')[0].props.checked,false);
  assert.equal(m.button('Create corrective action').props.disabled,true);assert.equal(f.cases.length,0);m.close();
 });
@@ -239,12 +242,26 @@ test('unassigned Staff see cases and audited details but not role-protected upda
  }
 });
 
+test('background refresh keeps the open case history on screen instead of collapsing the panel',async()=>{
+ const f=teamFixture('owner');f.notes.push({body:reviewBody('Reviewed','Reject'),inspection_id:f.inspection.id,id:'note',created_at:'2026-10-26'});
+ const m=await mount('CorrectiveActions',{user:f.actor(),inspection:f.inspection,notes:f.notes},f);
+ for(const [label,value] of [['What needs fixing?','Synthetic defect for refresh stability'],['Person responsible',f.actor().id],['Supervisor','22222222-2222-4222-8222-222222222222'],['Due date','2027-01-01']])await enter(m,label,value);
+ m.find(n=>n.type==='input'&&n.props.type==='checkbox')[0].props.onChange({target:{checked:true}});await m.settle();
+ await m.find(n=>n.type==='form')[0].props.onSubmit({preventDefault(){}});await m.settle();
+ assert.match(m.text(),/Synthetic case created/);
+ let release;f.historyGate=new Promise(r=>release=r);
+ m.button('Refresh cases').props.onClick();await m.settle();
+ assert.match(m.text(),/Synthetic case created/,'history must stay visible while the same case refreshes');
+ release();f.historyGate=null;await m.settle();
+ assert.match(m.text(),/Synthetic case created/);m.close();
+});
+
 test('mounted case forms preserve explicit confirmation, audited updates and revocation clearing',async()=>{
  const f=teamFixture('owner');f.notes.push({body:reviewBody('Reviewed','Reject'),inspection_id:f.inspection.id,id:'note',created_at:'2026-10-26'});
  const m=await mount('CorrectiveActions',{user:f.actor(),inspection:f.inspection,notes:f.notes},f);
  async function field(label,value){const target=m.find(n=>n.type==='label'&&text(n).startsWith(label))[0];const input=nodes(target,n=>['select','textarea','input'].includes(n.type))[0];input.props.onChange({target:{value}});await m.settle()}
  await field('What needs fixing?','Synthetic confirmed defect for navigation QA');
- await field('Person responsible',f.actor().id);await field('Supervisor','22222222-2222-4222-8222-222222222222');await field('Due date and time','2027-01-01T12:00');
+ await field('Person responsible',f.actor().id);await field('Supervisor','22222222-2222-4222-8222-222222222222');await field('Due date','2027-01-01');await field('Due time','12:00');
  m.find(n=>n.type==='input'&&n.props.type==='checkbox')[0].props.onChange({target:{checked:true}});await m.settle();
  assert.equal(m.button('Create corrective action').props.disabled,false);
  await m.find(n=>n.type==='form')[0].props.onSubmit({preventDefault(){}});await m.settle();
@@ -269,4 +286,41 @@ test('actual app exposes sidebar/hash route and connects local History Review an
  for(const [name,arg,expected]of [['openSharedReview',{id:'shared'},['shared','team']],['openCorrectiveActions',{id:'shared'},['shared','cases']],['chooseTeamInspection',undefined,[null,'team']]]){
   calls.length=0;const body=s.match(new RegExp('function '+name+'\\([^)]*\\)\\{([^}]+)\\}'))[0];new Function('go','setSharedSelectionId','arg',body+';return '+name+'(arg)')(go,setSharedSelectionId,arg);assert.deepEqual(calls,expected);
  }
+});
+
+test('case picker labels each Team inspection, lists ready ones first and explains the next step',async()=>{
+ const f=teamFixture(),a=f.inspection,b={...a,id:'b'.repeat(32),created_at:'2026-10-27T08:00:00Z'},c={...a,id:'c'.repeat(32),payload:{...a.payload,category:'candle'}};
+ f.notes.push({id:'n-ready',inspection_id:a.id,author_id:f.actor().id,body:reviewBody('Reviewed','Reject'),created_at:'2026-10-26T09:00:00Z'},
+  {id:'n-accept',inspection_id:c.id,author_id:f.actor().id,body:reviewBody('Reviewed','Accept'),created_at:'2026-10-26T09:00:00Z'});
+ const evidence=[],m=await mount('CorrectiveActions',{user:f.actor(),notes:[],inspections:[b,c,a],onSelectInspection(){},onEvidence:id=>evidence.push(id)},f);
+ const options=m.find(n=>n.type==='option').map(text).filter(t=>t.includes(' — '));
+ assert.equal(options.length,3);assert.match(options[0],/^PCB 1 · .* — Ready: defect confirmed$/);
+ assert.ok(options.some(t=>/^Candle · .* — Accepted: no case needed$/.test(t)));assert.ok(options.some(t=>/— Needs review$/.test(t)));
+ assert.match(m.text(),/1 inspection is ready, listed first/);assert.match(m.text(),/Step 1: choose a Team inspection/);
+ const consent=m.find(n=>n.type==='label'&&String(n.props.className).includes('consent-check'))[0];
+ assert.match(consent.props.className,/locked/);assert.match(text(consent),/Available after the review step/);
+ await m.rerender({inspection:b,notes:[]});
+ assert.match(m.text(),/Step 2 needed: confirm the defect in a Staff review/);
+ m.button('Open this inspection’s review').props.onClick();assert.deepEqual(evidence,[b.id]);
+ await m.rerender({inspection:a,notes:f.notes.filter(n=>n.inspection_id===a.id)});
+ assert.match(m.text(),/Ready to assign/);assert.doesNotMatch(String(m.find(n=>n.type==='label'&&String(n.props.className).includes('consent-check'))[0].props.className),/locked/);
+ assert.equal(f.requests.filter(x=>x.rpc==='defectrag_create_corrective_action').length,0);m.close();
+});
+
+test('review decisions show plain wording while saved review values stay unchanged',async()=>{
+ const saved=[],m=await mount('ReviewForm',{current:{status:'Reviewed',decision:'Reject',reviewer:'QA owner',created_at:'2026-10-26'},onSave:async v=>saved.push(v)},teamFixture());
+ const decision=m.find(n=>n.type==='label'&&text(n).startsWith('Review decision'))[0];
+ assert.deepEqual(nodes(decision,n=>n.type==='option').map(o=>[o.props.value,text(o)]),[['Hold','Hold: needs more checks'],['Accept','Accept: no defect'],['Reject','Reject: defect confirmed']]);
+ assert.match(m.text(),/Reviewed · Reject: defect confirmed/);
+ await m.find(n=>n.type==='form')[0].props.onSubmit({preventDefault(){}});await m.settle();
+ assert.deepEqual(saved,[{status:'Reviewed',decision:'Reject',note:''}]);
+ assert.equal(reviewBody('Reviewed','Reject'),'DEFECTRAG_REVIEW_V1:{"status":"Reviewed","decision":"Reject","note":""}');m.close();
+});
+
+test('signed-out Staff page puts Sign in before the optional registration section',async()=>{
+ const f=teamFixture('guest'),m=await mount('TeamWorkspace',{},f);
+ // The harness does not render nested components, so check tree order: sign-in form, then the AccountSecurity element.
+ const order=m.find(()=>true),form=order.findIndex(n=>n.type==='form'&&n.props.className==='login-form'),security=order.findIndex(n=>typeof n.type==='function'&&'client' in n.props&&'user' in n.props);
+ assert.ok(form>=0&&security>form,'sign-in form renders before account registration/security');
+ assert.ok(order.some(n=>n.type==='h3'&&text(n)==='Sign in'));m.close();
 });

@@ -29,16 +29,7 @@ table{font-size:14px}th{background:#f5f6fc;color:#8189a1;font-size:11px;padding:
 .tutorial-top,.tutorial-footer{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}.tutorial-progress{display:block;width:100%;height:6px;margin:18px 0 23px;accent-color:#6556e8}.tutorial-icon{width:58px;height:58px;border-radius:16px;background:linear-gradient(120deg,#eee8ff,#e9f0ff);color:#6556e8;display:grid;place-items:center;margin-bottom:18px}.tutorial-dialog h2{font-size:27px;line-height:1.25;margin:0 0 12px}.tutorial-dialog h2:focus{outline:none}.tutorial-dialog>p{font-size:16px;line-height:1.65;color:#5c6680}.tutorial-points{padding-left:22px;margin:18px 0 26px;color:#56617b;font-size:15px;line-height:1.75}.tutorial-points li+li{margin-top:12px}.tutorial-footer{border-top:1px solid #e8e3f4;padding-top:18px}.tutorial-footer .button-row{margin:0}.tutorial-footer button{min-height:42px}
 @media(max-width:680px){.tutorial-dialog{padding:20px;max-height:90dvh}.tutorial-dialog h2{font-size:23px}.tutorial-points{font-size:14px}.tutorial-footer{gap:10px}.tutorial-footer .button-row{gap:8px}}
 
-/* Action-led lessons use separate temporary state; normal workspace styles stay intact. */
-.guided-coach{position:sticky;top:12px;z-index:5;margin-bottom:28px;padding:20px 24px!important;border-color:#b9aff5!important;box-shadow:0 8px 28px #43377d18}.guided-coach .section-title{margin-bottom:10px}.guided-coach .subtle-tag{display:inline-flex;gap:7px;align-items:center}.guided-coach progress{display:block;width:100%;height:5px;accent-color:#6556e8;margin:8px 0 14px}.guided-coach h2{font-size:22px;margin:0 0 9px}.guided-coach h2:focus{outline:none}.guided-coach p{font-size:15px;line-height:1.6;margin:0 0 10px}.guided-footer{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}.guided-footer small{color:#5c6680}.guided-target{outline:3px solid #7867ee;outline-offset:5px;scroll-margin-top:270px}.guided-practice .card{margin-bottom:28px}.guided-practice .guided-photo{padding:12px;margin:20px 0}.guided-photo>img{display:block;width:100%;max-height:210px;object-fit:contain;margin-bottom:15px}.guided-thumb{width:110px;height:110px;object-fit:contain;border-radius:12px;background:#f3f1fb}.guided-practice .login-form{max-width:650px}.guided-practice .guided-target>button{scroll-margin-top:270px}.guided-practice textarea{min-height:90px}.guided-practice form>button{margin-top:10px}
-@media(max-width:680px){.guided-coach{position:static;padding:18px!important}.guided-coach h2{font-size:20px}.guided-coach p{font-size:14px}.guided-footer{gap:8px}.guided-target{scroll-margin-top:20px}.guided-practice .inspection-grid{min-width:0}.guided-practice .card{overflow-wrap:anywhere}}
 
-/* Practice uses the same readable form controls without inheriting text-field sizing for consent. */
-.guided-practice textarea{display:block;width:100%;min-height:96px;resize:vertical;margin-top:9px;padding:10px 12px;border:1px solid #dce0ee;border-radius:8px;font:inherit;font-weight:400;color:#4e5872;background:#fff}
-.guided-practice textarea:focus-visible{outline:3px solid #35b6a5;outline-offset:3px}
-.guided-practice input[type="checkbox"]{width:auto;min-height:0;padding:0;margin-right:8px;vertical-align:middle;accent-color:#6556e8}
-.guided-practice .guided-consent{display:flex;align-items:flex-start;gap:8px;margin-top:18px;font-size:14px;line-height:1.6;color:#4e5872}
-.guided-practice .guided-consent input{flex:0 0 auto;margin:5px 0 0}
 
 /* Match case assignment controls to the existing dashboard fields. */
 .case-workspace textarea{display:block;width:100%;min-height:96px;resize:vertical;margin-top:9px;padding:10px 12px;border:1px solid #dce0ee;border-radius:8px;font:inherit;font-weight:400;color:#4e5872;background:#fff}
@@ -48,3 +39,48 @@ table{font-size:14px}th{background:#f5f6fc;color:#8189a1;font-size:11px;padding:
 /* Horizontal phone navigation remains keyboard accessible and discoverable. */
 .mobile-nav-hint{display:none}
 @media(max-width:680px){.mobile-nav-hint{display:block;color:#bbbce0;font-size:11px;line-height:1.5;padding:5px 0 10px;margin:0}}
+
+/* Programmatic focus moves screen readers to new content without a heavy box; keyboard focus stays visible elsewhere. */
+[tabindex="-1"]:focus{outline:none}
+
+/* Corrective Actions: explain the next step beside the inspection picker. */
+.case-step{border:1px solid #dddff1;background:#f5f5fc;border-radius:9px;padding:14px 16px;margin:14px 0 18px;color:#656985;font-size:13px;line-height:1.6}
+.case-step strong{display:block;color:#3b3f63;font-size:14px;margin-bottom:4px}
+.case-step p{margin:0 0 10px}
+.case-step .primary,.case-step .secondary{margin-right:10px}
+.case-step.ready{border-color:#bfe3d2;background:#f0f8f4}
+.case-step.blocked{border-left:4px solid #8f7ce7}
+.case-workspace .consent-check{display:flex;align-items:flex-start;gap:8px;margin:16px 0 4px;font-size:14px;line-height:1.6;color:#4e5872;cursor:pointer}
+.case-workspace .consent-check input{flex:0 0 auto;margin:5px 0 0;accent-color:#6556e8}
+.case-workspace .consent-check small{display:block;color:#7e86a0;font-size:12px}
+.case-workspace .consent-check.locked{cursor:not-allowed;color:#8a90a8}
+
+/* Staff workspace: secondary account sections collapse below the main task. */
+.register-panel,.account-panel{border:1px solid #e6e3f3;border-radius:9px;padding:12px 16px;margin-top:22px;background:#fbfbfe}
+.register-panel>summary,.account-panel>summary{cursor:pointer;color:#5d5a8d;font-weight:600;font-size:14px}
+.register-panel[open]>summary,.account-panel[open]>summary{margin-bottom:6px}
+
+/* One compact demo banner. */
+.demo-banner{display:flex;align-items:center;justify-content:space-between;gap:16px;width:100%;flex-wrap:wrap}
+.demo-banner>div{flex:1 1 320px}
+.demo-banner p{margin:4px 0 0}
+
+/* Review alerts identify the product at a glance. */
+.alert-thumb{width:46px;height:46px;object-fit:cover;border-radius:8px;flex:0 0 auto;background:#eef0f6}
+
+/* Guided practice on the real screens: coach card plus highlighted real control. */
+.tutorial-coach{position:fixed;right:24px;bottom:24px;z-index:60;width:min(380px,calc(100vw - 32px));max-height:min(70vh,520px);overflow:auto;background:#fff;border:1px solid #dcd7f5;border-radius:14px;box-shadow:0 18px 50px #2b245a33;padding:16px 18px;color:#4e5872}
+.tutorial-coach h2{font-size:17px;margin:10px 0 6px;color:#2f3354}
+.tutorial-coach p{font-size:13.5px;line-height:1.6;margin:0 0 8px}
+.tutorial-coach progress{width:100%;height:6px;accent-color:#6556e8}
+.tutorial-coach small{display:block;color:#8a90a8;font-size:11.5px;line-height:1.5;margin-top:10px}
+.tutorial-coach .coach-hint{background:#fff7e6;border:1px solid #f1d9a6;color:#7a5a12;border-radius:8px;padding:8px 10px}
+.tutorial-coach .coach-actions{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:6px}
+.tour-target{outline:3px solid #6556e8!important;outline-offset:4px;border-radius:10px;box-shadow:0 0 0 8px #6556e824!important;animation:tour-pulse 1.6s ease-in-out infinite}
+@keyframes tour-pulse{50%{box-shadow:0 0 0 14px #6556e812}}
+@media (prefers-reduced-motion:reduce){.tour-target{animation:none}}
+@media(max-width:680px){.tutorial-coach{right:8px;left:8px;bottom:calc(8px + env(safe-area-inset-bottom,0px));width:auto;max-height:46vh}}
+.due-field{border:0;padding:0;margin:0 0 20px;min-width:0}.due-field legend{font-size:14px;font-weight:600;color:#525c79;padding:0;margin-bottom:9px}
+.due-shortcuts{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px}.chip{border:1px solid #dce0f0;background:#fff;color:#4e5872;border-radius:999px;padding:7px 13px;font-size:13px;min-height:34px}.chip:hover:not(:disabled){border-color:#b7aceb;background:#f6f4ff}.chip.selected{background:#eeebff;border-color:#8f7ce7;color:#4d3fb0;font-weight:600}
+.due-inputs{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,160px);gap:12px}.due-inputs .field{margin-bottom:0;font-weight:500;font-size:13px}.due-summary{margin-top:10px}.due-summary strong{color:#3d3a73;font-weight:600}
+@media(max-width:480px){.due-inputs{grid-template-columns:1fr}}

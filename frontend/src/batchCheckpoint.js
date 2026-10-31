@@ -1,7 +1,10 @@
 import {cloudConfigured,cloudClient} from './cloud.js';
 import {personalEnabled} from './workspace.mjs';
+import {practiceActive} from './practice.mjs';
 
 export async function batchOwner(){
+ // Practice batches are never written to browser recovery storage.
+ if(practiceActive())return 'practice';
  if(cloudConfigured()){
   const {data}=await (await cloudClient()).auth.getSession();
   if(data.session?.user)return 'staff:'+data.session.user.id+(personalEnabled()?':personal':'');
@@ -18,6 +21,7 @@ function database(){
  });
 }
 export async function checkpointBatch(owner,job){
+ if(owner==='practice')return;
  const db=await database();
  try{await new Promise((resolve,reject)=>{
   const transaction=db.transaction('jobs','readwrite');
@@ -28,6 +32,7 @@ export async function checkpointBatch(owner,job){
  })}finally{db.close()}
 }
 export async function restoreBatch(owner){
+ if(owner==='practice')return null;
  const db=await database();
  try{return await new Promise((resolve,reject)=>{
   const request=db.transaction('jobs').objectStore('jobs').get(owner);

@@ -49,7 +49,7 @@ export function inspectionReadiness({health,workspace,access={state:'checking'},
    unavailable:'Account access could not be checked. Check the connection or sign in again in Staff workspace.'};
   if(!['guest','authorized'].includes(access.state))return blocked(access.state,reasons[access.state]||reasons.denied);
  }
- if(!categoryValid)return blocked('category','Choose a supported product category.');
+ if(!categoryValid)return blocked('category','Choose the product shown in the photo. A sample photo sets it automatically.');
  if(!retry){
   if(!files.length)return blocked('images','Choose an image before running an inspection.');
   if(!multiple&&files.length!==1)return blocked('single','Choose one photo, or use Batch inspection to check several photos together.');

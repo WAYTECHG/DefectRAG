@@ -1,4 +1,4 @@
-import {parseReview} from './workflow.mjs';
+import {decisionLabel,parseReview} from './workflow.mjs';
 export const caseStates=['Open','Assigned','In Progress','Resolved','Closed','Cancelled'];
 // UI feedback only; the database rechecks membership, MFA and stored assignments.
 export function caseCanEdit(record,actorId,isDeveloper=false){
@@ -24,11 +24,21 @@ export function caseCreationGate(inspection,notes=[],cases=[],loading=false){
  const review=latestDefectReview(notes);
  if(!review){
   const latest=latestStructuredReview(notes),saved=latest&&parseReview(latest);
-  return {ready:false,reason:saved?`Latest Staff review: ${saved.status} / ${saved.decision}. A case requires a human-confirmed defect with a saved Reviewed / Reject decision. Keep a valid Accept or Hold decision unchanged; choose another inspection or review the evidence when a reassessment is needed.`:'No completed defect review is saved. Open the photo and Staff review. Record Reviewed / Reject only when the evidence actually confirms a defect; accepted products do not need a corrective-action case.'};
+  return {ready:false,needsReview:true,reason:saved?`Latest Staff review: ${saved.status} / ${decisionLabel(saved.decision)}. A case needs a saved review of Reviewed with “Reject: defect confirmed”. Keep a valid Accept or Hold decision unchanged; choose another inspection or review the evidence when a reassessment is needed.`:'No completed defect review is saved. Open this inspection’s review, choose Reviewed and “Reject: defect confirmed” only when the evidence actually confirms a defect, then return here. Accepted products do not need a corrective-action case.'};
  }
  const existing=cases.find(c=>c.review_id===review.id);
  if(existing)return {ready:false,existingCaseId:existing.id,reason:'This saved review already has a case. Open the existing case to see its assignment and progress.'};
  return {ready:true,review,reason:'The saved review is ready. Choose the person responsible, a supervisor and a deadline, then confirm the defect to create the case.'};
+}
+// Picker label for each Team inspection, from its own notes and existing cases.
+// UI guidance only; the database still checks the review on create.
+export function inspectionCaseStatus(notes=[],cases=[]){
+ const latest=latestStructuredReview(notes),review=latest&&parseReview(latest);
+ if(review?.status==='Reviewed'&&review.decision==='Reject')
+  return cases.some(c=>c.review_id===latest.id)?{key:'has_case',label:'Has a case'}:{key:'ready',label:'Ready: defect confirmed'};
+ if(review?.status==='Reviewed')return {key:review.decision.toLowerCase(),label:review.decision==='Accept'?'Accepted: no case needed':'On hold: needs more checks'};
+ if(review)return {key:'in_review',label:'Review in progress'};
+ return {key:'needs_review',label:'Needs review'};
 }
 // Immediate form feedback only. Database RPCs enforce these rules independently.
 export function caseDraftError({description,owner,supervisor,priority,due},people,now=Date.now()){

@@ -1,3 +1,4 @@
+import {practiceActive,practiceClient,practiceStaff} from './practice.mjs';
 let clientPromise;
 export function cloudConfig() {
   const publicConfig = window.DEFECTRAG_PUBLIC_CONFIG || {};
@@ -5,12 +6,15 @@ export function cloudConfig() {
     key:import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY || publicConfig.supabasePublishableKey || ''};
 }
 export function cloudConfigured() {
+  if(practiceActive())return true;
   const {url,key}=cloudConfig();
   let publicKey=key.startsWith('sb_publishable_');
   if(!publicKey){try{const claim=JSON.parse(atob(key.split('.')[1].replaceAll('-','+').replaceAll('_','/')));publicKey=claim.role==='anon'}catch{publicKey=false}}
   return /^https:\/\//.test(url) && publicKey;
 }
 export async function cloudClient() {
+  // Guided practice never reaches Supabase; it uses the in-memory lesson store.
+  if(practiceActive())return practiceClient();
   if(!cloudConfigured())throw new Error('Team workspace is not connected. Complete the Supabase setup first.');
   clientPromise ||= import('@supabase/supabase-js').then(({createClient})=>{
     const {url,key}=cloudConfig();const client=createClient(url,key);
@@ -23,6 +27,7 @@ export async function cloudClient() {
   return clientPromise;
 }
 export async function currentStaff() {
+  if(practiceActive())return practiceStaff();
   const client=await cloudClient();
   const {data:{user},error}=await client.auth.getUser();
   if(error||!user)throw new Error('Sign in to the team workspace before sharing.');

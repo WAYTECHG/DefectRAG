@@ -7,6 +7,9 @@ export function createRequestScope(){
 export const REVIEW_PREFIX='DEFECTRAG_REVIEW_V1:';
 export const reviewStatuses=['Needs review','In review','Reviewed'];
 export const reviewDecisions=['Pending','Hold','Accept','Reject'];
+// Display wording only. Saved review bodies keep the original decision values.
+const decisionWording={Pending:'Pending',Hold:'Hold: needs more checks',Accept:'Accept: no defect',Reject:'Reject: defect confirmed'};
+export const decisionLabel=decision=>decisionWording[decision]||decision;
 export function reviewBody(status,decision,note=''){
  if(!reviewStatuses.includes(status)||!reviewDecisions.includes(decision)||
     (status==='Reviewed')===(decision==='Pending')||note.length>1000)

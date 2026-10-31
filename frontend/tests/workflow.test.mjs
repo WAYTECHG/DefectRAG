@@ -22,10 +22,10 @@ test('out-of-order record opens cannot replace the newest selection or its messa
  const scope=createRequestScope();let result,messages,category,release;
  const delayed=new Promise(resolve=>release=resolve);
  const declaration=source.slice(source.indexOf(' async function openRecord('),source.indexOf(' async function sampleFile('));
- const open=new Function('resetInspection','setCategory','setBatch','setFiles','setRecordLoading','go','api','SHOWCASE','setResult','setMessages','setReview','setError',declaration+';return openRecord')(
+ const open=new Function('resetInspection','setCategory','setBatch','setFiles','setRecordLoading','go','api','SHOWCASE','setResult','setMessages','setReview','setError','practiceRunning','page','practiceAction',declaration+';return openRecord')(
   ()=>{scope.invalidate();return scope.capture()},value=>category=value,()=>{},()=>{},()=>{},()=>{},
   async path=>{const first=path.includes('inspection-A');if(first)await delayed;if(path.endsWith('/messages'))return [first?'A messages':'B messages'];if(path.endsWith('/reviews'))return [];return {id:first?'inspection-A':'inspection-B',category:first?'candle':'pcb1',batch:'saved-batch'}},false,
-  value=>result=value,value=>messages=value,()=>{},error=>{throw new Error(error)});
+  value=>result=value,value=>messages=value,()=>{},error=>{throw new Error(error)},false,'history',()=>assert.fail('normal work never reports lesson events'));
  const first=open({id:'inspection-A',category:'candle'});await open({id:'inspection-B',category:'pcb1'});release();await first;
  assert.equal(result.id,'inspection-B');assert.equal(category,'pcb1');assert.deepEqual(messages,['B messages']);
 });

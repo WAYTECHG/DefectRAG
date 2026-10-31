@@ -19,13 +19,15 @@ export function teamFixture(role='developer'){
  function query(table){
   const filters=[];let single=false,insert;
   const q={select(){return q},order(){return q},limit(){return q},is(k,v){filters.push([k,v]);return q},not(k,_,v){filters.push([k,'NOT',v]);return q},
-   eq(k,v){filters.push([k,v]);return q},single(){single=true;return q},maybeSingle(){single=true;return q},insert(value){insert=value;return q},
-   then(resolve,reject){return Promise.resolve().then(()=>{
+   eq(k,v){filters.push([k,v]);return q},in(k,v){filters.push([k,'IN',v]);return q},like(k,v){filters.push([k,'LIKE',v]);return q},single(){single=true;return q},maybeSingle(){single=true;return q},insert(value){insert=value;return q},
+   then(resolve,reject){return Promise.resolve().then(async()=>{
+    // Lets a test hold a history read open to observe the page mid-refresh.
+    if(table==='corrective_action_history'&&f.historyGate)await f.historyGate;
     f.requests.push({table,insert:insert?structuredClone(insert):undefined});
     if(!allowed())return {data:null,error:new Error('Approved Staff and TOTP MFA required')};
     if(insert){if(table!=='staff_notes')throw Error('Fixture does not support this write');const row={...insert,id:'note-'+(++seq),created_at:new Date(Date.now()+seq).toISOString()};f.notes.push(row);return {data:row,error:null}}
     let rows=({staff_members:people(),shared_inspections:[f.inspection],staff_notes:f.notes,corrective_actions:f.cases,corrective_action_history:f.history,corrective_action_events:f.events})[table]||[];
-    rows=rows.filter(row=>filters.every(([key,v,n])=>v==='NOT'?row[key]!==n:(row[key]??null)===v));
+    rows=rows.filter(row=>filters.every(([key,v,n])=>v==='NOT'?row[key]!==n:v==='IN'?n.includes(row[key]):v==='LIKE'?String(row[key]).startsWith(n.replace(/%$/,'')):(row[key]??null)===v));
     return {data:single?rows[0]||null:structuredClone(rows),error:single&&!rows.length?new Error('Not available in this workspace'):null};
    }).then(resolve,reject)}};return q;
  }

@@ -113,7 +113,7 @@ test('account/workspace changes discard late data and late SDK authorization',as
 test('real API boundary preserves 401/403 HTTP status for permission-specific guidance',async()=>{
  const apiSource=source.slice(source.indexOf('async function api('),source.indexOf(' function Badge('));
  for(const status of [401,403,503]){
-  const api=new Function('SHOWCASE','request','showcaseApi',apiSource+';return api')(false,async()=>Response.json({error:{message:'Denied'}},{status}),()=>{});
+  const api=new Function('SHOWCASE','request','showcaseApi','practiceActive','practiceApi',apiSource+';return api')(false,async()=>Response.json({error:{message:'Denied'}},{status}),()=>{},()=>false,()=>assert.fail('normal work never uses the lesson store'));
   await assert.rejects(api('/private'),error=>error.status===status);
  }
 });

@@ -126,9 +126,10 @@
         "toEmail": "={{ $json.recipient_email }}",
         "subject": "DefectRAG corrective action notification",
         "emailFormat": "text",
-        "text": "=Corrective action {{ $json.case_id }}\nEvent: {{ $json.kind }}\nState: {{ $json.state }}\nPriority: {{ $json.priority }}\nDue: {{ $json.due_at }}\nSign in with staff MFA to view private evidence: https://wizzas-defectrag.hf.space/#team",
+        "text": "=Corrective action {{ $json.case_id }}\nEvent: {{ $json.kind }}\nState: {{ $json.state }}\nPriority: {{ $json.priority }}\nDue: {{ $json.due_at }}\nThis message goes to the case supervisor, with the person responsible copied when they are a different verified Staff member.\nSign in with staff MFA to view private evidence: https://wizzas-defectrag.hf.space/#cases",
         "options": {
-          "appendAttribution": false
+          "appendAttribution": false,
+          "ccEmail": "={{ $json.cc_email || '' }}"
         }
       },
       "credentials": {
@@ -148,7 +149,7 @@
         -100
       ],
       "parameters": {
-        "jsCode": "const r=$input.first().json;const target=$('Reserve notification effect').first().json.recipient_email;if(!Array.isArray(r.accepted)||!r.accepted.some(e=>String(e).toLowerCase()===String(target).toLowerCase())||(r.rejected||[]).length||typeof r.messageId!=='string'||!r.messageId||r.messageId.length>200)throw Error('SMTP acceptance not verified');const e=$('Validate case event').first().json;return [{json:{operation:'finish',event_id:e.event_id,lease_token:e.lease_token,receipt:r.messageId}}];"
+        "jsCode": "const r=$input.first().json;const reserved=$('Reserve notification effect').first().json;const accepted=Array.isArray(r.accepted)?r.accepted.map(e=>String(e).toLowerCase()):[];const required=[reserved.recipient_email,reserved.cc_email].filter(Boolean).map(e=>String(e).toLowerCase());if(!required.length||!required.every(e=>accepted.includes(e))||(r.rejected||[]).length||typeof r.messageId!=='string'||!r.messageId||r.messageId.length>200)throw Error('SMTP acceptance not verified');const e=$('Validate case event').first().json;return [{json:{operation:'finish',event_id:e.event_id,lease_token:e.lease_token,receipt:r.messageId}}];"
       }
     },
     {

@@ -12,8 +12,8 @@ export default function Tutorial({open,onDismiss,onStart}){
   <div className="tutorial-top"><span className="subtle-tag">GUIDED PRACTICE</span><button type="button" className="icon-button" aria-label="Close tutorial" onClick={onDismiss}><X size={20}/></button></div>
   <div className="tutorial-icon"><BookOpen size={30} aria-hidden="true"/></div>
   <h2 ref={title} tabIndex={-1} id="tutorial-title">Learn by doing</h2>
-  <p id="tutorial-description">Follow the highlighted controls on each page. Completing an action opens the next step automatically.</p>
-  <ul className="tutorial-points"><li>Practise checking a photo, finding saved work, sharing, Staff review and tracking a fix.</li><li>A saved public example is used. No new AI run, account sign-in, real save, sharing or email is needed.</li><li>Practice disappears when the lesson ends or the page reloads. Existing work stays separate. Skip at any time and replay from Overview.</li></ul>
+  <p id="tutorial-description">Practise on the real pages you will use every day. A small guide highlights the next control, and each step completes when you do it.</p>
+  <ul className="tutorial-points"><li>Check a photo, find saved work, share it, record a Staff review and track a fix to closure.</li><li>Practice data replaces your workspace during the lesson. No AI run, account sign-in, real save, sharing, publishing or email happens.</li><li>Your real work returns unchanged when the lesson ends. Skip at any time and replay from Overview.</li></ul>
   <div className="tutorial-footer"><button type="button" className="text-button" onClick={onDismiss}>Skip tutorial</button><button type="button" className="primary" onClick={onStart}>Start guided practice <ArrowRight size={16}/></button></div>
  </dialog>;
 }

@@ -127,3 +127,23 @@ test('real JSX renders existing card design but waits for native CA assurance be
  }
  assert.ok(!html.includes('Create corrective action'));assert.ok(!html.includes('Save case update'));
 });
+
+test('effect callback forwards the optional person-responsible copy address unchanged',async()=>{
+ const r=await handleCA(request(true,{event_id:uuid,lease_token:lease,operation:'begin'}),{env,fetcher:async()=>Response.json({execute:true,done:false,recipient_email:'supervisor@example.invalid',cc_email:'owner@example.invalid',case_id:uuid,kind:'created',state:'Open',priority:'High',due_at:'2030-01-01T00:00:00Z'})});
+ const b=await r.json();assert.equal(b.recipient_email,'supervisor@example.invalid');assert.equal(b.cc_email,'owner@example.invalid');
+});
+
+test('n8n workflows copy the person responsible and require every recipient to be accepted',async()=>{
+ for(const file of ['corrective-actions.json','corrective-actions-live-qa.json']){
+  const w=JSON.parse(await readFile(new URL('../../deployment/n8n/'+file,import.meta.url),'utf8'));
+  const send=w.nodes.find(n=>n.type==='n8n-nodes-base.emailSend');
+  assert.equal(send.parameters.toEmail,'={{ $json.recipient_email }}');assert.equal(send.parameters.options.ccEmail,"={{ $json.cc_email || '' }}");
+  const verify=new Function('$input','$',w.nodes.find(n=>n.name==='Verify supervisor acceptance').parameters.jsCode);
+  const reserved={recipient_email:'supervisor@example.invalid',cc_email:'owner@example.invalid'},event={event_id:uuid,lease_token:lease};
+  const $=reserve=>name=>({first:()=>({json:name==='Reserve notification effect'?reserve:event})});
+  const input=accepted=>({first:()=>({json:{accepted,rejected:[],messageId:'<id@sink>'}})});
+  assert.equal(verify(input(['SUPERVISOR@example.invalid','owner@example.invalid']),$(reserved))[0].json.receipt,'<id@sink>');
+  assert.throws(()=>verify(input(['supervisor@example.invalid']),$(reserved)),/SMTP acceptance not verified/);
+  assert.equal(verify(input(['supervisor@example.invalid']),$({...reserved,cc_email:null}))[0].json.operation,'finish');
+ }
+});

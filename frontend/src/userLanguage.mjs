@@ -1,5 +1,7 @@
 // Display wording only. Stored values, permission checks and API contracts do not change.
 export const resultLabel=value=>({Good:'Looks normal',Anomalous:'Unusual appearance',Uncertain:'Needs a closer look'})[value]||value;
+export const productLabels={pcb1:'PCB 1',capsules:'Capsules',cashew:'Cashew',candle:'Candle',chewinggum:'Chewing gum',fryum:'Fryum',macaroni1:'Macaroni 1',macaroni2:'Macaroni 2',pcb2:'PCB 2',pcb3:'PCB 3',pcb4:'PCB 4',pipe_fryum:'Pipe fryum'};
+export const productLabel=value=>productLabels[value]||value||'Product';
 export const environmentLabel=(health,showcase=false)=>showcase?'SAVED EXAMPLES':!health?'CONNECTING…':health.mode==='cloud_session_workspace'?'ONLINE APP':'THIS COMPUTER';
 export const answerLabel=(mode,saved=false)=>mode==='llm'?(saved?'SAVED ANSWER':'ANSWER WITH REFERENCES'):mode==='measurement_only'?'INSPECTION RESULT':mode==='retrieval_only'?'REFERENCE INFORMATION':'NO SUPPORTED ANSWER';
 export const deliveryLabel=value=>({queued:'Waiting to send',sending:'Sending',delivered:'Accepted by email service',sent:'Accepted by email service',retry:'Waiting to retry',dead:'Needs administrator help',ambiguous:'Delivery unconfirmed',superseded:'Replaced by a newer update',suppressed:'Not sent'})[value]||value;

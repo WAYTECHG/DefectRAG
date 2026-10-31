@@ -21,7 +21,7 @@ test('registration stays hidden during MFA bootstrap unless separately enabled',
 test('enabled registration uses existing dashboard classes and accessible labelled fields',()=>{
  window.DEFECTRAG_PUBLIC_CONFIG.registrationEnabled=true;
  const html=render({user:null});
- for(const phrase of ['login-form','Display name','Email','New password','Register account','public demo'])assert.ok(html.includes(phrase));
+ for(const phrase of ['login-form','Display name','Email','New password','Register account','public demo','register-panel','New to Staff work? Create an account'])assert.ok(html.includes(phrase));
  assert.ok(!html.includes('Staff access management'));
 });
 test('unverified client metadata cannot expose developer management on first render',()=>{
