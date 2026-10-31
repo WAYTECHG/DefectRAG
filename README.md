@@ -15,7 +15,7 @@
   <img src="https://img.shields.io/badge/LangGraph-1.2.14-1C3C3C?style=flat-square" alt="Cloud LangGraph 1.2.14" />
   <img src="https://img.shields.io/badge/Supabase-Auth_%2B_RLS_%2B_Storage-3ECF8E?style=flat-square&amp;logo=supabase&amp;logoColor=white" alt="Supabase authentication, row-level security and storage" />
   <img src="https://img.shields.io/badge/MFA-native_TOTP-635BFF?style=flat-square" alt="Native Supabase TOTP MFA" />
-  <img src="https://img.shields.io/badge/n8n-local_QA_verified-EA4B71?style=flat-square&amp;logo=n8n&amp;logoColor=white" alt="n8n local QA integration verified; unattended corrective-action delivery disabled" />
+  <img src="https://img.shields.io/badge/n8n-case_emails_live-EA4B71?style=flat-square&amp;logo=n8n&amp;logoColor=white" alt="n8n on AWS delivers Corrective Action emails" />
   <img src="https://img.shields.io/badge/License-MIT-7963DF?style=flat-square" alt="MIT application license" />
 
   <p><a href="https://huggingface.co/spaces/Wizzas/DefectRAG">Live application</a> · <a href="#current-capabilities">Features</a> · <a href="#architecture">Architecture</a> · <a href="#measured-results">Results</a> · <a href="#quick-start">Quick start</a> · <a href="docs/STAFF_QUICK_GUIDE.md">Staff guide</a></p>
@@ -23,10 +23,11 @@
 
 ## Overview
 
-**Run locally:** use the [setup guide](docs/SETUP.md)
-for the synchronized dashboard and verified local n8n demonstration. Developer
-registration emails use the existing independent cloud service. Corrective Action
-email automation remains disabled; always-on hosting and Multimodal RAG are deferred.
+**Run locally:** use the [setup guide](docs/SETUP.md) for the synchronized
+dashboard. Developer registration emails use the independent Supabase/Resend
+service. Corrective Action emails are live: a self-hosted n8n instance on AWS
+Lightsail emails the case supervisor and copies the person responsible within
+seconds of a saved change. Multimodal RAG remains future work.
 
 DefectRAG combines frozen visual encoders with a normal-reference memory bank and
 an inspection-linked RAG assistant. The existing React dashboard supports image
@@ -53,38 +54,40 @@ hosts the cloud UI, CPU services and queued ZeroGPU inference.
 
 | Capability | What it does | Status |
 |---|---|---|
-| **Guided practice** | Opens the relevant dashboard page, highlights a control and advances after the required action. Covers 17 steps with Back, Skip and replay. | Verified locally and on Hugging Face |
+| **Guided practice** | A coach card walks through 14 steps on the real screens, highlighting the actual control and advancing only when the action is done, with hints for wrong choices. Practice data stays in memory and makes no network request. | Live on Hugging Face |
 | **Public Demo Mode** | Visitors can explore inspection without becoming Staff. Private account and Team records remain separate. | Available; free inference quotas apply |
 | **Staff registration and approval** | Email-confirmed applicants submit Pending requests. Developers approve, reject or revoke access from the interface; signup grants no Staff membership. | Implemented and activated on the existing installation |
 | **Native TOTP MFA** | Approved Staff and Developers verify an authenticator code. Backend, database functions, RLS and protected storage enforce the required assurance. | Enforced on the existing installation |
 | **Personal local ↔ cloud synchronization** | The same approved account uses private history across local and hosted clients, including images, heatmaps, conversations and review state. Queued changes, duplicates and conflicts have explicit handling. | Real Supabase QA verified; unsynchronized local changes are not yet cloud-saved |
 | **Explicit Team collaboration** | Share a separate inspection copy, open evidence and save structured Staff reviews. Personal records are never automatically published to Team. | Implemented |
-| **Corrective Actions** | Draft an assignment, choose Staff/supervisor and a deadline, then create a case from an eligible human-confirmed Team defect. Refresh preserves drafts; concurrent updates require explicit review. Only the owner, supervisor or a Developer can edit existing cases. | Live controls verified; lifecycle and security QA retained |
+| **Corrective Actions** | The inspection picker shows each review's status and the next step. A case is created from a human-confirmed Team defect with a person responsible, supervisor and due date (Tomorrow / 3 days / 1 week / 2 weeks shortcuts). Refresh preserves drafts; concurrent updates require explicit review. Only the owner, supervisor or a Developer can edit existing cases. | Live |
 | **Community Gallery** | Publish a separate public copy with explicit consent. Private notes, conversations and account history stay separate. | Hosted gallery available; local publishing needs separate configuration |
 | **Developer request emails** | A durable outbox, cloud scheduler, Supabase Edge worker and Resend notify the Developer independently of the Windows laptop. | Controlled cloud delivery verified; current restricted sender is for the verified Developer recipient |
-| **n8n corrective-action integration** | Secured event delivery, validation, a test mail sink and authenticated completion callbacks. | One-event real Supabase/local n8n QA verified; unattended production delivery and schedules **OFF** |
+| **Corrective Action emails (n8n)** | A database trigger dispatches each new case or saved update immediately; a 2-minute schedule sends due-soon and overdue reminders and retries. A Supabase Edge Function gives n8n a short-lived, event-scoped lease; n8n emails the supervisor, copies a distinct verified person responsible and records the provider receipt. A one-effect ledger prevents duplicate sends. | Live; paused with one database flag |
 | **Model results and recovery** | DINOv2/DINOv3 comparisons, all 12 categories, reports, CSV exports, review alerts and recoverable archival remain accessible. | Existing functionality preserved |
 
-These statuses describe the verified installation on **26 October 2026**. A fresh
+These statuses describe the verified installation on **31 October 2026**. A fresh
 clone starts with blank public Supabase configuration and still needs its own
 reviewed database/authentication setup; cloning does not activate cloud services.
 
 ### Learn by doing
 
-Open **Overview → Tutorial → Start guided practice**. The lesson moves through
-Image inspection, History, Staff review, Corrective Actions, Batch inspection,
-Review alerts and public-sharing consent. It waits for each action rather than
-advancing through text slides. Real signed-in inspections save to Personal
-Workspace automatically; the lesson teaches finding that private copy in history.
+Open **Overview → Tutorial → Start guided practice**. A coach card guides you
+through the same screens used for real work: choose a product and photo, inspect,
+compare images, ask the assistant, share with the team, publish with consent,
+save a Staff review, create and progress a case, run a small batch and acknowledge
+an alert. Each step highlights the real control and completes only when the action
+is done; wrong choices get a hint.
 
-Practice uses attributed, historical public examples and fictional assignments.
-It creates no real inspection, Staff review, case, Team share or email, grants no
-account access and uses no GPU allowance. Existing photo drafts remain separate.
+During practice the app switches to an in-memory lesson workspace with an
+attributed public example and fictional colleagues. Nothing is saved, shared,
+published or emailed, no account access changes and no GPU allowance is used.
 The prepared teaching answer is labelled and is not a live Qwen response.
+Real work returns when the lesson ends.
 
-<p align="center"><img src="docs/assets/guided-practice.png" alt="Live guided practice navigating to Image inspection and highlighting Product category" width="820" /></p>
+<p align="center"><img src="docs/assets/guided-practice.png" alt="Guided practice coach card highlighting the real Product category control" width="820" /></p>
 
-[Staff quick guide](docs/STAFF_QUICK_GUIDE.md) · [Guided-practice design and verification](docs/GUIDED_PRACTICE.md)
+[Staff quick guide](docs/STAFF_QUICK_GUIDE.md)
 
 ## Architecture
 
@@ -145,14 +148,18 @@ flowchart TD
     Pending --> Outbox["Durable notification outbox"]
     Outbox --> Worker["Cloud Cron + Edge worker"]
     Worker --> Resend["Developer email · Resend"]
-    Case -. "Verified local QA; production OFF" .-> N8N["Authenticated n8n workflow"]
-    N8N -. "Test sink + authenticated receipt" .-> Case
+    Case --> Queue["Event queue · one-effect ledger"]
+    Queue -->|"Instant trigger + 2-min reminders"| Edge["Edge Function · event-scoped lease"]
+    Edge --> N8N["n8n on AWS · authenticated webhook"]
+    N8N --> Mail["Email: supervisor + copy to person responsible"]
+    N8N -->|"Provider receipt"| Queue
 ```
 
 Registration, MFA assurance, case ownership and revocation are enforced below the
-frontend. n8n does not generate OTPs or grant permissions. A case being saved does
-not mean a notification was delivered. Always-on n8n hosting and real unattended
-Corrective Action reminders/escalations have not been activated.
+frontend. n8n does not generate OTPs or grant permissions and never holds a
+database service key. Saving a case does not depend on email: if n8n or the mail
+provider is unavailable the case stays saved and the event waits in the queue; an
+ambiguous send is held for manual review instead of being repeated.
 
 | Component | Cloud deployment | Preserved local application |
 |---|---|---|
@@ -220,23 +227,26 @@ authorizes persistent shared records. Embedded and direct app links can have
 separate browser sessions. Free quotas, cold starts and queue waits apply.
 For onboarding, select **Overview → Tutorial**. If an already-open browser still
 shows an older menu, open the direct application in a new tab:
-[current hosted dashboard](https://wizzas-defectrag.hf.space/?release=57a57f5#overview).
+[current hosted dashboard](https://wizzas-defectrag.hf.space/?release=224259f#overview).
 
 ### Assign a confirmed defect
 
-1. Open **Corrective Actions** and choose a **Team inspection**. Personal work
-   must first be explicitly shared with the team.
-2. Enter a draft description, person responsible, supervisor, priority and deadline.
-   These fields are editable before review; a draft is not a saved case.
-3. Check the photo and its Staff review. Creation requires a valid **Reviewed /
-   Reject** decision and explicit human defect confirmation. Keep an appropriate
-   Accept/Hold decision unchanged. The message beside Create explains missing steps.
+1. Open **Corrective Actions** and choose a **Team inspection**. Each option shows
+   its status (for example *Ready: defect confirmed* or *Needs review*), with ready
+   inspections first. Personal work must first be explicitly shared.
+2. If a review is still needed, the step box links straight to it. Creation
+   requires a **Reviewed / Reject: defect confirmed** review and an explicit human
+   confirmation; Accept and Hold decisions are respected.
+3. Enter what needs fixing, the person responsible, supervisor, priority and due
+   date (one-click shortcuts, or a date and a time). A draft is not a saved case.
 4. Open **Details** to update permitted progress. Concurrent edits keep the draft
    and require an explicit reload. Closed/cancelled cases retain read-only history.
 
-A deadline alone does not send an email. The current n8n workflow targets the
-supervisor; unattended Corrective Action delivery remains disabled pending secure
-hosting and activation. [Staff guide](docs/STAFF_QUICK_GUIDE.md).
+Creating or updating a case emails the supervisor and copies the person
+responsible within seconds; reminders follow when a case is due within 24 hours or
+overdue. Each case shows its email delivery status. [Staff guide](docs/STAFF_QUICK_GUIDE.md).
+
+<p align="center"><img src="docs/assets/case-email.png" alt="Corrective Action email with a friendly robot greeting, case details and a View case button" width="560" /></p>
 
 ### Existing Windows installation
 
@@ -292,11 +302,17 @@ Supabase SQL changes require review; no public service-role key belongs in confi
 
 ## Validation and limits
 
-- Latest frontend regression suite (27 October 2026): **244 passed, zero failed**, including
-  action sequencing, incomplete-input denial, Back/replay, draft preservation and
-  teaching-image provenance/packaging. The full 17-step practice journey and
-  original/heatmap/batch image loading were verified in the live application.
-  These checks are not new model benchmarks. Mobile visual QA remains unverified.
+- Latest frontend regression suite (31 October 2026): **251 passed, zero failed**, including
+  the real-screen practice journey with no network calls, case picker status and
+  review wording, due-date shortcuts, draft preservation and a background-refresh
+  regression test. A browser measurement across repeated 15-second refreshes showed
+  no layout shift on the Cases and Staff pages. These checks are not new model
+  benchmarks. Physical-device QA is limited to browser phone-width checks.
+- The Corrective Action email SQL changes (person-responsible copy and instant
+  dispatch) passed isolated PostgreSQL 17 contract tests, including permission
+  preservation and exact rollback. Live delivery was verified end to end with test
+  cases: the supervisor and the copied recipient each received every email once,
+  and each send was recorded with a provider receipt.
 - **145 targeted backend/security/publisher tests passed**, using isolated software fixtures. Shared read-only routes now keep cloud batch-name validation and printable reports compatible with the dashboard.
 - Phone/tablet/desktop browser fixtures checked result/preview focus, form controls, service recovery and the case lifecycle. Demo reviews and recovery explicitly describe their temporary scope; Batch history excludes individual inspections. New-task controls preserve active inspections and answers.
 - **39 focused case/navigation tests** cover draft entry before review, Accept/Hold
@@ -313,8 +329,8 @@ Supabase SQL changes require review; no public service-role key belongs in confi
 - Staff records and conversations survived an actual Space deployment restart.
 - Later native Staff/Developer/pending/MFA and Corrective Action assignment tests
   are summarized with their access boundaries in [Security](docs/SECURITY.md).
-  Sustained production load and unattended hosted Corrective Action delivery are
-  not established by these tests.
+  Sustained production load and long-term email deliverability are not
+  established by these tests.
 - Staff-submitted answers still lack model-provenance attestation. Alert actor/time
   tracking is present in the later personal-workspace schema; see the current
   [security guide](docs/SECURITY.md) and migration source.

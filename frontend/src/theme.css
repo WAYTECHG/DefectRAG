@@ -84,3 +84,5 @@ table{font-size:14px}th{background:#f5f6fc;color:#8189a1;font-size:11px;padding:
 .due-shortcuts{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px}.chip{border:1px solid #dce0f0;background:#fff;color:#4e5872;border-radius:999px;padding:7px 13px;font-size:13px;min-height:34px}.chip:hover:not(:disabled){border-color:#b7aceb;background:#f6f4ff}.chip.selected{background:#eeebff;border-color:#8f7ce7;color:#4d3fb0;font-weight:600}
 .due-inputs{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,160px);gap:12px}.due-inputs .field{margin-bottom:0;font-weight:500;font-size:13px}.due-summary{margin-top:10px}.due-summary strong{color:#3d3a73;font-weight:600}
 @media(max-width:480px){.due-inputs{grid-template-columns:1fr}}
+.tutorial-coach.at-bottom-left{right:auto;left:24px}.tutorial-coach.at-top-right{bottom:auto;top:24px}.tutorial-coach.at-top-left{right:auto;left:24px;bottom:auto;top:24px}
+@media(max-width:680px){.tutorial-coach.at-top{bottom:auto;top:calc(8px + env(safe-area-inset-top,0px))}}
