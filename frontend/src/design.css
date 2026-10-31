@@ -177,3 +177,21 @@ tbody tr:hover td{background:var(--muted)}
 .note:has(>.demo-banner){margin-bottom:16px}
 .inspection-grid .section-title .subtle-tag{display:none}
 .page-heading .button-row{gap:8px}
+
+/* Readable dropdowns: opaque control and list in both themes (Windows draws the
+   option list from the control's background). */
+select{background-color:var(--card)}
+:root.dark select{background-color:var(--card)}
+option,optgroup{background-color:var(--card);color:var(--foreground)}
+
+/* Accent: links, active page and the main button carry the theme colour; in dark
+   mode the main button and active item glow softly (Tailwind sky). */
+.text-button,.source a{color:var(--link)}
+nav button.active{color:var(--sidebar-active);box-shadow:inset 2px 0 0 var(--sidebar-active)}
+nav button.active svg{color:var(--sidebar-active)}
+.primary,.sidebar-new{box-shadow:var(--glow),var(--shadow)}
+:root.dark .primary,:root.dark .sidebar-new{font-weight:600}
+.segmented button.on,.tab-list button.on{color:var(--foreground)}
+:root.dark .tab-list button.on{background:var(--accent)}
+:root.dark .stat strong{color:var(--heading)}
+:root.dark .page-heading h1,:root.dark .section-title h2{color:var(--heading)}
