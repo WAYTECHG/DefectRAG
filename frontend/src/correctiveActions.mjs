@@ -19,16 +19,16 @@ export function latestDefectReview(notes){
 }
 export function caseCreationGate(inspection,notes=[],cases=[],loading=false){
  if(loading)return {ready:false,reason:'Opening the selected inspection…'};
- if(!inspection)return {ready:false,reason:'Choose a shared Team inspection to link this draft. Personal photos stay private until they are shared with the team.'};
- if(inspection.archived_at)return {ready:false,reason:'This inspection is archived. Choose an active Team inspection.'};
+ if(!inspection)return {ready:false,reason:'Pick a shared Team inspection first.'};
+ if(inspection.archived_at)return {ready:false,reason:'This inspection is archived. Pick an active one.'};
  const review=latestDefectReview(notes);
  if(!review){
   const latest=latestStructuredReview(notes),saved=latest&&parseReview(latest);
-  return {ready:false,needsReview:true,reason:saved?`Latest Staff review: ${saved.status} / ${decisionLabel(saved.decision)}. A case needs a saved review of Reviewed with “Reject: defect confirmed”. Keep a valid Accept or Hold decision unchanged; choose another inspection or review the evidence when a reassessment is needed.`:'No completed defect review is saved. Open this inspection’s review, choose Reviewed and “Reject: defect confirmed” only when the evidence actually confirms a defect, then return here. Accepted products do not need a corrective-action case.'};
+  return {ready:false,needsReview:true,reason:saved?`Saved review: ${saved.status} / ${decisionLabel(saved.decision)}. A case needs “Reviewed” and “Reject: defect confirmed”.`:'No defect review saved yet. Open the review and choose “Reviewed” and “Reject: defect confirmed”.'};
  }
  const existing=cases.find(c=>c.review_id===review.id);
- if(existing)return {ready:false,existingCaseId:existing.id,reason:'This saved review already has a case. Open the existing case to see its assignment and progress.'};
- return {ready:true,review,reason:'The saved review is ready. Choose the person responsible, a supervisor and a deadline, then confirm the defect to create the case.'};
+ if(existing)return {ready:false,existingCaseId:existing.id,reason:'This review already has a case. Open it to see progress.'};
+ return {ready:true,review,reason:'Choose who fixes it, a supervisor and a deadline.'};
 }
 // Picker label for each Team inspection, from its own notes and existing cases.
 // UI guidance only; the database still checks the review on create.

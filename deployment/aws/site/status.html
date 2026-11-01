@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>DefectRAG status</title>
+<style>
+ :root{color-scheme:light dark;--bg:#fff;--fg:#0f172a;--card:#f1f5f9;--ok:#15803d;--bad:#b91c1c}
+ @media(prefers-color-scheme:dark){:root{--bg:#0f172a;--fg:#f1f5f9;--card:#1e293b;--ok:#34d399;--bad:#f87171}}
+ body{margin:0;font:18px/1.6 system-ui,sans-serif;background:var(--bg);color:var(--fg);padding:24px}
+ main{max-width:640px;margin:auto}
+ .card{background:var(--card);border-radius:14px;padding:20px 24px;margin:16px 0}
+ .dot{display:inline-block;width:14px;height:14px;border-radius:50%;background:#94a3b8;margin-right:8px;vertical-align:middle}
+ .ok .dot{background:var(--ok)} .bad .dot{background:var(--bad)}
+ dt{font-weight:700;margin-top:10px} dd{margin:0}
+ a{color:inherit}
+</style>
+</head>
+<body>
+<main>
+ <h1>DefectRAG status</h1>
+ <div id="box" class="card"><span class="dot"></span><strong id="line">Checking…</strong></div>
+ <dl id="details"></dl>
+ <p><a href="./">Back to the dashboard</a></p>
+</main>
+<script>
+(function(){
+ var url='__STATUS_URL__';
+ var box=document.getElementById('box'),line=document.getElementById('line'),dl=document.getElementById('details');
+ if(!url){line.textContent='No status service is connected yet.';return}
+ fetch(url,{cache:'no-store'}).then(function(r){if(!r.ok)throw new Error('HTTP '+r.status);return r.json()}).then(function(d){
+  box.className='card ok';line.textContent='All systems normal';
+  [['Service',d.service],['Saved examples',d.saved_examples],['Checked at (UTC)',d.time],['Region',d.region]].forEach(function(p){
+   var t=document.createElement('dt');t.textContent=p[0];var v=document.createElement('dd');v.textContent=p[1];dl.append(t,v)})
+ }).catch(function(e){box.className='card bad';line.textContent='Status service is not answering ('+e.message+')'});
+})();
+</script>
+</body>
+</html>

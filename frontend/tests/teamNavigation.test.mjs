@@ -96,7 +96,7 @@ test('clearing the inspection picker removes its evidence and review instead of 
 test('direct case visit shows assignment fields with guidance, without permitting an unreviewed or private case',async()=>{
  const f=teamFixture(),chosen=[];
  const m=await mount('CorrectiveActions',{user:f.actor(),inspections:[f.inspection],onSelectInspection:id=>chosen.push(id)},f);
- assert.match(m.text(),/Create and assign a case/);assert.match(m.text(),/Choose a shared Team inspection/);
+ assert.match(m.text(),/Create a new case/);assert.match(m.text(),/Pick a shared Team inspection first/);
  for(const label of ['Person responsible','Supervisor','Due date','Due time']){
   const node=m.find(n=>n.type==='label'&&text(n).startsWith(label))[0];assert.ok(node,label);
   assert.equal(nodes(node,n=>['select','input'].includes(n.type))[0].props.disabled,false,label);
@@ -107,13 +107,13 @@ test('direct case visit shows assignment fields with guidance, without permittin
  const picker=m.find(n=>n.type==='label'&&text(n).startsWith('Team inspection'))[0];
  nodes(picker,n=>n.type==='select')[0].props.onChange({target:{value:f.inspection.id}});assert.deepEqual(chosen,[f.inspection.id]);
  nodes(picker,n=>n.type==='select')[0].props.onChange({target:{value:''}});assert.deepEqual(chosen,[f.inspection.id,'']);
- assert.match(m.text(),/does not send an email by itself/);assert.match(m.text(),/targets the supervisor/);m.close();
+ assert.match(m.text(),/email reminder goes to the supervisor only if the administrator has turned emails on/);assert.match(m.text(),/Tell the person responsible yourself/);m.close();
 });
 
 test('review prerequisites, archived records and in-flight selection keep assignment blocked',async()=>{
  const f=teamFixture(),review={body:reviewBody('Reviewed','Reject'),id:'review',created_at:'2026-10-26'};
  const m=await mount('CorrectiveActions',{user:f.actor(),inspection:f.inspection,notes:[]},f);
- assert.match(m.text(),/No completed defect review is saved/);assert.equal(m.button('Create corrective action').props.disabled,true);
+ assert.match(m.text(),/No defect review saved yet/);assert.equal(m.button('Create corrective action').props.disabled,true);
  await m.rerender({notes:[review],inspectionLoading:true});assert.match(m.text(),/Opening the selected inspection/);
  assert.equal(m.button('Create corrective action').props.disabled,true);
  await m.rerender({inspectionLoading:false,inspection:{...f.inspection,archived_at:'2026-10-26'}});
@@ -138,8 +138,8 @@ test('authorized Staff can type a draft before selection and keep it when the fi
 test('an accepted or held inspection explains its actual review without disabling draft fields or authorizing a case',async()=>{
  for(const decision of ['Accept','Hold']){
   const f=teamFixture(),m=await mount('CorrectiveActions',{user:f.actor(),inspection:f.inspection,notes:[{id:'review',created_at:'2026-10-26',body:reviewBody('Reviewed',decision)}]},f);
-  assert.match(m.text(),new RegExp('Latest Staff review: Reviewed / '+decision));
-  assert.match(m.text(),/Keep a valid Accept or Hold decision unchanged/);
+  assert.match(m.text(),new RegExp('Saved review: Reviewed / '+decision));
+  assert.match(m.text(),/A case needs “Reviewed” and “Reject: defect confirmed”/);
   assert.equal(fieldControl(m,'What needs fixing?').props.disabled,false);await enter(m,'What needs fixing?','A local draft must not rewrite the human review','onInput');
   await m.find(n=>n.type==='form')[0].props.onSubmit({preventDefault(){}});await m.settle();
   assert.equal(f.requests.filter(x=>x.rpc==='defectrag_create_corrective_action').length,0);m.close();
@@ -155,7 +155,7 @@ test('refresh retains assignment and update drafts; concurrent case versions req
  assert.equal(fieldControl(m,'What needs fixing?').props.value,'Draft must survive background refresh');
  assert.equal(fieldControl(m,'What changed or was fixed?').props.value,'Unsaved progress note');
  f.cases[0].version=2;await m.button('Refresh cases').props.onClick();await m.settle();
- assert.match(m.text(),/case changed while the update was being drafted/);
+ assert.match(m.text(),/changed this case while you were typing/);
  assert.equal(fieldControl(m,'What changed or was fixed?').props.value,'Unsaved progress note');assert.equal(m.button('Save case update').props.disabled,true);
  await m.find(n=>n.type==='form'&&text(n).includes('Save case update'))[0].props.onSubmit({preventDefault(){}});await m.settle();
  assert.equal(f.requests.filter(x=>x.rpc==='defectrag_update_corrective_action').length,0);
@@ -296,12 +296,12 @@ test('case picker labels each Team inspection, lists ready ones first and explai
  const options=m.find(n=>n.type==='option').map(text).filter(t=>t.includes(' — '));
  assert.equal(options.length,3);assert.match(options[0],/^PCB 1 · .* — Ready: defect confirmed$/);
  assert.ok(options.some(t=>/^Candle · .* — Accepted: no case needed$/.test(t)));assert.ok(options.some(t=>/— Needs review$/.test(t)));
- assert.match(m.text(),/1 inspection is ready, listed first/);assert.match(m.text(),/Step 1: choose a Team inspection/);
+ assert.match(m.text(),/1 inspection is ready, listed first/);assert.match(m.text(),/Step 1: pick an inspection/);
  const consent=m.find(n=>n.type==='label'&&String(n.props.className).includes('consent-check'))[0];
- assert.match(consent.props.className,/locked/);assert.match(text(consent),/Available after the review step/);
+ assert.match(consent.props.className,/locked/);assert.match(text(consent),/Finish steps 1 and 2 first/);
  await m.rerender({inspection:b,notes:[]});
- assert.match(m.text(),/Step 2 needed: confirm the defect in a Staff review/);
- m.button('Open this inspection’s review').props.onClick();assert.deepEqual(evidence,[b.id]);
+ assert.match(m.text(),/Step 2: save a defect review/);
+ m.button('Open the review').props.onClick();assert.deepEqual(evidence,[b.id]);
  await m.rerender({inspection:a,notes:f.notes.filter(n=>n.inspection_id===a.id)});
  assert.match(m.text(),/Ready to assign/);assert.doesNotMatch(String(m.find(n=>n.type==='label'&&String(n.props.className).includes('consent-check'))[0].props.className),/locked/);
  assert.equal(f.requests.filter(x=>x.rpc==='defectrag_create_corrective_action').length,0);m.close();

@@ -111,9 +111,9 @@ test('SQL source contracts require explicit confirmation, live Staff/TOTP, restr
 test('new JSX compiles and retains existing-style labels, metrics and explicit confirmation',async()=>{
  const r=await build({entryPoints:[new URL('../src/CorrectiveActions.jsx',import.meta.url).pathname.replace(/^\/(.:)/,'$1')],bundle:true,write:false,platform:'browser',logLevel:'silent'});assert.ok(r.outputFiles[0].text.length>0);
  const source=await readFile(new URL('../src/CorrectiveActions.jsx',import.meta.url),'utf8');
- assert.ok(source.includes('disabled={busy||!!creationBlocked}'));assert.ok(source.includes('defectrag_ca_staff'));assert.ok(source.includes('Open the linked photo and review'));
+ assert.ok(source.includes('disabled={busy||!!creationBlocked}'));assert.ok(source.includes('defectrag_ca_staff'));assert.ok(source.includes('Open photo and review'));
  assert.ok(source.includes('nextCaseStates(current.state).length>0&&canEdit&&<form'));
- assert.ok(source.includes('can change this case after verifying their security code.'));
+ assert.ok(source.includes('can update this case.'));
 });
 test('real JSX renders existing card design but waits for native CA assurance before showing private forms',async()=>{
  const root=fileURLToPath(new URL('..',import.meta.url));
@@ -122,7 +122,7 @@ test('real JSX renders existing card design but waits for native CA assurance be
  const React=require('react'),{renderToStaticMarkup}=require('react-dom/server');
  const props={user:{id:uuid},inspection:{id:'a'.repeat(32)},notes:[{id:uuid,created_at:'2026-10-20',body:reviewBody('Reviewed','Reject')}],onEvidence(){}};
  const html=renderToStaticMarkup(React.createElement(module.exports.default,props));
- for(const text of ['Corrective Actions','class="card case-workspace"','Staff review confirms a defect','Checking Staff access and the security code']){
+ for(const text of ['Corrective Actions','class="card case-workspace"','Fix confirmed defects','Checking your access']){
   assert.ok(html.includes(text),text);
  }
  assert.ok(!html.includes('Create corrective action'));assert.ok(!html.includes('Save case update'));
