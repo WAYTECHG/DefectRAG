@@ -17,8 +17,9 @@
   <img src="https://img.shields.io/badge/MFA-native_TOTP-635BFF?style=flat-square" alt="Native Supabase TOTP MFA" />
   <img src="https://img.shields.io/badge/n8n-case_emails_live-EA4B71?style=flat-square&amp;logo=n8n&amp;logoColor=white" alt="n8n on AWS delivers Corrective Action emails" />
   <img src="https://img.shields.io/badge/License-MIT-7963DF?style=flat-square" alt="MIT application license" />
+  <a href="https://github.com/WAYTECHG/DefectRAG/actions/workflows/ci.yml"><img src="https://github.com/WAYTECHG/DefectRAG/actions/workflows/ci.yml/badge.svg" alt="CI: tests and builds on every push" /></a>
 
-  <p><a href="https://huggingface.co/spaces/Wizzas/DefectRAG">Live application</a> · <a href="#current-capabilities">Features</a> · <a href="#architecture">Architecture</a> · <a href="#measured-results">Results</a> · <a href="#quick-start">Quick start</a> · <a href="docs/STAFF_QUICK_GUIDE.md">Staff guide</a></p>
+  <p><a href="https://huggingface.co/spaces/Wizzas/DefectRAG">Live application</a> · <a href="#current-capabilities">Features</a> · <a href="#architecture">Architecture</a> · <a href="#measured-results">Results</a> · <a href="#quick-start">Quick start</a> · <a href="docs/STAFF_QUICK_GUIDE.md">Staff guide</a> · <a href="docs/OPERATIONS.md">Operations</a></p>
 </div>
 
 ## Overview
@@ -57,6 +58,10 @@ hosts the cloud UI, CPU services and queued ZeroGPU inference.
 |---|---|---|
 | **Guided practice** | A coach card walks through 14 steps on the real screens, highlighting the actual control and advancing only when the action is done, with hints for wrong choices. Practice data stays in memory and makes no network request. | Live on Hugging Face |
 | **Light and dark themes** | A shadcn/ui-style dashboard with a theme switch in the header. It follows the device setting on first visit and remembers the choice; every colour is a design token defined for both themes. | Live on Hugging Face |
+| **Comfortable on any screen** | Laptop, tablet and phone layouts. On phones a **Menu** button lists every page, tables turn into easy-to-read cards and every button is large enough to tap. Text-size buttons (**A− / A+**) and a "Signed in as" badge sit in the header. | Live on Hugging Face |
+| **Calm error handling** | Plain messages instead of technical ones (for example "The online app is starting" instead of a parser error). If one page hits unexpected data, only that page shows a recovery card; the rest of the app keeps working. Actions are never reported as failed just because the follow-up refresh failed. | Live on Hugging Face |
+| **Support details** | **Help & references → Copy details for support** copies the app version, page, connection state and the last 15 error messages, never passwords, emails or photos. The footer shows the version, for example `v2.1.0 · 9fad426`. | Live on Hugging Face |
+| **Faster review** | **Mark all as seen** for review alerts (with a confirm step and a clear count of any that fail), zoom and drag around a photo with the compare divider always lined up, and Open / Overdue / Done filters for Corrective Action cases. | Live on Hugging Face |
 | **Public Demo Mode** | Visitors can explore inspection without becoming Staff. Private account and Team records remain separate. | Available; free inference quotas apply |
 | **Staff registration and approval** | Email-confirmed applicants submit Pending requests. Developers approve, reject or revoke access from the interface; signup grants no Staff membership. | Implemented and activated on the existing installation |
 | **Native TOTP MFA** | Approved Staff and Developers verify an authenticator code. Backend, database functions, RLS and protected storage enforce the required assurance. | Enforced on the existing installation |
@@ -207,7 +212,7 @@ updates. Both earlier policies remain available.
 Higher sensitivity produces more false alarms. Policy selection followed the
 observed recall problem; these are development results, not independent validation
 or guaranteed future performance. AUROC is unchanged by threshold calibration.
-Macaroni1/2 recall is now85%/80%, with substantial normal false-alarm rates of
+Macaroni1/2 recall is now 85%/80%, with substantial normal false-alarm rates of
 24%/28%; review workload is higher. Historical inspections retain their original
 decisions. [Targeted policy and rollback](docs/MACARONI_RECALL_UPDATE.md) ·
 [Earlier calibration](docs/SENSITIVITY_CALIBRATION.md).
@@ -297,6 +302,10 @@ npm.cmd test --prefix frontend
 npm.cmd run build --prefix frontend
 ```
 
+GitHub Actions runs the same checks on every push to `main` and on every pull request
+(`.github/workflows/ci.yml`). Model weights are not stored in Git, so tests that need them skip
+themselves on GitHub and run in full on a local installation (`tests/conftest.py`).
+
 Cloud publication uses the verified frontend release publisher and its source/output
 receipts; a loose `ui-dist` folder is not sufficient proof of a current build.
 Deployment instructions: [Space adapter](deployment/space/README.md).
@@ -304,7 +313,12 @@ Supabase SQL changes require review; no public service-role key belongs in confi
 
 ## Validation and limits
 
-- Latest frontend regression suite (31 October 2026): **251 passed, zero failed**, including
+- Latest checks (1 November 2026): **274 frontend tests** and **194 backend tests** passed
+  (2 skipped), zero failed. The real app was also used end to end in a browser at laptop, tablet
+  and phone sizes: inspection, compare/zoom, assistant, reviews, batch, CSV export, mark all as
+  seen, archive/restore, the phone menu, going offline, the server being down and a page with
+  broken data. The evidence photo was not reloaded across 50 seconds of background refreshes.
+- Earlier frontend regression suite (31 October 2026): **251 passed, zero failed**, including
   the real-screen practice journey with no network calls, case picker status and
   review wording, due-date shortcuts, draft preservation and a background-refresh
   regression test. A browser measurement across repeated 15-second refreshes showed
@@ -339,6 +353,24 @@ Supabase SQL changes require review; no public service-role key belongs in confi
 
 [Setup](docs/SETUP.md) · [Security](docs/SECURITY.md) · [Model process](docs/TRAINING_AND_EVALUATION.md)
 
+## Operations and maintenance
+
+[docs/OPERATIONS.md](docs/OPERATIONS.md) is the runbook: what runs where, health checks, the
+common problems and their fixes, how to release and roll back, and where each feature lives in
+the code.
+
+| Added for easier management | What it gives |
+|---|---|
+| GitHub Actions CI | Tests and both dashboard builds run on every push and pull request |
+| Dependabot | Grouped monthly dependency updates. Model libraries are held back on purpose |
+| Issue forms and a pull-request checklist | Bug reports arrive with steps and the app's support details |
+| Version in the footer + Copy details for support | Every report says exactly which build was used |
+
+Jira, GitLab, Kubernetes and a hosted vector database were considered and **not** added: for one
+maintainer, one container and a small knowledge base they would add cost and upkeep without
+solving a real problem. LangSmith tracing is documented as an optional, off-by-default tool for
+private test copies only. Reasons are in the runbook.
+
 ## Repository map
 
 ```text
@@ -348,7 +380,8 @@ knowledge/            Attributed RAG documents and source metadata
 deployment/space/     Gradio adapter, queued inference and Supabase repository
 scripts/              Explicit asset setup, evaluation and source export tools
 tests/                API, answer relevance, protocol and security checks
-docs/                 Setup, security, architecture, model results and user guides
+docs/                 Setup, security, architecture, model results, user guides and the operations runbook
+.github/              CI workflow, Dependabot, issue forms and pull-request checklist
 results/              Selected public benchmark and deployment summaries
 ```
 

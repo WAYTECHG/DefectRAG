@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Security problem
+    url: https://github.com/WAYTECHG/DefectRAG/blob/main/docs/SECURITY.md
+    about: Please read the security guide before reporting a vulnerability. Do not post details publicly.

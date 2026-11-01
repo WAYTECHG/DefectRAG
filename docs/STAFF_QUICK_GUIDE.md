@@ -122,12 +122,14 @@ the product, complete a Staff review or prove that an email was delivered.
    assignment and due-date changes with a note. Other approved Staff can read the
    case. Complete the security-code check when asked.
 
-An unusual automatic result alone cannot create a case. A saved case does not
-mean that an email has been sent. Deadlines use the device's time zone and must be
-within the next year. The existing n8n workflow targets the assigned supervisor,
-not automatically the person responsible. Corrective Action production delivery
-remains inactive pending hosting and activation; arrange the handover separately.
-Developer signup-request emails use a separate service. A review that already has
+An unusual automatic result alone cannot create a case. Deadlines use the device's
+time zone and must be within the next year. When email is switched on, creating or
+updating a case emails the supervisor and copies the person responsible within
+seconds; reminders follow when a case is due within 24 hours or overdue. A saved
+case does not prove an email arrived: check **Email delivery** in the case details.
+If email is paused or fails, the case stays saved. Use **All / Open / Overdue /
+Done** above the case list to find cases quickly. Developer signup-request emails
+use a separate service. A review that already has
 a case offers **Open existing case**, preserving its assignment and history.
 
 Drafts are not saved records. They stay on this page until submission and are lost
@@ -148,16 +150,22 @@ can still be lost when the online app restarts.
 
 Read the message beside a disabled action. It explains whether to add a photo,
 finish sign-in, enter a security code, wait for approval or retry the connection.
-For continued problems, contact the workspace administrator. Do not send passwords
-or security codes. **Help & references** has the in-app guide; technical details
-are available there separately.
+For continued problems, open **Help & references → Copy details for support** and
+send the copied text to the workspace administrator. It contains the app version,
+the page and recent error messages, never passwords, emails or photos. Do not send
+passwords or security codes. If a page ever shows **This page could not be shown**,
+your saved work is safe: press **Try again** or **Go to Overview**.
 
 ## Small-screen navigation and saved results
 
-On a phone, swipe the menu sideways to find more pages, including Corrective Actions.
+On a phone, press **Menu** at the top right to see every page, including Corrective
+Actions. A number on the Menu button shows alerts not yet seen. Lists of inspections
+and cases appear as cards, one per row, with an **Open** or **Details** button.
 Opening a saved inspection moves to its result. Opening a public gallery preview
-moves to that preview; **Close preview** returns to the same row. Tables can scroll
-sideways when all columns do not fit.
+moves to that preview; **Close preview** returns to the same row. Use **A− / A+** at
+the top to change the text size; the choice is remembered in that browser. When a
+photo is zoomed in, drag it to move around; double-click (or press the percentage)
+to reset.
 
 **Batch history** shows inspections with a batch label. **Inspection history**
 shows individual and batch inspections. A demo review is a temporary practice

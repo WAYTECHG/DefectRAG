@@ -54,11 +54,11 @@ export function inspectionReadiness({health,workspace,access={state:'checking'},
   if(!files.length)return blocked('images','Choose an image before running an inspection.');
   if(!multiple&&files.length!==1)return blocked('single','Choose one photo, or use Batch inspection to check several photos together.');
   if(files.length>20)return blocked('count','Choose up to 20 images per batch.');
-  if(files.some(f=>f.size<=0||f.size>10*1024*1024))return blocked('size','Use non-empty images up to 10 MB each.');
+  if(files.some(f=>f.size<=0||f.size>10*1024*1024))return blocked('size','Each image must be under 10 MB. Choose a smaller photo.');
   if(files.some(f=>f.type?!['image/jpeg','image/png','image/webp'].includes(f.type):! /\.(jpe?g|png|webp)$/i.test(f.name)))return blocked('format','Choose JPEG, PNG or WebP images.');
   if(files.reduce((sum,f)=>sum+f.size,0)>20*1024*1024)return blocked('total','Keep the total batch upload within 20 MB.');
   if(multiple&&!batch.trim())return blocked('batch','Add a batch label before inspecting this batch.');
-  if(multiple&&batchNameTaken(batch,knownBatches))return blocked('duplicate_batch','This batch name is already used in this workspace. Choose a different name; unfinished batches can be resumed with Retry.');
+  if(multiple&&batchNameTaken(batch,knownBatches))return blocked('duplicate_batch','This batch name is already used. Choose a new name. To finish an earlier batch, use Continue unfinished photos.');
   if(batch.length>80)return blocked('batch_length','Keep the batch label within 80 characters.');
  }
  return {disabled:false,code:'ready',reason:'',teamRestricted};

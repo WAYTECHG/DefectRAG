@@ -1,0 +1,23 @@
+name: Idea or improvement
+description: Suggest something that would make DefectRAG easier to use or manage
+labels: [enhancement]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: What is hard or slow today?
+    validations:
+      required: true
+  - type: textarea
+    id: idea
+    attributes:
+      label: What would help?
+  - type: dropdown
+    id: who
+    attributes:
+      label: Who would use it?
+      options:
+        - Staff doing inspections
+        - Supervisors / Corrective Actions
+        - Developer / administrator
+        - Public demo visitors

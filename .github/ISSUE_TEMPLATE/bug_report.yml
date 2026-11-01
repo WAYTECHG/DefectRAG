@@ -1,0 +1,51 @@
+name: Something is not working
+description: Report a bug or an error message in DefectRAG
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you. Please **never paste passwords, security codes, keys or private photos** here.
+  - type: dropdown
+    id: where
+    attributes:
+      label: Where did it happen?
+      options:
+        - Online app (Hugging Face)
+        - Local app on Windows
+        - Public showcase
+        - AWS dashboard
+        - Other
+    validations:
+      required: true
+  - type: input
+    id: page
+    attributes:
+      label: Which page?
+      placeholder: e.g. Corrective Actions
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened, and what did you expect?
+      placeholder: Copy the exact message shown on screen if there was one.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to make it happen again
+      placeholder: |
+        1. Open ...
+        2. Press ...
+        3. See ...
+  - type: textarea
+    id: details
+    attributes:
+      label: Support details
+      description: In the app open **Help & references → Copy details for support**, then paste here. It contains the version and recent error messages, never passwords, emails or photos.
+      render: text
+  - type: textarea
+    id: screenshot
+    attributes:
+      label: Screenshot (optional)
+      description: Hide any private information first.

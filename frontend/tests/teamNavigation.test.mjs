@@ -107,7 +107,7 @@ test('direct case visit shows assignment fields with guidance, without permittin
  const picker=m.find(n=>n.type==='label'&&text(n).startsWith('Team inspection'))[0];
  nodes(picker,n=>n.type==='select')[0].props.onChange({target:{value:f.inspection.id}});assert.deepEqual(chosen,[f.inspection.id]);
  nodes(picker,n=>n.type==='select')[0].props.onChange({target:{value:''}});assert.deepEqual(chosen,[f.inspection.id,'']);
- assert.match(m.text(),/email reminder goes to the supervisor only if the administrator has turned emails on/);assert.match(m.text(),/Tell the person responsible yourself/);m.close();
+ assert.match(m.text(),/saving a case emails the supervisor and copies the person responsible/);assert.doesNotMatch(m.text(),/Tell the person responsible yourself/);m.close();
 });
 
 test('review prerequisites, archived records and in-flight selection keep assignment blocked',async()=>{

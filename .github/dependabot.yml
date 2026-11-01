@@ -1,0 +1,31 @@
+# Monthly, grouped update proposals so security fixes arrive without daily noise.
+# torch, torchvision and transformers are held: changing them can shift model
+# scores, so they are upgraded deliberately, with the accuracy checks re-run.
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: /frontend
+    schedule:
+      interval: monthly
+    open-pull-requests-limit: 3
+    groups:
+      dashboard-minor-and-patch:
+        update-types: [minor, patch]
+
+  - package-ecosystem: pip
+    directory: /
+    schedule:
+      interval: monthly
+    open-pull-requests-limit: 3
+    ignore:
+      - dependency-name: torch
+      - dependency-name: torchvision
+      - dependency-name: transformers
+    groups:
+      python-minor-and-patch:
+        update-types: [minor, patch]
+
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: monthly

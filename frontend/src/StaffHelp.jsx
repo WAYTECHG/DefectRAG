@@ -1,6 +1,30 @@
-import React from 'react';
+import React,{useState} from 'react';
+import {Copy,Check} from 'lucide-react';
+import {build,diagnosticReport,recentIssues} from './diagnostics.mjs';
 
-export default function StaffHelp({health,showcase=false}){
+// Support details are copied only when the person presses the button. They hold
+// the app version, page and recent error messages: never passwords, emails or photos.
+function SupportBox({context}){
+ const [state,setState]=useState('idle');
+ async function copy(){
+  try{await navigator.clipboard.writeText(diagnosticReport(context||{}));setState('copied')}catch{setState('failed')}
+ }
+ const count=recentIssues().length;
+ return <div className="support-box">
+  <h3>If something is not working</h3>
+  <ul className="fix-list">
+   <li><strong>“Starting” or “busy” message?</strong> Wait a minute, then press <em>Retry refresh</em>.</li>
+   <li><strong>Page looks old?</strong> Reload it (Ctrl + F5 on a computer, pull down on a phone).</li>
+   <li><strong>Still stuck?</strong> Copy the details below and send them to the administrator.</li>
+  </ul>
+  <p>Read the message beside the button first. It says what to do next. “Mark as seen” only records that an alert was noticed; it does not approve the product.</p>
+  <div className="button-row"><button type="button" className="secondary" onClick={copy}>{state==='copied'?<Check size={16}/>:<Copy size={16}/>} {state==='copied'?'Details copied':'Copy details for support'}</button></div>
+  {state==='failed'&&<p className="caption" role="alert">Copying is blocked in this browser. Take a screenshot of this page instead.</p>}
+  <p className="caption">Version {build.version} · build {build.commit}{build.built?' · '+build.built:''} · {count} recent problem{count===1?'':'s'} recorded in this tab. No passwords, emails or photos are included.</p>
+ </div>;
+}
+
+export default function StaffHelp({health,showcase=false,context}){
  const online=health?.mode==='cloud_session_workspace';
  return <div className="overview-grid"><section className="card about">
   <h2>Using DefectRAG</h2><p>The app helps you screen photos. Your workplace rules still decide what is accepted.</p>
@@ -16,7 +40,7 @@ export default function StaffHelp({health,showcase=false}){
   <p>To use private work on another device, sign in with the same account and complete its security check there. Sharing with the team is always separate. Personal notes and later conversations are not added to a Team copy automatically.</p>
   <h3>If changes were made in two places</h3><p>The app keeps both copies for review. Compare saved changes before choosing which copy to use. Do not assume that a change waiting on this computer has already reached the online account.</p>
   <h3>Understanding the assistant</h3><p>Ask about the saved result, highlighted areas or supporting information. The assistant reads saved measurements and references; it does not examine the photo itself. Open supporting references and check important answers. The app does not provide factory repair instructions or replace workplace procedures.</p>
-  <h3>If something is not working</h3><p>Read the message beside the button. It tells you what to do next. Free online services can be slow. “Mark as seen” only records that an alert was noticed; it does not approve the product.</p>
+  <SupportBox context={context}/>
   <details className="workflow-details"><summary>Technical background and references</summary>
    <p>Visual screening compares DINOv2 or DINOv3 image features with normal reference features. Encoder weights remain frozen. Category calibration sets the operating threshold. The system does not classify named defects.</p>
    <p>The Evidence Assistant uses retrieval-augmented generation (RAG). BGE text embeddings retrieve reference passages; LangChain and LangGraph support retrieval, routing and evidence checks. Qwen generates supported explanations. This is vision-assisted text RAG, not image retrieval or a vision-language assistant.</p>

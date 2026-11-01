@@ -1,0 +1,39 @@
+# GitHub update, 1 November 2026 (second round): bug fixes, phone/tablet layout,
+# support details, CI and the operations runbook.
+# Use: .\deployment\Update-GitHub.ps1 -ListFile docs\GITHUB_UPDATE_20261101_ops.txt
+# Deliberately not listed: frontend/public/config.js (public keys stay out of Git)
+# and deployment/RUN_AND_DEPLOY.md (unrelated local edit).
+README.md
+docs/OPERATIONS.md
+docs/STAFF_QUICK_GUIDE.md
+docs/GITHUB_UPDATE_20261101_ops.txt
+.github/workflows/ci.yml
+.github/dependabot.yml
+.github/pull_request_template.md
+.github/ISSUE_TEMPLATE/bug_report.yml
+.github/ISSUE_TEMPLATE/feature_request.yml
+.github/ISSUE_TEMPLATE/config.yml
+backend/rag.py
+tests/conftest.py
+deployment/space/build_ui.mjs
+frontend/package.json
+frontend/package-lock.json
+frontend/vite.config.js
+frontend/src/main.jsx
+frontend/src/http.mjs
+frontend/src/diagnostics.mjs
+frontend/src/ErrorBoundary.jsx
+frontend/src/viewerMath.mjs
+frontend/src/InspectionViewer.jsx
+frontend/src/InspectionDraft.jsx
+frontend/src/ReviewForm.jsx
+frontend/src/TeamWorkspace.jsx
+frontend/src/CorrectiveActions.jsx
+frontend/src/StaffHelp.jsx
+frontend/src/inspectionReadiness.mjs
+frontend/src/comfort.css
+frontend/tests/support.test.mjs
+frontend/tests/inspectionUX.test.mjs
+frontend/tests/teamNavigation.test.mjs
+frontend/tests/userLanguage.test.mjs
+frontend/tests/workspaceRefresh.test.mjs

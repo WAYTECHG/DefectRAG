@@ -132,6 +132,9 @@ class SelectedAnswer(BaseModel):
     model_config=ConfigDict(extra='forbid')
     claims: list[QuoteSelection]=Field(max_length=2)
 
+# Same product names the dashboard shows, so answers never print internal keys like 'pcb1'.
+PRODUCT_NAMES={'pcb1':'PCB 1','pcb2':'PCB 2','pcb3':'PCB 3','pcb4':'PCB 4','capsules':'capsules','cashew':'cashew','candle':'candle','chewinggum':'chewing gum','fryum':'fryum','macaroni1':'Macaroni 1','macaroni2':'Macaroni 2','pipe_fryum':'pipe fryum'}
+
 def evidence_quotes(evidence):
     quotes={}
     for source in evidence:
@@ -160,7 +163,7 @@ def inspection_facts(question, inspection):
     score,threshold,margin=values
     verdict=inspection.get('verdict')
     if verdict not in ('Good','Anomalous','Uncertain') or margin<0:return None
-    category=inspection.get('category','selected product').replace('_',' ')
+    category=PRODUCT_NAMES.get(inspection.get('category'),str(inspection.get('category') or 'selected product').replace('_',' '))
     question=question.lower()
     relevant=bool(re.search(r'\b(this|that|it|its|result|inspection|product|score|threshold|anomal\w*|normal|good|heatmap|map|confidence|accur\w*|probab\w*)\b',question))
     if not relevant:return None

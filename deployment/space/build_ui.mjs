@@ -14,8 +14,12 @@ const preservedConfig=await fs.readFile(publicConfigFile||path.join(output,'conf
 });
 if(publicConfigFile&&!preservedConfig.includes('sb_publishable_'))throw new Error('Expected the existing Supabase public configuration.');
 const fingerprint=await sourceFingerprint(root);
+// Version shown in the footer and in Help → Copy details for support.
+const {execSync}=await import('node:child_process');
+let commit='local';try{commit=execSync('git rev-parse --short HEAD',{cwd:root,stdio:['ignore','pipe','ignore']}).toString().trim()||'local'}catch{}
+const appBuild={version:JSON.parse(await fs.readFile(path.join(root,'frontend/package.json'),'utf8')).version,commit,built:new Date().toISOString().slice(0,10)};
 let transported=false;
-const result=await build({root:path.join(root,'frontend'),configFile:false,base:'./',
+const result=await build({root:path.join(root,'frontend'),configFile:false,base:'./',define:{__APP_BUILD__:JSON.stringify(appBuild)},
  resolve:{alias:{'@gradio/client':path.join(root,'deployment/zerogpu_phase1/client/node_modules/@gradio/client/dist/index.js')}},
  build:{outDir:output,emptyOutDir:false},plugins:[{name:'space-transport',enforce:'pre',transform(code,id){
   // Windows paths are case-insensitive: a build started from "desktop\defectrag-v2"

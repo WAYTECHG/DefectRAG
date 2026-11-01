@@ -7,6 +7,7 @@ import {fileURLToPath} from 'node:url';
 import {workspaceRefreshGate,readRefreshSections} from '../src/workspaceRefresh.mjs';
 import {createRequestScope} from '../src/workflow.mjs';
 import {startPolling} from '../src/workspace.mjs';
+import {readEnvelope} from '../src/http.mjs';
 
 const health={mode:'cloud_session_workspace',personal_workspace_enabled:true,auth_workflow_enabled:true};
 const source=(await readFile(new URL('../src/main.jsx',import.meta.url),'utf8')).replaceAll('\r\n','\n');
@@ -113,9 +114,18 @@ test('account/workspace changes discard late data and late SDK authorization',as
 test('real API boundary preserves 401/403 HTTP status for permission-specific guidance',async()=>{
  const apiSource=source.slice(source.indexOf('async function api('),source.indexOf(' function Badge('));
  for(const status of [401,403,503]){
-  const api=new Function('SHOWCASE','request','showcaseApi','practiceActive','practiceApi',apiSource+';return api')(false,async()=>Response.json({error:{message:'Denied'}},{status}),()=>{},()=>false,()=>assert.fail('normal work never uses the lesson store'));
-  await assert.rejects(api('/private'),error=>error.status===status);
+  const api=new Function('SHOWCASE','request','showcaseApi','practiceActive','practiceApi','readEnvelope','recordIssue',apiSource+';return api')(false,async()=>Response.json({error:{message:'Denied'}},{status}),()=>{},()=>false,()=>assert.fail('normal work never uses the lesson store'),readEnvelope,()=>{});
+  await assert.rejects(api('/private'),error=>error.status===status&&error.message==='Denied');
  }
+});
+
+test('a cold start or proxy page never shows a raw JSON parser error',async()=>{
+ const apiSource=source.slice(source.indexOf('async function api('),source.indexOf(' function Badge('));
+ const html=new Response('<!DOCTYPE html><html><body>Starting</body></html>',{status:503,headers:{'content-type':'text/html'}});
+ const api=new Function('SHOWCASE','request','showcaseApi','practiceActive','practiceApi','readEnvelope','recordIssue',apiSource+';return api')(false,async()=>html,()=>{},()=>false,()=>{},readEnvelope,()=>{});
+ await assert.rejects(api('/api/stats'),error=>error.status===503&&/starting or restarting/.test(error.message)&&!/Unexpected token|JSON/.test(error.message));
+ const lost=new Function('SHOWCASE','request','showcaseApi','practiceActive','practiceApi','readEnvelope','recordIssue',apiSource+';return api')(false,async()=>{throw new TypeError('Failed to fetch')},()=>{},()=>false,()=>{},readEnvelope,()=>{});
+ await assert.rejects(lost('/api/stats'),/Failed to fetch/);
 });
 
 test('manual Retry uses the current coalesced poll and forces fresh metadata',()=>{

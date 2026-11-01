@@ -38,8 +38,9 @@ async function component(path,name='default'){
 test('upload guidance distinguishes unprocessed selections from historical identity',async()=>{
  const {Component,React,render}=await component('../src/InspectionDraft.jsx');
  const markup=render(React.createElement(Component,{multiple:true,files:[{}]}));
- assert.match(markup,/Photos do not need to be inspected first/);assert.match(markup,/ready to inspect/);
- assert.match(markup,/A filename does not tell/);
+ assert.match(markup,/Check up to 20 photos at once/);assert.match(markup,/1 photo ready/);assert.match(markup,/Press Inspect batch/);
+ // A single-photo page never calls several selected photos "ready".
+ assert.doesNotMatch(render(React.createElement(Component,{multiple:false,files:[{},{}]})),/ready/);
 });
 
 test('guest storage controls are disabled with explanation, while approved saving remains available',async()=>{
