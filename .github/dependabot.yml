@@ -8,6 +8,11 @@
 # Major versions (for example Vite 6 -> 8) are skipped: they need a planned upgrade.
 # Model libraries are held completely, because new versions can shift model scores
 # or benchmark results; upgrade them on purpose and re-run the accuracy checks.
+# Pillow is held for the same reason: it decodes and resizes every photo the model sees.
+#
+# Python ranges (requirements.txt) are only raised when a new version falls outside
+# them. CI already installs the newest allowed version, so "raise the minimum"
+# pull requests would add noise without testing anything new.
 version: 2
 updates:
   - package-ecosystem: npm
@@ -26,6 +31,7 @@ updates:
     directory: /
     schedule:
       interval: monthly
+    versioning-strategy: increase-if-necessary
     open-pull-requests-limit: 3
     ignore:
       - dependency-name: "*"
@@ -34,6 +40,7 @@ updates:
       - dependency-name: torchvision
       - dependency-name: transformers
       - dependency-name: anomalib
+      - dependency-name: pillow
     groups:
       python-minor-and-patch:
         update-types: [minor, patch]

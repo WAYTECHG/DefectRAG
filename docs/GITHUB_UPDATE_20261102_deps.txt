@@ -1,0 +1,11 @@
+# GitHub update, 2 November 2026: tested dashboard package updates (lucide-react
+# 0.577.0, Vite 6.4.5), threadpoolctl minimum 3.7.0, and quieter Dependabot rules for
+# Python (Pillow held with the model libraries; no "raise the minimum" pull requests).
+# Use: .\deployment\Update-GitHub.ps1 -ListFile docs\GITHUB_UPDATE_20261102_deps.txt
+frontend/package.json
+frontend/package-lock.json
+requirements.txt
+.github/dependabot.yml
+README.md
+docs/OPERATIONS.md
+docs/GITHUB_UPDATE_20261102_deps.txt

@@ -162,8 +162,10 @@ model files skip themselves on GitHub (`tests/conftest.py`) and run in full on a
 installation.
 
 **Dependabot** (`.github/dependabot.yml`) proposes grouped minor and patch updates once a month.
-Major versions are skipped (they need a planned upgrade). PyTorch, torchvision, Transformers and
-anomalib are held completely because new versions can shift model scores or benchmark results.
+Major versions are skipped (they need a planned upgrade). PyTorch, torchvision, Transformers,
+anomalib and Pillow are held completely because new versions can shift model scores or benchmark
+results (Pillow decodes and resizes every photo). Python ranges in `requirements.txt` are only
+raised when a new version falls outside them; CI already tests the newest allowed version.
 
 Handling its pull requests: **do not press Merge on GitHub.** The GitHub repo is a copy of the
 local folder, so the next `Update-GitHub.ps1` run would undo a GitHub-only merge. Instead:
