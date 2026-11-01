@@ -18,6 +18,7 @@
   <img src="https://img.shields.io/badge/n8n-case_emails_live-EA4B71?style=flat-square&amp;logo=n8n&amp;logoColor=white" alt="n8n on AWS delivers Corrective Action emails" />
   <img src="https://img.shields.io/badge/License-MIT-7963DF?style=flat-square" alt="MIT application license" />
   <a href="https://github.com/WAYTECHG/DefectRAG/actions/workflows/ci.yml"><img src="https://github.com/WAYTECHG/DefectRAG/actions/workflows/ci.yml/badge.svg" alt="CI: tests and builds on every push" /></a>
+  <a href="https://github.com/WAYTECHG/DefectRAG/actions/workflows/release.yml"><img src="https://github.com/WAYTECHG/DefectRAG/actions/workflows/release.yml/badge.svg" alt="Release: one-click dashboard deployment to Hugging Face" /></a>
 
   <p><a href="https://huggingface.co/spaces/Wizzas/DefectRAG">Live application</a> · <a href="#current-capabilities">Features</a> · <a href="#architecture">Architecture</a> · <a href="#measured-results">Results</a> · <a href="#quick-start">Quick start</a> · <a href="docs/STAFF_QUICK_GUIDE.md">Staff guide</a> · <a href="docs/OPERATIONS.md">Operations</a></p>
 </div>
@@ -306,6 +307,10 @@ GitHub Actions runs the same checks on every push to `main` and on every pull re
 (`.github/workflows/ci.yml`). Model weights are not stored in Git, so tests that need them skip
 themselves on GitHub and run in full on a local installation (`tests/conftest.py`).
 
+Dashboard releases can also run from GitHub: **Actions → Release dashboard → Run workflow**
+(`.github/workflows/release.yml`). It tests and builds the dashboard, shows the files that would
+change, waits for approval in the `production` environment, then publishes to the Space.
+
 Cloud publication uses the verified frontend release publisher and its source/output
 receipts; a loose `ui-dist` folder is not sufficient proof of a current build.
 Deployment instructions: [Space adapter](deployment/space/README.md).
@@ -362,6 +367,8 @@ the code.
 | Added for easier management | What it gives |
 |---|---|
 | GitHub Actions CI | Tests and both dashboard builds run on every push and pull request |
+| One-click release (CD) | GitHub Actions builds and tests the dashboard, shows a release plan, waits for approval, then publishes to Hugging Face. The token is visible only to the approved job; the replaced files are kept for rollback |
+| Email kill switch (feature flag) | `automation_enabled` in Supabase pauses all Corrective Action emails at once, with no release |
 | Dependabot | Grouped monthly minor and patch updates, applied locally after testing. Major versions and model libraries are held back on purpose |
 | Issue forms and a pull-request checklist | Bug reports arrive with steps and the app's support details |
 | Version in the footer + Copy details for support | Every report says exactly which build was used |
@@ -381,7 +388,7 @@ deployment/space/     Gradio adapter, queued inference and Supabase repository
 scripts/              Explicit asset setup, evaluation and source export tools
 tests/                API, answer relevance, protocol and security checks
 docs/                 Setup, security, architecture, model results, user guides and the operations runbook
-.github/              CI workflow, Dependabot, issue forms and pull-request checklist
+.github/              CI and release workflows, Dependabot, issue forms and pull-request checklist
 results/              Selected public benchmark and deployment summaries
 ```
 

@@ -12,9 +12,10 @@ when a fix teaches something new, add one row to **Common problems**.
 | Accounts, Team records, cases, private photos | Supabase (Auth, Postgres with RLS, Storage) | Supabase dashboard → project status | Supabase → **Logs** (API, Postgres, Auth). Saved checks: `deployment/*_check.sql` |
 | Corrective Action emails | n8n on AWS Lightsail + Gmail SMTP, called by a Supabase Edge Function | Case details → **Email delivery** shows each send | n8n → **Executions**; Supabase → Edge Function logs |
 | Developer sign-up emails | Supabase cron + Edge worker + Resend | `deployment/email_automation_status.sql` | Supabase Edge Function logs; Resend dashboard |
-| Source code + CI | GitHub `WAYTECHG/DefectRAG` | **Actions** tab is green | The failed job's log in GitHub Actions |
+| Source code, CI and releases | GitHub `WAYTECHG/DefectRAG` | **Actions** tab is green | The failed job's log in GitHub Actions |
 
-Pause all Corrective Action emails at once (the case itself is still saved):
+Pause all Corrective Action emails at once (the case itself is still saved). This is the app's
+feature flag (kill switch): it takes effect immediately, with no release:
 
 ```sql
 update public.corrective_action_settings set automation_enabled = false;
@@ -43,10 +44,42 @@ update public.corrective_action_settings set automation_enabled = false;
 | "This page could not be shown" | A screen hit unexpected data. The rest of the app keeps working | Get **Copy details**: the first line under "Recent problems" names the error. Reproduce with the same record |
 | Photo flashes or reloads every few seconds | Regression of the fixed evidence-image refresh bug | The 15-second refresh must not re-download photos. Run the browser checks in section 6 |
 | Layout looks broken after an update | Old cached CSS or JS | Ctrl + F5. The footer version shows which build is loaded |
+| Release run stops at "Refuse an old commit" | `main` moved after the run started | Start a new run |
+| Release fails with "Live public configuration differs" | Supabase public settings on the Space changed | Check the Space `frontend/dist/config.js`. The workflow copies it on each run, so start a new run |
+| Release fails asking for `HF_TOKEN` | Secret missing, or added to the repository instead of the `production` environment | Add it under Environments → production (one-time setup) |
 
 ## 4. Releasing
 
-### Frontend only (most changes)
+### Frontend only, from GitHub (one click)
+
+1. Push your latest code to GitHub first (Updating GitHub, below). The release uses what is on
+   GitHub `main`, so anything published only from the laptop would be replaced.
+2. **Actions → Release dashboard → Run workflow** (branch `main`).
+3. **Build and check** runs every dashboard test, builds with the live public config and writes
+   a **Release plan** to the run page: the files that would change. Expect
+   `frontend/dist/index.html` and files under `frontend/dist/assets/`. The first release from
+   GitHub may also list `showcase/data.json` and `showcase/manifest.json` (line endings only).
+4. **Publish to Hugging Face** then waits. Read the plan, press **Review deployments →
+   production → Approve and deploy**. Anything unexpected: **Reject**.
+5. Wait about a minute for the Space to rebuild, press Ctrl + F5 on the site and check the
+   footer: `v<version> · <GitHub commit>`.
+
+A run started for an older commit stops itself. Server code, models and Space settings are never
+changed by this workflow.
+
+**One-time setup** (repository **Settings**):
+
+1. Hugging Face → **Settings → Access Tokens → Create new token → Fine-grained**. Name
+   `github-release`. In the repository permissions, add the Space `Wizzas/DefectRAG` and give
+   it **write** access. Leave everything else off. Copy the token.
+2. GitHub → **Settings → Environments → New environment** `production`. Tick **Required
+   reviewers**, add yourself, leave **Prevent self-review** off (you are the only reviewer), save. Under **Deployment branches and tags** choose **Selected
+   branches and tags** and add `main`.
+3. Same page → **Environment secrets → Add secret**: name `HF_TOKEN`, paste the token.
+
+If the token leaks: delete it on Hugging Face and create a new one. Replace it every few months.
+
+### Frontend only, from the project folder
 
 Run from the project folder, in this order. Any change to `frontend/src` or `frontend/tests`
 means running the whole chain again; the publisher refuses stale builds.
@@ -72,6 +105,9 @@ Space adapter (`deployment/space/README.md`), then check `/api/health` and one r
 
 ### Rolling back
 
+- **Released from GitHub:** `git revert <commit>` locally, update GitHub, run **Release
+  dashboard** again. The run's **rollback** artifact (kept 90 days) also holds the replaced
+  `index.html`.
 - **Online screens:** each frontend publish saves the replaced live `index.html` in
   `development-support/space/frontend-rollback-<previous Space commit>`. Older asset files stay on
   the Space, so uploading that saved `index.html` back to `frontend/dist/index.html` in the Space
@@ -108,6 +144,7 @@ and never commits or pushes. GitHub Actions then runs the tests (section 6).
 | Wording shown to people | `frontend/src/userLanguage.mjs` (`friendlyError`) |
 | Styles | Loaded in order `tokens.css → style.css → theme.css → design.css → comfort.css`. Put new rules in `comfort.css`, in a labelled section |
 | API routes | `backend/main.py`; assistant answers in `backend/rag.py` |
+| CI and one-click release | `.github/workflows/ci.yml`, `.github/workflows/release.yml` |
 | Cloud transport (queue, GPU jobs) | `deployment/space/transport.js`, `deployment/space/build_ui.mjs` |
 
 ## 6. Tests
@@ -146,7 +183,8 @@ seen, archive and restore, the phone menu, being offline and the server being do
 
 | Tool | Decision | Why |
 |---|---|---|
-| GitHub Actions | **Used** | Free for public repositories. Every push is tested and built automatically |
+| GitHub Actions | **Used** | Free for public repositories. CI tests and builds every push; **Release dashboard** is one-click CD with an approval step |
+| GitHub Environments | **Used** | `production` holds the Hugging Face token and needs your approval before each release |
 | Dependabot | **Used** | Monthly, grouped minor/patch updates with no extra service. Applied locally, not merged on GitHub (section 6) |
 | GitHub issue forms | **Used** | Bug reports arrive with the page, steps and the app's support details |
 | Jira | Not used | One maintainer. GitHub Issues with labels covers tracking without a second system |

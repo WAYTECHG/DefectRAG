@@ -1,0 +1,165 @@
+# One-click release of the dashboard screens to the Hugging Face Space.
+# Actions tab -> "Release dashboard" -> Run workflow (branch: main).
+#
+# 1. "Build and check" needs no secrets: it runs every dashboard test, builds the
+#    cloud dashboard with the live public config, and writes the release plan
+#    (the files that would change) to the run summary.
+# 2. "Publish to Hugging Face" waits for approval in the "production" environment.
+#    Read the plan first. Only this job can see the HF_TOKEN secret.
+#
+# Frontend only: server code, models and Space settings are never changed here.
+# Backend changes still need a full Space publish from the project folder.
+# Push your latest code to GitHub first: this releases what is on GitHub main.
+# Setup and rollback: docs/OPERATIONS.md, section 4.
+name: Release dashboard
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: release-space
+  cancel-in-progress: false
+
+env:
+  SPACE: Wizzas/DefectRAG
+  HF_HUB_DISABLE_TELEMETRY: '1'
+
+jobs:
+  build:
+    name: Build and check
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v7
+      - name: Refuse an old commit
+        run: |
+          latest=$(git ls-remote origin refs/heads/main | cut -f1)
+          if [ "$latest" != "$GITHUB_SHA" ]; then
+            echo "::error::This run is for $GITHUB_SHA but main is now $latest. Start a new run."
+            exit 1
+          fi
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: |
+            frontend/package-lock.json
+            deployment/zerogpu_phase1/client/package-lock.json
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.11'
+      - name: Install exact dependencies
+        run: |
+          npm ci --prefix frontend --no-audit --no-fund
+          npm ci --prefix deployment/zerogpu_phase1/client --no-audit --no-fund
+          pip install huggingface_hub==0.36.2
+      - name: Copy the live public config
+        # Browser-visible Supabase URL and publishable key, exactly as the Space
+        # serves them today. No secret is read; the publisher refuses any change.
+        run: |
+          mkdir -p runtime/release
+          python - <<'PY'
+          import shutil
+          from huggingface_hub import hf_hub_download
+          path = hf_hub_download('Wizzas/DefectRAG', 'frontend/dist/config.js', repo_type='space')
+          shutil.copyfile(path, 'runtime/release/config.js')
+          PY
+      - name: Build the cloud dashboard
+        env:
+          DEFECTRAG_PUBLIC_CONFIG_FILE: runtime/release/config.js
+          DEFECTRAG_SPACE_BUILD_OUT: runtime/auth-build/cloud
+        run: node deployment/space/build_ui.mjs
+      - name: Run every dashboard test against this build
+        run: node deployment/space/frontend_release.mjs verify runtime/auth-build/cloud
+      - name: Stage the tested build
+        run: |
+          node deployment/space/frontend_release.mjs stage runtime/auth-build/cloud
+          python -m deployment.space.publish --check-frontend
+      - name: Release plan
+        run: |
+          python -m deployment.space.publish --frontend-only --dry-run > runtime/release/plan.json
+          python - <<'PY' >> "$GITHUB_STEP_SUMMARY"
+          import json
+          plan = json.load(open('runtime/release/plan.json'))
+          files = plan['changed_files']
+          print('## Release plan')
+          print(f"GitHub commit `{plan['source_git_commit'][:7]}` -> Space after `{plan['parent'][:12]}`")
+          print()
+          if files:
+              print(f'{len(files)} file(s) would change:')
+              print()
+              for name in files:
+                  print(f'- `{name}`')
+          else:
+              print('Nothing would change: the live dashboard already matches this commit.')
+          print()
+          print('Expected: `frontend/dist/index.html` and files under `frontend/dist/assets/`. '
+                'The first release from GitHub may also list `showcase/*.json` '
+                '(line endings only). If you see anything else, reject the approval.')
+          PY
+          cat "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@v7
+        with:
+          name: tested-dashboard
+          path: |
+            development-support/space/ui-dist
+            development-support/space/ui-dist.build.json
+          if-no-files-found: error
+          retention-days: 7
+
+  publish:
+    name: Publish to Hugging Face
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    environment:
+      name: production
+      url: https://wizzas-defectrag.hf.space
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.11'
+      - run: pip install huggingface_hub==0.36.2
+      - uses: actions/download-artifact@v8
+        with:
+          name: tested-dashboard
+          path: development-support/space
+      - name: Publish the tested screens
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+        run: |
+          if [ -z "$HF_TOKEN" ]; then
+            echo "::error::Add the HF_TOKEN secret to the production environment (docs/OPERATIONS.md, section 4)."
+            exit 1
+          fi
+          python -m deployment.space.publish --check-frontend
+          python -m deployment.space.publish --frontend-only | tee runtime-receipt.json
+          python - <<'PY' >> "$GITHUB_STEP_SUMMARY"
+          import json
+          receipt = json.load(open('runtime-receipt.json'))
+          print('## Published')
+          if receipt.get('already_current'):
+              print('Nothing to upload: the live dashboard already matched.')
+          else:
+              print(f"Space commit `{receipt['commit'][:12]}` (previous `{receipt['parent'][:12]}`).")
+              print('The Space rebuilds in about a minute. Then press Ctrl + F5 on the site.')
+              print('Previous files are kept in the `rollback` artifact of this run.')
+          PY
+      - name: Keep the replaced files for rollback
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: rollback
+          path: |
+            development-support/space/frontend-rollback-*
+            development-support/space/publish-frontend.json
+          if-no-files-found: ignore
+          retention-days: 90

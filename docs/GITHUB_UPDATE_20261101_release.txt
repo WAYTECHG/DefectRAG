@@ -1,0 +1,7 @@
+# GitHub update, 1 November 2026 (fourth round): one-click dashboard release (CD)
+# from GitHub Actions with an approval step, plus the setup and rollback runbook.
+# Use: .\deployment\Update-GitHub.ps1 -ListFile docs\GITHUB_UPDATE_20261101_release.txt
+.github/workflows/release.yml
+README.md
+docs/OPERATIONS.md
+docs/GITHUB_UPDATE_20261101_release.txt
