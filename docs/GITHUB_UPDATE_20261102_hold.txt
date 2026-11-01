@@ -1,0 +1,6 @@
+# GitHub update, 2 November 2026 (second): hold sentence-transformers with the model
+# libraries; explain that Python range updates can still be new major versions.
+# Use: .\deployment\Update-GitHub.ps1 -ListFile docs\GITHUB_UPDATE_20261102_hold.txt
+.github/dependabot.yml
+docs/OPERATIONS.md
+docs/GITHUB_UPDATE_20261102_hold.txt

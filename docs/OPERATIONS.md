@@ -163,9 +163,11 @@ installation.
 
 **Dependabot** (`.github/dependabot.yml`) proposes grouped minor and patch updates once a month.
 Major versions are skipped (they need a planned upgrade). PyTorch, torchvision, Transformers,
-anomalib and Pillow are held completely because new versions can shift model scores or benchmark
-results (Pillow decodes and resizes every photo). Python ranges in `requirements.txt` are only
-raised when a new version falls outside them; CI already tests the newest allowed version.
+anomalib, Pillow and sentence-transformers are held completely because new versions can shift
+model scores, benchmark results or the assistant's search (Pillow decodes and resizes every photo;
+sentence-transformers makes the search embeddings). Python ranges in `requirements.txt` are only
+raised when a new version falls outside them; CI already tests the newest allowed version. Such a
+pull request can still be a new major version: test it as a planned upgrade or close it with a reason.
 
 Handling its pull requests: **do not press Merge on GitHub.** The GitHub repo is a copy of the
 local folder, so the next `Update-GitHub.ps1` run would undo a GitHub-only merge. Instead:

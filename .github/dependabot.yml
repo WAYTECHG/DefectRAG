@@ -9,6 +9,11 @@
 # Model libraries are held completely, because new versions can shift model scores
 # or benchmark results; upgrade them on purpose and re-run the accuracy checks.
 # Pillow is held for the same reason: it decodes and resizes every photo the model sees.
+# sentence-transformers is held because it makes the assistant's search embeddings.
+#
+# Note: for Python ranges Dependabot can still propose a new major version when it
+# falls outside the allowed range (the semver-major rule does not stop that). Treat
+# such a pull request as a planned upgrade: test it, or close it with a reason.
 #
 # Python ranges (requirements.txt) are only raised when a new version falls outside
 # them. CI already installs the newest allowed version, so "raise the minimum"
@@ -41,6 +46,7 @@ updates:
       - dependency-name: transformers
       - dependency-name: anomalib
       - dependency-name: pillow
+      - dependency-name: sentence-transformers
     groups:
       python-minor-and-patch:
         update-types: [minor, patch]
