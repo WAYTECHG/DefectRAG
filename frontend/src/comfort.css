@@ -36,7 +36,9 @@ h3{font-size:19px;font-weight:680;color:var(--text-strong);margin:22px 0 10px}
 @media(min-width:901px){.sidebar{width:268px}main{margin-left:268px}}
 .sidebar nav button{font-size:16px;min-height:44px;padding:9px 12px;border-radius:10px;transition:background .15s,color .15s,transform .15s}
 .sidebar nav button svg{width:20px;height:20px;flex:0 0 auto}
-.sidebar nav button:hover{transform:translateX(2px)}
+/* Hover only changes colour. Moving the item made a scroll bar appear and vanish,
+   so the menu jumped up and down under the mouse. */
+.sidebar nav{overflow-x:hidden;scrollbar-gutter:stable}
 .sidebar nav button.active{font-weight:700}
 .sidebar-new{font-size:16px;min-height:46px;font-weight:700}
 .nav-count{font-size:14px!important;font-weight:700;min-width:26px;padding:2px 8px!important;border-radius:999px!important;background:var(--warn)!important;color:#111827!important;text-align:center}

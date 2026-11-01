@@ -122,9 +122,21 @@ and never commits or pushes. GitHub Actions then runs the tests (section 6).
 GitHub Actions (`.github/workflows/ci.yml`) runs the dashboard tests, both builds, the batch test
 and the backend tests on every push to `main` and on every pull request. Tests that need the
 model files skip themselves on GitHub (`tests/conftest.py`) and run in full on a local
-installation. Dependabot (`.github/dependabot.yml`) proposes grouped dependency updates once a
-month. PyTorch, torchvision and Transformers are held back because new versions can shift model
-scores, so they are upgraded on purpose, with the accuracy checks re-run.
+installation.
+
+**Dependabot** (`.github/dependabot.yml`) proposes grouped minor and patch updates once a month.
+Major versions are skipped (they need a planned upgrade). PyTorch, torchvision, Transformers and
+anomalib are held completely because new versions can shift model scores or benchmark results.
+
+Handling its pull requests: **do not press Merge on GitHub.** The GitHub repo is a copy of the
+local folder, so the next `Update-GitHub.ps1` run would undo a GitHub-only merge. Instead:
+
+1. Apply the same version change locally (`npm install <pkg>@<version> --save-exact` in
+   `frontend/`, or edit `requirements.txt` and `pip install` it in `.venv`).
+2. Run the tests in section 6 and try the app in the browser.
+3. Add the changed files to the next GitHub update list and push. Dependabot then sees the
+   update is already on `main` and closes its own pull request.
+4. Close any pull request you decide not to take, with a short comment saying why.
 
 Browser checks on the real app (laptop, tablet and phone sizes) should cover: inspect a photo,
 compare and zoom, ask the assistant, save a review, run a batch, export CSV, mark all alerts as
@@ -135,7 +147,7 @@ seen, archive and restore, the phone menu, being offline and the server being do
 | Tool | Decision | Why |
 |---|---|---|
 | GitHub Actions | **Used** | Free for public repositories. Every push is tested and built automatically |
-| Dependabot | **Used** | Monthly, grouped security and version updates with no extra service |
+| Dependabot | **Used** | Monthly, grouped minor/patch updates with no extra service. Applied locally, not merged on GitHub (section 6) |
 | GitHub issue forms | **Used** | Bug reports arrive with the page, steps and the app's support details |
 | Jira | Not used | One maintainer. GitHub Issues with labels covers tracking without a second system |
 | GitLab | Not used | Would duplicate GitHub. Mirroring adds work and no benefit here |

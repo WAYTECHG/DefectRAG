@@ -7,7 +7,7 @@
   <a href="https://huggingface.co/spaces/Wizzas/DefectRAG"><img src="https://img.shields.io/badge/Live_demo-Hugging_Face-FFD21E?style=for-the-badge&amp;logo=huggingface&amp;logoColor=black" alt="Live Hugging Face demo" /></a>
   <img src="https://img.shields.io/badge/Python-3.12-3776AB?style=for-the-badge&amp;logo=python&amp;logoColor=white" alt="Cloud Python 3.12" />
   <img src="https://img.shields.io/badge/PyTorch-2.8.0-EE4C2C?style=for-the-badge&amp;logo=pytorch&amp;logoColor=white" alt="PyTorch 2.8.0" />
-  <img src="https://img.shields.io/badge/React-19.1.1-149ECA?style=for-the-badge&amp;logo=react&amp;logoColor=white" alt="React 19.1.1" />
+  <img src="https://img.shields.io/badge/React-19.3.1-149ECA?style=for-the-badge&amp;logo=react&amp;logoColor=white" alt="React 19.3.1" />
   <br/>
   <img src="https://img.shields.io/badge/Gradio-6.30.0-F97316?style=flat-square&amp;logo=gradio&amp;logoColor=white" alt="Gradio 6.30.0" />
   <img src="https://img.shields.io/badge/FastAPI-0.142.2-009688?style=flat-square&amp;logo=fastapi&amp;logoColor=white" alt="Cloud FastAPI 0.142.2" />
@@ -362,7 +362,7 @@ the code.
 | Added for easier management | What it gives |
 |---|---|
 | GitHub Actions CI | Tests and both dashboard builds run on every push and pull request |
-| Dependabot | Grouped monthly dependency updates. Model libraries are held back on purpose |
+| Dependabot | Grouped monthly minor and patch updates, applied locally after testing. Major versions and model libraries are held back on purpose |
 | Issue forms and a pull-request checklist | Bug reports arrive with steps and the app's support details |
 | Version in the footer + Copy details for support | Every report says exactly which build was used |
 

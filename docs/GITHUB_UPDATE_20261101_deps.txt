@@ -1,0 +1,13 @@
+# GitHub update, 1 November 2026 (third round): steady sidebar on hover, tested
+# dependency updates (React 19.3.1, pytest 9.2, LangChain patches, CI actions v7)
+# and Dependabot rules that skip major versions.
+# Use: .\deployment\Update-GitHub.ps1 -ListFile docs\GITHUB_UPDATE_20261101_deps.txt
+README.md
+docs/OPERATIONS.md
+docs/GITHUB_UPDATE_20261101_deps.txt
+.github/workflows/ci.yml
+.github/dependabot.yml
+requirements.txt
+frontend/package.json
+frontend/package-lock.json
+frontend/src/comfort.css

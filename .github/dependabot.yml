@@ -1,6 +1,13 @@
 # Monthly, grouped update proposals so security fixes arrive without daily noise.
-# torch, torchvision and transformers are held: changing them can shift model
-# scores, so they are upgraded deliberately, with the accuracy checks re-run.
+#
+# How to use the pull requests: do NOT press Merge on GitHub. The GitHub repo is a
+# copy of the local folder and the next Update-GitHub.ps1 run would undo it. Apply
+# the same change locally, run the tests, include it in the next GitHub update, and
+# Dependabot closes its pull request by itself.
+#
+# Major versions (for example Vite 6 -> 8) are skipped: they need a planned upgrade.
+# Model libraries are held completely, because new versions can shift model scores
+# or benchmark results; upgrade them on purpose and re-run the accuracy checks.
 version: 2
 updates:
   - package-ecosystem: npm
@@ -8,6 +15,9 @@ updates:
     schedule:
       interval: monthly
     open-pull-requests-limit: 3
+    ignore:
+      - dependency-name: "*"
+        update-types: [version-update:semver-major]
     groups:
       dashboard-minor-and-patch:
         update-types: [minor, patch]
@@ -18,9 +28,12 @@ updates:
       interval: monthly
     open-pull-requests-limit: 3
     ignore:
+      - dependency-name: "*"
+        update-types: [version-update:semver-major]
       - dependency-name: torch
       - dependency-name: torchvision
       - dependency-name: transformers
+      - dependency-name: anomalib
     groups:
       python-minor-and-patch:
         update-types: [minor, patch]
