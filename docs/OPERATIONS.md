@@ -23,7 +23,7 @@ update public.corrective_action_settings set automation_enabled = false;
 ## 2. When someone reports a problem
 
 1. Ask for **Help & references → Copy details for support**. It contains the app version
-   (`v2.0.0 · <commit>`), page, connection state, screen size and the last 15 error messages.
+   (for example `v2.1.0 · 9fad426`), page, connection state, screen size and the last 15 error messages.
    It never contains passwords, emails, tokens or photos.
 2. Compare the version with the latest release. An old version usually means a cached page:
    ask them to reload with **Ctrl + F5**.
