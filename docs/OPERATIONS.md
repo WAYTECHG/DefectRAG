@@ -58,7 +58,7 @@ update public.corrective_action_settings set automation_enabled = false;
 3. **Build and check** runs every dashboard test, builds with the live public config and writes
    a **Release plan** to the run page: the files that would change. Expect
    `frontend/dist/index.html` and files under `frontend/dist/assets/`. The first release from
-   GitHub may also list `showcase/data.json` and `showcase/manifest.json` (line endings only).
+   GitHub may also list `logo.svg` or `showcase/*.json` (line endings only).
 4. **Publish to Hugging Face** then waits. Read the plan, press **Review deployments →
    production → Approve and deploy**. Anything unexpected: **Reject**.
 5. Wait about a minute for the Space to rebuild, press Ctrl + F5 on the site and check the

@@ -98,7 +98,7 @@ jobs:
               print('Nothing would change: the live dashboard already matches this commit.')
           print()
           print('Expected: `frontend/dist/index.html` and files under `frontend/dist/assets/`. '
-                'The first release from GitHub may also list `showcase/*.json` '
+                'The first release from GitHub may also list `logo.svg` or `showcase/*.json` '
                 '(line endings only). If you see anything else, reject the approval.')
           PY
           cat "$GITHUB_STEP_SUMMARY"
