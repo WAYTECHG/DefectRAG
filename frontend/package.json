@@ -19,6 +19,6 @@
     "react-dom": "19.1.1"
   },
   "devDependencies": {
-    "vite": "^6.4.4"
+    "vite": "^8.3.5"
   }
 }
