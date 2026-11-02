@@ -1,0 +1,10 @@
+# GitHub update, 2 November 2026 (third): assistant answers say "PCB 1" instead of
+# "pcb1"; guarded `publish --server-files` for small reviewed server fixes; tests and runbook.
+# Use: .\deployment\Update-GitHub.ps1 -ListFile docs\GITHUB_UPDATE_20261102_server.txt
+backend/rag.py
+deployment/space/publish.py
+tests/test_publish_server_files.py
+tests/test_rag_product_names.py
+docs/OPERATIONS.md
+docs/GITHUB_UPDATE_20261102_server.txt
+README.md

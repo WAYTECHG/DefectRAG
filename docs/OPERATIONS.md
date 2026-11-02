@@ -99,15 +99,32 @@ node deployment/space/frontend_release.mjs stage runtime/auth-build/cloud
 
 ### Backend changes
 
-Files under `backend/` or `deployment/space/` (for example `backend/rag.py`) only reach the
-online app with a full Space publish. Run `python -m pytest tests -q` first, publish with the
-Space adapter (`deployment/space/README.md`), then check `/api/health` and one real inspection.
+**A few existing server files** (for example a fix in `backend/rag.py`): review the change with
+`git diff <file>`, run
+`.venv\Scripts\python.exe -m pytest tests -q`, then:
+
+```powershell
+.venv\Scripts\python.exe -m deployment.space.publish --server-files backend/rag.py --dry-run
+.venv\Scripts\python.exe -m deployment.space.publish --server-files backend/rag.py
+```
+
+The dry run lists what would change and uploads nothing. The publisher refuses any file whose
+live copy differs from the last Git commit (unreviewed drift), new files, and anything outside
+`backend/*.py` or `deployment/space/*.py`. The replaced live files are saved in
+`development-support/space/server-rollback-<previous Space commit>`. The Space restarts (about
+2–4 minutes): guest history in open browsers is temporary, staff records in Supabase are safe.
+Afterwards check `/api/health` and ask the assistant about one inspection.
+
+**New server files, new packages or model changes** need a full phase publish with the Space
+adapter (`deployment/space/README.md`).
 
 ### Rolling back
 
 - **Released from GitHub:** `git revert <commit>` locally, update GitHub, run **Release
   dashboard** again. The run's **rollback** artifact (kept 90 days) also holds the replaced
   `index.html`.
+- **Server file (`--server-files`):** upload the saved file from `server-rollback-<commit>` back
+  to the same path on the Space (Files → Upload), or `git revert` and publish it again.
 - **Online screens:** each frontend publish saves the replaced live `index.html` in
   `development-support/space/frontend-rollback-<previous Space commit>`. Older asset files stay on
   the Space, so uploading that saved `index.html` back to `frontend/dist/index.html` in the Space
@@ -149,11 +166,11 @@ and never commits or pushes. GitHub Actions then runs the tests (section 6).
 
 ## 6. Tests
 
-| What | Command | Count on 1 Nov 2026 |
+| What | Command | Count on 2 Nov 2026 |
 |---|---|---|
 | Dashboard unit and screen tests | `npm.cmd test --prefix frontend` | 274 passed |
-| Backend, API and security tests (full installation) | `.venv\Scripts\python.exe -m pytest tests -q` | 194 passed, 2 skipped |
-| Same on a fresh clone / CI (no model files) | `python -m pytest tests -q` | 108 passed, 5 skipped |
+| Backend, API and security tests (full installation) | `.venv\Scripts\python.exe -m pytest tests -q` | 207 passed, 2 skipped |
+| Same on a fresh clone / CI (no model files) | `python -m pytest tests -q` | 121 passed, 5 skipped |
 | Batch queue | `node tests/test_space_batch.mjs` | passes |
 
 GitHub Actions (`.github/workflows/ci.yml`) runs the dashboard tests, both builds, the batch test

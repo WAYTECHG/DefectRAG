@@ -318,7 +318,7 @@ Supabase SQL changes require review; no public service-role key belongs in confi
 
 ## Validation and limits
 
-- Latest checks (1 November 2026): **274 frontend tests** and **194 backend tests** passed
+- Latest checks (2 November 2026): **274 frontend tests** and **207 backend tests** passed
   (2 skipped), zero failed. The real app was also used end to end in a browser at laptop, tablet
   and phone sizes: inspection, compare/zoom, assistant, reviews, batch, CSV export, mark all as
   seen, archive/restore, the phone menu, going offline, the server being down and a page with

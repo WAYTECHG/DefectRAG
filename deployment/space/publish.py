@@ -126,6 +126,52 @@ def publish_frontend(frontend, dry_run=False, refresh_html_cache=False, inspecti
     print(json.dumps({k:v for k,v in receipt.items() if k!='manifest'}))
 
 
+def unix_lines(data):
+    """Windows checkouts use CRLF; the Space stores LF. Compare and upload as LF."""
+    return data.replace(bytes((13,10)),bytes((10,)))
+
+
+def publish_server_files(names, dry_run=False):
+    """Publish a few reviewed server files only (for example backend/rag.py).
+
+    Refuses unless each live file still equals this repository's last commit, so the
+    upload contains only the local changes you reviewed with `git diff <file>` and no
+    other drift. The replaced files are saved for rollback. Frontend, models and
+    settings are untouched. The Space restarts after the commit."""
+    from huggingface_hub import HfApi, CommitOperationAdd, hf_hub_download
+    api=HfApi()
+    before=api.space_info(REPO)
+    remote=set(api.list_repo_files(REPO,repo_type='space',revision=before.sha))
+    rollback=OUT/('server-rollback-'+before.sha[:12])
+    payloads={}
+    for name in names:
+        name=Path(name).as_posix()
+        if not (name.startswith(('backend/','deployment/space/')) and name.endswith('.py') and '..' not in name):
+            raise SystemExit(f'{name}: only backend/*.py or deployment/space/*.py can be published this way')
+        if name not in remote:raise SystemExit(f'{name}: not on the Space; use a full phase publish for new files')
+        local=(ROOT/name).read_bytes()
+        compile(local,name,'exec')
+        committed=subprocess.run(['git','show','HEAD:'+name],cwd=ROOT,capture_output=True,check=False).stdout
+        live=Path(hf_hub_download(REPO,name,repo_type='space',revision=before.sha)).read_bytes()
+        same=lambda a,b:unix_lines(a)==unix_lines(b)
+        if not committed or not same(live,committed):
+            raise SystemExit(f'{name}: the live file differs from the last commit; review that drift first')
+        if same(live,local):continue
+        payloads[name]=unix_lines(local)
+        if not dry_run:
+            saved=rollback/name;saved.parent.mkdir(parents=True,exist_ok=True);saved.write_bytes(live)
+    summary={'parent':before.sha,'server_files_only':True,'changed_files':list(payloads),'dry_run':dry_run,
+             'source_git_commit':subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip()}
+    if dry_run or not payloads:
+        print(json.dumps({**summary,'already_current':not payloads}));return
+    commit=api.create_commit(repo_id=REPO,repo_type='space',parent_commit=before.sha,
+        operations=[CommitOperationAdd(path_in_repo=name,path_or_fileobj=value) for name,value in payloads.items()],
+        commit_message='Update reviewed server files: '+', '.join(payloads))
+    receipt={**summary,'commit':commit.oid,'rollback_directory':str(rollback)}
+    (OUT/'publish-server-files.json').write_text(json.dumps(receipt,indent=2))
+    print(json.dumps(receipt))
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--phase', type=int, choices=(2,3,4,5))
@@ -134,7 +180,11 @@ def main():
     parser.add_argument('--dry-run',action='store_true',help='Read-only frontend release plan; no upload')
     parser.add_argument('--refresh-html-cache',action='store_true',help='With --frontend-only, patch only live HTML/config no-store headers')
     parser.add_argument('--inspection-compatibility',action='store_true',help='With --frontend-only, co-publish the reviewed read-only batch/report routes')
+    parser.add_argument('--server-files',nargs='+',metavar='FILE',help='Publish only these reviewed backend/*.py or deployment/space/*.py files')
     args = parser.parse_args()
+    if args.server_files:
+        publish_server_files(args.server_files,args.dry_run)
+        return
     frontend=checked_frontend()
     if args.check_frontend:
         print(json.dumps({'verified':True,'files':len(frontend['files']),'source_fingerprint':frontend['source_fingerprint']}))
