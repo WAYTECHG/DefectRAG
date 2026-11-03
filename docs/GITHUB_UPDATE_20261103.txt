@@ -1,0 +1,13 @@
+# GitHub update, 3 November 2026: scripts find the conda environment when there is no
+# project .venv (new project_python.ps1 helper), README conda section for development,
+# runbook uses `python` instead of .venv paths, .gitignore protects private notes.
+# Use: .\deployment\Update-GitHub.ps1 -ListFile docs\GITHUB_UPDATE_20261103.txt
+.gitignore
+README.md
+Start-DefectRAG.ps1
+deployment/project_python.ps1
+deployment/run_local.ps1
+deployment/supabase_tls.ps1
+deployment/restore_private_backup.ps1
+docs/OPERATIONS.md
+docs/GITHUB_UPDATE_20261103.txt

@@ -7,7 +7,8 @@ catch{Add-Type -AssemblyName System.Security -ErrorAction Stop}
 $backupFolder=(Resolve-Path -LiteralPath $BackupDirectory).Path
 $manifest=Get-Content -LiteralPath (Join-Path $backupFolder 'manifest.json') -Raw | ConvertFrom-Json
 if($manifest.project -ne 'zrzqpbcomlorfzszolrs' -or $manifest.status -ne 'exported_not_restore_verified'){throw 'Expected the completed project export'}
-$python=Join-Path (Split-Path $PSScriptRoot -Parent) '.venv\Scripts\python.exe'
+. (Join-Path $PSScriptRoot 'project_python.ps1')
+$python=Get-ProjectPython
 $rehearsal=Join-Path $PSScriptRoot 'rehearse_supabase_restore.py'
 $start=[Diagnostics.ProcessStartInfo]::new()
 $start.FileName=$python;$start.Arguments='"'+$rehearsal+'"'

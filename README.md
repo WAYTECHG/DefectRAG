@@ -271,6 +271,32 @@ running with `qwen2.5:3b` installed. Guest demo history stays local; private dat
 does not automatically become Team or Gallery data. The older
 `Start-DefectRAG.cmd -Port 8767` path remains available for the legacy local mode.
 
+### Development machine (conda)
+
+For daily development, one conda environment replaces the project `.venv`. Python 3.11
+is required; the NVIDIA GPU build below matches the pinned `torch==2.8.0`.
+
+```powershell
+conda create -n defectrag python=3.11
+conda activate defectrag
+pip install torch==2.8.0 torchvision==0.23.0 --index-url https://download.pytorch.org/whl/cu126
+pip install -r requirements.txt
+```
+
+Use `https://download.pytorch.org/whl/cpu` instead of `cu126` on a computer without an NVIDIA GPU.
+
+```powershell
+conda activate defectrag
+python -m uvicorn backend.main:app --host 127.0.0.1 --port 8765
+```
+
+This starts the plain local mode: no sign-in, Team workspace, Corrective actions or
+gallery, and results stay on this computer. To test the same screens as the online
+Space, set `DEFECTRAG_LOCAL_SYNC=1` before starting (`$env:DEFECTRAG_LOCAL_SYNC='1'`).
+That connects to the live Supabase project, so use a test Staff account and avoid
+creating real Corrective Actions, which send real emails. Docker
+(`docker compose up -d --build`) is CPU-only plain local mode and does not use conda.
+
 ### Fresh source clone
 
 The GitHub source export excludes model weights, reference banks, private records

@@ -6,6 +6,11 @@ $localDeps=Join-Path $PSScriptRoot '.python-deps'
 if (Test-Path -LiteralPath $localDeps) { $env:PYTHONPATH=$localDeps }
 $pythonExe=Join-Path $PSScriptRoot '.venv\Scripts\python.exe'
 if ($PythonPath) { $pythonExe=$PythonPath }
+elseif (-not (Test-Path -LiteralPath $pythonExe)) {
+  # No .venv: use DEFECTRAG_PYTHON or the conda env "defectrag" when present.
+  . (Join-Path $PSScriptRoot 'deployment\project_python.ps1')
+  try { $pythonExe=Get-ProjectPython } catch { }
+}
 if (-not (Test-Path -LiteralPath $pythonExe)) {
   if (-not $Setup) { throw 'First run: .\Start-DefectRAG.ps1 -Setup. This installs dependencies into a separate venv.' }
   & py -3.11 -m venv .venv

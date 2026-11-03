@@ -91,8 +91,8 @@ $env:DEFECTRAG_SPACE_BUILD_OUT='runtime/auth-build/cloud'
 node deployment/space/build_ui.mjs
 node deployment/space/frontend_release.mjs verify runtime/auth-build/cloud
 node deployment/space/frontend_release.mjs stage runtime/auth-build/cloud
-.venv\Scripts\python.exe -m deployment.space.publish --check-frontend
-.venv\Scripts\python.exe -m deployment.space.publish --frontend-only
+python -m deployment.space.publish --check-frontend
+python -m deployment.space.publish --frontend-only
 ```
 
 `--frontend-only` keeps the server code and the Space settings unchanged.
@@ -101,11 +101,11 @@ node deployment/space/frontend_release.mjs stage runtime/auth-build/cloud
 
 **A few existing server files** (for example a fix in `backend/rag.py`): review the change with
 `git diff <file>`, run
-`.venv\Scripts\python.exe -m pytest tests -q`, then:
+`python -m pytest tests -q`, then:
 
 ```powershell
-.venv\Scripts\python.exe -m deployment.space.publish --server-files backend/rag.py --dry-run
-.venv\Scripts\python.exe -m deployment.space.publish --server-files backend/rag.py
+python -m deployment.space.publish --server-files backend/rag.py --dry-run
+python -m deployment.space.publish --server-files backend/rag.py
 ```
 
 The dry run lists what would change and uploads nothing. The publisher refuses any file whose
@@ -169,7 +169,7 @@ and never commits or pushes. GitHub Actions then runs the tests (section 6).
 | What | Command | Count on 2 Nov 2026 |
 |---|---|---|
 | Dashboard unit and screen tests | `npm.cmd test --prefix frontend` | 274 passed |
-| Backend, API and security tests (full installation) | `.venv\Scripts\python.exe -m pytest tests -q` | 207 passed, 2 skipped |
+| Backend, API and security tests (full installation) | `python -m pytest tests -q` | 207 passed, 2 skipped |
 | Same on a fresh clone / CI (no model files) | `python -m pytest tests -q` | 121 passed, 5 skipped |
 | Batch queue | `node tests/test_space_batch.mjs` | passes |
 
@@ -190,7 +190,7 @@ Handling its pull requests: **do not press Merge on GitHub.** The GitHub repo is
 local folder, so the next `Update-GitHub.ps1` run would undo a GitHub-only merge. Instead:
 
 1. Apply the same version change locally (`npm install <pkg>@<version> --save-exact` in
-   `frontend/`, or edit `requirements.txt` and `pip install` it in `.venv`).
+   `frontend/`, or edit `requirements.txt` and `pip install` it in the `defectrag` conda environment).
 2. Run the tests in section 6 and try the app in the browser.
 3. Add the changed files to the next GitHub update list and push. Dependabot then sees the
    update is already on `main` and closes its own pull request.

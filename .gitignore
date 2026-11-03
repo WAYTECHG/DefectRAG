@@ -30,3 +30,8 @@ __pycache__/
 
 # Separate official benchmark banks and immutable run artifacts stay on disk.
 /experiments/
+
+# Private notes, dataset and local tool config must never be committed.
+/supabase.txt
+/VisA_20220922/
+/.claude/

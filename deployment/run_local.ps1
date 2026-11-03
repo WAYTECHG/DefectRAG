@@ -13,8 +13,8 @@ if($listeners.Count){
     $listenerIds=($listeners.OwningProcess | Sort-Object -Unique) -join ', '
     throw "Port 8765 is already occupied (process $listenerIds). Stop the existing service in its own terminal before starting DefectRAG. No process was stopped automatically."
 }
-$python=Join-Path $projectRoot '.venv/Scripts/python.exe'
-if(-not (Test-Path -LiteralPath $python)){throw 'The project Python environment is missing. Restore the existing environment before starting.'}
+. (Join-Path $PSScriptRoot 'project_python.ps1')
+$python=Get-ProjectPython
 & $python -m backend.local_frontend
 if($LASTEXITCODE -ne 0){
     $dist=Join-Path $projectRoot 'frontend/dist'

@@ -5,9 +5,9 @@ $supabaseExpectedCaHash='700723581420DD1AC98FD7E9AC529F0EF210EADCAF87FC868A3AD7D
 if((Get-FileHash -LiteralPath $supabaseCertificatePath -Algorithm SHA256).Hash -ne $supabaseExpectedCaHash){throw 'Supabase public CA fingerprint changed; stop for review'}
 if($supabaseCertificatePath.Contains(',')){throw 'Unsupported comma in certificate mount path'}
 $supabaseTlsMount="type=bind,source=$supabaseCertificatePath,target=/certs/supabase-ca.crt,readonly"
-$supabaseTlsPython=Join-Path (Split-Path $PSScriptRoot -Parent) '.venv\Scripts\python.exe'
+. (Join-Path $PSScriptRoot 'project_python.ps1')
 function Test-SupabaseTls([switch]$Offline){
-    if(-not(Test-Path -LiteralPath $supabaseTlsPython)){throw 'Existing project Python environment is required for the credential-free TLS preflight; no dependency install attempted'}
+    $supabaseTlsPython=Get-ProjectPython  # throws if no project Python exists; nothing is installed
     $tlsProbeArgs=@((Join-Path $PSScriptRoot 'check_supabase_tls.py'))
     if($Offline){$tlsProbeArgs+='--offline'}
     & $supabaseTlsPython @tlsProbeArgs
