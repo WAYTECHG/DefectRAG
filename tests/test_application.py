@@ -225,6 +225,8 @@ def test_graph_retrieval_failure_is_visible():
 
 def test_final_manifest_has_no_cross_split_identities():
     from backend.config import CATEGORIES
+    if not all((ROOT/'results'/f'{category}_splits.json').exists() for category in CATEGORIES):
+        pytest.skip('split manifests (results/*_splits.json) are local-only; not present in a fresh clone or CI')
     for category in CATEGORIES:
         manifest=json.loads((ROOT/'results'/f'{category}_splits.json').read_text())
         sets={k:{r['sha256'] for r in v} for k,v in manifest.items()}

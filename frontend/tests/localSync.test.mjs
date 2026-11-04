@@ -68,6 +68,7 @@ test('existing app sends local work through its account adapter and keeps synchr
  assert.ok(source.includes("access.state==='authorized'&&activeWorkspace()==='personal'"));
  assert.ok(source.includes("api('/api/local-sync/run',{method:'POST'})"));
  const local=await readFile(new URL('../../backend/local_sync.py',import.meta.url),'utf8');
- assert.ok(local.includes("'local-sync'"));
+ // Either quote style: the Python formatter may use single or double quotes.
+ assert.ok(/['"]local-sync['"]/.test(local));
  assert.ok(!local.includes('service_role'));
 });
