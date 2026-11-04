@@ -352,29 +352,29 @@ def create_app(settings=None, detector=None, workflow=None, repository=None, gal
     def inspection(identifier: str):
         return {"data": require(identifier)}
 
-    @app.get("/api/inspections/{identifier}/image")
-    def inspection_image(identifier: str):
+    def inspection_artifact(identifier: str, kind: str):
+        """Send the saved picture of an inspection; kind is "image" or "heatmap".
+
+        With local sync the bytes come from the account's repository and are never cached by
+        the browser. Otherwise the file is read from the artifacts folder.
+        """
+        require(identifier)
         if local_sync:
-            require(identifier)
             return Response(
-                repo.artifact_bytes(identifier, "image"),
+                repo.artifact_bytes(identifier, kind),
                 media_type="image/jpeg",
                 headers={"Cache-Control": "private, no-store"},
             )
-        require(identifier)
-        return FileResponse(artifacts / f"{identifier}.jpg")
+        filename = f"{identifier}.jpg" if kind == "image" else f"{identifier}_heatmap.jpg"
+        return FileResponse(artifacts / filename)
+
+    @app.get("/api/inspections/{identifier}/image")
+    def inspection_image(identifier: str):
+        return inspection_artifact(identifier, "image")
 
     @app.get("/api/inspections/{identifier}/heatmap")
     def inspection_heatmap(identifier: str):
-        if local_sync:
-            require(identifier)
-            return Response(
-                repo.artifact_bytes(identifier, "heatmap"),
-                media_type="image/jpeg",
-                headers={"Cache-Control": "private, no-store"},
-            )
-        require(identifier)
-        return FileResponse(artifacts / f"{identifier}_heatmap.jpg")
+        return inspection_artifact(identifier, "heatmap")
 
     class HumanReview(BaseModel):
         status: str = Field(pattern="^(Needs review|In review|Reviewed)$")

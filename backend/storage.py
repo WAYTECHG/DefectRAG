@@ -19,6 +19,8 @@ def now() -> str:
 
 
 class InspectionRepository(Protocol):
+    """The smallest set of operations every inspection store provides."""
+
     def save(self, record: dict) -> dict: ...
     def get(self, identifier: str) -> dict | None: ...
     def list(
@@ -27,6 +29,13 @@ class InspectionRepository(Protocol):
 
 
 class SQLiteRepository:
+    """Local single-user inspection store kept in one SQLite file (WAL mode).
+
+    Holds inspections, assistant messages, alerts, failed requests, archive marks and an
+    audit log. An inspection is stored as a JSON payload; category, verdict, batch and time
+    are separate columns so the history can be filtered. Each call opens its own connection.
+    """
+
     def __init__(self, path: Path) -> None:
         self.path = path
         path.parent.mkdir(parents=True, exist_ok=True)
@@ -43,11 +52,13 @@ class SQLiteRepository:
             """)
 
     def connect(self) -> sqlite3.Connection:
+        """Open a new connection that returns rows by column name and waits up to 20 s for a lock."""
         connection = sqlite3.connect(self.path, timeout=20)
         connection.row_factory = sqlite3.Row
         return connection
 
     def save(self, record: dict) -> dict:
+        """Store an inspection. A verdict other than "Good" also creates an alert. Returns the record."""
         with self.connect() as db:
             db.execute(
                 "INSERT INTO inspections VALUES(?,?,?,?,?,?)",
@@ -68,6 +79,7 @@ class SQLiteRepository:
         return record
 
     def get(self, identifier: str) -> dict | None:
+        """Return one inspection by ID, or None if it does not exist or has been archived."""
         with self.connect() as db:
             row = db.execute(
                 "SELECT payload FROM inspections WHERE id=? AND id NOT IN (SELECT id FROM inspection_archives)",
@@ -84,6 +96,12 @@ class SQLiteRepository:
         offset: int = 0,
         archived: bool = False,
     ) -> Records:
+        """Return inspections newest first, optionally filtered by category, verdict and batch.
+
+        An empty filter value means "any". With archived=True the archived inspections are
+        returned instead of the active ones. Column names are fixed in the code and all values
+        are passed as bound parameters, so user input never becomes part of the SQL text.
+        """
         clauses, params = ["id " + ("IN" if archived else "NOT IN") + " (SELECT id FROM inspection_archives)"], []
         for key, value in [("category", category), ("verdict", verdict), ("batch", batch)]:
             if value:
@@ -99,6 +117,7 @@ class SQLiteRepository:
         return [json.loads(r["payload"]) for r in rows]
 
     def stats(self) -> dict:
+        """Count active inspections per verdict and per batch, plus failed requests and archived total."""
         with self.connect() as db:
             counts = {
                 r["verdict"]: r["n"]
@@ -123,6 +142,7 @@ class SQLiteRepository:
         }
 
     def alerts(self) -> Records:
+        """Return up to 200 newest alerts for inspections that are not archived."""
         with self.connect() as db:
             return [
                 dict(r)
@@ -132,6 +152,10 @@ class SQLiteRepository:
             ]
 
     def archive(self, category: str = "", verdict: str = "", batch: str = "") -> dict:
+        """Archive every active inspection that matches the filters. Nothing is deleted.
+
+        Writes an audit event and returns how many were archived and the new archive batch ID.
+        """
         clauses = ["id NOT IN (SELECT id FROM inspection_archives)"]
         params = []
         for key, value in [("category", category), ("verdict", verdict), ("batch", batch)]:
@@ -163,6 +187,7 @@ class SQLiteRepository:
         return {"archived": changed, "archive_batch": identifier}
 
     def restore(self, identifiers: Ids) -> dict:
+        """Bring archived inspections back to the active history and record an audit event."""
         placeholders = ",".join("?" for _ in identifiers)
         with self.connect() as db:
             changed = db.execute(
@@ -175,10 +200,12 @@ class SQLiteRepository:
         return {"restored": changed}
 
     def acknowledge(self, identifier: str) -> bool:
+        """Mark an alert as acknowledged. Returns False if no alert has that ID."""
         with self.connect() as db:
             return db.execute("UPDATE alerts SET acknowledged=1 WHERE id=?", (identifier,)).rowcount > 0
 
     def add_message(self, identifier: str, role: str, payload: dict) -> None:
+        """Append one assistant-conversation message to an inspection."""
         with self.connect() as db:
             db.execute(
                 "INSERT INTO messages(inspection_id,created_at,role,payload) VALUES(?,?,?,?)",
@@ -186,6 +213,7 @@ class SQLiteRepository:
             )
 
     def add_conversation(self, identifier: str, question: str, answer: dict) -> None:
+        """Save a question and its answer together, so a half-finished exchange is never stored."""
         with self.connect() as db:
             db.executemany(
                 "INSERT INTO messages(inspection_id,created_at,role,payload) VALUES(?,?,?,?)",
@@ -196,6 +224,7 @@ class SQLiteRepository:
             )
 
     def messages(self, identifier: str) -> Records:
+        """Return the last 20 conversation messages of an inspection, oldest first."""
         with self.connect() as db:
             rows = db.execute(
                 "SELECT * FROM (SELECT * FROM messages WHERE inspection_id=? ORDER BY id DESC LIMIT 20) ORDER BY id",
@@ -204,10 +233,12 @@ class SQLiteRepository:
         return [{"role": r["role"], "created_at": r["created_at"], **json.loads(r["payload"])} for r in rows]
 
     def failure(self, category: str | None, error: str) -> None:
+        """Record a request that failed before an inspection could be saved (for the failure count)."""
         with self.connect() as db:
             db.execute("INSERT INTO failures VALUES(?,?,?,?)", (uuid.uuid4().hex, now(), category, error))
 
     def add_review(self, identifier: str, status: str, decision: str, note: str = "") -> dict:
+        """Validate a human review and append it to the audit log. Returns the stored review."""
         from .reviews import validate_review
 
         review = {
@@ -224,6 +255,7 @@ class SQLiteRepository:
         return review
 
     def review_history(self, identifier: str) -> Records:
+        """Return the human reviews of an inspection, oldest first."""
         with self.connect() as db:
             rows = db.execute(
                 "SELECT payload FROM audit_events WHERE action='human_review' AND json_extract(payload,'$.inspection_id')=? ORDER BY created_at",
@@ -232,4 +264,5 @@ class SQLiteRepository:
         return [json.loads(row["payload"]) for row in rows]
 
     def review_notes(self, identifier: str) -> Records:
+        """The local store keeps no review notes, so this always returns an empty list."""
         return []

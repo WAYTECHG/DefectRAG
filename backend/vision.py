@@ -17,10 +17,19 @@ from .config import CATEGORIES
 
 
 class ModelUnavailable(RuntimeError):
+    """A model, memory bank or checkpoint is missing, does not match its checksum or cannot load."""
+
     pass
 
 
 def create_detector(settings):
+    """Choose the detector for the configured profile.
+
+    "legacy" always uses the original DINOv3 detector. "auto" uses the high-resolution
+    DINOv2 detector only when models/highres/PROFILE.json exists and says "active", and
+    otherwise falls back to legacy. Asking for the high-resolution profile explicitly when it
+    is not installed or not validated raises ModelUnavailable.
+    """
     marker = settings.root / "models/highres/PROFILE.json"
     mode = settings.profile
     if mode not in ("auto", "legacy", "dinov2_highres_v1"):
@@ -38,6 +47,7 @@ def create_detector(settings):
 
 
 def sha256(path):
+    """Return the SHA-256 hex digest of a file, read in 1 MiB blocks."""
     digest = hashlib.sha256()
     with open(path, "rb") as stream:
         for block in iter(lambda: stream.read(1024 * 1024), b""):
@@ -46,6 +56,11 @@ def sha256(path):
 
 
 class Encoder:
+    """The frozen pretrained image encoder. Its weights are never trained or changed here.
+
+    Runs on the GPU in half precision when one is available, otherwise on the CPU.
+    """
+
     def __init__(self, source, device="auto"):
         self.device = torch.device(("cuda" if torch.cuda.is_available() else "cpu") if device == "auto" else device)
         torch.set_num_threads(min(4, torch.get_num_threads()))
@@ -58,6 +73,11 @@ class Encoder:
 
     @torch.inference_mode()
     def patches(self, image):
+        """Turn an image into one unit-length feature vector per image patch.
+
+        Returns the patch features and the side length of the square patch grid. The class and
+        register tokens are skipped. Raises ModelUnavailable if the grid is not square.
+        """
         inputs = self.processor(images=image.convert("RGB"), return_tensors="pt")
         inputs = {
             k: v.to(self.device, dtype=self.dtype) if v.is_floating_point() else v.to(self.device)
@@ -73,6 +93,11 @@ class Encoder:
 
 
 def distances(patches, bank):
+    """For each patch, return its distance to the closest normal patch in the memory bank.
+
+    Features are unit length, so the largest dot product is the highest cosine similarity and
+    the distance is 1 minus it. The bank is processed in chunks to bound memory use.
+    """
     # Chunk bank to keep peak allocations bounded on CPU and GPU.
     best = torch.full((len(patches),), -1.0, device=patches.device)
     for chunk in bank.split(2048):
@@ -81,6 +106,11 @@ def distances(patches, bank):
 
 
 def map_and_score(encoder, bank, image):
+    """Compute the patch-distance map and the image-level anomaly score.
+
+    The score is the mean of the largest 1% of patch distances (at least one patch). Returns
+    the distance grid and the score.
+    """
     patches, side = encoder.patches(image)
     raw = distances(patches, bank).reshape(side, side).cpu().numpy()
     # Fixed before validation: mean of top 1% spatial patch distances.
@@ -89,6 +119,10 @@ def map_and_score(encoder, bank, image):
 
 
 def display_map(raw, image, scale):
+    """Draw the distance grid as a colour heatmap blended over the image (60% image, 40% heatmap).
+
+    "scale" is the distance value shown as the hottest colour. Returns a new image.
+    """
     intensity = Image.fromarray(np.clip(raw / max(scale, 1e-8) * 255, 0, 255).astype("uint8"))
     intensity = intensity.resize(image.size, Image.Resampling.BILINEAR).filter(
         ImageFilter.GaussianBlur(max(image.size) / 160)
@@ -101,6 +135,11 @@ def display_map(raw, image, scale):
 
 
 class Detector:
+    """The original (legacy) detector: frozen DINOv3 features compared with a per-category bank.
+
+    Banks are loaded on first use and cached. A lock lets only one prediction run at a time.
+    """
+
     profile_name = "legacy"
 
     def __init__(self, settings):
@@ -110,6 +149,7 @@ class Detector:
         self.lock = threading.Lock()
 
     def cards(self):
+        """Return the saved model card of every category, or a stub marked unavailable if missing."""
         cards = []
         for category in CATEGORIES:
             path = self.settings.root / "models" / f"{category}.json"
@@ -117,6 +157,11 @@ class Detector:
         return cards
 
     def load(self, category):
+        """Return the model card and normal-patch bank for a category, loading them if needed.
+
+        Checks that the encoder and the bank match the checksums recorded in the card. Raises
+        ModelUnavailable if a file is missing or a checksum differs.
+        """
         if category not in CATEGORIES:
             raise ValueError("Unsupported product category")
         card_path = self.settings.root / "models" / f"{category}.json"
@@ -151,6 +196,11 @@ class Detector:
         return card, self.banks[category]
 
     def predict(self, image, category):
+        """Score one image. Returns the result record and the heatmap image.
+
+        Verdict: "Uncertain" if the score is within the card's uncertainty margin of the
+        threshold, otherwise "Anomalous" if the score reaches the threshold, otherwise "Good".
+        """
         with self.lock:
             start = time.perf_counter()
             card, bank = self.load(category)

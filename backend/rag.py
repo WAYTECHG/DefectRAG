@@ -22,6 +22,8 @@ from langgraph.graph import START, END, StateGraph
 
 
 class LocalEmbeddings(Embeddings):
+    """Text embeddings from the local BGE sentence-transformer model (CPU only, no downloads)."""
+
     def __init__(self, source):
         from sentence_transformers import SentenceTransformer
 
@@ -31,10 +33,13 @@ class LocalEmbeddings(Embeddings):
         return self.encoder.encode(texts, normalize_embeddings=True).tolist()
 
     def embed_query(self, text):
+        """Embed a question, with the instruction prefix that BGE expects for search queries."""
         return self.embed_documents(["Represent this sentence for searching relevant passages: " + text])[0]
 
 
 class IndexRetriever(BaseRetriever):
+    """Lets LangChain call KnowledgeIndex.search through its standard retriever interface."""
+
     engine: Any
 
     def _get_relevant_documents(self, query, *, run_manager):
@@ -42,6 +47,14 @@ class IndexRetriever(BaseRetriever):
 
 
 class KnowledgeIndex:
+    """Searchable index of the attributed knowledge documents (knowledge/sources.json).
+
+    The documents are split into 900-character chunks and embedded. A search returns up to
+    the 3 chunks most similar to the question (cosine similarity of at least 0.35). The
+    embedded matrix is cached on disk together with a fingerprint of the documents and the
+    embedding model, so a cache built with a different corpus or model is ignored.
+    """
+
     def __init__(self, root, directory, embeddings_factory=None):
         self.root, self.directory = root, directory
         self.directory.mkdir(parents=True, exist_ok=True)
@@ -101,6 +114,7 @@ class KnowledgeIndex:
         self.search = lru_cache(maxsize=128)(self._search_uncached)
 
     def ensure(self):
+        """Load the embedding model and build the chunk embeddings the first time they are needed."""
         if self.embeddings is None:
             self.embeddings = self.embeddings_factory(self.source)
         if self.matrix is None:
@@ -113,6 +127,7 @@ class KnowledgeIndex:
             )
 
     def _search_uncached(self, question):
+        """Return the best matching chunks for a question, with their similarity added to the metadata."""
         with self.lock:
             self.ensure()
             query = np.asarray(self.embeddings.embed_query(question), dtype="float32")
@@ -130,6 +145,8 @@ class KnowledgeIndex:
 
 
 class State(TypedDict, total=False):
+    """The data passed from one step of the answer workflow to the next."""
+
     question: str
     inspection: dict
     history: list
@@ -144,6 +161,8 @@ class State(TypedDict, total=False):
 
 
 class EvidenceClaim(BaseModel):
+    """One claim: an exact quote, the source it came from and a short paraphrase."""
+
     model_config = ConfigDict(extra="forbid")
     quote: str = Field(min_length=15, max_length=900)
     source_id: str = Field(min_length=1, max_length=100)
@@ -151,17 +170,23 @@ class EvidenceClaim(BaseModel):
 
 
 class GeneratedAnswer(BaseModel):
+    """A validated answer: at most three claims."""
+
     model_config = ConfigDict(extra="forbid")
     claims: list[EvidenceClaim] = Field(max_length=3)
 
 
 class QuoteSelection(BaseModel):
+    """The language model's choice: the ID of one supplied sentence and a paraphrase of it."""
+
     model_config = ConfigDict(extra="forbid")
     quote_id: str
     text: str = Field(min_length=1, max_length=500)
 
 
 class SelectedAnswer(BaseModel):
+    """What the language model may return: at most two selections."""
+
     model_config = ConfigDict(extra="forbid")
     claims: list[QuoteSelection] = Field(max_length=2)
 
@@ -184,6 +209,11 @@ PRODUCT_NAMES = {
 
 
 def evidence_quotes(evidence):
+    """Split retrieved chunks into numbered sentences the model can choose from.
+
+    Short sentences and headings are dropped. The model picks an ID, never writes a quote, so
+    every quote shown to the user is text that really exists in a source document.
+    """
     quotes = {}
     for source in evidence:
         for i, sentence in enumerate(re.split(r"(?<=[.!?])\s+|\n", source["text"])):
@@ -284,6 +314,14 @@ def inspection_facts(question, inspection):
 
 
 class EvidenceWorkflow:
+    """The assistant's answer pipeline, built as a LangGraph state machine.
+
+    route -> retrieve -> validate_evidence -> generate -> validate_answer. A question about a
+    prohibited topic, or one with no usable evidence, goes to abstain instead. The language
+    model only picks which retrieved sentence supports an answer; the code then checks the
+    quote and every number before anything is shown.
+    """
+
     def __init__(self, settings, index, generator=None):
         self.settings, self.index = settings, index
         self.generator = generator
@@ -300,12 +338,19 @@ class EvidenceWorkflow:
         self.graph = graph.compile()
 
     def route(self, state):
+        """Abstain at once on topics the evidence cannot support (root causes, repairs, tolerances, counts)."""
         question = state["question"].lower()
         prohibited = r"\b(root cause|caused|causes|causing|why did|repair|fix the|tolerance|temperature|pressure|defect name|specific defect|how many|count the)\b"
         mode = "abstained" if re.search(prohibited, question) else "pending"
         return {"mode": mode, "trace": ["route"], "claims": [], "evidence": []}
 
     def retrieve(self, state):
+        """Search the knowledge index for evidence.
+
+        A follow-up that refers to "it" or "that" also uses the previous question. The search text
+        includes the product category and model family. If retrieval fails the cause is logged and
+        the workflow continues with no evidence.
+        """
         try:
             query = state["question"]
             if re.search(r"\b(that|it|its|those|previous|above)\b", query, re.I):
@@ -328,6 +373,11 @@ class EvidenceWorkflow:
             }
 
     def validate_evidence(self, state):
+        """Keep only usable evidence.
+
+        A chunk needs a URL, an ID and a licence. Chunks about the Dinomaly detector are dropped
+        unless the question mentions it, and chunks about another model family are dropped.
+        """
         evidence = [d for d in state.get("evidence", []) if d.get("url") and d.get("chunk_id") and d.get("license")]
         # A true quote about another detector is not evidence for this inspection.
         # Comparative documentation is available only when explicitly requested.
@@ -339,6 +389,13 @@ class EvidenceWorkflow:
         return {"evidence": evidence, "trace": state["trace"] + ["validate_evidence"]}
 
     def generate(self, state):
+        """Ask the language model which retrieved sentences support an answer.
+
+        The model sees the saved measurements, the last four turns and the numbered sentences,
+        and its reply is restricted to a JSON schema whose quote_id can only be one of the supplied
+        IDs. It uses the cloud generator if one was given, otherwise the local Ollama model. Any
+        failure falls back to showing the retrieved excerpts only.
+        """
         inspection = {
             k: state["inspection"].get(k)
             for k in (
@@ -406,6 +463,12 @@ class EvidenceWorkflow:
             }
 
     def validate_answer(self, state):
+        """Keep only claims that pass the code checks.
+
+        A claim needs a known source, an exact quote of at least 15 characters found in that
+        source, and a paraphrase of at most 700 characters. A claim with a number that is not in
+        its quote is rejected. If no claim survives, the answer becomes "retrieval only".
+        """
         sources = {d["chunk_id"]: d for d in state["evidence"]}
         claims = []
         candidates = state.get("raw_claims", [])
@@ -449,6 +512,7 @@ class EvidenceWorkflow:
         }
 
     def abstain(self, state):
+        """Return the standard "not established by the evidence" answer, or the error already set."""
         return {
             "mode": "abstained",
             "answer": state.get("error")
@@ -458,6 +522,13 @@ class EvidenceWorkflow:
         }
 
     def run(self, question, inspection, history=None):
+        """Answer a question about one saved inspection. This is the entry point the API calls.
+
+        A question that asks directly about the saved score or verdict is answered from the saved
+        measurements without calling any language model. Any other question goes through the
+        workflow. Earlier assistant answers count as context only if they were produced with the
+        current knowledge index.
+        """
         fingerprint = getattr(self.index, "fingerprint", None)
         facts = inspection_facts(question, inspection)
         if facts and facts["direct"] and self.route({"question": question})["mode"] != "abstained":
