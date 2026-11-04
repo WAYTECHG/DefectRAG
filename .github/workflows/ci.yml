@@ -64,7 +64,8 @@ jobs:
         run: |
           pip install ruff==0.17.3
           python -m ruff check
-      - name: Check formatting (fix locally with: python -m ruff format backend)
+      # Fix a failure locally with: python -m ruff format backend
+      - name: Check formatting
         run: python -m ruff format --check backend
       - name: Type check the backend
         run: |
