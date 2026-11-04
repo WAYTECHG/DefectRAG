@@ -1,7 +1,5 @@
 """Real isolated API/CPU/RAG acceptance of the installed high-resolution profile."""
-import json,time
-from pathlib import Path
-import numpy as np
+import json
 from PIL import Image
 from fastapi.testclient import TestClient
 from backend.config import ROOT,CATEGORIES,Settings

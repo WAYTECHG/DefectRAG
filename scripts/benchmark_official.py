@@ -5,7 +5,6 @@ application banks and measured results are never overwritten. No gradient traini
 """
 import argparse
 import csv
-import hashlib
 import json
 from pathlib import Path
 import platform

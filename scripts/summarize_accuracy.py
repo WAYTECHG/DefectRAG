@@ -1,6 +1,5 @@
 """Compare saved official test predictions and reports, without model execution."""
 import csv,json
-from pathlib import Path
 import numpy as np
 from backend.config import ROOT,CATEGORIES
 from scripts.benchmark_official import write

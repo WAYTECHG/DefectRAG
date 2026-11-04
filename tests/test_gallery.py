@@ -138,7 +138,6 @@ def test_sql_grants_no_table_access_or_staff_mutation():
 
 def test_guest_workspaces_share_only_opted_in_gallery(tmp_path):
     from deployment.space.sessions import SessionRepository, identity
-    from backend.storage import SQLiteRepository
     shared=LocalGallery(tmp_path/'gallery.sqlite3','c'*64)
     repo=SessionRepository(tmp_path/'sessions',artifacts=tmp_path/'artifacts')
     # The middleware below models the same scoped session context as the Space.

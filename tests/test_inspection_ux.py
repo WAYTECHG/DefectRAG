@@ -1,7 +1,7 @@
 """UI/API software fixtures; no inference or cloud database changes."""
 from backend.batch_names import batch_name_available
 from backend.inspection_report import render_report
-from tests.test_application import client,upload
+from tests.test_application import upload
 
 
 def test_batch_name_preflight_covers_normalized_active_and_archived_names(client):

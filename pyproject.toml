@@ -1,0 +1,51 @@
+# Quality gate for the Python code. Run it locally with:  python -m ruff check
+# The same command runs in CI (.github/workflows/ci.yml), so a mistake the linter
+# can see fails the build instead of reaching a reviewer.
+
+[tool.ruff]
+target-version = "py311"
+# 120 rather than the default 88: the existing code has long lines, and a wider limit
+# keeps the one-time formatting change smaller and easier to review.
+line-length = 120
+# Only code we maintain in this repo. deployment/ is excluded for now: those files are
+# published to Hugging Face and have a release checksum, so lint fixes there are done
+# separately and deliberately.
+include = ["backend/**/*.py", "scripts/**/*.py", "tests/**/*.py"]
+
+[tool.ruff.lint]
+# E9: syntax errors   F: unused/undefined names and redefinitions
+# B: likely bugs (bugbear)   BLE: blind `except Exception` must be justified
+select = ["E9", "F", "B", "BLE"]
+# B905: zip(strict=) adds noise on code where the lengths are equal by construction.
+ignore = ["B905"]
+
+[tool.ruff.lint.flake8-bugbear]
+# FastAPI's documented way to declare parameters is a call in the default value.
+extend-immutable-calls = ["fastapi.File", "fastapi.Form", "fastapi.Query"]
+
+[tool.ruff.lint.per-file-ignores]
+# Tests may assert on a broad exception to prove that *something* is refused.
+"tests/**" = ["B017"]
+
+[tool.mypy]
+# Run with:  python -m mypy
+# Scope: the backend package. Most functions here are not annotated yet, and mypy skips
+# the body of an unannotated function unless check_untyped_defs is on, so this is on.
+# Add type hints to the files below one at a time, then tighten (disallow_untyped_defs).
+files = ["backend"]
+python_version = "3.11"
+check_untyped_defs = true
+ignore_missing_imports = true   # LangChain, torch, etc. ship without complete type information
+warn_unused_ignores = true
+warn_redundant_casts = true
+# deployment/ is checked only as far as backend imports it (it has its own release process).
+follow_imports = "silent"
+
+[[tool.mypy.overrides]]
+# Fully annotated: new code in these modules must keep its type hints.
+module = ["backend.storage", "backend.config"]
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests", "deployment/tests"]

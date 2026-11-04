@@ -1,6 +1,5 @@
 """Isolated software tests. Fixtures below are NOT model-performance evidence."""
 from io import BytesIO
-from pathlib import Path
 import json
 import pytest
 from PIL import Image
@@ -21,11 +20,6 @@ class SoftwareDetector:
 class SoftwareWorkflow:
     def run(self,question,inspection,history=None):
         return {'mode':'retrieval_only','answer':'Software fixture','evidence':[],'claims':[],'trace':['fixture']}
-
-@pytest.fixture
-def client(tmp_path):
-    app=create_app(Settings(data=tmp_path),SoftwareDetector(),SoftwareWorkflow())
-    with TestClient(app) as client:yield client
 
 def upload(client,**kwargs):
     return client.post('/api/inspect',data={'category':'pcb1','batch':'LINE-A',**kwargs},files={'file':('input.png',image_bytes(),'image/png')})

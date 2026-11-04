@@ -1,4 +1,4 @@
-from tests.test_application import client, upload
+from tests.test_application import upload
 
 
 def test_archive_preserves_inspection_conversation_alert_and_can_restore(client):

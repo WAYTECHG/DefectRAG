@@ -1,6 +1,5 @@
 """Fetch only public DINOv2 tensor/config assets into a separate local directory."""
 import json
-from pathlib import Path
 from urllib.request import urlopen
 from huggingface_hub import HfApi,snapshot_download
 from backend.config import ROOT

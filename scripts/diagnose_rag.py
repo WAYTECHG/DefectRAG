@@ -1,6 +1,5 @@
 """Read existing local inspection evidence and capture one raw Qwen response."""
 import json
-from pathlib import Path
 import httpx
 from backend.config import ROOT
 from backend.rag import PROMPT

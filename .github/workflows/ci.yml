@@ -1,7 +1,8 @@
 # Runs on every push to main and every pull request. Green means: the dashboard
 # tests pass, both dashboard builds succeed and the backend tests pass.
-# Model weights are not in Git, so backend tests that need them are skipped here
-# (see tests/conftest.py). They still run on a full local installation.
+# Model weights are not in Git. The application tests use software fixtures instead of
+# real models (tests/conftest.py), so they run here too; only the two tests that
+# read the real embedding model are skipped. They still run on a full local installation.
 name: CI
 
 on:
@@ -59,6 +60,14 @@ jobs:
           python -m pip install --upgrade pip
           pip install torch==2.8.0 torchvision==0.23.0 --index-url https://download.pytorch.org/whl/cpu
           pip install -r requirements.txt
+      - name: Lint (unused code, likely bugs, unexplained broad excepts)
+        run: |
+          pip install ruff==0.17.3
+          python -m ruff check
+      - name: Type check the backend
+        run: |
+          pip install mypy==2.4.1
+          python -m mypy
       - name: Run tests
         env:
           USE_TF: '0'

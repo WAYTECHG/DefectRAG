@@ -4,7 +4,6 @@ No package downloads, model fitting, archive creation or directory deletion.
 Run with the moved .venv/Scripts/python.exe. Moves are handled separately.
 """
 import argparse
-import hashlib
 import importlib.metadata
 import json
 from pathlib import Path

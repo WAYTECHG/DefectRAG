@@ -5,7 +5,6 @@ Test labels are used only to report its retrospective operating metrics.
 """
 from copy import deepcopy
 import json
-from pathlib import Path
 
 from scripts.audit_recall import ROOT, digest, metrics, quantile
 

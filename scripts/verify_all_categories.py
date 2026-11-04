@@ -1,7 +1,6 @@
 """Verify new categories through the real API, preserving existing runtime history."""
 import json
 from pathlib import Path
-import tempfile
 from fastapi.testclient import TestClient
 from backend.main import create_app
 from backend.config import ROOT, Settings, CATEGORIES
