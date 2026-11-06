@@ -46,11 +46,18 @@ class IndexRetriever(BaseRetriever):
         return self.engine.search(query)
 
 
+# A chunk is only evidence if its cosine similarity to the question reaches this value.
+# Measured with scripts/qwen_eval.py on the training questions: questions about these documents
+# score 0.53 or more, while unrelated questions score from 0.40 up (so the former cutoff of
+# 0.35 rejected nothing). 0.50 sits just below the lowest on-topic question.
+MIN_SIMILARITY = 0.50
+
+
 class KnowledgeIndex:
     """Searchable index of the attributed knowledge documents (knowledge/sources.json).
 
     The documents are split into 900-character chunks and embedded. A search returns up to
-    the 3 chunks most similar to the question (cosine similarity of at least 0.35). The
+    the 3 chunks most similar to the question (cosine similarity of at least MIN_SIMILARITY). The
     embedded matrix is cached on disk together with a fingerprint of the documents and the
     embedding model, so a cache built with a different corpus or model is ignored.
     """
@@ -134,7 +141,7 @@ class KnowledgeIndex:
             scores = self.matrix @ query
             output = []
             for i in np.argsort(scores)[::-1][:3]:
-                if scores[i] >= 0.35:
+                if scores[i] >= MIN_SIMILARITY:
                     output.append(
                         Document(
                             page_content=self.documents[i].page_content,
@@ -347,9 +354,12 @@ class EvidenceWorkflow:
     def retrieve(self, state):
         """Search the knowledge index for evidence.
 
-        A follow-up that refers to "it" or "that" also uses the previous question. The search text
-        includes the product category and model family. If retrieval fails the cause is logged and
-        the workflow continues with no evidence.
+        The search text is the user's question. A follow-up that refers to "it" or "that" also uses
+        the previous question. Nothing else is appended: adding the product, the model family and
+        generic words such as "anomaly inspection" pulled the same few chunks to the top for almost
+        every question and hid the right one (measured with scripts/qwen_eval.py). The model family
+        is applied afterwards by validate_evidence. If retrieval fails the cause is logged and the
+        workflow continues with no evidence.
         """
         try:
             query = state["question"]
@@ -358,10 +368,7 @@ class EvidenceWorkflow:
                     (m.get("text", "") for m in reversed(state.get("history", [])) if m.get("role") == "user"), ""
                 )
                 query += " " + prior[:300]
-            family = state["inspection"].get("model_id", "").split("-")[0]
-            docs = self.index.retriever.invoke(
-                query + " " + state["inspection"].get("category", "") + " " + family + " anomaly inspection"
-            )
+            docs = self.index.retriever.invoke(query)
             evidence = [{"text": d.page_content, **d.metadata} for d in docs]
             return {"evidence": evidence, "trace": state["trace"] + ["retrieve"]}
         except Exception:  # noqa: BLE001 - the workflow must abstain gracefully, but the cause is logged
@@ -388,13 +395,10 @@ class EvidenceWorkflow:
         evidence = [d for d in evidence if not d.get("model_family") or d["model_family"] == family]
         return {"evidence": evidence, "trace": state["trace"] + ["validate_evidence"]}
 
-    def generate(self, state):
-        """Ask the language model which retrieved sentences support an answer.
+    def build_prompt(self, state):
+        """Build the exact prompt the language model receives; returns (prompt, numbered quotes).
 
-        The model sees the saved measurements, the last four turns and the numbered sentences,
-        and its reply is restricted to a JSON schema whose quote_id can only be one of the supplied
-        IDs. It uses the cloud generator if one was given, otherwise the local Ollama model. Any
-        failure falls back to showing the retrieved excerpts only.
+        Kept separate from generate() so evaluation and fine-tuning scripts use the same text.
         """
         inspection = {
             k: state["inspection"].get(k)
@@ -417,6 +421,17 @@ class EvidenceWorkflow:
             question=state["question"],
             evidence=json.dumps(list(quotes.values())),
         )
+        return prompt, quotes
+
+    def generate(self, state):
+        """Ask the language model which retrieved sentences support an answer.
+
+        The model sees the saved measurements, the last four turns and the numbered sentences,
+        and its reply is restricted to a JSON schema whose quote_id can only be one of the supplied
+        IDs. It uses the cloud generator if one was given, otherwise the local Ollama model. Any
+        failure falls back to showing the retrieved excerpts only.
+        """
+        prompt, quotes = self.build_prompt(state)
         try:
             if not quotes:
                 raise ValueError("No supporting sentences available")

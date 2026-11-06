@@ -44,12 +44,12 @@ export default function StaffHelp({health,showcase=false,context}){
   <details className="workflow-details"><summary>Technical background and references</summary>
    <p>Visual screening compares DINOv2 or DINOv3 image features with normal reference features. Encoder weights remain frozen. Category calibration sets the operating threshold. The system does not classify named defects.</p>
    <p>The Evidence Assistant uses retrieval-augmented generation (RAG). BGE text embeddings retrieve reference passages; LangChain and LangGraph support retrieval, routing and evidence checks. Qwen generates supported explanations. This is vision-assisted text RAG, not image retrieval or a vision-language assistant.</p>
-   <p>Application: React + Vite, FastAPI, SQLite for local storage, and Supabase for account security and private/shared online records. {online?'Online generation uses Qwen3 4B on ZeroGPU.':'Local generation uses the configured Ollama model, commonly Qwen 2.5 3B.'} Corrective Action delivery can use n8n; a saved case is separate from an email being sent.</p>
+   <p>Application: React + Vite, FastAPI, SQLite for local storage, and Supabase for account security and private/shared online records. {online?'Online generation uses Qwen 2.5 3B fine-tuned for this project (improved using Qwen) on ZeroGPU.':'Local generation uses the configured Ollama model, commonly Qwen 2.5 3B.'} Corrective Action delivery can use n8n; a saved case is separate from an email being sent.</p>
    <p>References describe the components, not proof that every component or cited research method is implemented in full.</p>
    {[
     ['DINOv2 visual features','https://github.com/facebookresearch/dinov2'],
     ['DINOv3 visual features','https://github.com/facebookresearch/dinov3'],
-    ['Qwen3 text generation','https://huggingface.co/Qwen/Qwen3-4B-Instruct-2507'],
+    ['Qwen 2.5 3B text generation (base model, fine-tuned here)','https://huggingface.co/Qwen/Qwen2.5-3B-Instruct'],
     ['VisA example image dataset','https://github.com/amazon-science/spot-diff'],
     ['BGE text embeddings','https://huggingface.co/BAAI/bge-small-en-v1.5'],
     ['Dinomaly reference documentation','https://anomalib.readthedocs.io/en/lib-v2.6.2/markdown/guides/reference/models/image/dinomaly.html']

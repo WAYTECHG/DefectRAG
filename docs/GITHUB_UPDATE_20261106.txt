@@ -1,0 +1,20 @@
+# Fine-tuned Qwen2.5-3B for the Space and the local app: training/eval scripts, results, model switch, notices.
+# Not included on purpose: .env (local only), docs/INDEX.md and docs/FILE_MAP.md (describe the full local folder; link to notes that are not on GitHub).
+backend/rag.py
+deployment/space/generation.py
+deployment/space/app.py
+frontend/src/StaffHelp.jsx
+README.md
+docs/THIRD_PARTY_NOTICES.md
+docs/QWEN_FINETUNING_RESULTS.md
+docs/QWEN_FINETUNING_GUIDE.md
+scripts/qwen_after_training.py
+scripts/qwen_build_training_data.py
+scripts/qwen_compare.py
+scripts/qwen_eval.py
+scripts/qwen_finetune.py
+scripts/qwen_merge.py
+scripts/qwen_serve.py
+scripts/qwen_short_questions.py
+scripts/space_dry_run.py
+docs/GITHUB_UPDATE_20261106.txt

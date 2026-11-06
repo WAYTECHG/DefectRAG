@@ -233,7 +233,7 @@ def assistant(inspection_id: str, question: str, session: str, token: str='', wo
 @server.get('/api/health')
 def health():
     return {'data':{'status':'ok','mode':'cloud_session_workspace','models':list(CARDS.values()),
-        'encoder_configured':True,'llm_model':'Qwen3-4B-Instruct-2507' if WORKFLOW and ZERO else 'Qwen2.5:3b (local Ollama)' if WORKFLOW else 'generation migration in progress','zero_gpu':ZERO,
+        'encoder_configured':True,'llm_model':'Qwen2.5-3B-Instruct fine-tuned for DefectRAG (QLoRA, merged)' if WORKFLOW and ZERO else 'Qwen2.5:3b (local Ollama)' if WORKFLOW else 'generation migration in progress','zero_gpu':ZERO,
         'staff_persistence_enabled':CLOUD_CONFIG is not None,
         'community_gallery_enabled':GALLERY is not None,
         'personal_workspace_enabled':PERSONAL_ENABLED,

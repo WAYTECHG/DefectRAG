@@ -53,14 +53,19 @@ class CpuBGE(Embeddings):
         return self.embed_documents(['Represent this sentence for searching relevant passages: '+text])[0]
 
 
-MODEL_ID='Qwen/Qwen3-4B-Instruct-2507'
-REVISION='cdbee75f17c01a7cc42f958dc650907174af0554'
+# Fine-tuned Qwen2.5-3B-Instruct (QLoRA adapter merged into the base weights, bf16, about 6 GB).
+# Results: docs/QWEN_FINETUNING_RESULTS.md. Improved using Qwen (Qwen Research License, non-commercial).
+MODEL_ID=os.getenv('DEFECTRAG_MODEL_ID','Wizzas/defectrag-qwen2.5-3b-evidence')
+REVISION=os.getenv('DEFECTRAG_MODEL_REVISION','e6308fa8d6428895403d62e6ba77bcf6555a540d')  # pinned upload commit
+HF_TOKEN=os.getenv('HF_TOKEN')  # Space secret; needed while the model repo is private
 TOKENIZER=None
 MODEL=None
 if os.getenv('SPACES_ZERO_GPU')=='1' and os.getenv('DEFECTRAG_LIVE_RAG')=='1':
-    # Download/cache in the Space only. Never place another 8 GB on the laptop.
-    TOKENIZER=AutoTokenizer.from_pretrained(MODEL_ID,revision=REVISION)
-    MODEL=AutoModelForCausalLM.from_pretrained(MODEL_ID,revision=REVISION,
+    if not REVISION:
+        raise RuntimeError('Set DEFECTRAG_MODEL_REVISION to the pinned commit of the fine-tuned model')
+    # Download/cache in the Space only. Never place another 6 GB on the laptop.
+    TOKENIZER=AutoTokenizer.from_pretrained(MODEL_ID,revision=REVISION,token=HF_TOKEN)
+    MODEL=AutoModelForCausalLM.from_pretrained(MODEL_ID,revision=REVISION,token=HF_TOKEN,
         dtype=torch.bfloat16,attn_implementation='sdpa').eval().to('cuda')
     MODEL.requires_grad_(False)
 

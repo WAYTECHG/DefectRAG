@@ -32,10 +32,21 @@ Qwen is an optional separately installed Ollama model and is not bundled. No raw
 user history, credentials, full dataset, training cache or dependency environment
 is included in the release ZIP.
 
-The optional live Hugging Face Space downloads Qwen/Qwen3-4B-Instruct-2507 directly
-from its official repository at revision cdbee75f17c01a7cc42f958dc650907174af0554.
-Qwen Team, Apache-2.0: https://huggingface.co/Qwen/Qwen3-4B-Instruct-2507 .
-These cloud-cached weights are not copied into the local release or checkpoint.
+**Improved using Qwen.** The optional live Hugging Face Space and the local Ollama model
+`qwen-defectrag-v2` use a fine-tuned derivative of Qwen/Qwen2.5-3B-Instruct
+(https://huggingface.co/Qwen/Qwen2.5-3B-Instruct), Qwen Team, distributed under the
+Qwen Research License: non-commercial use only. The derivative was made for this project
+with QLoRA (4-bit base, LoRA rank 16, 400 training examples) and the adapter merged
+into bf16 weights. It is stored in a private Hugging Face repository
+(Wizzas/defectrag-qwen2.5-3b-evidence, pinned commit
+e6308fa8d6428895403d62e6ba77bcf6555a540d) together with the Qwen Research License text.
+The Space downloads it at start-up with a read-only token. These weights are not copied
+into the local release or checkpoint. Anyone redistributing the derivative must keep the
+Qwen Research License and this notice, so the project MIT license does not cover it.
+Method and measured results: `docs/QWEN_FINETUNING_RESULTS.md`.
+
+Earlier versions of the Space used Qwen/Qwen3-4B-Instruct-2507 (Qwen Team, Apache-2.0,
+https://huggingface.co/Qwen/Qwen3-4B-Instruct-2507). It is no longer used.
 
 DINOv2 Small/14: Meta, Apache2.0. Public tensors are fetched without remote-code
 execution from https://huggingface.co/facebook/dinov2-small . The pinned source

@@ -114,7 +114,7 @@ flowchart LR
     B --> E["Retrieved passages + quote IDs"]
     E --> L["LangGraph evidence validation"]
     L --> Q
-    Q --> G["Qwen3-4B · ZeroGPU"]
+    Q --> G["Qwen2.5-3B fine-tuned · ZeroGPU"]
     G --> V["Citation / quote / numeric checks"]
     V --> UI
     F --> UI
@@ -175,7 +175,7 @@ ambiguous send is held for manual review instead of being repeated.
 | Host | Gradio 6.30 Server mode + FastAPI | FastAPI / Uvicorn |
 | Active visual model | Frozen DINOv2 ViT-S/14, 448px short edge | DINOv2 high-resolution; original DINOv3 retained |
 | Retrieval | BGE-small-en-v1.5 in a CPU-only subprocess | Existing local BGE embeddings/index |
-| Generation | Qwen3-4B-Instruct-2507 on ZeroGPU | Ollama qwen2.5:3b |
+| Generation | Fine-tuned Qwen2.5-3B-Instruct (QLoRA, merged) on ZeroGPU | Ollama `qwen-defectrag-v2` (same model, Q8_0), or plain `qwen2.5:3b` |
 | Persistence | Private Personal / explicitly shared Team records in Supabase; isolated temporary guest history | Owner-scoped local cache/outbox and private Supabase synchronization; explicit Team sharing |
 | Transformers | 5.20.1, isolated cloud environment | 4.57.6 production requirements |
 
@@ -428,7 +428,7 @@ prepared source-only export, exclusions and safe configuration template.
 - [DINOv2](https://github.com/facebookresearch/dinov2) — frozen visual encoder; Apache-2.0.
 - [AnomalyDINO](https://github.com/dammsi/AnomalyDINO) — inspiration for the custom high-resolution adaptation; no reproduction claim.
 - [BGE-small-en-v1.5](https://huggingface.co/BAAI/bge-small-en-v1.5) — retrieval embeddings.
-- [Qwen3-4B-Instruct-2507](https://huggingface.co/Qwen/Qwen3-4B-Instruct-2507) — cloud text generation.
+- [Qwen2.5-3B-Instruct](https://huggingface.co/Qwen/Qwen2.5-3B-Instruct) — base of the fine-tuned text generator. **Improved using Qwen.** Qwen Research License: the fine-tuned model is non-commercial and is not covered by the MIT licence. Results and method: [docs/QWEN_FINETUNING_RESULTS.md](docs/QWEN_FINETUNING_RESULTS.md).
 
 Application code: [MIT](LICENSE). Model/dataset licenses are separate.
 [Third-party notices](docs/THIRD_PARTY_NOTICES.md) preserve attribution. Included
