@@ -52,4 +52,8 @@ docs/model-cards/QWEN_MODEL_CARD.md
 docs/QWEN_FINETUNING_RESULTS.md
 docs/assets/screenshots/result-compare.png
 docs/assets/screenshots/overview-dark.png
+docs/assets/hero-dark.svg
+docs/assets/hero-light.svg
+docs/assets/screenshots/overview-light.png
+docs/assets/screenshots/result-compare-dark.png
 docs/GITHUB_UPDATE_20261107.txt
