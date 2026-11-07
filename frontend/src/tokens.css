@@ -1,22 +1,23 @@
-/* Design tokens. Layout follows shadcn/ui; colours use Tailwind CSS's published
-   palette (slate neutrals, indigo accent in light, neon sky accent in dark) so
-   text is easy to read in both themes. html.dark switches every token together. */
+/* Design tokens. Layout follows shadcn/ui. Colours are neutral: black, white and greys, so the only colours on screen
+   are the verdicts (good, unusual, closer look) and the heatmaps. The "primary" colour is the text colour itself, which
+   gives the inverted active state (dark fill with light text in the light theme, the reverse in the dark theme).
+   html.dark switches every token together. */
 :root{color-scheme:light;
- --background:#ffffff;--foreground:#0f172a;--card:#ffffff;--primary:#4f46e5;--primary-fg:#ffffff;
- --secondary:#f1f5f9;--muted:#f1f5f9;--muted-fg:#475569;--accent:#eef2ff;--link:#4338ca;
- --border:#e2e8f0;--input:#cbd5e1;--ring:#6366f1;--ring-soft:rgba(99,102,241,.25);
- --sidebar:#f8fafc;--heading:#0f172a;--sidebar-accent:#eef2ff;--sidebar-active:#4338ca;--overlay:rgba(15,23,42,.45);
- --bad:#dc2626;--bad-bg:#fef2f2;--bad-border:#fecaca;--warn:#b45309;--warn-bg:#fffbeb;--warn-border:#fde68a;
- --ok:#15803d;--ok-bg:#f0fdf4;--ok-border:#bbf7d0;--info:#2563eb;--info-bg:#eff6ff;
- --chart-1:#6366f1;--chart-2:#0ea5e9;--highlight:#4f46e5;--glow:none;
- --shadow:0 1px 2px rgba(15,23,42,.06);--shadow-lg:0 12px 32px rgba(15,23,42,.14);--radius:10px;
+ --background:#ffffff;--foreground:#171717;--card:#ffffff;--primary:#171717;--primary-fg:#ffffff;
+ --secondary:#f5f5f5;--muted:#f5f5f5;--muted-fg:#404040;--accent:#f0f0f0;--link:#171717;
+ --border:#e0e0e0;--input:#8c8c8c;--ring:#171717;--ring-soft:rgba(23,23,23,.18);
+ --sidebar:#fafafa;--heading:#0a0a0a;--sidebar-accent:#f0f0f0;--sidebar-active:#171717;--overlay:rgba(0,0,0,.45);
+ --bad:#b91c1c;--bad-bg:#fef2f2;--bad-border:#fecaca;--warn:#b45309;--warn-bg:#fffbeb;--warn-border:#fde68a;
+ --ok:#15803d;--ok-bg:#f0fdf4;--ok-border:#bbf7d0;--info:#404040;--info-bg:#f5f5f5;
+ --chart-1:#262626;--chart-2:#8c8c8c;--highlight:#171717;--glow:none;
+ --shadow:0 1px 2px rgba(0,0,0,.05);--shadow-lg:0 12px 32px rgba(0,0,0,.12);--radius:10px;
  --font-sans:"Geist Variable","Segoe UI",system-ui,sans-serif;--font-mono:"Geist Mono Variable",ui-monospace,Consolas,monospace}
 :root.dark{color-scheme:dark;
- --background:#0f172a;--foreground:#f1f5f9;--card:#1e293b;--primary:#38bdf8;--primary-fg:#082f49;
- --secondary:#1e293b;--muted:#1e293b;--muted-fg:#cbd5e1;--accent:#273449;--link:#7dd3fc;
- --border:rgba(148,163,184,.22);--input:rgba(148,163,184,.35);--ring:#38bdf8;--ring-soft:rgba(56,189,248,.35);
- --sidebar:#020617;--heading:#ffffff;--sidebar-accent:#1e293b;--sidebar-active:#38bdf8;--overlay:rgba(2,6,23,.7);
+ --background:#0a0a0a;--foreground:#f5f5f5;--card:#121212;--primary:#f5f5f5;--primary-fg:#0a0a0a;
+ --secondary:#171717;--muted:#171717;--muted-fg:#d4d4d4;--accent:#1f1f1f;--link:#e5e5e5;
+ --border:rgba(255,255,255,.14);--input:rgba(255,255,255,.34);--ring:#f5f5f5;--ring-soft:rgba(255,255,255,.28);
+ --sidebar:#000000;--heading:#ffffff;--sidebar-accent:#171717;--sidebar-active:#f5f5f5;--overlay:rgba(0,0,0,.7);
  --bad:#f87171;--bad-bg:rgba(248,113,113,.14);--bad-border:rgba(248,113,113,.4);--warn:#fcd34d;--warn-bg:rgba(252,211,77,.12);--warn-border:rgba(252,211,77,.4);
- --ok:#34d399;--ok-bg:rgba(52,211,153,.12);--ok-border:rgba(52,211,153,.4);--info:#7dd3fc;--info-bg:rgba(125,211,252,.12);
- --chart-1:#a78bfa;--chart-2:#22d3ee;--highlight:#22d3ee;--glow:0 0 0 1px rgba(56,189,248,.5),0 0 18px rgba(56,189,248,.35);
- --shadow:none;--shadow-lg:0 12px 32px rgba(2,6,23,.6)}
+ --ok:#34d399;--ok-bg:rgba(52,211,153,.12);--ok-border:rgba(52,211,153,.4);--info:#d4d4d4;--info-bg:rgba(255,255,255,.06);
+ --chart-1:#e5e5e5;--chart-2:#8c8c8c;--highlight:#f5f5f5;--glow:none;
+ --shadow:none;--shadow-lg:0 12px 32px rgba(0,0,0,.6)}

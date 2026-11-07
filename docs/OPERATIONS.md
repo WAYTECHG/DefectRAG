@@ -118,6 +118,20 @@ Afterwards check `/api/health` and ask the assistant about one inspection.
 **New server files, new packages or model changes** need a full phase publish with the Space
 adapter (`deployment/space/README.md`).
 
+**The fine-tuned detector profile (`dinov2_tuned_v1`)** was released with its own module, because the live
+Space runs older backend code than the repository and the new model files and the code must go up together:
+
+```powershell
+python -m deployment.space.tuned_release --dry-run          # read-only plan; every live-text anchor must match once
+python -m deployment.space.tuned_release --stage <empty dir> # rebuilds the patched Space tree and boots it locally
+python -m deployment.space.tuned_release --publish          # one commit: new model files + patched live code
+node deployment/space/verify_tuned_live.mjs                  # 24 live inspections (set SPACE_HF_TOKEN for quota)
+```
+
+Rollback of that release: `python -m deployment.space.tuned_release --rollback` restores the saved live code
+files (`development-support/space/tuned-rollback-<previous commit>`); or set the Space variable
+`DEFECTRAG_SPACE_PROFILE=dinov2_highres_v1` to select the previous frozen-encoder profile, whose files stay on the Space.
+
 ### Rolling back
 
 - **Released from GitHub:** `git revert <commit>` locally, update GitHub, run **Release

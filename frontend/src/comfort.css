@@ -13,8 +13,8 @@
  --text-hint:var(--muted-fg);
  --tile-1:var(--primary);--tile-2:var(--ok);--tile-3:var(--bad);--tile-4:var(--warn);
 }
-:root:not(.dark){--muted-fg:#334155;--input:#94a3b8}
-:root.dark{--muted-fg:#dbe4ef}
+:root:not(.dark){--muted-fg:#404040;--input:#8c8c8c}
+:root.dark{--muted-fg:#d4d4d4}
 
 html{-webkit-text-size-adjust:100%}
 body{font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
@@ -291,3 +291,18 @@ tr.selected-row{background:var(--accent)}
 .who-out u{white-space:nowrap}
 @media(max-width:520px){.who-out>span{display:none}}
 .text-size,.theme-toggle{flex:0 0 auto}
+
+/* Neutral theme (2026-11-07). The accent colour is gone, so these rules keep the decorative parts quiet:
+   no entrance or looping animations, no hover movement, and a hero card that is not a bright slab in the dark theme.
+   Verdict colours (good, unusual, closer look) and the heatmaps stay the only colours on screen. */
+.content,.card,.stats-grid .card{animation:none!important}
+.scan-visual,.scan-corner:after{animation:none!important}
+.scan-visual{transform:none}
+.primary:hover,.sample:hover,.sample:hover img{transform:none!important}
+.stat:after{background:var(--muted)!important}
+:root:not(.dark) .nav-count{color:#ffffff!important}
+:root.dark .hero-card{background:var(--card);border:1px solid var(--border);box-shadow:none}
+:root.dark .hero-card h2{color:var(--heading)}
+:root.dark .hero-card p{color:var(--muted-fg)}
+:root.dark .hero-card .pill{background:var(--muted);color:var(--foreground);border-color:var(--border)}
+:root.dark .scan-visual>span,:root.dark .viewer-label{color:var(--foreground)}

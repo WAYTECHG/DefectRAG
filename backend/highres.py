@@ -17,7 +17,7 @@ import torch.nn.functional as F
 from transformers import AutoModel
 from .vision import distances, ModelUnavailable, sha256, display_map
 from .config import CATEGORIES
-from .calibration import calibrated_card
+from .calibration import calibrated_card, tuned_card
 
 
 class HighResolutionEncoder:
@@ -88,29 +88,43 @@ def restore_map(raw, geometry, size=None):
     return np.asarray(canvas.resize(size or tuple(geometry["original"]), Image.Resampling.BILINEAR))
 
 
+PROFILES = {
+    "dinov2_highres_v1": {"directory": "models/highres", "encoder": "models/encoder_dinov2"},
+    "dinov2_tuned_v1": {"directory": "models/highres_tuned", "encoder": "models/encoder_dinov2_tuned"},
+}
+
+
+def profile_card(root, profile, original):
+    """The decision card for a profile: the frozen profile goes through its versioned policy chain."""
+    return tuned_card(root, original) if profile == "dinov2_tuned_v1" else calibrated_card(root, original)
+
+
 class HighResolutionDetector:
+    """DINOv2 nearest-neighbour detector. The profile decides which encoder weights, banks and cards it uses."""
+
     profile_name = "dinov2_highres_v1"
 
     def __init__(self, settings):
         self.settings = settings
-        self.directory = settings.root / "models/highres"
+        self.directory = settings.root / PROFILES[self.profile_name]["directory"]
         self.encoder: HighResolutionEncoder | None = None
         self.banks = {}
         self.lock = threading.Lock()
 
     def cards(self):
-        return [
-            calibrated_card(self.settings.root, json.loads((self.directory / f"{category}.json").read_text()))
-            for category in CATEGORIES
-        ]
+        return [self.card(category) for category in CATEGORIES]
+
+    def card(self, category):
+        original = json.loads((self.directory / f"{category}.json").read_text())
+        return profile_card(self.settings.root, self.profile_name, original)
 
     def load(self, category):
         if category not in CATEGORIES:
             raise ValueError("Unsupported product category")
-        card = calibrated_card(self.settings.root, json.loads((self.directory / f"{category}.json").read_text()))
+        card = self.card(category)
         encoder = self.encoder
         if encoder is None:
-            source = self.settings.root / "models/encoder_dinov2"
+            source = self.settings.root / PROFILES[self.profile_name]["encoder"]
             if sha256(source / "model.safetensors") != card["encoder_sha256"]:
                 raise ModelUnavailable("DINOv2 checkpoint checksum mismatch")
             encoder = HighResolutionEncoder(source, self.settings.device)
@@ -167,3 +181,9 @@ class HighResolutionDetector:
                 "profile": self.profile_name,
             }
             return result, display_map(full, preview, card["heatmap_scale"])
+
+
+class TunedDetector(HighResolutionDetector):
+    """Same detector with the fine-tuned DINOv2 encoder and 32,768-patch coreset banks (profile dinov2_tuned_v1)."""
+
+    profile_name = "dinov2_tuned_v1"

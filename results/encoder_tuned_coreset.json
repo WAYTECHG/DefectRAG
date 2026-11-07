@@ -1,0 +1,663 @@
+{
+  "candle": {
+    "frozen base": {
+      "auroc": 0.941,
+      "vs_frozen_core32k": [
+        -0.03420000000000001,
+        -0.006700000000000037
+      ],
+      "recall_q95": 0.87,
+      "false_alarm_q95": 0.12,
+      "recall_deployed": 0.87,
+      "false_alarm_deployed": 0.12,
+      "auroc_hard_type": 0.8036363636363636
+    },
+    "frozen core32k": {
+      "auroc": 0.9599,
+      "recall_q95": 0.87,
+      "false_alarm_q95": 0.11,
+      "recall_deployed": 0.87,
+      "false_alarm_deployed": 0.11,
+      "auroc_hard_type": 0.8263636363636364
+    },
+    "frozen full": {
+      "auroc": 0.9604,
+      "vs_frozen_core32k": [
+        -0.0038025000000000224,
+        0.0048025000000000125
+      ],
+      "recall_q95": 0.88,
+      "false_alarm_q95": 0.09,
+      "recall_deployed": 0.88,
+      "false_alarm_deployed": 0.09,
+      "auroc_hard_type": 0.8209090909090909
+    },
+    "tuned full": {
+      "auroc": 0.9618,
+      "vs_frozen_core32k": [
+        -0.0034000000000000696,
+        0.007102499999999981
+      ],
+      "recall_q95": 0.89,
+      "false_alarm_q95": 0.1,
+      "recall_deployed": 0.89,
+      "false_alarm_deployed": 0.1,
+      "auroc_hard_type": 0.8254545454545454
+    },
+    "tuned core32k": {
+      "auroc": 0.96,
+      "vs_frozen_core32k": [
+        -0.0038000000000000256,
+        0.0040999999999999925
+      ],
+      "recall_q95": 0.86,
+      "false_alarm_q95": 0.09,
+      "recall_deployed": 0.86,
+      "false_alarm_deployed": 0.09,
+      "auroc_hard_type": 0.8272727272727273
+    }
+  },
+  "capsules": {
+    "frozen base": {
+      "auroc": 0.9683333333333334,
+      "vs_frozen_core32k": [
+        -0.02533333333333332,
+        0.0056666666666666
+      ],
+      "recall_q95": 0.82,
+      "false_alarm_q95": 0.08333333333333333,
+      "recall_deployed": 0.82,
+      "false_alarm_deployed": 0.08333333333333333
+    },
+    "frozen core32k": {
+      "auroc": 0.9773333333333334,
+      "recall_q95": 0.97,
+      "false_alarm_q95": 0.06666666666666667,
+      "recall_deployed": 0.97,
+      "false_alarm_deployed": 0.06666666666666667
+    },
+    "frozen full": {
+      "auroc": 0.9756666666666667,
+      "vs_frozen_core32k": [
+        -0.007837500000000025,
+        0.0038333333333333552
+      ],
+      "recall_q95": 0.86,
+      "false_alarm_q95": 0.06666666666666667,
+      "recall_deployed": 0.86,
+      "false_alarm_deployed": 0.06666666666666667
+    },
+    "tuned full": {
+      "auroc": 0.9765,
+      "vs_frozen_core32k": [
+        -0.007004166666666672,
+        0.0040000000000000036
+      ],
+      "recall_q95": 0.88,
+      "false_alarm_q95": 0.06666666666666667,
+      "recall_deployed": 0.88,
+      "false_alarm_deployed": 0.06666666666666667
+    },
+    "tuned core32k": {
+      "auroc": 0.9778333333333333,
+      "vs_frozen_core32k": [
+        -0.0035000000000000586,
+        0.0044999999999999485
+      ],
+      "recall_q95": 0.96,
+      "false_alarm_q95": 0.06666666666666667,
+      "recall_deployed": 0.96,
+      "false_alarm_deployed": 0.06666666666666667
+    }
+  },
+  "cashew": {
+    "frozen base": {
+      "auroc": 0.9608,
+      "vs_frozen_core32k": [
+        -0.03360500000000007,
+        -0.0028000000000000247
+      ],
+      "recall_q95": 0.9,
+      "false_alarm_q95": 0.18,
+      "recall_deployed": 0.9,
+      "false_alarm_deployed": 0.18
+    },
+    "frozen core32k": {
+      "auroc": 0.978,
+      "recall_q95": 0.92,
+      "false_alarm_q95": 0.04,
+      "recall_deployed": 0.92,
+      "false_alarm_deployed": 0.04
+    },
+    "frozen full": {
+      "auroc": 0.9764,
+      "vs_frozen_core32k": [
+        -0.006199999999999983,
+        0.0023999999999999603
+      ],
+      "recall_q95": 0.91,
+      "false_alarm_q95": 0.08,
+      "recall_deployed": 0.91,
+      "false_alarm_deployed": 0.08
+    },
+    "tuned full": {
+      "auroc": 0.9724,
+      "vs_frozen_core32k": [
+        -0.012399999999999967,
+        -0.0006000000000000449
+      ],
+      "recall_q95": 0.91,
+      "false_alarm_q95": 0.12,
+      "recall_deployed": 0.91,
+      "false_alarm_deployed": 0.12
+    },
+    "tuned core32k": {
+      "auroc": 0.974,
+      "vs_frozen_core32k": [
+        -0.010000000000000009,
+        0.0013999999999999568
+      ],
+      "recall_q95": 0.94,
+      "false_alarm_q95": 0.08,
+      "recall_deployed": 0.94,
+      "false_alarm_deployed": 0.08
+    }
+  },
+  "chewinggum": {
+    "frozen base": {
+      "auroc": 0.9886,
+      "vs_frozen_core32k": [
+        -0.013600000000000056,
+        0.0022000000000000908
+      ],
+      "recall_q95": 0.96,
+      "false_alarm_q95": 0.04,
+      "recall_deployed": 0.96,
+      "false_alarm_deployed": 0.04
+    },
+    "frozen core32k": {
+      "auroc": 0.9926,
+      "recall_q95": 0.97,
+      "false_alarm_q95": 0.06,
+      "recall_deployed": 0.97,
+      "false_alarm_deployed": 0.06
+    },
+    "frozen full": {
+      "auroc": 0.9908,
+      "vs_frozen_core32k": [
+        -0.008005000000000007,
+        0.0011999999999999789
+      ],
+      "recall_q95": 0.97,
+      "false_alarm_q95": 0.06,
+      "recall_deployed": 0.97,
+      "false_alarm_deployed": 0.06
+    },
+    "tuned full": {
+      "auroc": 0.9922,
+      "vs_frozen_core32k": [
+        -0.0031999999999999806,
+        0.0018000000000000238
+      ],
+      "recall_q95": 0.97,
+      "false_alarm_q95": 0.06,
+      "recall_deployed": 0.97,
+      "false_alarm_deployed": 0.06
+    },
+    "tuned core32k": {
+      "auroc": 0.9916,
+      "vs_frozen_core32k": [
+        -0.006399999999999961,
+        0.0026000000000000467
+      ],
+      "recall_q95": 0.96,
+      "false_alarm_q95": 0.06,
+      "recall_deployed": 0.96,
+      "false_alarm_deployed": 0.06
+    }
+  },
+  "fryum": {
+    "frozen base": {
+      "auroc": 0.9924,
+      "vs_frozen_core32k": [
+        -0.00960500000000005,
+        0.00039999999999995595
+      ],
+      "recall_q95": 0.94,
+      "false_alarm_q95": 0.02,
+      "recall_deployed": 0.94,
+      "false_alarm_deployed": 0.02
+    },
+    "frozen core32k": {
+      "auroc": 0.9958,
+      "recall_q95": 0.96,
+      "false_alarm_q95": 0.04,
+      "recall_deployed": 0.96,
+      "false_alarm_deployed": 0.04
+    },
+    "frozen full": {
+      "auroc": 0.993,
+      "vs_frozen_core32k": [
+        -0.008599999999999941,
+        0.0007999999999999119
+      ],
+      "recall_q95": 0.97,
+      "false_alarm_q95": 0.06,
+      "recall_deployed": 0.97,
+      "false_alarm_deployed": 0.06
+    },
+    "tuned full": {
+      "auroc": 0.9906,
+      "vs_frozen_core32k": [
+        -0.013000000000000012,
+        0.0
+      ],
+      "recall_q95": 0.97,
+      "false_alarm_q95": 0.04,
+      "recall_deployed": 0.97,
+      "false_alarm_deployed": 0.04
+    },
+    "tuned core32k": {
+      "auroc": 0.9902,
+      "vs_frozen_core32k": [
+        -0.01380500000000003,
+        0.0
+      ],
+      "recall_q95": 0.96,
+      "false_alarm_q95": 0.04,
+      "recall_deployed": 0.96,
+      "false_alarm_deployed": 0.04
+    }
+  },
+  "macaroni1": {
+    "frozen base": {
+      "auroc": 0.909,
+      "vs_frozen_core32k": [
+        -0.049699999999999966,
+        -0.0029000000000000137
+      ],
+      "recall_q95": 0.57,
+      "false_alarm_q95": 0.01,
+      "recall_deployed": 0.85,
+      "false_alarm_deployed": 0.24,
+      "auroc_hard_type": 0.7244
+    },
+    "frozen core32k": {
+      "auroc": 0.9352,
+      "recall_q95": 0.72,
+      "false_alarm_q95": 0.01,
+      "recall_deployed": 0.89,
+      "false_alarm_deployed": 0.2,
+      "auroc_hard_type": 0.7768
+    },
+    "frozen full": {
+      "auroc": 0.9338,
+      "vs_frozen_core32k": [
+        -0.011400000000000077,
+        0.009099999999999997
+      ],
+      "recall_q95": 0.69,
+      "false_alarm_q95": 0.0,
+      "recall_deployed": 0.9,
+      "false_alarm_deployed": 0.25,
+      "auroc_hard_type": 0.7824
+    },
+    "tuned full": {
+      "auroc": 0.941,
+      "vs_frozen_core32k": [
+        -0.0048000000000000265,
+        0.0160025
+      ],
+      "recall_q95": 0.7,
+      "false_alarm_q95": 0.03,
+      "recall_deployed": 0.93,
+      "false_alarm_deployed": 0.24,
+      "auroc_hard_type": 0.808
+    },
+    "tuned core32k": {
+      "auroc": 0.9473,
+      "vs_frozen_core32k": [
+        0.0020000000000000018,
+        0.023899999999999925
+      ],
+      "recall_q95": 0.75,
+      "false_alarm_q95": 0.04,
+      "recall_deployed": 0.91,
+      "false_alarm_deployed": 0.2,
+      "auroc_hard_type": 0.822
+    }
+  },
+  "macaroni2": {
+    "frozen base": {
+      "auroc": 0.845,
+      "vs_frozen_core32k": [
+        -0.06530750000000002,
+        -0.005394999999999988
+      ],
+      "recall_q95": 0.48,
+      "false_alarm_q95": 0.07,
+      "recall_deployed": 0.8,
+      "false_alarm_deployed": 0.28,
+      "auroc_hard_type": 0.7083333333333334
+    },
+    "frozen core32k": {
+      "auroc": 0.8797,
+      "recall_q95": 0.63,
+      "false_alarm_q95": 0.07,
+      "recall_deployed": 0.86,
+      "false_alarm_deployed": 0.29,
+      "auroc_hard_type": 0.748
+    },
+    "frozen full": {
+      "auroc": 0.8852,
+      "vs_frozen_core32k": [
+        -0.012800000000000034,
+        0.0242
+      ],
+      "recall_q95": 0.55,
+      "false_alarm_q95": 0.09,
+      "recall_deployed": 0.9,
+      "false_alarm_deployed": 0.33,
+      "auroc_hard_type": 0.7706666666666667
+    },
+    "tuned full": {
+      "auroc": 0.9001,
+      "vs_frozen_core32k": [
+        0.003097499999999992,
+        0.03939999999999999
+      ],
+      "recall_q95": 0.63,
+      "false_alarm_q95": 0.11,
+      "recall_deployed": 0.91,
+      "false_alarm_deployed": 0.3,
+      "auroc_hard_type": 0.7986666666666666
+    },
+    "tuned core32k": {
+      "auroc": 0.8972,
+      "vs_frozen_core32k": [
+        0.003797500000000026,
+        0.033299999999999996
+      ],
+      "recall_q95": 0.73,
+      "false_alarm_q95": 0.09,
+      "recall_deployed": 0.9,
+      "false_alarm_deployed": 0.27,
+      "auroc_hard_type": 0.785
+    }
+  },
+  "pcb1": {
+    "frozen base": {
+      "auroc": 0.9597,
+      "vs_frozen_core32k": [
+        -0.026902500000000034,
+        -0.0013974999999999736
+      ],
+      "recall_q95": 0.86,
+      "false_alarm_q95": 0.08,
+      "recall_deployed": 0.86,
+      "false_alarm_deployed": 0.08
+    },
+    "frozen core32k": {
+      "auroc": 0.9724,
+      "recall_q95": 0.93,
+      "false_alarm_q95": 0.12,
+      "recall_deployed": 0.93,
+      "false_alarm_deployed": 0.12
+    },
+    "frozen full": {
+      "auroc": 0.9735,
+      "vs_frozen_core32k": [
+        -0.0031999999999999806,
+        0.005600000000000049
+      ],
+      "recall_q95": 0.93,
+      "false_alarm_q95": 0.1,
+      "recall_deployed": 0.93,
+      "false_alarm_deployed": 0.1
+    },
+    "tuned full": {
+      "auroc": 0.9796,
+      "vs_frozen_core32k": [
+        0.001500000000000054,
+        0.014600000000000057
+      ],
+      "recall_q95": 0.94,
+      "false_alarm_q95": 0.09,
+      "recall_deployed": 0.94,
+      "false_alarm_deployed": 0.09
+    },
+    "tuned core32k": {
+      "auroc": 0.9788,
+      "vs_frozen_core32k": [
+        0.0016000000000000458,
+        0.012599999999999945
+      ],
+      "recall_q95": 0.94,
+      "false_alarm_q95": 0.09,
+      "recall_deployed": 0.94,
+      "false_alarm_deployed": 0.09
+    }
+  },
+  "pcb2": {
+    "frozen base": {
+      "auroc": 0.9062,
+      "vs_frozen_core32k": [
+        -0.0817050000000001,
+        -0.02849250000000001
+      ],
+      "recall_q95": 0.84,
+      "false_alarm_q95": 0.12,
+      "recall_deployed": 0.84,
+      "false_alarm_deployed": 0.12,
+      "auroc_hard_type": 0.7805263157894737
+    },
+    "frozen core32k": {
+      "auroc": 0.9592,
+      "recall_q95": 0.9,
+      "false_alarm_q95": 0.12,
+      "recall_deployed": 0.9,
+      "false_alarm_deployed": 0.12,
+      "auroc_hard_type": 0.86
+    },
+    "frozen full": {
+      "auroc": 0.9577,
+      "vs_frozen_core32k": [
+        -0.006800000000000028,
+        0.003699999999999928
+      ],
+      "recall_q95": 0.87,
+      "false_alarm_q95": 0.09,
+      "recall_deployed": 0.87,
+      "false_alarm_deployed": 0.09,
+      "auroc_hard_type": 0.8663157894736843
+    },
+    "tuned full": {
+      "auroc": 0.9617,
+      "vs_frozen_core32k": [
+        -0.0038999999999999035,
+        0.009599999999999945
+      ],
+      "recall_q95": 0.87,
+      "false_alarm_q95": 0.09,
+      "recall_deployed": 0.87,
+      "false_alarm_deployed": 0.09,
+      "auroc_hard_type": 0.8605263157894737
+    },
+    "tuned core32k": {
+      "auroc": 0.9575,
+      "vs_frozen_core32k": [
+        -0.008499999999999952,
+        0.0041999999999999815
+      ],
+      "recall_q95": 0.87,
+      "false_alarm_q95": 0.1,
+      "recall_deployed": 0.87,
+      "false_alarm_deployed": 0.1,
+      "auroc_hard_type": 0.8442105263157895
+    }
+  },
+  "pcb3": {
+    "frozen base": {
+      "auroc": 0.9547524752475247,
+      "vs_frozen_core32k": [
+        -0.055747524752475186,
+        -0.013066831683168342
+      ],
+      "recall_q95": 0.87,
+      "false_alarm_q95": 0.0891089108910891,
+      "recall_deployed": 0.87,
+      "false_alarm_deployed": 0.0891089108910891,
+      "auroc_hard_type": 0.8900990099009901
+    },
+    "frozen core32k": {
+      "auroc": 0.9869306930693069,
+      "recall_q95": 0.96,
+      "false_alarm_q95": 0.12871287128712872,
+      "recall_deployed": 0.96,
+      "false_alarm_deployed": 0.12871287128712872,
+      "auroc_hard_type": 0.9559405940594059
+    },
+    "frozen full": {
+      "auroc": 0.9800990099009901,
+      "vs_frozen_core32k": [
+        -0.015844059405940608,
+        0.0001980198019801982
+      ],
+      "recall_q95": 0.96,
+      "false_alarm_q95": 0.1188118811881188,
+      "recall_deployed": 0.96,
+      "false_alarm_deployed": 0.1188118811881188,
+      "auroc_hard_type": 0.9346534653465347
+    },
+    "tuned full": {
+      "auroc": 0.9856435643564356,
+      "vs_frozen_core32k": [
+        -0.007326732673267333,
+        0.004455445544554459
+      ],
+      "recall_q95": 0.97,
+      "false_alarm_q95": 0.1485148514851485,
+      "recall_deployed": 0.97,
+      "false_alarm_deployed": 0.1485148514851485,
+      "auroc_hard_type": 0.946039603960396
+    },
+    "tuned core32k": {
+      "auroc": 0.9928712871287129,
+      "vs_frozen_core32k": [
+        -0.0004950495049504955,
+        0.014259900990099009
+      ],
+      "recall_q95": 0.98,
+      "false_alarm_q95": 0.12871287128712872,
+      "recall_deployed": 0.98,
+      "false_alarm_deployed": 0.12871287128712872,
+      "auroc_hard_type": 0.9757425742574257
+    }
+  },
+  "pcb4": {
+    "frozen base": {
+      "auroc": 0.9865346534653465,
+      "vs_frozen_core32k": [
+        -0.02742574257425745,
+        0.0005965346534653335
+      ],
+      "recall_q95": 0.96,
+      "false_alarm_q95": 0.039603960396039604,
+      "recall_deployed": 0.96,
+      "false_alarm_deployed": 0.039603960396039604
+    },
+    "frozen core32k": {
+      "auroc": 0.997029702970297,
+      "recall_q95": 0.97,
+      "false_alarm_q95": 0.019801980198019802,
+      "recall_deployed": 0.97,
+      "false_alarm_deployed": 0.019801980198019802
+    },
+    "frozen full": {
+      "auroc": 0.9956435643564356,
+      "vs_frozen_core32k": [
+        -0.0040618811881188155,
+        0.0005965346534653335
+      ],
+      "recall_q95": 0.93,
+      "false_alarm_q95": 0.019801980198019802,
+      "recall_deployed": 0.93,
+      "false_alarm_deployed": 0.019801980198019802
+    },
+    "tuned full": {
+      "auroc": 0.9957425742574257,
+      "vs_frozen_core32k": [
+        -0.00435643564356436,
+        0.0004950495049504955
+      ],
+      "recall_q95": 0.95,
+      "false_alarm_q95": 0.019801980198019802,
+      "recall_deployed": 0.95,
+      "false_alarm_deployed": 0.019801980198019802
+    },
+    "tuned core32k": {
+      "auroc": 0.9953465346534653,
+      "vs_frozen_core32k": [
+        -0.004952970297029707,
+        0.0002970297029702973
+      ],
+      "recall_q95": 0.95,
+      "false_alarm_q95": 0.019801980198019802,
+      "recall_deployed": 0.95,
+      "false_alarm_deployed": 0.019801980198019802
+    }
+  },
+  "pipe_fryum": {
+    "frozen base": {
+      "auroc": 0.9892,
+      "vs_frozen_core32k": [
+        -0.0036000000000000476,
+        0.0030000000000000027
+      ],
+      "recall_q95": 0.99,
+      "false_alarm_q95": 0.04,
+      "recall_deployed": 0.99,
+      "false_alarm_deployed": 0.04
+    },
+    "frozen core32k": {
+      "auroc": 0.9894,
+      "recall_q95": 0.99,
+      "false_alarm_q95": 0.06,
+      "recall_deployed": 0.99,
+      "false_alarm_deployed": 0.06
+    },
+    "frozen full": {
+      "auroc": 0.9918,
+      "vs_frozen_core32k": [
+        0.0,
+        0.007199999999999984
+      ],
+      "recall_q95": 0.99,
+      "false_alarm_q95": 0.06,
+      "recall_deployed": 0.99,
+      "false_alarm_deployed": 0.06
+    },
+    "tuned full": {
+      "auroc": 0.992,
+      "vs_frozen_core32k": [
+        0.0,
+        0.008400000000000074
+      ],
+      "recall_q95": 0.99,
+      "false_alarm_q95": 0.08,
+      "recall_deployed": 0.99,
+      "false_alarm_deployed": 0.08
+    },
+    "tuned core32k": {
+      "auroc": 0.9906,
+      "vs_frozen_core32k": [
+        -0.0031999999999999806,
+        0.007600000000000051
+      ],
+      "recall_q95": 0.99,
+      "false_alarm_q95": 0.04,
+      "recall_deployed": 0.99,
+      "false_alarm_deployed": 0.04
+    }
+  }
+}

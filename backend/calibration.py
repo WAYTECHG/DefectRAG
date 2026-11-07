@@ -9,6 +9,10 @@ POLICY = "normal-q95-v1"
 FILENAME = "sensitive_deployment_evaluation.json"
 MACARONI_POLICY = "macaroni-recall-v1"
 MACARONI_FILENAME = "macaroni_recall_deployment_evaluation.json"
+TUNED_POLICY = "tuned-normal-quantile-v1"
+TUNED_FILENAME = "tuned_deployment_evaluation.json"
+TUNED_QUANTILES = {"macaroni1": 0.8, "macaroni2": 0.8}
+TUNED_DEFAULT_QUANTILE = 0.95
 
 
 def active_evaluation(root, baseline):
@@ -94,3 +98,33 @@ def calibrated_card(root, original):
         if baseline["categories"][original["category"]][key] != original[key]:
             raise ValueError("Original model card and evaluation disagree")
     return active_evaluation(root, baseline)["categories"][original["category"]]
+
+
+def tuned_card(root, original):
+    """The decision card of the fine-tuned profile, checked against its model card and the whole manifest.
+
+    The card in models/highres_tuned already holds the final threshold (a fixed linear quantile of held-out normal
+    scores, no anomalous image involved). This confirms that the manifest the dashboard shows says the same.
+    """
+    path = root / "results" / TUNED_FILENAME
+    if not path.exists():
+        raise ValueError("Missing tuned deployment manifest")
+    manifest = json.loads(path.read_text())
+    if manifest.get("decision_policy") != TUNED_POLICY:
+        raise ValueError("Invalid tuned calibration manifest")
+    category = original["category"]
+    card = manifest["categories"][category]
+    for key in ("model_id", "profile", "encoder_sha256", "bank_sha256", "threshold", "heatmap_scale", "calibration"):
+        if card[key] != original[key]:
+            raise ValueError("Tuned model card and manifest disagree: " + category)
+    quantile = TUNED_QUANTILES.get(category, TUNED_DEFAULT_QUANTILE)
+    if (
+        card["calibration"].get("policy") != TUNED_POLICY
+        or card["calibration"].get("quantile") != quantile
+        or card["calibration"]["anomalous"] != 0
+        or not math.isfinite(card["threshold"])
+        or card["threshold"] <= 0
+        or not math.isclose(card["uncertainty_margin"], card["threshold"] * 0.05, abs_tol=1e-12)
+    ):
+        raise ValueError("Invalid tuned threshold: " + category)
+    return card

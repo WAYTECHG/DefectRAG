@@ -5,8 +5,8 @@ from huggingface_hub import snapshot_download
 
 ROOT=Path(__file__).resolve().parents[1]
 REPOSITORY='Wizzas/DefectRAG'
-REVISION='3717008401fcf9c85612ce6d4c0c77b629c39f53'
-PATTERNS=['models/encoder_dinov2/*','models/highres/*','models/embedding/*',
+REVISION='bc6bc66c445388cce227bc3851bd602c88386741'
+PATTERNS=['models/encoder_dinov2/*','models/highres/*','models/encoder_dinov2_tuned/*','models/highres_tuned/*','models/embedding/*',
           'models/BGE-LICENSE.txt','samples/*','results/*.json']
 
 def main():
@@ -28,7 +28,13 @@ def main():
     for path in cards:
         card=json.loads(path.read_text())
         assert sha256(path.with_suffix('.npz'))==card['bank_sha256']
-    print('All 12 bank checksums verified. No fitting, threshold change or GPU experiment.')
+    tuned=list((ROOT/'models/highres_tuned').glob('[!P]*.json'))
+    assert len(tuned)==12,'All 12 fine-tuned category cards are required'
+    for path in tuned:
+        card=json.loads(path.read_text())
+        assert sha256(path.with_suffix('.npz'))==card['bank_sha256']
+        assert sha256(ROOT/'models/encoder_dinov2_tuned/model.safetensors')==card['encoder_sha256']
+    print('All 12 bank checksums verified for both profiles (frozen and fine-tuned). No fitting, threshold change or GPU experiment.')
 
 if __name__=='__main__':
     main()

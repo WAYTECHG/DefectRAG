@@ -31,15 +31,15 @@ service. Corrective Action emails are live: a self-hosted n8n instance on AWS
 Lightsail emails the case supervisor and copies the person responsible within
 seconds of a saved change. Multimodal RAG remains future work.
 
-DefectRAG combines frozen visual encoders with a normal-reference memory bank and
-an inspection-linked RAG assistant. The existing React dashboard supports image
+DefectRAG combines a DINOv2 image encoder (fine-tuned on synthetic defects) with a
+normal-reference memory bank and an inspection-linked RAG assistant. The existing React dashboard supports image
 inspection, visual comparison, batch history, evaluation, reports, staff notes,
 review alerts and recoverable archival. One Gradio Server-mode Hugging Face Space
 hosts the cloud UI, CPU services and queued ZeroGPU inference.
 
 | Visual inspection | Evidence-grounded RAG | Shared review |
 |---|---|---|
-| Frozen DINOv2 features across 12 VisA products | BGE retrieval over attributed documents | Supabase authentication and existing RLS |
+| Fine-tuned DINOv2 features across 12 VisA products | BGE retrieval over attributed documents | Supabase authentication and existing RLS |
 | Nearest-normal anomaly scores and calibrated thresholds | LangGraph routing, Qwen generation and citation checks | Private images, heatmaps, conversations and notes |
 | Interpolated patch-distance heatmaps | Saved measurements remain separate from document claims | Acknowledgments, CSV, printable reports and developer recovery |
 
@@ -103,7 +103,7 @@ Real work returns when the lesson ends.
 flowchart LR
     UI["React + Vite dashboard"] --> API["Gradio Server / FastAPI"]
     API --> Q["Shared queued GPU jobs"]
-    Q --> D["Frozen DINOv2 + normal bank"]
+    Q --> D["Fine-tuned DINOv2 + coreset normal bank"]
     D --> R["Score / threshold / heatmap"]
     R --> UI
     UI --> C["Inspection-linked question"]
@@ -173,17 +173,86 @@ ambiguous send is held for manual review instead of being repeated.
 |---|---|---|
 | UI | Existing React/Vite dashboard | Same dashboard |
 | Host | Gradio 6.30 Server mode + FastAPI | FastAPI / Uvicorn |
-| Active visual model | Frozen DINOv2 ViT-S/14, 448px short edge | DINOv2 high-resolution; original DINOv3 retained |
+| Active visual model | Fine-tuned DINOv2 ViT-S/14, 448px short edge, 32,768-patch coreset banks | Same profile; the frozen-encoder DINOv2 profile and original DINOv3 are retained |
 | Retrieval | BGE-small-en-v1.5 in a CPU-only subprocess | Existing local BGE embeddings/index |
 | Generation | Fine-tuned Qwen2.5-3B-Instruct (QLoRA, merged) on ZeroGPU | Ollama `qwen-defectrag-v2` (same model, Q8_0), or plain `qwen2.5:3b` |
 | Persistence | Private Personal / explicitly shared Team records in Supabase; isolated temporary guest history | Owner-scoped local cache/outbox and private Supabase synchronization; explicit Team sharing |
 | Transformers | 5.20.1, isolated cloud environment | 4.57.6 production requirements |
 
 Package badges describe the validated cloud/frontend versions. Local and cloud
-environments intentionally differ. No fine-tuning or epoch-based training is used:
-normal images populate memory banks while encoder weights remain frozen.
+environments intentionally differ. The DINOv2 encoder was lightly fine-tuned (last 4 of
+12 blocks, 2,500 steps, synthetic defects made from normal images, consistency loss
+to the original features); the memory banks are 32,768-patch coresets of normal images
+only, and thresholds come from held-out normal images only. The Qwen language model is
+fine-tuned separately (QLoRA). Details and negative results: `docs/ENCODER_DIAGNOSTIC.md`.
 
 ## Measured results
+
+Full details, limits and licences: [detector model card](docs/model-cards/DETECTOR_MODEL_CARD.md) ·
+[language-model card](docs/model-cards/QWEN_MODEL_CARD.md) · [step-by-step experiments](docs/ENCODER_DIAGNOSTIC.md) ·
+[MVTec AD protocol and results](docs/MVTEC_EVALUATION.md).
+
+### How the detector was improved, one change at a time
+
+The detector compares an inspection photo with a memory of normal photos of the same product. Each step below changes
+one thing and is measured on the same 12 VisA products (mean image AUROC; the weakest products show where it matters).
+
+| Step | What changed | Mean AUROC | Three weakest products | Macaroni 2 |
+|---|---|---:|---:|---:|
+| 0 | Starting point: pretrained DINOv2 (frozen), random-sample memory | 0.950 | 0.887 | 0.845 |
+| 1 | + a memory chosen by farthest-point selection (same size, no extra cost) | 0.969 | 0.925 | 0.880 |
+| 2 | + the encoder's last blocks fine-tuned on synthetic defects (deployed) | **0.971** | **0.934** | **0.897** |
+
+* **Step 1 is the robust gain**: it also held on a second benchmark that played no part in the design (MVTec AD below).
+* **Step 2 is a small gain** that is clear on three products (Macaroni 1 and 2, PCB 1) and not confirmed outside VisA.
+* **Tried and rejected, with numbers** in the experiments document: rotated training views, DINOv3 features (alone and
+  fused), position-aware and global distances, and a fine-tune with simpler synthetic defects. Reporting what did not
+  help is part of the result.
+* The test images were seen during development and several variants were scored on them, so these figures are
+  descriptive, not an independent validation.
+
+### Deployed detector: fine-tuned DINOv2 with coreset banks
+
+Operational banks (810 fit normals per product, 90 held-out normals for thresholds),
+200 official test images per product. Thresholds: q95 of held-out normal scores, q80 for
+Macaroni1/2. Retrospective: the test images were seen during development, so these
+figures are descriptive, not independent validation.
+
+| Macro mean over 12 products | Previous profile (frozen encoder, random-sample banks) | **Deployed (fine-tuned encoder, coreset banks)** |
+|---|---:|---:|
+| Image AUROC | 95.01% | **97.11%** |
+| Image average precision | 95.64% | **97.64%** |
+| Recall at the operating threshold | 88.8% | **93.5%** |
+| False alarms on normal test images | 11.1% | **9.9%** |
+| Pixel AUROC (224) | 98.62% | **98.80%** |
+
+Most of the gain comes from the coreset memory bank; the fine-tune adds a small extra
+gain over the same coreset with the frozen encoder, clear on Macaroni1/2 and PCB1 (image
+AUROC 0.935 to 0.947 and 0.880 to 0.897 on the first two), and not distinguishable from
+zero elsewhere. Step-by-step experiments,
+including variants that did not help, are in `docs/ENCODER_DIAGNOSTIC.md`.
+
+### Generalisation check on MVTec AD (one run, decided in advance)
+
+To test whether the VisA findings hold elsewhere, the three detector variants were scored once on MVTec AD (15
+products, 1,725 test images), with the protocol written before any score existed (`docs/MVTEC_EVALUATION.md`).
+
+| Macro mean over 15 products | Random-sample bank (previous recipe) | Coreset bank | Coreset + VisA fine-tuned encoder |
+|---|---:|---:|---:|
+| Image AUROC | 98.6% | **99.2%** | **99.2%** |
+
+The coreset bank transfers: clear gains on cable, pill and screw and nothing clearly worse. The fine-tuned encoder
+adds nothing measurable on this unseen dataset (one product clearly better, one clearly worse), so its small VisA gain
+is not confirmed outside VisA. MVTec AD is close to saturated, and pixel-level localisation is weak on texture products
+because of the foreground heuristic; details and limits are in the protocol document. Data from a third-party
+Hugging Face mirror, checked against the published counts.
+
+### Earlier benchmark: the DINOv3 prototype against the first DINOv2 profile
+
+This is the historical comparison between the first prototype (DINOv3, 224 px, 64 training photos per product, a
+calibration split that borrowed test anomalies) and the first DINOv2 profile (448 px, all training photos, a proper
+normal-only holdout). It changes several things at once (encoder, resolution, training data and split), so it is **not a
+controlled comparison**; the table above is. The DINOv3 profile remains installed only as a fallback.
 
 Retrospective development comparison on the official VisA train/test assignments:
 **12 products, 8,659 training normals, 2,162 test images, seeds 42/43/44**.
@@ -315,7 +384,8 @@ py -3.11 -m venv .venv
 
 The launcher builds missing frontend assets using `npm ci`. The asset downloader
 fetches the immutable published DINOv2 profile and verifies bank checksums; it
-does not retrain models. This fresh-clone recipe is documented but was not
+does not retrain models. (The pinned revision holds the frozen-encoder profile; the
+fine-tuned profile becomes downloadable after the Space is republished and the pin is updated.) This fresh-clone recipe is documented but was not
 validated by another full dependency/model download. CPU inference is supported;
 NVIDIA acceleration requires compatible CUDA PyTorch wheels. Legacy DINOv3 assets
 are preserved in existing installations and are not included in that DINOv2 download.
@@ -344,8 +414,9 @@ Supabase SQL changes require review; no public service-role key belongs in confi
 
 ## Validation and limits
 
-- Latest checks (2 November 2026): **274 frontend tests** and **207 backend tests** passed
-  (2 skipped), zero failed. The real app was also used end to end in a browser at laptop, tablet
+- Latest checks (7 November 2026): **274 frontend tests** and **220 backend tests** passed
+  (2 skipped), zero failed, plus an automatic text-contrast audit of 13 screens in both themes. On
+  2 November the real app was also used end to end in a browser at laptop, tablet
   and phone sizes: inspection, compare/zoom, assistant, reviews, batch, CSV export, mark all as
   seen, archive/restore, the phone menu, going offline, the server being down and a page with
   broken data. The evidence photo was not reloaded across 50 seconds of background refreshes.
@@ -414,6 +485,7 @@ deployment/space/     Gradio adapter, queued inference and Supabase repository
 scripts/              Explicit asset setup, evaluation and source export tools
 tests/                API, answer relevance, protocol and security checks
 docs/                 Setup, security, architecture, model results, user guides and the operations runbook
+docs/model-cards/     Model cards for the visual detector and the fine-tuned language model
 .github/              CI and release workflows, Dependabot, issue forms and pull-request checklist
 results/              Selected public benchmark and deployment summaries
 ```
@@ -425,7 +497,8 @@ prepared source-only export, exclusions and safe configuration template.
 ## References and licensing
 
 - [VisA / SPot-the-Difference](https://github.com/amazon-science/spot-diff), Zou et al., ECCV 2022 — CC BY 4.0 dataset.
-- [DINOv2](https://github.com/facebookresearch/dinov2) — frozen visual encoder; Apache-2.0.
+- [MVTec AD](https://www.mvtec.com/company/research/datasets/mvtec-ad), Bergmann et al., CVPR 2019 / IJCV 2021 — CC BY-NC-SA 4.0 (non-commercial); used only for the evaluation above.
+- [DINOv2](https://github.com/facebookresearch/dinov2) — visual encoder; Apache-2.0. The deployed weights are a modified (fine-tuned) copy of `facebook/dinov2-small`, not an official Meta release.
 - [AnomalyDINO](https://github.com/dammsi/AnomalyDINO) — inspiration for the custom high-resolution adaptation; no reproduction claim.
 - [BGE-small-en-v1.5](https://huggingface.co/BAAI/bge-small-en-v1.5) — retrieval embeddings.
 - [Qwen2.5-3B-Instruct](https://huggingface.co/Qwen/Qwen2.5-3B-Instruct) — base of the fine-tuned text generator. **Improved using Qwen.** Qwen Research License: the fine-tuned model is non-commercial and is not covered by the MIT licence. Results and method: [docs/QWEN_FINETUNING_RESULTS.md](docs/QWEN_FINETUNING_RESULTS.md).

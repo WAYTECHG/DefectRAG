@@ -234,4 +234,4 @@ cd experiments\qwen_lora_v1; ollama create qwen-defectrag-v2 -f Modelfile_v2
 > questions; exported to GGUF and served in Ollama at 1-2 s per answer.
 
 Do not claim: that it beats Qwen3-4B at finding the answer; that the gain holds for real users (the questions are
-AI-written); or that the Space already uses it (until it does).
+AI-written). (The Space has used it since 2026-11-06; see "Decision" above.)

@@ -207,7 +207,7 @@ def main():
         path=ROOT/relative
         if path.exists():
             files[relative]=path
-    for relative in ('results/sensitive_deployment_evaluation.json','results/macaroni_recall_deployment_evaluation.json'):
+    for relative in ('results/sensitive_deployment_evaluation.json','results/macaroni_recall_deployment_evaluation.json','results/highres_deployment_evaluation.json','results/tuned_deployment_evaluation.json'):
         files[relative]=ROOT/relative
     for directory in ('backend','deployment/space'):
         for path in (ROOT/directory).glob('*.py'):
@@ -219,6 +219,11 @@ def main():
         raise SystemExit('Frontend changed while assembling release')
     for path in (ROOT/'models/highres').glob('*.npz'):
         files[path.relative_to(ROOT).as_posix()] = path
+    # Fine-tuned encoder and coreset banks (profile dinov2_tuned_v1); the previous profile's files stay for rollback.
+    for directory in ('models/highres_tuned','models/encoder_dinov2_tuned'):
+        for path in (ROOT/directory).glob('*'):
+            if path.is_file():
+                files[path.relative_to(ROOT).as_posix()] = path
     if args.phase>=3:
         for path in (ROOT/'models/embedding').rglob('*'):
             if path.is_file() and path.suffix not in ('.py','.pyc'):
@@ -239,10 +244,10 @@ def main():
     readme = (ROOT/'deployment/zerogpu_phase1/SPACE_README.md').read_text(encoding='utf-8')
     header = readme.split('---',2)[1].replace('DefectRAG - Phase 1 compatibility test','DefectRAG').replace('Existing React UI plus one genuine DINOv2 ZeroGPU inspection','Live React dashboard and DINOv2 inspection on ZeroGPU')
     body = f'''\n# DefectRAG — migration phase {args.phase}\n
-Existing React UI, real frozen DINOv2 inspection across all 12 VisA categories,
-original normal-reference banks and heatmaps, with versioned normal-only decision
-calibration. No training rerun. The q95 sensitivity policy trades more false
-alarms for higher recall; Macaroni1/2 use the more sensitive q80 decision policy.
+Existing React UI, real DINOv2 inspection across all 12 VisA categories with an
+encoder fine-tuned on synthetic defects, 32,768-patch coreset normal-reference banks
+and heatmaps, and normal-only decision thresholds. The q95 sensitivity policy trades
+more false alarms for higher recall; Macaroni1/2 use the more sensitive q80 policy.
 Historical inspection decisions are preserved.
 Anonymous browser history is isolated and temporary. Sign in to the configured
 staff workspace for durable shared records when available. Do not treat anomaly

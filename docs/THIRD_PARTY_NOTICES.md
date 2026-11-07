@@ -54,3 +54,18 @@ revision and tensor checksum are saved beside the downloaded assets. The new
 memory/foreground approach is inspired by Damm, Laszkiewicz, Lederer and Fischer,
 AnomalyDINO (WACV2025), https://github.com/dammsi/AnomalyDINO (Apache2.0). This
 project implementation is a custom full-data adaptation, not an exact reproduction.
+
+Modified DINOv2 weights: the detector deployed from profile dinov2_tuned_v1 uses a
+modified copy of facebook/dinov2-small (Apache2.0; licence text kept in
+models/encoder_dinov2_tuned/LICENSE). The last four transformer blocks and the final layer
+norm were fine-tuned for 2,500 steps on synthetic defects made from official VisA
+training-normal images (scripts/encoder_finetune.py, receipt in
+models/encoder_dinov2_tuned/ASSET_RECEIPT.json). This is not an official Meta release and
+Meta does not endorse it. The frozen original remains in models/encoder_dinov2.
+
+MVTec AD: Bergmann, Fauser, Sattlegger and Steger, "MVTec AD: a comprehensive real-world dataset for unsupervised
+anomaly detection", CVPR 2019, and "The MVTec Anomaly Detection Dataset", IJCV 2021. Licence CC BY-NC-SA 4.0
+(non-commercial use, attribution, share-alike). Used only for a one-shot evaluation (docs/MVTEC_EVALUATION.md); no
+model in this project was trained on it, and the dataset is not redistributed. The copy used was downloaded from the
+Hugging Face mirror foersben/mvtec-ad and checked against the published image and mask counts.
+

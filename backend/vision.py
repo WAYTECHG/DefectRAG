@@ -25,16 +25,30 @@ class ModelUnavailable(RuntimeError):
 def create_detector(settings):
     """Choose the detector for the configured profile.
 
-    "legacy" always uses the original DINOv3 detector. "auto" uses the high-resolution
-    DINOv2 detector only when models/highres/PROFILE.json exists and says "active", and
-    otherwise falls back to legacy. Asking for the high-resolution profile explicitly when it
-    is not installed or not validated raises ModelUnavailable.
+    "legacy" always uses the original DINOv3 detector. "dinov2_highres_v1" is the DINOv2
+    detector with the frozen encoder and random-sample banks. "dinov2_tuned_v1" is the DINOv2
+    detector with the fine-tuned encoder and coreset banks. "auto" uses the tuned profile when
+    models/highres_tuned/PROFILE.json exists and says "active", otherwise the high-resolution
+    profile when models/highres/PROFILE.json exists, otherwise legacy. Asking explicitly for a
+    profile that is not installed or not validated raises ModelUnavailable.
     """
-    marker = settings.root / "models/highres/PROFILE.json"
     mode = settings.profile
-    if mode not in ("auto", "legacy", "dinov2_highres_v1"):
+    if mode not in ("auto", "legacy", "dinov2_highres_v1", "dinov2_tuned_v1"):
         raise ModelUnavailable("Unknown detector profile")
-    if mode == "legacy" or (mode == "auto" and not marker.exists()):
+    if mode == "legacy":
+        return Detector(settings)
+    tuned_marker = settings.root / "models/highres_tuned/PROFILE.json"
+    tuned_active = tuned_marker.exists() and json.loads(tuned_marker.read_text()).get("status") == "active"
+    if mode == "dinov2_tuned_v1" or (mode == "auto" and tuned_active):
+        if not tuned_marker.exists():
+            raise ModelUnavailable("Requested fine-tuned profile is not installed")
+        if not tuned_active:
+            raise ModelUnavailable("Fine-tuned profile is not validated for activation")
+        from .highres import TunedDetector
+
+        return TunedDetector(settings)
+    marker = settings.root / "models/highres/PROFILE.json"
+    if mode == "auto" and not marker.exists():
         return Detector(settings)
     if not marker.exists():
         raise ModelUnavailable("Requested high-resolution profile is not installed")

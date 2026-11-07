@@ -15,15 +15,17 @@ from .config import CATEGORIES
 def mount_reference_routes(app: FastAPI, settings, detector) -> None:
     @app.get("/api/evaluation")
     def evaluation():
-        active = getattr(detector, "profile_name", "legacy") == "dinov2_highres_v1"
-        path = settings.root / "results" / ("highres_deployment_evaluation.json" if active else "evaluation.json")
+        name = getattr(detector, "profile_name", "legacy")
+        active, tuned = name == "dinov2_highres_v1", name == "dinov2_tuned_v1"
+        filename = "highres_deployment_evaluation.json" if active else "evaluation.json"
+        path = settings.root / "results" / ("tuned_deployment_evaluation.json" if tuned else filename)
         result = json.loads(path.read_text()) if path.exists() else {"status": "unverified"}
         if active and "categories" in result:
             from .calibration import active_evaluation
 
             result = active_evaluation(settings.root, result)
         profile = settings.root / "results" / "serving_profile.json"
-        if profile.exists() and not active:
+        if profile.exists() and not (active or tuned):
             result["serving_profile"] = json.loads(profile.read_text())
         return {"data": result}
 

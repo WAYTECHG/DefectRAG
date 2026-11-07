@@ -25,8 +25,7 @@ from fastapi import HTTPException
 from fastapi.responses import FileResponse, JSONResponse, RedirectResponse, Response
 from fastapi.staticfiles import StaticFiles
 from backend.config import CATEGORIES, Settings
-from backend.calibration import calibrated_card
-from backend.highres import HighResolutionEncoder, foreground_mask, score_tokens, restore_map
+from backend.highres import HighResolutionEncoder, PROFILES, foreground_mask, profile_card, score_tokens, restore_map
 from backend.vision import sha256, display_map
 from backend.storage import now
 from backend.inspection_routes import mount_inspection_experience, INSPECTION_UX_PATHS
@@ -34,9 +33,15 @@ from deployment.space.sessions import SessionRepository, identity, namespace, NA
 
 ZERO = os.getenv('SPACES_ZERO_GPU') == '1'
 DEVICE = 'cuda' if torch.cuda.is_available() else 'cpu'
-CARDS = {category: calibrated_card(ROOT,json.loads((ROOT/f'models/highres/{category}.json').read_text())) for category in CATEGORIES}
-ENCODER = HighResolutionEncoder(ROOT/'models/encoder_dinov2', device='cpu')
-encoder_digest = sha256(ROOT/'models/encoder_dinov2/model.safetensors')
+# The fine-tuned encoder with coreset banks is the default; DEFECTRAG_SPACE_PROFILE=dinov2_highres_v1 restores the
+# previous frozen-encoder profile (its files stay in the Space).
+PROFILE = os.getenv('DEFECTRAG_SPACE_PROFILE', 'dinov2_tuned_v1')
+assert PROFILE in PROFILES, 'Unknown detector profile'
+BANK_DIRECTORY = ROOT/PROFILES[PROFILE]['directory']
+ENCODER_DIRECTORY = ROOT/PROFILES[PROFILE]['encoder']
+CARDS = {category: profile_card(ROOT,PROFILE,json.loads((BANK_DIRECTORY/f'{category}.json').read_text())) for category in CATEGORIES}
+ENCODER = HighResolutionEncoder(ENCODER_DIRECTORY, device='cpu')
+encoder_digest = sha256(ENCODER_DIRECTORY/'model.safetensors')
 assert all(card['encoder_sha256'] == encoder_digest for card in CARDS.values())
 if DEVICE == 'cuda':
     ENCODER.model.half().to('cuda')
@@ -46,7 +51,7 @@ if DEVICE == 'cuda':
     ENCODER.std = ENCODER.std.half().to('cuda')
 BANKS = {}
 for category, card in CARDS.items():
-    file = ROOT/f'models/highres/{category}.npz'
+    file = BANK_DIRECTORY/f'{category}.npz'
     assert sha256(file) == card['bank_sha256'], f'Invalid bank checksum: {category}'
     with np.load(file, allow_pickle=False) as saved:
         BANKS[category] = F.normalize(torch.from_numpy(saved['patches'].astype('float32')), dim=-1).to(DEVICE)
@@ -71,7 +76,7 @@ def compute(rgb: np.ndarray, category: str) -> dict:
 
 
 class MetadataDetector:
-    profile_name = 'dinov2_highres_v1'
+    profile_name = PROFILE
     def cards(self):
         return list(CARDS.values())
 
@@ -196,7 +201,7 @@ def inspect_one(image_b64, filename, category, batch, request_id=''):
     record.update(id=identifier,created_at=now(),category=category,batch=batch.strip(),filename=Path(filename).name[:160],
         verdict=verdict,score=score,threshold=threshold,uncertainty_margin=margin,defect_category=None,
         request_fingerprint=fingerprint(content,category,batch),
-        model_id=card['model_id'],model_sha256=card['bank_sha256'],profile='dinov2_highres_v1',calibration=card['calibration'],
+        model_id=card['model_id'],model_sha256=card['bank_sha256'],profile=PROFILE,calibration=card['calibration'],
         total_model_ms=round((time.perf_counter()-start)*1000,2),
         localization=f"{output['geometry']['grid'][0]} x {output['geometry']['grid'][1]} DINOv2 patch distances with PCA foreground heuristic; interpolated, not supervised segmentation",
         scope='VisA appearance anomaly screening; operator-selected category is not verified; foreground heuristic can fail.',
