@@ -128,6 +128,10 @@ python -m deployment.space.tuned_release --publish          # one commit: new mo
 node deployment/space/verify_tuned_live.mjs                  # 24 live inspections (set SPACE_HF_TOKEN for quota)
 ```
 
+Changing the thresholds of the fine-tuned profile later (the code rule, the cards and the manifest must change together,
+because the Space checks them at start-up): `python -m deployment.space.tuned_thresholds --dry-run`, `--stage <empty dir>`,
+`--publish`, and `--rollback`.
+
 Rollback of that release: `python -m deployment.space.tuned_release --rollback` restores the saved live code
 files (`development-support/space/tuned-rollback-<previous commit>`); or set the Space variable
 `DEFECTRAG_SPACE_PROFILE=dinov2_highres_v1` to select the previous frozen-encoder profile, whose files stay on the Space.

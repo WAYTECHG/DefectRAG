@@ -83,11 +83,11 @@ def test_a_card_that_disagrees_with_the_manifest_is_rejected(installed, key):
         tuned_card(root, changed)
 
 
-def test_macaroni_uses_the_q80_policy_and_the_others_q95(installed):
+def test_every_product_uses_the_same_q95_rule(installed):
     root, manifest = installed
-    assert TUNED_QUANTILES == {"macaroni1": 0.8, "macaroni2": 0.8}
+    assert TUNED_QUANTILES == {}
     wrong = deepcopy(manifest)
-    wrong["categories"]["macaroni2"]["calibration"]["quantile"] = 0.95
+    wrong["categories"]["macaroni2"]["calibration"]["quantile"] = 0.8
     (root / "results" / TUNED_FILENAME).write_text(json.dumps(wrong))
     with pytest.raises(ValueError, match="Invalid tuned threshold"):
         tuned_card(root, wrong["categories"]["macaroni2"])

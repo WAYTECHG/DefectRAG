@@ -17,7 +17,7 @@ number comes from files in this repository (`results/tuned_deployment_evaluation
 * **Scoring:** short image edge resized to 448 px, 14 px patches; cosine distance to the nearest memory patch; an
   unsupervised PCA step keeps foreground patches; the image score is the mean of the largest 1% of foreground patch
   distances. A per-patch map gives the highlighted-areas picture.
-* **Decision:** a fixed threshold per product (rules below) plus a ±5% "closer look" band around it.
+* **Decision:** one threshold per product, all set by the same rule (below), plus a ±5% "closer look" band around it.
 * **Code:** `backend/highres.py` (scoring), `scripts/encoder_finetune.py` (fine-tune), `scripts/build_tuned_profile.py`
   and `scripts/activate_tuned.py` (banks, thresholds, cards). The previous profiles (frozen encoder, random-sample banks;
   and the first DINOv3 prototype) stay installed and can be selected again.
@@ -48,8 +48,10 @@ verified by the model.
   kept the features of untouched patches close to the original encoder. 2,500 steps, batch 8, AdamW (1e-5 for the
   encoder, 1e-3 for the head), bf16, about 22 minutes on one laptop GPU (mostly CPU time spent drawing the synthetic defects). One shared encoder for all 12 products. The head is
   discarded after training; only the encoder is used.
-* **Thresholds:** the 95th percentile of each product's 90 held-out normal scores for ten products, and the 80th
-  percentile for macaroni 1 and 2 (a more sensitive setting chosen earlier because their anomalies were missed too often).
+* **Thresholds:** one rule for every product: the 95th percentile of its 90 held-out normal scores (about 5 in 100
+  normal reference photos are flagged). Earlier versions used a more sensitive 80th percentile for macaroni 1 and 2
+  because their defects were missed too often; it was removed on 2026-11-07 so that every product, and every
+  comparison in this repository, uses the same rule.
 
 ## Evaluation
 
@@ -65,15 +67,15 @@ variants were scored on the same images, which favours the one that was chosen.
 | candle | 0.941 -> **0.960** | 0.992 | 86% | 9% | q95 |
 | chewinggum | 0.989 -> **0.992** | 0.996 | 96% | 6% | q95 |
 | fryum | 0.992 -> **0.990** | 0.981 | 96% | 4% | q95 |
-| macaroni1 | 0.909 -> **0.947** | 0.996 | 91% | 20% | q80 |
-| macaroni2 | 0.845 -> **0.897** | 0.994 | 90% | 27% | q80 |
+| macaroni1 | 0.909 -> **0.947** | 0.996 | 75% | 4% | q95 |
+| macaroni2 | 0.845 -> **0.897** | 0.994 | 73% | 9% | q95 |
 | pcb2 | 0.906 -> **0.958** | 0.972 | 87% | 10% | q95 |
 | pcb3 | 0.955 -> **0.993** | 0.980 | 98% | 13% | q95 |
 | pcb4 | 0.987 -> **0.995** | 0.983 | 95% | 2% | q95 |
 | pipe_fryum | 0.989 -> **0.991** | 0.993 | 99% | 4% | q95 |
-| **macro mean** | 0.950 -> **0.971** | 0.988 | 93.5% | 9.9% | |
+| **macro mean** | 0.950 -> **0.971** | 0.988 | 90.7% | 7.0% | |
 
-Average precision 0.976, F1 0.926. Pixel AUROC uses masks resized to 224 x 224 and is reported for localisation only.
+For the same rule, the previous profile caught 83.8% with 7.4% false alarms. Average precision 0.976, F1 0.921. Pixel AUROC uses masks resized to 224 x 224 and is reported for localisation only.
 
 ### What each change contributed (VisA, mean image AUROC over 12 products)
 
@@ -104,8 +106,9 @@ gain is not confirmed outside VisA.
 
 * **Small structural defects remain the weak spot:** edge chips on macaroni (about 0.8 AUROC for that defect type) and
   missing parts on pcb2. Subtle defects whose patches each look normal can be missed.
-* **Macaroni 1 and 2 trade many false alarms for recall** (20% and 27% of normal test photos flagged) because of the
-  more sensitive threshold. Expect more review work for those products.
+* **Macaroni 1 and 2 catch the fewest defects** under the one rule (75% and 73%, against 86% to 99% for the other
+  products). A more sensitive limit (80th percentile) would catch about 91% and 90% but flag 20% and 27% of normal
+  photos; it is not the default.
 * **Thresholds are not guarantees.** They come from 90 normal photos per product; a q95 threshold does not mean a 5%
   false-alarm rate on new photos. The "closer look" band is a heuristic, not a calibrated confidence.
 * **Foreground heuristic:** the PCA rule assumes one object on a fairly plain background. On texture surfaces it can

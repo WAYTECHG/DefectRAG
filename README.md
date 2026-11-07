@@ -1,509 +1,101 @@
 <div align="center">
-  <img src="docs/assets/hero.svg" alt="DefectRAG — visual evidence, grounded answers" width="100%" />
+  <img src="docs/assets/hero.svg" alt="DefectRAG: visual evidence, grounded answers" width="100%" />
 
-  <p><strong>Industrial visual anomaly inspection with retrieval-augmented generation.</strong></p>
-  <p>Visual evidence, cited explanations, private synchronized workspaces and accountable team review.</p>
+  <p><strong>Take a photo of a product. See if it looks unusual, see where, and ask why.</strong></p>
 
-  <a href="https://huggingface.co/spaces/Wizzas/DefectRAG"><img src="https://img.shields.io/badge/Live_demo-Hugging_Face-FFD21E?style=for-the-badge&amp;logo=huggingface&amp;logoColor=black" alt="Live Hugging Face demo" /></a>
-  <img src="https://img.shields.io/badge/Python-3.12-3776AB?style=for-the-badge&amp;logo=python&amp;logoColor=white" alt="Cloud Python 3.12" />
-  <img src="https://img.shields.io/badge/PyTorch-2.8.0-EE4C2C?style=for-the-badge&amp;logo=pytorch&amp;logoColor=white" alt="PyTorch 2.8.0" />
-  <img src="https://img.shields.io/badge/React-19.3.1-149ECA?style=for-the-badge&amp;logo=react&amp;logoColor=white" alt="React 19.3.1" />
-  <br/>
-  <img src="https://img.shields.io/badge/Gradio-6.30.0-F97316?style=flat-square&amp;logo=gradio&amp;logoColor=white" alt="Gradio 6.30.0" />
-  <img src="https://img.shields.io/badge/FastAPI-0.142.2-009688?style=flat-square&amp;logo=fastapi&amp;logoColor=white" alt="Cloud FastAPI 0.142.2" />
-  <img src="https://img.shields.io/badge/Vite-6.4.5-646CFF?style=flat-square&amp;logo=vite&amp;logoColor=white" alt="Vite 6.4.5" />
-  <img src="https://img.shields.io/badge/LangGraph-1.2.14-1C3C3C?style=flat-square" alt="Cloud LangGraph 1.2.14" />
-  <img src="https://img.shields.io/badge/Supabase-Auth_%2B_RLS_%2B_Storage-3ECF8E?style=flat-square&amp;logo=supabase&amp;logoColor=white" alt="Supabase authentication, row-level security and storage" />
-  <img src="https://img.shields.io/badge/MFA-native_TOTP-635BFF?style=flat-square" alt="Native Supabase TOTP MFA" />
-  <img src="https://img.shields.io/badge/n8n-case_emails_live-EA4B71?style=flat-square&amp;logo=n8n&amp;logoColor=white" alt="n8n on AWS delivers Corrective Action emails" />
-  <img src="https://img.shields.io/badge/License-MIT-7963DF?style=flat-square" alt="MIT application license" />
+  <a href="https://huggingface.co/spaces/Wizzas/DefectRAG"><img src="https://img.shields.io/badge/Live_demo-Hugging_Face-FFD21E?style=for-the-badge&amp;logo=huggingface&amp;logoColor=black" alt="Live demo on Hugging Face" /></a>
   <a href="https://github.com/WAYTECHG/DefectRAG/actions/workflows/ci.yml"><img src="https://github.com/WAYTECHG/DefectRAG/actions/workflows/ci.yml/badge.svg" alt="CI: tests and builds on every push" /></a>
-  <a href="https://github.com/WAYTECHG/DefectRAG/actions/workflows/release.yml"><img src="https://github.com/WAYTECHG/DefectRAG/actions/workflows/release.yml/badge.svg" alt="Release: one-click dashboard deployment to Hugging Face" /></a>
-
-  <p><a href="https://huggingface.co/spaces/Wizzas/DefectRAG">Live application</a> · <a href="#current-capabilities">Features</a> · <a href="#architecture">Architecture</a> · <a href="#measured-results">Results</a> · <a href="#quick-start">Quick start</a> · <a href="docs/STAFF_QUICK_GUIDE.md">Staff guide</a> · <a href="docs/OPERATIONS.md">Operations</a></p>
+  <img src="https://img.shields.io/badge/License-MIT-7963DF?style=flat-square" alt="MIT licence for the application code" />
 </div>
 
-## Overview
+<p align="center">
+  <img src="docs/assets/screenshots/result-compare.png" alt="Inspection result: the original photo beside the highlighted unusual areas, with the score and the review limit" width="49%" />
+  <img src="docs/assets/screenshots/overview-dark.png" alt="The dashboard overview in the dark theme" width="49%" />
+</p>
 
-**Run locally:** use the [setup guide](docs/SETUP.md) for the synchronized
-dashboard. Developer registration emails use the independent Supabase/Resend
-service. Corrective Action emails are live: a self-hosted n8n instance on AWS
-Lightsail emails the case supervisor and copies the person responsible within
-seconds of a saved change. Multimodal RAG remains future work.
+## What it does
 
-DefectRAG combines a DINOv2 image encoder (fine-tuned on synthetic defects) with a
-normal-reference memory bank and an inspection-linked RAG assistant. The existing React dashboard supports image
-inspection, visual comparison, batch history, evaluation, reports, staff notes,
-review alerts and recoverable archival. One Gradio Server-mode Hugging Face Space
-hosts the cloud UI, CPU services and queued ZeroGPU inference.
+- **Checks a photo.** Pick one of 12 product types, add a photo, and get *Looks normal*, *Needs a closer look* or *Unusual appearance*, with the unusual areas highlighted.
+- **Explains the result.** Ask a question and the assistant answers with sentences quoted from the project's own documents, shows where each one came from, and says so when the documents don't cover it.
+- **Keeps people in charge.** Staff review each result, assign a fix to a person with a deadline, and the team sees what is still open. Corrective Action emails reach the person responsible.
+- **Runs two ways.** Online in the browser, or on your own computer where photos stay on that computer.
 
-| Visual inspection | Evidence-grounded RAG | Shared review |
-|---|---|---|
-| Fine-tuned DINOv2 features across 12 VisA products | BGE retrieval over attributed documents | Supabase authentication and existing RLS |
-| Nearest-normal anomaly scores and calibrated thresholds | LangGraph routing, Qwen generation and citation checks | Private images, heatmaps, conversations and notes |
-| Interpolated patch-distance heatmaps | Saved measurements remain separate from document claims | Acknowledgments, CSV, printable reports and developer recovery |
+DefectRAG is a screening aid. A person always makes the final call, and the score is a distance, not a chance of a defect.
 
-> **Operating scope:** benchmark appearance screening. Scores are distances, not
-> defect probabilities. The product category is operator-selected; the system
-> does not diagnose defect types, causes, manufacturing tolerances or repairs.
-
-<details>
-<summary><strong>Dashboard preview</strong></summary>
-<p><img src="docs/assets/dashboard.png" alt="DefectRAG overview in the light theme: grouped sidebar, result cards and inspections-over-time chart" width="100%" /></p>
-<p><img src="docs/assets/dashboard-dark.png" alt="The same overview in the dark theme" width="100%" /></p>
-</details>
-
-## Current capabilities
-
-| Capability | What it does | Status |
-|---|---|---|
-| **Guided practice** | A coach card walks through 14 steps on the real screens, highlighting the actual control and advancing only when the action is done, with hints for wrong choices. Practice data stays in memory and makes no network request. | Live on Hugging Face |
-| **Light and dark themes** | A shadcn/ui-style dashboard with a theme switch in the header. It follows the device setting on first visit and remembers the choice; every colour is a design token defined for both themes. | Live on Hugging Face |
-| **Comfortable on any screen** | Laptop, tablet and phone layouts. On phones a **Menu** button lists every page, tables turn into easy-to-read cards and every button is large enough to tap. Text-size buttons (**A− / A+**) and a "Signed in as" badge sit in the header. | Live on Hugging Face |
-| **Calm error handling** | Plain messages instead of technical ones (for example "The online app is starting" instead of a parser error). If one page hits unexpected data, only that page shows a recovery card; the rest of the app keeps working. Actions are never reported as failed just because the follow-up refresh failed. | Live on Hugging Face |
-| **Support details** | **Help & references → Copy details for support** copies the app version, page, connection state and the last 15 error messages, never passwords, emails or photos. The footer shows the version, for example `v2.1.0 · 9fad426`. | Live on Hugging Face |
-| **Faster review** | **Mark all as seen** for review alerts (with a confirm step and a clear count of any that fail), zoom and drag around a photo with the compare divider always lined up, and Open / Overdue / Done filters for Corrective Action cases. | Live on Hugging Face |
-| **Public Demo Mode** | Visitors can explore inspection without becoming Staff. Private account and Team records remain separate. | Available; free inference quotas apply |
-| **Staff registration and approval** | Email-confirmed applicants submit Pending requests. Developers approve, reject or revoke access from the interface; signup grants no Staff membership. | Implemented and activated on the existing installation |
-| **Native TOTP MFA** | Approved Staff and Developers verify an authenticator code. Backend, database functions, RLS and protected storage enforce the required assurance. | Enforced on the existing installation |
-| **Personal local ↔ cloud synchronization** | The same approved account uses private history across local and hosted clients, including images, heatmaps, conversations and review state. Queued changes, duplicates and conflicts have explicit handling. | Real Supabase QA verified; unsynchronized local changes are not yet cloud-saved |
-| **Explicit Team collaboration** | Share a separate inspection copy, open evidence and save structured Staff reviews. Personal records are never automatically published to Team. | Implemented |
-| **Corrective Actions** | The inspection picker shows each review's status and the next step. A case is created from a human-confirmed Team defect with a person responsible, supervisor and due date (Tomorrow / 3 days / 1 week / 2 weeks shortcuts). Refresh preserves drafts; concurrent updates require explicit review. Only the owner, supervisor or a Developer can edit existing cases. | Live |
-| **Community Gallery** | Publish a separate public copy with explicit consent. Private notes, conversations and account history stay separate. | Hosted gallery available; local publishing needs separate configuration |
-| **Developer request emails** | A durable outbox, cloud scheduler, Supabase Edge worker and Resend notify the Developer independently of the Windows laptop. | Controlled cloud delivery verified; current restricted sender is for the verified Developer recipient |
-| **Corrective Action emails (n8n)** | A database trigger dispatches each new case or saved update immediately; a 2-minute schedule sends due-soon and overdue reminders and retries. A Supabase Edge Function gives n8n a short-lived, event-scoped lease; n8n emails the supervisor, copies a distinct verified person responsible and records the provider receipt. A one-effect ledger prevents duplicate sends. | Live; paused with one database flag |
-| **Model results and recovery** | DINOv2/DINOv3 comparisons, all 12 categories, reports, CSV exports, review alerts and recoverable archival remain accessible. | Existing functionality preserved |
-
-These statuses describe the verified installation on **31 October 2026**. A fresh
-clone starts with blank public Supabase configuration and still needs its own
-reviewed database/authentication setup; cloning does not activate cloud services.
-
-### Learn by doing
-
-Open **Overview → Tutorial → Start guided practice**. A coach card guides you
-through the same screens used for real work: choose a product and photo, inspect,
-compare images, ask the assistant, share with the team, publish with consent,
-save a Staff review, create and progress a case, run a small batch and acknowledge
-an alert. Each step highlights the real control and completes only when the action
-is done; wrong choices get a hint.
-
-During practice the app switches to an in-memory lesson workspace with an
-attributed public example and fictional colleagues. Nothing is saved, shared,
-published or emailed, no account access changes and no GPU allowance is used.
-The prepared teaching answer is labelled and is not a live Qwen response.
-Real work returns when the lesson ends.
-
-<p align="center"><img src="docs/assets/guided-practice.png" alt="Guided practice coach card highlighting the real Product category control" width="820" /></p>
-
-[Staff quick guide](docs/STAFF_QUICK_GUIDE.md)
-
-## Architecture
+## How it works
 
 ```mermaid
 flowchart LR
-    UI["React + Vite dashboard"] --> API["Gradio Server / FastAPI"]
-    API --> Q["Shared queued GPU jobs"]
-    Q --> D["Fine-tuned DINOv2 + coreset normal bank"]
-    D --> R["Score / threshold / heatmap"]
-    R --> UI
-    UI --> C["Inspection-linked question"]
-    C --> M{"Saved measurement question?"}
-    M -->|Yes| F["Trusted saved facts"]
-    M -->|No| B["BGE embeddings · CPU child"]
-    K["Attributed source documents"] --> B
-    B --> E["Retrieved passages + quote IDs"]
-    E --> L["LangGraph evidence validation"]
-    L --> Q
-    Q --> G["Qwen2.5-3B fine-tuned · ZeroGPU"]
-    G --> V["Citation / quote / numeric checks"]
-    V --> UI
-    F --> UI
-    API --> S["Supabase Auth / RLS / private storage"]
-    S --> H["Inspections · conversations · notes · recovery"]
-    H --> UI
-    classDef vision fill:#ebe9ff,stroke:#7664ff,color:#242444
-    classDef rag fill:#e7f7f2,stroke:#2a9b7e,color:#193d35
-    classDef storage fill:#fff3df,stroke:#d5a34c,color:#4b371b
-    class D,R vision
-    class B,E,L,G,V rag
-    class S,H storage
+    P["Photo"] --> V["Vision model compares it<br/>with normal photos"]
+    V --> S["Difference score vs the<br/>limit for that product"]
+    S --> R["Verdict + highlighted areas"]
+    R --> A["Assistant answers questions<br/>with quoted sources"]
 ```
 
-**RAG is retrieval-augmented generation.** LangChain loads/chunks documents and
-retrieves BGE vectors; LangGraph coordinates scope checks, retrieval, generation
-and answer validation. Qwen generates explanations from retrieved evidence.
-Direct score/verdict answers use saved measurements without pretending to call an
-LLM. The assistant receives inspection facts and conversation, not image pixels.
-This is **vision-assisted text RAG**, not Multimodal RAG. Multimodal retrieval,
-vision-language reasoning and model fine-tuning remain separate future work.
+1. **Look.** A vision model (DINOv2) cuts the photo into small patches and compares each one with a memory of 32,768 patches taken from normal photos of the same product. A patch with no close match is unusual. It learns only from normal photos, so it needs no examples of defects.
+2. **Decide.** Every product has a limit. A score above it is *unusual*, a score close to it is *closer look*.
+3. **Explain.** The assistant finds the most relevant sentences in the documents, a small language model (Qwen2.5-3B, fine-tuned for this job) picks the one that answers the question, and the app checks the quote before showing it. **Improved using Qwen.**
 
-### Workspace, approval and automation flow
+## Results
 
-```mermaid
-flowchart TD
-    Visitor["Visitor"] --> Demo["Isolated public demo / guided practice"]
-    Visitor --> Auth["Supabase Auth · email confirmation"]
-    Auth --> Pending["Pending Staff access request"]
-    Pending --> Approval["Developer approval · native TOTP AAL2"]
-    Approval --> Staff["Approved Staff · required TOTP"]
-    Staff --> Personal["Private Personal Workspace"]
-    Local["Local account cache + pending changes"] <--> Cloud["Supabase · owner-only history + storage"]
-    Personal --> Cloud
-    Cloud --> Hosted["Same account in the hosted app"]
-    Personal -->|Explicit share| Team["Team inspection + Staff review"]
-    Team -->|Human-confirmed defect| Case["Assigned Corrective Action · audited lifecycle"]
-    Personal -->|Separate public consent| Gallery["Community Gallery copy"]
-    Pending --> Outbox["Durable notification outbox"]
-    Outbox --> Worker["Cloud Cron + Edge worker"]
-    Worker --> Resend["Developer email · Resend"]
-    Case --> Queue["Event queue · one-effect ledger"]
-    Queue -->|"Instant trigger + 2-min reminders"| Edge["Edge Function · event-scoped lease"]
-    Edge --> N8N["n8n on AWS · authenticated webhook"]
-    N8N --> Mail["Email: supervisor + copy to person responsible"]
-    N8N -->|"Provider receipt"| Queue
-```
+Measured on the VisA dataset: 12 product types, 2,400 test photos. **One rule for every product**, macaroni included, and the same rule the app uses: the limit is set so that about 5 in 100 normal reference photos would be flagged.
 
-Registration, MFA assurance, case ownership and revocation are enforced below the
-frontend. n8n does not generate OTPs or grant permissions and never holds a
-database service key. Saving a case does not depend on email: if n8n or the mail
-provider is unavailable the case stays saved and the event waits in the queue; an
-ambiguous send is held for manual review instead of being repeated.
-
-| Component | Cloud deployment | Preserved local application |
-|---|---|---|
-| UI | Existing React/Vite dashboard | Same dashboard |
-| Host | Gradio 6.30 Server mode + FastAPI | FastAPI / Uvicorn |
-| Active visual model | Fine-tuned DINOv2 ViT-S/14, 448px short edge, 32,768-patch coreset banks | Same profile; the frozen-encoder DINOv2 profile and original DINOv3 are retained |
-| Retrieval | BGE-small-en-v1.5 in a CPU-only subprocess | Existing local BGE embeddings/index |
-| Generation | Fine-tuned Qwen2.5-3B-Instruct (QLoRA, merged) on ZeroGPU | Ollama `qwen-defectrag-v2` (same model, Q8_0), or plain `qwen2.5:3b` |
-| Persistence | Private Personal / explicitly shared Team records in Supabase; isolated temporary guest history | Owner-scoped local cache/outbox and private Supabase synchronization; explicit Team sharing |
-| Transformers | 5.20.1, isolated cloud environment | 4.57.6 production requirements |
-
-Package badges describe the validated cloud/frontend versions. Local and cloud
-environments intentionally differ. The DINOv2 encoder was lightly fine-tuned (last 4 of
-12 blocks, 2,500 steps, synthetic defects made from normal images, consistency loss
-to the original features); the memory banks are 32,768-patch coresets of normal images
-only, and thresholds come from held-out normal images only. The Qwen language model is
-fine-tuned separately (QLoRA). Details and negative results: `docs/ENCODER_DIAGNOSTIC.md`.
-
-## Measured results
-
-Full details, limits and licences: [detector model card](docs/model-cards/DETECTOR_MODEL_CARD.md) ·
-[language-model card](docs/model-cards/QWEN_MODEL_CARD.md) · [step-by-step experiments](docs/ENCODER_DIAGNOSTIC.md) ·
-[MVTec AD protocol and results](docs/MVTEC_EVALUATION.md).
-
-### How the detector was improved, one change at a time
-
-The detector compares an inspection photo with a memory of normal photos of the same product. Each step below changes
-one thing and is measured on the same 12 VisA products (mean image AUROC; the weakest products show where it matters).
-
-| Step | What changed | Mean AUROC | Three weakest products | Macaroni 2 |
-|---|---|---:|---:|---:|
-| 0 | Starting point: pretrained DINOv2 (frozen), random-sample memory | 0.950 | 0.887 | 0.845 |
-| 1 | + a memory chosen by farthest-point selection (same size, no extra cost) | 0.969 | 0.925 | 0.880 |
-| 2 | + the encoder's last blocks fine-tuned on synthetic defects (deployed) | **0.971** | **0.934** | **0.897** |
-
-* **Step 1 is the robust gain**: it also held on a second benchmark that played no part in the design (MVTec AD below).
-* **Step 2 is a small gain** that is clear on three products (Macaroni 1 and 2, PCB 1) and not confirmed outside VisA.
-* **Tried and rejected, with numbers** in the experiments document: rotated training views, DINOv3 features (alone and
-  fused), position-aware and global distances, and a fine-tune with simpler synthetic defects. Reporting what did not
-  help is part of the result.
-* The test images were seen during development and several variants were scored on them, so these figures are
-  descriptive, not an independent validation.
-
-### Deployed detector: fine-tuned DINOv2 with coreset banks
-
-Operational banks (810 fit normals per product, 90 held-out normals for thresholds),
-200 official test images per product. Thresholds: q95 of held-out normal scores, q80 for
-Macaroni1/2. Retrospective: the test images were seen during development, so these
-figures are descriptive, not independent validation.
-
-| Macro mean over 12 products | Previous profile (frozen encoder, random-sample banks) | **Deployed (fine-tuned encoder, coreset banks)** |
+| | Before | Now |
 |---|---:|---:|
-| Image AUROC | 95.01% | **97.11%** |
-| Image average precision | 95.64% | **97.64%** |
-| Recall at the operating threshold | 88.8% | **93.5%** |
-| False alarms on normal test images | 11.1% | **9.9%** |
-| Pixel AUROC (224) | 98.62% | **98.80%** |
+| Separates normal from unusual (AUROC, 1.0 = perfect, 0.5 = coin flip) | 0.950 | **0.971** |
+| Defects caught, with the same rule for all 12 | 83.8% | **90.7%** |
+| Normal photos flagged by mistake | 7.4% | **7.0%** |
 
-Most of the gain comes from the coreset memory bank; the fine-tune adds a small extra
-gain over the same coreset with the frozen encoder, clear on Macaroni1/2 and PCB1 (image
-AUROC 0.935 to 0.947 and 0.880 to 0.897 on the first two), and not distinguishable from
-zero elsewhere. Step-by-step experiments,
-including variants that did not help, are in `docs/ENCODER_DIAGNOSTIC.md`.
+What made the difference, one change at a time:
 
-### Generalisation check on MVTec AD (one run, decided in advance)
+| Step | AUROC |
+|---|---:|
+| Start: pretrained vision model, memory of randomly picked normal patches | 0.950 |
+| A smarter memory: pick the most varied normal patches instead (same size) | 0.969 |
+| Also fine-tune the model's last layers on synthetic defects (what runs now) | **0.971** |
 
-To test whether the VisA findings hold elsewhere, the three detector variants were scored once on MVTec AD (15
-products, 1,725 test images), with the protocol written before any score existed (`docs/MVTEC_EVALUATION.md`).
+The smarter memory is the big win, and it also held on a second dataset (MVTec AD, 15 other products: 0.986 to 0.992). The fine-tune is a small extra gain that I could not confirm on that second dataset. Ideas that did not help are written up too, in [the experiments](docs/ENCODER_DIAGNOSTIC.md).
 
-| Macro mean over 15 products | Random-sample bank (previous recipe) | Coreset bank | Coreset + VisA fine-tuned encoder |
-|---|---:|---:|---:|
-| Image AUROC | 98.6% | **99.2%** | **99.2%** |
+**The assistant:** fine-tuning picked the right source sentence for 89% of 100 held-out questions, against 42% for the same model without it, and it stopped answering questions the documents cannot answer.
 
-The coreset bank transfers: clear gains on cable, pill and screw and nothing clearly worse. The fine-tuned encoder
-adds nothing measurable on this unseen dataset (one product clearly better, one clearly worse), so its small VisA gain
-is not confirmed outside VisA. MVTec AD is close to saturated, and pixel-level localisation is weak on texture products
-because of the foreground heuristic; details and limits are in the protocol document. Data from a third-party
-Hugging Face mirror, checked against the published counts.
+### Honest limits
 
-### Earlier benchmark: the DINOv3 prototype against the first DINOv2 profile
+- Only the 12 VisA product types were tested. Other products, cameras or lighting are untested.
+- I saw the test photos while building this, so the numbers are descriptive, not independent proof. The MVTec check was run once, with the plan written first.
+- **Macaroni is the weak spot.** Small chips on the edges are the hardest case, so with the one rule Macaroni 1 and 2 catch about 75% and 73% of defects, against 86% to 99% for the other products. A more sensitive limit would catch about 90% but flag 20% to 27% of normal macaroni photos; I kept one rule for fairness.
+- The assistant was tested on questions written with AI help, so real users may do worse.
+- Not an approved factory procedure.
 
-This is the historical comparison between the first prototype (DINOv3, 224 px, 64 training photos per product, a
-calibration split that borrowed test anomalies) and the first DINOv2 profile (448 px, all training photos, a proper
-normal-only holdout). It changes several things at once (encoder, resolution, training data and split), so it is **not a
-controlled comparison**; the table above is. The DINOv3 profile remains installed only as a fallback.
+## Try it
 
-Retrospective development comparison on the official VisA train/test assignments:
-**12 products, 8,659 training normals, 2,162 test images, seeds 42/43/44**.
-Earlier test results informed development; this is not an untouched external test
-or a reproduction of a published method.
+**Online:** [the live demo](https://huggingface.co/spaces/Wizzas/DefectRAG). It runs on a shared free GPU, so the first request can be slow. Anonymous history is temporary.
 
-| Macro mean over 12 products | Original DINOv3 | DINOv2 high resolution |
-|---|---:|---:|
-| **Image AUROC** | **85.38%** | **95.13%** |
-| Image AU-PR | 86.47% | 95.74% |
-| Pixel AUROC | 92.96% | 98.60% |
-| Pixel AU-PR | 33.29% | 43.04% |
-| Supplementary image AP | 86.58% | 95.77% |
-
-The deployment bank has a separate normal-only calibration holdout. Its
-recall-oriented policy uses the fixed 80th percentile of normal calibration scores
-for Macaroni1/2 and the 95th percentile for the other ten products, with no weight
-updates. Both earlier policies remain available.
-
-| Retrospective operating metrics | Original maximum-normal | All-product q95 | Targeted Macaroni q80 |
-|---|---:|---:|---:|
-| Macro recall | 60.17% | 83.83% | **88.83%** |
-| Macro precision | **97.59%** | 93.26% | 90.47% |
-| Macro F1 | 68.63% | 87.56% | **89.57%** |
-| Macro normal false-alarm rate | **2.42%** | 7.43% | 11.10% |
-
-Higher sensitivity produces more false alarms. Policy selection followed the
-observed recall problem; these are development results, not independent validation
-or guaranteed future performance. AUROC is unchanged by threshold calibration.
-Macaroni1/2 recall is now 85%/80%, with substantial normal false-alarm rates of
-24%/28%; review workload is higher. Historical inspections retain their original
-decisions. [Targeted policy and rollback](docs/MACARONI_RECALL_UPDATE.md) ·
-[Earlier calibration](docs/SENSITIVITY_CALIBRATION.md).
-
-Ground-truth masks are used for pixel evaluation only. The PCA foreground rule
-is a heuristic, and interpolated heatmaps are not supervised segmentation. The
-headline is mean image AUROC, with AU-PR and operating recall alongside it; this
-is not YOLO bounding-box mAP@IoU.
-
-[Full comparison](docs/ACCURACY_RESULTS.md) · [Metric definitions](docs/ACCURACY_AND_METRICS.md) · [Evidence Assistant architecture](docs/ARCHITECTURE.md#evidence-assistant)
-
-## Quick start
-
-### Public application
-
-Open **[Wizzas/DefectRAG](https://huggingface.co/spaces/Wizzas/DefectRAG)**.
-HF sign-in supplies available GPU quota; Supabase staff sign-in separately
-authorizes persistent shared records. Embedded and direct app links can have
-separate browser sessions. Free quotas, cold starts and queue waits apply.
-For onboarding, select **Overview → Tutorial**. If an already-open browser still
-shows an older menu, open the direct application in a new tab:
-[current hosted dashboard](https://wizzas-defectrag.hf.space/?release=224259f#overview).
-
-### Assign a confirmed defect
-
-1. Open **Corrective Actions** and choose a **Team inspection**. Each option shows
-   its status (for example *Ready: defect confirmed* or *Needs review*), with ready
-   inspections first. Personal work must first be explicitly shared.
-2. If a review is still needed, the step box links straight to it. Creation
-   requires a **Reviewed / Reject: defect confirmed** review and an explicit human
-   confirmation; Accept and Hold decisions are respected.
-3. Enter what needs fixing, the person responsible, supervisor, priority and due
-   date (one-click shortcuts, or a date and a time). A draft is not a saved case.
-4. Open **Details** to update permitted progress. Concurrent edits keep the draft
-   and require an explicit reload. Closed/cancelled cases retain read-only history.
-
-Creating or updating a case emails the supervisor and copies the person
-responsible within seconds; reminders follow when a case is due within 24 hours or
-overdue. Each case shows its email delivery status. [Staff guide](docs/STAFF_QUICK_GUIDE.md).
-
-<p align="center"><img src="docs/assets/case-email.png" alt="Corrective Action email with a friendly robot greeting, case details and a View case button" width="560" /></p>
-
-### Existing Windows installation
-
-```powershell
-Set-Location 'C:/path/to/DefectRAG'
-& '.\deployment\run_local.ps1'
-```
-
-Open http://127.0.0.1:8765. The launcher verifies/rebuilds the React dashboard
-when needed and enables private synchronization. Complete the existing Staff
-sign-in and TOTP MFA for protected Personal/Team operations. Existing models and
-evaluation results are reused. For local generated explanations, Ollama must be
-running with `qwen2.5:3b` installed. Guest demo history stays local; private data
-does not automatically become Team or Gallery data. The older
-`Start-DefectRAG.cmd -Port 8767` path remains available for the legacy local mode.
-
-### Development machine (conda)
-
-For daily development, one conda environment replaces the project `.venv`. Python 3.11
-is required; the NVIDIA GPU build below matches the pinned `torch==2.8.0`.
-
-```powershell
-conda create -n defectrag python=3.11
-conda activate defectrag
-pip install torch==2.8.0 torchvision==0.23.0 --index-url https://download.pytorch.org/whl/cu126
-pip install -r requirements.txt
-```
-
-Use `https://download.pytorch.org/whl/cpu` instead of `cu126` on a computer without an NVIDIA GPU.
-
-```powershell
-conda activate defectrag
-python -m uvicorn backend.main:app --host 127.0.0.1 --port 8765
-```
-
-This starts the plain local mode: no sign-in, Team workspace, Corrective actions or
-gallery, and results stay on this computer. To test the same screens as the online
-Space, set `DEFECTRAG_LOCAL_SYNC=1` before starting (`$env:DEFECTRAG_LOCAL_SYNC='1'`).
-That connects to the live Supabase project, so use a test Staff account and avoid
-creating real Corrective Actions, which send real emails. Docker
-(`docker compose up -d --build`) is CPU-only plain local mode and does not use conda.
-
-### Fresh source clone
-
-The GitHub source export excludes model weights, reference banks, private records
-and environments. Node.js/npm and Python 3.11 are required for this setup:
+**On your computer** (Windows, Python 3.11, Node.js):
 
 ```powershell
 git clone https://github.com/WAYTECHG/DefectRAG.git
 cd DefectRAG
 py -3.11 -m venv .venv
 .\.venv\Scripts\python.exe -m pip install -r requirements.txt
-.\.venv\Scripts\python.exe -m scripts.fetch_public_assets --list
-# Optional explicit download of pinned public model/sample/evaluation assets:
-.\.venv\Scripts\python.exe -m scripts.fetch_public_assets
+.\.venv\Scripts\python.exe -m scripts.fetch_public_assets   # downloads the models and checks their checksums
 .\Start-DefectRAG.cmd -Port 8767
 ```
 
-The launcher builds missing frontend assets using `npm ci`. The asset downloader
-fetches the immutable published DINOv2 profile and verifies bank checksums; it
-does not retrain models. (The pinned revision holds the frozen-encoder profile; the
-fine-tuned profile becomes downloadable after the Space is republished and the pin is updated.) This fresh-clone recipe is documented but was not
-validated by another full dependency/model download. CPU inference is supported;
-NVIDIA acceleration requires compatible CUDA PyTorch wheels. Legacy DINOv3 assets
-are preserved in existing installations and are not included in that DINOv2 download.
+This recipe was not re-tested from a completely fresh machine. A GPU is optional. Sign-in, the team workspace and emails need your own Supabase and email setup: see [Setup](docs/SETUP.md).
 
-### Development checks
+## Learn more
 
-```powershell
-python -m pytest tests -q
-node tests/test_space_batch.mjs
-npm.cmd test --prefix frontend
-npm.cmd run build --prefix frontend
-```
+[Staff guide](docs/STAFF_QUICK_GUIDE.md) · [Setup](docs/SETUP.md) · [Security](docs/SECURITY.md) · [Operations](docs/OPERATIONS.md) · [Architecture](docs/ARCHITECTURE.md)
+[Detector model card](docs/model-cards/DETECTOR_MODEL_CARD.md) · [Language model card](docs/model-cards/QWEN_MODEL_CARD.md) · [Experiments](docs/ENCODER_DIAGNOSTIC.md) · [MVTec check](docs/MVTEC_EVALUATION.md)
 
-GitHub Actions runs the same checks on every push to `main` and on every pull request
-(`.github/workflows/ci.yml`). Model weights are not stored in Git, so tests that need them skip
-themselves on GitHub and run in full on a local installation (`tests/conftest.py`).
+Built with PyTorch, FastAPI, React, LangGraph, Supabase and Gradio on Hugging Face ZeroGPU.
 
-Dashboard releases can also run from GitHub: **Actions → Release dashboard → Run workflow**
-(`.github/workflows/release.yml`). It tests and builds the dashboard, shows the files that would
-change, waits for approval in the `production` environment, then publishes to the Space.
+## Credits and licences
 
-Cloud publication uses the verified frontend release publisher and its source/output
-receipts; a loose `ui-dist` folder is not sufficient proof of a current build.
-Deployment instructions: [Space adapter](deployment/space/README.md).
-Supabase SQL changes require review; no public service-role key belongs in config.
+Application code: [MIT](LICENSE). Models and data have their own licences; see [third-party notices](docs/THIRD_PARTY_NOTICES.md).
 
-## Validation and limits
-
-- Latest checks (7 November 2026): **274 frontend tests** and **220 backend tests** passed
-  (2 skipped), zero failed, plus an automatic text-contrast audit of 13 screens in both themes. On
-  2 November the real app was also used end to end in a browser at laptop, tablet
-  and phone sizes: inspection, compare/zoom, assistant, reviews, batch, CSV export, mark all as
-  seen, archive/restore, the phone menu, going offline, the server being down and a page with
-  broken data. The evidence photo was not reloaded across 50 seconds of background refreshes.
-- Earlier frontend regression suite (31 October 2026): **251 passed, zero failed**, including
-  the real-screen practice journey with no network calls, case picker status and
-  review wording, due-date shortcuts, draft preservation and a background-refresh
-  regression test. A browser measurement across repeated 15-second refreshes showed
-  no layout shift on the Cases and Staff pages. These checks are not new model
-  benchmarks. Physical-device QA is limited to browser phone-width checks.
-- The Corrective Action email SQL changes (person-responsible copy and instant
-  dispatch) passed isolated PostgreSQL 17 contract tests, including permission
-  preservation and exact rollback. Live delivery was verified end to end with test
-  cases: the supervisor and the copied recipient each received every email once,
-  and each send was recorded with a provider receipt.
-- **145 targeted backend/security/publisher tests passed**, using isolated software fixtures. Shared read-only routes now keep cloud batch-name validation and printable reports compatible with the dashboard.
-- Phone/tablet/desktop browser fixtures checked result/preview focus, form controls, service recovery and the case lifecycle. Demo reviews and recovery explicitly describe their temporary scope; Batch history excludes individual inspections. New-task controls preserve active inspections and answers.
-- **39 focused case/navigation tests** cover draft entry before review, Accept/Hold
-  denial, assignment validation, duplicate prevention, authorization and concurrent
-  edits. Native typing, actual Staff/supervisor selection, deadline retention and
-  background refresh were verified on the deployed dashboard with Developer MFA.
-  The complete interaction/lifecycle regression used fictional records; no real
-  case or review was submitted during the latest deployment check.
-- Real local/cloud inspection parity across all 12 products; maximum observed
-  score difference 0.00053 in the saved 24-image integration comparison.
-- Genuine Qwen generation, cited document answers and saved measurement answers.
-- Approved developer RPC success, anonymous denial, notes, acknowledgment,
-  reports/CSV/private images and reversible recovery verified.
-- Staff records and conversations survived an actual Space deployment restart.
-- Later native Staff/Developer/pending/MFA and Corrective Action assignment tests
-  are summarized with their access boundaries in [Security](docs/SECURITY.md).
-  Sustained production load and long-term email deliverability are not
-  established by these tests.
-- Staff-submitted answers still lack model-provenance attestation. Alert actor/time
-  tracking is present in the later personal-workspace schema; see the current
-  [security guide](docs/SECURITY.md) and migration source.
-
-[Setup](docs/SETUP.md) · [Security](docs/SECURITY.md) · [Model process](docs/TRAINING_AND_EVALUATION.md)
-
-## Operations and maintenance
-
-[docs/OPERATIONS.md](docs/OPERATIONS.md) is the runbook: what runs where, health checks, the
-common problems and their fixes, how to release and roll back, and where each feature lives in
-the code.
-
-| Added for easier management | What it gives |
-|---|---|
-| GitHub Actions CI | Tests and both dashboard builds run on every push and pull request |
-| One-click release (CD) | GitHub Actions builds and tests the dashboard, shows a release plan, waits for approval, then publishes to Hugging Face. The token is visible only to the approved job; the replaced files are kept for rollback |
-| Email kill switch (feature flag) | `automation_enabled` in Supabase pauses all Corrective Action emails at once, with no release |
-| Dependabot | Grouped monthly minor and patch updates, applied locally after testing. Major versions and model libraries are held back on purpose |
-| Issue forms and a pull-request checklist | Bug reports arrive with steps and the app's support details |
-| Version in the footer + Copy details for support | Every report says exactly which build was used |
-
-Jira, GitLab, Kubernetes and a hosted vector database were considered and **not** added: for one
-maintainer, one container and a small knowledge base they would add cost and upkeep without
-solving a real problem. LangSmith tracing is documented as an optional, off-by-default tool for
-private test copies only. Reasons are in the runbook.
-
-## Repository map
-
-```text
-backend/              Visual scoring, RAG workflow, API and SQLite persistence
-frontend/             React dashboard, SVG brand assets and public showcase
-knowledge/            Attributed RAG documents and source metadata
-deployment/space/     Gradio adapter, queued inference and Supabase repository
-scripts/              Explicit asset setup, evaluation and source export tools
-tests/                API, answer relevance, protocol and security checks
-docs/                 Setup, security, architecture, model results, user guides and the operations runbook
-docs/model-cards/     Model cards for the visual detector and the fine-tuned language model
-.github/              CI and release workflows, Dependabot, issue forms and pull-request checklist
-results/              Selected public benchmark and deployment summaries
-```
-
-Upload source and public documentation, not the whole working application folder.
-[GitHub upload guide and description](docs/GITHUB_PUBLISHING.md) explains the
-prepared source-only export, exclusions and safe configuration template.
-
-## References and licensing
-
-- [VisA / SPot-the-Difference](https://github.com/amazon-science/spot-diff), Zou et al., ECCV 2022 — CC BY 4.0 dataset.
-- [MVTec AD](https://www.mvtec.com/company/research/datasets/mvtec-ad), Bergmann et al., CVPR 2019 / IJCV 2021 — CC BY-NC-SA 4.0 (non-commercial); used only for the evaluation above.
-- [DINOv2](https://github.com/facebookresearch/dinov2) — visual encoder; Apache-2.0. The deployed weights are a modified (fine-tuned) copy of `facebook/dinov2-small`, not an official Meta release.
-- [AnomalyDINO](https://github.com/dammsi/AnomalyDINO) — inspiration for the custom high-resolution adaptation; no reproduction claim.
-- [BGE-small-en-v1.5](https://huggingface.co/BAAI/bge-small-en-v1.5) — retrieval embeddings.
-- [Qwen2.5-3B-Instruct](https://huggingface.co/Qwen/Qwen2.5-3B-Instruct) — base of the fine-tuned text generator. **Improved using Qwen.** Qwen Research License: the fine-tuned model is non-commercial and is not covered by the MIT licence. Results and method: [docs/QWEN_FINETUNING_RESULTS.md](docs/QWEN_FINETUNING_RESULTS.md).
-
-Application code: [MIT](LICENSE). Model/dataset licenses are separate.
-[Third-party notices](docs/THIRD_PARTY_NOTICES.md) preserve attribution. Included
-application screening guidance describes software scope; it is not an approved
-factory standard operating procedure or acceptance specification.
+- [VisA](https://github.com/amazon-science/spot-diff), Zou et al., ECCV 2022: CC BY 4.0.
+- [MVTec AD](https://www.mvtec.com/company/research/datasets/mvtec-ad), Bergmann et al., CVPR 2019 / IJCV 2021: CC BY-NC-SA 4.0, used only for one evaluation.
+- [DINOv2](https://github.com/facebookresearch/dinov2), Meta: Apache-2.0. The deployed weights are a modified copy, not an official Meta release.
+- [Qwen2.5-3B-Instruct](https://huggingface.co/Qwen/Qwen2.5-3B-Instruct): **Improved using Qwen.** Qwen Research License, non-commercial, so the fine-tuned model is not covered by the MIT licence.
+- [BGE-small-en-v1.5](https://huggingface.co/BAAI/bge-small-en-v1.5) for retrieval. [AnomalyDINO](https://github.com/dammsi/AnomalyDINO) inspired the memory and foreground steps; this is a custom adaptation, not a reproduction.

@@ -3,8 +3,8 @@
     python -m scripts.activate_tuned            # after scripts.build_tuned_profile finished all 12 categories
     python -m scripts.activate_tuned --check    # verify the installed files and print the summary without writing
 
-Thresholds use only the 90 held-out normal scores of each category: the fixed linear 95th percentile, and the 80th
-percentile for macaroni1/2 (the same operating policy the application already uses; no test label or mask picks them).
+Thresholds use only the 90 held-out normal scores of each category: the fixed linear 95th percentile, the same rule
+for every product (no test label or mask picks them).
 Existing files are never overwritten with different content. Rollback: set DEFECTRAG_PROFILE=dinov2_highres_v1 (frozen
 encoder, previous banks) or delete models/highres_tuned/PROFILE.json.
 """
@@ -27,7 +27,7 @@ METHOD = "AnomalyDINO-inspired DINOv2 ViT-S/14 fine-tuned on synthetic defects; 
 PROTOCOL = (
     "Official VisA test assignments. The DINOv2 encoder was fine-tuned on synthetic defects made from normal training "
     "images (last 4 blocks only). The memory bank is a 32,768-patch coreset of normal-image patches per product. "
-    "Thresholds are the 95th percentile of held-out normal scores (80th for Macaroni 1 and 2); held-out normals are "
+    "Thresholds are the 95th percentile of held-out normal scores, the same rule for every product; held-out normals are "
     "never used to build the memory. Retrospective development evaluation on test images that were seen during "
     "development; not an untouched external test."
 )
@@ -146,7 +146,7 @@ def main():
             "rates are not guaranteed."
         ),
         "policy_selection_context": (
-            "Same operating policy as the previous profile (q95 for every category, q80 for macaroni1/2). "
+            "One rule for every product: the 95th percentile of held-out normal scores. "
             "The test images were already seen in development, so these figures are descriptive."
         ),
         "previous_profile": {

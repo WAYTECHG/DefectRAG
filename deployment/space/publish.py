@@ -247,7 +247,7 @@ def main():
 Existing React UI, real DINOv2 inspection across all 12 VisA categories with an
 encoder fine-tuned on synthetic defects, 32,768-patch coreset normal-reference banks
 and heatmaps, and normal-only decision thresholds. The q95 sensitivity policy trades
-more false alarms for higher recall; Macaroni1/2 use the more sensitive q80 policy.
+more false alarms for higher recall; one rule is used for every product.
 Historical inspection decisions are preserved.
 Anonymous browser history is isolated and temporary. Sign in to the configured
 staff workspace for durable shared records when available. Do not treat anomaly

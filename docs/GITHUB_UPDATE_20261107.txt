@@ -8,6 +8,7 @@ backend/routes_reference.py
 deployment/space/app.py
 deployment/space/publish.py
 deployment/space/tuned_release.py
+deployment/space/tuned_thresholds.py
 deployment/space/verify_tuned_live.mjs
 deployment/space/verify_tuned_assistant.mjs
 scripts/fetch_public_assets.py
@@ -49,4 +50,6 @@ results/mvtec_eval.json
 docs/model-cards/DETECTOR_MODEL_CARD.md
 docs/model-cards/QWEN_MODEL_CARD.md
 docs/QWEN_FINETUNING_RESULTS.md
+docs/assets/screenshots/result-compare.png
+docs/assets/screenshots/overview-dark.png
 docs/GITHUB_UPDATE_20261107.txt

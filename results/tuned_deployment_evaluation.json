@@ -1,7 +1,7 @@
 {
   "method": "AnomalyDINO-inspired DINOv2 ViT-S/14 fine-tuned on synthetic defects; 32,768-patch coreset memory",
   "profile": "dinov2_tuned_v1",
-  "protocol": "Official VisA test assignments. The DINOv2 encoder was fine-tuned on synthetic defects made from normal training images (last 4 blocks only). The memory bank is a 32,768-patch coreset of normal-image patches per product. Thresholds are the 95th percentile of held-out normal scores (80th for Macaroni 1 and 2); held-out normals are never used to build the memory. Retrospective development evaluation on test images that were seen during development; not an untouched external test.",
+  "protocol": "Official VisA test assignments. The DINOv2 encoder was fine-tuned on synthetic defects made from normal training images (last 4 blocks only). The memory bank is a 32,768-patch coreset of normal-image patches per product. Thresholds are the 95th percentile of held-out normal scores, the same rule for every product; held-out normals are never used to build the memory. Retrospective development evaluation on test images that were seen during development; not an untouched external test.",
   "encoder_sha256": "95ac11984ecae1bb14e9a0d98e85650e73365fc3d57ed49c6bfa526e0498adcb",
   "device": "cuda",
   "categories": {
@@ -337,44 +337,44 @@
       "profile": "dinov2_tuned_v1",
       "encoder_sha256": "95ac11984ecae1bb14e9a0d98e85650e73365fc3d57ed49c6bfa526e0498adcb",
       "bank_sha256": "bb91183ddb84d8b0168988546c4186cf6de6512e4d72196a0a4b13fd9699d148",
-      "threshold": 0.0831331416964531,
-      "uncertainty_margin": 0.004156657084822655,
+      "threshold": 0.09831828400492666,
+      "uncertainty_margin": 0.004915914200246334,
       "heatmap_scale": 0.07764787554740862,
       "uncertainty_policy": "Fixed \u00b15% of threshold; operational heuristic, not calibrated confidence",
       "bank_size_bytes": 23276388,
       "encoder_size_bytes": 44136744,
       "calibration": {
-        "method": "Fixed linear 80th percentile of heldout normal scores; no anomalous calibration",
+        "method": "Fixed linear 95th percentile of heldout normal scores; no anomalous calibration",
         "normal": 90,
         "anomalous": 0,
         "seed": 42,
         "policy": "tuned-normal-quantile-v1",
-        "quantile": 0.8,
-        "calibration_above_threshold": 18,
+        "quantile": 0.95,
+        "calibration_above_threshold": 5,
         "future_false_positive_rate_guaranteed": false
       },
       "train_normal_count": 810,
       "metrics": {
         "image_auroc": 0.9471999999999999,
         "average_precision": 0.9581494503739729,
-        "precision": 0.8198198198198198,
-        "recall": 0.91,
-        "f1": 0.862559241706161,
-        "false_positive_rate": 0.2,
+        "precision": 0.9493670886075949,
+        "recall": 0.75,
+        "f1": 0.8379888268156425,
+        "false_positive_rate": 0.04,
         "confusion_matrix": [
           [
-            80,
-            20
+            96,
+            4
           ],
           [
-            9,
-            91
+            25,
+            75
           ]
         ],
         "n_images": 200,
         "pixel_auroc_224": 0.9962604306654536,
         "pixel_average_precision_224": 0.1985339563300542,
-        "uncertain_fraction": 0.095,
+        "uncertain_fraction": 0.08,
         "latency_median_ms": null,
         "peak_gpu_mb": null
       },
@@ -391,44 +391,44 @@
       "profile": "dinov2_tuned_v1",
       "encoder_sha256": "95ac11984ecae1bb14e9a0d98e85650e73365fc3d57ed49c6bfa526e0498adcb",
       "bank_sha256": "565bf9acc0869b52f4ffd1f6a9d8d3c6500555fa8a5f501bdf4cefdcadc51ae5",
-      "threshold": 0.09993447512388229,
-      "uncertainty_margin": 0.004996723756194115,
+      "threshold": 0.10864300690591334,
+      "uncertainty_margin": 0.005432150345295667,
       "heatmap_scale": 0.09322665214538575,
       "uncertainty_policy": "Fixed \u00b15% of threshold; operational heuristic, not calibrated confidence",
       "bank_size_bytes": 23254139,
       "encoder_size_bytes": 44136744,
       "calibration": {
-        "method": "Fixed linear 80th percentile of heldout normal scores; no anomalous calibration",
+        "method": "Fixed linear 95th percentile of heldout normal scores; no anomalous calibration",
         "normal": 90,
         "anomalous": 0,
         "seed": 42,
         "policy": "tuned-normal-quantile-v1",
-        "quantile": 0.8,
-        "calibration_above_threshold": 18,
+        "quantile": 0.95,
+        "calibration_above_threshold": 5,
         "future_false_positive_rate_guaranteed": false
       },
       "train_normal_count": 810,
       "metrics": {
         "image_auroc": 0.8969999999999999,
         "average_precision": 0.9032903776564074,
-        "precision": 0.7692307692307693,
-        "recall": 0.9,
-        "f1": 0.8294930875576038,
-        "false_positive_rate": 0.27,
+        "precision": 0.8902439024390244,
+        "recall": 0.73,
+        "f1": 0.8021978021978022,
+        "false_positive_rate": 0.09,
         "confusion_matrix": [
           [
-            73,
-            27
+            91,
+            9
           ],
           [
-            10,
-            90
+            27,
+            73
           ]
         ],
         "n_images": 200,
         "pixel_auroc_224": 0.9940951618855306,
         "pixel_average_precision_224": 0.16362726373735387,
-        "uncertain_fraction": 0.275,
+        "uncertain_fraction": 0.205,
         "latency_median_ms": null,
         "peak_gpu_mb": null
       },
@@ -657,16 +657,16 @@
   "macro_mean": {
     "image_auroc": 0.9710709295929593,
     "average_precision": 0.9764210490780011,
-    "precision": 0.917898095712363,
-    "recall": 0.9349999999999999,
-    "f1": 0.925494028417261,
-    "false_positive_rate": 0.09876512651265128,
+    "precision": 0.9387781292120323,
+    "recall": 0.9074999999999999,
+    "f1": 0.9211718867297343,
+    "false_positive_rate": 0.07043179317931793,
     "pixel_auroc_224": 0.9880497359716026,
     "pixel_average_precision_224": 0.46816529534999995
   },
   "decision_policy": "tuned-normal-quantile-v1",
   "validation_scope": "Held-out-normal thresholds and cached-score/software consistency checks; future recall and false-alarm rates are not guaranteed.",
-  "policy_selection_context": "Same operating policy as the previous profile (q95 for every category, q80 for macaroni1/2). The test images were already seen in development, so these figures are descriptive.",
+  "policy_selection_context": "One rule for every product: the 95th percentile of held-out normal scores. The test images were already seen in development, so these figures are descriptive.",
   "previous_profile": {
     "profile": "dinov2_highres_v1",
     "macro_mean": {

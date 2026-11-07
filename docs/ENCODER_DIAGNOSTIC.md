@@ -273,8 +273,9 @@ republishing the Space. That needs the project owner's approval; nothing in the 
 
 Option chosen: the 32,768-patch coreset on the realistic-defect fine-tuned encoder. Built with
 `scripts.build_tuned_profile` (encoder folder `models/encoder_dinov2_tuned`, banks `models/highres_tuned`), cards,
-manifest and marker written by `scripts.activate_tuned`. Thresholds: q95 of the 90 held-out normal scores for every
-category, q80 for macaroni1/2 (the policy already in use). The previous profile and its files are untouched.
+manifest and marker written by `scripts.activate_tuned`. Thresholds when first installed: q95 of the 90 held-out normal
+scores for every category, q80 for macaroni1/2 (the policy already in use); see "One rule for every product" at the end
+of this page for the later change. The previous profile and its files are untouched.
 
 | macro mean, 12 categories | previous profile | tuned profile |
 | --- | ---: | ---: |
@@ -311,4 +312,25 @@ the random-sample bank, 0.992 with the coreset, clear gains in cable, pill and s
 fine-tuned encoder did not add anything measurable (0.992, one category clearly better, one clearly worse, pixel AUROC
 slightly lower), so the fine-tune's small VisA gain is not confirmed outside VisA. The coreset is the robust
 contribution; the fine-tune is a documented, modest, VisA-specific improvement.
+
+## One rule for every product (2026-11-07)
+
+The q80 setting for Macaroni 1 and 2 made comparisons unfair (those two products were judged more leniently than the
+other ten), so the deployed profile now uses the 95th percentile of the held-out normal scores for **every** product
+(`TUNED_QUANTILES` in `backend/calibration.py` is empty). Space commit `e3d580c` changed the code rule, the two macaroni
+cards and the manifest together (`deployment/space/tuned_thresholds.py`; staged boot test first, rollback saved).
+AUROC does not depend on the threshold and is unchanged. At the operating point:
+
+| macro mean, 12 products | previous profile, q95 for all | tuned profile, q95 for all |
+| --- | ---: | ---: |
+| defects caught (recall) | 83.8% | 90.7% |
+| normal photos flagged | 7.4% | 7.0% |
+
+| product | q80 (before) caught / flagged | q95 (now) caught / flagged |
+| --- | ---: | ---: |
+| macaroni1 | 91% / 20% | 75% / 4% |
+| macaroni2 | 90% / 27% | 73% / 9% |
+
+The price of one rule is lower recall on macaroni, the hardest products. A more sensitive limit remains possible by
+adding a per-product entry to `TUNED_QUANTILES` and regenerating the cards with `scripts.activate_tuned`.
 

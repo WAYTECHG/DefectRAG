@@ -11,7 +11,8 @@ MACARONI_POLICY = "macaroni-recall-v1"
 MACARONI_FILENAME = "macaroni_recall_deployment_evaluation.json"
 TUNED_POLICY = "tuned-normal-quantile-v1"
 TUNED_FILENAME = "tuned_deployment_evaluation.json"
-TUNED_QUANTILES = {"macaroni1": 0.8, "macaroni2": 0.8}
+# One rule for every product (the 95th percentile of the held-out normal scores). Per-product exceptions would go here.
+TUNED_QUANTILES: dict[str, float] = {}
 TUNED_DEFAULT_QUANTILE = 0.95
 
 

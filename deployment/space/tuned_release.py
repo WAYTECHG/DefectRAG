@@ -170,7 +170,7 @@ def patch(live):
         "Existing React UI, real DINOv2 inspection across all 12 VisA categories with an\n"
         "encoder fine-tuned on synthetic defects, 32,768-patch coreset normal-reference banks\n"
         "and heatmaps, and normal-only decision thresholds. The q95 sensitivity policy trades\n"
-        "more false alarms for higher recall; Macaroni1/2 use the more sensitive q80 policy.\n"
+        "more false alarms for higher recall; one rule is used for every product.\n"
     )
     out["README.md"] = once(text, old, new, "README.md")
     for name, source in out.items():
@@ -239,6 +239,47 @@ def build_operations(patched):
     return operations
 
 
+BOOT_PROBE = (
+    "import sys,types,json\n"
+    "from pathlib import Path\n"
+    "sys.modules['spaces']=types.SimpleNamespace(GPU=lambda *a,**k:(lambda f:f))\n"
+    "sys.modules['gradio']=types.SimpleNamespace(Server=object)\n"
+    "src=Path('deployment/space/app.py').read_text(encoding='utf-8')\n"
+    "ns={'__file__':str(Path('deployment/space/app.py').resolve()),'__name__':'staged'}\n"
+    "exec(compile(src[:src.index('@spaces.GPU')],'deployment/space/app.py','exec'),ns)\n"
+    "assert ns['PROFILE']=='dinov2_tuned_v1' and len(ns['CARDS'])==12 and len(ns['BANKS'])==12\n"
+    "from backend.config import Settings\n"
+    "from backend.main import create_app\n"
+    "from fastapi.testclient import TestClient\n"
+    "class Meta:\n"
+    "    profile_name=ns['PROFILE']\n"
+    "    def cards(self): return list(ns['CARDS'].values())\n"
+    "import tempfile\n"
+    "app=create_app(Settings(root=Path('.').resolve(),data=Path(tempfile.mkdtemp())),detector=Meta(),workflow=object())\n"
+    "with TestClient(app) as client:\n"
+    "    data=client.get('/api/evaluation').json()['data']\n"
+    "    models=client.get('/api/models').json()['data']\n"
+    "assert data['profile']=='dinov2_tuned_v1' and data['decision_policy']=='tuned-normal-quantile-v1', data.get('profile')\n"
+    "assert len(models)==12 and all(m['model_id'].startswith('dinov2-tuned-') for m in models)\n"
+    "print('STAGED BOOT OK:', ns['PROFILE'], '| evaluation', data['profile'], round(data['macro_mean']['image_auroc'],4))\n"
+)
+
+
+def boot(target):
+    """Run the Space's model-loading start-up path and its evaluation endpoints inside a staged tree."""
+    result = subprocess.run(
+        [sys.executable, "-c", BOOT_PROBE],
+        cwd=target,
+        capture_output=True,
+        text=True,
+        timeout=600,
+        env={**__import__("os").environ, "DEFECTRAG_SPACE_RUNTIME": str(target / "runtime"), "PYTHONPATH": str(target)},
+    )
+    print(result.stdout.strip() or result.stderr.strip()[-1500:])
+    if result.returncode:
+        raise SystemExit("The staged Space tree did not boot; nothing was uploaded")
+
+
 def stage(api, directory):
     """Rebuild the Space's file tree from the live snapshot plus this release, then boot its model-loading path."""
     from huggingface_hub import snapshot_download
@@ -267,41 +308,7 @@ def stage(api, directory):
     for relative in LOCAL_MODEL_FILES:
         (target / relative).parent.mkdir(parents=True, exist_ok=True)
         shutil.copyfile(ROOT / relative, target / relative)
-    probe = (
-        "import sys,types,json\n"
-        "from pathlib import Path\n"
-        "sys.modules['spaces']=types.SimpleNamespace(GPU=lambda *a,**k:(lambda f:f))\n"
-        "sys.modules['gradio']=types.SimpleNamespace(Server=object)\n"
-        "src=Path('deployment/space/app.py').read_text(encoding='utf-8')\n"
-        "ns={'__file__':str(Path('deployment/space/app.py').resolve()),'__name__':'staged'}\n"
-        "exec(compile(src[:src.index('@spaces.GPU')],'deployment/space/app.py','exec'),ns)\n"
-        "assert ns['PROFILE']=='dinov2_tuned_v1' and len(ns['CARDS'])==12 and len(ns['BANKS'])==12\n"
-        "from backend.config import Settings\n"
-        "from backend.main import create_app\n"
-        "from fastapi.testclient import TestClient\n"
-        "class Meta:\n"
-        "    profile_name=ns['PROFILE']\n"
-        "    def cards(self): return list(ns['CARDS'].values())\n"
-        "import tempfile\n"
-        "app=create_app(Settings(root=Path('.').resolve(),data=Path(tempfile.mkdtemp())),detector=Meta(),workflow=object())\n"
-        "with TestClient(app) as client:\n"
-        "    data=client.get('/api/evaluation').json()['data']\n"
-        "    models=client.get('/api/models').json()['data']\n"
-        "assert data['profile']=='dinov2_tuned_v1' and data['decision_policy']=='tuned-normal-quantile-v1', data.get('profile')\n"
-        "assert len(models)==12 and all(m['model_id'].startswith('dinov2-tuned-') for m in models)\n"
-        "print('STAGED BOOT OK:', ns['PROFILE'], '| evaluation', data['profile'], round(data['macro_mean']['image_auroc'],4))\n"
-    )
-    result = subprocess.run(
-        [sys.executable, "-c", probe],
-        cwd=target,
-        capture_output=True,
-        text=True,
-        timeout=600,
-        env={**__import__("os").environ, "DEFECTRAG_SPACE_RUNTIME": str(target / "runtime"), "PYTHONPATH": str(target)},
-    )
-    print(result.stdout.strip() or result.stderr.strip()[-1500:])
-    if result.returncode:
-        raise SystemExit("The staged Space tree did not boot; nothing was uploaded")
+    boot(target)
 
 
 def main():
