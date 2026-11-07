@@ -56,4 +56,9 @@ docs/assets/hero-dark.svg
 docs/assets/hero-light.svg
 docs/assets/screenshots/overview-light.png
 docs/assets/screenshots/result-compare-dark.png
+results/mvtec_summary.json
+frontend/src/mvtec.mjs
+frontend/tests/mvtec.test.mjs
+tests/test_benchmark_route.py
+deployment/space/mvtec_release.py
 docs/GITHUB_UPDATE_20261107.txt

@@ -128,6 +128,10 @@ python -m deployment.space.tuned_release --publish          # one commit: new mo
 node deployment/space/verify_tuned_live.mjs                  # 24 live inspections (set SPACE_HF_TOKEN for quota)
 ```
 
+The MVTec AD section of the Official benchmark page (7 Nov 2026) was released as two steps: the additive backend route
+plus `results/mvtec_summary.json` with `python -m deployment.space.mvtec_release --dry-run | --stage <empty dir> | --publish |
+--rollback`, then the screens with the normal frontend chain. `scripts.mvtec_report` regenerates the summary file.
+
 Changing the thresholds of the fine-tuned profile later (the code rule, the cards and the manifest must change together,
 because the Space checks them at start-up): `python -m deployment.space.tuned_thresholds --dry-run`, `--stage <empty dir>`,
 `--publish`, and `--rollback`.

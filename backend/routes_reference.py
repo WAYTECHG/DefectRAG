@@ -64,4 +64,7 @@ def mount_reference_routes(app: FastAPI, settings, detector) -> None:
         candidate_source = candidate if candidate.exists() else candidate_progress
         if candidate_source.exists():
             report["candidate"] = json.loads(candidate_source.read_text())
+        mvtec = settings.root / "results/mvtec_summary.json"
+        if mvtec.exists():
+            report["mvtec"] = json.loads(mvtec.read_text())
         return {"data": report}

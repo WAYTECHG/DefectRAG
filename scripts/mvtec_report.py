@@ -17,6 +17,13 @@ from scripts.encoder_candidates_report import bootstrap_difference
 from scripts.mvtec_eval import ARMS, CATEGORIES, OUT
 
 RESULT = ROOT / "results" / "mvtec_eval.json"
+SUMMARY = ROOT / "results" / "mvtec_summary.json"
+PROTOCOL_URL = "https://github.com/WAYTECHG/DefectRAG/blob/main/docs/MVTEC_EVALUATION.md"
+LABELS = {
+    "A_random_frozen": "Random-sample memory",
+    "B_coreset_frozen": "Coreset memory",
+    "C_coreset_tuned": "Coreset + fine-tuned encoder",
+}
 PAIRS = (
     ("B_coreset_frozen", "A_random_frozen"),
     ("C_coreset_tuned", "B_coreset_frozen"),
@@ -61,6 +68,7 @@ def main():
         report[category] = entry
     categories = list(report)
     RESULT.write_text(json.dumps(report, indent=2), encoding="utf-8")
+    write_summary(report, categories)
 
     def mark(interval):
         return " ▲" if interval[0] > 0 else " ▼" if interval[1] < 0 else "  "
@@ -108,6 +116,38 @@ def main():
     print(
         "\nWritten to results/mvtec_eval.json. Descriptive; one run on a mirror copy of MVTec AD (docs/MVTEC_EVALUATION.md)."
     )
+
+
+def write_summary(report, categories):
+    """A compact file for the dashboard's Official benchmark page (macro means, per-product AUROC, clear differences)."""
+    keys = ("auroc", "average_precision", "pixel_auroc", "recall_q95", "false_alarm_q95")
+    macro = {arm: {k: float(np.mean([report[c]["arms"][arm][k] for c in categories])) for k in keys} for arm in ARMS}
+    comparisons = {
+        pair: {
+            "better": sum(1 for c in categories if report[c]["differences"][pair][0] > 0),
+            "worse": sum(1 for c in categories if report[c]["differences"][pair][1] < 0),
+        }
+        for pair in ("B-A", "C-B", "C-A")
+    }
+    summary = {
+        "dataset": "MVTec AD",
+        "scope": (
+            "One offline run on 15 products the detector was never built for. Each product's memory comes from its own "
+            "normal training photos; thresholds are the 95th percentile of held-out normal scores. These products are "
+            "not available for inspection in this app."
+        ),
+        "protocol_url": PROTOCOL_URL,
+        "arms": [{"key": arm, "label": LABELS[arm]} for arm in ARMS],
+        "products": len(categories),
+        "test_images": int(sum(report[c]["n_test"] for c in categories)),
+        "macro_mean": macro,
+        "comparisons": comparisons,
+        "categories": {
+            c: {"n_test": report[c]["n_test"], "arms": report[c]["arms"], "differences": report[c]["differences"]}
+            for c in categories
+        },
+    }
+    SUMMARY.write_text(json.dumps(summary, indent=2), encoding="utf-8")
 
 
 if __name__ == "__main__":

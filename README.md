@@ -113,7 +113,7 @@ on MVTec.
 | Image average precision | 0.995 | 0.997 | 0.998 |
 | Pixel AUROC | 0.886 | 0.888 | 0.881 |
 
-The coreset gains clearly on cable, pill and screw with no product clearly worse. The VisA fine-tune adds nothing
+The coreset gains clearly on cable, pill and screw with no product clearly worse. The results are also on the dashboard's Official benchmark page. The VisA fine-tune adds nothing
 measurable here (one product clearly better, one clearly worse), so its small VisA gain is not confirmed elsewhere.
 
 <details>

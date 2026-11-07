@@ -306,3 +306,4 @@ tr.selected-row{background:var(--accent)}
 :root.dark .hero-card p{color:var(--muted-fg)}
 :root.dark .hero-card .pill{background:var(--muted);color:var(--foreground);border-color:var(--border)}
 :root.dark .scan-visual>span,:root.dark .viewer-label{color:var(--foreground)}
+.stats-grid.plain .card,.stats-grid.plain .card:nth-child(n){border-top:5px solid var(--border)}
