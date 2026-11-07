@@ -21,6 +21,7 @@
   <img src="https://img.shields.io/badge/Gradio-6.30.0-F97316?style=flat-square&amp;logo=gradio&amp;logoColor=white" alt="Gradio 6.30.0" />
   <img src="https://img.shields.io/badge/FastAPI-0.142.2-009688?style=flat-square&amp;logo=fastapi&amp;logoColor=white" alt="Cloud FastAPI 0.142.2" />
   <img src="https://img.shields.io/badge/Vite-6.4.5-646CFF?style=flat-square&amp;logo=vite&amp;logoColor=white" alt="Vite 6.4.5" />
+  <img src="https://img.shields.io/badge/LangChain-1.6.10-1C3C3C?style=flat-square&amp;logo=langchain&amp;logoColor=white" alt="Cloud LangChain core 1.6.10" />
   <img src="https://img.shields.io/badge/LangGraph-1.2.14-1C3C3C?style=flat-square" alt="Cloud LangGraph 1.2.14" />
   <img src="https://img.shields.io/badge/Supabase-Auth_%2B_RLS_%2B_Storage-3ECF8E?style=flat-square&amp;logo=supabase&amp;logoColor=white" alt="Supabase authentication, row-level security and storage" />
   <img src="https://img.shields.io/badge/MFA-native_TOTP-635BFF?style=flat-square" alt="Native Supabase TOTP MFA" />
@@ -150,14 +151,17 @@ measurable here (one product clearly better, one clearly worse), so its small Vi
 ### Evidence assistant (fine-tuned Qwen2.5-3B)
 
 QLoRA fine-tuning (4-bit base, LoRA rank 16, 0.96% of weights trained, 400 examples, 50 minutes on an 8 GB laptop GPU).
-Scored on 100 held-out questions: an answer counts only if every quoted sentence is the expected one.
+Scored on 100 held-out questions (80 answerable, 20 that the documents cannot answer); an answer counts only if every
+quoted sentence is the expected one. The same Qwen2.5-3B was measured before and after fine-tuning in each place it runs:
 
-| Model | Fully correct (of 80 answerable) | Unanswerable questions answered anyway (of 20) | Seconds per answer |
+| Where it runs | Before fine-tuning | After fine-tuning | Seconds per answer (after) |
 |---|---:|---:|---:|
-| Qwen2.5-3B, not fine-tuned | 42% | 6 | 15.7 |
-| Previous deployed model (Qwen2.5-3B in Ollama) | 61% | 8 | 0.9 |
-| **Fine-tuned, as served on the Space** | **92%** | **2** | 2.6–2.9 |
-| **Fine-tuned, 8-bit copy in Ollama (local)** | **86%** | **0** | 1.1 |
+| Python test server, 4-bit | 42% correct · answered 6 of 20 it should refuse | **89%** correct · **0** of 20 | 11.6 |
+| Ollama on the laptop (output format enforced) | 61% · 8 of 20 | **86%** · **0** of 20 | 1.1 |
+| Hugging Face Space, 16-bit | not measured | **92%** · 2 of 20 | 2.6–2.9 |
+
+The "before" scores differ between rows because the runtime differs, not the model: Ollama forces the answer into the
+expected JSON shape, which the plain test server does not. Compare along a row, not down a column.
 
 Details, a second question set and caveats: [language-model card](docs/model-cards/QWEN_MODEL_CARD.md).
 
@@ -169,7 +173,9 @@ Details, a second question set and caveats: [language-model card](docs/model-car
 - **Macaroni is the weak spot:** small edge chips are hard to see, so Macaroni 1 and 2 catch 75% and 73% of defects
   under the one rule, against 86–99% for the other products.
 - Heatmaps are interpolated patch distances, not segmentation; on texture surfaces localisation is weak.
-- The assistant's test questions were written with AI help, so real users may do worse.
+- The assistant generalises less than its headline suggests: 86–92% on held-out questions phrased like the training
+  questions, but 56–65% on a separate set of newcomer-style questions. All were written with AI help; real users may do
+  worse.
 - A screening aid, not an approved factory procedure or acceptance specification.
 
 ## How it works

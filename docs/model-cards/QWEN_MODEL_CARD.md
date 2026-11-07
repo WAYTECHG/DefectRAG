@@ -49,13 +49,18 @@ source of facts about industrial standards, which the documents do not provide.
 Scoring is strict: an answer counts only if every quoted sentence is the expected one. Retrieval found the right text
 in 80 of 80 test questions, so the figures measure the generator, not retrieval.
 
-| 100 held-out questions (80 answerable, 20 not) | fully correct | answered an unanswerable question | seconds per answer |
-| --- | ---: | ---: | ---: |
-| Qwen2.5-3B, untouched (same server) | 34/80 (42%) | 6/20 | 15.7 |
-| Qwen2.5-3B in Ollama (the previous deployed model) | 49/80 (61%) | 8/20 | 0.9 |
-| **Fine-tuned, as the Space runs it** | **74/80 (92%)** | 2/20 | 2.6–2.9 |
-| **Fine-tuned, Ollama Q8_0** | **69/80 (86%)** | 0/20 | 1.1 |
-| Qwen3-4B-Instruct-2507 (the earlier cloud model) | 38/80 (48%) | 0/20 | 1.5 |
+The same Qwen2.5-3B was measured before and after fine-tuning in each runtime (100 held-out questions, 80 answerable,
+20 that the documents cannot answer):
+
+| Runtime | Before: fully correct | Before: unanswerable answered | After: fully correct | After: unanswerable answered | Seconds per answer (after) |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| Python test server, 4-bit | 34/80 (42%) | 6/20 | 71/80 (89%) | 0/20 | 11.6 |
+| Ollama, output format enforced (the laptop app) | 49/80 (61%) | 8/20 | 69/80 (86%) | 0/20 | 1.1 |
+| Hugging Face Space, bf16, no enforced format | not measured | | 74/80 (92%) | 2/20 | 2.6–2.9 |
+| For reference: Qwen3-4B-Instruct-2507 in Ollama (the earlier cloud model) | 38/80 (48%) | 0/20 | | | 1.5 |
+
+The "before" figures differ between runtimes because Ollama forces the answer into the expected JSON shape; the model
+weights are the same. Compare along a row.
 
 On 33 newcomer-style questions (23 answerable) the fine-tuned model scored 56–65% against 30% for the previous model;
 those intervals overlap (about ±18 points), so treat that as a trend. The lenient view ("is the right sentence among
