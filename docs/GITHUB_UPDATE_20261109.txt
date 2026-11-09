@@ -1,0 +1,4 @@
+# Update 9 Nov 2026 (second): AWS runbook matches what was built; README mentions CloudWatch, SNS and IAM
+README.md
+deployment/aws/README.md
+docs/GITHUB_UPDATE_20261109.txt

@@ -1,8 +1,12 @@
 # Host the DefectRAG dashboard on AWS (learning project)
 
 **Goal:** a public, read-only dashboard (the saved-example showcase) on AWS, built so you
-practise **Budgets, Lightsail, EC2, Lambda and CloudWatch**.
+practise **Budgets, Lightsail, Lambda, SNS, IAM and CloudWatch**. An EC2 lab server (Phase 4) is an optional extra.
 **No GPU, no AI model, no uploads.** The site is plain static files, so it is cheap and safe.
+Live inspection runs on the Hugging Face Space; this site only shows saved results.
+
+**Status (9 Nov 2026):** Phases 1, 2, 3 and the monitoring part of 5 are built and live (HTTPS site, status API,
+budget guard, CloudWatch alarm and dashboard, Lightsail alarms). Phase 4 (EC2 lab) was skipped on purpose.
 
 > Prices and Free Plan rules change. Treat every number below as an estimate and check the
 > AWS Billing console and the [AWS Pricing Calculator](https://calculator.aws/) before you start.
@@ -10,23 +14,26 @@ practise **Budgets, Lightsail, EC2, Lambda and CloudWatch**.
 ## What you will build
 
 ```
-Visitor ──► Lightsail instance (nginx, static IP, firewall)   ← the website  (~$5/month)
+Visitor ──► Lightsail instance (nginx, static IP, firewall, Let's Encrypt HTTPS)   ← the website  (~$5/month)
               │
               └─ status.html ──► Lambda Function URL (/status)  ← tiny live API
-EC2 lab instance (tagged Project=DefectRAG-lab) ← CloudWatch agent, alarms, dashboard
-Budgets ──► SNS ──► Lambda "budget guard" ──► stops the EC2 lab instance when spend is high
+                                      │
+                                      └─ CloudWatch: dashboard + error alarm ──► SNS topic ──► email
+Lightsail alarms (status check, CPU, burst capacity) ──► email
+Budgets ──► SNS ──► Lambda "budget guard"  (stops tagged EC2 lab instances; none exist unless you do Phase 4)
 ```
 
-| Skill on your resume | Where you use it here |
-|---|---|
-| **Budgets** | Phase 1: spending alerts, plus an automatic stop-switch |
-| **Lightsail** | Phase 2: the public website |
-| **Lambda** | Phase 3: a status API and the budget guard |
-| **EC2** | Phase 4: a lab server you start, monitor, then terminate |
-| **CloudWatch** | Phase 4: metrics, logs, alarms, one dashboard |
+| Skill on your resume | Where you use it here                                              |
+| -------------------- | ------------------------------------------------------------------ |
+| **Budgets**    | Phase 1: spending alerts, plus an automatic stop-switch            |
+| **Lightsail**  | Phase 2: the public website with HTTPS and instance alarms         |
+| **Lambda**     | Phase 3: a status API and the budget guard                         |
+| **SNS / IAM**  | Phase 3: alert topics, one least-privilege role per function       |
+| **CloudWatch** | Phase 4: Lambda dashboard and an error alarm that emails you       |
+| **EC2**        | Phase 4b (optional, not done here): a lab server with the agent    |
 
-**Rough cost for 178 days:** Lightsail about $30. EC2 lab about $0.40 per day while running, so run it
-only while learning. Lambda and CloudWatch basics stay near $0 at this size. Your $199.99 credit is plenty.
+**Rough cost for 178 days:** Lightsail about $30. Lambda, SNS and CloudWatch basics stay near $0 at this size.
+An optional EC2 lab costs about $0.40 per day while running, so run it only while learning.
 
 ## Rules that protect your credit (do these first)
 
@@ -64,10 +71,10 @@ Test it locally first: `python -m http.server 8771 --directory frontend/dist-sta
 
 1. Console → **Lightsail → Create instance**. Linux/Unix, **OS only → Ubuntu 24.04 LTS**.
 2. Plan: the **$5/month** plan with a public IPv4 address (check that it includes IPv4).
-3. Under **Launch script**, paste the content of [`server/bootstrap.sh`](server/bootstrap.sh).
+3. Under **Launch script**, paste the content of [`server/bootstrap.sh`](server/bootstrap.sh). Include the first line, `#!/bin/bash`. Without it the script runs under `sh`, fails at `set -o pipefail` and nginx is never installed (see Troubleshooting).
 4. Name it `defectrag-web`. Add tag `Project` = `DefectRAG`. Create.
 5. **Networking → Create static IP** and attach it to the instance (free while attached; it is billed if left unattached).
-6. **Networking → IPv4 Firewall:** keep **HTTP 80** and **HTTPS 443** open to everyone. Change **SSH 22** to **your own IP only** (add your IP, remove "Any IP").
+6. **Networking → IPv4 Firewall:** keep **HTTP 80** open and add **HTTPS 443**, both to everyone. Change **SSH 22** to **your own IP only** (add your IP, remove "Any IP"). Some internet providers rotate your public address between blocks (check `https://checkip.amazonaws.com` a few times). If it changes, allow the whole `/24` block of each address you see, not a single `/32`. Keep the **Lightsail browser SSH** tick, which works without your IP.
 7. Download the default SSH key from **Account → SSH keys**, or use the browser SSH button.
 
 ### 2.3 Publish
@@ -87,16 +94,18 @@ You need a **domain name** pointing at the static IP.
 - Cheap: register a domain in **Route 53** (check the price first; domain fees may not be covered by credits) or use any registrar.
 - Free option: a free dynamic-DNS subdomain such as DuckDNS pointing at the static IP.
 
-Then on the server (browser SSH):
+Then **on the server** (browser SSH, not your own computer). First tell nginx its name, because certbot looks for a matching `server_name`:
 
 ```bash
-sudo certbot --nginx -d your.domain.example --agree-tos -m you@example.com --redirect
+sudo sed -i 's/server_name _;/server_name your.domain.example;/' /etc/nginx/sites-available/defectrag
+sudo nginx -t && sudo systemctl reload nginx
+sudo certbot --nginx -d your.domain.example --agree-tos -m you@example.com --no-eff-email --redirect
 sudo certbot renew --dry-run     # proves automatic renewal works
 ```
 
 ### 2.5 Lightsail alarms
 
-Lightsail → your instance → **Metrics**: add alarms for **CPU utilization > 80% for 15 min** and **Status check failed**, with email notification.
+Lightsail → your instance → **Metrics**: add alarms for **Status check failed** (rule **greater than or equal to 1**; the metric is 0 or 1, so "greater than 1" never fires), **CPU utilization > 80% for 15 min**, and **Burst capacity percentage < 10%** (a $5 plan is burstable and is throttled when the capacity reaches 0). Tick **Email**. Lightsail alarms are Lightsail's own, not CloudWatch alarms.
 
 ## Phase 3: Lambda (60 minutes)
 
@@ -105,9 +114,9 @@ Two small functions are in [`lambda/`](lambda/).
 ### 3.1 `status_api.py`: a live "status" endpoint
 
 1. Console → **Lambda → Create function** → Author from scratch → name `defectrag-status` → **Python 3.12** → Create.
-2. Paste `lambda/status_api.py` into the code editor → **Deploy**.
+2. Paste `lambda/status_api.py` into the code editor, and set **Runtime settings → Handler** to `lambda_function.handler` (the console names the file `lambda_function.py`) → **Deploy**. Update `SAVED_EXAMPLES` when the showcase size changes (now 24).
 3. **Configuration → Function URL → Create** → Auth type **NONE** → save. (It only returns harmless public data.)
-4. **Configuration → Concurrency** → reserve **5** so a flood of requests cannot run up a bill.
+4. **Configuration → Concurrency** → reserve **5** so a flood of requests cannot run up a bill. New accounts often cannot (the total limit is 10 and AWS keeps 100 unreserved), so skip it there; the function is tiny, returns harmless data, and the Budgets alert is the safety net.
 5. Test: `curl <function-url>` should return JSON.
 6. Put the URL in the site: `export STATUS_URL=<function-url>` and run `deploy_site.sh` again. Open `http://<ip>/status.html`.
 
@@ -123,7 +132,16 @@ Two small functions are in [`lambda/`](lambda/).
 
 The guard only stops EC2 instances tagged `Project=DefectRAG-lab`. It cannot touch Lightsail or anything else.
 
-## Phase 4: EC2 + CloudWatch lab (90 minutes, then terminate)
+## Phase 4: CloudWatch monitoring (30 minutes)
+
+Built and live. It watches the real Lambda functions, so no EC2 server is needed.
+
+1. **SNS → Topics → Create topic** (Standard) `defectrag-alerts`, tag `Project=DefectRAG`. Add an **Email** subscription and click **Confirm** in the message you receive. Do **not** reuse `defectrag-budget-alerts`: the budget guard Lambda is subscribed to it, so an alarm posted there would trigger the guard.
+2. **CloudWatch → Alarms → Create alarm** → metric **Lambda → By Function Name → `defectrag-status` → Errors**. Statistic **Sum**, period **5 minutes**, **Greater/Equal 1**, missing data **treated as good** (the function rarely runs). Action: notify `defectrag-alerts`. Name `defectrag-status-errors`.
+3. **CloudWatch → Dashboards → Create** `defectrag`. Add: a line widget for `defectrag-status` Invocations and Errors, a second for Duration (milliseconds, so it needs its own axis), an **Alarm status** widget for `defectrag-status-errors`, and a widget for `defectrag-budget-guard` Invocations/Errors (empty until a budget alert fires, which is expected). **Click Save dashboard**; unsaved widgets disappear.
+4. Open `status.html` a few times so the graphs have data points. The alarm starts as "Insufficient data" and turns **OK** after a few minutes.
+
+## Phase 4b (optional, not done here): EC2 lab with the CloudWatch agent (90 minutes, then terminate)
 
 1. **EC2 → Launch instance.** Name `defectrag-lab`. Amazon Linux 2023. Type `t3.micro` (or the type the Free Plan offers). Tag `Project=DefectRAG-lab`.
 2. Security group: SSH from **your IP only**, HTTP 80 from anywhere.
@@ -153,16 +171,17 @@ sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -a fetch-c
 
 ## Phase 5: Evidence for your resume
 
-Take screenshots of: the Budgets page with alerts, the live site URL, the Lambda function with its URL test, the CloudWatch dashboard with an alarm in ALARM, and the Lightsail firewall with SSH limited to your IP. Suggested bullets (edit to match what you really did):
+Take screenshots of: the Budgets page with alerts, the live site on HTTPS (padlock), the Lambda function with its URL test, the CloudWatch dashboard with the alarm showing OK, and the Lightsail firewall with SSH limited to your IP ranges (hide the addresses if you publish it). Suggested bullets (edit to match what you really did):
 
-- Deployed a React/Vite analytics dashboard on **Amazon Lightsail** (Ubuntu, nginx, static IP, HTTPS via Let's Encrypt) with SSH restricted by firewall rule.
-- Built **AWS Lambda** functions behind a Function URL (status API) and an SNS-triggered cost guard that stops tagged **EC2** instances when **AWS Budgets** thresholds are crossed.
-- Configured **CloudWatch** agent metrics, log collection, alarms (CPU, memory, system status with auto-recover) and a dashboard; tested with a load-generated incident.
+- Hosted a React/Vite showcase on **Amazon Lightsail** (Ubuntu, nginx, static IP, HTTPS via Let's Encrypt) with SSH restricted by firewall rule and repeatable deployment through a shell script.
+- Built **AWS Lambda** functions behind a Function URL (status API) and an SNS-triggered cost guard, each with its own least-privilege **IAM** role, plus **AWS Budgets** alerts.
+- Monitored the stack with a **CloudWatch** dashboard and an error alarm that emails through **SNS**, and with Lightsail alarms for status check, CPU and burst capacity.
 - Kept the project under a set monthly budget using Budgets alerts, tagging and a documented teardown.
 
 ## Phase 6: Teardown (do this before the Free Plan ends)
 
-- [ ] Terminate EC2 instances. Delete unattached **EBS volumes** and **Elastic IPs**.
+- [ ] If you did Phase 4b: terminate EC2 instances. Delete unattached **EBS volumes** and **Elastic IPs**.
+- [ ] Lightsail: delete the instance's alarms with it, and delete the DuckDNS name if you no longer need it.
 - [ ] Lightsail: delete the instance, then **release the static IP** (an unattached one is billed).
 - [ ] Lambda: delete both functions. SNS: delete the topic.
 - [ ] CloudWatch: delete dashboards, alarms, log groups.
@@ -171,11 +190,16 @@ Take screenshots of: the Budgets page with alerts, the live site URL, the Lambda
 
 ## Troubleshooting
 
-| Problem | Likely fix |
-|---|---|
-| Site shows nginx welcome page | `deploy_site.sh` did not run, or files are not in `/var/www/defectrag` |
-| Blank page after deploy | Run `npm run build:showcase` (not `build`). The normal build expects the Python backend |
-| `403` on the site | `sudo chown -R www-data:www-data /var/www/defectrag` |
-| Cannot SSH | Your IP changed. Update the firewall rule |
-| Budget email never arrives | Confirm the SNS email subscription; billing data can lag several hours |
-| Surprise charge | Billing → **Cost Explorer**, group by **Service** and **Usage type** |
+| Problem                       | Likely fix                                                                                  |
+| ----------------------------- | ------------------------------------------------------------------------------------------- |
+| Site shows nginx welcome page | `deploy_site.sh` did not run, or files are not in `/var/www/defectrag`                  |
+| Blank page after deploy       | Run `npm run build:showcase` (not `build`). The normal build expects the Python backend |
+| `403` on the site           | `sudo chown -R www-data:www-data /var/www/defectrag`                                      |
+| Cannot SSH (timeout)          | Your IP changed. Some providers rotate between two blocks; allow the `/24` of each, see 2.2 |
+| nginx missing after first boot | Launch script ran under `sh` (`set: Illegal option -o pipefail` in `/var/log/cloud-init-output.log`). Re-run it with `sudo bash` |
+| `sudo: disabled` / `command not found` | You ran the command on your own PC. Run it on the server (prompt `ubuntu@ip-...`)   |
+| `mktemp ... Permission denied` in deploy | Old script version; use the current `deploy_site.sh` (it uses `sudo` for `/var/www`)  |
+| `tar: file changed as we read it` | Old script version wrote the archive inside the folder it was packing; use the current one |
+| Status alarm "Insufficient data" | Normal for a function that rarely runs; set missing data to "good" and wait a few minutes |
+| Budget email never arrives    | Confirm the SNS email subscription; billing data can lag several hours                      |
+| Surprise charge               | Billing → **Cost Explorer**, group by **Service** and **Usage type**     |

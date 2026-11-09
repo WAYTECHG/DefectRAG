@@ -253,7 +253,7 @@ fails, the case stays saved and the event waits in the queue. See [Security](doc
 | Frontend | React 19, Vite 6, design tokens with light and dark themes |
 | Data and auth | Supabase Postgres, row-level security, storage, Auth with TOTP MFA; SQLite locally |
 | Automation | n8n on AWS Lightsail, Supabase Edge Functions, Resend |
-| Live demo hosting on AWS | Read-only showcase on AWS Lightsail (Ubuntu, nginx, static IP, firewall, Let's Encrypt HTTPS) at [defectrag.duckdns.org](https://defectrag.duckdns.org), a Lambda status function, and a Budgets alarm with a Lambda budget guard. Live inspection runs on the Hugging Face Space. |
+| Live demo hosting on AWS | Read-only showcase on AWS Lightsail (Ubuntu, nginx, static IP, firewall, Let's Encrypt HTTPS) at [defectrag.duckdns.org](https://defectrag.duckdns.org), a Lambda status function, a Budgets alarm with a Lambda budget guard (SNS, one IAM role per function), and CloudWatch and Lightsail alarms with a CloudWatch dashboard. Live inspection runs on the Hugging Face Space. |
 | Quality | GitHub Actions CI (ruff, mypy, pytest, frontend tests and builds), Dependabot, one-click release with approval |
 
 ## Quick start
