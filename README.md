@@ -8,6 +8,7 @@
   Take a photo of a product. See if it looks unusual, see where, and ask why.</p>
 
   <a href="https://huggingface.co/spaces/Wizzas/DefectRAG"><img src="https://img.shields.io/badge/Live_demo-Hugging_Face-FFD21E?style=for-the-badge&amp;logo=huggingface&amp;logoColor=black" alt="Live demo on Hugging Face" /></a>
+  <a href="https://defectrag.duckdns.org"><img src="https://img.shields.io/badge/Live_demo_hosting-AWS_Lightsail-FF9900?style=for-the-badge&amp;logo=amazonaws&amp;logoColor=white" alt="Saved-example showcase hosted on AWS Lightsail with HTTPS" /></a>
   <img src="https://img.shields.io/badge/Python-3.12-3776AB?style=for-the-badge&amp;logo=python&amp;logoColor=white" alt="Cloud Python 3.12" />
   <img src="https://img.shields.io/badge/PyTorch-2.8.0-EE4C2C?style=for-the-badge&amp;logo=pytorch&amp;logoColor=white" alt="PyTorch 2.8.0" />
   <img src="https://img.shields.io/badge/React-19.3.1-149ECA?style=for-the-badge&amp;logo=react&amp;logoColor=white" alt="React 19.3.1" />
@@ -16,7 +17,7 @@
   <img src="https://img.shields.io/badge/Qwen2.5--3B-QLoRA_fine--tuned-171717?style=flat-square" alt="Qwen2.5-3B fine-tuned with QLoRA" />
   <img src="https://img.shields.io/badge/VisA_AUROC-0.971-171717?style=flat-square" alt="VisA mean image AUROC 0.971" />
   <img src="https://img.shields.io/badge/MVTec_AD_AUROC-0.992-171717?style=flat-square" alt="MVTec AD mean image AUROC 0.992" />
-  <img src="https://img.shields.io/badge/tests-494_passing-2ea043?style=flat-square" alt="274 frontend and 220 backend tests passing" />
+  <img src="https://img.shields.io/badge/tests-510_passing-2ea043?style=flat-square" alt="284 frontend and 226 backend tests passing" />
   <br/>
   <img src="https://img.shields.io/badge/Gradio-6.30.0-F97316?style=flat-square&amp;logo=gradio&amp;logoColor=white" alt="Gradio 6.30.0" />
   <img src="https://img.shields.io/badge/FastAPI-0.142.2-009688?style=flat-square&amp;logo=fastapi&amp;logoColor=white" alt="Cloud FastAPI 0.142.2" />
@@ -30,7 +31,7 @@
   <a href="https://github.com/WAYTECHG/DefectRAG/actions/workflows/ci.yml"><img src="https://github.com/WAYTECHG/DefectRAG/actions/workflows/ci.yml/badge.svg" alt="CI: tests and builds on every push" /></a>
   <a href="https://github.com/WAYTECHG/DefectRAG/actions/workflows/release.yml"><img src="https://github.com/WAYTECHG/DefectRAG/actions/workflows/release.yml/badge.svg" alt="Release: one-click dashboard deployment to Hugging Face" /></a>
 
-  <p><a href="https://huggingface.co/spaces/Wizzas/DefectRAG">Live demo</a> · <a href="#features">Features</a> · <a href="#results">Results</a> · <a href="#how-it-works">How it works</a> · <a href="#quick-start">Quick start</a> · <a href="#documentation">Docs</a> · <a href="docs/STAFF_QUICK_GUIDE.md">Staff guide</a></p>
+  <p><a href="https://huggingface.co/spaces/Wizzas/DefectRAG">Live demo</a> · <a href="https://defectrag.duckdns.org">AWS-hosted showcase</a> · <a href="#features">Features</a> · <a href="#results">Results</a> · <a href="#how-it-works">How it works</a> · <a href="#quick-start">Quick start</a> · <a href="#documentation">Docs</a> · <a href="docs/STAFF_QUICK_GUIDE.md">Staff guide</a></p>
 </div>
 
 <p align="center">
@@ -252,6 +253,7 @@ fails, the case stays saved and the event waits in the queue. See [Security](doc
 | Frontend | React 19, Vite 6, design tokens with light and dark themes |
 | Data and auth | Supabase Postgres, row-level security, storage, Auth with TOTP MFA; SQLite locally |
 | Automation | n8n on AWS Lightsail, Supabase Edge Functions, Resend |
+| Live demo hosting on AWS | Read-only showcase on AWS Lightsail (Ubuntu, nginx, static IP, firewall, Let's Encrypt HTTPS) at [defectrag.duckdns.org](https://defectrag.duckdns.org), a Lambda status function, and a Budgets alarm with a Lambda budget guard. Live inspection runs on the Hugging Face Space. |
 | Quality | GitHub Actions CI (ruff, mypy, pytest, frontend tests and builds), Dependabot, one-click release with approval |
 
 ## Quick start

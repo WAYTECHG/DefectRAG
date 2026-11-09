@@ -165,3 +165,4 @@ frontend/public/showcase/reports/e80a1c06812b46858fe77c8dcba49e0d.html
 frontend/public/showcase/reports/f844a1e1a3c84cb7883c22af86f37dd2.html
 frontend/public/showcase/reports/f92d581f4bc64724b9f3fffb8e38f709.html
 frontend/public/showcase/reports/fed8c208317840b2a0c6bea6f404bbc8.html
+deployment/aws/lambda/status_api.py

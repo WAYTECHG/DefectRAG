@@ -8,7 +8,7 @@ import json
 import os
 from datetime import datetime, timezone
 
-SAVED_EXAMPLES = 25  # the showcase ships 25 saved real inspections
+SAVED_EXAMPLES = 24  # the showcase ships 24 saved real inspections (2 per product, tuned detector)
 
 
 def handler(event, context):
