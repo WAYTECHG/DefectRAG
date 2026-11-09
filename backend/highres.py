@@ -18,6 +18,7 @@ from transformers import AutoModel
 from .vision import distances, ModelUnavailable, sha256, display_map
 from .config import CATEGORIES
 from .calibration import calibrated_card, tuned_card
+from .references import ReferenceIndex
 
 
 class HighResolutionEncoder:
@@ -114,6 +115,10 @@ class HighResolutionDetector:
     def cards(self):
         return [self.card(category) for category in CATEGORIES]
 
+    def references(self, category, tokens, mask):
+        """Closest normal reference photos; only profiles that ship a reference index return any."""
+        return []
+
     def card(self, category):
         original = json.loads((self.directory / f"{category}.json").read_text())
         return profile_card(self.settings.root, self.profile_name, original)
@@ -180,6 +185,9 @@ class HighResolutionDetector:
                 "foreground_fraction": float(mask.mean()),
                 "profile": self.profile_name,
             }
+            references = self.references(category, tokens, mask)
+            if references:
+                result["references"] = references
             return result, display_map(full, preview, card["heatmap_scale"])
 
 
@@ -187,3 +195,9 @@ class TunedDetector(HighResolutionDetector):
     """Same detector with the fine-tuned DINOv2 encoder and 32,768-patch coreset banks (profile dinov2_tuned_v1)."""
 
     profile_name = "dinov2_tuned_v1"
+    reference_index: ReferenceIndex | None = None
+
+    def references(self, category, tokens, mask):
+        if self.reference_index is None:
+            self.reference_index = ReferenceIndex(self.directory / "references")
+        return self.reference_index.nearest(category, tokens, mask)

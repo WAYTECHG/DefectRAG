@@ -307,3 +307,12 @@ tr.selected-row{background:var(--accent)}
 :root.dark .hero-card .pill{background:var(--muted);color:var(--foreground);border-color:var(--border)}
 :root.dark .scan-visual>span,:root.dark .viewer-label{color:var(--foreground)}
 .stats-grid.plain .card,.stats-grid.plain .card:nth-child(n){border-top:5px solid var(--border)}
+
+/* Closest normal reference photos under a result */
+.references{margin-top:22px}
+.references h3{margin:0 0 6px}
+.reference-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:12px 0}
+.reference-row figure{margin:0}
+.reference-row img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;background:var(--muted);border:1px solid var(--border);border-radius:8px}
+.reference-row figcaption{margin-top:6px;font-size:14px;color:var(--text-hint)}
+
