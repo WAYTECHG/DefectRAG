@@ -440,7 +440,7 @@ function App(){
  {health?.local_sync_enabled&&workspace==='personal'&&<LocalSyncPanel key={batchIdentity.current||'browser'} status={localSyncStatus} onRetry={retryRefresh} onResolve={resolveLocalConflict} onBackup={downloadLocalBackup} onListImports={()=>api('/api/local-sync/importable')} onImport={importLocalHistory} canImport={inspectionAccess.state==='authorized'} refreshing={sync.state==='refreshing'}/>}
  {demoBanner&&<PublicDemoNotice cloud={health?.mode==='cloud_session_workspace'} status={syncLine+'.'} onStart={page==='inspect'?undefined:openPublicDemo}/>}
 
- {SHOWCASE&&<div className="showcase-banner" role="note"><BookOpen size={21}/><div><strong>Public showcase · saved real results</strong><p>These are saved examples. Photos, results and any conversations can be viewed, but this version cannot check new photos or answer new questions.</p></div></div>}
+ {SHOWCASE&&<div className="showcase-banner" role="note"><BookOpen size={21}/><div><strong>Public showcase · saved real results</strong><p>These are saved examples. Photos, results and any conversations can be viewed, but this version cannot check new photos or answer new questions.</p></div><a className="showcase-live" href="https://wizzas-defectrag.hf.space" target="_blank" rel="noopener noreferrer">Try a real inspection on Hugging Face <ArrowRight size={16}/></a></div>}
 
  {notice&&<div className="success" role="status"><Check size={18}/><span>{notice}</span><button className="icon-button" aria-label="Dismiss notice" onClick={()=>setNotice('')}><X size={16}/></button></div>}
  {error&&<div role="alert" className="error"><CircleHelp size={18}/><span>{friendlyError(error)}</span><button aria-label="Dismiss error" onClick={()=>setError('')}><X size={17}/></button></div>}

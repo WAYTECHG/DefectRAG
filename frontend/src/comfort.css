@@ -316,3 +316,10 @@ tr.selected-row{background:var(--accent)}
 .reference-row img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;background:var(--muted);border:1px solid var(--border);border-radius:8px}
 .reference-row figcaption{margin-top:6px;font-size:14px;color:var(--text-hint)}
 
+
+/* Showcase: shortcut to the live Space */
+.showcase-banner{flex-wrap:wrap;align-items:center}
+.showcase-banner>div{flex:1 1 320px}
+.showcase-live{display:inline-flex;align-items:center;gap:8px;padding:11px 16px;border-radius:10px;background:var(--primary);color:var(--primary-fg);font-weight:600;font-size:15px;text-decoration:none;white-space:nowrap}
+.showcase-live:hover,.showcase-live:focus-visible{opacity:.88}
+.showcase-live svg{margin:0}

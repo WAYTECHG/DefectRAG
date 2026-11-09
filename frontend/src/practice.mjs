@@ -7,9 +7,9 @@ import {parseReview,reviewBody} from './workflow.mjs';
 const ME='00000000-0000-4000-8000-00000000a001',ALEX='00000000-0000-4000-8000-00000000a002',SAM='00000000-0000-4000-8000-00000000a003';
 export const practicePeople=Object.freeze([{user_id:ME,display_name:'You (practice)',role:'staff',revoked_at:null},
  {user_id:ALEX,display_name:'Alex (practice)',role:'staff',revoked_at:null},{user_id:SAM,display_name:'Sam (practice)',role:'staff',revoked_at:null}]);
-// Saved public teaching measurement (showcase record 7dbb6f27…), not a new prediction.
-export const PRACTICE_EXAMPLE=Object.freeze({category:'candle',verdict:'Anomalous',score:0.046729326248168945,threshold:0.04235455393791199,
- uncertainty_margin:0.0021177276968955996,inference_ms:34.73,model_id:'dinov3-normal-bank-candle-v1'});
+// Saved public teaching measurement (showcase record 4bff5e6b…), not a new prediction.
+export const PRACTICE_EXAMPLE=Object.freeze({category:'candle',verdict:'Anomalous',score:0.19342294335365295,threshold:0.10769653692841528,
+ uncertainty_margin:0.005384826846420765,inference_ms:31.12,model_id:'dinov2-tuned-candle-v1'});
 const EXAMPLE=PRACTICE_EXAMPLE;
 let active=null;
 export const practiceActive=()=>active!==null;

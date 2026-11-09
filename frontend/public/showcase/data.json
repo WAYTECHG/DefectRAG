@@ -3,1377 +3,1282 @@
   "mode": "saved_examples",
   "records": [
     {
-      "id": "18c7586f94de4b6d8ef773779f7cea2f",
-      "created_at": "2026-10-16T01:54:06.141819+00:00",
-      "category": "pcb1",
-      "verdict": "Good",
-      "score": 0.029462307691574097,
-      "threshold": 0.047802507877349854,
-      "uncertainty_margin": 0.0023901253938674928,
-      "inference_ms": 626.97,
-      "model_id": "dinov3-normal-bank-pcb1-v1",
-      "batch": "Verified VisA examples",
-      "filename": "VisA example",
-      "image_url": "showcase/images/18c7586f94de4b6d8ef773779f7cea2f.jpg",
-      "heatmap_url": "showcase/images/18c7586f94de4b6d8ef773779f7cea2f_heatmap.jpg"
-    },
-    {
-      "id": "52ee2c6d54934fcfaffb0f273c70dc87",
-      "created_at": "2026-10-16T01:54:06.454213+00:00",
-      "category": "pcb1",
+      "id": "4bff5e6b5e064383a9b85a8a6bec04cc",
+      "created_at": "2026-11-07T04:31:09.136511+00:00",
+      "category": "candle",
       "verdict": "Anomalous",
-      "score": 0.09511521458625793,
-      "threshold": 0.047802507877349854,
-      "uncertainty_margin": 0.0023901253938674928,
-      "inference_ms": 79.49,
-      "model_id": "dinov3-normal-bank-pcb1-v1",
+      "score": 0.19342294335365295,
+      "threshold": 0.10769653692841528,
+      "uncertainty_margin": 0.005384826846420765,
+      "inference_ms": 31.12,
+      "model_id": "dinov2-tuned-candle-v1",
       "batch": "Verified VisA examples",
       "filename": "VisA example",
-      "image_url": "showcase/images/52ee2c6d54934fcfaffb0f273c70dc87.jpg",
-      "heatmap_url": "showcase/images/52ee2c6d54934fcfaffb0f273c70dc87_heatmap.jpg"
+      "image_url": "showcase/images/4bff5e6b5e064383a9b85a8a6bec04cc.jpg",
+      "heatmap_url": "showcase/images/4bff5e6b5e064383a9b85a8a6bec04cc_heatmap.jpg"
     },
     {
-      "id": "e701c08ef3264b20bcb11149f734b219",
-      "created_at": "2026-10-16T01:54:06.826573+00:00",
+      "id": "da5e3a7125564152afd03d26ef3fb38b",
+      "created_at": "2026-11-07T04:31:09.248891+00:00",
+      "category": "candle",
+      "verdict": "Good",
+      "score": 0.07099495828151703,
+      "threshold": 0.10769653692841528,
+      "uncertainty_margin": 0.005384826846420765,
+      "inference_ms": 29.68,
+      "model_id": "dinov2-tuned-candle-v1",
+      "batch": "Verified VisA examples",
+      "filename": "VisA example",
+      "image_url": "showcase/images/da5e3a7125564152afd03d26ef3fb38b.jpg",
+      "heatmap_url": "showcase/images/da5e3a7125564152afd03d26ef3fb38b_heatmap.jpg"
+    },
+    {
+      "id": "66ab22d8050144f78e9b9c1b4c7b0b9e",
+      "created_at": "2026-11-07T04:31:08.115707+00:00",
       "category": "capsules",
+      "verdict": "Anomalous",
+      "score": 0.161866694688797,
+      "threshold": 0.10395566150546073,
+      "uncertainty_margin": 0.005197783075273037,
+      "inference_ms": 39.56,
+      "model_id": "dinov2-tuned-capsules-v1",
+      "batch": "Verified VisA examples",
+      "filename": "VisA example",
+      "image_url": "showcase/images/66ab22d8050144f78e9b9c1b4c7b0b9e.jpg",
+      "heatmap_url": "showcase/images/66ab22d8050144f78e9b9c1b4c7b0b9e_heatmap.jpg"
+    },
+    {
+      "id": "da28cabe417a4f7f9d81faa0b6ce4146",
+      "created_at": "2026-11-07T04:31:08.274601+00:00",
+      "category": "capsules",
+      "verdict": "Good",
+      "score": 0.09077998250722885,
+      "threshold": 0.10395566150546073,
+      "uncertainty_margin": 0.005197783075273037,
+      "inference_ms": 47.05,
+      "model_id": "dinov2-tuned-capsules-v1",
+      "batch": "Verified VisA examples",
+      "filename": "VisA example",
+      "image_url": "showcase/images/da28cabe417a4f7f9d81faa0b6ce4146.jpg",
+      "heatmap_url": "showcase/images/da28cabe417a4f7f9d81faa0b6ce4146_heatmap.jpg"
+    },
+    {
+      "id": "def5b9b862a447ac8c61e168af28c263",
+      "created_at": "2026-11-07T04:31:08.612264+00:00",
+      "category": "cashew",
+      "verdict": "Anomalous",
+      "score": 0.19361598789691925,
+      "threshold": 0.10727595388889313,
+      "uncertainty_margin": 0.005363797694444657,
+      "inference_ms": 32.13,
+      "model_id": "dinov2-tuned-cashew-v1",
+      "batch": "Verified VisA examples",
+      "filename": "VisA example",
+      "image_url": "showcase/images/def5b9b862a447ac8c61e168af28c263.jpg",
+      "heatmap_url": "showcase/images/def5b9b862a447ac8c61e168af28c263_heatmap.jpg"
+    },
+    {
+      "id": "6f8af69aa59d40b488d5d864f502224d",
+      "created_at": "2026-11-07T04:31:08.773329+00:00",
+      "category": "cashew",
       "verdict": "Uncertain",
-      "score": 0.04526650905609131,
-      "threshold": 0.04728597402572632,
-      "uncertainty_margin": 0.0023642987012863163,
-      "inference_ms": 47.72,
-      "model_id": "dinov3-normal-bank-capsules-v1",
+      "score": 0.10972827672958374,
+      "threshold": 0.10727595388889313,
+      "uncertainty_margin": 0.005363797694444657,
+      "inference_ms": 38.08,
+      "model_id": "dinov2-tuned-cashew-v1",
       "batch": "Verified VisA examples",
       "filename": "VisA example",
-      "image_url": "showcase/images/e701c08ef3264b20bcb11149f734b219.jpg",
-      "heatmap_url": "showcase/images/e701c08ef3264b20bcb11149f734b219_heatmap.jpg"
+      "image_url": "showcase/images/6f8af69aa59d40b488d5d864f502224d.jpg",
+      "heatmap_url": "showcase/images/6f8af69aa59d40b488d5d864f502224d_heatmap.jpg"
     },
     {
-      "id": "e3964b50d4cf4860a1f7a926d1ae444a",
-      "created_at": "2026-10-16T01:54:07.099544+00:00",
-      "category": "capsules",
+      "id": "7a353aa7a8124a0dbe8440f40c282ff4",
+      "created_at": "2026-11-07T04:31:09.609936+00:00",
+      "category": "chewinggum",
       "verdict": "Anomalous",
-      "score": 0.06019875407218933,
-      "threshold": 0.04728597402572632,
-      "uncertainty_margin": 0.0023642987012863163,
-      "inference_ms": 53.84,
-      "model_id": "dinov3-normal-bank-capsules-v1",
+      "score": 0.33751875162124634,
+      "threshold": 0.11576281487941742,
+      "uncertainty_margin": 0.005788140743970872,
+      "inference_ms": 34.15,
+      "model_id": "dinov2-tuned-chewinggum-v1",
       "batch": "Verified VisA examples",
       "filename": "VisA example",
-      "image_url": "showcase/images/e3964b50d4cf4860a1f7a926d1ae444a.jpg",
-      "heatmap_url": "showcase/images/e3964b50d4cf4860a1f7a926d1ae444a_heatmap.jpg"
+      "image_url": "showcase/images/7a353aa7a8124a0dbe8440f40c282ff4.jpg",
+      "heatmap_url": "showcase/images/7a353aa7a8124a0dbe8440f40c282ff4_heatmap.jpg"
     },
     {
-      "id": "b5d1bd5c7ed1493ab8f4a849eeeb7712",
-      "created_at": "2026-10-16T01:54:07.485318+00:00",
-      "category": "cashew",
+      "id": "fed8c208317840b2a0c6bea6f404bbc8",
+      "created_at": "2026-11-07T04:31:09.756854+00:00",
+      "category": "chewinggum",
+      "verdict": "Uncertain",
+      "score": 0.12110640108585358,
+      "threshold": 0.11576281487941742,
+      "uncertainty_margin": 0.005788140743970872,
+      "inference_ms": 40.44,
+      "model_id": "dinov2-tuned-chewinggum-v1",
+      "batch": "Verified VisA examples",
+      "filename": "VisA example",
+      "image_url": "showcase/images/fed8c208317840b2a0c6bea6f404bbc8.jpg",
+      "heatmap_url": "showcase/images/fed8c208317840b2a0c6bea6f404bbc8_heatmap.jpg"
+    },
+    {
+      "id": "d0aa478ff7b24b86804abfde6689f2d5",
+      "created_at": "2026-11-07T04:31:10.112489+00:00",
+      "category": "fryum",
+      "verdict": "Anomalous",
+      "score": 0.22371983528137207,
+      "threshold": 0.10525055527687072,
+      "uncertainty_margin": 0.0052625277638435365,
+      "inference_ms": 44.82,
+      "model_id": "dinov2-tuned-fryum-v1",
+      "batch": "Verified VisA examples",
+      "filename": "VisA example",
+      "image_url": "showcase/images/d0aa478ff7b24b86804abfde6689f2d5.jpg",
+      "heatmap_url": "showcase/images/d0aa478ff7b24b86804abfde6689f2d5_heatmap.jpg"
+    },
+    {
+      "id": "73effc650ddc4de9a1a8a35aa011c71b",
+      "created_at": "2026-11-07T04:31:10.242888+00:00",
+      "category": "fryum",
       "verdict": "Good",
-      "score": 0.030725598335266113,
-      "threshold": 0.051523059606552124,
-      "uncertainty_margin": 0.0025761529803276064,
-      "inference_ms": 53.57,
-      "model_id": "dinov3-normal-bank-cashew-v1",
+      "score": 0.0773605927824974,
+      "threshold": 0.10525055527687072,
+      "uncertainty_margin": 0.0052625277638435365,
+      "inference_ms": 42.76,
+      "model_id": "dinov2-tuned-fryum-v1",
       "batch": "Verified VisA examples",
       "filename": "VisA example",
-      "image_url": "showcase/images/b5d1bd5c7ed1493ab8f4a849eeeb7712.jpg",
-      "heatmap_url": "showcase/images/b5d1bd5c7ed1493ab8f4a849eeeb7712_heatmap.jpg"
+      "image_url": "showcase/images/73effc650ddc4de9a1a8a35aa011c71b.jpg",
+      "heatmap_url": "showcase/images/73effc650ddc4de9a1a8a35aa011c71b_heatmap.jpg"
     },
     {
-      "id": "3243fbe65d59477b9811da0f306535aa",
-      "created_at": "2026-10-16T01:54:07.777072+00:00",
-      "category": "cashew",
+      "id": "031ddcf70ba240dd98baf8932b418b12",
+      "created_at": "2026-11-07T04:31:10.562390+00:00",
+      "category": "macaroni1",
       "verdict": "Anomalous",
-      "score": 0.07818332314491272,
-      "threshold": 0.051523059606552124,
-      "uncertainty_margin": 0.0025761529803276064,
-      "inference_ms": 51.4,
-      "model_id": "dinov3-normal-bank-cashew-v1",
+      "score": 0.12035106867551804,
+      "threshold": 0.0831331416964531,
+      "uncertainty_margin": 0.004156657084822655,
+      "inference_ms": 37.09,
+      "model_id": "dinov2-tuned-macaroni1-v1",
       "batch": "Verified VisA examples",
       "filename": "VisA example",
-      "image_url": "showcase/images/3243fbe65d59477b9811da0f306535aa.jpg",
-      "heatmap_url": "showcase/images/3243fbe65d59477b9811da0f306535aa_heatmap.jpg"
+      "image_url": "showcase/images/031ddcf70ba240dd98baf8932b418b12.jpg",
+      "heatmap_url": "showcase/images/031ddcf70ba240dd98baf8932b418b12_heatmap.jpg"
     },
     {
-      "id": "a6226ef392eb417e8991369e890d816b",
-      "created_at": "2026-10-16T03:37:21.911121+00:00",
+      "id": "99e5aca39a094033b059ed2ece1e4c7a",
+      "created_at": "2026-11-07T04:31:10.669601+00:00",
+      "category": "macaroni1",
+      "verdict": "Anomalous",
+      "score": 0.09371042251586914,
+      "threshold": 0.0831331416964531,
+      "uncertainty_margin": 0.004156657084822655,
+      "inference_ms": 34.75,
+      "model_id": "dinov2-tuned-macaroni1-v1",
+      "batch": "Verified VisA examples",
+      "filename": "VisA example",
+      "image_url": "showcase/images/99e5aca39a094033b059ed2ece1e4c7a.jpg",
+      "heatmap_url": "showcase/images/99e5aca39a094033b059ed2ece1e4c7a_heatmap.jpg"
+    },
+    {
+      "id": "e80a1c06812b46858fe77c8dcba49e0d",
+      "created_at": "2026-11-07T04:31:10.971729+00:00",
+      "category": "macaroni2",
+      "verdict": "Anomalous",
+      "score": 0.12074433267116547,
+      "threshold": 0.09993447512388229,
+      "uncertainty_margin": 0.004996723756194115,
+      "inference_ms": 35.36,
+      "model_id": "dinov2-tuned-macaroni2-v1",
+      "batch": "Verified VisA examples",
+      "filename": "VisA example",
+      "image_url": "showcase/images/e80a1c06812b46858fe77c8dcba49e0d.jpg",
+      "heatmap_url": "showcase/images/e80a1c06812b46858fe77c8dcba49e0d_heatmap.jpg"
+    },
+    {
+      "id": "f844a1e1a3c84cb7883c22af86f37dd2",
+      "created_at": "2026-11-07T04:31:11.103005+00:00",
+      "category": "macaroni2",
+      "verdict": "Good",
+      "score": 0.0933448076248169,
+      "threshold": 0.09993447512388229,
+      "uncertainty_margin": 0.004996723756194115,
+      "inference_ms": 41.66,
+      "model_id": "dinov2-tuned-macaroni2-v1",
+      "batch": "Verified VisA examples",
+      "filename": "VisA example",
+      "image_url": "showcase/images/f844a1e1a3c84cb7883c22af86f37dd2.jpg",
+      "heatmap_url": "showcase/images/f844a1e1a3c84cb7883c22af86f37dd2_heatmap.jpg"
+    },
+    {
+      "id": "ccaaa807f4834da8b402ca8b46073342",
+      "created_at": "2026-11-07T04:31:07.483820+00:00",
       "category": "pcb1",
       "verdict": "Anomalous",
-      "score": 0.09611436724662781,
-      "threshold": 0.047802507877349854,
-      "uncertainty_margin": 0.0023901253938674928,
+      "score": 0.2655112147331238,
+      "threshold": 0.09390439838171005,
+      "uncertainty_margin": 0.004695219919085503,
+      "inference_ms": 757.05,
+      "model_id": "dinov2-tuned-pcb1-v1",
+      "batch": "Verified VisA examples",
+      "filename": "VisA example",
+      "image_url": "showcase/images/ccaaa807f4834da8b402ca8b46073342.jpg",
+      "heatmap_url": "showcase/images/ccaaa807f4834da8b402ca8b46073342_heatmap.jpg"
+    },
+    {
+      "id": "1c68ef87cd4b4e10a7efab1b5107d59b",
+      "created_at": "2026-11-07T04:31:07.690368+00:00",
+      "category": "pcb1",
+      "verdict": "Good",
+      "score": 0.06865152716636658,
+      "threshold": 0.09390439838171005,
+      "uncertainty_margin": 0.004695219919085503,
+      "inference_ms": 39.86,
+      "model_id": "dinov2-tuned-pcb1-v1",
+      "batch": "Verified VisA examples",
+      "filename": "VisA example",
+      "image_url": "showcase/images/1c68ef87cd4b4e10a7efab1b5107d59b.jpg",
+      "heatmap_url": "showcase/images/1c68ef87cd4b4e10a7efab1b5107d59b_heatmap.jpg"
+    },
+    {
+      "id": "861bd29ac3e34efc89c18aad4befcb0a",
+      "created_at": "2026-11-07T04:31:11.444917+00:00",
+      "category": "pcb2",
+      "verdict": "Good",
+      "score": 0.08604340255260468,
+      "threshold": 0.09243721514940262,
+      "uncertainty_margin": 0.004621860757470131,
+      "inference_ms": 33.85,
+      "model_id": "dinov2-tuned-pcb2-v1",
+      "batch": "Verified VisA examples",
+      "filename": "VisA example",
+      "image_url": "showcase/images/861bd29ac3e34efc89c18aad4befcb0a.jpg",
+      "heatmap_url": "showcase/images/861bd29ac3e34efc89c18aad4befcb0a_heatmap.jpg"
+    },
+    {
+      "id": "24610e481ba14990be2b059b435ec8d1",
+      "created_at": "2026-11-07T04:31:11.590072+00:00",
+      "category": "pcb2",
+      "verdict": "Anomalous",
+      "score": 0.10201622545719147,
+      "threshold": 0.09243721514940262,
+      "uncertainty_margin": 0.004621860757470131,
+      "inference_ms": 43.52,
+      "model_id": "dinov2-tuned-pcb2-v1",
+      "batch": "Verified VisA examples",
+      "filename": "VisA example",
+      "image_url": "showcase/images/24610e481ba14990be2b059b435ec8d1.jpg",
+      "heatmap_url": "showcase/images/24610e481ba14990be2b059b435ec8d1_heatmap.jpg"
+    },
+    {
+      "id": "944d0897857e443b96ab5e30747cef96",
+      "created_at": "2026-11-07T04:31:11.945912+00:00",
+      "category": "pcb3",
+      "verdict": "Anomalous",
+      "score": 0.15217359364032745,
+      "threshold": 0.09173599630594254,
+      "uncertainty_margin": 0.004586799815297127,
+      "inference_ms": 50.4,
+      "model_id": "dinov2-tuned-pcb3-v1",
+      "batch": "Verified VisA examples",
+      "filename": "VisA example",
+      "image_url": "showcase/images/944d0897857e443b96ab5e30747cef96.jpg",
+      "heatmap_url": "showcase/images/944d0897857e443b96ab5e30747cef96_heatmap.jpg"
+    },
+    {
+      "id": "27606216a5324123becd9271a9044576",
+      "created_at": "2026-11-07T04:31:12.075083+00:00",
+      "category": "pcb3",
+      "verdict": "Good",
+      "score": 0.08433570712804794,
+      "threshold": 0.09173599630594254,
+      "uncertainty_margin": 0.004586799815297127,
+      "inference_ms": 36.61,
+      "model_id": "dinov2-tuned-pcb3-v1",
+      "batch": "Verified VisA examples",
+      "filename": "VisA example",
+      "image_url": "showcase/images/27606216a5324123becd9271a9044576.jpg",
+      "heatmap_url": "showcase/images/27606216a5324123becd9271a9044576_heatmap.jpg"
+    },
+    {
+      "id": "9b95eb77b39b403bb68311b0cc1a7174",
+      "created_at": "2026-11-07T04:31:12.406282+00:00",
+      "category": "pcb4",
+      "verdict": "Anomalous",
+      "score": 0.2023768424987793,
+      "threshold": 0.1058717742562294,
+      "uncertainty_margin": 0.0052935887128114706,
+      "inference_ms": 43.08,
+      "model_id": "dinov2-tuned-pcb4-v1",
+      "batch": "Verified VisA examples",
+      "filename": "VisA example",
+      "image_url": "showcase/images/9b95eb77b39b403bb68311b0cc1a7174.jpg",
+      "heatmap_url": "showcase/images/9b95eb77b39b403bb68311b0cc1a7174_heatmap.jpg"
+    },
+    {
+      "id": "57cbced2975740d2b7845b1660aad8b6",
+      "created_at": "2026-11-07T04:31:12.523405+00:00",
+      "category": "pcb4",
+      "verdict": "Good",
+      "score": 0.07028265297412872,
+      "threshold": 0.1058717742562294,
+      "uncertainty_margin": 0.0052935887128114706,
+      "inference_ms": 35.66,
+      "model_id": "dinov2-tuned-pcb4-v1",
+      "batch": "Verified VisA examples",
+      "filename": "VisA example",
+      "image_url": "showcase/images/57cbced2975740d2b7845b1660aad8b6.jpg",
+      "heatmap_url": "showcase/images/57cbced2975740d2b7845b1660aad8b6_heatmap.jpg"
+    },
+    {
+      "id": "1213d696bd724a2e9d4ad4af04bda78c",
+      "created_at": "2026-11-07T04:31:12.870079+00:00",
+      "category": "pipe_fryum",
+      "verdict": "Anomalous",
+      "score": 0.38307350873947144,
+      "threshold": 0.14284870028495786,
+      "uncertainty_margin": 0.007142435014247894,
+      "inference_ms": 53.19,
+      "model_id": "dinov2-tuned-pipe_fryum-v1",
+      "batch": "Verified VisA examples",
+      "filename": "VisA example",
+      "image_url": "showcase/images/1213d696bd724a2e9d4ad4af04bda78c.jpg",
+      "heatmap_url": "showcase/images/1213d696bd724a2e9d4ad4af04bda78c_heatmap.jpg"
+    },
+    {
+      "id": "f92d581f4bc64724b9f3fffb8e38f709",
+      "created_at": "2026-11-07T04:31:13.005067+00:00",
+      "category": "pipe_fryum",
+      "verdict": "Good",
+      "score": 0.11506223678588867,
+      "threshold": 0.14284870028495786,
+      "uncertainty_margin": 0.007142435014247894,
       "inference_ms": 38.44,
-      "model_id": "dinov3-normal-bank-pcb1-v1",
+      "model_id": "dinov2-tuned-pipe_fryum-v1",
       "batch": "Verified VisA examples",
       "filename": "VisA example",
-      "image_url": "showcase/images/a6226ef392eb417e8991369e890d816b.jpg",
-      "heatmap_url": "showcase/images/a6226ef392eb417e8991369e890d816b_heatmap.jpg"
-    },
-    {
-      "id": "14418c36d94648adbdbc2779a6a33b3c",
-      "created_at": "2026-10-16T05:04:08.792238+00:00",
-      "category": "candle",
-      "verdict": "Good",
-      "score": 0.022238105535507202,
-      "threshold": 0.04235455393791199,
-      "uncertainty_margin": 0.0021177276968955996,
-      "inference_ms": 373.68,
-      "model_id": "dinov3-normal-bank-candle-v1",
-      "batch": "Verified VisA examples",
-      "filename": "VisA example",
-      "image_url": "showcase/images/14418c36d94648adbdbc2779a6a33b3c.jpg",
-      "heatmap_url": "showcase/images/14418c36d94648adbdbc2779a6a33b3c_heatmap.jpg"
-    },
-    {
-      "id": "7dbb6f27253b450698a1a503cfa9a8c8",
-      "created_at": "2026-10-16T05:04:09.045272+00:00",
-      "category": "candle",
-      "verdict": "Anomalous",
-      "score": 0.046729326248168945,
-      "threshold": 0.04235455393791199,
-      "uncertainty_margin": 0.0021177276968955996,
-      "inference_ms": 34.73,
-      "model_id": "dinov3-normal-bank-candle-v1",
-      "batch": "Verified VisA examples",
-      "filename": "VisA example",
-      "image_url": "showcase/images/7dbb6f27253b450698a1a503cfa9a8c8.jpg",
-      "heatmap_url": "showcase/images/7dbb6f27253b450698a1a503cfa9a8c8_heatmap.jpg"
-    },
-    {
-      "id": "6082416ed1c34be6a4fccd7e406f4a34",
-      "created_at": "2026-10-16T05:04:09.292761+00:00",
-      "category": "chewinggum",
-      "verdict": "Good",
-      "score": 0.03845283389091492,
-      "threshold": 0.06446045637130737,
-      "uncertainty_margin": 0.003223022818565369,
-      "inference_ms": 37.45,
-      "model_id": "dinov3-normal-bank-chewinggum-v1",
-      "batch": "Verified VisA examples",
-      "filename": "VisA example",
-      "image_url": "showcase/images/6082416ed1c34be6a4fccd7e406f4a34.jpg",
-      "heatmap_url": "showcase/images/6082416ed1c34be6a4fccd7e406f4a34_heatmap.jpg"
-    },
-    {
-      "id": "dcc3e255b90f466c9087d7e09af1a661",
-      "created_at": "2026-10-16T05:04:09.469926+00:00",
-      "category": "chewinggum",
-      "verdict": "Anomalous",
-      "score": 0.09018924832344055,
-      "threshold": 0.06446045637130737,
-      "uncertainty_margin": 0.003223022818565369,
-      "inference_ms": 29.3,
-      "model_id": "dinov3-normal-bank-chewinggum-v1",
-      "batch": "Verified VisA examples",
-      "filename": "VisA example",
-      "image_url": "showcase/images/dcc3e255b90f466c9087d7e09af1a661.jpg",
-      "heatmap_url": "showcase/images/dcc3e255b90f466c9087d7e09af1a661_heatmap.jpg"
-    },
-    {
-      "id": "d9023f03ff7945d8928216e8df02a620",
-      "created_at": "2026-10-16T05:04:09.704431+00:00",
-      "category": "fryum",
-      "verdict": "Good",
-      "score": 0.02073901891708374,
-      "threshold": 0.031331419944763184,
-      "uncertainty_margin": 0.0015665709972381592,
-      "inference_ms": 31.32,
-      "model_id": "dinov3-normal-bank-fryum-v1",
-      "batch": "Verified VisA examples",
-      "filename": "VisA example",
-      "image_url": "showcase/images/d9023f03ff7945d8928216e8df02a620.jpg",
-      "heatmap_url": "showcase/images/d9023f03ff7945d8928216e8df02a620_heatmap.jpg"
-    },
-    {
-      "id": "118f64eaadfe43ce8b27b955a82c37ba",
-      "created_at": "2026-10-16T05:04:09.853046+00:00",
-      "category": "fryum",
-      "verdict": "Uncertain",
-      "score": 0.03211769461631775,
-      "threshold": 0.031331419944763184,
-      "uncertainty_margin": 0.0015665709972381592,
-      "inference_ms": 29.33,
-      "model_id": "dinov3-normal-bank-fryum-v1",
-      "batch": "Verified VisA examples",
-      "filename": "VisA example",
-      "image_url": "showcase/images/118f64eaadfe43ce8b27b955a82c37ba.jpg",
-      "heatmap_url": "showcase/images/118f64eaadfe43ce8b27b955a82c37ba_heatmap.jpg"
-    },
-    {
-      "id": "e335298e27e843c38d81accf54fdb399",
-      "created_at": "2026-10-16T05:04:10.096196+00:00",
-      "category": "macaroni1",
-      "verdict": "Anomalous",
-      "score": 0.0720357894897461,
-      "threshold": 0.04998299479484558,
-      "uncertainty_margin": 0.002499149739742279,
-      "inference_ms": 29.82,
-      "model_id": "dinov3-normal-bank-macaroni1-v1",
-      "batch": "Verified VisA examples",
-      "filename": "VisA example",
-      "image_url": "showcase/images/e335298e27e843c38d81accf54fdb399.jpg",
-      "heatmap_url": "showcase/images/e335298e27e843c38d81accf54fdb399_heatmap.jpg"
-    },
-    {
-      "id": "1a5f9735b7dd44f18995b62e871ee3b7",
-      "created_at": "2026-10-16T05:04:10.240752+00:00",
-      "category": "macaroni1",
-      "verdict": "Good",
-      "score": 0.04587012529373169,
-      "threshold": 0.04998299479484558,
-      "uncertainty_margin": 0.002499149739742279,
-      "inference_ms": 29.49,
-      "model_id": "dinov3-normal-bank-macaroni1-v1",
-      "batch": "Verified VisA examples",
-      "filename": "VisA example",
-      "image_url": "showcase/images/1a5f9735b7dd44f18995b62e871ee3b7.jpg",
-      "heatmap_url": "showcase/images/1a5f9735b7dd44f18995b62e871ee3b7_heatmap.jpg"
-    },
-    {
-      "id": "d03553a7af274bba808fe090d4a7912b",
-      "created_at": "2026-10-16T05:04:10.476998+00:00",
-      "category": "macaroni2",
-      "verdict": "Anomalous",
-      "score": 0.07178214192390442,
-      "threshold": 0.056429386138916016,
-      "uncertainty_margin": 0.002821469306945801,
-      "inference_ms": 28.18,
-      "model_id": "dinov3-normal-bank-macaroni2-v1",
-      "batch": "Verified VisA examples",
-      "filename": "VisA example",
-      "image_url": "showcase/images/d03553a7af274bba808fe090d4a7912b.jpg",
-      "heatmap_url": "showcase/images/d03553a7af274bba808fe090d4a7912b_heatmap.jpg"
-    },
-    {
-      "id": "232cbf03a23f4eb2a3793fa1628e5f9c",
-      "created_at": "2026-10-16T05:04:10.617141+00:00",
-      "category": "macaroni2",
-      "verdict": "Uncertain",
-      "score": 0.055811017751693726,
-      "threshold": 0.056429386138916016,
-      "uncertainty_margin": 0.002821469306945801,
-      "inference_ms": 28.8,
-      "model_id": "dinov3-normal-bank-macaroni2-v1",
-      "batch": "Verified VisA examples",
-      "filename": "VisA example",
-      "image_url": "showcase/images/232cbf03a23f4eb2a3793fa1628e5f9c.jpg",
-      "heatmap_url": "showcase/images/232cbf03a23f4eb2a3793fa1628e5f9c_heatmap.jpg"
-    },
-    {
-      "id": "99d47a61108f4581b59c6fac6bfc224f",
-      "created_at": "2026-10-16T05:04:10.847182+00:00",
-      "category": "pcb2",
-      "verdict": "Anomalous",
-      "score": 0.0873120129108429,
-      "threshold": 0.03412127494812012,
-      "uncertainty_margin": 0.0017060637474060059,
-      "inference_ms": 28.92,
-      "model_id": "dinov3-normal-bank-pcb2-v1",
-      "batch": "Verified VisA examples",
-      "filename": "VisA example",
-      "image_url": "showcase/images/99d47a61108f4581b59c6fac6bfc224f.jpg",
-      "heatmap_url": "showcase/images/99d47a61108f4581b59c6fac6bfc224f_heatmap.jpg"
-    },
-    {
-      "id": "c6222fddf36d4c788ae4e96994b3e02b",
-      "created_at": "2026-10-16T05:04:11.008753+00:00",
-      "category": "pcb2",
-      "verdict": "Anomalous",
-      "score": 0.04729834198951721,
-      "threshold": 0.03412127494812012,
-      "uncertainty_margin": 0.0017060637474060059,
-      "inference_ms": 33.07,
-      "model_id": "dinov3-normal-bank-pcb2-v1",
-      "batch": "Verified VisA examples",
-      "filename": "VisA example",
-      "image_url": "showcase/images/c6222fddf36d4c788ae4e96994b3e02b.jpg",
-      "heatmap_url": "showcase/images/c6222fddf36d4c788ae4e96994b3e02b_heatmap.jpg"
-    },
-    {
-      "id": "2cb0f86c14d344019b28f77f4628257f",
-      "created_at": "2026-10-16T05:04:11.261839+00:00",
-      "category": "pcb3",
-      "verdict": "Anomalous",
-      "score": 0.052754610776901245,
-      "threshold": 0.04104718565940857,
-      "uncertainty_margin": 0.0020523592829704285,
-      "inference_ms": 27.26,
-      "model_id": "dinov3-normal-bank-pcb3-v1",
-      "batch": "Verified VisA examples",
-      "filename": "VisA example",
-      "image_url": "showcase/images/2cb0f86c14d344019b28f77f4628257f.jpg",
-      "heatmap_url": "showcase/images/2cb0f86c14d344019b28f77f4628257f_heatmap.jpg"
-    },
-    {
-      "id": "b43a98329ac646ef90f19861345d0884",
-      "created_at": "2026-10-16T05:04:11.412727+00:00",
-      "category": "pcb3",
-      "verdict": "Uncertain",
-      "score": 0.04286506772041321,
-      "threshold": 0.04104718565940857,
-      "uncertainty_margin": 0.0020523592829704285,
-      "inference_ms": 31.02,
-      "model_id": "dinov3-normal-bank-pcb3-v1",
-      "batch": "Verified VisA examples",
-      "filename": "VisA example",
-      "image_url": "showcase/images/b43a98329ac646ef90f19861345d0884.jpg",
-      "heatmap_url": "showcase/images/b43a98329ac646ef90f19861345d0884_heatmap.jpg"
-    },
-    {
-      "id": "d182ffb0791744d08f112d7321e69f1d",
-      "created_at": "2026-10-16T05:04:11.654455+00:00",
-      "category": "pcb4",
-      "verdict": "Good",
-      "score": 0.040615081787109375,
-      "threshold": 0.043793290853500366,
-      "uncertainty_margin": 0.0021896645426750182,
-      "inference_ms": 27.27,
-      "model_id": "dinov3-normal-bank-pcb4-v1",
-      "batch": "Verified VisA examples",
-      "filename": "VisA example",
-      "image_url": "showcase/images/d182ffb0791744d08f112d7321e69f1d.jpg",
-      "heatmap_url": "showcase/images/d182ffb0791744d08f112d7321e69f1d_heatmap.jpg"
-    },
-    {
-      "id": "09c2eda2da134adf829057bc0a4faccb",
-      "created_at": "2026-10-16T05:04:11.824898+00:00",
-      "category": "pcb4",
-      "verdict": "Anomalous",
-      "score": 0.05046689510345459,
-      "threshold": 0.043793290853500366,
-      "uncertainty_margin": 0.0021896645426750182,
-      "inference_ms": 35.16,
-      "model_id": "dinov3-normal-bank-pcb4-v1",
-      "batch": "Verified VisA examples",
-      "filename": "VisA example",
-      "image_url": "showcase/images/09c2eda2da134adf829057bc0a4faccb.jpg",
-      "heatmap_url": "showcase/images/09c2eda2da134adf829057bc0a4faccb_heatmap.jpg"
-    },
-    {
-      "id": "3c255e6f989c4bee88941ef44c2f81dc",
-      "created_at": "2026-10-16T05:04:12.082369+00:00",
-      "category": "pipe_fryum",
-      "verdict": "Good",
-      "score": 0.04459744691848755,
-      "threshold": 0.05846443772315979,
-      "uncertainty_margin": 0.0029232218861579896,
-      "inference_ms": 28.43,
-      "model_id": "dinov3-normal-bank-pipe_fryum-v1",
-      "batch": "Verified VisA examples",
-      "filename": "VisA example",
-      "image_url": "showcase/images/3c255e6f989c4bee88941ef44c2f81dc.jpg",
-      "heatmap_url": "showcase/images/3c255e6f989c4bee88941ef44c2f81dc_heatmap.jpg"
-    },
-    {
-      "id": "eba4738a39db4a3192230964d15853bc",
-      "created_at": "2026-10-16T05:04:12.265434+00:00",
-      "category": "pipe_fryum",
-      "verdict": "Anomalous",
-      "score": 0.08141562342643738,
-      "threshold": 0.05846443772315979,
-      "uncertainty_margin": 0.0029232218861579896,
-      "inference_ms": 27.96,
-      "model_id": "dinov3-normal-bank-pipe_fryum-v1",
-      "batch": "Verified VisA examples",
-      "filename": "VisA example",
-      "image_url": "showcase/images/eba4738a39db4a3192230964d15853bc.jpg",
-      "heatmap_url": "showcase/images/eba4738a39db4a3192230964d15853bc_heatmap.jpg"
+      "image_url": "showcase/images/f92d581f4bc64724b9f3fffb8e38f709.jpg",
+      "heatmap_url": "showcase/images/f92d581f4bc64724b9f3fffb8e38f709_heatmap.jpg"
     }
   ],
   "samples": [
     {
-      "name": "pcb1_good",
-      "category": "pcb1",
-      "record_id": "18c7586f94de4b6d8ef773779f7cea2f",
-      "url": "showcase/images/18c7586f94de4b6d8ef773779f7cea2f.jpg",
-      "attribution": "VisA \u00b7 Zou et al., ECCV 2022 \u00b7 CC BY 4.0"
-    },
-    {
-      "name": "pcb1_anomalous",
-      "category": "pcb1",
-      "record_id": "52ee2c6d54934fcfaffb0f273c70dc87",
-      "url": "showcase/images/52ee2c6d54934fcfaffb0f273c70dc87.jpg",
-      "attribution": "VisA \u00b7 Zou et al., ECCV 2022 \u00b7 CC BY 4.0"
-    },
-    {
-      "name": "capsules_good",
-      "category": "capsules",
-      "record_id": "e701c08ef3264b20bcb11149f734b219",
-      "url": "showcase/images/e701c08ef3264b20bcb11149f734b219.jpg",
-      "attribution": "VisA \u00b7 Zou et al., ECCV 2022 \u00b7 CC BY 4.0"
-    },
-    {
-      "name": "capsules_anomalous",
-      "category": "capsules",
-      "record_id": "e3964b50d4cf4860a1f7a926d1ae444a",
-      "url": "showcase/images/e3964b50d4cf4860a1f7a926d1ae444a.jpg",
-      "attribution": "VisA \u00b7 Zou et al., ECCV 2022 \u00b7 CC BY 4.0"
-    },
-    {
-      "name": "cashew_good",
-      "category": "cashew",
-      "record_id": "b5d1bd5c7ed1493ab8f4a849eeeb7712",
-      "url": "showcase/images/b5d1bd5c7ed1493ab8f4a849eeeb7712.jpg",
-      "attribution": "VisA \u00b7 Zou et al., ECCV 2022 \u00b7 CC BY 4.0"
-    },
-    {
-      "name": "cashew_anomalous",
-      "category": "cashew",
-      "record_id": "3243fbe65d59477b9811da0f306535aa",
-      "url": "showcase/images/3243fbe65d59477b9811da0f306535aa.jpg",
-      "attribution": "VisA \u00b7 Zou et al., ECCV 2022 \u00b7 CC BY 4.0"
-    },
-    {
-      "name": "pcb1_anomalous_followup",
-      "category": "pcb1",
-      "record_id": "a6226ef392eb417e8991369e890d816b",
-      "url": "showcase/images/a6226ef392eb417e8991369e890d816b.jpg",
+      "name": "candle_anomalous",
+      "category": "candle",
+      "record_id": "4bff5e6b5e064383a9b85a8a6bec04cc",
+      "url": "showcase/images/4bff5e6b5e064383a9b85a8a6bec04cc.jpg",
       "attribution": "VisA \u00b7 Zou et al., ECCV 2022 \u00b7 CC BY 4.0"
     },
     {
       "name": "candle_good",
       "category": "candle",
-      "record_id": "14418c36d94648adbdbc2779a6a33b3c",
-      "url": "showcase/images/14418c36d94648adbdbc2779a6a33b3c.jpg",
+      "record_id": "da5e3a7125564152afd03d26ef3fb38b",
+      "url": "showcase/images/da5e3a7125564152afd03d26ef3fb38b.jpg",
       "attribution": "VisA \u00b7 Zou et al., ECCV 2022 \u00b7 CC BY 4.0"
     },
     {
-      "name": "candle_anomalous",
-      "category": "candle",
-      "record_id": "7dbb6f27253b450698a1a503cfa9a8c8",
-      "url": "showcase/images/7dbb6f27253b450698a1a503cfa9a8c8.jpg",
+      "name": "capsules_anomalous",
+      "category": "capsules",
+      "record_id": "66ab22d8050144f78e9b9c1b4c7b0b9e",
+      "url": "showcase/images/66ab22d8050144f78e9b9c1b4c7b0b9e.jpg",
       "attribution": "VisA \u00b7 Zou et al., ECCV 2022 \u00b7 CC BY 4.0"
     },
     {
-      "name": "chewinggum_good",
-      "category": "chewinggum",
-      "record_id": "6082416ed1c34be6a4fccd7e406f4a34",
-      "url": "showcase/images/6082416ed1c34be6a4fccd7e406f4a34.jpg",
+      "name": "capsules_good",
+      "category": "capsules",
+      "record_id": "da28cabe417a4f7f9d81faa0b6ce4146",
+      "url": "showcase/images/da28cabe417a4f7f9d81faa0b6ce4146.jpg",
+      "attribution": "VisA \u00b7 Zou et al., ECCV 2022 \u00b7 CC BY 4.0"
+    },
+    {
+      "name": "cashew_anomalous",
+      "category": "cashew",
+      "record_id": "def5b9b862a447ac8c61e168af28c263",
+      "url": "showcase/images/def5b9b862a447ac8c61e168af28c263.jpg",
+      "attribution": "VisA \u00b7 Zou et al., ECCV 2022 \u00b7 CC BY 4.0"
+    },
+    {
+      "name": "cashew_good",
+      "category": "cashew",
+      "record_id": "6f8af69aa59d40b488d5d864f502224d",
+      "url": "showcase/images/6f8af69aa59d40b488d5d864f502224d.jpg",
       "attribution": "VisA \u00b7 Zou et al., ECCV 2022 \u00b7 CC BY 4.0"
     },
     {
       "name": "chewinggum_anomalous",
       "category": "chewinggum",
-      "record_id": "dcc3e255b90f466c9087d7e09af1a661",
-      "url": "showcase/images/dcc3e255b90f466c9087d7e09af1a661.jpg",
+      "record_id": "7a353aa7a8124a0dbe8440f40c282ff4",
+      "url": "showcase/images/7a353aa7a8124a0dbe8440f40c282ff4.jpg",
       "attribution": "VisA \u00b7 Zou et al., ECCV 2022 \u00b7 CC BY 4.0"
     },
     {
-      "name": "fryum_good",
-      "category": "fryum",
-      "record_id": "d9023f03ff7945d8928216e8df02a620",
-      "url": "showcase/images/d9023f03ff7945d8928216e8df02a620.jpg",
+      "name": "chewinggum_good",
+      "category": "chewinggum",
+      "record_id": "fed8c208317840b2a0c6bea6f404bbc8",
+      "url": "showcase/images/fed8c208317840b2a0c6bea6f404bbc8.jpg",
       "attribution": "VisA \u00b7 Zou et al., ECCV 2022 \u00b7 CC BY 4.0"
     },
     {
       "name": "fryum_anomalous",
       "category": "fryum",
-      "record_id": "118f64eaadfe43ce8b27b955a82c37ba",
-      "url": "showcase/images/118f64eaadfe43ce8b27b955a82c37ba.jpg",
+      "record_id": "d0aa478ff7b24b86804abfde6689f2d5",
+      "url": "showcase/images/d0aa478ff7b24b86804abfde6689f2d5.jpg",
       "attribution": "VisA \u00b7 Zou et al., ECCV 2022 \u00b7 CC BY 4.0"
     },
     {
-      "name": "macaroni1_good",
-      "category": "macaroni1",
-      "record_id": "e335298e27e843c38d81accf54fdb399",
-      "url": "showcase/images/e335298e27e843c38d81accf54fdb399.jpg",
+      "name": "fryum_good",
+      "category": "fryum",
+      "record_id": "73effc650ddc4de9a1a8a35aa011c71b",
+      "url": "showcase/images/73effc650ddc4de9a1a8a35aa011c71b.jpg",
       "attribution": "VisA \u00b7 Zou et al., ECCV 2022 \u00b7 CC BY 4.0"
     },
     {
       "name": "macaroni1_anomalous",
       "category": "macaroni1",
-      "record_id": "1a5f9735b7dd44f18995b62e871ee3b7",
-      "url": "showcase/images/1a5f9735b7dd44f18995b62e871ee3b7.jpg",
+      "record_id": "031ddcf70ba240dd98baf8932b418b12",
+      "url": "showcase/images/031ddcf70ba240dd98baf8932b418b12.jpg",
       "attribution": "VisA \u00b7 Zou et al., ECCV 2022 \u00b7 CC BY 4.0"
     },
     {
-      "name": "macaroni2_good",
-      "category": "macaroni2",
-      "record_id": "d03553a7af274bba808fe090d4a7912b",
-      "url": "showcase/images/d03553a7af274bba808fe090d4a7912b.jpg",
+      "name": "macaroni1_good",
+      "category": "macaroni1",
+      "record_id": "99e5aca39a094033b059ed2ece1e4c7a",
+      "url": "showcase/images/99e5aca39a094033b059ed2ece1e4c7a.jpg",
       "attribution": "VisA \u00b7 Zou et al., ECCV 2022 \u00b7 CC BY 4.0"
     },
     {
       "name": "macaroni2_anomalous",
       "category": "macaroni2",
-      "record_id": "232cbf03a23f4eb2a3793fa1628e5f9c",
-      "url": "showcase/images/232cbf03a23f4eb2a3793fa1628e5f9c.jpg",
+      "record_id": "e80a1c06812b46858fe77c8dcba49e0d",
+      "url": "showcase/images/e80a1c06812b46858fe77c8dcba49e0d.jpg",
       "attribution": "VisA \u00b7 Zou et al., ECCV 2022 \u00b7 CC BY 4.0"
     },
     {
-      "name": "pcb2_good",
-      "category": "pcb2",
-      "record_id": "99d47a61108f4581b59c6fac6bfc224f",
-      "url": "showcase/images/99d47a61108f4581b59c6fac6bfc224f.jpg",
+      "name": "macaroni2_good",
+      "category": "macaroni2",
+      "record_id": "f844a1e1a3c84cb7883c22af86f37dd2",
+      "url": "showcase/images/f844a1e1a3c84cb7883c22af86f37dd2.jpg",
+      "attribution": "VisA \u00b7 Zou et al., ECCV 2022 \u00b7 CC BY 4.0"
+    },
+    {
+      "name": "pcb1_anomalous",
+      "category": "pcb1",
+      "record_id": "ccaaa807f4834da8b402ca8b46073342",
+      "url": "showcase/images/ccaaa807f4834da8b402ca8b46073342.jpg",
+      "attribution": "VisA \u00b7 Zou et al., ECCV 2022 \u00b7 CC BY 4.0"
+    },
+    {
+      "name": "pcb1_good",
+      "category": "pcb1",
+      "record_id": "1c68ef87cd4b4e10a7efab1b5107d59b",
+      "url": "showcase/images/1c68ef87cd4b4e10a7efab1b5107d59b.jpg",
       "attribution": "VisA \u00b7 Zou et al., ECCV 2022 \u00b7 CC BY 4.0"
     },
     {
       "name": "pcb2_anomalous",
       "category": "pcb2",
-      "record_id": "c6222fddf36d4c788ae4e96994b3e02b",
-      "url": "showcase/images/c6222fddf36d4c788ae4e96994b3e02b.jpg",
+      "record_id": "861bd29ac3e34efc89c18aad4befcb0a",
+      "url": "showcase/images/861bd29ac3e34efc89c18aad4befcb0a.jpg",
       "attribution": "VisA \u00b7 Zou et al., ECCV 2022 \u00b7 CC BY 4.0"
     },
     {
-      "name": "pcb3_good",
-      "category": "pcb3",
-      "record_id": "2cb0f86c14d344019b28f77f4628257f",
-      "url": "showcase/images/2cb0f86c14d344019b28f77f4628257f.jpg",
+      "name": "pcb2_good",
+      "category": "pcb2",
+      "record_id": "24610e481ba14990be2b059b435ec8d1",
+      "url": "showcase/images/24610e481ba14990be2b059b435ec8d1.jpg",
       "attribution": "VisA \u00b7 Zou et al., ECCV 2022 \u00b7 CC BY 4.0"
     },
     {
       "name": "pcb3_anomalous",
       "category": "pcb3",
-      "record_id": "b43a98329ac646ef90f19861345d0884",
-      "url": "showcase/images/b43a98329ac646ef90f19861345d0884.jpg",
+      "record_id": "944d0897857e443b96ab5e30747cef96",
+      "url": "showcase/images/944d0897857e443b96ab5e30747cef96.jpg",
       "attribution": "VisA \u00b7 Zou et al., ECCV 2022 \u00b7 CC BY 4.0"
     },
     {
-      "name": "pcb4_good",
-      "category": "pcb4",
-      "record_id": "d182ffb0791744d08f112d7321e69f1d",
-      "url": "showcase/images/d182ffb0791744d08f112d7321e69f1d.jpg",
+      "name": "pcb3_good",
+      "category": "pcb3",
+      "record_id": "27606216a5324123becd9271a9044576",
+      "url": "showcase/images/27606216a5324123becd9271a9044576.jpg",
       "attribution": "VisA \u00b7 Zou et al., ECCV 2022 \u00b7 CC BY 4.0"
     },
     {
       "name": "pcb4_anomalous",
       "category": "pcb4",
-      "record_id": "09c2eda2da134adf829057bc0a4faccb",
-      "url": "showcase/images/09c2eda2da134adf829057bc0a4faccb.jpg",
+      "record_id": "9b95eb77b39b403bb68311b0cc1a7174",
+      "url": "showcase/images/9b95eb77b39b403bb68311b0cc1a7174.jpg",
       "attribution": "VisA \u00b7 Zou et al., ECCV 2022 \u00b7 CC BY 4.0"
     },
     {
-      "name": "pipe_fryum_good",
-      "category": "pipe_fryum",
-      "record_id": "3c255e6f989c4bee88941ef44c2f81dc",
-      "url": "showcase/images/3c255e6f989c4bee88941ef44c2f81dc.jpg",
+      "name": "pcb4_good",
+      "category": "pcb4",
+      "record_id": "57cbced2975740d2b7845b1660aad8b6",
+      "url": "showcase/images/57cbced2975740d2b7845b1660aad8b6.jpg",
       "attribution": "VisA \u00b7 Zou et al., ECCV 2022 \u00b7 CC BY 4.0"
     },
     {
       "name": "pipe_fryum_anomalous",
       "category": "pipe_fryum",
-      "record_id": "eba4738a39db4a3192230964d15853bc",
-      "url": "showcase/images/eba4738a39db4a3192230964d15853bc.jpg",
+      "record_id": "1213d696bd724a2e9d4ad4af04bda78c",
+      "url": "showcase/images/1213d696bd724a2e9d4ad4af04bda78c.jpg",
+      "attribution": "VisA \u00b7 Zou et al., ECCV 2022 \u00b7 CC BY 4.0"
+    },
+    {
+      "name": "pipe_fryum_good",
+      "category": "pipe_fryum",
+      "record_id": "f92d581f4bc64724b9f3fffb8e38f709",
+      "url": "showcase/images/f92d581f4bc64724b9f3fffb8e38f709.jpg",
       "attribution": "VisA \u00b7 Zou et al., ECCV 2022 \u00b7 CC BY 4.0"
     }
   ],
   "messages": {
-    "18c7586f94de4b6d8ef773779f7cea2f": [
-      {
-        "role": "user",
-        "question": "What caused this defect?"
-      },
-      {
-        "role": "assistant",
-        "answer": "The available measurements and documentation do not establish that claim. Specific defect names, counts, root causes, tolerances and repair instructions require additional validated evidence.",
-        "mode": "abstained",
-        "evidence": [],
-        "trace": [
-          "route",
-          "abstain"
-        ]
-      },
-      {
-        "role": "user",
-        "question": "What caused this defect?"
-      },
-      {
-        "role": "assistant",
-        "answer": "The available measurements and documentation do not establish that claim. Specific defect names, counts, root causes, tolerances and repair instructions require additional validated evidence.",
-        "mode": "abstained",
-        "evidence": [],
-        "trace": [
-          "route",
-          "abstain"
-        ]
-      }
-    ],
-    "52ee2c6d54934fcfaffb0f273c70dc87": [],
-    "e701c08ef3264b20bcb11149f734b219": [],
-    "e3964b50d4cf4860a1f7a926d1ae444a": [],
-    "b5d1bd5c7ed1493ab8f4a849eeeb7712": [],
-    "3243fbe65d59477b9811da0f306535aa": [],
-    "a6226ef392eb417e8991369e890d816b": [
-      {
-        "role": "user",
-        "question": "So this product is anomaly right?"
-      },
-      {
-        "role": "assistant",
-        "answer": "Yes\u2014the model flagged this pcb1 image as Anomalous. Its anomaly score is 0.09611, above the upper review boundary of 0.05019; the decision threshold is 0.04780. This flags unusual appearance; it does not identify a specific defect or its cause.",
-        "mode": "measurement_only",
-        "evidence": [],
-        "trace": [
-          "read_saved_inspection",
-          "check_score_and_review_band",
-          "answer_measurement_question"
-        ]
-      },
-      {
-        "role": "user",
-        "question": "Does 0.09 mean 9% accurate?"
-      },
-      {
-        "role": "assistant",
-        "answer": "The model flagged this pcb1 image as Anomalous. Its anomaly score is 0.09611, above the upper review boundary of 0.05019; the decision threshold is 0.04780. This score measures feature difference from normal references. It is not an accuracy percentage, confidence level or defect probability.",
-        "mode": "measurement_only",
-        "evidence": [],
-        "trace": [
-          "read_saved_inspection",
-          "check_score_and_review_band",
-          "answer_measurement_question"
-        ]
-      },
-      {
-        "role": "user",
-        "question": "What does this inspection heatmap show?"
-      },
-      {
-        "role": "assistant",
-        "answer": "The model flagged this pcb1 image as Anomalous. Its anomaly score is 0.09611, above the upper review boundary of 0.05019; the decision threshold is 0.04780. This flags unusual appearance; it does not identify a specific defect or its cause.\n\nThe heatmap illustrates the cosine distance between each image patch feature and its closest stored normal patch feature. [screening-4]\n\nThe map represents a 14 by 14 patch grid for coarse localization, not for verified defect segmentation or named defect diagnosis. [screening-4]",
-        "mode": "llm",
-        "evidence": [
-          {
-            "text": "# Current detector heatmap\nThe current DefectRAG detector uses a frozen DINOv3 encoder and a nearest-normal memory bank. Its heatmap displays the cosine distance between each image patch feature and its closest stored normal patch feature. Larger distances mean a larger departure from the reference appearance. The map interpolates a 14 by 14 patch grid; it is coarse localization, not a verified defect segmentation or a named defect diagnosis. This detector does not reconstruct image features with a trained decoder. General Dinomaly reconstruction documentation describes a different method.",
-            "id": "screening",
-            "file": "screening.md",
-            "title": "DefectRAG v2 screening and evidence policy",
-            "url": "project://docs/inspection-policy",
-            "license": "Project-authored, MIT",
-            "scope": "application policy; not a factory SOP",
-            "start_index": 1282,
-            "chunk_id": "screening-4",
-            "similarity": 0.7689
-          },
-          {
-            "text": "# Evidence limits and response\nThe system does not predict specific defect types, component counts, root causes, process parameters, acceptance tolerances or repair instructions. Those require additional validated supervision or approved process records. Model failures create an error event, never a successful inspection. Anomaly and uncertain events create local review alerts. Review source images and heatmaps before acting. Product category is selected by the operator; arbitrary or wrong-product uploads are outside validated scope. Documentation is general context and must remain separate from image measurements.",
-            "id": "screening",
-            "file": "screening.md",
-            "title": "DefectRAG v2 screening and evidence policy",
-            "url": "project://docs/inspection-policy",
-            "license": "Project-authored, MIT",
-            "scope": "application policy; not a factory SOP",
-            "start_index": 1880,
-            "chunk_id": "screening-5",
-            "similarity": 0.7055
-          }
-        ],
-        "trace": [
-          "route",
-          "retrieve",
-          "validate_evidence",
-          "generate",
-          "validate_answer"
-        ]
-      },
-      {
-        "role": "user",
-        "question": "How does that map relate to the anomaly score?"
-      },
-      {
-        "role": "assistant",
-        "answer": "The model flagged this pcb1 image as Anomalous. Its anomaly score is 0.09611, above the upper review boundary of 0.05019; the decision threshold is 0.04780. This flags unusual appearance; it does not identify a specific defect or its cause.\n\nA larger anomaly score indicates a larger feature distance; the score is not a defect probability. [screening-2]\n\nThe map represents a 14 by 14 patch grid; it is coarse localization, not a verified defect segmentation or a named defect diagnosis. [screening-4]",
-        "mode": "llm",
-        "evidence": [
-          {
-            "text": "# Current detector heatmap\nThe current DefectRAG detector uses a frozen DINOv3 encoder and a nearest-normal memory bank. Its heatmap displays the cosine distance between each image patch feature and its closest stored normal patch feature. Larger distances mean a larger departure from the reference appearance. The map interpolates a 14 by 14 patch grid; it is coarse localization, not a verified defect segmentation or a named defect diagnosis. This detector does not reconstruct image features with a trained decoder. General Dinomaly reconstruction documentation describes a different method.",
-            "id": "screening",
-            "file": "screening.md",
-            "title": "DefectRAG v2 screening and evidence policy",
-            "url": "project://docs/inspection-policy",
-            "license": "Project-authored, MIT",
-            "scope": "application policy; not a factory SOP",
-            "start_index": 1282,
-            "chunk_id": "screening-4",
-            "similarity": 0.7411
-          },
-          {
-            "text": "# Reading an inspection\nDefectRAG compares an uploaded image with normal VisA reference features for the selected product. A larger anomaly score indicates a larger feature distance; the score is not a defect probability. Good means the score lies below the validated decision threshold and outside the review band. Anomalous means it lies above the threshold and outside the review band. Uncertain means it lies within a fixed five-percent band around the threshold. This review band is an operational heuristic, not calibrated statistical confidence. A Good result is screening evidence, not proof that a product is safe or meets a factory specification.",
-            "id": "screening",
-            "file": "screening.md",
-            "title": "DefectRAG v2 screening and evidence policy",
-            "url": "project://docs/inspection-policy",
-            "license": "Project-authored, MIT",
-            "scope": "application policy; not a factory SOP",
-            "start_index": 0,
-            "chunk_id": "screening-2",
-            "similarity": 0.7304
-          }
-        ],
-        "trace": [
-          "route",
-          "retrieve",
-          "validate_evidence",
-          "generate",
-          "validate_answer"
-        ]
-      },
-      {
-        "role": "user",
-        "question": "What caused this defect?"
-      },
-      {
-        "role": "assistant",
-        "answer": "The model flagged this pcb1 image as Anomalous. Its anomaly score is 0.09611, above the upper review boundary of 0.05019; the decision threshold is 0.04780. This flags unusual appearance; it does not identify a specific defect or its cause.\n\nThe available measurements and documentation do not establish that claim. Specific defect names, counts, root causes, tolerances and repair instructions require additional validated evidence.",
-        "mode": "abstained",
-        "evidence": [],
-        "trace": [
-          "route",
-          "abstain"
-        ]
-      }
-    ],
-    "14418c36d94648adbdbc2779a6a33b3c": [],
-    "7dbb6f27253b450698a1a503cfa9a8c8": [],
-    "6082416ed1c34be6a4fccd7e406f4a34": [],
-    "dcc3e255b90f466c9087d7e09af1a661": [],
-    "d9023f03ff7945d8928216e8df02a620": [],
-    "118f64eaadfe43ce8b27b955a82c37ba": [],
-    "e335298e27e843c38d81accf54fdb399": [],
-    "1a5f9735b7dd44f18995b62e871ee3b7": [],
-    "d03553a7af274bba808fe090d4a7912b": [],
-    "232cbf03a23f4eb2a3793fa1628e5f9c": [],
-    "99d47a61108f4581b59c6fac6bfc224f": [],
-    "c6222fddf36d4c788ae4e96994b3e02b": [],
-    "2cb0f86c14d344019b28f77f4628257f": [],
-    "b43a98329ac646ef90f19861345d0884": [],
-    "d182ffb0791744d08f112d7321e69f1d": [],
-    "09c2eda2da134adf829057bc0a4faccb": [],
-    "3c255e6f989c4bee88941ef44c2f81dc": [],
-    "eba4738a39db4a3192230964d15853bc": []
+    "4bff5e6b5e064383a9b85a8a6bec04cc": [],
+    "da5e3a7125564152afd03d26ef3fb38b": [],
+    "66ab22d8050144f78e9b9c1b4c7b0b9e": [],
+    "da28cabe417a4f7f9d81faa0b6ce4146": [],
+    "def5b9b862a447ac8c61e168af28c263": [],
+    "6f8af69aa59d40b488d5d864f502224d": [],
+    "7a353aa7a8124a0dbe8440f40c282ff4": [],
+    "fed8c208317840b2a0c6bea6f404bbc8": [],
+    "d0aa478ff7b24b86804abfde6689f2d5": [],
+    "73effc650ddc4de9a1a8a35aa011c71b": [],
+    "031ddcf70ba240dd98baf8932b418b12": [],
+    "99e5aca39a094033b059ed2ece1e4c7a": [],
+    "e80a1c06812b46858fe77c8dcba49e0d": [],
+    "f844a1e1a3c84cb7883c22af86f37dd2": [],
+    "ccaaa807f4834da8b402ca8b46073342": [],
+    "1c68ef87cd4b4e10a7efab1b5107d59b": [],
+    "861bd29ac3e34efc89c18aad4befcb0a": [],
+    "24610e481ba14990be2b059b435ec8d1": [],
+    "944d0897857e443b96ab5e30747cef96": [],
+    "27606216a5324123becd9271a9044576": [],
+    "9b95eb77b39b403bb68311b0cc1a7174": [],
+    "57cbced2975740d2b7845b1660aad8b6": [],
+    "1213d696bd724a2e9d4ad4af04bda78c": [],
+    "f92d581f4bc64724b9f3fffb8e38f709": []
   },
   "evaluation": {
-    "method": "Frozen DINOv3 ViT-S/16 + cosine nearest-normal patch bank",
-    "protocol": "64 normal fit images; 32 distinct training normals + 20 official test anomalies for calibration; remaining official test images for final evaluation. Seed 42. Not the full official VisA test protocol.",
-    "platform": "Windows-11-10.0.26300-SP0",
-    "python": "3.12.4",
-    "torch": "2.8.0+cu126",
+    "method": "AnomalyDINO-inspired DINOv2 ViT-S/14 fine-tuned on synthetic defects; 32,768-patch coreset memory",
+    "profile": "dinov2_tuned_v1",
+    "protocol": "Official VisA test assignments. The DINOv2 encoder was fine-tuned on synthetic defects made from normal training images (last 4 blocks only). The memory bank is a 32,768-patch coreset of normal-image patches per product. Thresholds are the 95th percentile of held-out normal scores, the same rule for every product; held-out normals are never used to build the memory. Retrospective development evaluation on test images that were seen during development; not an untouched external test.",
+    "encoder_sha256": "95ac11984ecae1bb14e9a0d98e85650e73365fc3d57ed49c6bfa526e0498adcb",
     "device": "cuda",
-    "encoder_sha256": "4610ad75edef83e75afdebf162d148dc628045ea6cbb83d67d4708c709c4f91d",
     "categories": {
       "pcb1": {
         "category": "pcb1",
         "available": true,
-        "model_id": "dinov3-normal-bank-pcb1-v1",
-        "method": "Frozen DINOv3 ViT-S/16 + cosine nearest-normal patch bank",
-        "encoder_sha256": "4610ad75edef83e75afdebf162d148dc628045ea6cbb83d67d4708c709c4f91d",
-        "bank_sha256": "32786eb59ad977de43f1eac542defa92a62c856c3e6013762373c5d8428ff41f",
-        "threshold": 0.047802507877349854,
-        "uncertainty_margin": 0.0023901253938674928,
-        "uncertainty_policy": "Fixed \u00b15% of validated threshold. Operational review band, not calibrated confidence.",
-        "heatmap_scale": 0.05350043252110481,
-        "bank_size_bytes": 5826022,
-        "encoder_size_bytes": 86406384,
+        "model_id": "dinov2-tuned-pcb1-v1",
+        "method": "AnomalyDINO-inspired DINOv2 ViT-S/14 fine-tuned on synthetic defects; 32,768-patch coreset memory",
+        "profile": "dinov2_tuned_v1",
+        "encoder_sha256": "95ac11984ecae1bb14e9a0d98e85650e73365fc3d57ed49c6bfa526e0498adcb",
+        "bank_sha256": "282ebe91a413a4c66a1f997552867a14a86c8c284100038c5445295184a4f5fd",
+        "threshold": 0.09390439838171005,
+        "uncertainty_margin": 0.004695219919085503,
+        "heatmap_scale": 0.07119274705648429,
+        "uncertainty_policy": "Fixed \u00b15% of threshold; operational heuristic, not calibrated confidence",
+        "bank_size_bytes": 23249131,
+        "encoder_size_bytes": 44136744,
         "calibration": {
-          "method": "Max F1 on separate validation identities",
-          "normal": 32,
-          "anomalous": 20,
-          "seed": 42
+          "method": "Fixed linear 95th percentile of heldout normal scores; no anomalous calibration",
+          "normal": 91,
+          "anomalous": 0,
+          "seed": 42,
+          "policy": "tuned-normal-quantile-v1",
+          "quantile": 0.95,
+          "calibration_above_threshold": 5,
+          "future_false_positive_rate_guaranteed": false
         },
-        "train_normal_count": 64,
+        "train_normal_count": 813,
         "metrics": {
-          "image_auroc": 0.8966250000000001,
-          "average_precision": 0.8663194463972607,
-          "precision": 0.7790697674418605,
-          "recall": 0.8375,
-          "f1": 0.8072289156626506,
+          "image_auroc": 0.9788,
+          "average_precision": 0.976301821637879,
+          "precision": 0.912621359223301,
+          "recall": 0.94,
+          "f1": 0.9261083743842364,
+          "false_positive_rate": 0.09,
           "confusion_matrix": [
             [
-              81,
-              19
+              91,
+              9
             ],
             [
-              13,
-              67
+              6,
+              94
             ]
           ],
-          "n_images": 180,
-          "pixel_auroc_64": 0.9898054522947226,
-          "pixel_average_precision_64": 0.7869819025878954,
-          "pixel_f1_64": 0.7252747252747253,
-          "pixel_threshold": 0.09545719623565674,
-          "latency_median_ms": 107.9613499896368,
-          "latency_p95_ms": 200.43043499463238,
-          "peak_gpu_mb": 75.25634765625,
-          "uncertain_fraction": 0.10555555555555556
+          "n_images": 200,
+          "pixel_auroc_224": 0.9948781306534351,
+          "pixel_average_precision_224": 0.8829297562485579,
+          "uncertain_fraction": 0.055,
+          "latency_median_ms": null,
+          "peak_gpu_mb": null
         },
-        "fit_and_evaluation_seconds": 46.72307930000534
+        "resolution_short_edge": 448,
+        "patch_size": 14,
+        "foreground": "Unsupervised PCA threshold/sign heuristic; can fail",
+        "decision_policy": "tuned-normal-quantile-v1"
       },
       "capsules": {
         "category": "capsules",
         "available": true,
-        "model_id": "dinov3-normal-bank-capsules-v1",
-        "method": "Frozen DINOv3 ViT-S/16 + cosine nearest-normal patch bank",
-        "encoder_sha256": "4610ad75edef83e75afdebf162d148dc628045ea6cbb83d67d4708c709c4f91d",
-        "bank_sha256": "04c06d14d8a95cdcc25f2db57d5156c5f3ad3ccc5997b1a94762f4e6953f3230",
-        "threshold": 0.04728597402572632,
-        "uncertainty_margin": 0.0023642987012863163,
-        "uncertainty_policy": "Fixed \u00b15% of validated threshold. Operational review band, not calibrated confidence.",
-        "heatmap_scale": 0.051162537187337875,
-        "bank_size_bytes": 5829829,
-        "encoder_size_bytes": 86406384,
+        "model_id": "dinov2-tuned-capsules-v1",
+        "method": "AnomalyDINO-inspired DINOv2 ViT-S/14 fine-tuned on synthetic defects; 32,768-patch coreset memory",
+        "profile": "dinov2_tuned_v1",
+        "encoder_sha256": "95ac11984ecae1bb14e9a0d98e85650e73365fc3d57ed49c6bfa526e0498adcb",
+        "bank_sha256": "f3d63549328eb250a5dda32a78e03e9f16b9537d38a5fa58c83e2defc97defde",
+        "threshold": 0.10395566150546073,
+        "uncertainty_margin": 0.005197783075273037,
+        "heatmap_scale": 0.09393790721893303,
+        "uncertainty_policy": "Fixed \u00b15% of threshold; operational heuristic, not calibrated confidence",
+        "bank_size_bytes": 23255377,
+        "encoder_size_bytes": 44136744,
         "calibration": {
-          "method": "Max F1 on separate validation identities",
-          "normal": 32,
-          "anomalous": 20,
-          "seed": 42
+          "method": "Fixed linear 95th percentile of heldout normal scores; no anomalous calibration",
+          "normal": 55,
+          "anomalous": 0,
+          "seed": 42,
+          "policy": "tuned-normal-quantile-v1",
+          "quantile": 0.95,
+          "calibration_above_threshold": 3,
+          "future_false_positive_rate_guaranteed": false
         },
-        "train_normal_count": 64,
+        "train_normal_count": 487,
         "metrics": {
-          "image_auroc": 0.825,
-          "average_precision": 0.888730323581443,
-          "precision": 0.8382352941176471,
-          "recall": 0.7125,
-          "f1": 0.7702702702702703,
+          "image_auroc": 0.9778333333333333,
+          "average_precision": 0.9833586325787514,
+          "precision": 0.96,
+          "recall": 0.96,
+          "f1": 0.96,
+          "false_positive_rate": 0.06666666666666667,
           "confusion_matrix": [
             [
-              49,
-              11
+              56,
+              4
             ],
             [
-              23,
-              57
+              4,
+              96
             ]
           ],
-          "n_images": 140,
-          "pixel_auroc_64": 0.9262537759349578,
-          "pixel_average_precision_64": 0.045138180218283995,
-          "pixel_f1_64": 0.11524251238110211,
-          "pixel_threshold": 0.05173458158969879,
-          "latency_median_ms": 63.487500010523945,
-          "latency_p95_ms": 154.34065499284767,
-          "peak_gpu_mb": 75.25634765625,
-          "uncertain_fraction": 0.2642857142857143
+          "n_images": 160,
+          "pixel_auroc_224": 0.9778261035822543,
+          "pixel_average_precision_224": 0.5149128125633966,
+          "uncertain_fraction": 0.0875,
+          "latency_median_ms": null,
+          "peak_gpu_mb": null
         },
-        "fit_and_evaluation_seconds": 22.833901800011517
+        "resolution_short_edge": 448,
+        "patch_size": 14,
+        "foreground": "Unsupervised PCA threshold/sign heuristic; can fail",
+        "decision_policy": "tuned-normal-quantile-v1"
       },
       "cashew": {
         "category": "cashew",
         "available": true,
-        "model_id": "dinov3-normal-bank-cashew-v1",
-        "method": "Frozen DINOv3 ViT-S/16 + cosine nearest-normal patch bank",
-        "encoder_sha256": "4610ad75edef83e75afdebf162d148dc628045ea6cbb83d67d4708c709c4f91d",
-        "bank_sha256": "2da63dd9fec7bba903090659fad56c7d3dbb39cf7cc8525a68ebbb5cf13031c5",
-        "threshold": 0.051523059606552124,
-        "uncertainty_margin": 0.0025761529803276064,
-        "uncertainty_policy": "Fixed \u00b15% of validated threshold. Operational review band, not calibrated confidence.",
-        "heatmap_scale": 0.05220940336585045,
-        "bank_size_bytes": 5818641,
-        "encoder_size_bytes": 86406384,
+        "model_id": "dinov2-tuned-cashew-v1",
+        "method": "AnomalyDINO-inspired DINOv2 ViT-S/14 fine-tuned on synthetic defects; 32,768-patch coreset memory",
+        "profile": "dinov2_tuned_v1",
+        "encoder_sha256": "95ac11984ecae1bb14e9a0d98e85650e73365fc3d57ed49c6bfa526e0498adcb",
+        "bank_sha256": "848a79463a73d9682bffbf7d397faea9bb74495146ea48a037bf2ebf4f4ed3f2",
+        "threshold": 0.10727595388889313,
+        "uncertainty_margin": 0.005363797694444657,
+        "heatmap_scale": 0.08695902496576309,
+        "uncertainty_policy": "Fixed \u00b15% of threshold; operational heuristic, not calibrated confidence",
+        "bank_size_bytes": 23238560,
+        "encoder_size_bytes": 44136744,
         "calibration": {
-          "method": "Max F1 on separate validation identities",
-          "normal": 32,
-          "anomalous": 20,
-          "seed": 42
+          "method": "Fixed linear 95th percentile of heldout normal scores; no anomalous calibration",
+          "normal": 45,
+          "anomalous": 0,
+          "seed": 42,
+          "policy": "tuned-normal-quantile-v1",
+          "quantile": 0.95,
+          "calibration_above_threshold": 3,
+          "future_false_positive_rate_guaranteed": false
         },
-        "train_normal_count": 64,
+        "train_normal_count": 405,
         "metrics": {
-          "image_auroc": 0.9705,
-          "average_precision": 0.9830165610895263,
-          "precision": 1.0,
-          "recall": 0.7,
-          "f1": 0.8235294117647058,
+          "image_auroc": 0.974,
+          "average_precision": 0.9879244189184127,
+          "precision": 0.9591836734693877,
+          "recall": 0.94,
+          "f1": 0.9494949494949495,
+          "false_positive_rate": 0.08,
           "confusion_matrix": [
             [
-              50,
-              0
+              46,
+              4
             ],
             [
-              24,
-              56
+              6,
+              94
             ]
           ],
-          "n_images": 130,
-          "pixel_auroc_64": 0.996374825929817,
-          "pixel_average_precision_64": 0.9143062834240087,
-          "pixel_f1_64": 0.7389403146118462,
-          "pixel_threshold": 0.060025766491889954,
-          "latency_median_ms": 46.69994999130722,
-          "latency_p95_ms": 87.63518499908969,
-          "peak_gpu_mb": 75.25634765625,
-          "uncertain_fraction": 0.06153846153846154
+          "n_images": 150,
+          "pixel_auroc_224": 0.9968688031074235,
+          "pixel_average_precision_224": 0.7388969040994572,
+          "uncertain_fraction": 0.10666666666666667,
+          "latency_median_ms": null,
+          "peak_gpu_mb": null
         },
-        "fit_and_evaluation_seconds": 15.456038499978604
+        "resolution_short_edge": 448,
+        "patch_size": 14,
+        "foreground": "Unsupervised PCA threshold/sign heuristic; can fail",
+        "decision_policy": "tuned-normal-quantile-v1"
       },
       "candle": {
         "category": "candle",
         "available": true,
-        "model_id": "dinov3-normal-bank-candle-v1",
-        "method": "Frozen DINOv3 ViT-S/16 + cosine nearest-normal patch bank",
-        "encoder_sha256": "4610ad75edef83e75afdebf162d148dc628045ea6cbb83d67d4708c709c4f91d",
-        "bank_sha256": "f7465d73990b2e0ada0b4ffd493341af104debf37ba5add778767ba955406eaa",
-        "threshold": 0.04235455393791199,
-        "uncertainty_margin": 0.0021177276968955996,
-        "uncertainty_policy": "Fixed \u00b15% of validated threshold. Operational review band, not calibrated confidence.",
-        "heatmap_scale": 0.049472544342279434,
-        "bank_size_bytes": 5833565,
-        "encoder_size_bytes": 86406384,
+        "model_id": "dinov2-tuned-candle-v1",
+        "method": "AnomalyDINO-inspired DINOv2 ViT-S/14 fine-tuned on synthetic defects; 32,768-patch coreset memory",
+        "profile": "dinov2_tuned_v1",
+        "encoder_sha256": "95ac11984ecae1bb14e9a0d98e85650e73365fc3d57ed49c6bfa526e0498adcb",
+        "bank_sha256": "12775563ee1c641a96e03c92aafaa52594b8a5adf7d5b58934b64ece6cf7f824",
+        "threshold": 0.10769653692841528,
+        "uncertainty_margin": 0.005384826846420765,
+        "heatmap_scale": 0.08101917594671243,
+        "uncertainty_policy": "Fixed \u00b15% of threshold; operational heuristic, not calibrated confidence",
+        "bank_size_bytes": 23248556,
+        "encoder_size_bytes": 44136744,
         "calibration": {
-          "method": "Max F1 on separate validation identities",
-          "normal": 32,
-          "anomalous": 20,
-          "seed": 42
+          "method": "Fixed linear 95th percentile of heldout normal scores; no anomalous calibration",
+          "normal": 90,
+          "anomalous": 0,
+          "seed": 42,
+          "policy": "tuned-normal-quantile-v1",
+          "quantile": 0.95,
+          "calibration_above_threshold": 5,
+          "future_false_positive_rate_guaranteed": false
         },
-        "train_normal_count": 64,
+        "train_normal_count": 810,
         "metrics": {
-          "image_auroc": 0.9247500000000001,
-          "average_precision": 0.9157839305972371,
-          "precision": 0.8095238095238095,
-          "recall": 0.85,
-          "f1": 0.8292682926829268,
+          "image_auroc": 0.9599,
+          "average_precision": 0.9635102573657932,
+          "precision": 0.9052631578947369,
+          "recall": 0.86,
+          "f1": 0.8820512820512821,
+          "false_positive_rate": 0.09,
           "confusion_matrix": [
             [
-              84,
-              16
+              91,
+              9
             ],
             [
-              12,
-              68
+              14,
+              86
             ]
           ],
-          "n_images": 180,
-          "pixel_auroc_64": 0.9843575395340302,
-          "pixel_average_precision_64": 0.21910140819834925,
-          "pixel_f1_64": 0.21270521056388295,
-          "pixel_threshold": 0.0849744901061058,
-          "latency_median_ms": 35.39944998919964,
-          "latency_p95_ms": 42.45204498292878,
-          "peak_gpu_mb": 75.25634765625,
-          "uncertain_fraction": 0.07777777777777778
+          "n_images": 200,
+          "pixel_auroc_224": 0.9915738142390015,
+          "pixel_average_precision_224": 0.40608475735949057,
+          "uncertain_fraction": 0.035,
+          "latency_median_ms": null,
+          "peak_gpu_mb": null
         },
-        "fit_and_evaluation_seconds": 16.015594900003634
+        "resolution_short_edge": 448,
+        "patch_size": 14,
+        "foreground": "Unsupervised PCA threshold/sign heuristic; can fail",
+        "decision_policy": "tuned-normal-quantile-v1"
       },
       "chewinggum": {
         "category": "chewinggum",
         "available": true,
-        "model_id": "dinov3-normal-bank-chewinggum-v1",
-        "method": "Frozen DINOv3 ViT-S/16 + cosine nearest-normal patch bank",
-        "encoder_sha256": "4610ad75edef83e75afdebf162d148dc628045ea6cbb83d67d4708c709c4f91d",
-        "bank_sha256": "457aa7d24353f019c0cd279b927e686d85fb9642d61f35fa7837eac9180971d1",
-        "threshold": 0.06446045637130737,
-        "uncertainty_margin": 0.003223022818565369,
-        "uncertainty_policy": "Fixed \u00b15% of validated threshold. Operational review band, not calibrated confidence.",
-        "heatmap_scale": 0.12498166412115097,
-        "bank_size_bytes": 5818815,
-        "encoder_size_bytes": 86406384,
+        "model_id": "dinov2-tuned-chewinggum-v1",
+        "method": "AnomalyDINO-inspired DINOv2 ViT-S/14 fine-tuned on synthetic defects; 32,768-patch coreset memory",
+        "profile": "dinov2_tuned_v1",
+        "encoder_sha256": "95ac11984ecae1bb14e9a0d98e85650e73365fc3d57ed49c6bfa526e0498adcb",
+        "bank_sha256": "c40c42e84c4cca85cf1a9e3e0316e41c7b7a6c29c7d959754a8fb9d709d232b8",
+        "threshold": 0.11576281487941742,
+        "uncertainty_margin": 0.005788140743970872,
+        "heatmap_scale": 0.09326122194528576,
+        "uncertainty_policy": "Fixed \u00b15% of threshold; operational heuristic, not calibrated confidence",
+        "bank_size_bytes": 23230985,
+        "encoder_size_bytes": 44136744,
         "calibration": {
-          "method": "Max F1 on separate validation identities",
-          "normal": 32,
-          "anomalous": 20,
-          "seed": 42
+          "method": "Fixed linear 95th percentile of heldout normal scores; no anomalous calibration",
+          "normal": 46,
+          "anomalous": 0,
+          "seed": 42,
+          "policy": "tuned-normal-quantile-v1",
+          "quantile": 0.95,
+          "calibration_above_threshold": 3,
+          "future_false_positive_rate_guaranteed": false
         },
-        "train_normal_count": 64,
+        "train_normal_count": 407,
         "metrics": {
-          "image_auroc": 0.9615,
-          "average_precision": 0.9817544815300773,
-          "precision": 1.0,
-          "recall": 0.8375,
-          "f1": 0.9115646258503401,
-          "confusion_matrix": [
-            [
-              50,
-              0
-            ],
-            [
-              13,
-              67
-            ]
-          ],
-          "n_images": 130,
-          "pixel_auroc_64": 0.9764362172320896,
-          "pixel_average_precision_64": 0.6115074532633727,
-          "pixel_f1_64": 0.535268768428215,
-          "pixel_threshold": 0.15793992578983307,
-          "latency_median_ms": 35.14035000989679,
-          "latency_p95_ms": 38.95726999035105,
-          "peak_gpu_mb": 75.25634765625,
-          "uncertain_fraction": 0.05384615384615385
-        },
-        "fit_and_evaluation_seconds": 12.904443200008245
-      },
-      "fryum": {
-        "category": "fryum",
-        "available": true,
-        "model_id": "dinov3-normal-bank-fryum-v1",
-        "method": "Frozen DINOv3 ViT-S/16 + cosine nearest-normal patch bank",
-        "encoder_sha256": "4610ad75edef83e75afdebf162d148dc628045ea6cbb83d67d4708c709c4f91d",
-        "bank_sha256": "8ace2cfe248a0fcc2cf4de52a724e5eb0bb40b8982cc1940a0ebc1d328b14bf5",
-        "threshold": 0.031331419944763184,
-        "uncertainty_margin": 0.0015665709972381592,
-        "uncertainty_policy": "Fixed \u00b15% of validated threshold. Operational review band, not calibrated confidence.",
-        "heatmap_scale": 0.03678131476044655,
-        "bank_size_bytes": 5837639,
-        "encoder_size_bytes": 86406384,
-        "calibration": {
-          "method": "Max F1 on separate validation identities",
-          "normal": 32,
-          "anomalous": 20,
-          "seed": 42
-        },
-        "train_normal_count": 64,
-        "metrics": {
-          "image_auroc": 0.9045000000000001,
-          "average_precision": 0.9462912998505075,
-          "precision": 0.8518518518518519,
-          "recall": 0.8625,
-          "f1": 0.8571428571428571,
-          "confusion_matrix": [
-            [
-              38,
-              12
-            ],
-            [
-              11,
-              69
-            ]
-          ],
-          "n_images": 130,
-          "pixel_auroc_64": 0.9719083051766001,
-          "pixel_average_precision_64": 0.3980462068371827,
-          "pixel_f1_64": 0.4379701239538087,
-          "pixel_threshold": 0.032756902277469635,
-          "latency_median_ms": 42.533050014753826,
-          "latency_p95_ms": 46.57477499276865,
-          "peak_gpu_mb": 75.25634765625,
-          "uncertain_fraction": 0.1076923076923077
-        },
-        "fit_and_evaluation_seconds": 14.423628800024744
-      },
-      "macaroni1": {
-        "category": "macaroni1",
-        "available": true,
-        "model_id": "dinov3-normal-bank-macaroni1-v1",
-        "method": "Frozen DINOv3 ViT-S/16 + cosine nearest-normal patch bank",
-        "encoder_sha256": "4610ad75edef83e75afdebf162d148dc628045ea6cbb83d67d4708c709c4f91d",
-        "bank_sha256": "80671fc63c363971235dfcfed56f4b7bc26a6cc729f8742b9cc245e3c32a6740",
-        "threshold": 0.04998299479484558,
-        "uncertainty_margin": 0.002499149739742279,
-        "uncertainty_policy": "Fixed \u00b15% of validated threshold. Operational review band, not calibrated confidence.",
-        "heatmap_scale": 0.04887811839580536,
-        "bank_size_bytes": 5838076,
-        "encoder_size_bytes": 86406384,
-        "calibration": {
-          "method": "Max F1 on separate validation identities",
-          "normal": 32,
-          "anomalous": 20,
-          "seed": 42
-        },
-        "train_normal_count": 64,
-        "metrics": {
-          "image_auroc": 0.8305,
-          "average_precision": 0.7713832272795041,
-          "precision": 0.8103448275862069,
-          "recall": 0.5875,
-          "f1": 0.6811594202898551,
-          "confusion_matrix": [
-            [
-              89,
-              11
-            ],
-            [
-              33,
-              47
-            ]
-          ],
-          "n_images": 180,
-          "pixel_auroc_64": 0.694555712193444,
-          "pixel_average_precision_64": 0.001018167117284116,
-          "pixel_f1_64": 0.004832509610104338,
-          "pixel_threshold": 0.04819351062178612,
-          "latency_median_ms": 38.921750005101785,
-          "latency_p95_ms": 43.64804000215372,
-          "peak_gpu_mb": 75.25634765625,
-          "uncertain_fraction": 0.13333333333333333
-        },
-        "fit_and_evaluation_seconds": 16.23608139998396
-      },
-      "macaroni2": {
-        "category": "macaroni2",
-        "available": true,
-        "model_id": "dinov3-normal-bank-macaroni2-v1",
-        "method": "Frozen DINOv3 ViT-S/16 + cosine nearest-normal patch bank",
-        "encoder_sha256": "4610ad75edef83e75afdebf162d148dc628045ea6cbb83d67d4708c709c4f91d",
-        "bank_sha256": "0645e4c3bfe1b829bc2b10c59f1ecf7e4b64bf85490182c9aeb188d2a31b1a68",
-        "threshold": 0.056429386138916016,
-        "uncertainty_margin": 0.002821469306945801,
-        "uncertainty_policy": "Fixed \u00b15% of validated threshold. Operational review band, not calibrated confidence.",
-        "heatmap_scale": 0.057037897408008575,
-        "bank_size_bytes": 5828662,
-        "encoder_size_bytes": 86406384,
-        "calibration": {
-          "method": "Max F1 on separate validation identities",
-          "normal": 32,
-          "anomalous": 20,
-          "seed": 42
-        },
-        "train_normal_count": 64,
-        "metrics": {
-          "image_auroc": 0.46825,
-          "average_precision": 0.4027863501702508,
-          "precision": 0.41414141414141414,
-          "recall": 0.5125,
-          "f1": 0.4581005586592179,
-          "confusion_matrix": [
-            [
-              42,
-              58
-            ],
-            [
-              39,
-              41
-            ]
-          ],
-          "n_images": 180,
-          "pixel_auroc_64": 0.806682222416908,
-          "pixel_average_precision_64": 0.0014684442001449403,
-          "pixel_f1_64": 0.006172839506172839,
-          "pixel_threshold": 0.06772572547197342,
-          "latency_median_ms": 36.53770001255907,
-          "latency_p95_ms": 41.75992001546546,
-          "peak_gpu_mb": 75.25634765625,
-          "uncertain_fraction": 0.35
-        },
-        "fit_and_evaluation_seconds": 15.40095150002162
-      },
-      "pcb2": {
-        "category": "pcb2",
-        "available": true,
-        "model_id": "dinov3-normal-bank-pcb2-v1",
-        "method": "Frozen DINOv3 ViT-S/16 + cosine nearest-normal patch bank",
-        "encoder_sha256": "4610ad75edef83e75afdebf162d148dc628045ea6cbb83d67d4708c709c4f91d",
-        "bank_sha256": "896d2526dbbe432a77d1085ec7c229848dfc99076d5544a76ad323d3e30ede30",
-        "threshold": 0.03412127494812012,
-        "uncertainty_margin": 0.0017060637474060059,
-        "uncertainty_policy": "Fixed \u00b15% of validated threshold. Operational review band, not calibrated confidence.",
-        "heatmap_scale": 0.05106712877750397,
-        "bank_size_bytes": 5830678,
-        "encoder_size_bytes": 86406384,
-        "calibration": {
-          "method": "Max F1 on separate validation identities",
-          "normal": 32,
-          "anomalous": 20,
-          "seed": 42
-        },
-        "train_normal_count": 64,
-        "metrics": {
-          "image_auroc": 0.7842500000000001,
-          "average_precision": 0.7352563715081358,
-          "precision": 0.5929203539823009,
-          "recall": 0.8375,
-          "f1": 0.694300518134715,
-          "confusion_matrix": [
-            [
-              54,
-              46
-            ],
-            [
-              13,
-              67
-            ]
-          ],
-          "n_images": 180,
-          "pixel_auroc_64": 0.914610843350704,
-          "pixel_average_precision_64": 0.036729612921036846,
-          "pixel_f1_64": 0.08551020408163265,
-          "pixel_threshold": 0.04263307899236679,
-          "latency_median_ms": 38.40279999712948,
-          "latency_p95_ms": 42.41142502578441,
-          "peak_gpu_mb": 75.25634765625,
-          "uncertain_fraction": 0.15555555555555556
-        },
-        "fit_and_evaluation_seconds": 15.296049700002186
-      },
-      "pcb3": {
-        "category": "pcb3",
-        "available": true,
-        "model_id": "dinov3-normal-bank-pcb3-v1",
-        "method": "Frozen DINOv3 ViT-S/16 + cosine nearest-normal patch bank",
-        "encoder_sha256": "4610ad75edef83e75afdebf162d148dc628045ea6cbb83d67d4708c709c4f91d",
-        "bank_sha256": "f291efa19669dbc601086ec5f5b7a8f5e8ae107d0476c65563e911958ed089e6",
-        "threshold": 0.04104718565940857,
-        "uncertainty_margin": 0.0020523592829704285,
-        "uncertainty_policy": "Fixed \u00b15% of validated threshold. Operational review band, not calibrated confidence.",
-        "heatmap_scale": 0.05669708549976349,
-        "bank_size_bytes": 5822961,
-        "encoder_size_bytes": 86406384,
-        "calibration": {
-          "method": "Max F1 on separate validation identities",
-          "normal": 32,
-          "anomalous": 20,
-          "seed": 42
-        },
-        "train_normal_count": 64,
-        "metrics": {
-          "image_auroc": 0.8034653465346534,
-          "average_precision": 0.7836195407829445,
-          "precision": 0.6931818181818182,
-          "recall": 0.7625,
-          "f1": 0.7261904761904762,
-          "confusion_matrix": [
-            [
-              74,
-              27
-            ],
-            [
-              19,
-              61
-            ]
-          ],
-          "n_images": 181,
-          "pixel_auroc_64": 0.9392880496970388,
-          "pixel_average_precision_64": 0.14389241178306048,
-          "pixel_f1_64": 0.1905079470934756,
-          "pixel_threshold": 0.054352011531591415,
-          "latency_median_ms": 41.84810002334416,
-          "latency_p95_ms": 45.29579999507405,
-          "peak_gpu_mb": 75.25634765625,
-          "uncertain_fraction": 0.11602209944751381
-        },
-        "fit_and_evaluation_seconds": 16.930150200001663
-      },
-      "pcb4": {
-        "category": "pcb4",
-        "available": true,
-        "model_id": "dinov3-normal-bank-pcb4-v1",
-        "method": "Frozen DINOv3 ViT-S/16 + cosine nearest-normal patch bank",
-        "encoder_sha256": "4610ad75edef83e75afdebf162d148dc628045ea6cbb83d67d4708c709c4f91d",
-        "bank_sha256": "b92668a5dd7740e5f966feaf6ee360655ecbeb0103943a2a9ba9c898a7ec439a",
-        "threshold": 0.043793290853500366,
-        "uncertainty_margin": 0.0021896645426750182,
-        "uncertainty_policy": "Fixed \u00b15% of validated threshold. Operational review band, not calibrated confidence.",
-        "heatmap_scale": 0.045600999146699905,
-        "bank_size_bytes": 5825074,
-        "encoder_size_bytes": 86406384,
-        "calibration": {
-          "method": "Max F1 on separate validation identities",
-          "normal": 32,
-          "anomalous": 20,
-          "seed": 42
-        },
-        "train_normal_count": 64,
-        "metrics": {
-          "image_auroc": 0.9326732673267326,
-          "average_precision": 0.907221287906644,
-          "precision": 0.8461538461538461,
-          "recall": 0.825,
-          "f1": 0.8354430379746836,
-          "confusion_matrix": [
-            [
-              89,
-              12
-            ],
-            [
-              14,
-              66
-            ]
-          ],
-          "n_images": 181,
-          "pixel_auroc_64": 0.9642022029108047,
-          "pixel_average_precision_64": 0.2560012959647235,
-          "pixel_f1_64": 0.3499251497005988,
-          "pixel_threshold": 0.042218707501888275,
-          "latency_median_ms": 42.51339999609627,
-          "latency_p95_ms": 46.933599980548024,
-          "peak_gpu_mb": 75.25634765625,
-          "uncertain_fraction": 0.09392265193370165
-        },
-        "fit_and_evaluation_seconds": 17.002736900001764
-      },
-      "pipe_fryum": {
-        "category": "pipe_fryum",
-        "available": true,
-        "model_id": "dinov3-normal-bank-pipe_fryum-v1",
-        "method": "Frozen DINOv3 ViT-S/16 + cosine nearest-normal patch bank",
-        "encoder_sha256": "4610ad75edef83e75afdebf162d148dc628045ea6cbb83d67d4708c709c4f91d",
-        "bank_sha256": "eed6f4f89764e14ca8811cc7d4aef3cf9266c9ae2d432595afc94bdfeca8156a",
-        "threshold": 0.05846443772315979,
-        "uncertainty_margin": 0.0029232218861579896,
-        "uncertainty_policy": "Fixed \u00b15% of validated threshold. Operational review band, not calibrated confidence.",
-        "heatmap_scale": 0.12200922518968582,
-        "bank_size_bytes": 5829726,
-        "encoder_size_bytes": 86406384,
-        "calibration": {
-          "method": "Max F1 on separate validation identities",
-          "normal": 32,
-          "anomalous": 20,
-          "seed": 42
-        },
-        "train_normal_count": 64,
-        "metrics": {
-          "image_auroc": 0.95425,
-          "average_precision": 0.9740168127563904,
-          "precision": 0.9577464788732394,
-          "recall": 0.85,
-          "f1": 0.9006622516556292,
+          "image_auroc": 0.9916,
+          "average_precision": 0.9964316707632301,
+          "precision": 0.9696969696969697,
+          "recall": 0.96,
+          "f1": 0.964824120603015,
+          "false_positive_rate": 0.06,
           "confusion_matrix": [
             [
               47,
               3
             ],
             [
-              12,
-              68
+              4,
+              96
             ]
           ],
-          "n_images": 130,
-          "pixel_auroc_64": 0.9918675784453588,
-          "pixel_average_precision_64": 0.575045773003843,
-          "pixel_f1_64": 0.5497345487328459,
-          "pixel_threshold": 0.10162080824375153,
-          "latency_median_ms": 39.761749998433515,
-          "latency_p95_ms": 43.10778999642935,
-          "peak_gpu_mb": 75.25634765625,
-          "uncertain_fraction": 0.06153846153846154
+          "n_images": 150,
+          "pixel_auroc_224": 0.9956113261527341,
+          "pixel_average_precision_224": 0.7341234993437673,
+          "uncertain_fraction": 0.02,
+          "latency_median_ms": null,
+          "peak_gpu_mb": null
         },
-        "fit_and_evaluation_seconds": 12.410172900010366
+        "resolution_short_edge": 448,
+        "patch_size": 14,
+        "foreground": "Unsupervised PCA threshold/sign heuristic; can fail",
+        "decision_policy": "tuned-normal-quantile-v1"
+      },
+      "fryum": {
+        "category": "fryum",
+        "available": true,
+        "model_id": "dinov2-tuned-fryum-v1",
+        "method": "AnomalyDINO-inspired DINOv2 ViT-S/14 fine-tuned on synthetic defects; 32,768-patch coreset memory",
+        "profile": "dinov2_tuned_v1",
+        "encoder_sha256": "95ac11984ecae1bb14e9a0d98e85650e73365fc3d57ed49c6bfa526e0498adcb",
+        "bank_sha256": "a23e9ec257fc5b77bdf55cfa4c86ab11df8e6daee3b48223f8b094ed2106f64d",
+        "threshold": 0.10525055527687072,
+        "uncertainty_margin": 0.0052625277638435365,
+        "heatmap_scale": 0.07980967342853555,
+        "uncertainty_policy": "Fixed \u00b15% of threshold; operational heuristic, not calibrated confidence",
+        "bank_size_bytes": 23254817,
+        "encoder_size_bytes": 44136744,
+        "calibration": {
+          "method": "Fixed linear 95th percentile of heldout normal scores; no anomalous calibration",
+          "normal": 45,
+          "anomalous": 0,
+          "seed": 42,
+          "policy": "tuned-normal-quantile-v1",
+          "quantile": 0.95,
+          "calibration_above_threshold": 3,
+          "future_false_positive_rate_guaranteed": false
+        },
+        "train_normal_count": 405,
+        "metrics": {
+          "image_auroc": 0.9902,
+          "average_precision": 0.9951603881086932,
+          "precision": 0.9795918367346939,
+          "recall": 0.96,
+          "f1": 0.9696969696969697,
+          "false_positive_rate": 0.04,
+          "confusion_matrix": [
+            [
+              48,
+              2
+            ],
+            [
+              4,
+              96
+            ]
+          ],
+          "n_images": 150,
+          "pixel_auroc_224": 0.9809775229522469,
+          "pixel_average_precision_224": 0.4965360876901288,
+          "uncertain_fraction": 0.02,
+          "latency_median_ms": null,
+          "peak_gpu_mb": null
+        },
+        "resolution_short_edge": 448,
+        "patch_size": 14,
+        "foreground": "Unsupervised PCA threshold/sign heuristic; can fail",
+        "decision_policy": "tuned-normal-quantile-v1"
+      },
+      "macaroni1": {
+        "category": "macaroni1",
+        "available": true,
+        "model_id": "dinov2-tuned-macaroni1-v1",
+        "method": "AnomalyDINO-inspired DINOv2 ViT-S/14 fine-tuned on synthetic defects; 32,768-patch coreset memory",
+        "profile": "dinov2_tuned_v1",
+        "encoder_sha256": "95ac11984ecae1bb14e9a0d98e85650e73365fc3d57ed49c6bfa526e0498adcb",
+        "bank_sha256": "bb91183ddb84d8b0168988546c4186cf6de6512e4d72196a0a4b13fd9699d148",
+        "threshold": 0.09831828400492666,
+        "uncertainty_margin": 0.004915914200246334,
+        "heatmap_scale": 0.07764787554740862,
+        "uncertainty_policy": "Fixed \u00b15% of threshold; operational heuristic, not calibrated confidence",
+        "bank_size_bytes": 23276388,
+        "encoder_size_bytes": 44136744,
+        "calibration": {
+          "method": "Fixed linear 95th percentile of heldout normal scores; no anomalous calibration",
+          "normal": 90,
+          "anomalous": 0,
+          "seed": 42,
+          "policy": "tuned-normal-quantile-v1",
+          "quantile": 0.95,
+          "calibration_above_threshold": 5,
+          "future_false_positive_rate_guaranteed": false
+        },
+        "train_normal_count": 810,
+        "metrics": {
+          "image_auroc": 0.9471999999999999,
+          "average_precision": 0.9581494503739729,
+          "precision": 0.9493670886075949,
+          "recall": 0.75,
+          "f1": 0.8379888268156425,
+          "false_positive_rate": 0.04,
+          "confusion_matrix": [
+            [
+              96,
+              4
+            ],
+            [
+              25,
+              75
+            ]
+          ],
+          "n_images": 200,
+          "pixel_auroc_224": 0.9962604306654536,
+          "pixel_average_precision_224": 0.1985339563300542,
+          "uncertain_fraction": 0.08,
+          "latency_median_ms": null,
+          "peak_gpu_mb": null
+        },
+        "resolution_short_edge": 448,
+        "patch_size": 14,
+        "foreground": "Unsupervised PCA threshold/sign heuristic; can fail",
+        "decision_policy": "tuned-normal-quantile-v1"
+      },
+      "macaroni2": {
+        "category": "macaroni2",
+        "available": true,
+        "model_id": "dinov2-tuned-macaroni2-v1",
+        "method": "AnomalyDINO-inspired DINOv2 ViT-S/14 fine-tuned on synthetic defects; 32,768-patch coreset memory",
+        "profile": "dinov2_tuned_v1",
+        "encoder_sha256": "95ac11984ecae1bb14e9a0d98e85650e73365fc3d57ed49c6bfa526e0498adcb",
+        "bank_sha256": "565bf9acc0869b52f4ffd1f6a9d8d3c6500555fa8a5f501bdf4cefdcadc51ae5",
+        "threshold": 0.10864300690591334,
+        "uncertainty_margin": 0.005432150345295667,
+        "heatmap_scale": 0.09322665214538575,
+        "uncertainty_policy": "Fixed \u00b15% of threshold; operational heuristic, not calibrated confidence",
+        "bank_size_bytes": 23254139,
+        "encoder_size_bytes": 44136744,
+        "calibration": {
+          "method": "Fixed linear 95th percentile of heldout normal scores; no anomalous calibration",
+          "normal": 90,
+          "anomalous": 0,
+          "seed": 42,
+          "policy": "tuned-normal-quantile-v1",
+          "quantile": 0.95,
+          "calibration_above_threshold": 5,
+          "future_false_positive_rate_guaranteed": false
+        },
+        "train_normal_count": 810,
+        "metrics": {
+          "image_auroc": 0.8969999999999999,
+          "average_precision": 0.9032903776564074,
+          "precision": 0.8902439024390244,
+          "recall": 0.73,
+          "f1": 0.8021978021978022,
+          "false_positive_rate": 0.09,
+          "confusion_matrix": [
+            [
+              91,
+              9
+            ],
+            [
+              27,
+              73
+            ]
+          ],
+          "n_images": 200,
+          "pixel_auroc_224": 0.9940951618855306,
+          "pixel_average_precision_224": 0.16362726373735387,
+          "uncertain_fraction": 0.205,
+          "latency_median_ms": null,
+          "peak_gpu_mb": null
+        },
+        "resolution_short_edge": 448,
+        "patch_size": 14,
+        "foreground": "Unsupervised PCA threshold/sign heuristic; can fail",
+        "decision_policy": "tuned-normal-quantile-v1"
+      },
+      "pcb2": {
+        "category": "pcb2",
+        "available": true,
+        "model_id": "dinov2-tuned-pcb2-v1",
+        "method": "AnomalyDINO-inspired DINOv2 ViT-S/14 fine-tuned on synthetic defects; 32,768-patch coreset memory",
+        "profile": "dinov2_tuned_v1",
+        "encoder_sha256": "95ac11984ecae1bb14e9a0d98e85650e73365fc3d57ed49c6bfa526e0498adcb",
+        "bank_sha256": "38d1bb2b1ce04df367e16b276f77d1d9ef1abd3463bbcbc5ee5fca77edce5bed",
+        "threshold": 0.09243721514940262,
+        "uncertainty_margin": 0.004621860757470131,
+        "heatmap_scale": 0.07252105534076699,
+        "uncertainty_policy": "Fixed \u00b15% of threshold; operational heuristic, not calibrated confidence",
+        "bank_size_bytes": 23257659,
+        "encoder_size_bytes": 44136744,
+        "calibration": {
+          "method": "Fixed linear 95th percentile of heldout normal scores; no anomalous calibration",
+          "normal": 91,
+          "anomalous": 0,
+          "seed": 42,
+          "policy": "tuned-normal-quantile-v1",
+          "quantile": 0.95,
+          "calibration_above_threshold": 5,
+          "future_false_positive_rate_guaranteed": false
+        },
+        "train_normal_count": 810,
+        "metrics": {
+          "image_auroc": 0.9575,
+          "average_precision": 0.9678848370579266,
+          "precision": 0.8969072164948454,
+          "recall": 0.87,
+          "f1": 0.883248730964467,
+          "false_positive_rate": 0.1,
+          "confusion_matrix": [
+            [
+              90,
+              10
+            ],
+            [
+              13,
+              87
+            ]
+          ],
+          "n_images": 200,
+          "pixel_auroc_224": 0.9721937213482837,
+          "pixel_average_precision_224": 0.29801335589310723,
+          "uncertain_fraction": 0.035,
+          "latency_median_ms": null,
+          "peak_gpu_mb": null
+        },
+        "resolution_short_edge": 448,
+        "patch_size": 14,
+        "foreground": "Unsupervised PCA threshold/sign heuristic; can fail",
+        "decision_policy": "tuned-normal-quantile-v1"
+      },
+      "pcb3": {
+        "category": "pcb3",
+        "available": true,
+        "model_id": "dinov2-tuned-pcb3-v1",
+        "method": "AnomalyDINO-inspired DINOv2 ViT-S/14 fine-tuned on synthetic defects; 32,768-patch coreset memory",
+        "profile": "dinov2_tuned_v1",
+        "encoder_sha256": "95ac11984ecae1bb14e9a0d98e85650e73365fc3d57ed49c6bfa526e0498adcb",
+        "bank_sha256": "b786dfee5f10ab1953fe3807057ddbc57d6b9a85bc9e6b9236d6bc14796dcdfd",
+        "threshold": 0.09173599630594254,
+        "uncertainty_margin": 0.004586799815297127,
+        "heatmap_scale": 0.07605906963348377,
+        "uncertainty_policy": "Fixed \u00b15% of threshold; operational heuristic, not calibrated confidence",
+        "bank_size_bytes": 23258829,
+        "encoder_size_bytes": 44136744,
+        "calibration": {
+          "method": "Fixed linear 95th percentile of heldout normal scores; no anomalous calibration",
+          "normal": 91,
+          "anomalous": 0,
+          "seed": 42,
+          "policy": "tuned-normal-quantile-v1",
+          "quantile": 0.95,
+          "calibration_above_threshold": 5,
+          "future_false_positive_rate_guaranteed": false
+        },
+        "train_normal_count": 814,
+        "metrics": {
+          "image_auroc": 0.9928712871287129,
+          "average_precision": 0.9935456634405582,
+          "precision": 0.8828828828828829,
+          "recall": 0.98,
+          "f1": 0.9289099526066351,
+          "false_positive_rate": 0.12871287128712872,
+          "confusion_matrix": [
+            [
+              88,
+              13
+            ],
+            [
+              2,
+              98
+            ]
+          ],
+          "n_images": 201,
+          "pixel_auroc_224": 0.9801529756449681,
+          "pixel_average_precision_224": 0.31863648390631216,
+          "uncertain_fraction": 0.1044776119402985,
+          "latency_median_ms": null,
+          "peak_gpu_mb": null
+        },
+        "resolution_short_edge": 448,
+        "patch_size": 14,
+        "foreground": "Unsupervised PCA threshold/sign heuristic; can fail",
+        "decision_policy": "tuned-normal-quantile-v1"
+      },
+      "pcb4": {
+        "category": "pcb4",
+        "available": true,
+        "model_id": "dinov2-tuned-pcb4-v1",
+        "method": "AnomalyDINO-inspired DINOv2 ViT-S/14 fine-tuned on synthetic defects; 32,768-patch coreset memory",
+        "profile": "dinov2_tuned_v1",
+        "encoder_sha256": "95ac11984ecae1bb14e9a0d98e85650e73365fc3d57ed49c6bfa526e0498adcb",
+        "bank_sha256": "127c3c32277bb70544d134d6d3034ef03fc33d1c7e82e23c68f1adda63a7f64d",
+        "threshold": 0.1058717742562294,
+        "uncertainty_margin": 0.0052935887128114706,
+        "heatmap_scale": 0.07633256852626799,
+        "uncertainty_policy": "Fixed \u00b15% of threshold; operational heuristic, not calibrated confidence",
+        "bank_size_bytes": 23265594,
+        "encoder_size_bytes": 44136744,
+        "calibration": {
+          "method": "Fixed linear 95th percentile of heldout normal scores; no anomalous calibration",
+          "normal": 91,
+          "anomalous": 0,
+          "seed": 42,
+          "policy": "tuned-normal-quantile-v1",
+          "quantile": 0.95,
+          "calibration_above_threshold": 5,
+          "future_false_positive_rate_guaranteed": false
+        },
+        "train_normal_count": 813,
+        "metrics": {
+          "image_auroc": 0.9953465346534653,
+          "average_precision": 0.9954175606404433,
+          "precision": 0.979381443298969,
+          "recall": 0.95,
+          "f1": 0.9644670050761421,
+          "false_positive_rate": 0.019801980198019802,
+          "confusion_matrix": [
+            [
+              99,
+              2
+            ],
+            [
+              5,
+              95
+            ]
+          ],
+          "n_images": 201,
+          "pixel_auroc_224": 0.9832394042016657,
+          "pixel_average_precision_224": 0.37032673876297395,
+          "uncertain_fraction": 0.03980099502487562,
+          "latency_median_ms": null,
+          "peak_gpu_mb": null
+        },
+        "resolution_short_edge": 448,
+        "patch_size": 14,
+        "foreground": "Unsupervised PCA threshold/sign heuristic; can fail",
+        "decision_policy": "tuned-normal-quantile-v1"
+      },
+      "pipe_fryum": {
+        "category": "pipe_fryum",
+        "available": true,
+        "model_id": "dinov2-tuned-pipe_fryum-v1",
+        "method": "AnomalyDINO-inspired DINOv2 ViT-S/14 fine-tuned on synthetic defects; 32,768-patch coreset memory",
+        "profile": "dinov2_tuned_v1",
+        "encoder_sha256": "95ac11984ecae1bb14e9a0d98e85650e73365fc3d57ed49c6bfa526e0498adcb",
+        "bank_sha256": "4bcf8215c4380b2443185bf062b578772ad11b636af2fdd21e455db9898ab97d",
+        "threshold": 0.14284870028495786,
+        "uncertainty_margin": 0.007142435014247894,
+        "heatmap_scale": 0.1143493586778642,
+        "uncertainty_policy": "Fixed \u00b15% of threshold; operational heuristic, not calibrated confidence",
+        "bank_size_bytes": 23266873,
+        "encoder_size_bytes": 44136744,
+        "calibration": {
+          "method": "Fixed linear 95th percentile of heldout normal scores; no anomalous calibration",
+          "normal": 45,
+          "anomalous": 0,
+          "seed": 42,
+          "policy": "tuned-normal-quantile-v1",
+          "quantile": 0.95,
+          "calibration_above_threshold": 3,
+          "future_false_positive_rate_guaranteed": false
+        },
+        "train_normal_count": 405,
+        "metrics": {
+          "image_auroc": 0.9905999999999999,
+          "average_precision": 0.9960775103939439,
+          "precision": 0.9801980198019802,
+          "recall": 0.99,
+          "f1": 0.9850746268656716,
+          "false_positive_rate": 0.04,
+          "confusion_matrix": [
+            [
+              48,
+              2
+            ],
+            [
+              1,
+              99
+            ]
+          ],
+          "n_images": 150,
+          "pixel_auroc_224": 0.9929194372262363,
+          "pixel_average_precision_224": 0.4953619282653999,
+          "uncertain_fraction": 0.02666666666666667,
+          "latency_median_ms": null,
+          "peak_gpu_mb": null
+        },
+        "resolution_short_edge": 448,
+        "patch_size": 14,
+        "foreground": "Unsupervised PCA threshold/sign heuristic; can fail",
+        "decision_policy": "tuned-normal-quantile-v1"
       }
     },
-    "serving_profile": {
-      "method": "Existing calibrated models; 6 original held-out images, 5 warm repetitions each; no training",
-      "categories": {
-        "pcb1": {
-          "samples": 10,
-          "core_median_ms": 54.59,
-          "core_p95_ms": 60.916999999999994,
-          "decoded_image_to_result_median_ms": 172.78114998771343,
-          "decoded_image_to_result_p95_ms": 182.06591499620117,
-          "category_load_ms": 1318.0554999853484,
-          "peak_torch_allocated_gpu_mb": 65.61,
-          "device": "cuda"
-        },
-        "capsules": {
-          "samples": 10,
-          "core_median_ms": 53.875,
-          "core_p95_ms": 57.915,
-          "decoded_image_to_result_median_ms": 158.5184499999741,
-          "decoded_image_to_result_p95_ms": 162.40958499111002,
-          "category_load_ms": 78.86780000990257,
-          "peak_torch_allocated_gpu_mb": 77.61,
-          "device": "cuda"
-        },
-        "cashew": {
-          "samples": 10,
-          "core_median_ms": 65.61500000000001,
-          "core_p95_ms": 89.65849999999999,
-          "decoded_image_to_result_median_ms": 229.5610500004841,
-          "decoded_image_to_result_p95_ms": 258.9202900038799,
-          "category_load_ms": 77.84360001096502,
-          "peak_torch_allocated_gpu_mb": 89.61,
-          "device": "cuda"
-        }
+    "macro_mean": {
+      "image_auroc": 0.9710709295929593,
+      "average_precision": 0.9764210490780011,
+      "precision": 0.9387781292120323,
+      "recall": 0.9074999999999999,
+      "f1": 0.9211718867297343,
+      "false_positive_rate": 0.07043179317931793,
+      "pixel_auroc_224": 0.9880497359716026,
+      "pixel_average_precision_224": 0.46816529534999995
+    },
+    "decision_policy": "tuned-normal-quantile-v1",
+    "validation_scope": "Held-out-normal thresholds and cached-score/software consistency checks; future recall and false-alarm rates are not guaranteed.",
+    "policy_selection_context": "One rule for every product: the 95th percentile of held-out normal scores. The test images were already seen in development, so these figures are descriptive.",
+    "previous_profile": {
+      "profile": "dinov2_highres_v1",
+      "macro_mean": {
+        "image_auroc": 0.950126705170517,
+        "average_precision": 0.956391637511357,
+        "precision": 0.9046976613151382,
+        "recall": 0.8883333333333333,
+        "f1": 0.895741481363831,
+        "pixel_auroc_224": 0.9861669559777334,
+        "pixel_average_precision_224": 0.4315059138196397,
+        "false_positive_rate": 0.1110038503850385
       },
-      "python": "3.12.4",
-      "torch": "2.8.0+cu126",
-      "gpu": {
-        "name": "NVIDIA GeForce RTX 4060 Laptop GPU",
-        "free_mb_before": 7097.0,
-        "total_mb": 8187.5
-      },
-      "cpu_smoke": {
-        "verdict": "Good",
-        "score": 0.03067457675933838,
-        "reference_cuda_score": 0.030725598335266113,
-        "absolute_difference": 5.1021575927734375e-05,
-        "total_ms": 1110.6508999946527
-      }
+      "source": "results/macaroni_recall_deployment_evaluation.json"
+    },
+    "source_sha256": {
+      "experiments/dinov2_tuned_v1/pcb1/normal_calibration.json": "10c8e8b0c908c6cd559f8c34c1bd2a98bd991f32f0a84b09d37929da28b668e1",
+      "experiments/dinov2_tuned_v1/pcb1/test_progress.json": "5042b54474dcb2981b18711b5067f5ec0857269f83d186adaaea98d7987e4ddf",
+      "experiments/dinov2_tuned_v1/pcb1/metrics.json": "8d3d286d4945336f592fbf43d6af193d8e0ecad34a441dda3e58df2a32e7d4e0",
+      "experiments/dinov2_tuned_v1/capsules/normal_calibration.json": "069e6dce404bf6ca6da6c5f6d6853249abdf358c5ba468da97a2b6ced3689435",
+      "experiments/dinov2_tuned_v1/capsules/test_progress.json": "29797dd9f4b34afc2cb3a66198556bf6e4f755fcb3039747be65e5dc1e51857f",
+      "experiments/dinov2_tuned_v1/capsules/metrics.json": "233ce88be282f97b2fdf7b505955fc4c013179bbcbe027d5d63d9f4cd01c4538",
+      "experiments/dinov2_tuned_v1/cashew/normal_calibration.json": "ab44aa627d5e696e6bb0f27c53ad9d83257f67e5d8bf910f5796348ab50d251b",
+      "experiments/dinov2_tuned_v1/cashew/test_progress.json": "91a59d1e78e061e9d7754cfa920dc7017becc0936cb9135de81eba2d0dbd6126",
+      "experiments/dinov2_tuned_v1/cashew/metrics.json": "b0e5891710bbc087a846ff4bc3beccef8d7117aa8bc59a8ab9e7da1574721c51",
+      "experiments/dinov2_tuned_v1/candle/normal_calibration.json": "bfd85bfb1e085557207ed2db7388d8f9585a3fa94919f4ebe9e4734bff327928",
+      "experiments/dinov2_tuned_v1/candle/test_progress.json": "62e43d4a28d2cc7938143fa3ebf5f24265839ae7f2bf26b5f769d35db4be9b2c",
+      "experiments/dinov2_tuned_v1/candle/metrics.json": "1f483ab0e7faf80c50b5f8529c497c28f3c12d107f7a05408b2380aab27988d4",
+      "experiments/dinov2_tuned_v1/chewinggum/normal_calibration.json": "da746616a0cfceadb46062511186ef2cc402b12a2d7fa963c700c5f5e5ced0df",
+      "experiments/dinov2_tuned_v1/chewinggum/test_progress.json": "62a198fe971cada66612e16d0ce17871a7ebd7ab0d3ce36ae411f8d4afbb1936",
+      "experiments/dinov2_tuned_v1/chewinggum/metrics.json": "1e15677b0e5ca97565c57ae406b262c0f7178127e8db07478060176d6fe8881e",
+      "experiments/dinov2_tuned_v1/fryum/normal_calibration.json": "49e63b58dd2a7ccfa83b151c5347788b210362371482fc54932559ca065f5c03",
+      "experiments/dinov2_tuned_v1/fryum/test_progress.json": "4a8f2794687e983101712d3871ac6ba9ed689e906f530690446b2922945bb396",
+      "experiments/dinov2_tuned_v1/fryum/metrics.json": "1c39f443abc82a27029d5aec34ac8ca5e4a44498548e081d37f3ca0507f8073d",
+      "experiments/dinov2_tuned_v1/macaroni1/normal_calibration.json": "4711f1c96e178d79a4d7d03376110e46aa9588ac291429a800f3a6ee8d49c8d7",
+      "experiments/dinov2_tuned_v1/macaroni1/test_progress.json": "b636712e32760784c12e7e70a40a51ae6f18cca98ce4d94eefcc02a2c1edd509",
+      "experiments/dinov2_tuned_v1/macaroni1/metrics.json": "41e88cde1e162f7cb7e211d81a7560ded4a1f4b73ef48acf3aa84a5eeb3e766e",
+      "experiments/dinov2_tuned_v1/macaroni2/normal_calibration.json": "22c1aed92c3c9b601403d729f8a80592f9eb69acfcaf07a93dcf21416dc5709c",
+      "experiments/dinov2_tuned_v1/macaroni2/test_progress.json": "2bebc24ed05c3c363d9e2e606057fada78aa15a8181d28a09637dd23126e2463",
+      "experiments/dinov2_tuned_v1/macaroni2/metrics.json": "50a5a7baeba6166ddeb29d948fec4ec4532ef060559325f129a36b993259399e",
+      "experiments/dinov2_tuned_v1/pcb2/normal_calibration.json": "6d9ff449a83da9e100c7568ba935e468c487500507dfb7b31c84d1007717603a",
+      "experiments/dinov2_tuned_v1/pcb2/test_progress.json": "3cb32aa588d96b4a1e2b294243e99d3b4557d0877ba4868e855f657e0182497a",
+      "experiments/dinov2_tuned_v1/pcb2/metrics.json": "63528c0f869c48ed4830690c3330bf3dc7819e2604ba322b9b39c819b23e14fb",
+      "experiments/dinov2_tuned_v1/pcb3/normal_calibration.json": "c3b89c0b0fefa69a2aa0db19648a0c0551a6398bf8dbf613552f2767c587a94d",
+      "experiments/dinov2_tuned_v1/pcb3/test_progress.json": "5dd08e213121be78e644e4f43b4759fbb069968c6210f8a4f37db75d9782cc48",
+      "experiments/dinov2_tuned_v1/pcb3/metrics.json": "2e843f4299a4692ed51f1a34305ab568802040b4fcdcffb75d8a21d360ad11c7",
+      "experiments/dinov2_tuned_v1/pcb4/normal_calibration.json": "6337ce99ec8066132db2880b813086514e1632b2b389f212dfa98f668067c077",
+      "experiments/dinov2_tuned_v1/pcb4/test_progress.json": "a4608213970da1d11fb8906ad1a341de21607f8ca1bdb5ccc55db9d9f91ca028",
+      "experiments/dinov2_tuned_v1/pcb4/metrics.json": "c59903eb2b66939818b2c3cff78adc4a55654cb72db8483b7fd9b6ac3328cc4d",
+      "experiments/dinov2_tuned_v1/pipe_fryum/normal_calibration.json": "df9dd61ff1ab75daa645d24b6202e5c52f56a4c943f8e8211acfd921cf5c485e",
+      "experiments/dinov2_tuned_v1/pipe_fryum/test_progress.json": "8054eb7789ad00a557de999fb198a288b901d97a3fd28aa318f6b2a35cd8792c",
+      "experiments/dinov2_tuned_v1/pipe_fryum/metrics.json": "670dfb6d1824accbd7d336dd16c7290ea9a3611c80d4ba28f3dec9dc214c5a52"
     }
   },
   "official_evaluation": {
@@ -2993,6 +2898,666 @@
         "pixel_auroc": 9.486068335903378e-05,
         "pixel_au_pr": 0.0018632748640743098,
         "pixel_average_precision": 0.0018624885601874065
+      }
+    },
+    "mvtec": {
+      "dataset": "MVTec AD",
+      "scope": "One offline run on 15 products the detector was never built for. Each product's memory comes from its own normal training photos; thresholds are the 95th percentile of held-out normal scores. These products are not available for inspection in this app.",
+      "protocol_url": "https://github.com/WAYTECHG/DefectRAG/blob/main/docs/MVTEC_EVALUATION.md",
+      "arms": [
+        {
+          "key": "A_random_frozen",
+          "label": "Random-sample memory"
+        },
+        {
+          "key": "B_coreset_frozen",
+          "label": "Coreset memory"
+        },
+        {
+          "key": "C_coreset_tuned",
+          "label": "Coreset + fine-tuned encoder"
+        }
+      ],
+      "products": 15,
+      "test_images": 1725,
+      "macro_mean": {
+        "A_random_frozen": {
+          "auroc": 0.985898601015946,
+          "average_precision": 0.9950133869275688,
+          "pixel_auroc": 0.8855338763708794,
+          "recall_q95": 0.952362358121102,
+          "false_alarm_q95": 0.12887259782149388
+        },
+        "B_coreset_frozen": {
+          "auroc": 0.9922531989217127,
+          "average_precision": 0.9973380306223784,
+          "pixel_auroc": 0.8880871085136053,
+          "recall_q95": 0.9717860302454951,
+          "false_alarm_q95": 0.17215185349246528
+        },
+        "C_coreset_tuned": {
+          "auroc": 0.9923028240349344,
+          "average_precision": 0.99753068177661,
+          "pixel_auroc": 0.8807053045940548,
+          "recall_q95": 0.974639924356982,
+          "false_alarm_q95": 0.15884109815584785
+        }
+      },
+      "comparisons": {
+        "B-A": {
+          "better": 3,
+          "worse": 0
+        },
+        "C-B": {
+          "better": 1,
+          "worse": 1
+        },
+        "C-A": {
+          "better": 3,
+          "worse": 0
+        }
+      },
+      "categories": {
+        "bottle": {
+          "n_test": 83,
+          "arms": {
+            "A_random_frozen": {
+              "auroc": 1.0,
+              "pixel_auroc": 0.9051788535306131,
+              "average_precision": 0.9999999999999998,
+              "recall_q95": 1.0,
+              "false_alarm_q95": 0.15
+            },
+            "B_coreset_frozen": {
+              "auroc": 1.0,
+              "pixel_auroc": 0.9053642827126964,
+              "average_precision": 0.9999999999999998,
+              "recall_q95": 1.0,
+              "false_alarm_q95": 0.2
+            },
+            "C_coreset_tuned": {
+              "auroc": 1.0,
+              "pixel_auroc": 0.9017674078478235,
+              "average_precision": 0.9999999999999998,
+              "recall_q95": 1.0,
+              "false_alarm_q95": 0.2
+            }
+          },
+          "differences": {
+            "B-A": [
+              0.0,
+              0.0
+            ],
+            "C-B": [
+              0.0,
+              0.0
+            ],
+            "C-A": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "cable": {
+          "n_test": 150,
+          "arms": {
+            "A_random_frozen": {
+              "auroc": 0.960832083958021,
+              "pixel_auroc": 0.9597412765199669,
+              "average_precision": 0.9798081270101584,
+              "recall_q95": 0.8695652173913043,
+              "false_alarm_q95": 0.034482758620689655
+            },
+            "B_coreset_frozen": {
+              "auroc": 0.9835082458770614,
+              "pixel_auroc": 0.9643614107722097,
+              "average_precision": 0.9905275635304355,
+              "recall_q95": 0.9565217391304348,
+              "false_alarm_q95": 0.06896551724137931
+            },
+            "C_coreset_tuned": {
+              "auroc": 0.9928785607196402,
+              "pixel_auroc": 0.9749763220362742,
+              "average_precision": 0.9958029562404663,
+              "recall_q95": 0.9565217391304348,
+              "false_alarm_q95": 0.034482758620689655
+            }
+          },
+          "differences": {
+            "B-A": [
+              0.008245877061469287,
+              0.04160419790104941
+            ],
+            "C-B": [
+              0.002436281859070519,
+              0.0191201274362819
+            ],
+            "C-A": [
+              0.012743628185907019,
+              0.05640929535232375
+            ]
+          }
+        },
+        "capsule": {
+          "n_test": 132,
+          "arms": {
+            "A_random_frozen": {
+              "auroc": 0.9581172716394096,
+              "pixel_auroc": 0.9894358804925572,
+              "average_precision": 0.9871851844531938,
+              "recall_q95": 0.944954128440367,
+              "false_alarm_q95": 0.08695652173913043
+            },
+            "B_coreset_frozen": {
+              "auroc": 0.9664938173115277,
+              "pixel_auroc": 0.991324612478818,
+              "average_precision": 0.9903008820676737,
+              "recall_q95": 0.926605504587156,
+              "false_alarm_q95": 0.08695652173913043
+            },
+            "C_coreset_tuned": {
+              "auroc": 0.9672915835660152,
+              "pixel_auroc": 0.9915329694561819,
+              "average_precision": 0.9909214716542951,
+              "recall_q95": 0.9541284403669725,
+              "false_alarm_q95": 0.08695652173913043
+            }
+          },
+          "differences": {
+            "B-A": [
+              -0.0003988831272436766,
+              0.022736338252891897
+            ],
+            "C-B": [
+              -0.0035899481451934223,
+              0.0063821300358994915
+            ],
+            "C-A": [
+              -0.0011966493817311408,
+              0.025528520143597966
+            ]
+          }
+        },
+        "carpet": {
+          "n_test": 117,
+          "arms": {
+            "A_random_frozen": {
+              "auroc": 1.0,
+              "pixel_auroc": 0.8782802953235477,
+              "average_precision": 1.0,
+              "recall_q95": 1.0,
+              "false_alarm_q95": 0.25
+            },
+            "B_coreset_frozen": {
+              "auroc": 1.0,
+              "pixel_auroc": 0.8753909427535372,
+              "average_precision": 1.0,
+              "recall_q95": 1.0,
+              "false_alarm_q95": 0.25
+            },
+            "C_coreset_tuned": {
+              "auroc": 1.0,
+              "pixel_auroc": 0.9022536733307487,
+              "average_precision": 1.0,
+              "recall_q95": 1.0,
+              "false_alarm_q95": 0.17857142857142858
+            }
+          },
+          "differences": {
+            "B-A": [
+              0.0,
+              0.0
+            ],
+            "C-B": [
+              0.0,
+              0.0
+            ],
+            "C-A": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "grid": {
+          "n_test": 78,
+          "arms": {
+            "A_random_frozen": {
+              "auroc": 1.0,
+              "pixel_auroc": 0.9600237262649793,
+              "average_precision": 1.0000000000000002,
+              "recall_q95": 1.0,
+              "false_alarm_q95": 0.09523809523809523
+            },
+            "B_coreset_frozen": {
+              "auroc": 1.0,
+              "pixel_auroc": 0.95931946730094,
+              "average_precision": 1.0000000000000002,
+              "recall_q95": 1.0,
+              "false_alarm_q95": 0.14285714285714285
+            },
+            "C_coreset_tuned": {
+              "auroc": 1.0,
+              "pixel_auroc": 0.9550026041753917,
+              "average_precision": 1.0000000000000002,
+              "recall_q95": 1.0,
+              "false_alarm_q95": 0.14285714285714285
+            }
+          },
+          "differences": {
+            "B-A": [
+              0.0,
+              0.0
+            ],
+            "C-B": [
+              0.0,
+              0.0
+            ],
+            "C-A": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "hazelnut": {
+          "n_test": 110,
+          "arms": {
+            "A_random_frozen": {
+              "auroc": 0.9996428571428572,
+              "pixel_auroc": 0.9959695447661856,
+              "average_precision": 0.999798792756539,
+              "recall_q95": 1.0,
+              "false_alarm_q95": 0.125
+            },
+            "B_coreset_frozen": {
+              "auroc": 0.9992857142857143,
+              "pixel_auroc": 0.9962781627397679,
+              "average_precision": 0.9996031746031744,
+              "recall_q95": 1.0,
+              "false_alarm_q95": 0.05
+            },
+            "C_coreset_tuned": {
+              "auroc": 0.9992857142857143,
+              "pixel_auroc": 0.9963594732333338,
+              "average_precision": 0.9996031746031744,
+              "recall_q95": 1.0,
+              "false_alarm_q95": 0.05
+            }
+          },
+          "differences": {
+            "B-A": [
+              -0.002142857142857224,
+              0.0
+            ],
+            "C-B": [
+              0.0,
+              0.0
+            ],
+            "C-A": [
+              -0.002142857142857113,
+              0.0
+            ]
+          }
+        },
+        "leather": {
+          "n_test": 124,
+          "arms": {
+            "A_random_frozen": {
+              "auroc": 1.0,
+              "pixel_auroc": 0.6293198404724963,
+              "average_precision": 1.0000000000000002,
+              "recall_q95": 1.0,
+              "false_alarm_q95": 0.28125
+            },
+            "B_coreset_frozen": {
+              "auroc": 1.0,
+              "pixel_auroc": 0.6276518875017026,
+              "average_precision": 1.0000000000000002,
+              "recall_q95": 1.0,
+              "false_alarm_q95": 0.3125
+            },
+            "C_coreset_tuned": {
+              "auroc": 1.0,
+              "pixel_auroc": 0.5622606077477578,
+              "average_precision": 1.0000000000000002,
+              "recall_q95": 1.0,
+              "false_alarm_q95": 0.375
+            }
+          },
+          "differences": {
+            "B-A": [
+              0.0,
+              0.0
+            ],
+            "C-B": [
+              0.0,
+              0.0
+            ],
+            "C-A": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "metal_nut": {
+          "n_test": 115,
+          "arms": {
+            "A_random_frozen": {
+              "auroc": 1.0,
+              "pixel_auroc": 0.9757335718112187,
+              "average_precision": 1.0,
+              "recall_q95": 1.0,
+              "false_alarm_q95": 0.09090909090909091
+            },
+            "B_coreset_frozen": {
+              "auroc": 1.0,
+              "pixel_auroc": 0.9801457112892008,
+              "average_precision": 1.0,
+              "recall_q95": 1.0,
+              "false_alarm_q95": 0.36363636363636365
+            },
+            "C_coreset_tuned": {
+              "auroc": 1.0,
+              "pixel_auroc": 0.9758987716644242,
+              "average_precision": 1.0,
+              "recall_q95": 1.0,
+              "false_alarm_q95": 0.36363636363636365
+            }
+          },
+          "differences": {
+            "B-A": [
+              0.0,
+              0.0
+            ],
+            "C-B": [
+              0.0,
+              0.0
+            ],
+            "C-A": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "pill": {
+          "n_test": 167,
+          "arms": {
+            "A_random_frozen": {
+              "auroc": 0.9768139661756683,
+              "pixel_auroc": 0.9764136485436904,
+              "average_precision": 0.9955071573751723,
+              "recall_q95": 0.9148936170212766,
+              "false_alarm_q95": 0.07692307692307693
+            },
+            "B_coreset_frozen": {
+              "auroc": 0.9923622476813966,
+              "pixel_auroc": 0.9846221922152466,
+              "average_precision": 0.9985493019444828,
+              "recall_q95": 0.9361702127659575,
+              "false_alarm_q95": 0.07692307692307693
+            },
+            "C_coreset_tuned": {
+              "auroc": 0.9956355701036552,
+              "pixel_auroc": 0.9843003715151856,
+              "average_precision": 0.9991863383134195,
+              "recall_q95": 0.9432624113475178,
+              "false_alarm_q95": 0.07692307692307693
+            }
+          },
+          "differences": {
+            "B-A": [
+              0.0016366612111292644,
+              0.03327877795962908
+            ],
+            "C-B": [
+              0.0,
+              0.010092744135297264
+            ],
+            "C-A": [
+              0.0021822149481723896,
+              0.04065057283142393
+            ]
+          }
+        },
+        "screw": {
+          "n_test": 160,
+          "arms": {
+            "A_random_frozen": {
+              "auroc": 0.9227300676368109,
+              "pixel_auroc": 0.9881335248366288,
+              "average_precision": 0.9743848466583075,
+              "recall_q95": 0.7310924369747899,
+              "false_alarm_q95": 0.07317073170731707
+            },
+            "B_coreset_frozen": {
+              "auroc": 0.9629022340643575,
+              "pixel_auroc": 0.9916337298019416,
+              "average_precision": 0.9872623994802119,
+              "recall_q95": 0.907563025210084,
+              "false_alarm_q95": 0.04878048780487805
+            },
+            "C_coreset_tuned": {
+              "auroc": 0.9606476737036278,
+              "pixel_auroc": 0.9932704550910754,
+              "average_precision": 0.9867831778790364,
+              "recall_q95": 0.8907563025210085,
+              "false_alarm_q95": 0.04878048780487805
+            }
+          },
+          "differences": {
+            "B-A": [
+              0.0176265628202501,
+              0.0676470588235294
+            ],
+            "C-B": [
+              -0.008408485345357732,
+              0.0028694404591105283
+            ],
+            "C-A": [
+              0.01598688255790115,
+              0.0653873744619799
+            ]
+          }
+        },
+        "tile": {
+          "n_test": 117,
+          "arms": {
+            "A_random_frozen": {
+              "auroc": 1.0,
+              "pixel_auroc": 0.660602466324687,
+              "average_precision": 0.9999999999999998,
+              "recall_q95": 1.0,
+              "false_alarm_q95": 0.06060606060606061
+            },
+            "B_coreset_frozen": {
+              "auroc": 1.0,
+              "pixel_auroc": 0.6583452031414211,
+              "average_precision": 0.9999999999999998,
+              "recall_q95": 1.0,
+              "false_alarm_q95": 0.06060606060606061
+            },
+            "C_coreset_tuned": {
+              "auroc": 1.0,
+              "pixel_auroc": 0.6045030317268419,
+              "average_precision": 0.9999999999999998,
+              "recall_q95": 1.0,
+              "false_alarm_q95": 0.06060606060606061
+            }
+          },
+          "differences": {
+            "B-A": [
+              0.0,
+              0.0
+            ],
+            "C-B": [
+              0.0,
+              0.0
+            ],
+            "C-A": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "toothbrush": {
+          "n_test": 42,
+          "arms": {
+            "A_random_frozen": {
+              "auroc": 1.0,
+              "pixel_auroc": 0.9928471256158475,
+              "average_precision": 0.9999999999999999,
+              "recall_q95": 1.0,
+              "false_alarm_q95": 0.0
+            },
+            "B_coreset_frozen": {
+              "auroc": 1.0,
+              "pixel_auroc": 0.9934613716601125,
+              "average_precision": 0.9999999999999999,
+              "recall_q95": 1.0,
+              "false_alarm_q95": 0.0
+            },
+            "C_coreset_tuned": {
+              "auroc": 1.0,
+              "pixel_auroc": 0.9939192684582632,
+              "average_precision": 0.9999999999999999,
+              "recall_q95": 1.0,
+              "false_alarm_q95": 0.0
+            }
+          },
+          "differences": {
+            "B-A": [
+              0.0,
+              0.0
+            ],
+            "C-B": [
+              0.0,
+              0.0
+            ],
+            "C-A": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "transistor": {
+          "n_test": 100,
+          "arms": {
+            "A_random_frozen": {
+              "auroc": 0.9970833333333333,
+              "pixel_auroc": 0.8617579436776412,
+              "average_precision": 0.9957863017583666,
+              "recall_q95": 0.85,
+              "false_alarm_q95": 0.0
+            },
+            "B_coreset_frozen": {
+              "auroc": 0.9995833333333334,
+              "pixel_auroc": 0.8665474098596695,
+              "average_precision": 0.9993902439024391,
+              "recall_q95": 0.875,
+              "false_alarm_q95": 0.0
+            },
+            "C_coreset_tuned": {
+              "auroc": 0.9995833333333334,
+              "pixel_auroc": 0.8637275221370349,
+              "average_precision": 0.9993902439024391,
+              "recall_q95": 0.9,
+              "false_alarm_q95": 0.0
+            }
+          },
+          "differences": {
+            "B-A": [
+              -0.0008333333333332444,
+              0.009166666666666656
+            ],
+            "C-B": [
+              0.0,
+              0.0
+            ],
+            "C-A": [
+              -0.0004166666666667318,
+              0.009583333333333388
+            ]
+          }
+        },
+        "wood": {
+          "n_test": 79,
+          "arms": {
+            "A_random_frozen": {
+              "auroc": 0.9798245614035088,
+              "pixel_auroc": 0.7372840736412815,
+              "average_precision": 0.994189310801887,
+              "recall_q95": 0.9833333333333333,
+              "false_alarm_q95": 0.42105263157894735
+            },
+            "B_coreset_frozen": {
+              "auroc": 0.9859649122807017,
+              "pixel_auroc": 0.7391479058833798,
+              "average_precision": 0.9959057458108692,
+              "recall_q95": 0.9833333333333333,
+              "false_alarm_q95": 0.42105263157894735
+            },
+            "C_coreset_tuned": {
+              "auroc": 0.9736842105263158,
+              "pixel_auroc": 0.7155723356563095,
+              "average_precision": 0.992339434475335,
+              "recall_q95": 0.9833333333333333,
+              "false_alarm_q95": 0.42105263157894735
+            }
+          },
+          "differences": {
+            "B-A": [
+              0.0,
+              0.018421052631579005
+            ],
+            "C-B": [
+              -0.033333333333333326,
+              -0.0008771929824561431
+            ],
+            "C-A": [
+              -0.02543859649122815,
+              0.007894736842105177
+            ]
+          }
+        },
+        "zipper": {
+          "n_test": 151,
+          "arms": {
+            "A_random_frozen": {
+              "auroc": 0.9934348739495799,
+              "pixel_auroc": 0.7722863737418493,
+              "average_precision": 0.9985410830999064,
+              "recall_q95": 0.9915966386554622,
+              "false_alarm_q95": 0.1875
+            },
+            "B_coreset_frozen": {
+              "auroc": 0.9936974789915967,
+              "pixel_auroc": 0.7877123375934348,
+              "average_precision": 0.9985311479963884,
+              "recall_q95": 0.9915966386554622,
+              "false_alarm_q95": 0.5
+            },
+            "C_coreset_tuned": {
+              "auroc": 0.9955357142857143,
+              "pixel_auroc": 0.7952347548341744,
+              "average_precision": 0.9989334295809825,
+              "recall_q95": 0.9915966386554622,
+              "false_alarm_q95": 0.34375
+            }
+          },
+          "differences": {
+            "B-A": [
+              -0.0031512605042016695,
+              0.003939075630252087
+            ],
+            "C-B": [
+              0.0,
+              0.005777310924369727
+            ],
+            "C-A": [
+              -0.0007878151260504174,
+              0.008403361344537896
+            ]
+          }
+        }
       }
     }
   },

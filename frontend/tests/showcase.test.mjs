@@ -26,15 +26,17 @@ test('rejects mutations and missing examples without sending uploads or chat', a
   await assert.rejects(showcaseApi('/api/inspections/'+'f'.repeat(32)), /not found/);
   assert.equal(requests.length, 1);
 });
-test('preserves real measurements, final cited conversations and static report URLs', async () => {
-  const record = fixture.records.find(r=>r.id==='a6226ef392eb417e8991369e890d816b');
-  assert.equal(record.score, 0.09611436724662781);
-  const messages = await showcaseApi('/api/inspections/'+record.id+'/messages');
-  assert.equal(messages.filter(m=>m.mode==='llm').length, 2);
-  assert.equal(messages.filter(m=>m.mode==='measurement_only').length, 2);
-  assert.match(messages.find(m=>m.mode==='measurement_only').answer,/0.09611/);
-  assert.equal(messages.at(-1).mode,'abstained');
-  assert.equal(Object.keys((await showcaseApi('/api/benchmark/official')).categories).length,12);
+test('preserves the measurements of the deployed tuned detector and static report URLs', async () => {
+  assert.equal(fixture.records.length, 24);
+  assert.ok(fixture.records.every(r=>/^dinov2-tuned-.+-v1$/.test(r.model_id)), 'every saved example comes from the tuned detector');
+  assert.ok(!JSON.stringify(fixture).includes('dinov3'), 'no obsolete detector name in the public snapshot');
+  assert.equal(new Set(fixture.samples.map(s=>s.name)).size, 24);
+  const record = fixture.records.find(r=>r.category==='pcb1'&&r.verdict==='Anomalous');
+  assert.ok(record && record.score > record.threshold);
+  assert.deepEqual(await showcaseApi('/api/inspections/'+record.id+'/messages'), []);
+  const report = await showcaseApi('/api/benchmark/official');
+  assert.equal(Object.keys(report.categories).length,12);
+  assert.ok(report.mvtec, 'the MVTec AD check is part of the saved benchmark');
   assert.equal(assetUrl('/api/inspections/'+record.id+'/report'), './showcase/reports/'+record.id+'.html');
   assert.equal(assetUrl('/api/export.csv'), './showcase/inspections.csv');
 });

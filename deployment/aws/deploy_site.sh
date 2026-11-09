@@ -10,7 +10,8 @@ set -euo pipefail
 USER_NAME="${WEB_USER:-ubuntu}"
 ROOT="$(cd "$(dirname "$0")/../.." && pwd)"
 STAGE="$(mktemp -d)"
-trap 'rm -rf "$STAGE"' EXIT
+ARCHIVE="$(mktemp -u).tgz"
+trap 'rm -rf "$STAGE" "$ARCHIVE"' EXIT
 
 echo "1/4 Building the static showcase..."
 ( cd "$ROOT/frontend" && npm ci && npm run build:showcase )
@@ -19,16 +20,16 @@ echo "2/4 Preparing files..."
 cp -r "$ROOT/frontend/dist-static/." "$STAGE/"
 sed "s#__STATUS_URL__#${STATUS_URL:-}#g" "$ROOT/deployment/aws/site/status.html" > "$STAGE/status.html"
 [ -f "$STAGE/index.html" ] || { echo "index.html missing. Build failed?"; exit 1; }
-tar -C "$STAGE" -czf "$STAGE/site.tgz" --exclude=site.tgz .
+tar -C "$STAGE" -czf "$ARCHIVE" .
 
 echo "3/4 Uploading to $WEB_HOST ..."
-scp -i "$WEB_KEY" -o StrictHostKeyChecking=accept-new "$STAGE/site.tgz" "$USER_NAME@$WEB_HOST:/tmp/site.tgz"
+scp -i "$WEB_KEY" -o StrictHostKeyChecking=accept-new "$ARCHIVE" "$USER_NAME@$WEB_HOST:/tmp/site.tgz"
 
 echo "4/4 Switching the live site..."
 ssh -i "$WEB_KEY" "$USER_NAME@$WEB_HOST" '
   set -e
-  NEW=$(mktemp -d /var/www/defectrag-new.XXXXXX)
-  tar -xzf /tmp/site.tgz -C "$NEW" && rm -f /tmp/site.tgz
+  NEW=$(sudo mktemp -d /var/www/defectrag-new.XXXXXX)
+  sudo tar -xzf /tmp/site.tgz -C "$NEW" && rm -f /tmp/site.tgz
   sudo rm -rf /var/www/defectrag-old
   [ -d /var/www/defectrag ] && sudo mv /var/www/defectrag /var/www/defectrag-old
   sudo mv "$NEW" /var/www/defectrag

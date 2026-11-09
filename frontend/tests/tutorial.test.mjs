@@ -42,7 +42,7 @@ test('old dismissal keys do not suppress the new lesson; blocked storage is harm
 });
 test('practice measurements are the saved public example, not an invented prediction',async()=>{
  const data=JSON.parse(await readFile(new URL('../public/showcase/data.json',import.meta.url),'utf8'));
- const original=data.records.find(r=>r.id==='7dbb6f27253b450698a1a503cfa9a8c8');
+ const original=data.records.find(r=>r.id==='4bff5e6b5e064383a9b85a8a6bec04cc');
  for(const k of ['category','verdict','score','threshold','uncertainty_margin','inference_ms','model_id'])assert.equal(PRACTICE_EXAMPLE[k],original[k]);
  assert.ok(Object.isFrozen(PRACTICE_EXAMPLE));
 });
@@ -162,7 +162,7 @@ test('shared image viewer reports actual divider use; normal viewers need no cal
 test('practice images are bundled build assets identical to the public example files',async()=>{
  const result=await build({entryPoints:[fileURLToPath(new URL('../src/main.jsx',import.meta.url))],bundle:true,write:false,platform:'browser',format:'esm',outdir:'test-output',assetNames:'assets/[name]-[hash]',loader:{'.jpg':'file','.css':'empty'},define:{'import.meta.env':'{"MODE":"test"}'},external:['@supabase/supabase-js'],logLevel:'silent'});
  const images=result.outputFiles.filter(f=>f.path.endsWith('.jpg'));assert.equal(images.length,2);
- for(const name of ['7dbb6f27253b450698a1a503cfa9a8c8.jpg','7dbb6f27253b450698a1a503cfa9a8c8_heatmap.jpg']){
+ for(const name of ['4bff5e6b5e064383a9b85a8a6bec04cc.jpg','4bff5e6b5e064383a9b85a8a6bec04cc_heatmap.jpg']){
   const bytes=await readFile(new URL('../public/showcase/images/'+name,import.meta.url));assert.ok(images.some(f=>Buffer.from(f.contents).equals(bytes)),name);
  }
 });
