@@ -312,7 +312,7 @@ results/              Published evaluation summaries
 
 ## Validation
 
-- **494 automated tests passing** (274 frontend, 220 backend, 2 skipped), plus an automatic text-contrast audit of 13
+- **510 automated tests passing** (284 frontend, 226 backend, 2 skipped), plus an automatic text-contrast audit of 13
   screens in both themes.
 - The deployed detector reproduces the experiment scores exactly through the app's own code path, and the live Space
   matches the local app within 0.0003 on 24 real inspections across all 12 products.
