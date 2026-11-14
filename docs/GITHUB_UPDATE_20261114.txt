@@ -1,0 +1,7 @@
+# Update 14 Nov 2026: correct the VisA dataset counts (2,162 test photos; per-product fit/held-out/test sizes)
+README.md
+docs/model-cards/DETECTOR_MODEL_CARD.md
+docs/ENCODER_DIAGNOSTIC.md
+scripts/encoder_finetune.py
+scripts/build_tuned_profile.py
+docs/GITHUB_UPDATE_20261114.txt

@@ -39,8 +39,9 @@ verified by the model.
 ## Training and calibration data
 
 * **Source:** the official VisA training split (Zou et al., ECCV 2022, CC BY 4.0), normal images only.
-* **Per product:** 810 photos fit the memory and the fine-tune; 90 further normal photos (every tenth by content hash)
-  are held out and used only to set the threshold. No anomalous photo and no mask is used for training, memory or
+* **Per product:** about 90% of the normal training photos fit the memory and the fine-tune (810 for the larger products,
+  405–487 for capsules, cashew, chewing gum, fryum and pipe fryum; 7,789 in total); the other 10% (every tenth by content
+  hash; 45–91 per product, 870 in total) are held out and used only to set the threshold. No anomalous photo and no mask is used for training, memory or
   thresholds.
 * **Fine-tune:** the encoder saw only synthetic defects painted on those normal photos: irregular bites out of an
   object's edge with a dark rim, missing pieces, blended textures from another photo, stains and scratches, 1–3 per
@@ -48,14 +49,15 @@ verified by the model.
   kept the features of untouched patches close to the original encoder. 2,500 steps, batch 8, AdamW (1e-5 for the
   encoder, 1e-3 for the head), bf16, about 22 minutes on one laptop GPU (mostly CPU time spent drawing the synthetic defects). One shared encoder for all 12 products. The head is
   discarded after training; only the encoder is used.
-* **Thresholds:** one rule for every product: the 95th percentile of its 90 held-out normal scores (about 5 in 100
+* **Thresholds:** one rule for every product: the 95th percentile of its held-out normal scores (about 5 in 100
   normal reference photos are flagged). Earlier versions used a more sensitive 80th percentile for macaroni 1 and 2
   because their defects were missed too often; it was removed on 2026-11-07 so that every product, and every
   comparison in this repository, uses the same rule.
 
 ## Evaluation
 
-Official VisA test assignments, 200 images per product (100 normal, 100 anomalous), 2,400 in total. **The test images
+Official VisA test assignments: 2,162 images in total, 962 normal and 1,200 anomalous (100 anomalous per product; 50–101
+normal, so 150–201 images per product). **The test images
 were already seen during development, so these figures are descriptive, not an independent validation.** Several
 variants were scored on the same images, which favours the one that was chosen.
 

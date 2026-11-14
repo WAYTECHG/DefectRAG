@@ -4,7 +4,11 @@ Reproduce: `python -m scripts.diagnose_encoder` (read-only; no GPU, no model, no
 writes `results/encoder_diagnostic.json`). It reads the cached per-image test scores and held-out normal scores in
 `experiments/dinov2_highres_v1/<category>/`, the VisA annotation text (defect type) and the VisA masks (defect size).
 
-**Caveat:** these 200 test images per category were already seen during development, so every figure is descriptive,
+**Counts:** "810 fit normals", "90 held-out normals" and "200 test images" below are the sizes of the larger categories.
+Capsules, cashew, chewing gum, fryum and pipe fryum have 405-487 fit normals, 45-55 held-out normals and 150-160 test
+images. All 12: 7,789 fit normals, 870 held-out normals and 2,162 test images (962 normal, 1,200 anomalous).
+
+**Caveat:** these test images were already seen during development, so every figure is descriptive,
 not a fresh validation. Bank-to-bank AUROC spread (4 banks per category) is 0.003-0.023, so differences smaller than
 about 0.02 are noise. Groups of 10-30 images give wide uncertainty.
 

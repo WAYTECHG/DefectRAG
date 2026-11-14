@@ -77,7 +77,7 @@ and turn confirmed defects into Corrective Actions with an owner, a deadline and
 
 ## Results
 
-All detector numbers are on the official VisA test split: **12 products, 2,400 test photos**. Every product uses the
+All detector numbers are on the official VisA test split: **12 products, 2,162 test photos (962 normal, 1,200 defective)**. Every product uses the
 **same threshold rule**, the one the app uses: the limit is set so that about 5 in 100 normal reference photos are
 flagged (the 95th percentile of held-out normal scores).
 

@@ -7,12 +7,12 @@ What it writes (nothing existing is changed or overwritten):
 * models/encoder_dinov2_tuned/  the round-4b fine-tuned DINOv2 as a normal Hugging Face folder (same keys as the
   original; fp16 weights), licence copied, receipt with the hashes of the base and tuned weights.
 * models/highres_tuned/<category>.npz  the deployed memory bank: a 32,768-patch greedy farthest-point coreset of all
-  patches of the 810 fit normals (the held-out 90 normals are never used), exactly the round-5 recipe.
+  patches of the fit normals (the held-out normals are never used), exactly the round-5 recipe.
 * experiments/dinov2_tuned_v1/<category>/  held-out normal scores, test scores and image/pixel metrics, all computed
   with the same code path the application uses (backend.highres), from the saved bank files.
 
-Thresholds, cards and the activation marker are written by scripts.activate_tuned (CPU). The 200 test images per
-category were already seen during development, so every number here is descriptive.
+Thresholds, cards and the activation marker are written by scripts.activate_tuned (CPU). The test images
+(150-201 per category) were already seen during development, so every number here is descriptive.
 """
 
 import argparse
@@ -60,7 +60,7 @@ def export_encoder():
             "license": "Apache-2.0 (derivative of facebook/dinov2-small; modified)",
             "modification": (
                 "Last 4 transformer blocks and the final layer norm fine-tuned for 2,500 steps on synthetic "
-                "structural defects made from the 810 official VisA fit-normal images per category, with a "
+                "structural defects made from the official VisA fit-normal images (405-814 per category), with a "
                 "consistency loss to the original features (scripts.encoder_finetune --train --realistic). "
                 "Weights stored in fp16."
             ),

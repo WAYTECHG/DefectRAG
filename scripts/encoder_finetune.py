@@ -7,8 +7,9 @@ Why: round 1 found that the weak spots are structural defects (chipped edges, mi
 can still look normal. This tests whether a DINOv2 whose last blocks have seen such defects separates them better.
 
 Fixed before any result (one configuration, nothing tuned on the test images):
-* One shared model for all 12 categories. Training images: only the 810 fit normals per category that the deployed banks
-  use. The 90 held-out normals and the 200 test images per category are never read here.
+* One shared model for all 12 categories. Training images: only the fit normals per category that the deployed banks use
+  (about 90% of the training normals: 810 for the larger categories, 405-487 for the others). The held-out normals and
+  the test images are never read here.
 * Synthetic defects made from normal images only: cut-and-paste of a patch from another image, an "erased" region
   filled with the local background (a missing part), and an edge region swapped with foreign content (a chip). One to
   three per image; 20% of the images stay clean.
