@@ -189,33 +189,21 @@ Details, a second question set and caveats: [language-model card](docs/model-car
 3. **Explain.** BGE retrieves the most relevant sentences, LangGraph checks scope and evidence, the fine-tuned Qwen picks
    and restates the answering sentence, and quotes, citations and numbers are validated before display.
 
-```mermaid
-flowchart LR
-    UI["React + Vite dashboard"] --> API["Gradio Server / FastAPI"]
-    API --> Q["Queued ZeroGPU jobs"]
-    Q --> D["Fine-tuned DINOv2 + coreset memory"]
-    D --> R["Score / threshold / heatmap"]
-    R --> UI
-    UI --> C["Question about an inspection"]
-    C --> M{"About the saved measurement?"}
-    M -->|Yes| F["Saved facts"]
-    M -->|No| B["BGE retrieval"]
-    K["Attributed documents"] --> B
-    B --> L["LangGraph evidence checks"]
-    L --> G["Fine-tuned Qwen2.5-3B"]
-    G --> V["Quote / citation / number checks"]
-    V --> UI
-    F --> UI
-    API --> S["Supabase Auth / RLS / storage"]
-    S --> H["Inspections · reviews · cases"]
-    H --> UI
-    classDef vision fill:#f5f5f5,stroke:#171717,color:#171717
-    classDef rag fill:#f5f5f5,stroke:#737373,color:#171717
-    classDef storage fill:#ffffff,stroke:#a3a3a3,color:#171717
-    class D,R vision
-    class B,L,G,V rag
-    class S,H storage
-```
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="docs/assets/diagrams/architecture-dark.svg" />
+    <img src="docs/assets/diagrams/architecture-light.svg" alt="System architecture: the React dashboard calls a Hugging Face Space (Gradio + FastAPI) that queues ZeroGPU jobs for the DINOv2 vision pipeline and the LangGraph evidence assistant; Supabase holds auth, storage and Postgres with row-level security; an event queue, Edge Function and n8n on AWS send case emails through Resend; GitHub Actions and AWS monitoring cover delivery and operations." width="100%" />
+  </picture>
+</p>
+
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="docs/assets/diagrams/pipelines-dark.svg" />
+    <img src="docs/assets/diagrams/pipelines-light.svg" alt="Request pipelines. A photo is resized to a 448 px short edge, encoded by fine-tuned DINOv2, masked to the foreground and compared with 32,768 normal patches to give a heatmap, score and verdict. A question about the saved measurement reads stored facts; any other question runs the LangGraph nodes route, retrieve, validate_evidence, generate and validate_answer, ending in a cited answer or an abstention." width="100%" />
+  </picture>
+</p>
+
+<sub>Diagrams are generated from <a href="docs/assets/diagrams/build_diagrams.py"><code>docs/assets/diagrams/build_diagrams.py</code></a>; edit that file and rerun it to change them.</sub>
 
 <details>
 <summary><strong>Accounts, approval and email automation</strong></summary>

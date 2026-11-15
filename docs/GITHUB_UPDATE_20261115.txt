@@ -1,0 +1,8 @@
+# Update 15 Nov 2026: colour SVG architecture and pipeline diagrams in the README (light + dark)
+README.md
+docs/assets/diagrams/build_diagrams.py
+docs/assets/diagrams/architecture-light.svg
+docs/assets/diagrams/architecture-dark.svg
+docs/assets/diagrams/pipelines-light.svg
+docs/assets/diagrams/pipelines-dark.svg
+docs/GITHUB_UPDATE_20261115.txt
