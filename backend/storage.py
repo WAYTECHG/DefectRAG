@@ -1,9 +1,12 @@
 """Local repository boundary. Cloud implementations must add per-user isolation."""
 
+from collections.abc import Iterator
+from contextlib import contextmanager
 from typing import Protocol
 from pathlib import Path
 import sqlite3
 import json
+import threading
 import uuid
 from datetime import datetime, timezone
 
@@ -11,6 +14,12 @@ from datetime import datetime, timezone
 # built-in `list`, so a hint such as `list[dict]` would refer to the method instead.
 Records = list[dict]
 Ids = list[str]
+
+# Files whose schema was already created by this process. The Space builds a repository
+# for every request; rerunning the DDL each time took a write lock and caused
+# "database is locked" errors when batch requests overlapped.
+_ready: set[str] = set()
+_ready_lock = threading.Lock()
 
 
 def now() -> str:
@@ -39,6 +48,15 @@ class SQLiteRepository:
     def __init__(self, path: Path) -> None:
         self.path = path
         path.parent.mkdir(parents=True, exist_ok=True)
+        key = str(path.resolve())
+        with _ready_lock:
+            if key in _ready and path.exists():
+                return
+            self._create_schema()
+            _ready.add(key)
+
+    def _create_schema(self) -> None:
+        """Create the tables and index if they do not exist yet (safe to run again)."""
         with self.connect() as db:
             db.executescript("""
             PRAGMA journal_mode=WAL;
@@ -51,11 +69,20 @@ class SQLiteRepository:
             CREATE TABLE IF NOT EXISTS audit_events(id TEXT PRIMARY KEY,created_at TEXT NOT NULL,action TEXT NOT NULL,payload TEXT NOT NULL);
             """)
 
-    def connect(self) -> sqlite3.Connection:
-        """Open a new connection that returns rows by column name and waits up to 20 s for a lock."""
+    @contextmanager
+    def connect(self) -> Iterator[sqlite3.Connection]:
+        """Open a connection that returns rows by column name and waits up to 20 s for a lock.
+
+        Commits on success, rolls back on error, and always closes the connection. A plain
+        `with sqlite3.connect()` only commits and leaves the file open until garbage collection.
+        """
         connection = sqlite3.connect(self.path, timeout=20)
         connection.row_factory = sqlite3.Row
-        return connection
+        try:
+            with connection:
+                yield connection
+        finally:
+            connection.close()
 
     def save(self, record: dict) -> dict:
         """Store an inspection. A verdict other than "Good" also creates an alert. Returns the record."""

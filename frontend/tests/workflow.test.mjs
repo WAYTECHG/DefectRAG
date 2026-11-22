@@ -2,6 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFile} from 'node:fs/promises';
 import {createRequestScope,newBatch,continueBatch,batchView,reviewBody,parseReview} from '../src/workflow.mjs';
+import {friendlyError} from '../src/userLanguage.mjs';
 
 const source=(await readFile(new URL('../src/main.jsx',import.meta.url),'utf8')).replaceAll('\r\n','\n');
 test('actual assistant handler discards a late answer and error after inspection changes',async()=>{
@@ -38,6 +39,15 @@ test('quota interruption survives checkpoint restore and retries only unfinished
  assert.equal(saved.items[0].record.image_url,undefined);
  const submitted=[];await continueBatch(saved,async file=>{submitted.push(file.name);return {id:'retry-'+submitted.length}},async()=>{});
  assert.deepEqual(submitted,['same.jpg','third.jpg']);assert.equal(batchView(job).records.length,1);
+});
+
+test('batch quota messages reach the screen instead of the generic fallback',async()=>{
+ const job=await continueBatch(newBatch([{name:'a'},{name:'b'}],'pcb1','Q'),async()=>{throw new Error('You have exceeded your ZeroGPU runs limit')},async()=>{});
+ for(const item of job.items){
+  assert.ok(item.message);
+  assert.equal(friendlyError(item.message),item.message);
+ }
+ assert.match(job.items[0].message,/GPU allowance/);
 });
 
 test('account/context change stops remaining submissions but saves the in-flight completion',async()=>{

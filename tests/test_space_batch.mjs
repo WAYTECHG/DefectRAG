@@ -10,7 +10,7 @@ const limited=await runBatch(files,async file=>{
 assert.equal(calls,2,'No GPU calls may be attempted after quota rejection');
 assert.deepEqual(limited.records,[{id:'first.jpg'}]);
 assert.equal(limited.errors.length,3);
-assert.match(limited.errors[0].message,/Supabase staff login uses a separate account/);
+assert.match(limited.errors[0].message,/Staff sign-in uses a separate account/);
 assert.match(limited.errors[1].message,/Not submitted/);
 const independent=await runBatch(files.slice(0,2),async file=>{
  if(file.name==='first.jpg')throw new Error('Invalid image');

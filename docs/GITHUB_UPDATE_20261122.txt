@@ -1,0 +1,16 @@
+# Update 22 Nov 2026
+# 1) Benchmark page leads with the deployed fine-tuned result (20 Nov) + Space builder pin spaces==0.52.1
+# 2) Batch quota message no longer hidden behind the generic error
+# 3) SQLite: schema created once per file; connections always closed
+frontend/src/benchmarkSummary.mjs
+frontend/src/BenchmarkReport.jsx
+frontend/src/main.jsx
+frontend/tests/benchmarkSummary.test.mjs
+deployment/zerogpu_phase1/requirements-space.txt
+frontend/src/workflow.mjs
+deployment/space/batch_jobs.mjs
+frontend/tests/workflow.test.mjs
+tests/test_space_batch.mjs
+backend/storage.py
+tests/test_storage_schema.py
+docs/GITHUB_UPDATE_20261122.txt

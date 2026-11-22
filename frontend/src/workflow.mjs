@@ -53,7 +53,7 @@ export async function continueBatch(job,inspect,checkpoint,isCurrent=()=>true){
    item.status='failed';item.message=String(error?.message||'Inspection failed');
    const quota=isQuotaError(item.message);
    if(quota){
-    item.message='GPU allowance is currently unavailable. Open the Hugging Face Space while signed in, or retry after quota resets. Supabase staff login uses a separate account.';
+    item.message='GPU allowance is currently unavailable. Open the Hugging Face Space while signed in, or retry after quota resets. Staff sign-in uses a separate account.';
     for(const pending of current.items.slice(index+1))if(pending.status!=='completed'){
      pending.status='pending';pending.message='Not submitted because GPU quota is unavailable. Retry when quota returns.';
     }
